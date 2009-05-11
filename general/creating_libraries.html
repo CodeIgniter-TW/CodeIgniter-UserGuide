@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Creating Libraries : CodeIgniter User Guide</title>
+<title>Creating Libraries : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,19 +17,19 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 
 </head>
 <body>
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切到目錄" alt="切到目錄" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Creating Libraries
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,7 +58,7 @@ Creating Libraries
 <h1>Creating Libraries</h1>
 
 <p>When we use the term "Libraries" we are normally referring to the classes that are located in the <kbd>libraries</kbd>
-directory and described in the Class Reference of this user guide.  In this case, however, we will instead describe how you can create
+directory and described in the 類別參考 of this user guide.  In this case, however, we will instead describe how you can create
 your own libraries within your <dfn>application/libraries</dfn> directory in order to maintain separation between your local resources
 and the global framework resources.</p>
 
@@ -75,7 +75,7 @@ to an existing library. Or you can even replace native libraries just by placing
 
 <p>The page below explains these three concepts in detail.</p>
 
-<p class="important"><strong>Note:</strong> The Database classes can not be extended or replaced with your own classes,
+<p class="important"><strong>注意:</strong> The Database classes can not be extended or replaced with your own classes,
 nor can the Loader class in PHP 4.  All other classes are able to be replaced/extended.</p>
 
 
@@ -96,7 +96,7 @@ they are initialized.</p>
 
 <h2>The Class File</h2>
 
-<p>Classes should have this basic prototype (Note:  We are using the name <kbd>Someclass</kbd> purely as an example):</p>
+<p>Classes should have this basic prototype (注意:  We are using the name <kbd>Someclass</kbd> purely as an example):</p>
 
 <code>&lt;?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 <br /><br />
@@ -192,7 +192,7 @@ $CI->config->item('base_url');<br />
 etc.
 </code>
 
-<p class="important"><strong>Note:</strong> You'll notice that the above get_instance() function is being passed by reference:
+<p class="important"><strong>注意:</strong> You'll notice that the above get_instance() function is being passed by reference:
 <br /><br />
 <var>$CI =&amp; get_instance();</var>
 <br />
@@ -221,7 +221,7 @@ class CI_Email {<br /><br />
 
 <code>$this->load->library('<kbd>email</kbd>');</code>
 
-<p class="important"><strong>Note:</strong> At this time the Database classes can not be replaced with your own versions.</p>
+<p class="important"><strong>注意:</strong> At this time the Database classes can not be replaced with your own versions.</p>
 
 
 <h2>Extending Native Libraries</h2>
@@ -242,7 +242,7 @@ class MY_Email extends CI_Email {<br /><br />
 
 }</code>
 
-<p>Note: If you need to use a constructor in your class make sure you extend the parent constructor:</p>
+<p>注意: If you need to use a constructor in your class make sure you extend the parent constructor:</p>
 
 
 <code>
@@ -285,11 +285,11 @@ the email class all calls will use:</p>
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="libraries.html">Using CodeIgniter Libraries</a>
+上個主題:&nbsp;&nbsp;<a href="libraries.html">Using CodeIgniter Libraries</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="core_classes.html">Creating Core System Classes</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="core_classes.html">Creating Core System Classes</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

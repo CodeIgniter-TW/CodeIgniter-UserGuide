@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Session Class : CodeIgniter User Guide</title>
+<title>Session Class : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 
 </head>
 <body>
@@ -28,8 +28,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Session Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -65,7 +65,7 @@ user's cookie to be matched against the stored session ID. By default only the c
 use the database option you'll need to create the session table as indicated below.
 </p>
 
-<p class="important"><strong>Note:</strong> The Session class does <strong>not</strong> utilize native PHP sessions. It
+<p class="important"><strong>注意:</strong> The Session class does <strong>not</strong> utilize native PHP sessions. It
 generates its own session data, offering more flexibility for developers.</p>
 
 <h2>Initializing a Session</h2>
@@ -121,7 +121,7 @@ making the data highly secure and impervious to being read or altered by someone
 can be <a href="encryption.html">found here</a>, although the Session class will take care of initializing
 and encrypting the data automatically.</p>
 
-<p>Note: Session cookies are only updated every five minutes by default to reduce processor load.  If you repeatedly reload a page
+<p>注意: Session cookies are only updated every five minutes by default to reduce processor load.  If you repeatedly reload a page
 you'll notice that the "last activity" time only updates if five minutes or more has passed since the last time
 the cookie was written. This time is configurable by changing the $config['time_to_update'] line in your system/config/config.php file.</p>
 
@@ -136,7 +136,7 @@ will do this:</p>
 
 <code>$session_id = $this->session->userdata('<samp>session_id</samp>');</code>
 
-<p><strong>Note:</strong> The function returns FALSE (boolean) if the item you are trying to access does not exist.</p>
+<p><strong>注意:</strong> The function returns FALSE (boolean) if the item you are trying to access does not exist.</p>
 
 
 <h2>Adding Custom Session Data</h2>
@@ -164,7 +164,7 @@ having to run a database query when you need it.</p>
 	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
 <p>If you want to add userdata one value at a time, set_userdata() also supports this syntax. </p>
 <p><code>$this-&gt;session-&gt;set_userdata('some_name', 'some_value');</code></p>
-<p class="important"><strong>Note:</strong> Cookies can only hold 4KB of data, so be careful not to exceed the capacity.  The
+<p class="important"><strong>注意:</strong> Cookies can only hold 4KB of data, so be careful not to exceed the capacity.  The
 encryption process in particular produces a longer data string than the original so keep careful track of how much data you are storing.</p>
 
 <h2>Removing Session Data</h2>
@@ -176,7 +176,7 @@ encryption process in particular produces a longer data string than the original
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <h2>Flashdata</h2>
 <p>CodeIgniter supports &quot;flashdata&quot;, or session data that will only be available for the next server request, and are then automatically cleared. These can be very useful, and are typically used for informational or status messages (for example: &quot;record 2 deleted&quot;).</p>
-<p>Note: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
+<p>注意: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
 <p>To add flashdata:</p>
 <p><code>$this-&gt;session-&gt;set_flashdata('item', 'value');</code></p>
 <p>You can also pass an array to set_flashdata(), in the same manner as set_userdata(). </p>
@@ -206,7 +206,7 @@ user_data text NOT NULL,
 PRIMARY KEY (session_id)
 );</textarea>
 
-<p><strong>Note:</strong> By default the table is called <dfn>ci_sessions</dfn>, but you can name it anything you want
+<p><strong>注意:</strong> By default the table is called <dfn>ci_sessions</dfn>, but you can name it anything you want
 as long as you update the <kbd>application/config/config.php</kbd> file so that it contains the name you have chosen.
 Once you have created your database table you can enable the database option in your config.php file as follows:</p>
 
@@ -218,14 +218,14 @@ Once you have created your database table you can enable the database option in 
 
 <code>$config['sess_table_name'] = 'ci_sessions";</code>
 
-<p class="important"><strong>Note:</strong> The Session class has built-in garbage collection which clears out expired sessions so you
+<p class="important"><strong>注意:</strong> The Session class has built-in garbage collection which clears out expired sessions so you
 do not need to write your own routine to do it.</p>
 
 
 <h2>Destroying a Session </h2>
 <p>To clear the current session: </p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
-<p class="important"><strong>Note:</strong> This function should be the last one called, and even flash variables will no longer be available.  If you only want some items destroyed and not all, use <dfn>unset_userdata()</dfn>.</p>
+<p class="important"><strong>注意:</strong> This function should be the last one called, and even flash variables will no longer be available.  If you only want some items destroyed and not all, use <dfn>unset_userdata()</dfn>.</p>
 
 
 
@@ -298,11 +298,11 @@ do not need to write your own routine to do it.</p>
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
+上個主題:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="trackback.html">Trackback Class</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="trackback.html">Trackback Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

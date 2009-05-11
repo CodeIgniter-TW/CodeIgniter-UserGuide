@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Database Utility Class : CodeIgniter User Guide</title>
+<title>Database Utility Class : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 
 </head>
 <body>
@@ -28,8 +28,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
 </div>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
 Database Utility Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -101,7 +101,7 @@ foreach($dbs as $db)<br />
 }</code>
 <h2><a name="opttb"></a>$this->dbutil->optimize_table('table_name');</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>注意:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
 
 
 <p>Permits you to optimize a table using the table name specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
@@ -113,12 +113,12 @@ if ($this->dbutil->optimize_table('table_name'))<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table optimization.</p>
+<p><strong>注意:</strong> Not all database platforms support table optimization.</p>
 
 
 <h2><a name="repair"></a>$this->dbutil->repair_table('table_name');</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>注意:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
 
 
 <p>Permits you to repair a table using the table name specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
@@ -130,12 +130,12 @@ if ($this->dbutil->repair_table('table_name'))<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table repairs.</p>
+<p><strong>注意:</strong> Not all database platforms support table repairs.</p>
 
 
 <h2><a name="optdb"></a>$this->dbutil->optimize_database();</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>注意:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
 
 <p>Permits you to optimize the database your DB class is currently connected to. Returns an array containing the DB status messages or FALSE on failure.</p>
 
@@ -148,7 +148,7 @@ if ($result !== FALSE)<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table optimization.</p>
+<p><strong>注意:</strong> Not all database platforms support table optimization.</p>
 
 
 <h2><a name="csv"></a>$this->dbutil->csv_from_result($db_result)</h2>
@@ -206,9 +206,9 @@ If you need to write the file use the <a href="../helpers/file_helper.html">File
 
 <p>Permits you to backup your full database or individual tables.  The backup data can be compressed in either Zip or Gzip format.</p>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL databases.</p>
+<p class="important"><strong>注意:</strong>&nbsp; This features is only available for MySQL databases.</p>
 
-<p>Note: Due to the limited execution time and memory available to PHP, backing up very large
+<p>注意: Due to the limited execution time and memory available to PHP, backing up very large
 databases may not be possible.  If your database is very large you might need to backup directly from your SQL server
 via the command line, or have your server admin do it for you if you do not have root privileges.</p>
 
@@ -283,11 +283,11 @@ $this->dbutil->backup($prefs);
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="forge.html">DB Forge Class</a>
+上個主題:&nbsp;&nbsp;<a href="forge.html">DB Forge Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="../libraries/email.html"> Email Class</a></p>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="../libraries/email.html"> Email Class</a></p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 

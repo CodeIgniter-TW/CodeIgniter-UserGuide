@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Form Validation : CodeIgniter User Guide</title>
+<title>Form Validation : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 </head>
 <body>
 
@@ -27,8 +27,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
 </div>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Form Validation
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,7 +58,7 @@ Form Validation
 
 <p>CodeIgniter provides a comprehensive form validation and data prepping class that helps minimize the amount of code you'll write.</p>
 
-<p class="important"><strong>Note:</strong>&nbsp; As of CodeIgniter 1.7.0, this Form Validation class supercedes the old Validation class, which is now deprecated.  We
+<p class="important"><strong>注意:</strong>&nbsp; As of CodeIgniter 1.7.0, this Form Validation class supercedes the old Validation class, which is now deprecated.  We
 have left the old class in the library so applications currently using it will not break, but you are encouraged to migrate to this new version.</p>
 
 <ul>
@@ -86,7 +86,7 @@ have left the old class in the library so applications currently using it will n
 <li><a href="#rulereference">Rule Reference</a></li>
 <li><a href="#preppingreference">Prepping Reference</a></li>
 <li><a href="#functionreference">Function Reference</a></li>
-<li><a href="#helperreference">Helper Reference</a></li>
+<li><a href="#helperreference">補助函數參考</a></li>
 
 </ul>
 
@@ -297,7 +297,7 @@ at the same time. To set validation rules you will use the <dfn>set_rules()</dfn
 
 <ol>
 	<li>The field name - the exact name you've given the form field.</li>
-	<li>A "human" name for this field, which will be inserted into the error message. For example, if your field is named "user" you might give it a human name of "Username". <strong>Note:</strong> If you would like the field name to be stored in a language file, please see <a href="#translatingfn">Translating Field Names</a>.</li>
+	<li>A "human" name for this field, which will be inserted into the error message. For example, if your field is named "user" you might give it a human name of "Username". <strong>注意:</strong> If you would like the field name to be stored in a language file, please see <a href="#translatingfn">Translating Field Names</a>.</li>
 	<li>The validation rules for this form field.</li>
 </ol>
 
@@ -343,7 +343,7 @@ class Form extends Controller {
 <p><dfn>Now submit the form with the fields blank and you should see the error messages.
 If you submit the form with all the fields populated you'll see your success page.</dfn></p>
 
-<p class="important"><strong>Note:</strong> The form fields are not yet being re-populated with the data when
+<p class="important"><strong>注意:</strong> The form fields are not yet being re-populated with the data when
 there is an error.  We'll get to that shortly.</p>
 
 
@@ -432,7 +432,7 @@ the "xss_clean" function, which removes malicious data.</p>
 <p><strong>Any native PHP function that accepts one parameter can be used as a rule, like <dfn>htmlspecialchars</dfn>,
 <dfn>trim</dfn>,  <dfn>MD5</dfn>, etc.</strong></p>
 
-<p><strong>Note:</strong> You will generally want to use the prepping functions <strong>after</strong>
+<p><strong>注意:</strong> You will generally want to use the prepping functions <strong>after</strong>
 the validation rules so if there is an error, the original data will be shown in the form.</p>
 
 
@@ -486,11 +486,11 @@ that permit you to do this. The one you will use most commonly is:</p>
 
 <p><dfn>Now reload your page and submit the form so that it triggers an error.  Your form fields should now be re-populated</dfn></p>
 
-<p class="important"><strong>Note:</strong> The <a href="#functionreference">Function Reference</a> section below contains functions that
+<p class="important"><strong>注意:</strong> The <a href="#functionreference">Function Reference</a> section below contains functions that
 permit you to re-populate &lt;select> menus, radio buttons, and checkboxes.</p>
 
 
-<p><strong>Important Note:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
+<p><strong>Important 注意:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
 
 <code>&lt;input type="text" name="<kbd>colors[]</kbd>" value="&lt;?php echo set_value('<kbd>colors[]</kbd>'); ?>" size="50" /></code>
 
@@ -606,7 +606,7 @@ $this->form_validation->set_rules('first_name', '<kbd>lang:</kbd>first_name', 'r
 
 <code>$lang['first_name'] = 'First Name';</code>
 
-<p><strong>Note:</strong> If you store your array item in a language file that is not loaded automatically by CI, you'll need to remember to load it in your controller using:</p>
+<p><strong>注意:</strong> If you store your array item in a language file that is not loaded automatically by CI, you'll need to remember to load it in your controller using:</p>
 
 <code>$this->lang->load('file_name');</code>
 
@@ -674,7 +674,7 @@ individually.</p>
 
 <p>If there are no errors, nothing will be shown.  If there is an error, the message will appear.</p>
 
-<p><strong>Important Note:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
+<p><strong>Important 注意:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
 
 <code>&lt;?php echo form_error('<kbd>options[size]</kbd>'); ?><br />
 &lt;input type="text" name="<kbd>options[size]</kbd>" value="&lt;?php echo set_value("<kbd>options[size]</kbd>"); ?>" size="50" />
@@ -1043,11 +1043,11 @@ POST array:</p>
 
 </table>
 
-<p><strong>Note:</strong> These rules can also be called as discrete functions. For example:</p>
+<p><strong>注意:</strong> These rules can also be called as discrete functions. For example:</p>
 
 <code>$this->form_validation->required($string);</code>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter.</p>
+<p class="important"><strong>注意:</strong> You can also use any native PHP functions that permit one parameter.</p>
 
 
 
@@ -1094,7 +1094,7 @@ POST array:</p>
 
 </table>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter,
+<p class="important"><strong>注意:</strong> You can also use any native PHP functions that permit one parameter,
 like <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, etc.</p>
 
 
@@ -1134,7 +1134,7 @@ group via the function, as described in: <a href="#savingtoconfig">Saving Groups
 <p>&nbsp;</p>
 
 <a name="helperreference"></a>
-<h1>Helper Reference</h1>
+<h1>補助函數參考</h1>
 
 <p>The following helper functions are available for use in the view files containing your forms.  Note that these are procedural functions, so they
 <strong>do not</strong> require you to prepend them with $this->form_validation.</p>
@@ -1208,11 +1208,11 @@ must contain the name of the checkbox, the second parameter must contain its val
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading Class</a>
+上個主題:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="ftp.html">FTP Class</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="ftp.html">FTP Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

@@ -57,12 +57,9 @@
 
 <h1>除錯</h1>
 
-<p>If you find that no matter what you put in your URL only your default page is loading, it might be that your server
-does not support the PATH_INFO variable needed to serve search-engine friendly URLs.
+<p>當你發現無論放入什麼樣到東西到 URL 裡頭，仍只有預設的頁面被載入，這表示你的伺服器可能不支援 PATH_INFO 變數(這變數是用來提供搜尋引其友善的 URLS 位址)。
 
-As a first step, open your <dfn>application/config/config.php</dfn> file and look for the <kbd>URI Protocol</kbd>
-information. It will recommend that you try a couple alternate settings.  If it still doesn't work after you've tried this you'll need
-to force CodeIgniter to add a question mark to your URLs.  To do this open your <kbd>application/config/config.php</kbd> file and change this:</p>
+首先, 開啟 <dfn>application/config/config.php</dfn> 這個檔案，並且搜尋 <kbd>URI Protocol</kbd> 的部份，他會建議你試試 a couple alternate 設定。 假如你修改後，它仍無法運作，你還需要強制要求 CodeIgniter 加上一個問號在你的 URLs 後頭。開啟 <kbd>application/config/config.php</kbd> 這個檔案，接者把底下這行:</p>
 
 <code>$config['index_page'] = "index.php";</code>
 

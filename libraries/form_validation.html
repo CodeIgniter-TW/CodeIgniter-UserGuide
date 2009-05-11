@@ -490,7 +490,7 @@ that permit you to do this. The one you will use most commonly is:</p>
 permit you to re-populate &lt;select> menus，radio buttons，and checkboxes.</p>
 
 
-<p><strong>Important 注意:</strong> If you use an array as the name of a form field，you must supply it as an array to the function.  Example:</p>
+<p><strong>Important 注意:</strong> If you use an array as the name of a form field，you must supply it as an array to the function.  參考範例:</p>
 
 <code>&lt;input type="text" name="<kbd>colors[]</kbd>" value="&lt;?php echo set_value('<kbd>colors[]</kbd>'); ?>" size="50" /></code>
 
@@ -596,7 +596,7 @@ it is assumed that the data is your newly processed form data.</p>
 
 <p>If you would like to store the "human" name you passed to the <dfn>set_rules()</dfn> function in a language file，and therefore make the name able to be translated，here's how:</p>
 
-<p>First，prefix your "human" name with <dfn>lang:</dfn>，as in this example:</p>
+<p>First，prefix your "human" name with <dfn>lang:</dfn>，as in this 參考範例:</p>
 
 <code>
 $this->form_validation->set_rules('first_name'，'<kbd>lang:</kbd>first_name'，'required');<br />
@@ -610,7 +610,7 @@ $this->form_validation->set_rules('first_name'，'<kbd>lang:</kbd>first_name'，
 
 <code>$this->lang->load('file_name');</code>
 
-<p>See the <a href="language.html">Language Class</a> page for more info regarding language files.</p>
+<p>See the <a href="language.html">Language 類別</a> page for more info regarding language files.</p>
 
 
 <a name="errordelimiters"></a>
@@ -674,7 +674,7 @@ individually.</p>
 
 <p>If there are no errors，nothing will be shown.  If there is an error，the message will appear.</p>
 
-<p><strong>Important 注意:</strong> If you use an array as the name of a form field，you must supply it as an array to the function.  Example:</p>
+<p><strong>Important 注意:</strong> If you use an array as the name of a form field，you must supply it as an array to the function.  參考範例:</p>
 
 <code>&lt;?php echo form_error('<kbd>options[size]</kbd>'); ?><br />
 &lt;input type="text" name="<kbd>options[size]</kbd>" value="&lt;?php echo set_value("<kbd>options[size]</kbd>"); ?>" size="50" />
@@ -863,7 +863,7 @@ class <kbd>Member</kbd> extends Controller {<br />
 <a name="arraysasfields"></a>
 <h1>Using Arrays as Field Names</h1>
 
-<p>The Form Validation class supports the use of arrays as field names.  Consider this example:</p>
+<p>The Form Validation class supports the use of arrays as field names.  Consider this 參考範例:</p>
 
 <code>&lt;input type="text" name="<kbd>options[]</kbd>" value="" size="50" /></code>
 
@@ -882,7 +882,7 @@ and as your Validation Rule field name.</p>
 
 <code>&lt;input type="text" name="<kbd>options[]</kbd>" value="<kbd>&lt;?php echo set_value('<kbd>options[]</kbd>'); ?></kbd>" size="50" /></code>
 
-<p>You can use multidimensional arrays as field names as well. For example:</p>
+<p>You can use multidimensional arrays as field names as well. For 參考範例:</p>
 
 <code>&lt;input type="text" name="<kbd>options[size]</kbd>" value="" size="50" /></code>
 
@@ -1043,7 +1043,7 @@ POST array:</p>
 
 </table>
 
-<p><strong>注意:</strong> These rules can also be called as discrete functions. For example:</p>
+<p><strong>注意:</strong> These rules can also be called as discrete functions. For 參考範例:</p>
 
 <code>$this->form_validation->required($string);</code>
 
@@ -1069,7 +1069,7 @@ POST array:</p>
 
 <td class="td"><strong>xss_clean</strong></td>
 <td class="td">No</td>
-<td class="td">Runs the data through the XSS filtering function，described in the <a href="input.html">Input Class</a> page.</td>
+<td class="td">Runs the data through the XSS filtering function，described in the <a href="input.html">Input 類別</a> page.</td>
 </tr><tr>
 
 <td class="td"><strong>prep_for_form</strong></td>
@@ -1141,7 +1141,7 @@ group via the function，as described in: <a href="#savingtoconfig">Saving Group
 
 <h2>form_error()</h2>
 
-<p>Shows an individual error message associated with the field name supplied to the function.  Example:</p>
+<p>Shows an individual error message associated with the field name supplied to the function.  參考範例:</p>
 
 <code>&lt;?php echo form_error('username'); ?></code>
 
@@ -1150,7 +1150,7 @@ group via the function，as described in: <a href="#savingtoconfig">Saving Group
 
 
 <h2>validation_errors()</h2>
-<p>Shows all error messages as a string:  Example:</p>
+<p>Shows all error messages as a string:  參考範例:</p>
 
 <code>&lt;?php echo validation_errors(); ?></code>
 
@@ -1161,7 +1161,7 @@ group via the function，as described in: <a href="#savingtoconfig">Saving Group
 <h2>set_value()</h2>
 
 <p>Permits you to set the value of an input form or textarea. You must supply the field name via the first parameter of the function.
-The second (optional) parameter allows you to set a default value for the form. Example:</p>
+The second (optional) parameter allows you to set a default value for the form. 參考範例:</p>
 
 <code>&lt;input type="text" name="quantity" value="<dfn>&lt;?php echo set_value('quantity'，'0'); ?></dfn>" size="50" /></code>
 
@@ -1173,7 +1173,7 @@ The second (optional) parameter allows you to set a default value for the form. 
 must contain the name of the select menu，the second parameter must contain the value of
 each item，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE).</p>
 
-<p>Example:</p>
+<p>參考範例:</p>
 
 <code>
 &lt;select name="myselect"><br />
@@ -1187,7 +1187,7 @@ each item，and the third (optional) parameter lets you set an item as the defau
 <h2>set_checkbox()</h2>
 
 <p>Permits you to display a checkbox in the state it was submitted.  The first parameter
-must contain the name of the checkbox，the second parameter must contain its value，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). Example:</p>
+must contain the name of the checkbox，the second parameter must contain its value，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). 參考範例:</p>
 
 <code>&lt;input type="checkbox" name="mycheck[]" value="1" <dfn>&lt;?php echo set_checkbox('mycheck[]'，'1'); ?></dfn> /><br />
 &lt;input type="checkbox" name="mycheck[]" value="2" <dfn>&lt;?php echo set_checkbox('mycheck[]'，'2'); ?></dfn> /></code>
@@ -1208,11 +1208,11 @@ must contain the name of the checkbox，the second parameter must contain its va
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading Class</a>
+上個主題:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="ftp.html">FTP Class</a>
+下個主題:&nbsp;&nbsp;<a href="ftp.html">FTP 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

@@ -71,7 +71,7 @@ Text 補助函數
 
 <h2>word_limiter()</h2>
 
-<p>Truncates a string to the number of <strong>words</strong> specified.  Example:</p>
+<p>Truncates a string to the number of <strong>words</strong> specified.  參考範例:</p>
 
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
@@ -87,7 +87,7 @@ $string = word_limiter($string，4);<br /><br />
 <h2>character_limiter()</h2>
 
 <p>Truncates a string to the number of <strong>characters</strong> specified.  It maintains the integrity
-of words so the character count may be slightly more or less then what you specify. Example:</p>
+of words so the character count may be slightly more or less then what you specify. 參考範例:</p>
 
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
@@ -106,7 +106,7 @@ $string = character_limiter($string，20);<br /><br />
 <p>Converts ASCII values to character entities，including high ASCII and MS Word characters that can cause problems when used in a web page,
 so that they can be shown consistently regardless of browser settings or stored reliably in a database.
 There is some dependence on your server's supported character sets，so it may not be 100% reliable in all cases，but for the most
-part it should correctly identify characters outside the normal range (like accented characters). Example:</p>
+part it should correctly identify characters outside the normal range (like accented characters). 參考範例:</p>
 
 <code>$string = ascii_to_entities($string);</code>
 
@@ -120,7 +120,7 @@ part it should correctly identify characters outside the normal range (like acce
 
 <p>Enables you to censor words within a text string.  The first parameter will contain the original string.  The
 second will contain an array of words which you disallow.  The third (optional) parameter can contain a replacement value
-for the words.  If not specified they are replaced with pound signs: ####.  Example:</p>
+for the words.  If not specified they are replaced with pound signs: ####.  參考範例:</p>
 
 <code>
 $disallowed = array('darn'，'shucks'，'golly'，'phooey');<br />
@@ -130,7 +130,7 @@ $string = word_censor($string，$disallowed，'Beep!');</code>
 
 <h2>highlight_code()</h2>
 
-<p>Colorizes a string of code (PHP，HTML，etc.).  Example:</p>
+<p>Colorizes a string of code (PHP，HTML，etc.).  參考範例:</p>
 
 <code>$string = highlight_code($string);</code>
 
@@ -141,7 +141,7 @@ $string = word_censor($string，$disallowed，'Beep!');</code>
 
 <p>Will highlight a phrase within a text string.  The first parameter will contain the original string，the second will
 contain the phrase you wish to highlight.  The third and fourth parameters will contain the opening/closing HTML tags
-you would like the phrase wrapped in.  Example:</p>
+you would like the phrase wrapped in.  參考範例:</p>
 
 <code>
 $string = "Here is a nice text string about nothing in particular.";<br />
@@ -157,7 +157,7 @@ $string = highlight_phrase($string，"nice text"，'&lt;span style="color:#99000
 
 <h2>word_wrap()</h2>
 
-<p>Wraps text at the specified <strong>character</strong> count while maintaining complete words.  Example:</p>
+<p>Wraps text at the specified <strong>character</strong> count while maintaining complete words.  參考範例:</p>
 
 <code>$string = "Here is a simple string of text that will help us demonstrate this function.";<br />
 <br />

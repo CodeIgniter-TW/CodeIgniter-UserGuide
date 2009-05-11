@@ -75,7 +75,7 @@ site <dfn>index_page</dfn> in your config file) will be added to the URL，as wi
 <p>You are encouraged to use this function any time you need to generate a local URL so that your pages become more portable
 in the event your URL changes.</p>
 
-<p>Segments can be optionally passed to the function as a string or an array.  Here is a string example:</p>
+<p>Segments can be optionally passed to the function as a string or an array.  Here is a string 參考範例:</p>
 
 <code>echo site_url("news/local/123");</code>
 
@@ -90,7 +90,7 @@ echo site_url($segments);</code>
 
 
 <h2>base_url()</h2>
-<p>Returns your site base URL，as specified in your config file.  Example:</p>
+<p>Returns your site base URL，as specified in your config file.  參考範例:</p>
 <code>echo base_url();</code>
 
 
@@ -107,7 +107,7 @@ echo site_url($segments);</code>
 
 
 <h2>index_page()</h2>
-<p>Returns your site "index" page，as specified in your config file.  Example:</p>
+<p>Returns your site "index" page，as specified in your config file.  參考範例:</p>
 <code>echo index_page();</code>
 
 
@@ -173,7 +173,7 @@ If you want the function to use all of its defaults simply pass an empty array i
 
 <h2>mailto()</h2>
 
-<p>Creates a standard HTML email link.  Usage example:</p>
+<p>Creates a standard HTML email link.  使用範例:</p>
 
 <code>echo mailto('me@my-site.com'，'Click Here to Contact Me');</code>
 
@@ -188,7 +188,7 @@ written with JavaScript to help prevent the email address from being harvested b
 
 <h2>auto_link()</h2>
 
-<p>Automatically turns URLs and email addresses contained in a string into links.  Example:</p>
+<p>Automatically turns URLs and email addresses contained in a string into links.  參考範例:</p>
 
 <code>$string = auto_link($string);</code>
 
@@ -207,7 +207,7 @@ if the parameter is not specified.  Email links are encoded as safe_mailto() as 
 
 <h2>url_title()</h2>
 <p>Takes a string as input and creates a human-friendly URL string. This is useful if，for example，you have a blog
-in which you'd like to use the title of your entries in the URL.  Example:</p>
+in which you'd like to use the title of your entries in the URL.  參考範例:</p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />

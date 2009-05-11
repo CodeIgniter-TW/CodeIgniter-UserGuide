@@ -154,7 +154,7 @@ if ($result !== FALSE)<br />
 <h2><a name="csv"></a>$this->dbutil->csv_from_result($db_result)</h2>
 
 <p>Permits you to generate a CSV file from a query result. The first parameter of the function must contain the result object from your query.
-Example:</p>
+參考範例:</p>
 
 <code>
 $this->load->dbutil();<br />
@@ -165,7 +165,7 @@ echo $this->dbutil->csv_from_result($query);
 </code>
 
 <p>The second and third parameters allows you to
-set the delimiter and newline character.  By default tabs are used as the delimiter and "\n" is used as a new line.  Example:</p>
+set the delimiter and newline character.  By default tabs are used as the delimiter and "\n" is used as a new line.  參考範例:</p>
 
 <code>
 $delimiter = ",";<br />
@@ -181,7 +181,7 @@ If you need to write the file use the <a href="../helpers/file_helper.html">File
 <h2><a name="xml"></a>$this->dbutil->xml_from_result($db_result)</h2>
 
 <p>Permits you to generate an XML file from a query result. The first parameter expects a query result object，the second
-may contain an optional array of config parameters.  Example:</p>
+may contain an optional array of config parameters.  參考範例:</p>
 
 <code>
 $this->load->dbutil();<br />
@@ -234,7 +234,7 @@ force_download('mybackup.gz'，$backup);
 
 <h3>Setting Backup Preferences</h3>
 
-<p>Backup preferences are set by submitting an array of values to the first parameter of the backup function. Example:</p>
+<p>Backup preferences are set by submitting an array of values to the first parameter of the backup function. 參考範例:</p>
 
 <code>$prefs = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tables'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array('table1'，'table2'),&nbsp;&nbsp;// Array of tables to backup.<br />

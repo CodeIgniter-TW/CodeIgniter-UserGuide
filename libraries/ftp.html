@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FTP Class : CodeIgniter 使用手冊</title>
+<title>FTP 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-FTP Class
+FTP 類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,14 +56,14 @@ FTP Class
 <div id="content">
 
 
-<h1>FTP Class</h1>
+<h1>FTP 類別</h1>
 
-<p>CodeIgniter's FTP Class permits files to be transfered to a remote server. Remote files can also be moved，renamed,
+<p>CodeIgniter's FTP 類別 permits files to be transfered to a remote server. Remote files can also be moved，renamed,
 and deleted.  The FTP class also includes a "mirroring" function that permits an entire local directory to be recreated remotely via FTP.</p>
 
 <p class="important"><strong>注意:</strong>&nbsp; SFTP and SSL FTP protocols are not supported，only standard FTP.</p>
 
-<h2>Initializing the Class</h2>
+<h2>Initializing the 類別</h2>
 
 <p>Like most other classes in CodeIgniter，the FTP class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
@@ -177,7 +177,7 @@ array in that file. Then save the file at <var>config/ftp.php</var> and it will 
 <h2>$this->ftp->upload()</h2>
 
 <p>Uploads a file to your server.  You must supply the local path and the remote path，and you can optionally set the mode and permissions.
-Example:</p>
+參考範例:</p>
 
 
 <code>$this->ftp->upload('/local/path/to/myfile.html'，'/public_html/myfile.html'，'ascii'，0775);</code>
@@ -290,11 +290,11 @@ $this->ftp->chmod('/public_html/foo/bar/'，DIR_WRITE_MODE);
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="form_validation.html">Form Validation Class</a>
+上個主題:&nbsp;&nbsp;<a href="form_validation.html">Form Validation 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="table.html">HTML Table Class</a>
+下個主題:&nbsp;&nbsp;<a href="table.html">HTML Table 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

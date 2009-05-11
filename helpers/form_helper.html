@@ -78,7 +78,7 @@ add form attributes and hidden input fields.</p>
 <p>The main benefit of using this tag rather than hard coding your own HTML is that it permits your site to be more portable
 in the event your URLs ever change.</p>
 
-<p>Here's a simple example:</p>
+<p>Here's a simple 參考範例:</p>
 
 <code>echo form_open('email/send');</code>
 
@@ -198,7 +198,7 @@ example，you will instead specify "rows" and "cols".</p>
 
 <p>Lets you create a standard drop-down field.  The first parameter will contain the name of the field,
 the second parameter will contain an associative array of options，and the third parameter will contain the
-value you wish to be selected.  You can also pass an array through the third parameter，and CodeIgniter will create a multiple select for you. Example:</p>
+value you wish to be selected.  You can also pass an array through the third parameter，and CodeIgniter will create a multiple select for you. 參考範例:</p>
 
 <code>$options = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'small'&nbsp;&nbsp;=> 'Small Shirt',<br />
@@ -270,7 +270,7 @@ echo form_fieldset_close(); <br />
 &lt;/fieldset&gt;</code></p>
 <h2>form_fieldset_close()</h2>
 <p>Produces a closing &lt;/fieldset&gt; tag.  The only advantage to using this function is it permits you to pass data to it
-    which will be added below the tag.  For example:</p>
+    which will be added below the tag.  For 參考範例:</p>
 <code>$string = &quot;&lt;/div&gt;&lt;/div&gt;&quot;;<br />
 <br />
 echo fieldset_close($string);<br />
@@ -279,7 +279,7 @@ echo fieldset_close($string);<br />
 &lt;/fieldset&gt;<br />
 &lt;/div&gt;&lt;/div&gt;</code>
 <h2>form_checkbox()</h2>
-<p>Lets you generate a checkbox field. Simple example:</p>
+<p>Lets you generate a checkbox field. Simple 參考範例:</p>
 <code>echo form_checkbox('newsletter'，'accept'，TRUE);<br />
 <br />
 // Would produce:<br />
@@ -315,7 +315,7 @@ fourth parameter:</p>
 
 <h2>form_submit()</h2>
 
-<p>Lets you generate a standard submit button. Simple example:</p>
+<p>Lets you generate a standard submit button. Simple 參考範例:</p>
 <code>echo form_submit('mysubmit'，'Submit Post!');<br />
 <br />
 // Would produce:<br />
@@ -324,7 +324,7 @@ fourth parameter:</p>
 <p>Similar to other functions，you can submit an associative array in the first parameter if you prefer to set your own attributes.
     The third parameter lets you add extra data to your form，like JavaScript.</p>
 <h2>form_label()</h2>
-<p>Lets you generate a &lt;label&gt;. Simple example:</p>
+<p>Lets you generate a &lt;label&gt;. Simple 參考範例:</p>
 <code>echo form_label('What is your Name'，'username');<br />
 <br />
 // Would produce:
@@ -379,7 +379,7 @@ echo form_button('mybutton'，'Click Me'，$js);
 <h2>form_close()</h2>
 
 <p>Produces a closing &lt;/form> tag.  The only advantage to using this function is it permits you to pass data to it
-which will be added below the tag.  For example:</p>
+which will be added below the tag.  For 參考範例:</p>
 
 <code>$string = "&lt;/div>&lt;/div>";<br />
 <br />
@@ -396,7 +396,7 @@ echo form_close($string);<br />
 
 <h2>form_prep()</h2>
 
-<p>Allows you to safely use HTML and characters such as quotes within form elements without breaking out of the form.  Consider this example:</p>
+<p>Allows you to safely use HTML and characters such as quotes within form elements without breaking out of the form.  Consider this 參考範例:</p>
 
 <code>$string = 'Here is a string containing <strong>"quoted"</strong> text.';<br />
 <br />
@@ -415,7 +415,7 @@ creating your own form elements.</p>
 <h2>set_value()</h2>
 
 <p>Permits you to set the value of an input form or textarea. You must supply the field name via the first parameter of the function.
-The second (optional) parameter allows you to set a default value for the form. Example:</p>
+The second (optional) parameter allows you to set a default value for the form. 參考範例:</p>
 
 <code>&lt;input type="text" name="quantity" value="<dfn>&lt;?php echo set_value('quantity'，'0'); ?></dfn>" size="50" /></code>
 
@@ -427,7 +427,7 @@ The second (optional) parameter allows you to set a default value for the form. 
 must contain the name of the select menu，the second parameter must contain the value of
 each item，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE).</p>
 
-<p>Example:</p>
+<p>參考範例:</p>
 
 <code>
 &lt;select name="myselect"><br />
@@ -441,7 +441,7 @@ each item，and the third (optional) parameter lets you set an item as the defau
 <h2>set_checkbox()</h2>
 
 <p>Permits you to display a checkbox in the state it was submitted.  The first parameter
-must contain the name of the checkbox，the second parameter must contain its value，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). Example:</p>
+must contain the name of the checkbox，the second parameter must contain its value，and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). 參考範例:</p>
 
 <code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo set_checkbox('mycheck'，'1'); ?></dfn> /><br />
 &lt;input type="checkbox" name="mycheck" value="2" <dfn>&lt;?php echo set_checkbox('mycheck'，'2'); ?></dfn> /></code>

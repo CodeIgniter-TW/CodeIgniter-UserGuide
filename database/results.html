@@ -115,7 +115,7 @@ Query Results
 	<h2>row()</h2>
 	
 	<p>This function returns a single result row.  If your query has more than one row，it returns only the first row.
-	The result is returned as an <strong>object</strong>.  Here's a usage example:</p>
+	The result is returned as an <strong>object</strong>.  Here's a usage 參考範例:</p>
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
 	<br />
@@ -136,7 +136,7 @@ Query Results
 
 	<h2>row_array()</h2>
 
-	<p>Identical to the above <var>row()</var> function，except it returns an array.  Example:</p>
+	<p>Identical to the above <var>row()</var> function，except it returns an array.  參考範例:</p>
 
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
@@ -199,7 +199,7 @@ echo $query->num_fields();
 <h2>$query->free_result()</h2>
 <p>It frees the memory associated with the result and deletes the result resource ID.  Normally PHP frees its memory automatically at the end of script
 execution.  However，if you are running a lot of queries in a particular script you might want to free the result after each query result has been
-generated in order to cut down on memory consumptions.  Example:
+generated in order to cut down on memory consumptions.  參考範例:
 </p>
 
 <code>$query = $this->db->query('SELECT title FROM my_table');<br /><br />

@@ -85,7 +85,7 @@ run a site that lets each user set their own timezone settings) there is no bene
 use MySQL style date codes，where each code letter is preceded with a percent sign:  %Y %m %d etc.</p>
 
 <p>The benefit of doing dates this way is that you don't have to worry about escaping any characters that
-are not date codes，as you would normally have to do with the date() function.  Example:</p>
+are not date codes，as you would normally have to do with the date() function.  參考範例:</p>
 
 <code>$datestring = "Year: %Y Month: %m Day: %d - %h:%i %a";<br />
 $time = time();<br />
@@ -97,7 +97,7 @@ echo mdate($datestring，$time);</code>
 
 <h2>standard_date()</h2>
 
-<p>Lets you generate a date string in one of several standardized formats. Example:</p>
+<p>Lets you generate a date string in one of several standardized formats. 參考範例:</p>
 
 <code>
 $format = 'DATE_RFC822';<br />
@@ -170,7 +170,7 @@ echo standard_date($format，$time);
 
 <h2>local_to_gmt()</h2>
 
-<p>Takes a Unix timestamp as input and returns it as GMT.  Example:</p>
+<p>Takes a Unix timestamp as input and returns it as GMT.  參考範例:</p>
 
 <code>$now = time();<br />
 <br />
@@ -180,7 +180,7 @@ $gmt = local_to_gmt($now);</code>
 <h2>gmt_to_local()</h2>
 
 <p>Takes a Unix timestamp (referenced to GMT) as input，and converts it to a localized timestamp based on the
-timezone and Daylight Saving time submitted.  Example:</p>
+timezone and Daylight Saving time submitted.  參考範例:</p>
 
 <code>
 $timestamp = '1140153693';<br />
@@ -193,7 +193,7 @@ echo gmt_to_local($timestamp，$timezone，$daylight_saving);</code>
 
 <h2>mysql_to_unix()</h2>
 
-<p>Takes a MySQL Timestamp as input and returns it as Unix. Example:</p>
+<p>Takes a MySQL Timestamp as input and returns it as Unix. 參考範例:</p>
 
 <code>$mysql = '20061124092345';<br />
 <br />
@@ -224,7 +224,7 @@ echo unix_to_human($now，TRUE，'eu'); // Euro time with seconds</code>
 
 <p>The opposite of the above function.  Takes a "human" time as input and returns it as Unix.  This function is
 useful if you accept "human" formatted dates submitted via a form.  Returns FALSE (boolean) if
-the date string passed to it is not formatted as indicated above.  Example:</p>
+the date string passed to it is not formatted as indicated above.  參考範例:</p>
 
 <code>$now = time();<br />
 <br />
@@ -244,7 +244,7 @@ $unix = human_to_unix($human);</code>
 
 <p>The first parameter must contain a Unix timestamp.  The second parameter must contain a
 timestamp that is greater that the first timestamp.  If the second parameter empty，the current time will be used.  The most common purpose
-for this function is to show how much time has elapsed from some point in time in the past to now.  Example:</p>
+for this function is to show how much time has elapsed from some point in time in the past to now.  參考範例:</p>
 
 <code>$post_date = '1079621429';<br />
 $now = time();<br />
@@ -256,7 +256,7 @@ echo timespan($post_date，$now);</code>
 
 <h2>days_in_month()</h2>
 
-<p>Returns the number of days in a given month/year. Takes leap years into account.  Example:</p>
+<p>Returns the number of days in a given month/year. Takes leap years into account.  參考範例:</p>
 <code>echo days_in_month(06，2005);</code>
 
 <p>If the second parameter is empty，the current year will be used.</p>

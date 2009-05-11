@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>URI Class : CodeIgniter 使用手冊</title>
+<title>URI 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-URI Class
+URI 類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,9 +56,9 @@ URI Class
 <div id="content">
 
 
-<h1>URI Class</h1>
+<h1>URI 類別</h1>
 
-<p>The URI Class provides functions that help you retrieve information from your URI strings. If you use URI routing，you can
+<p>The URI 類別 provides functions that help you retrieve information from your URI strings. If you use URI routing，you can
 also retrieve information about the re-routed segments.</p>
 
 <p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
@@ -144,7 +144,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 )</code>
 
 <p>The first parameter of the function lets you set an offset.  By default it is set to <kbd>3</kbd> since your
-URI will normally contain a controller/function in the first and second segments. Example:</p>
+URI will normally contain a controller/function in the first and second segments. 參考範例:</p>
 
 <code>
 $array = $this->uri->uri_to_assoc(3);<br />
@@ -153,7 +153,7 @@ echo $array['name'];
 </code>
 
 
-<p>The second parameter lets you set default key names，so that the array returned by the function will always contain expected indexes，even if missing from the URI. Example:</p>
+<p>The second parameter lets you set default key names，so that the array returned by the function will always contain expected indexes，even if missing from the URI. 參考範例:</p>
 
 <code>
 $default = array('name'，'gender'，'location'，'type'，'sort');<br />
@@ -173,7 +173,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 
 <h2>$this->uri->assoc_to_uri()</h2>
 
-<p>Takes an associative array as input and generates a URI string from it.  The array keys will be included in the string.  Example:</p>
+<p>Takes an associative array as input and generates a URI string from it.  The array keys will be included in the string.  參考範例:</p>
 
 <code>$array = array('product' => 'shoes'，'size' => 'large'，'color' => 'red');<br />
 <br />
@@ -215,7 +215,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 
 <h2>$this->uri->segment_array()</h2>
 
-<p>Returns an array containing the URI segments.  For example:</p>
+<p>Returns an array containing the URI segments.  For 參考範例:</p>
 
 <code>
 $segs = $this->uri->segment_array();<br />
@@ -239,11 +239,11 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="unit_testing.html">Unit Testing Class</a>
+上個主題:&nbsp;&nbsp;<a href="unit_testing.html">Unit Testing 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
+下個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

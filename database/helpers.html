@@ -72,7 +72,7 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->count_all();</h2>
-<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. Example:</p>
+<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. 參考範例:</p>
 <code>echo $this->db->count_all('<var>my_table</var>');<br />
 <br />
 // Produces an integer，like 25
@@ -90,7 +90,7 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->last_query();</h2>
-<p>Returns the last query that was run (the query string，not the result).  Example:</p>
+<p>Returns the last query that was run (the query string，not the result).  參考範例:</p>
 
 <code>$str = $this->db->last_query();<br />
 <br />
@@ -102,7 +102,7 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->insert_string(); </h2>
-<p>This function simplifies the process of writing database inserts. It returns a correctly formatted SQL insert string. Example:</p>
+<p>This function simplifies the process of writing database inserts. It returns a correctly formatted SQL insert string. 參考範例:</p>
 
 <code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
 <br />
@@ -117,7 +117,7 @@ $str = $this->db->insert_string('table_name'，$data);
 
 
 <h2>$this->db->update_string(); </h2>
-<p>This function simplifies the process of writing database updates. It returns a correctly formatted SQL update string. Example:</p>
+<p>This function simplifies the process of writing database updates. It returns a correctly formatted SQL update string. 參考範例:</p>
 
 <code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
 <br />

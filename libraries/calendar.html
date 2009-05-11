@@ -63,7 +63,7 @@ Calendaring 類別
 <p>The Calendar class enables you to dynamically create calendars. Your calendars can be formatted through the use of a calendar
 template，allowing 100% control over every aspect of its design. In addition，you can pass data to your calendar cells.</p>
 
-<h2>Initializing the Class</h2>
+<h2>Initializing the 類別</h2>
 
 <p>Like most other classes in CodeIgniter，the Calendar class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
@@ -92,7 +92,7 @@ echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
 
 <p>To add data to your calendar cells involves creating an associative array in which the keys correspond to the days
 you wish to populate and the array value contains the data.  The array is passed to the third parameter of the calendar
-generating function.  Consider this example:</p>
+generating function.  Consider this 參考範例:</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
@@ -115,7 +115,7 @@ how data passed to your cells is handled so you can pass different types of info
 <h2>Setting Display Preferences</h2>
 
 <p>There are seven preferences you can set to control various aspects of the calendar.  Preferences are set by passing an 
-array of preferences in the second parameter of the loading function. Here is an example:</p>
+array of preferences in the second parameter of the loading function. Here is an 參考範例:</p>
 
 
 <code>
@@ -163,7 +163,7 @@ regarding preferences below.</p>
 <h2>Showing Next/Previous Month Links</h2>
 
 <p>To allow your calendar to dynamically increment/decrement via the next/previous links requires that you set up your calendar
-code similar to this example:</p>
+code similar to this 參考範例:</p>
 
 
 <code>$prefs = array (<br />
@@ -175,7 +175,7 @@ $this-&gt;load-&gt;library('calendar'，$prefs);<br />
 <br />
 echo $this->calendar->generate(<var>$this->uri->segment(3)</var>，<var>$this->uri->segment(4)</var>);</code>
 
-<p>You'll notice a few things about the above example:</p>
+<p>You'll notice a few things about the above 參考範例:</p>
 
 <ul>
 <li>You must set the "show_next_prev" to TRUE.</li>

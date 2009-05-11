@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Session Class : CodeIgniter 使用手冊</title>
+<title>Session 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Session Class
+Session 類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,7 +56,7 @@ Session Class
 <div id="content">
 
 
-<h1>Session Class</h1>
+<h1>Session 類別</h1>
 
 <p>The Session class permits you maintain a user's "state" and track their activity while they browse your site.
 The Session class stores session information for each user as serialized (and optionally encrypted) data in a cookie.
@@ -142,7 +142,7 @@ will do this:</p>
 <h2>Adding Custom Session Data</h2>
 
 <p>A useful aspect of the session array is that you can add your own data to it and it will be stored in the user's cookie.
-Why would you want to do this?  Here's one example:</p>
+Why would you want to do this?  Here's one 參考範例:</p>
 
 <p>Let's say a particular user logs into your site. Once authenticated,
 you could add their username and email address to the session cookie，making that data globally available to you without
@@ -152,7 +152,7 @@ having to run a database query when you need it.</p>
 
 <code>$this->session->set_userdata(<samp>$array</samp>);</code>
 
-<p>Where <samp>$array</samp> is an associative array containing your new data.  Here's an example:</p>
+<p>Where <samp>$array</samp> is an associative array containing your new data.  Here's an 參考範例:</p>
 
 
 <p><code>$newdata = array(<br />
@@ -175,7 +175,7 @@ encryption process in particular produces a longer data string than the original
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <h2>Flashdata</h2>
-<p>CodeIgniter supports &quot;flashdata&quot;，or session data that will only be available for the next server request，and are then automatically cleared. These can be very useful，and are typically used for informational or status messages (for example: &quot;record 2 deleted&quot;).</p>
+<p>CodeIgniter supports &quot;flashdata&quot;，or session data that will only be available for the next server request，and are then automatically cleared. These can be very useful，and are typically used for informational or status messages (for 參考範例: &quot;record 2 deleted&quot;).</p>
 <p>注意: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
 <p>To add flashdata:</p>
 <p><code>$this-&gt;session-&gt;set_flashdata('item'，'value');</code></p>
@@ -298,11 +298,11 @@ do not need to write your own routine to do it.</p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
+上個主題:&nbsp;&nbsp;<a href="pagination.html">Pagination 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="trackback.html">Trackback Class</a>
+下個主題:&nbsp;&nbsp;<a href="trackback.html">Trackback 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

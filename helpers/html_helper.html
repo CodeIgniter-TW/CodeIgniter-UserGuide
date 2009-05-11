@@ -69,17 +69,17 @@ HTML 補助函數
 <p>The following functions are available:</p>
 
 <h2>br()</h2>
-<p>Generates line break tags (&lt;br />) based on the number you submit. Example:</p>
+<p>Generates line break tags (&lt;br />) based on the number you submit. 參考範例:</p>
 <code>echo br(3);</code>
 <p>The above would produce: &lt;br />&lt;br />&lt;br /></p>
 
 <h2>heading()</h2>
 <p>Lets you create HTML &lt;h1> tags.  The first parameter will contain the data，the
-second the size of the heading.  Example:</p>
+second the size of the heading.  參考範例:</p>
 <code>echo heading('Welcome!'，3);</code>
 <p>The above would produce:  &lt;h3>Welcome!&lt;/h3></p>
 <h2>img()</h2>
-<p>Lets you create HTML &lt;img /&gt; tags.  The first parameter  contains the image source. Example:</p>
+<p>Lets you create HTML &lt;img /&gt; tags.  The first parameter  contains the image source. 參考範例:</p>
 <code>echo img('images/picture.jpg');<br />
 // gives &lt;img src=&quot;http://site.com/images/picture.jpg&quot; /&gt;</code>
 <p>There is an optional second parameter that is a TRUE/FALSE value that specifics if the src should have the page specified by $config['index_page'] added to the address it creates. Presumably，this would be if you were using a media controller.</p>
@@ -124,13 +124,13 @@ echo link_tag('css/mystyles.css');<br />
 	// &lt;link href=&quot;http://site.com/css/printer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;print&quot; /&gt;</code></p>
 	
 <h2>nbs()</h2>
-<p>Generates non-breaking spaces (&amp;nbsp;) based on the number you submit. Example:</p>
+<p>Generates non-breaking spaces (&amp;nbsp;) based on the number you submit. 參考範例:</p>
 <code>echo nbs(3);</code>
 <p>The above would produce: &amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
 
 <h2>ol()&nbsp; and&nbsp; ul()</h2>
 
-<p>Permits you to generate ordered or unordered HTML lists from simple or multi-dimensional arrays. Example:</p>
+<p>Permits you to generate ordered or unordered HTML lists from simple or multi-dimensional arrays. 參考範例:</p>
 
 <code>
 $this->load->helper('html');<br />

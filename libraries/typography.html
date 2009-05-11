@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Typography Class : CodeIgniter 使用手冊</title>
+<title>Typography 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Typography Class
+Typography 類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,12 +56,12 @@ Typography Class
 <div id="content">
 
 
-<h1>Typography Class</h1>
+<h1>Typography 類別</h1>
 
-<p>The Typography Class provides functions that help you format text.</p>
+<p>The Typography 類別 provides functions that help you format text.</p>
 
 
-<h2>Initializing the Class</h2>
+<h2>Initializing the 類別</h2>
 
 <p>Like most other classes in CodeIgniter，the Typography class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
@@ -85,7 +85,7 @@ the following formatting:</p>
 <li>Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.</li>
 </ul>
 
-<p>Usage example:</p>
+<p>使用範例:</p>
 
 <code>$string = $this->typography->auto_typography($string);</code>
 
@@ -116,7 +116,7 @@ If you choose to use this function you may want to consider
 <li>Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.</li>
 </ul>
 
-<p>Usage example:</p>
+<p>使用範例:</p>
 
 <code>$string = $this->typography->format_characters($string);</code>
 
@@ -126,7 +126,7 @@ If you choose to use this function you may want to consider
 <p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
 This function is identical to the native PHP <dfn>nl2br()</dfn> function，except that it ignores &lt;pre&gt; tags.</p>
 
-<p>Usage example:</p>
+<p>使用範例:</p>
 
 <code>$string = $this->typography->nl2br_except_pre($string);</code>
 
@@ -135,7 +135,7 @@ This function is identical to the native PHP <dfn>nl2br()</dfn> function，excep
 <p>When using the Typography library in conjunction with the Template Parser library it can often be desirable to protect single
 	and double quotes within curly braces.  To enable this，set the <kbd>protect_braced_quotes</kbd> class property to <samp>TRUE</samp>.
 	
-<p>Usage example:</p>
+<p>使用範例:</p>
 
 <code>$this->load->library('typography');<br />
 $this->typography->protect_braced_quotes = TRUE;
@@ -151,7 +151,7 @@ $this->typography->protect_braced_quotes = TRUE;
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="unit_testing.html">Unit Testing Class</a>
+下個主題:&nbsp;&nbsp;<a href="unit_testing.html">Unit Testing 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

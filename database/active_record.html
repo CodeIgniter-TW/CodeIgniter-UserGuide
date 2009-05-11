@@ -460,7 +460,7 @@ $this->db->limit(10，20);<br />
 
 <h2>$this->db->count_all_results();</h2>
 
-<p>Permits you to determine the number of rows in a particular Active Record query. Queries will accept Active Record restrictors such as where()， or_where()，like()，or_like()，etc. Example:</p>
+<p>Permits you to determine the number of rows in a particular Active Record query. Queries will accept Active Record restrictors such as where()， or_where()，like()，or_like()，etc. 參考範例:</p>
 <code>echo $this->db->count_all_results('<var>my_table</var>');<br />
 
 // Produces an integer，like 25<br />
@@ -472,7 +472,7 @@ echo $this-&gt;db-&gt;count_all_results();<br />
 
 <h2>$this->db->count_all();</h2>
 
-<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. Example:</p>
+<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. 參考範例:</p>
 
 <code>echo $this->db->count_all('<var>my_table</var>');<br />
 <br />
@@ -686,7 +686,7 @@ $this-&gt;db-&gt;truncate('mytable'); <br />
 
 <h1><a name="chaining">&nbsp;</a>Method Chaining</h1>
 
-<p>Method chaining allows you to simplify your syntax by connecting multiple functions.  Consider this example:</p>
+<p>Method chaining allows you to simplify your syntax by connecting multiple functions.  Consider this 參考範例:</p>
 
 <code>
 <dfn>$this->db</dfn><kbd>-></kbd><var>select</var>('title')<kbd>-></kbd><var>from</var>('mytable')<kbd>-></kbd><var>where</var>('id'，$id)<kbd>-></kbd><var>limit</var>(10，20);<br />
@@ -715,7 +715,7 @@ $query = $this->db->get();</code>
 
 <p>This function deletes all items from the Active Record cache.</p>
 
-<p>Here's a usage example:</p>
+<p>Here's a usage 參考範例:</p>
 
 <p><code>$this-&gt;db-&gt;start_cache();<br />
 $this-&gt;db-&gt;select('field1');<br />

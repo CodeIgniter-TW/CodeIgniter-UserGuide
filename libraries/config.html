@@ -94,7 +94,7 @@ so you will only need to load a config file if you have created your own.</p>
 
 <p>If you need to load multiple config files normally they will be merged into one master config array.  Name collisions can occur，however，if
 you have identically named array indexes in different config files.  To avoid collisions you can set the second parameter to <kbd>TRUE</kbd>
-and each config file will be stored in an array index corresponding to the name of the config file. Example:</p>
+and each config file will be stored in an array index corresponding to the name of the config file. 參考範例:</p>
 
 <code>
 // Stored in an array with this prototype:  $this->config['blog_settings'] = $config<br />
@@ -129,7 +129,7 @@ indicated in the file.</p>
 <p>The function returns FALSE (boolean) if the item you are trying to fetch does not exist.</p>
 
 <p>If you are using the second parameter of the <kbd>$this->config->load</kbd> function in order to assign your config items to a specific index
-you can retrieve it by specifying the index name in the second parameter of the <kbd>$this->config->item()</kbd> function.  Example:</p>
+you can retrieve it by specifying the index name in the second parameter of the <kbd>$this->config->item()</kbd> function.  參考範例:</p>
 
 <code>
 // Loads a config file named blog_settings.php and assigns it to an index named "blog_settings"<br />

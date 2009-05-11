@@ -61,7 +61,7 @@ Controllers
 
 
 <ul>
-<li><a href="#what">What is a Controller?</a></li>
+<li><a href="#what">什麼是控制器(Controller)呢?</a></li>
 <li><a href="#hello">Hello World</a></li>
 <li><a href="#functions">Functions</a></li>
 <li><a href="#passinguri">Passing URI Segments to Your Functions</a></li>
@@ -71,12 +71,12 @@ Controllers
 <li><a href="#private">Private Functions</a></li>
 <li><a href="#subfolders">Organizing Controllers into Sub-folders</a></li>
 <li><a href="#constructors">Class Constructors</a></li>
-<li><a href="#reserved">Reserved Function Names</a></li>
+<li><a href="#reserved">保留函數名稱</a></li>
 </ul>
 
 
 <a name="what"></a>
-<h2>What is a Controller?</h2>
+<h2>什麼是控制器(Controller)呢?</h2>
 
 <p><dfn>A Controller is simply a class file that is named in a way that can be associated with a URI.</dfn></p>
 
@@ -196,7 +196,7 @@ class Products extends Controller {<br />
 ?&gt;
 </code>
 
-<p class="important"><strong>Important:</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature, the segments
+<p class="important"><strong>非常重要::</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature, the segments
 passed to your function will be the re-routed ones.</p>
 
 
@@ -225,7 +225,7 @@ CodeIgniter permits you to override this behavior through the use of the <kbd>_r
 &nbsp;&nbsp;&nbsp;&nbsp;// Some code here...<br />
 }</code>
 
-<p class="important"><strong>Important:</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>, it will <strong>always</strong>
+<p class="important"><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>, it will <strong>always</strong>
 get called regardless of what your URI contains.  It overrides the normal behavior in which the URI determines which function is called,
 allowing you to define your own function routing rules.</p>
 
@@ -255,7 +255,7 @@ allowing you to define your own function routing rules.</p>
 post-process the finalized data in some way and send it to the browser yourself.  CodeIgniter permits you to
 add a function named <dfn>_output()</dfn> to your controller that will receive the finalized output data.</p>
 
-<p><strong>Important:</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong>
+<p><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong>
 be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.</p>
 
 <p>Here is an example:</p>
@@ -355,7 +355,7 @@ class <kbd>Blog</kbd> extends Controller {<br />
 Constructors can't return a value, but they can do some default work.</p>
 
 <a name="reserved"></a>
-<h2>Reserved Function Names</h2>
+<h2>保留函數名稱</h2>
 
 <p>Since your controller classes will extend the main application controller you
 must be careful not to name your functions identically to the ones used by that class, otherwise your local functions

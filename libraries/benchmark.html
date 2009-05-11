@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Benchmarking Class : CodeIgniter User Guide</title>
+<title>Benchmarking Class : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 
 </head>
 <body>
@@ -28,8 +28,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">章節目錄</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Benchmarking Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -61,7 +61,7 @@ Benchmarking Class
 <p>CodeIgniter has a Benchmarking class that is always active, enabling the time difference between any
 two marked points to be calculated.</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
 
 
 <p>In addition, the benchmark is always started the moment the framework is
@@ -101,7 +101,7 @@ $this->benchmark->mark('code_end');<br />
 <br />
 echo $this->benchmark->elapsed_time('code_start', 'code_end');</code>
 
-<p class="important"><strong>Note:</strong> The words "code_start" and "code_end" are arbitrary.  They are simply words used to set two markers.  You can
+<p class="important"><strong>注意:</strong> The words "code_start" and "code_end" are arbitrary.  They are simply words used to set two markers.  You can
 use any words you want, and you can set multiple sets of markers. Consider this example:</p>
 
 <code>$this->benchmark->mark('dog');<br />
@@ -160,7 +160,7 @@ output is sent to the browser.  It doesn't matter where you use the function cal
 <p>An alternate way to show your elapsed time in your view files is to use this pseudo-variable, if you prefer not to use the pure PHP:</p>
 <code>{elapsed_time}</code>
 
-<p class="important"><strong>Note:</strong> If you want to benchmark anything within your controller
+<p class="important"><strong>注意:</strong> If you want to benchmark anything within your controller
 functions you must set your own start/end points.</p>
 
 <a name="memory"></a>
@@ -170,7 +170,7 @@ functions you must set your own start/end points.</p>
 system using the following code in one of your view file:</p>
 
 <code>&lt;?php echo $this->benchmark->memory_usage();?&gt;</code>
-<p>Note: This function can only be used in your view files. The consumption will reflect the total memory used by the entire app.</p>
+<p>注意: This function can only be used in your view files. The consumption will reflect the total memory used by the entire app.</p>
 
 <p>An alternate way to show your memory usage in your view files is to use this pseudo-variable, if you prefer not to use the pure PHP:</p>
 <code>{memory_usage}</code>
@@ -184,11 +184,11 @@ system using the following code in one of your view file:</p>
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="../general/security.html"> Security</a>
+上個主題:&nbsp;&nbsp;<a href="../general/security.html"> Security</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="calendar.html">Calendaring Class</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="calendar.html">Calendaring Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Views : CodeIgniter User Guide</title>
+<title>Views : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,19 +17,19 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 
 </head>
 <body>
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切到章節目錄" alt="切到章節目錄" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">章節目錄</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Views
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -90,7 +90,7 @@ you should do so before continuing.</p>
 
 <code>$this->load->view('<var>name</var>');</code>
 
-<p>Where <var>name</var> is the name of your view file.  Note: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
+<p>Where <var>name</var> is the name of your view file.  注意: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
 
 
 <p>Now, open the controller file you made earlier called <dfn>blog.php</dfn>, and replace the echo statement with the view loading function:</p>
@@ -156,7 +156,7 @@ $this->load->view('blogview', <var>$data</var>);</code>
 <code>$data = new Someclass();<br />
 $this->load->view('blogview', <var>$data</var>);</code>
 
-<p>Note: If you use an object, the class variables will be turned into array elements.</p>
+<p>注意: If you use an object, the class variables will be turned into array elements.</p>
 
 
 <p>Let's try it with your controller file.  Open it add this code:</p>
@@ -243,7 +243,7 @@ class Blog extends Controller {
 &lt;/body>
 &lt;/html>
 </textarea>
-<p><strong>Note:</strong> You'll notice that in the example above we are using PHP's alternative syntax.  If you
+<p><strong>注意:</strong> You'll notice that in the example above we are using PHP's alternative syntax.  If you
 are not familiar with it you can read about it <a href="alternative_php.html">here</a>.</p>
 
 <h2>Returning views as data</h2>
@@ -261,11 +261,11 @@ to your browser.  Remember to assign it to a variable if you want the data retur
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="reserved_names.html">Reserved Names</a>
+上個主題:&nbsp;&nbsp;<a href="reserved_names.html">Reserved Names</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="models.html">Models</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="models.html">Models</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

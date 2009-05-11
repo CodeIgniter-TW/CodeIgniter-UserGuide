@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Form Validation : CodeIgniter User Guide</title>
+<title>Form Validation : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name='description' content='CodeIgniter 使用手冊' />
 </head>
 <body>
 
@@ -27,8 +27,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.1</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>CodeIgniter 使用手冊 Version 1.7.1</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">章節目錄</a></td>
 </tr>
 </table>
 </div>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Form Validation
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -272,7 +272,7 @@ class Form extends Controller {
 <p><dfn>Now submit the form with the fields blank and you should see the error message.
 If you submit the form with all the fields populated you'll see your success page.</dfn></p>
 
-<p class="important"><strong>Note:</strong> The form fields are not yet being re-populated with the data when
+<p class="important"><strong>注意:</strong> The form fields are not yet being re-populated with the data when
 there is an error.  We'll get to that shortly, once we're through explaining the validation rules.</p>
 
 
@@ -305,7 +305,7 @@ $rules['email']		= "required|valid_email";</code>
 
 <p>Give it a try!</p>
 
-<p class="important"><strong>Note:</strong> There are numerous rules available which you can read about in the validation reference.</p>
+<p class="important"><strong>注意:</strong> There are numerous rules available which you can read about in the validation reference.</p>
 
 
 <h2>Prepping Data</h2>
@@ -324,7 +324,7 @@ the "xss_clean" function, which removes malicious data.</p>
 <p class="important"><strong>Any native PHP function that accepts one parameter can be used as a rule, like <dfn>htmlspecialchars</dfn>,
 <dfn>trim</dfn>,  <dfn>MD5</dfn>, etc.</strong></p>
 
-<p><strong>Note:</strong> You will generally want to use the prepping functions <strong>after</strong>
+<p><strong>注意:</strong> You will generally want to use the prepping functions <strong>after</strong>
 the validation rules so if there is an error, the original data will be shown in the form.</p>
 
 <h2>Callbacks: Your own Validation Functions</h2>
@@ -391,7 +391,7 @@ callback function for you to process.</p>
 <p>The error message was set using the <dfn>$this->validation->set_message</dfn> function.
 Just remember that the message key (the first parameter) must match your function name.</p>
 
-<p class="important"><strong>Note:</strong> You can apply your own custom error messages to any rule, just by setting the
+<p class="important"><strong>注意:</strong> You can apply your own custom error messages to any rule, just by setting the
 message similarly. For example, to change the message for the "required" rule you will do this:</p>
 
 <code>$this->validation->set_message('required', 'Your custom message here');</code>
@@ -510,7 +510,7 @@ and the error messages will contain a more relevant field name.</p>
 <p>If there are no errors, nothing will be shown.  If there is an error, the message will appear, wrapped in the delimiters you
 have set (&lt;p> tags by default).</p>
 
-<p class="important"><strong>Note: </strong>To display errors this way you must remember to set your fields using the <kbd>$this->validation->set_fields</kbd>
+<p class="important"><strong>注意: </strong>To display errors this way you must remember to set your fields using the <kbd>$this->validation->set_fields</kbd>
 function described earlier. The errors will be turned into variables that have "_error" after your field name.
 For example, your "username" error will be available at:<br /><dfn>$this->validation->username_error</dfn>.</p>
 
@@ -615,11 +615,11 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 </tr>
 </table>
 
-<p><strong>Note:</strong> These rules can also be called as discrete functions. For example:</p>
+<p><strong>注意:</strong> These rules can also be called as discrete functions. For example:</p>
 
 <code>$this->validation->required($string);</code>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter.</p>
+<p class="important"><strong>注意:</strong> You can also use any native PHP functions that permit one parameter.</p>
 
 
 
@@ -663,7 +663,7 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 
 </table>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter,
+<p class="important"><strong>注意:</strong> You can also use any native PHP functions that permit one parameter,
 like <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, etc.</p>
 
 
@@ -723,11 +723,11 @@ must contain the name of the radio button, the second parameter must contain its
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
+上個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC Class</a>
+<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

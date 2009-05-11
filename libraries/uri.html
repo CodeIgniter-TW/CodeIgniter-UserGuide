@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 URI Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,7 +58,7 @@ URI Class
 
 <h1>URI Class</h1>
 
-<p>The URI Class provides functions that help you retrieve information from your URI strings. If you use URI routing, you can
+<p>The URI Class provides functions that help you retrieve information from your URI strings. If you use URI routing，you can
 also retrieve information about the re-routed segments.</p>
 
 <p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
@@ -66,7 +66,7 @@ also retrieve information about the re-routed segments.</p>
 <h2>$this->uri->segment(<var>n</var>)</h2>
 
 <p>Permits you to retrieve a specific segment. Where <var>n</var> is the segment number you wish to retrieve.
-Segments are numbered from left to right. For example, if your full URL is this:</p>
+Segments are numbered from left to right. For example，if your full URL is this:</p>
 
 <code>http://example.com/index.php/news/local/metro/crime_is_up</code>
 
@@ -81,9 +81,9 @@ Segments are numbered from left to right. For example, if your full URL is this:
 
 <p>By default the function returns FALSE (boolean) if the segment does not exist. There is an optional second parameter that
 permits you to set your own default value if the segment is missing.
-For example, this would tell the function to return the number zero in the event of failure:</p>
+For example，this would tell the function to return the number zero in the event of failure:</p>
 
-<code>$product_id = $this->uri->segment(3, 0);</code>
+<code>$product_id = $this->uri->segment(3，0);</code>
 
 <p>It helps avoid having to write code like this:</p>
 
@@ -99,18 +99,18 @@ else<br />
 
 <h2>$this->uri->rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it lets you retrieve a specific segment from your
+<p>This function is identical to the previous one，except that it lets you retrieve a specific segment from your
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
 <h2>$this->uri->slash_segment(<var>n</var>)</h2>
 
-<p>This function is almost identical to <dfn>$this->uri->segment()</dfn>, except it adds a trailing and/or leading slash based on the second
-parameter.  If the parameter is not used, a trailing slash added.  Examples:</p>
+<p>This function is almost identical to <dfn>$this->uri->segment()</dfn>，except it adds a trailing and/or leading slash based on the second
+parameter.  If the parameter is not used，a trailing slash added.  Examples:</p>
 
 <code>$this->uri->slash_segment(<var>3</var>);<br />
-$this->uri->slash_segment(<var>3</var>, 'leading');<br />
-$this->uri->slash_segment(<var>3</var>, 'both');</code>
+$this->uri->slash_segment(<var>3</var>，'leading');<br />
+$this->uri->slash_segment(<var>3</var>，'both');</code>
 
 <p>Returns:</p>
 
@@ -123,7 +123,7 @@ $this->uri->slash_segment(<var>3</var>, 'both');</code>
 
 <h2>$this->uri->slash_rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it lets you add slashes a specific segment from your
+<p>This function is identical to the previous one，except that it lets you add slashes a specific segment from your
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
@@ -153,21 +153,21 @@ echo $array['name'];
 </code>
 
 
-<p>The second parameter lets you set default key names, so that the array returned by the function will always contain expected indexes, even if missing from the URI. Example:</p>
+<p>The second parameter lets you set default key names，so that the array returned by the function will always contain expected indexes，even if missing from the URI. Example:</p>
 
 <code>
-$default = array('name', 'gender', 'location', 'type', 'sort');<br />
+$default = array('name'，'gender'，'location'，'type'，'sort');<br />
 <br />
-$array = $this->uri->uri_to_assoc(3, $default);</code>
+$array = $this->uri->uri_to_assoc(3，$default);</code>
 
-<p>If the URI does not contain a value in your default, an array index will be set to that name, with a value of FALSE.</p>
+<p>If the URI does not contain a value in your default，an array index will be set to that name，with a value of FALSE.</p>
 
-<p>Lastly, if a corresponding value is not found for a given key (if there is an odd number of URI segments) the value will be set to FALSE (boolean).</p>
+<p>Lastly，if a corresponding value is not found for a given key (if there is an odd number of URI segments) the value will be set to FALSE (boolean).</p>
 
 
 <h2>$this->uri->ruri_to_assoc(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it creates an associative array using the
+<p>This function is identical to the previous one，except that it creates an associative array using the
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
@@ -175,7 +175,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 
 <p>Takes an associative array as input and generates a URI string from it.  The array keys will be included in the string.  Example:</p>
 
-<code>$array = array('product' => 'shoes', 'size' => 'large', 'color' => 'red');<br />
+<code>$array = array('product' => 'shoes'，'size' => 'large'，'color' => 'red');<br />
 <br />
 $str = $this->uri->assoc_to_uri($array);<br />
 <br />
@@ -185,7 +185,7 @@ $str = $this->uri->assoc_to_uri($array);<br />
 
 <h2>$this->uri->uri_string()</h2>
 
-<p>Returns a string with the complete URI.  For example, if this is your full URL:</p>
+<p>Returns a string with the complete URI.  For example，if this is your full URL:</p>
 
 <code>http://example.com/index.php/news/local/345</code>
 
@@ -196,7 +196,7 @@ $str = $this->uri->assoc_to_uri($array);<br />
 
 <h2>$this->uri->ruri_string(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it returns the
+<p>This function is identical to the previous one，except that it returns the
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
@@ -208,7 +208,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 
 <h2>$this->uri->total_rsegments()</h2>
 
-<p>This function is identical to the previous one, except that it returns the total number of segments in your
+<p>This function is identical to the previous one，except that it returns the total number of segments in your
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
@@ -228,7 +228,7 @@ foreach ($segs as $segment)<br />
 
 <h2>$this->uri->rsegment_array()</h2>
 
-<p>This function is identical to the previous one, except that it returns the array of segments in your
+<p>This function is identical to the previous one，except that it returns the array of segments in your
 re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
 
 
@@ -245,7 +245,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

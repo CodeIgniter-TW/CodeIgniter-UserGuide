@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Trackback Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -65,10 +65,10 @@ Trackback Class
 
 <h2>Initializing the Class</h2>
 
-<p>Like most other classes in CodeIgniter, the Trackback class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the Trackback class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('trackback');</code>
-<p>Once loaded, the Trackback library object will be available using: <dfn>$this->trackback</dfn></p>
+<p>Once loaded，the Trackback library object will be available using: <dfn>$this->trackback</dfn></p>
 
 
 <h2>Sending Trackbacks</h2>
@@ -103,10 +103,10 @@ else<br />
 <li><strong>title</strong> - The title of your weblog entry.</li>
 <li><strong>excerpt</strong> - The content of your weblog entry. 注意: the Trackback class will automatically send only the first 500 characters of your entry.  It will also strip all HTML.</li>
 <li><strong>blog_name</strong> - The name of your weblog.</li>
-<li><strong>charset</strong> - The character encoding your weblog is written in.  If omitted, UTF-8 will be used.</li>
+<li><strong>charset</strong> - The character encoding your weblog is written in.  If omitted，UTF-8 will be used.</li>
 </ul>
 
-<p>The Trackback sending function returns TRUE/FALSE (boolean) on success or failure.  If it fails, you can retrieve the error message using:</p>
+<p>The Trackback sending function returns TRUE/FALSE (boolean) on success or failure.  If it fails，you can retrieve the error message using:</p>
 
 <code>$this->trackback->display_errors();</code>
 
@@ -115,7 +115,7 @@ else<br />
 
 <p>Before you can receive Trackbacks you must create a weblog.  If you don't have a blog yet there's no point in continuing.</p>
 
-<p>Receiving Trackbacks is a little more complex than sending them, only because you will need a database table in which to store them,
+<p>Receiving Trackbacks is a little more complex than sending them，only because you will need a database table in which to store them,
 and you will need to validate the incoming trackback data.  You are encouraged to implement a thorough validation process to
 guard against spam and duplicate data.  You may also want to limit the number of Trackbacks you allow from a particular IP within
 a given span of time to further curtail spam.  The process of receiving a Trackback is quite simple;
@@ -126,11 +126,11 @@ the validation is what takes most of the effort.</p>
 <p>In order to accept Trackbacks you must display a Trackback URL next to each one of your weblog entries.  This will be the URL
 that people will use to send you Trackbacks (we will refer to this as your "Ping URL").</p>
 
-<p>Your Ping URL must point to a controller function where your Trackback receiving code is located, and the URL
-must contain the ID number for each particular entry, so that when the Trackback is received you'll be
+<p>Your Ping URL must point to a controller function where your Trackback receiving code is located，and the URL
+must contain the ID number for each particular entry，so that when the Trackback is received you'll be
 able to associate it with a particular entry.</p>
 
-<p>For example, if your controller class is called <dfn>Trackback</dfn>, and the receiving function is called <dfn>receive</dfn>, your
+<p>For example，if your controller class is called <dfn>Trackback</dfn>，and the receiving function is called <dfn>receive</dfn>，your
 Ping URLs will look something like this:</p>
 
 <code>http://example.com/index.php/trackback/receive/<samp>entry_id</samp></code>
@@ -157,8 +157,8 @@ CREATE TABLE trackbacks (
 );</textarea>
 
 
-<p>The Trackback specification only requires four pieces of information to be sent in a Trackback (url, title, excerpt, blog_name),
-but to make the data more useful we've added a few more fields in the above table schema (date, IP address, etc.).</p>
+<p>The Trackback specification only requires four pieces of information to be sent in a Trackback (url，title，excerpt，blog_name),
+but to make the data more useful we've added a few more fields in the above table schema (date，IP address，etc.).</p>
 
 <h2>Processing a Trackback</h2>
 
@@ -189,39 +189,39 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ip_address' => $this->input->ip_address()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$sql = $this->db->insert_string('trackbacks', $data);<br />
+$sql = $this->db->insert_string('trackbacks'，$data);<br />
 $this->db->query($sql);<br />
 <br />
 $this->trackback->send_success();</code>
 
 <h4>注意:</h4>
 
-<p>The entry ID number is expected in the third segment of your URL.  This is based on the URI example we gave earlier:</p>
+<p>The entry ID number is expected in the third segment of your URL.  This 基於URI example we gave earlier:</p>
 
 <code>http://example.com/index.php/trackback/receive/<samp>entry_id</samp></code>
 
-<p>Notice the entry_id is in the third URI segment, which you can retrieve using:</p>
+<p>Notice the entry_id is in the third URI segment，which you can retrieve using:</p>
 
 <code>$this->uri->segment(3);</code>
 
-<p>In our Trackback receiving code above, if the third segment is missing, we will issue an error.  Without a valid entry ID, there's no
+<p>In our Trackback receiving code above，if the third segment is missing，we will issue an error.  Without a valid entry ID，there's no
 reason to continue.</p>
 
 <p>The <dfn>$this->trackback->receive()</dfn> function is simply a validation function that looks at the incoming data
-and makes sure it contains the four pieces of data that are required (url, title, excerpt, blog_name).
+and makes sure it contains the four pieces of data that are required (url，title，excerpt，blog_name).
 It returns TRUE on success and FALSE on failure.  If it fails you will issue an error message.</p>
 
 <p>The incoming Trackback data can be retrieved using this function:</p>
 
 <code>$this->trackback->data('<var>item</var>')</code>
 
-<p>Where <var>item</var> represents one of these four pieces of info: url, title, excerpt, or blog_name</p>
+<p>Where <var>item</var> represents one of these four pieces of info: url，title，excerpt，or blog_name</p>
 
-<p>If the Trackback data is successfully received, you will issue a success message using:</p>
+<p>If the Trackback data is successfully received，you will issue a success message using:</p>
 
 <code>$this->trackback->send_success();</code>
 
-<p class="important"><strong>注意:</strong> The above code contains no data validation, which you are encouraged to add.</p>
+<p class="important"><strong>注意:</strong> The above code contains no data validation，which you are encouraged to add.</p>
 
 
 
@@ -239,7 +239,7 @@ It returns TRUE on success and FALSE on failure.  If it fails you will issue an 
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="parser.html">Template Parser Class</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

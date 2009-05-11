@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Controllers
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -84,14 +84,14 @@ Controllers
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<p>In the above example, CodeIgniter would attempt to find a controller named <dfn>blog.php</dfn> and load it.</p>
+<p>In the above example，CodeIgniter would attempt to find a controller named <dfn>blog.php</dfn> and load it.</p>
 
-<p><strong>When a controller's name matches the first segment of a URI, it will be loaded.</strong></p>
+<p><strong>When a controller's name matches the first segment of a URI，it will be loaded.</strong></p>
 
 <a name="hello"></a>
 <h2>Let's try it:&nbsp; Hello World!</h2>
 
-<p>Let's create a simple controller so you can see it in action.  Using your text editor, create a file called <dfn>blog.php</dfn>, and put the following code in it:</p>
+<p>Let's create a simple controller so you can see it in action.  Using your text editor，create a file called <dfn>blog.php</dfn>，and put the following code in it:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -114,9 +114,9 @@ class Blog extends Controller {
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<p>If you did it right, you should see <samp>Hello World!</samp>.</p>
+<p>If you did it right，you should see <samp>Hello World!</samp>.</p>
 
-<p>注意: Class names must start with an uppercase letter.  In other words, this is valid:</p>
+<p>注意: Class names must start with an uppercase letter.  In other words，this is valid:</p>
 
 <code>&lt;?php<br />
 class <var>Blog</var> extends Controller {<br />
@@ -132,7 +132,7 @@ class <var>blog</var> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>Also, always make sure your controller <dfn>extends</dfn> the parent controller class so that it can inherit all its functions.</p>
+<p>Also，always make sure your controller <dfn>extends</dfn> the parent controller class so that it can inherit all its functions.</p>
 
 
 
@@ -177,7 +177,7 @@ class Blog extends Controller {
 
 <p>If your URI contains more then two segments they will be passed to your function as parameters.</p>
 
-<p>For example, lets say you have a URI like this:</p>
+<p>For example，lets say you have a URI like this:</p>
 
 <code>example.com/index.php/<var>products</var>/<samp>shoes</samp>/<kbd>sandals</kbd>/<dfn>123</dfn></code>
 
@@ -187,7 +187,7 @@ class Blog extends Controller {
 &lt;?php<br />
 class Products extends Controller {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function shoes($sandals, $id)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function shoes($sandals，$id)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $sandals;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $id;<br />
@@ -196,7 +196,7 @@ class Products extends Controller {<br />
 ?&gt;
 </code>
 
-<p class="important"><strong>非常重要::</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature, the segments
+<p class="important"><strong>非常重要::</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature，the segments
 passed to your function will be the re-routed ones.</p>
 
 
@@ -204,7 +204,7 @@ passed to your function will be the re-routed ones.</p>
 <h2>定義預設的控制器</h2>
 
 <p>CodeIgniter can be told to load a default controller when a URI is not present,
-as will be the case when only your site root URL is requested.  To specify a default controller, open
+as will be the case when only your site root URL is requested.  To specify a default controller，open
 your <dfn>application/config/routes.php</dfn> file and set this variable:</p>
 
 <code>$route['default_controller'] = '<var>Blog</var>';</code>
@@ -217,7 +217,7 @@ specifying any URI segments you'll see your Hello World message by default.</p>
 <a name="remapping"></a>
 <h2>重新對應函數呼叫</h2>
 
-<p>As noted above, the second segment of the URI typically determines which function in the controller gets called.
+<p>As noted above，the second segment of the URI typically determines which function in the controller gets called.
 CodeIgniter permits you to override this behavior through the use of the <kbd>_remap()</kbd> function:</p>
 
 <code>function _remap()<br />
@@ -225,7 +225,7 @@ CodeIgniter permits you to override this behavior through the use of the <kbd>_r
 &nbsp;&nbsp;&nbsp;&nbsp;// Some code here...<br />
 }</code>
 
-<p class="important"><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>, it will <strong>always</strong>
+<p class="important"><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>，it will <strong>always</strong>
 get called regardless of what your URI contains.  It overrides the normal behavior in which the URI determines which function is called,
 allowing you to define your own function routing rules.</p>
 
@@ -251,11 +251,11 @@ allowing you to define your own function routing rules.</p>
 <h2>輸出處理</h2>
 
 <p>CodeIgniter has an output class that takes care of sending your final rendered data to the web browser automatically.  More information on this can be found in the
-<a href="views.html">Views</a> and <a href="../libraries/output.html">Output class</a> pages.  In some cases, however, you might want to
+<a href="views.html">Views</a> and <a href="../libraries/output.html">Output class</a> pages.  In some cases，however，you might want to
 post-process the finalized data in some way and send it to the browser yourself.  CodeIgniter permits you to
 add a function named <dfn>_output()</dfn> to your controller that will receive the finalized output data.</p>
 
-<p><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong>
+<p><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>，it will <strong>always</strong>
 be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.</p>
 
 <p>Here is an example:</p>
@@ -267,17 +267,17 @@ function _output($output)<br />
 }</code>
 
 <p class="important">Please note that your <dfn>_output()</dfn> function will receive the data in its finalized state.  Benchmark and memory usage data will be rendered,
-cache files written (if you have caching enabled), and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
+cache files written (if you have caching enabled)，and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
 before it is handed off to the _output() function.  If you are using this feature the page execution timer and memory usage stats might not be perfectly accurate
-since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done, please see
+since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done，please see
 the available methods in the <a href="../libraries/output.html">Output Class</a>.</p>
 
 <a name="private"></a>
 <h2>私有函數</h2>
 
 
-<p>In some cases you may want certain functions hidden from public access.  To make a function private, simply add an
-underscore as the name prefix and it will not be served via a URL request. For example, if you were to have a function like this:</p>
+<p>In some cases you may want certain functions hidden from public access.  To make a function private，simply add an
+underscore as the name prefix and it will not be served via a URL request. For example，if you were to have a function like this:</p>
 
 <code>
 function _utility()<br />
@@ -285,7 +285,7 @@ function _utility()<br />
 &nbsp;&nbsp;// some code<br />
 }</code>
 
-<p>Trying to access it via the URL, like this, will not work:</p>
+<p>Trying to access it via the URL，like this，will not work:</p>
 
 <code>example.com/index.php/<var>blog</var>/<samp>_utility</samp>/</code>
 
@@ -298,7 +298,7 @@ function _utility()<br />
 
 <p>Simply create folders within your <dfn>application/controllers</dfn> directory and place your controller classes within them.</p>
 
-<p><strong>注意:</strong>&nbsp; When using this feature the first segment of your URI must specify the folder.  For example, lets say you have a controller
+<p><strong>注意:</strong>&nbsp; When using this feature the first segment of your URI must specify the folder.  For example，lets say you have a controller
 located here:</p>
 
 <code>application/controllers/<kbd>products</kbd>/shoes.php</code>
@@ -318,14 +318,14 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 <h2><a name="constructors"></a>Class Constructors</h2>
 
 
-<p>If you intend to use a constructor in any of your Controllers, you <strong>MUST</strong> place the following line of code in it:</p>
+<p>If you intend to use a constructor in any of your Controllers，you <strong>MUST</strong> place the following line of code in it:</p>
 
 <code>parent::Controller();</code>
 
 <p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
 
 
-<p>If you are not familiar with constructors, in PHP 4, a <em>constructor</em> is simply a function that has the exact same name as the class:</p>
+<p>If you are not familiar with constructors，in PHP 4，a <em>constructor</em> is simply a function that has the exact same name as the class:</p>
 
 <code>
 &lt;?php<br />
@@ -338,7 +338,7 @@ class <kbd>Blog</kbd> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>In PHP 5, constructors use the following syntax:</p>
+<p>In PHP 5，constructors use the following syntax:</p>
 
 <code>
 &lt;?php<br />
@@ -351,19 +351,19 @@ class <kbd>Blog</kbd> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>Constructors are useful if you need to set some default values, or run a default process when your class is instantiated.
-Constructors can't return a value, but they can do some default work.</p>
+<p>Constructors are useful if you need to set some default values，or run a default process when your class is instantiated.
+Constructors can't return a value，but they can do some default work.</p>
 
 <a name="reserved"></a>
 <h2>保留函數名稱</h2>
 
 <p>Since your controller classes will extend the main application controller you
-must be careful not to name your functions identically to the ones used by that class, otherwise your local functions
+must be careful not to name your functions identically to the ones used by that class，otherwise your local functions
 will override them. See <a href="reserved_names.html">保留字</a> for a full list.</p>
 
 <h2>That's it!</h2>
 
-<p>That, in a nutshell, is all there is to know about controllers.</p>
+<p>That，in a nutshell，is all there is to know about controllers.</p>
 
 
 
@@ -378,7 +378,7 @@ will override them. See <a href="reserved_names.html">保留字</a> for a full l
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="reserved_names.html">保留字</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

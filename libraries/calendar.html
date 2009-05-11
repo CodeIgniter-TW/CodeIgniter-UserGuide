@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Calendaring Class : CodeIgniter 使用手冊</title>
+<title>Calendaring 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Calendaring Class
+Calendaring 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,17 +58,17 @@ Calendaring Class
 
 
 
-<h1>Calendaring Class</h1>
+<h1>Calendaring 類別</h1>
 
 <p>The Calendar class enables you to dynamically create calendars. Your calendars can be formatted through the use of a calendar
-template, allowing 100% control over every aspect of its design. In addition, you can pass data to your calendar cells.</p>
+template，allowing 100% control over every aspect of its design. In addition，you can pass data to your calendar cells.</p>
 
 <h2>Initializing the Class</h2>
 
-<p>Like most other classes in CodeIgniter, the Calendar class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the Calendar class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('calendar');</code>
-<p>Once loaded, the Calendar object will be available using: <dfn>$this->calendar</dfn></p>
+<p>Once loaded，the Calendar object will be available using: <dfn>$this->calendar</dfn></p>
 
 
 <h2>Displaying a Calendar</h2>
@@ -84,9 +84,9 @@ To show a calendar for a specific month and year you will pass this information 
 
 <code>$this->load->library('calendar');<br />
 <br />
-echo $this->calendar->generate(<kbd>2006</kbd>, <kbd>6</kbd>);</code>
+echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
 
-<p>The above code will generate a calendar showing the month of June in 2006.  The first parameter specifies the year, the second parameter specifies the month.</p>
+<p>The above code will generate a calendar showing the month of June in 2006.  The first parameter specifies the year，the second parameter specifies the month.</p>
 
 <h2>Passing Data to your Calendar Cells</h2>
 
@@ -103,9 +103,9 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 => 'http://example.com/news/article/2006/26/'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-echo $this->calendar->generate(<kbd>2006</kbd>, <kbd>6</kbd>, <var>$data</var>);</code>
+echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>，<var>$data</var>);</code>
 
-<p>使用 above example, day numbers 3, 7, 13, and 26 will become links pointing to the URLs you've provided.</p>
+<p>使用 above example，day numbers 3，7，13，and 26 will become links pointing to the URLs you've provided.</p>
 
 <p class="important"><strong>注意:</strong> By default it is assumed that your array will contain links.
 In the section that explains the calendar template below you'll see how you can customize
@@ -125,11 +125,11 @@ $prefs = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'day_type'&nbsp;&nbsp;&nbsp;&nbsp; => 'short'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->load->library('calendar', $prefs);<br />
+$this->load->library('calendar'，$prefs);<br />
 <br />
 echo $this->calendar->generate();</code>
 
-<p>The above code would start the calendar on saturday, use the "long" month heading, and the "short" day names.  More information
+<p>The above code would start the calendar on saturday，use the "long" month heading，and the "short" day names.  More information
 regarding preferences below.</p>
 
 
@@ -146,11 +146,11 @@ regarding preferences below.</p>
 </tr><tr>
 <td class="td"><strong>local_time</strong></td><td class="td">time()</td><td class="td">None</td><td class="td">A Unix timestamp corresponding to the current time.</td>
 </tr><tr>
-<td class="td"><strong>start_day</strong></td><td class="td">sunday</td><td class="td">Any week day (sunday, monday, tuesday, etc.)</td><td class="td">Sets the day of the week the calendar should start on.</td>
+<td class="td"><strong>start_day</strong></td><td class="td">sunday</td><td class="td">Any week day (sunday，monday，tuesday，etc.)</td><td class="td">Sets the day of the week the calendar should start on.</td>
 </tr><tr>
-<td class="td"><strong>month_type</strong></td><td class="td">long</td><td class="td">long, short</td><td class="td">Determines what version of the month name to use in the header. long = January, short = Jan.</td>
+<td class="td"><strong>month_type</strong></td><td class="td">long</td><td class="td">long，short</td><td class="td">Determines what version of the month name to use in the header. long = January，short = Jan.</td>
 </tr><tr>
-<td class="td"><strong>day_type</strong></td><td class="td">abr</td><td class="td">long, short, abr</td><td class="td">Determines what version of the weekday names to use in the column headers. long = Sunday, short = Sun, abr = Su.</td>
+<td class="td"><strong>day_type</strong></td><td class="td">abr</td><td class="td">long，short，abr</td><td class="td">Determines what version of the weekday names to use in the column headers. long = Sunday，short = Sun，abr = Su.</td>
 </tr><tr>
 <td class="td"><strong>show_next_prev</strong></td><td class="td">FALSE</td><td class="td">TRUE/FALSE (boolean)</td><td class="td">Determines whether to display links allowing you to toggle to next/previous months. See information on this feature below.</td>
 </tr><tr>
@@ -171,9 +171,9 @@ code similar to this example:</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'next_prev_url'&nbsp;&nbsp; => 'http://example.com/index.php/calendar/show/'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this-&gt;load-&gt;library('calendar', $prefs);<br />
+$this-&gt;load-&gt;library('calendar'，$prefs);<br />
 <br />
-echo $this->calendar->generate(<var>$this->uri->segment(3)</var>, <var>$this->uri->segment(4)</var>);</code>
+echo $this->calendar->generate(<var>$this->uri->segment(3)</var>，<var>$this->uri->segment(4)</var>);</code>
 
 <p>You'll notice a few things about the above example:</p>
 
@@ -224,7 +224,7 @@ $prefs['template'] = '<br /><br />
 &nbsp;&nbsp;&nbsp;<dfn>{table_close}</dfn><var>&lt;/table></var><dfn>{/table_close}</dfn><br />
 ';<br />
 <br />
-$this->load->library('calendar', $prefs);<br />
+$this->load->library('calendar'，$prefs);<br />
 <br />
 echo $this->calendar->generate();</code>
 
@@ -236,13 +236,13 @@ echo $this->calendar->generate();</code>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="benchmark.html">Benchmarking Class</a>
+上個主題:&nbsp;&nbsp;<a href="benchmark.html">Benchmarking 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="config.html">Config Class</a>
+下個主題:&nbsp;&nbsp;<a href="config.html">Config 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

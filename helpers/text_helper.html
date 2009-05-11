@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Text Helper : CodeIgniter 使用手冊</title>
+<title>Text 補助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Text Helper
+Text 補助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,12 +56,12 @@ Text Helper
 <div id="content">
 
 
-<h1>Text Helper</h1>
+<h1>Text 補助函數</h1>
 
-<p>The Text Helper file contains functions that assist in working with text.</p>
+<p>The Text 補助函數 file contains functions that assist in working with text.</p>
 
 
-<h2>載入 Helper</h2>
+<h2>載入 補助函數</h2>
 
 <p>This helper is loaded using the following code:</p>
 <code>$this->load->helper('text');</code>
@@ -76,7 +76,7 @@ Text Helper
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
 <br />
-$string = word_limiter($string, 4);<br /><br />
+$string = word_limiter($string，4);<br /><br />
 
 // Returns:  Here is a nice&#8230;
 </code>
@@ -92,20 +92,20 @@ of words so the character count may be slightly more or less then what you speci
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
 <br />
-$string = character_limiter($string, 20);<br /><br />
+$string = character_limiter($string，20);<br /><br />
 
 // Returns:  Here is a nice text string&#8230;
 </code>
 
-<p>The third parameter is an optional suffix added to the string, if undeclared this helper uses an ellipsis.</p>
+<p>The third parameter is an optional suffix added to the string，if undeclared this helper uses an ellipsis.</p>
 
 
 
 <h2>ascii_to_entities()</h2>
 
-<p>Converts ASCII values to character entities, including high ASCII and MS Word characters that can cause problems when used in a web page,
+<p>Converts ASCII values to character entities，including high ASCII and MS Word characters that can cause problems when used in a web page,
 so that they can be shown consistently regardless of browser settings or stored reliably in a database.
-There is some dependence on your server's supported character sets, so it may not be 100% reliable in all cases, but for the most
+There is some dependence on your server's supported character sets，so it may not be 100% reliable in all cases，but for the most
 part it should correctly identify characters outside the normal range (like accented characters). Example:</p>
 
 <code>$string = ascii_to_entities($string);</code>
@@ -123,30 +123,30 @@ second will contain an array of words which you disallow.  The third (optional) 
 for the words.  If not specified they are replaced with pound signs: ####.  Example:</p>
 
 <code>
-$disallowed = array('darn', 'shucks', 'golly', 'phooey');<br />
+$disallowed = array('darn'，'shucks'，'golly'，'phooey');<br />
 <br />
-$string = word_censor($string, $disallowed, 'Beep!');</code>
+$string = word_censor($string，$disallowed，'Beep!');</code>
 
 
 <h2>highlight_code()</h2>
 
-<p>Colorizes a string of code (PHP, HTML, etc.).  Example:</p>
+<p>Colorizes a string of code (PHP，HTML，etc.).  Example:</p>
 
 <code>$string = highlight_code($string);</code>
 
-<p>The function uses PHP's highlight_string() function, so the colors used are the ones specified in your php.ini file.</p>
+<p>The function uses PHP's highlight_string() function，so the colors used are the ones specified in your php.ini file.</p>
 
 
 <h2>highlight_phrase()</h2>
 
-<p>Will highlight a phrase within a text string.  The first parameter will contain the original string, the second will
+<p>Will highlight a phrase within a text string.  The first parameter will contain the original string，the second will
 contain the phrase you wish to highlight.  The third and fourth parameters will contain the opening/closing HTML tags
 you would like the phrase wrapped in.  Example:</p>
 
 <code>
 $string = "Here is a nice text string about nothing in particular.";<br />
 <br />
-$string = highlight_phrase($string, "nice text", '&lt;span style="color:#990000">', '&lt;/span>');
+$string = highlight_phrase($string，"nice text"，'&lt;span style="color:#990000">'，'&lt;/span>');
 </code>
 
 <p>The above text returns:</p>
@@ -161,7 +161,7 @@ $string = highlight_phrase($string, "nice text", '&lt;span style="color:#990000"
 
 <code>$string = "Here is a simple string of text that will help us demonstrate this function.";<br />
 <br />
-echo word_wrap($string, 25);<br />
+echo word_wrap($string，25);<br />
 <br />
 // Would produce:<br />
 <br />
@@ -179,13 +179,13 @@ function</code>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="string_helper.html">String Helper</a>
+上個主題:&nbsp;&nbsp;<a href="string_helper.html">String 補助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="typography_helper.html">Typography Helper</a>
+下個主題:&nbsp;&nbsp;<a href="typography_helper.html">Typography 補助函數</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

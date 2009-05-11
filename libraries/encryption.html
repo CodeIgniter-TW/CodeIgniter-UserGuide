@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Encryption Class : CodeIgniter 使用手冊</title>
+<title>Encryption 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Encryption Class
+Encryption 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,54 +56,54 @@ Encryption Class
 <div id="content">
 
 
-<h1>Encryption Class</h1>
+<h1>Encryption 類別</h1>
 
-<p>The Encryption Class provides two-way data encryption.  It uses a scheme that pre-compiles
-the message using a randomly hashed bitwise XOR encoding scheme, which is then encrypted using
+<p>The Encryption 類別 provides two-way data encryption.  It uses a scheme that pre-compiles
+the message using a randomly hashed bitwise XOR encoding scheme，which is then encrypted using
 the Mcrypt library.  If Mcrypt is not available on your server the encoded message will
 still provide a reasonable degree of security for encrypted sessions or other such "light" purposes.
-If Mcrypt is available, you'll effectively end up with a double-encrypted message string, which should
+If Mcrypt is available，you'll effectively end up with a double-encrypted message string，which should
 provide a very high degree of security.</p>
 
 
 <h2>Setting your Key</h2>
 
 <p>A <em>key</em> is a piece of information that controls the cryptographic process and permits an encrypted string to be decoded.
-In fact, the key you chose will provide the <strong>only</strong> means to decode data that was encrypted with that key,
-so not only must you choose the key carefully, you must never change it if you intend use it for persistent data.</p>
+In fact，the key you chose will provide the <strong>only</strong> means to decode data that was encrypted with that key,
+so not only must you choose the key carefully，you must never change it if you intend use it for persistent data.</p>
 
 <p>It goes without saying that you should guard your key carefully.
-Should someone gain access to your key, the data will be easily decoded.  If your server is not totally under your control
+Should someone gain access to your key，the data will be easily decoded.  If your server is not totally under your control
 it's impossible to ensure key security so you may want to think carefully before using it for anything
-that requires high security, like storing credit card numbers.</p>
+that requires high security，like storing credit card numbers.</p>
 
-<p>To take maximum advantage of the encryption algorithm, your key should be 32 characters in length (128 bits).
-The key should be as random a string as you can concoct, with numbers and uppercase and lowercase letters.
+<p>To take maximum advantage of the encryption algorithm，your key should be 32 characters in length (128 bits).
+The key should be as random a string as you can concoct，with numbers and uppercase and lowercase letters.
 Your key should <strong>not</strong> be a simple text string. In order to be cryptographically secure it
 needs to be as random as possible.</p>
 
-<p>Your key can be either stored in your <dfn>application/config/config.php</dfn>, or you can design your own
+<p>Your key can be either stored in your <dfn>application/config/config.php</dfn>，or you can design your own
 storage mechanism and pass the key dynamically when encoding/decoding.</p>
 
-<p>To save your key to your <dfn>application/config/config.php</dfn>, open the file and set:</p>
+<p>To save your key to your <dfn>application/config/config.php</dfn>，open the file and set:</p>
 <code>$config['encryption_key'] = "YOUR KEY";</code>
 
 
 <h2>Message Length</h2>
 
 <p>It's important for you to know that the encoded messages the encryption function generates will be approximately 2.6 times longer than the original
-message.  For example, if you encrypt the string "my super secret data", which is 21 characters in length, you'll end up
+message.  For example，if you encrypt the string "my super secret data"，which is 21 characters in length，you'll end up
 with an encoded string that is roughly 55 characters (we say "roughly" because the encoded string length increments in
-64 bit clusters, so it's not exactly linear).  Keep this information in mind when selecting your data storage mechanism.  Cookies,
-for example, can only hold 4K of information.</p>
+64 bit clusters，so it's not exactly linear).  Keep this information in mind when selecting your data storage mechanism.  Cookies,
+for example，can only hold 4K of information.</p>
 
 
 <h2>Initializing the Class</h2>
 
-<p>Like most other classes in CodeIgniter, the Encryption class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the Encryption class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('encrypt');</code>
-<p>Once loaded, the Encrypt library object will be available using: <dfn>$this->encrypt</dfn></p>
+<p>Once loaded，the Encrypt library object will be available using: <dfn>$this->encrypt</dfn></p>
 
 
 <h2>$this->encrypt->encode()</h2>
@@ -120,7 +120,7 @@ $encrypted_string = $this->encrypt->encode($msg);</code>
 $msg = 'My secret message';<br />
 $key = 'super-secret-key';<br />
 <br />
-$encrypted_string = $this->encrypt->encode($msg, $key);</code>
+$encrypted_string = $this->encrypt->encode($msg，$key);</code>
 
 
 <h2>$this->encrypt->decode()</h2>
@@ -151,7 +151,7 @@ $plaintext_string = $this->encrypt->decode($encrypted_string);</code>
 
 
 <h2>$this->encrypt->sha1();</h2>
-<p>SHA1 encoding function.  Provide a string and it will return a 160 bit one way hash.  注意:  SHA1, just like MD5 is non-decodable. Example:</p>
+<p>SHA1 encoding function.  Provide a string and it will return a 160 bit one way hash.  注意:  SHA1，just like MD5 is non-decodable. Example:</p>
 <code>$hash = $this->encrypt->sha1('Some string');</code>
 
 <p>Many PHP installations have SHA1 support by default so if all you need is to encode a hash it's simpler to use the native
@@ -169,13 +169,13 @@ function:</p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="email.html">Email Class</a>
+上個主題:&nbsp;&nbsp;<a href="email.html">Email 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading Class</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

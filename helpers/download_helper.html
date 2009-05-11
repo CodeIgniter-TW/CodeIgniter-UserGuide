@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Download Helper : CodeIgniter 使用手冊</title>
+<title>Download 補助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -41,11 +41,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Download Helper
+Download 補助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,29 +57,29 @@ Download Helper
 <div id="content">
 
 
-<h1>Download Helper</h1>
+<h1>Download 補助函數</h1>
 
-<p>The Download Helper lets you download data to your desktop.</p>
+<p>The Download 補助函數 lets you download data to your desktop.</p>
 
 
-<h2>載入 Helper</h2>
+<h2>載入 補助函數</h2>
 
 <p>This helper is loaded using the following code:</p>
 <code>$this->load->helper('download');</code>
 
 <p>The following functions are available:</p>
 
-<h2>force_download('<var>filename</var>', '<var>data</var>')</h2>
+<h2>force_download('<var>filename</var>'，'<var>data</var>')</h2>
 
 <p>Generates server headers which force data to be downloaded to your desktop. Useful with file downloads.
-The first parameter is the <strong>name you want the downloaded file to be named</strong>, the second parameter is the file data.
+The first parameter is the <strong>name you want the downloaded file to be named</strong>，the second parameter is the file data.
 Example:</p>
 
 <code>
 $data = 'Here is some text!';<br />
 $name = 'mytext.txt';<br />
 <br />
-force_download($name, $data);
+force_download($name，$data);
 </code>
 
 <p>If you want to download an existing file from your server you'll need to read the file into a string:</p>
@@ -88,7 +88,7 @@ force_download($name, $data);
 $data = file_get_contents("/path/to/photo.jpg"); // Read the file's contents<br />
 $name = 'myphoto.jpg';<br />
 <br />
-force_download($name, $data);
+force_download($name，$data);
 </code>
 
 
@@ -100,12 +100,12 @@ force_download($name, $data);
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="directory_helper.html">Directory Helper</a>
+上個主題:&nbsp;&nbsp;<a href="directory_helper.html">Directory 補助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="email_helper.html">Email Helper</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+下個主題:&nbsp;&nbsp;<a href="email_helper.html">Email 補助函數</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

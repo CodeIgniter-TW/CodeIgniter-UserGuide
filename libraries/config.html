@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Config Class : CodeIgniter 使用手冊</title>
+<title>Config 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Config Class
+Config 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,9 +56,9 @@ Config Class
 <div id="content">
 
 
-<h1>Config Class</h1>
+<h1>Config 類別</h1>
 
-<p>The Config class provides a means to retrieve configuration preferences.  These preferences can
+<p>The Config 類別 provides a means to retrieve configuration preferences.  These preferences can
 come from the default config file (<samp>application/config/config.php</samp>) or from your own custom config files.</p>
 
 <p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
@@ -66,14 +66,14 @@ come from the default config file (<samp>application/config/config.php</samp>) o
 
 <h2>Anatomy of a Config File</h2>
 
-<p>By default, CodeIgniter has a one primary config file, located at <samp>application/config/config.php</samp>.  If you open the file using
+<p>By default，CodeIgniter has a one primary config file，located at <samp>application/config/config.php</samp>.  If you open the file using
 your text editor you'll see that config items are stored in an array called <var>$config</var>.</p>
 
 <p>You can add your own config items to
-this file, or if you prefer to keep your configuration items separate (assuming you even need config items),
+this file，or if you prefer to keep your configuration items separate (assuming you even need config items),
 simply create your own file and save it in <dfn>config</dfn> folder.</p>
 
-<p><strong>注意:</strong> If you do create your own config files use the same format as the primary one, storing your items in
+<p><strong>注意:</strong> If you do create your own config files use the same format as the primary one，storing your items in
 an array called  <var>$config</var>. CodeIgniter will intelligently manage these files so there will be no conflict even though
 the array has the same name (assuming an array index is not named the same as another).</p>
 
@@ -90,27 +90,27 @@ so you will only need to load a config file if you have created your own.</p>
 
 <code>$this->config->load('<var>filename</var>');</code>
 
-<p>Where <var>filename</var> is the name of your config file, without the .php file extension.</p>
+<p>Where <var>filename</var> is the name of your config file，without the .php file extension.</p>
 
-<p>If you need to load multiple config files normally they will be merged into one master config array.  Name collisions can occur, however, if
+<p>If you need to load multiple config files normally they will be merged into one master config array.  Name collisions can occur，however，if
 you have identically named array indexes in different config files.  To avoid collisions you can set the second parameter to <kbd>TRUE</kbd>
 and each config file will be stored in an array index corresponding to the name of the config file. Example:</p>
 
 <code>
 // Stored in an array with this prototype:  $this->config['blog_settings'] = $config<br />
-$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);</code>
+$this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);</code>
 
 <p>Please see the section entitled <dfn>Fetching Config Items</dfn> below to learn how to retrieve config items set this way.</p>
 
 <p>The third parameter allows you to suppress errors in the event that a config file does not exist:</p>
 
-<code>$this->config->load('<var>blog_settings</var>', <dfn>FALSE</dfn>, <kbd>TRUE</kbd>);</code>
+<code>$this->config->load('<var>blog_settings</var>'，<dfn>FALSE</dfn>，<kbd>TRUE</kbd>);</code>
 
 </li>
 <li><strong>Auto-loading</strong>
 
-<p>If you find that you need a particular config file globally, you can have it loaded automatically by the system.  To do this,
-open the <strong>autoload.php</strong> file, located at <samp>application/config/autoload.php</samp>, and add your config file as
+<p>If you find that you need a particular config file globally，you can have it loaded automatically by the system.  To do this,
+open the <strong>autoload.php</strong> file，located at <samp>application/config/autoload.php</samp>，and add your config file as
 indicated in the file.</p>
 </li>
 </ol>
@@ -118,11 +118,11 @@ indicated in the file.</p>
 
 <h2>Fetching Config Items</h2>
 
-<p>To retrieve an item from your config file, use the following function:</p>
+<p>To retrieve an item from your config file，use the following function:</p>
 
 <code>$this->config->item('<var>item name</var>');</code>
 
-<p>Where <var>item name</var> is the $config array index you want to retrieve. For example, to fetch your language choice you'll do this:</p>
+<p>Where <var>item name</var> is the $config array index you want to retrieve. For example，to fetch your language choice you'll do this:</p>
 
 <code>$lang = $this->config->item('language');</code>
 
@@ -133,10 +133,10 @@ you can retrieve it by specifying the index name in the second parameter of the 
 
 <code>
 // Loads a config file named blog_settings.php and assigns it to an index named "blog_settings"<br />
-$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);<br /><br />
+$this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);<br /><br />
 
 // Retrieve a config item named site_name contained within the blog_settings array<br />
-$site_name = $this->config->item('<dfn>site_name</dfn>', '<var>blog_settings</var>');<br /><br />
+$site_name = $this->config->item('<dfn>site_name</dfn>'，'<var>blog_settings</var>');<br /><br />
 
 // An alternate way to specify the same item:<br />
 $blog_config = $this->config->item('<var>blog_settings</var>');<br />
@@ -144,19 +144,19 @@ $site_name = $blog_config['site_name'];</code>
 
 <h2>Setting a Config Item</h2>
 
-<p>If you would like to dynamically set a config item or change an existing one, you can so using:</p>
+<p>If you would like to dynamically set a config item or change an existing one，you can so using:</p>
 
-<code>$this->config->set_item('<var>item_name</var>', '<var>item_value</var>');</code>
+<code>$this->config->set_item('<var>item_name</var>'，'<var>item_value</var>');</code>
 
-<p>Where <var>item_name</var> is the $config array index you want to change, and <var>item_value</var> is its value.</p>
+<p>Where <var>item_name</var> is the $config array index you want to change，and <var>item_value</var> is its value.</p>
 
 
-<h2>Helper Functions</h2>
+<h2>補助函數 Functions</h2>
 
-<p>The config class has the following helper functions:</p>
+<p>The config class has the following 補助函數:</p>
 
 <h2>$this->config->site_url();</h2>
-<p>This function retrieves the URL to your site, along with the "index" value you've specified in the config file.</p>
+<p>This function retrieves the URL to your site，along with the "index" value you've specified in the config file.</p>
 
 <h2>$this->config->system_url();</h2>
 <p>This function retrieves the URL to your <dfn>system folder</dfn>.</p>
@@ -168,13 +168,13 @@ $site_name = $blog_config['site_name'];</code>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="calendar.html">Calendaring Class</a>
+上個主題:&nbsp;&nbsp;<a href="calendar.html">Calendaring 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="../database/index.html">Database Class</a>
+下個主題:&nbsp;&nbsp;<a href="../database/index.html">Database 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

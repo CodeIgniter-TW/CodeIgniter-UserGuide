@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Creating Core System Classes : CodeIgniter 使用手冊</title>
+<title>新增系統核心類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Creating Core System Classes
+新增系統核心類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,20 +55,20 @@ Creating Core System Classes
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Creating Core System Classes</h1>
+<h1>新增系統核心類別</h1>
 
 <p>Every time CodeIgniter runs there are several base classes that are initialized automatically as part of the core framework.
-It is possible, however, to swap any of the core system classes with your own versions or even extend the core versions.</p>
+It is possible，however，to swap any of the core system classes with your own versions or even extend the core versions.</p>
 
 <p><strong>Most users will never have any need to do this,
 but the option to replace or extend them does exist for those who would like to significantly alter the CodeIgniter core.</strong>
 </p>
 
-<p class="important"><strong>注意:</strong>&nbsp; Messing with a core system class has a lot of implications, so make sure you
+<p class="important"><strong>注意:</strong>&nbsp; Messing with a core system class has a lot of implications，so make sure you
 know what you are doing before attempting it.</p>
 
 
-<h2>System Class List</h2>
+<h2>系統類別列表</h2>
 
 <p>The following is a list of the core system files that are invoked every time CodeIgniter runs:</p>
 
@@ -87,7 +87,7 @@ know what you are doing before attempting it.</p>
 <li>URI</li>
 </ul>
 
-<h2>Replacing Core Classes</h2>
+<h2>更換核心類別</h2>
 
 <p>To use one of your own system classes instead of a default one simply place your version inside your local <dfn>application/libraries</dfn> directory:</p>
 
@@ -97,7 +97,7 @@ know what you are doing before attempting it.</p>
 
 <p>Any file named identically to one from the list above will be used instead of the one normally used.</p>
 
-<p>Please note that your class must use <kbd>CI</kbd> as a prefix. For example, if your file is named <kbd>Input.php</kbd> the class will be named:</p>
+<p>Please note that your class must use <kbd>CI</kbd> as a prefix. For example，if your file is named <kbd>Input.php</kbd> the class will be named:</p>
 
 <code>
 class CI_Input {<br /><br />
@@ -107,7 +107,7 @@ class CI_Input {<br /><br />
 
 
 
-<h2>Extending Core Class</h2>
+<h2>擴充核心類別</h2>
 
 <p>If all you need to do is add some functionality to an existing library - perhaps add a function or two - then
 it's overkill to replace the entire library with your version.  In this case it's better to simply extend the class.
@@ -118,7 +118,7 @@ Extending a class is nearly identical to replacing a class with a couple excepti
 <li>Your new class name and filename must be prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</li>
 </ul>
 
-<p>For example, to extend the native <kbd>Input</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Input.php</kbd>, and declare your class with:</p>
+<p>For example，to extend the native <kbd>Input</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Input.php</kbd>，and declare your class with:</p>
 
 <code>
 class MY_Input extends CI_Input {<br /><br />
@@ -140,7 +140,7 @@ class MY_Input extends CI_Input {<br />
 (this is known as "method overriding").
 This allows you to substantially alter the CodeIgniter core.</p>
 
-<p>If you are extending the Controller core class, then be sure to extend your new class in your application controller's constructors.</p>
+<p>If you are extending the Controller core class，then be sure to extend your new class in your application controller's constructors.</p>
 
 <code>class Welcome extends MY_Controller {<br />
 <br />
@@ -155,9 +155,9 @@ This allows you to substantially alter the CodeIgniter core.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
-<h3>Setting Your Own Prefix</h3>
+<h3>自訂子類別的前置字串</h3>
 
-<p>To set your own sub-class prefix, open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>To set your own sub-class prefix，open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
@@ -178,7 +178,7 @@ This allows you to substantially alter the CodeIgniter core.</p>
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="hooks.html">Hooks - Extending the Core</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

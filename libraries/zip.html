@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Zip Encoding Class
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -62,21 +62,21 @@ desktop or saved to a directory.</p>
 
 
 <h2>Initializing the Class</h2>
-<p>Like most other classes in CodeIgniter, the Zip class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the Zip class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('zip');</code>
-<p>Once loaded, the Zip library object will be available using: <dfn>$this->zip</dfn></p>
+<p>Once loaded，the Zip library object will be available using: <dfn>$this->zip</dfn></p>
 
 
 <h2>Usage Example</h2>
 
-<p>This example demonstrates how to compress a file, save it to a folder on your server, and download it to your desktop.</p>
+<p>This example demonstrates how to compress a file，save it to a folder on your server，and download it to your desktop.</p>
 
 <code>
 $name = 'mydata1.txt';<br />
 $data = 'A Data String!';<br />
 <br />
-$this->zip->add_data($name, $data);<br />
+$this->zip->add_data($name，$data);<br />
 <br />
 // Write the zip file to a folder on your server. Name it "my_backup.zip"<br />
 $this->zip->archive('/path/to/directory/my_backup.zip');
@@ -90,13 +90,13 @@ $this->zip->download('my_backup.zip');
 <h2>$this->zip->add_data()</h2>
 
 <p>Permits you to add data to the Zip archive. The first parameter must contain the name you would like
-given to the file, the second parameter must contain the file data as a string:</p>
+given to the file，the second parameter must contain the file data as a string:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);
+$this->zip->add_data($name，$data);
 </code>
 
 <p>You are allowed multiple calls to this function in order to
@@ -105,11 +105,11 @@ add several files to your archive.  Example:</p>
 <code>
 $name = 'mydata1.txt';<br />
 $data = 'A Data String!';<br />
-$this->zip->add_data($name, $data);<br />
+$this->zip->add_data($name，$data);<br />
 <br />
 $name = 'mydata2.txt';<br />
 $data = 'Another Data String!';<br />
-$this->zip->add_data($name, $data);<br />
+$this->zip->add_data($name，$data);<br />
 </code>
 
 <p>Or you can pass multiple files using an array:</p>
@@ -125,13 +125,13 @@ $this->zip->add_data($data);<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>If you would like your compressed data organized into sub-folders, include the path as part of the filename:</p>
+<p>If you would like your compressed data organized into sub-folders，include the path as part of the filename:</p>
 
 <code>
 $name = '<kbd>personal/</kbd>my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);
+$this->zip->add_data($name，$data);
 </code>
 
 <p>The above example will place <dfn>my_bio.txt</dfn> inside a folder called <kbd>personal</kbd>.</p>
@@ -140,7 +140,7 @@ $this->zip->add_data($name, $data);
 <h2>$this->zip->add_dir()</h2>
 
 <p>Permits you to add a directory.  Usually this function is unnecessary since you can place your data into folders when
-using <dfn>$this->zip->add_data()</dfn>, but if you would like to create an empty folder you can do so.  Example:</p>
+using <dfn>$this->zip->add_data()</dfn>，but if you would like to create an empty folder you can do so.  Example:</p>
 
 <code>$this->zip->add_dir('myfolder'); // Creates a folder called "myfolder"</code>
 
@@ -159,19 +159,19 @@ $this->zip->read_file($path);
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>If you would like the Zip archive to maintain the directory structure of the file in it, pass <kbd>TRUE</kbd> (boolean) in the
+<p>If you would like the Zip archive to maintain the directory structure of the file in it，pass <kbd>TRUE</kbd> (boolean) in the
 second parameter.  Example:</p>
 
 
 <code>
 $path = '/path/to/photo.jpg';<br /><br />
-$this->zip->read_file($path, <kbd>TRUE</kbd>);
+$this->zip->read_file($path，<kbd>TRUE</kbd>);
 <br /><br />
  // Download the file to your desktop.  Name it "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>In the above example, <dfn>photo.jpg</dfn> will be placed inside two folders:  <kbd>path/to/</kbd></p>
+<p>In the above example，<dfn>photo.jpg</dfn> will be placed inside two folders:  <kbd>path/to/</kbd></p>
 
 
 
@@ -179,7 +179,7 @@ $this->zip->download('my_backup.zip');
 
 <p>Permits you to compress a folder (and its contents) that already exists somewhere on your server.  Supply a file path to the 
 directory and the zip class will recursively read it and recreate it as a Zip archive.  All files contained within the
-supplied path will be encoded, as will any sub-folders contained within it.  Example:</p>
+supplied path will be encoded，as will any sub-folders contained within it.  Example:</p>
 
 <code>
 $path = '/path/to/your/directory/';<br /><br />
@@ -220,7 +220,7 @@ Example:</p>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);<br /><br />
+$this->zip->add_data($name，$data);<br /><br />
 
 $zip_file = $this->zip->get_zip();
 </code>
@@ -229,13 +229,13 @@ $zip_file = $this->zip->get_zip();
 <h2>$this->zip->clear_data()</h2>
 
 <p>The Zip class caches your zip data so that it doesn't need to recompile the Zip archive for each function you use above.
-If, however, you need to create multiple Zips, each with different data, you can clear the cache between calls. Example:</p>
+If，however，you need to create multiple Zips，each with different data，you can clear the cache between calls. Example:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);<br />
+$this->zip->add_data($name，$data);<br />
 $zip_file = $this->zip->get_zip();<br />
 <br />
 <kbd>$this->zip->clear_data();</kbd>
@@ -269,9 +269,9 @@ $this->zip->download('myphotos.zip');
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="../helpers/array_helper.html">Array Helper</a>
+下個主題:&nbsp;&nbsp;<a href="../helpers/array_helper.html">Array 補助函數</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

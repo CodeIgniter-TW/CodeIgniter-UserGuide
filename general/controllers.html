@@ -64,11 +64,11 @@ Controllers
 <li><a href="#what">什麼是控制器(Controller)呢?</a></li>
 <li><a href="#hello">Hello World</a></li>
 <li><a href="#functions">Functions</a></li>
-<li><a href="#passinguri">Passing URI Segments to Your Functions</a></li>
-<li><a href="#default">Defining a Default Controller</a></li>
-<li><a href="#remapping">Remapping Function Calls</a></li>
+<li><a href="#passinguri">傳遞 URL 段落到你的函數裡</a></li>
+<li><a href="#default">定義預設的控制器</a></li>
+<li><a href="#remapping">重新對應函數呼叫</a></li>
 <li><a href="#output">控制輸出資料</a></li>
-<li><a href="#private">Private Functions</a></li>
+<li><a href="#private">私有函數</a></li>
 <li><a href="#subfolders">Organizing Controllers into Sub-folders</a></li>
 <li><a href="#constructors">Class Constructors</a></li>
 <li><a href="#reserved">保留函數名稱</a></li>
@@ -173,7 +173,7 @@ class Blog extends Controller {
 <p>You should see your new message.</p>
 
 <a name="passinguri"></a>
-<h2>Passing URI Segments to your Functions</h2>
+<h2>傳遞 URL 段落到你的函數裡</h2>
 
 <p>If your URI contains more then two segments they will be passed to your function as parameters.</p>
 
@@ -201,7 +201,7 @@ passed to your function will be the re-routed ones.</p>
 
 
 <a name="default"></a>
-<h2>Defining a Default Controller</h2>
+<h2>定義預設的控制器</h2>
 
 <p>CodeIgniter can be told to load a default controller when a URI is not present,
 as will be the case when only your site root URL is requested.  To specify a default controller, open
@@ -215,7 +215,7 @@ specifying any URI segments you'll see your Hello World message by default.</p>
 
 
 <a name="remapping"></a>
-<h2>Remapping Function Calls</h2>
+<h2>重新對應函數呼叫</h2>
 
 <p>As noted above, the second segment of the URI typically determines which function in the controller gets called.
 CodeIgniter permits you to override this behavior through the use of the <kbd>_remap()</kbd> function:</p>
@@ -248,7 +248,7 @@ allowing you to define your own function routing rules.</p>
 
 
 <a name="output"></a>
-<h2>Processing Output</h2>
+<h2>輸出處理</h2>
 
 <p>CodeIgniter has an output class that takes care of sending your final rendered data to the web browser automatically.  More information on this can be found in the
 <a href="views.html">Views</a> and <a href="../libraries/output.html">Output class</a> pages.  In some cases, however, you might want to
@@ -273,7 +273,7 @@ since they will not take into acccount any further processing you do.  For an al
 the available methods in the <a href="../libraries/output.html">Output Class</a>.</p>
 
 <a name="private"></a>
-<h2>Private Functions</h2>
+<h2>私有函數</h2>
 
 
 <p>In some cases you may want certain functions hidden from public access.  To make a function private, simply add an
@@ -359,7 +359,7 @@ Constructors can't return a value, but they can do some default work.</p>
 
 <p>Since your controller classes will extend the main application controller you
 must be careful not to name your functions identically to the ones used by that class, otherwise your local functions
-will override them. See <a href="reserved_names.html">保留名稱</a> for a full list.</p>
+will override them. See <a href="reserved_names.html">保留字</a> for a full list.</p>
 
 <h2>That's it!</h2>
 
@@ -377,7 +377,7 @@ will override them. See <a href="reserved_names.html">保留名稱</a> for a ful
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="reserved_names.html">保留名稱</a></p>
+下個主題:&nbsp;&nbsp;<a href="reserved_names.html">保留字</a></p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 

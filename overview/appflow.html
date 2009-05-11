@@ -58,19 +58,18 @@
 
 <h1>程式流程圖</h1>
 
-<p>The following graphic illustrates how data flows throughout the system:</p>
+<p>底下的圖形說明資料如何穿過系統的流程:</p>
 
 <div><img src="../images/appflowchart.gif" width="697" height="205" border="0" alt="CodeIgniter application flow" /></div>
 
 
 <ol>
-<li>The index.php serves as the front controller, initializing the base resources needed to run CodeIgniter.</li>
-<li>The Router examines the HTTP request to determine what should be done with it.</li>
-<li>If a cache file exists, it is sent directly to the browser, bypassing the normal system execution.</li>
-<li>Security.  Before the application controller is loaded, the HTTP request and any user submitted data is filtered for security.</li>
-<li>The Controller loads the model, core libraries, plugins, helpers, and any other resources needed to process the specific request.</li>
-<li>The finalized View is rendered then sent to the web browser to be seen. If caching is enabled, the view is cached first so
-that on subsequent requests it can be served.</li>
+<li>index.php 供做前端的控制器(controller)，載入執行 CodeIgniter 所需的基本的資源。</li>
+<li>Router 檢驗 HTTP request 來決定哪些需要被處理。</li>
+<li>假如快取檔(cache)存在的話，他會直接送給瀏覽器，跳過正常的系統處理。</li>
+<li>Security。  在應用程式控制器(application controller)被載入前，HTTP request 以及任何使用者送出的資料，都會在 security 進行過慮。</li>
+<li>應用程式控制器(application controller)負責載入不同的 request 所需的模型(model)、核心函式庫(core libraries)、plugins、補助函數(helpers)、以及所有其他資源。</li>
+<li>最後的檢視(View)提供出來，然後送給網頁瀏覽器。假如快取功能啟動的話，那麼檢視(View)會先被快取下來，然後隨後的 requests 就可以提供了。</li>
 </ol>
 
 

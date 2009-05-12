@@ -58,18 +58,18 @@
 
 <h1>程式流程圖</h1>
 
-<p>底下的圖形說明資料如何穿過系統的流程:</p>
+<p>底下的圖形說明資料如何穿過 framework 的運作流程:</p>
 
 <div><img src="../images/appflowchart.gif" width="697" height="205" border="0" alt="CodeIgniter application flow" /></div>
 
 
 <ol>
 <li>index.php 供做前端的控制器(controller)，載入執行 CodeIgniter 所需的基本的資源。</li>
-<li>Router 檢驗 HTTP request 來決定哪些需要被處理。</li>
-<li>假如快取檔(cache)存在的話，他會直接送給瀏覽器，跳過正常的系統處理。</li>
-<li>Security。  在應用程式控制器(application controller)被載入前，HTTP request 以及任何使用者送出的資料，都會在 security 進行過慮。</li>
-<li>應用程式控制器(application controller)負責載入不同的 request 所需的模型(model)、核心函式庫(core libraries)、plugins、補助函數(helpers)、以及所有其他資源。</li>
-<li>最後的檢視(View)提供出來，然後送給網頁瀏覽器。假如快取功能啟動的話，那麼檢視(View)會先被快取下來，然後隨後的 requests 就可以提供了。</li>
+<li>Routering 檢驗 HTTP request 來決定有哪些東西需要被處理。</li>
+<li>假如快取檔(cacheing file)存在的話，他會直接把快去送給瀏覽器，跳過後續正常的處理。</li>
+<li>Security 是在應用程式控制器(application controller)被載入之前，由 HTTP request 以及任何使用者送出的資料，都會在 security 進行過慮。</li>
+<li>應用程式控制器(application controller)則負責載入各種不同的 request 所需的模型(model)、核心函式庫(core libraries)、plugins、補助函數(helpers)、以及所有其他資源等。</li>
+<li>最後的檢視(View)建立出來，並送給網頁瀏覽器。假如快取功能有啟動的話，那麼檢視(View)會先被快取(Caching)下來，然後送給網頁瀏覽器。</li>
 </ol>
 
 

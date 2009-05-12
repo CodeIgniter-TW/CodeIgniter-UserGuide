@@ -62,15 +62,15 @@
 
 <ul>
 <li><a href="#what">什麼是控制器(Controller)呢?</a></li>
-<li><a href="#hello">Hello World</a></li>
+<li><a href="#hello">我們的第一個程式:  Hello World!<a></li>
 <li><a href="#functions">Functions</a></li>
 <li><a href="#passinguri">傳遞 URL 段落到你的函數裡</a></li>
 <li><a href="#default">定義預設的控制器</a></li>
 <li><a href="#remapping">重新對應函數呼叫</a></li>
 <li><a href="#output">控制輸出資料</a></li>
 <li><a href="#private">私有函數</a></li>
-<li><a href="#subfolders">Organizing Controllers into Sub-folders</a></li>
-<li><a href="#constructors">Class Constructors</a></li>
+<li><a href="#subfolders">把控制器收納進子目錄裡頭</a></li>
+<li><a href="#constructors">類別建構子(Class Constructors)</a></li>
 <li><a href="#reserved">保留函數名稱</a></li>
 </ul>
 
@@ -78,20 +78,20 @@
 <a name="what"></a>
 <h2>什麼是控制器(Controller)呢?</h2>
 
-<p><dfn>A Controller is simply a class file that is named in a way that can be associated with a URI.</dfn></p>
+<p><dfn>控制器(Controller)簡單來說就是 class 檔案，用來處理 URI。</dfn></p>
 
-<p>Consider this URI:</p>
+<p>看看這個 URI:</p>
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<p>In the above example，CodeIgniter would attempt to find a controller named <dfn>blog.php</dfn> and load it.</p>
+<p>在上例中，CodeIgniter 會嘗試在找一個 <dfn>blog.php</dfn> 的控制器，並且找到後載入進來。</p>
 
-<p><strong>When a controller's name matches the first segment of a URI，it will be loaded.</strong></p>
+<p><strong>當控制器的名稱在 URI 中的第一段可以符合的話，它就會被載入。</strong></p>
 
 <a name="hello"></a>
-<h2>Let's try it:&nbsp; Hello World!</h2>
+<h2>我們的第一個程式:&nbsp; Hello World!</h2>
 
-<p>Let's create a simple controller so you can see it in action.  Using your text editor，create a file called <dfn>blog.php</dfn>，and put the following code in it:</p>
+<p>先建立一個簡單的控制器(controller)，用你的編輯器建立一個 <dfn>blog.php</dfn> 的檔案，把下列的程式碼塞進去:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -108,15 +108,15 @@ class Blog extends Controller {
 
 
 
-<p>Then save the file to your <dfn>application/controllers/</dfn> folder.</p>
+<p>存到 <dfn>application/controllers/</dfn> 目錄底下。</p>
 
-<p>Now visit the your site using a URL similar to this:</p>
+<p>現在打開像是底下的 URL 位置:</p>
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<p>If you did it right，you should see <samp>Hello World!</samp>.</p>
+<p>如果沒什麼出錯的話，你應該會看到 <samp>Hello World!</samp>。</p>
 
-<p>注意: Class names must start with an uppercase letter.  In other words，this is valid:</p>
+<p>注意: Class 命名必須要字首大寫，換句話說，這樣是可以的命名:</p>
 
 <code>&lt;?php<br />
 class <var>Blog</var> extends Controller {<br />
@@ -124,7 +124,7 @@ class <var>Blog</var> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>This is <strong>not</strong> valid:</p>
+<p>這個就是 <strong>不被接受的命名</strong>:</p>
 
 <code>&lt;?php<br />
 class <var>blog</var> extends Controller {<br />
@@ -132,7 +132,7 @@ class <var>blog</var> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>Also，always make sure your controller <dfn>extends</dfn> the parent controller class so that it can inherit all its functions.</p>
+<p>還有，請務必確定你的控制器是從母控制器(parent controller) <dfn>擴充出來</dfn>，這樣才可以繼承母控制器的所有函數。</p> 
 
 
 
@@ -292,18 +292,18 @@ function _utility()<br />
 
 
 <a name="subfolders"></a>
-<h2>Organizing Your Controllers into Sub-folders</h2>
+<h2>把控制器收納進子目錄裡頭</h2>
 
-<p>If you are building a large application you might find it convenient to organize your controllers into sub-folders.  CodeIgniter permits you to do this.</p>
+<p>如果你正在開發大型的 application 的話，你想如果可以把一些控制器，規類到子目錄裡頭會是相當方便的。CodeIgniter 可以讓你這樣做。</p>
 
-<p>Simply create folders within your <dfn>application/controllers</dfn> directory and place your controller classes within them.</p>
+<p>只要在 <dfn>application/controllers</dfn> 裡頭新增子目錄，然後把你的控制器放進去即可。</p>
 
 <p><strong>注意:</strong>&nbsp; When using this feature the first segment of your URI must specify the folder.  For example，lets say you have a controller
 located here:</p>
 
 <code>application/controllers/<kbd>products</kbd>/shoes.php</code>
 
-<p>To call the above controller your URI will look something like this:</p>
+<p>你的 URL 會看起來像底下這樣，如果你去呼叫以上的控制器的話:</p>
 
 <code>example.com/index.php/products/shoes/show/123</code>
 
@@ -312,10 +312,10 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 <dfn>application/config/routes.php</dfn> file</p>
 
 
-<p>CodeIgniter also permits you to remap your URIs using its <a href="routing.html">URI Routing</a> feature.</p>
+<p>CodeIgniter 可以讓你對映(remap)你的 URIs，只要利用 <a href="routing.html">URI Routing</a> 即可達成。</p>
 
 
-<h2><a name="constructors"></a>Class Constructors</h2>
+<h2><a name="constructors"></a>類別建構子(Class Constructors)</h2>
 
 
 <p>If you intend to use a constructor in any of your Controllers，you <strong>MUST</strong> place the following line of code in it:</p>
@@ -325,7 +325,7 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 <p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
 
 
-<p>If you are not familiar with constructors，in PHP 4，a <em>constructor</em> is simply a function that has the exact same name as the class:</p>
+<p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> is simply a function that has the exact same name as the class:</p>
 
 <code>
 &lt;?php<br />
@@ -338,7 +338,7 @@ class <kbd>Blog</kbd> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>In PHP 5，constructors use the following syntax:</p>
+<p>在 PHP5 裡頭，建構子使用的是下列句法:</p>
 
 <code>
 &lt;?php<br />
@@ -351,8 +351,7 @@ class <kbd>Blog</kbd> extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>Constructors are useful if you need to set some default values，or run a default process when your class is instantiated.
-Constructors can't return a value，but they can do some default work.</p>
+<p>如果你的 class 是 instantiated 需要設定些預設值或是跑一些程式，建構子(Constructor)相當實用。建構子無法回傳數值，但是他們可以做一些預設工作。</p>
 
 <a name="reserved"></a>
 <h2>保留函數名稱</h2>
@@ -361,9 +360,9 @@ Constructors can't return a value，but they can do some default work.</p>
 must be careful not to name your functions identically to the ones used by that class，otherwise your local functions
 will override them. See <a href="reserved_names.html">保留字</a> for a full list.</p>
 
-<h2>That's it!</h2>
+<h2>說完了！</h2>
 
-<p>That，in a nutshell，is all there is to know about controllers.</p>
+<p>這些就是控制器(controllers)最核心的部份。</p>
 
 
 

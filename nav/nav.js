@@ -11,7 +11,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'toc.html">Table of Contents Page</a></li>' +
 		'</ul>' +	
 
-		'<h3>Basic Info</h3>' +
+		'<h3>基本資訊</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/requirements.html">Server Requirements</a></li>' +
 			'<li><a href="'+base+'license.html">License Agreement</a></li>' +
@@ -19,15 +19,15 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/credits.html">Credits</a></li>' +
 		'</ul>' +	
 		
-		'<h3>Installation</h3>' +
+		'<h3>安裝</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'installation/downloads.html">Downloading CodeIgniter</a></li>' +
-			'<li><a href="'+base+'installation/index.html">Installation Instructions</a></li>' +
+			'<li><a href="'+base+'installation/index.html">安裝 Instructions</a></li>' +
 			'<li><a href="'+base+'installation/upgrading.html">Upgrading from a Previous Version</a></li>' +
 			'<li><a href="'+base+'installation/troubleshooting.html">Troubleshooting</a></li>' +
 		'</ul>' +
 		
-		'<h3>Introduction</h3>' +
+		'<h3>簡介</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'overview/getting_started.html">Getting Started</a></li>' +
 			'<li><a href="'+base+'overview/at_a_glance.html">CodeIgniter at a Glance</a></li>' +
@@ -40,7 +40,7 @@ function create_menu(basepath)
 				
 		'</td><td class="td_sep" valign="top">' +
 
-		'<h3>General Topics</h3>' +
+		'<h3>一般主題</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/urls.html">CodeIgniter URLs</a></li>' +
 			'<li><a href="'+base+'general/controllers.html">Controllers</a></li>' +
@@ -70,7 +70,7 @@ function create_menu(basepath)
 		'</td><td class="td_sep" valign="top">' +
 
 				
-		'<h3>Class Reference</h3>' +
+		'<h3>類別參考</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking Class</a></li>' +
 		'<li><a href="'+base+'libraries/calendar.html">Calendaring Class</a></li>' +
@@ -101,7 +101,7 @@ function create_menu(basepath)
 
 		'</td><td class="td_sep" valign="top">' +
 
-		'<h3>Helper Reference</h3>' +
+		'<h3>補助函數參考</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'helpers/array_helper.html">Array Helper</a></li>' +
 		'<li><a href="'+base+'helpers/compatibility_helper.html">Compatibility Helper</a></li>' +
@@ -127,7 +127,7 @@ function create_menu(basepath)
 		'</ul>' +	
 
 
-		'<h3>Additional Resources</h3>' +
+		'<h3>更多資源</h3>' +
 		'<ul>' +
 		'<li><a href="http://codeigniter.com/forums/">Community Forums</a></li>' +
 		'<li><a href="http://codeigniter.com/wiki/">Community Wiki</a></li>' +

@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 建立自己的程式庫
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,11 +58,11 @@
 <h1>建立自己的程式庫</h1>
 
 <p>When we use the term "Libraries" we are normally referring to the classes that are located in the <kbd>libraries</kbd>
-directory and described in the 類別參考 of this user guide.  In this case, however, we will instead describe how you can create
+directory and described in the 類別參考 of this user guide.  In this case，however，we will instead describe how you can create
 your own libraries within your <dfn>application/libraries</dfn> directory in order to maintain separation between your local resources
 and the global framework resources.</p>
 
-<p>As an added bonus, CodeIgniter permits your libraries to <kbd>extend</kbd> native classes if you simply need to add some functionality
+<p>As an added bonus，CodeIgniter permits your libraries to <kbd>extend</kbd> native classes if you simply need to add some functionality
 to an existing library. Or you can even replace native libraries just by placing identically named versions in your <dfn>application/libraries</dfn> folder.</p>
 
 <p>In summary:</p>
@@ -75,21 +75,21 @@ to an existing library. Or you can even replace native libraries just by placing
 
 <p>The page below explains these three concepts in detail.</p>
 
-<p class="important"><strong>注意:</strong> The Database classes can not be extended or replaced with your own classes,
+<p class="important"><strong>注意:</strong> The Database 類別es can not be extended or replaced with your own classes,
 nor can the Loader class in PHP 4.  All other classes are able to be replaced/extended.</p>
 
 
 <h2>Storage</h2>
 
-<p>Your library classes should be placed within your <dfn>application/libraries</dfn> folder, as this is where CodeIgniter will look for them when
+<p>Your library classes should be placed within your <dfn>application/libraries</dfn> folder，as this is where CodeIgniter will look for them when
 they are initialized.</p>
 
 
 <h2>Naming Conventions</h2>
 
 <ul>
-<li>File names must be capitalized. For example:&nbsp; <dfn>Myclass.php</dfn></li>
-<li>Class declarations must be capitalized. For example:&nbsp;  <kbd>class Myclass</kbd></li>
+<li>File names must be capitalized. For 參考範例:&nbsp; <dfn>Myclass.php</dfn></li>
+<li>Class declarations must be capitalized. For 參考範例:&nbsp;  <kbd>class Myclass</kbd></li>
 <li>Class names and file names must match.</li>
 </ul>
 
@@ -115,7 +115,7 @@ class Someclass {<br />
 
 <code>$this->load->library('<kbd>someclass</kbd>');</code>
 
-<p>Where <em>someclass</em> is the file name, without the ".php" file extension. You can submit the file name capitalized or lower case.
+<p>Where <em>someclass</em> is the file name，without the ".php" file extension. You can submit the file name capitalized or lower case.
 CodeIgniter doesn't care.</p>
 
 <p>Once loaded you can access your class using the <kbd>lower case</kbd> version:</p>
@@ -131,9 +131,9 @@ CodeIgniter doesn't care.</p>
 constructor:</p>
 
 <code>
-$params = array('type' => 'large', 'color' => 'red');<br />
+$params = array('type' => 'large'，'color' => 'red');<br />
 <br />
-$this->load->library('Someclass', <kbd>$params</kbd>);</code>
+$this->load->library('Someclass'，<kbd>$params</kbd>);</code>
 
 <p>If you use this feature you must set up your class constructor to expect data:</p>
 
@@ -173,15 +173,15 @@ This function returns the CodeIgniter super object.</p>
 etc.
 </code>
 
-<p><kbd>$this</kbd>, however, only works directly within your controllers, your models, or your views.
+<p><kbd>$this</kbd>，however，only works directly within your controllers，your models，or your views.
 If you would like to use CodeIgniter's classes from within your own custom classes you can do so as follows:</p>
 
 
-<p>First, assign the CodeIgniter object to a variable:</p>
+<p>First，assign the CodeIgniter object to a variable:</p>
 
 <code>$CI =&amp; get_instance();</code>
 
-<p>Once you've assigned the object to a variable, you'll use that variable <em>instead</em> of <kbd>$this</kbd>:</p>
+<p>Once you've assigned the object to a variable，you'll use that variable <em>instead</em> of <kbd>$this</kbd>:</p>
 
 <code>
 $CI =&amp; get_instance();<br />
@@ -199,7 +199,7 @@ etc.
 <br />
 <kbd>This is very important.</kbd> Assigning by reference allows you to use the original CodeIgniter object rather than creating a copy of it.
 <br /><br />
-<kbd>Also, please note:</kbd> If you are running PHP 4 it's usually best to avoid calling <dfn>get_instance()</dfn>
+<kbd>Also，please note:</kbd> If you are running PHP 4 it's usually best to avoid calling <dfn>get_instance()</dfn>
 from within your class constructors.  PHP 4 has trouble referencing the CI super object within application constructors 
 since objects do not exist until the class is fully instantiated.</p>
 
@@ -207,8 +207,8 @@ since objects do not exist until the class is fully instantiated.</p>
 <h2>Replacing Native Libraries with Your Versions</h2>
 
 <p>Simply by naming your class files identically to a native library will cause CodeIgniter to use it instead of the native one. To use this
-feature you must name the file and the class declaration exactly the same as the native library.  For example, to replace the native <kbd>Email</kbd> library
-you'll create a file named <dfn>application/libraries/Email.php</dfn>, and declare your class with:</p>
+feature you must name the file and the class declaration exactly the same as the native library.  For example，to replace the native <kbd>Email</kbd> library
+you'll create a file named <dfn>application/libraries/Email.php</dfn>，and declare your class with:</p>
 
 <code>
 class CI_Email {<br /><br />
@@ -221,7 +221,7 @@ class CI_Email {<br /><br />
 
 <code>$this->load->library('<kbd>email</kbd>');</code>
 
-<p class="important"><strong>注意:</strong> At this time the Database classes can not be replaced with your own versions.</p>
+<p class="important"><strong>注意:</strong> At this time the Database 類別es can not be replaced with your own versions.</p>
 
 
 <h2>Extending Native Libraries</h2>
@@ -235,7 +235,7 @@ Extending a class is nearly identical to replacing a class with a couple excepti
 <li>Your new class name and filename must be prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</li>
 </ul>
 
-<p>For example, to extend the native <kbd>Email</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Email.php</kbd>, and declare your class with:</p>
+<p>For example，to extend the native <kbd>Email</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Email.php</kbd>，and declare your class with:</p>
 
 <code>
 class MY_Email extends CI_Email {<br /><br />
@@ -258,7 +258,7 @@ class MY_Email extends CI_Email {<br />
 <h3>Loading Your Sub-class</h3>
 
 <p>To load your sub-class you'll use the standard syntax normally used.  DO NOT include your prefix.  For example,
-to load the example above, which extends the Email class, you will use:</p>
+to load the example above，which extends the Email 類別，you will use:</p>
 
 <code>$this->load->library('<kbd>email</kbd>');</code>
 
@@ -269,9 +269,9 @@ the email class all calls will use:</p>
 <code>$this-><kbd>email</kbd>->some_function();</code>
 
 
-<h3>Setting Your Own Prefix</h3>
+<h3>自訂子類別的前置字串</h3>
 
-<p>To set your own sub-class prefix, open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>To set your own sub-class prefix，open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
@@ -289,9 +289,9 @@ the email class all calls will use:</p>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="core_classes.html">Creating Core System Classes</a>
+下個主題:&nbsp;&nbsp;<a href="core_classes.html">新增系統核心類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

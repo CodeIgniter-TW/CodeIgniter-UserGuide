@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>HTML Table Class : CodeIgniter 使用手冊</title>
+<title>HTML Table 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-HTML Table Class
+HTML Table 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,16 +56,16 @@ HTML Table Class
 <div id="content">
 
 
-<h1>HTML Table Class</h1>
+<h1>HTML Table 類別</h1>
 
-<p>The Table Class provides functions that enable you to auto-generate HTML tables from arrays or database result sets.</p>
+<p>The Table 類別 provides functions that enable you to auto-generate HTML tables from arrays or database result sets.</p>
 
-<h2>Initializing the Class</h2>
+<h2>Initializing the 類別</h2>
 
-<p>Like most other classes in CodeIgniter, the Table class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the Table class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('table');</code>
-<p>Once loaded, the Table library object will be available using: <dfn>$this->table</dfn></p>
+<p>Once loaded，the Table library object will be available using: <dfn>$this->table</dfn></p>
 
 
 <h2>Examples</h2>
@@ -78,10 +78,10 @@ Note that the first array index will become the table heading (or you can set yo
 $this->load->library('table');<br />
 <br />
 $data = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Name', 'Color', 'Size'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Fred', 'Blue', 'Small'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Mary', 'Red', 'Large'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('John', 'Green', 'Medium')	<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Name'，'Color'，'Size'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Fred'，'Blue'，'Small'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Mary'，'Red'，'Large'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('John'，'Green'，'Medium')	<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
 echo $this->table->generate($data);		
@@ -105,25 +105,25 @@ echo $this->table->generate($query);
 <code>
 $this->load->library('table');<br />
 <br />
-$this->table->set_heading('Name', 'Color', 'Size');<br />
+$this->table->set_heading('Name'，'Color'，'Size');<br />
 <br />
-$this->table->add_row('Fred', 'Blue', 'Small');<br />
-$this->table->add_row('Mary', 'Red', 'Large');<br />
-$this->table->add_row('John', 'Green', 'Medium');<br />
+$this->table->add_row('Fred'，'Blue'，'Small');<br />
+$this->table->add_row('Mary'，'Red'，'Large');<br />
+$this->table->add_row('John'，'Green'，'Medium');<br />
 <br />
 echo $this->table->generate();		
 </code>
 
-<p>Here is the same example, except instead of individual parameters, arrays are used:</p>
+<p>Here is the same example，except instead of individual parameters，arrays are used:</p>
 
 <code>
 $this->load->library('table');<br />
 <br />
-$this->table->set_heading(array('Name', 'Color', 'Size'));<br />
+$this->table->set_heading(array('Name'，'Color'，'Size'));<br />
 <br />
-$this->table->add_row(array('Fred', 'Blue', 'Small'));<br />
-$this->table->add_row(array('Mary', 'Red', 'Large'));<br />
-$this->table->add_row(array('John', 'Green', 'Medium'));<br />
+$this->table->add_row(array('Fred'，'Blue'，'Small'));<br />
+$this->table->add_row(array('Mary'，'Red'，'Large'));<br />
+$this->table->add_row(array('John'，'Green'，'Medium'));<br />
 <br />
 echo $this->table->generate();		
 </code>
@@ -131,7 +131,7 @@ echo $this->table->generate();
 
 <h2>Changing the Look of Your Table</h2>
 
-<p>The Table Class permits you to set a table template with which you can specify the design of your layout.  Here is the template
+<p>The Table 類別 permits you to set a table template with which you can specify the design of your layout.  Here is the template
 prototype:</p>
 
 <code>
@@ -164,7 +164,7 @@ $this->table->set_template($tmpl);
 iteration of the row data.</p>
 
 <p>You are NOT required to submit a complete template.  If you only need to change parts of the layout you can simply submit those elements.
-In this example, only the table opening tag is being changed:</p>
+In this example，only the table opening tag is being changed:</p>
 
 <code>
 $tmpl =  array ( 'table_open'&nbsp;&nbsp;=> '&lt;table border="1" cellpadding="2" cellspacing="1" class="mytable">' );<br />
@@ -189,15 +189,15 @@ $this->table->set_template($tmpl);
 
 <p>Permits you to set the table heading.  You can submit an array or discrete params:</p>
 
-<code>$this->table->set_heading('Name', 'Color', 'Size');</code>
-<code>$this->table->set_heading(array('Name', 'Color', 'Size'));</code>
+<code>$this->table->set_heading('Name'，'Color'，'Size');</code>
+<code>$this->table->set_heading(array('Name'，'Color'，'Size'));</code>
 
 <h2>$this->table->add_row()</h2>
 
 <p>Permits you to add a row to your table.  You can submit an array or discrete params:</p>
 
-<code>$this->table->add_row('Blue', 'Red', 'Green');</code>
-<code>$this->table->add_row(array('Blue', 'Red', 'Green'));</code>
+<code>$this->table->add_row('Blue'，'Red'，'Green');</code>
+<code>$this->table->add_row(array('Blue'，'Red'，'Green'));</code>
 
 
 <h2>$this->table->make_columns()</h2>
@@ -205,12 +205,12 @@ $this->table->set_template($tmpl);
 <p>This function takes a one-dimensional array as input and creates
 a multi-dimensional array with a depth equal to the number of
 columns desired.  This allows a single array with many elements to  be
-displayed in a table that has a fixed column count.  Consider this example:</p>
+displayed in a table that has a fixed column count.  Consider this 參考範例:</p>
 
 <code>
-$list = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve');<br />
+$list = array('one'，'two'，'three'，'four'，'five'，'six'，'seven'，'eight'，'nine'，'ten'，'eleven'，'twelve');<br />
 <br />
-$new_list = $this->table->make_columns($list, 3);<br />
+$new_list = $this->table->make_columns($list，3);<br />
 <br />
 $this->table->generate($new_list);<br />
 <br />
@@ -243,7 +243,7 @@ $this->table->set_template($tmpl);
 
 <h2>$this->table->set_empty()</h2>
 
-<p>Let's you set a default value for use in any table cells that are empty.  You might, for example, set a non-breaking space:</p>
+<p>Let's you set a default value for use in any table cells that are empty.  You might，for example，set a non-breaking space:</p>
 
 <code>
 $this->table->set_empty("&amp;nbsp;");
@@ -252,24 +252,24 @@ $this->table->set_empty("&amp;nbsp;");
 <h2>$this->table->clear()</h2>
 
 <p>Lets you clear the table heading and row data.  If you need to show multiple tables with different data you should
-to call this function after each table has been generated to empty the previous table information. Example:</p>
+to call this function after each table has been generated to empty the previous table information. 參考範例:</p>
 
 <code>
 $this->load->library('table');<br />
 <br />
-$this->table->set_heading('Name', 'Color', 'Size');<br />
-$this->table->add_row('Fred', 'Blue', 'Small');<br />
-$this->table->add_row('Mary', 'Red', 'Large');<br />
-$this->table->add_row('John', 'Green', 'Medium');<br />
+$this->table->set_heading('Name'，'Color'，'Size');<br />
+$this->table->add_row('Fred'，'Blue'，'Small');<br />
+$this->table->add_row('Mary'，'Red'，'Large');<br />
+$this->table->add_row('John'，'Green'，'Medium');<br />
 <br />
 echo $this->table->generate();<br />
 <br />
 <kbd>$this->table->clear();</kbd><br />
 <br />
-$this->table->set_heading('Name', 'Day', 'Delivery');<br />
-$this->table->add_row('Fred', 'Wednesday', 'Express');<br />
-$this->table->add_row('Mary', 'Monday', 'Air');<br />
-$this->table->add_row('John', 'Saturday', 'Overnight');<br />
+$this->table->set_heading('Name'，'Day'，'Delivery');<br />
+$this->table->add_row('Fred'，'Wednesday'，'Express');<br />
+$this->table->add_row('Mary'，'Monday'，'Air');<br />
+$this->table->add_row('John'，'Saturday'，'Overnight');<br />
 <br />
 echo $this->table->generate();
 </code>
@@ -280,12 +280,12 @@ echo $this->table->generate();
 
 <div id="footer">
 <p>
-上個主題:&nbsp;<a href="ftp.html">&nbsp;FTP Class</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+上個主題:&nbsp;<a href="ftp.html">&nbsp;FTP 類別</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="image_lib.html">Image Manipulation Class</a>
+下個主題:&nbsp;&nbsp;<a href="image_lib.html">Image Manipulation 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

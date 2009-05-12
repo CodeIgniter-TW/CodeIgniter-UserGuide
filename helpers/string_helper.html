@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>String Helper : CodeIgniter 使用手冊</title>
+<title>String 補助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-String Helper
+String 補助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,12 +56,12 @@ String Helper
 <div id="content">
 
 
-<h1>String Helper</h1>
+<h1>String 補助函數</h1>
 
-<p>The String Helper file contains functions that assist in working with strings.</p>
+<p>The String 補助函數 file contains functions that assist in working with strings.</p>
 
 
-<h2>載入 Helper</h2>
+<h2>載入 補助函數</h2>
 
 <p>This helper is loaded using the following code:</p>
 <code>$this->load->helper('string');</code>
@@ -72,7 +72,7 @@ String Helper
 
 <p>Generates a random string based on the type and length you specify.  Useful for creating passwords or generating random hashes.</p>
 
-<p>The first parameter specifies the type of string, the second parameter specifies the length.  The following choices are available:</p>
+<p>The first parameter specifies the type of string，the second parameter specifies the length.  The following choices are available:</p>
 
 
 <ul>
@@ -83,26 +83,26 @@ String Helper
 Returns a fixed length 32 character string.</li>
 </ul>
 
-<p>Usage example:</p>
+<p>使用範例:</p>
 
-<code>echo random_string('alnum', 16);</code>
+<code>echo random_string('alnum'，16);</code>
 
 
 <h2>alternator()</h2>
 
-<p>Allows two or more items to be alternated between, when cycling through a loop.  Example:</p>
+<p>Allows two or more items to be alternated between，when cycling through a loop.  參考範例:</p>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('string one', 'string two');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('string one'，'string two');<br />
 }<br />
 </code>
 
-<p>You can add as many parameters as you want, and with each iteration of your loop the next item will be returned.</p>
+<p>You can add as many parameters as you want，and with each iteration of your loop the next item will be returned.</p>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('one', 'two', 'three', 'four', 'five');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('one'，'two'，'three'，'four'，'five');<br />
 }<br />
 </code>
 
@@ -111,48 +111,48 @@ Returns a fixed length 32 character string.</li>
 
 
 <h2>repeater()</h2>
-<p>Generates repeating copies of the data you submit. Example:</p>
+<p>Generates repeating copies of the data you submit. 參考範例:</p>
 <code>$string = "\n";<br />
-echo repeater($string, 30);</code>
+echo repeater($string，30);</code>
 
 <p>The above would generate 30 newlines.</p>
 <h2>reduce_double_slashes()</h2>
-<p>Converts double slashes in a string to a single slash, except those found in http://. Example: </p>
+<p>Converts double slashes in a string to a single slash，except those found in http://. 參考範例: </p>
 <code>$string = &quot;http://example.com//index.php&quot;;<br />
 echo reduce_double_slashes($string); // results in &quot;http://example.com/index.php&quot;</code>
 <h2>trim_slashes()</h2>
-<p>Removes any leading/trailing slashes from a string. Example:<br />
+<p>Removes any leading/trailing slashes from a string. 參考範例:<br />
 	<br />
 	<code>$string = &quot;/this/that/theother/&quot;;<br />
 echo trim_slashes($string); // results in this/that/theother</code></p>
 
 
 <h2>reduce_multiples()</h2>
-<p>Reduces multiple instances of a particular character occuring directly after each other. Example:</p>
+<p>Reduces multiple instances of a particular character occuring directly after each other. 參考範例:</p>
 <code>
-$string="Fred, Bill,, Joe, Jimmy";<br />
-$string=reduce_multiples($string,","); //results in "Fred, Bill, Joe, Jimmy"
+$string="Fred，Bill,，Joe，Jimmy";<br />
+$string=reduce_multiples($string,","); //results in "Fred，Bill，Joe，Jimmy"
 </code>
 <p>The function accepts the following parameters:
-<code>reduce_multiples(string: text to search in, string: character to reduce, boolean: whether to remove the character from the front and end of the string)</code>
+<code>reduce_multiples(string: text to search in，string: character to reduce，boolean: whether to remove the character from the front and end of the string)</code>
 
 The first parameter contains the string in which you want to reduce the multiplies. The second parameter contains the character you want to have reduced.
-The third parameter is FALSE by default; if set to TRUE it will remove occurences of the character at the beginning and the end of the string. Example:
+The third parameter is FALSE by default; if set to TRUE it will remove occurences of the character at the beginning and the end of the string. 參考範例:
 
 <code>
-$string=",Fred, Bill,, Joe, Jimmy,";<br />
-$string=reduce_multiples($string, ", ", TRUE); //results in "Fred, Bill, Joe, Jimmy"
+$string=",Fred，Bill,，Joe，Jimmy,";<br />
+$string=reduce_multiples($string，"，"，TRUE); //results in "Fred，Bill，Joe，Jimmy"
 </code>
 </p> 
 
 <h2>quotes_to_entities()</h2>
-<p>Converts single and double quotes in a string to the corresponding HTML entities. Example:</p>
+<p>Converts single and double quotes in a string to the corresponding HTML entities. 參考範例:</p>
 <code>$string="Joe's \"dinner\"";<br />
 $string=quotes_to_entities($string); //results in "Joe&amp;#39;s &amp;quot;dinner&amp;quot;"
 </code>
 
 <h2>strip_quotes()</h2>
-<p>Removes single and double quotes from a string. Example:</p>
+<p>Removes single and double quotes from a string. 參考範例:</p>
 <code>$string="Joe's \"dinner\"";<br />
 $string=strip_quotes($string); //results in "Joes dinner"
 </code>
@@ -163,13 +163,13 @@ $string=strip_quotes($string); //results in "Joes dinner"
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="smiley_helper.html">Smiley Helper</a>
+上個主題:&nbsp;&nbsp;<a href="smiley_helper.html">Smiley 補助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="text_helper.html">Text Helper</a>
+下個主題:&nbsp;&nbsp;<a href="text_helper.html">Text 補助函數</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

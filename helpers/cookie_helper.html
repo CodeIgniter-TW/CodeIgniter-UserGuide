@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cookie Helper : CodeIgniter 使用手冊</title>
+<title>Cookie 補助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Cookie Helper
+Cookie 補助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,12 +56,12 @@ Cookie Helper
 <div id="content">
 
 
-<h1>Cookie Helper</h1>
+<h1>Cookie 補助函數</h1>
 
-<p>The Cookie Helper file contains functions that assist in working with cookies.</p>
+<p>The Cookie 補助函數 file contains functions that assist in working with cookies.</p>
 
 
-<h2>載入 Helper</h2>
+<h2>載入 補助函數</h2>
 
 <p>This helper is loaded using the following code:</p>
 <code>$this->load->helper('cookie');</code>
@@ -71,11 +71,11 @@ Cookie Helper
 <h2>set_cookie()</h2>
 
 <p>Sets a cookie containing the values you specify.  There are two ways to pass information to this function so that a cookie can be set:
-Array Method, and Discrete Parameters:</p>
+Array Method，and Discrete Parameters:</p>
 
 <h4>Array Method</h4>
 
-<p>Using this method, an associative array is passed to the first parameter:</p>
+<p>Using this method，an associative array is passed to the first parameter:</p>
 
 <code>$cookie = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'&nbsp;&nbsp;&nbsp;=> 'The Cookie Name',<br />
@@ -93,19 +93,19 @@ set_cookie($cookie);
 
 <p>Only the name and value are required.</p>
 
-<p>The expiration is set in <strong>seconds</strong>, which will be added to the current time.  Do not include the time, but rather only the
+<p>The expiration is set in <strong>seconds</strong>，which will be added to the current time.  Do not include the time，but rather only the
 number of seconds from <em>now</em> that you wish the cookie to be valid.  If the expiration is set to
 zero the cookie will only last as long as the browser is open.</p>
 <p>To delete a cookie set it with the expiration blank.</p>
-<p>For site-wide cookies regardless of how your site is requested, add your URL to the <strong>domain</strong> starting with a period, like this:  .your-domain.com</p>
+<p>For site-wide cookies regardless of how your site is requested，add your URL to the <strong>domain</strong> starting with a period，like this:  .your-domain.com</p>
 <p>The path is usually not needed since the function sets a root path.</p>
 <p>The prefix is only needed if you need to avoid name collisions with other identically named cookies for your server.</p>
 
 <h4>Discrete Parameters</h4>
 
-<p>If you prefer, you can set the cookie by passing data using individual parameters:</p>
+<p>If you prefer，you can set the cookie by passing data using individual parameters:</p>
 
-<code>set_cookie($name, $value, $expire, $domain, $path, $prefix);</code>
+<code>set_cookie($name，$value，$expire，$domain，$path，$prefix);</code>
 
 <h2>get_cookie()</h2>
 
@@ -117,17 +117,17 @@ zero the cookie will only last as long as the browser is open.</p>
 
 <p>The second optional parameter lets you run the data through the XSS filter.  It's enabled by setting the second parameter to boolean TRUE;</p>
 
-<p><code>get_cookie('some_cookie', TRUE);</code></p>
+<p><code>get_cookie('some_cookie'，TRUE);</code></p>
 <h2>delete_cookie()</h2>
 
-<p>Lets you delete a cookie.  Unless you've set a custom path or other values, only the name of the cookie is needed:</p>
+<p>Lets you delete a cookie.  Unless you've set a custom path or other values，only the name of the cookie is needed:</p>
 
 <code>delete_cookie("name");</code>
 
-<p>This function is otherwise identical to <dfn>set_cookie()</dfn>, except that it does not have the value and expiration parameters.  You can submit an array
+<p>This function is otherwise identical to <dfn>set_cookie()</dfn>，except that it does not have the value and expiration parameters.  You can submit an array
 of values in the first parameter or you can set discrete parameters.</p>
 
-<code>delete_cookie($name, $domain, $path, $prefix)</code>
+<code>delete_cookie($name，$domain，$path，$prefix)</code>
 
 
 </div>
@@ -136,12 +136,12 @@ of values in the first parameter or you can set discrete parameters.</p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="compatibility_helper.html">Compatibility Helper</a>
+上個主題:&nbsp;&nbsp;<a href="compatibility_helper.html">Compatibility 補助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="date_helper.html">Date Helper</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+下個主題:&nbsp;&nbsp;<a href="date_helper.html">Date 補助函數</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

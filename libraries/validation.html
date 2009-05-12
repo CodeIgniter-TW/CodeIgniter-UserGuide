@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Form Validation
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,34 +56,34 @@ Form Validation
 
 <h1>Form Validation</h1>
 
-<p>Before explaining CodeIgniter's approach to data validation, let's describe the ideal scenario:</p>
+<p>Before explaining CodeIgniter's approach to data validation，let's describe the ideal scenario:</p>
 
 <ol>
 <li>A form is displayed.</li>
 <li>You fill it in and submit it.</li>
-<li>If you submitted something invalid, or perhaps missed a required item, the form is redisplayed containing your data along with an error message describing the problem.</li>
+<li>If you submitted something invalid，or perhaps missed a required item，the form is redisplayed containing your data along with an error message describing the problem.</li>
 <li>This process continues until you have submitted a valid form.</li>
 </ol>
 
-<p>On the receiving end, the script must:</p>
+<p>On the receiving end，the script must:</p>
 
 <ol>
 <li>Check for required data.</li>
-<li>Verify that the data is of the correct type, and meets the correct criteria. (For example, if a username is submitted
+<li>Verify that the data is of the correct type，and meets the correct criteria. (For example，if a username is submitted
 it must be validated to contain only permitted characters.  It must be of a minimum length,
-and not exceed a maximum length. The username can't be someone else's existing username, or perhaps even a reserved word. Etc.)</li>
+and not exceed a maximum length. The username can't be someone else's existing username，or perhaps even a reserved word. Etc.)</li>
 <li>Sanitize the data for security.</li>
 <li>Pre-format the data if needed (Does the data need to be trimmed?  HTML encoded?  Etc.)</li>
 <li>Prep the data for insertion in the database.</li>
 </ol>
 
 
-<p>Although there is nothing complex about the above process, it usually requires a significant
-amount of code, and to display error messages, various control structures are usually placed within the form HTML.
-Form validation, while simple to create, is generally very messy and tedious to implement.</p>
+<p>Although there is nothing complex about the above process，it usually requires a significant
+amount of code，and to display error messages，various control structures are usually placed within the form HTML.
+Form validation，while simple to create，is generally very messy and tedious to implement.</p>
 
 <dfn>CodeIgniter provides a comprehensive validation framework that truly minimizes the amount of code you'll write.
-It also removes all control structures from your form HTML, permitting it to be clean and free of code.</dfn>
+It also removes all control structures from your form HTML，permitting it to be clean and free of code.</dfn>
 
 <h2>Overview</h2>
 
@@ -95,11 +95,11 @@ It also removes all control structures from your form HTML, permitting it to be 
 <li>A <a href="../general/controllers.html">controller</a> function to receive and process the submitted data.</li>
 </ol>
 
-<p>Let's create those three things, using a member sign-up form as the example.</p>
+<p>Let's create those three things，using a member sign-up form as the example.</p>
 
 <h2>The Form</h2>
 
-<p>Using a text editor, create a form called <dfn>myform.php</dfn>.  In it, place this code and save it to your <samp>applications/views/</samp>
+<p>Using a text editor，create a form called <dfn>myform.php</dfn>.  In it，place this code and save it to your <samp>applications/views/</samp>
 folder:</p>
 
 
@@ -137,7 +137,7 @@ folder:</p>
 <h2>The Success Page</h2>
 
 
-<p>Using a text editor, create a form called <dfn>formsuccess.php</dfn>.  In it, place this code and save it to your <samp>applications/views/</samp>
+<p>Using a text editor，create a form called <dfn>formsuccess.php</dfn>.  In it，place this code and save it to your <samp>applications/views/</samp>
 folder:</p>
 
 
@@ -150,7 +150,7 @@ folder:</p>
 
 &lt;h3>Your form was successfully submitted!&lt;/h3>
 
-&lt;p>&lt;?php echo anchor('form', 'Try it again!'); ?>&lt;/p>
+&lt;p>&lt;?php echo anchor('form'，'Try it again!'); ?>&lt;/p>
 
 &lt;/body>
 &lt;/html>
@@ -159,7 +159,7 @@ folder:</p>
 
 <h2>The Controller</h2>
 
-<p>Using a text editor, create a controller called <dfn>form.php</dfn>.  In it, place this code and save it to your <samp>applications/controllers/</samp>
+<p>Using a text editor，create a controller called <dfn>form.php</dfn>.  In it，place this code and save it to your <samp>applications/controllers/</samp>
 folder:</p>
 
 
@@ -169,7 +169,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form'，'url'));
 		
 		$this->load->library('validation');
 				
@@ -188,12 +188,12 @@ class Form extends Controller {
 
 <h2>Try it!</h2>
 
-<p>To try your form, visit your site using a URL similar to this one:</p>
+<p>To try your form，visit your site using a URL similar to this one:</p>
 
 <code>example.com/index.php/<var>form</var>/</code>
 
 <p><strong>If you submit the form you should simply see the form reload.  That's because you haven't set up any validation
-rules yet, which we'll get to in a moment.</strong></p>
+rules yet，which we'll get to in a moment.</strong></p>
 
 
 <h2>Explanation</h2>
@@ -204,8 +204,8 @@ rules yet, which we'll get to in a moment.</strong></p>
 
 <ol>
 <li>It uses a <dfn>form helper</dfn> to create the form opening.
-Technically, this isn't necessary.  You could create the form using standard HTML.  However, the benefit of using the helper
-is that it generates the action URL for you, based on the URL in your config file.  This makes your application more portable
+Technically，this isn't necessary.  You could create the form using standard HTML.  However，the benefit of using the helper
+is that it generates the action URL for you，based on the URL in your config file.  This makes your application more portable
 and flexible in the event your URLs change.</li>
 
 <li>At the top of the form you'll notice the following variable:
@@ -220,16 +220,16 @@ loads the <var>form helper</var> and <var>URL helper</var> used by your view fil
 the validation routine. Based on
 whether the validation was successful it either presents the form or the success page.</p>
 
-<p><strong>Since you haven't told the validation class to validate anything yet, it returns "false" (boolean false) by default.  The <samp>run()</samp>
+<p><strong>Since you haven't told the validation class to validate anything yet，it returns "false" (boolean false) by default.  The <samp>run()</samp>
 function only returns "true" if it has successfully applied your rules without any of them failing.</strong></p>
 
 
 <h2>Setting Validation Rules</h2>
 
-<p>CodeIgniter lets you set as many validation rules as you need for a given field, cascading them in order, and it even lets you prep and pre-process the field data
-at the same time. Let's see it in action, we'll explain it afterwards.</p>
+<p>CodeIgniter lets you set as many validation rules as you need for a given field，cascading them in order，and it even lets you prep and pre-process the field data
+at the same time. Let's see it in action，we'll explain it afterwards.</p>
 
-<p>In your <dfn>controller</dfn> (form.php), add this code just below the validation initialization function:</p>
+<p>In your <dfn>controller</dfn> (form.php)，add this code just below the validation initialization function:</p>
 
 <code>$rules['username']	= "required";<br />
 $rules['password']	= "required";<br />
@@ -246,7 +246,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form'，'url'));
 		
 		$this->load->library('validation');
 			
@@ -273,17 +273,17 @@ class Form extends Controller {
 If you submit the form with all the fields populated you'll see your success page.</dfn></p>
 
 <p class="important"><strong>注意:</strong> The form fields are not yet being re-populated with the data when
-there is an error.  We'll get to that shortly, once we're through explaining the validation rules.</p>
+there is an error.  We'll get to that shortly，once we're through explaining the validation rules.</p>
 
 
 <h2>Changing the Error Delimiters</h2>
 
-<p>By default, the system adds a paragraph tag (&lt;p&gt;) around each error message shown. You can easily change these delimiters with
-this code, placed in your controller:</p>
+<p>By default，the system adds a paragraph tag (&lt;p&gt;) around each error message shown. You can easily change these delimiters with
+this code，placed in your controller:</p>
 
-<code>$this->validation->set_error_delimiters('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>');</code>
+<code>$this->validation->set_error_delimiters('<kbd>&lt;div class="error"></kbd>'，'<kbd>&lt;/div></kbd>');</code>
 
-<p>In this example, we've switched to using div tags.</p>
+<p>In this example，we've switched to using div tags.</p>
 
 <h2>Cascading Rules</h2>
 
@@ -310,30 +310,30 @@ $rules['email']		= "required|valid_email";</code>
 
 <h2>Prepping Data</h2>
 
-<p>In addition to the validation functions like the ones we used above, you can also prep your data in various ways.
-For example, you can set up rules like this:</p>
+<p>In addition to the validation functions like the ones we used above，you can also prep your data in various ways.
+For example，you can set up rules like this:</p>
 
 <code>$rules['username']	= "<kbd>trim</kbd>|required|min_length[5]|max_length[12]|<kbd>xss_clean</kbd>";<br />
 $rules['password']	= "<kbd>trim</kbd>|required|matches[passconf]|<kbd>md5</kbd>";<br />
 $rules['passconf']	= "<kbd>trim</kbd>|required";<br />
 $rules['email']		= "<kbd>trim</kbd>|required|valid_email";</code>
 
-<p>In the above example, we are "trimming" the fields, converting the password to MD5, and running the username through
-the "xss_clean" function, which removes malicious data.</p>
+<p>In the above example，we are "trimming" the fields，converting the password to MD5，and running the username through
+the "xss_clean" function，which removes 惡意資料.</p>
 
-<p class="important"><strong>Any native PHP function that accepts one parameter can be used as a rule, like <dfn>htmlspecialchars</dfn>,
-<dfn>trim</dfn>,  <dfn>MD5</dfn>, etc.</strong></p>
+<p class="important"><strong>Any native PHP function that accepts one parameter can be used as a rule，like <dfn>htmlspecialchars</dfn>,
+<dfn>trim</dfn>， <dfn>MD5</dfn>，etc.</strong></p>
 
 <p><strong>注意:</strong> You will generally want to use the prepping functions <strong>after</strong>
-the validation rules so if there is an error, the original data will be shown in the form.</p>
+the validation rules so if there is an error，the original data will be shown in the form.</p>
 
 <h2>Callbacks: Your own Validation Functions</h2>
 
 <p>The validation system supports callbacks to your own validation functions.  This permits you to extend the validation class
-to meet your needs.  For example, if you need to run a database query to see if the user is choosing a unique username, you can
+to meet your needs.  For example，if you need to run a database query to see if the user is choosing a unique username，you can
 create a callback function that does that.  Let's create a simple example.</p>
 
-<p>In your controller, change the "username" rule to this:</p>
+<p>In your controller，change the "username" rule to this:</p>
 
 <code>$rules['username'] = "callback_username_check"; </code>
 
@@ -346,7 +346,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form'，'url'));
 		
 		$this->load->library('validation');
 			
@@ -371,7 +371,7 @@ class Form extends Controller {
 	{
 		if ($str == 'test')
 		{
-			$this->validation->set_message('username_check', 'The %s field can not be the word "test"');
+			$this->validation->set_message('username_check'，'The %s field can not be the word "test"');
 			return FALSE;
 		}
 		else
@@ -386,20 +386,20 @@ class Form extends Controller {
 <p>Reload your form and submit it with the word "test" as the username.  You can see that the form field data was passed to your
 callback function for you to process.</p>
 
-<p><strong>To invoke a callback just put the function name in a rule, with "callback_" as the rule prefix.</strong></p>
+<p><strong>To invoke a callback just put the function name in a rule，with "callback_" as the rule prefix.</strong></p>
 
 <p>The error message was set using the <dfn>$this->validation->set_message</dfn> function.
 Just remember that the message key (the first parameter) must match your function name.</p>
 
-<p class="important"><strong>注意:</strong> You can apply your own custom error messages to any rule, just by setting the
-message similarly. For example, to change the message for the "required" rule you will do this:</p>
+<p class="important"><strong>注意:</strong> You can apply your own custom error messages to any rule，just by setting the
+message similarly. For example，to change the message for the "required" rule you will do this:</p>
 
-<code>$this->validation->set_message('required', 'Your custom message here');</code>
+<code>$this->validation->set_message('required'，'Your custom message here');</code>
 
 <h2>Re-populating the form</h2>
 
 <p>Thus far we have only been dealing with errors.  It's time to repopulate the form field with the submitted data.
-This is done similarly to your rules.  Add the following code to your controller, just below your rules:</p>
+This is done similarly to your rules.  Add the following code to your controller，just below your rules:</p>
 
 <code>$fields['username'] = 'Username';<br />
 $fields['password'] = 'Password';<br />
@@ -408,7 +408,7 @@ $fields['email'] = 'Email Address';<br />
 <br />
 $this->validation->set_fields($fields);</code>
 
-<p>The array keys are the actual names of the form fields, the value represents the full name that you want shown in the
+<p>The array keys are the actual names of the form fields，the value represents the full name that you want shown in the
 error message.</p>
 
 <p>The index function of your controller should now look like this:</p>
@@ -416,7 +416,7 @@ error message.</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="30">function index()
 {
-	$this->load->helper(array('form', 'url'));
+	$this->load->helper(array('form'，'url'));
 	
 	$this->load->library('validation');
 		
@@ -487,7 +487,7 @@ and the error messages will contain a more relevant field name.</p>
 
 <h2>Showing Errors Individually</h2>
 
-<p>If you prefer to show an error message next to each form field, rather than as a list, you can change your form so that it looks like this:</p>
+<p>If you prefer to show an error message next to each form field，rather than as a list，you can change your form so that it looks like this:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="20">
@@ -507,12 +507,12 @@ and the error messages will contain a more relevant field name.</p>
 &lt;?php echo $this->validation->email_error; ?>
 &lt;input type="text" name="email" value="&lt;?php echo $this->validation->email;?>" size="50" /></textarea>
 
-<p>If there are no errors, nothing will be shown.  If there is an error, the message will appear, wrapped in the delimiters you
+<p>If there are no errors，nothing will be shown.  If there is an error，the message will appear，wrapped in the delimiters you
 have set (&lt;p> tags by default).</p>
 
 <p class="important"><strong>注意: </strong>To display errors this way you must remember to set your fields using the <kbd>$this->validation->set_fields</kbd>
 function described earlier. The errors will be turned into variables that have "_error" after your field name.
-For example, your "username" error will be available at:<br /><dfn>$this->validation->username_error</dfn>.</p>
+For example，your "username" error will be available at:<br /><dfn>$this->validation->username_error</dfn>.</p>
 
 
 <h2>Rule Reference</h2>
@@ -573,7 +573,7 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 
 <td class="td"><strong>alpha_dash</strong></td>
 <td class="td">No</td>
-<td class="td">Returns FALSE if the form element contains anything other than alpha-numeric characters, underscores or dashes.</td>
+<td class="td">Returns FALSE if the form element contains anything other than alpha-numeric characters，underscores or dashes.</td>
 <td class="td">&nbsp;</td>
 </tr>
 <tr>
@@ -615,7 +615,7 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 </tr>
 </table>
 
-<p><strong>注意:</strong> These rules can also be called as discrete functions. For example:</p>
+<p><strong>注意:</strong> These rules can also be called as discrete functions. For 參考範例:</p>
 
 <code>$this->validation->required($string);</code>
 
@@ -638,7 +638,7 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 
 <td class="td"><strong>xss_clean</strong></td>
 <td class="td">No</td>
-<td class="td">Runs the data through the XSS filtering function, described in the <a href="input.html">Input Class</a> page.</td>
+<td class="td">Runs the data through the XSS filtering function，described in the <a href="input.html">Input 類別</a> page.</td>
 </tr><tr>
 
 <td class="td"><strong>prep_for_form</strong></td>
@@ -664,36 +664,36 @@ For example, your "username" error will be available at:<br /><dfn>$this->valida
 </table>
 
 <p class="important"><strong>注意:</strong> You can also use any native PHP functions that permit one parameter,
-like <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, etc.</p>
+like <kbd>trim</kbd>，<kbd>htmlspecialchars</kbd>，<kbd>urldecode</kbd>，etc.</p>
 
 
 <h2>Setting Custom Error Messages</h2>
 
 <p>All of the native error messages are located in the following language file:  <dfn>language/english/validation_lang.php</dfn></p>
 
-<p>To set your own custom message you can either edit that file, or use the following function:</p>
+<p>To set your own custom message you can either edit that file，or use the following function:</p>
 
-<code>$this->validation->set_message('<var>rule</var>', '<var>Error Message</var>');</code>
+<code>$this->validation->set_message('<var>rule</var>'，'<var>Error Message</var>');</code>
 
-<p>Where <var>rule</var> corresponds to the name of a particular rule, and <var>Error Message</var> is the text you would like displayed.</p>
+<p>Where <var>rule</var> corresponds to the name of a particular rule，and <var>Error Message</var> is the text you would like displayed.</p>
 
 
-<h2>Dealing with Select Menus, Radio Buttons, and Checkboxes</h2>
+<h2>Dealing with Select Menus，Radio Buttons，and Checkboxes</h2>
 
-<p>If you use select menus, radio buttons or checkboxes, you will want the state of
+<p>If you use select menus，radio buttons or checkboxes，you will want the state of
 these items to be retained in the event of an error.  The Validation class has three functions that help you do this:</p>
 
 <h2>set_select()</h2>
 
 <p>Permits you to display the menu item that was selected.  The first parameter
-must contain the name of the select menu, the second parameter must contain the value of
-each item. Example:</p>
+must contain the name of the select menu，the second parameter must contain the value of
+each item. 參考範例:</p>
 
 <code>
 &lt;select name="myselect"><br />
-&lt;option value="one" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'one'); ?></dfn> >One&lt;/option><br />
-&lt;option value="two" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'two'); ?></dfn> >Two&lt;/option><br />
-&lt;option value="three" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'three'); ?></dfn> >Three&lt;/option><br />
+&lt;option value="one" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'one'); ?></dfn> >One&lt;/option><br />
+&lt;option value="two" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'two'); ?></dfn> >Two&lt;/option><br />
+&lt;option value="three" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'three'); ?></dfn> >Three&lt;/option><br />
 &lt;/select>
 </code>
 
@@ -701,17 +701,17 @@ each item. Example:</p>
 <h2>set_checkbox()</h2>
 
 <p>Permits you to display a checkbox in the state it was submitted.  The first parameter
-must contain the name of the checkbox, the second parameter must contain its value. Example:</p>
+must contain the name of the checkbox，the second parameter must contain its value. 參考範例:</p>
 
-<code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo  $this->validation->set_checkbox('mycheck', '1'); ?></dfn> /></code>
+<code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo  $this->validation->set_checkbox('mycheck'，'1'); ?></dfn> /></code>
 
 
 <h2>set_radio()</h2>
 
 <p>Permits you to display radio buttons in the state they were submitted.  The first parameter
-must contain the name of the radio button, the second parameter must contain its value. Example:</p>
+must contain the name of the radio button，the second parameter must contain its value. 參考範例:</p>
 
-<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  $this->validation->set_radio('myradio', '1'); ?></dfn> /></code>
+<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  $this->validation->set_radio('myradio'，'1'); ?></dfn> /></code>
 
 
 
@@ -723,13 +723,13 @@ must contain the name of the radio button, the second parameter must contain its
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
+上個主題:&nbsp;&nbsp;<a href="user_agent.html">User Agent 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC Class</a>
+下個主題:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

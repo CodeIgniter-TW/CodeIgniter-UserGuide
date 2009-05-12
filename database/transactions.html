@@ -41,12 +41,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
 Transactions
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -61,7 +61,7 @@ Transactions
 
 <h1>Transactions</h1>
 
-<p>CodeIgniter's database abstraction allows you to use <dfn>transactions</dfn> with databases that support transaction-safe table types.  In MySQL, you'll need
+<p>CodeIgniter's database abstraction allows you to use <dfn>transactions</dfn> with databases that support transaction-safe table types.  In MySQL，you'll need
 to be running InnoDB or BDB table types rather than the more common MyISAM.  Most other database platforms support transactions natively.</p>
 
 <p>If you are not familiar with
@@ -74,7 +74,7 @@ have a basic understanding of transactions.
 <p>CodeIgniter utilizes an approach to transactions that is very similar to the process used by the popular database class ADODB.  We've chosen that approach
 because it greatly simplifies the process of running transactions.  In most cases all that is required are two lines of code.</p>
 
-<p>Traditionally, transactions have required a fair amount of work to implement since they demand that you to keep track of your queries
+<p>Traditionally，transactions have required a fair amount of work to implement since they demand that you to keep track of your queries
 and determine whether to <dfn>commit</dfn> or <dfn>rollback</dfn> based on the success or failure of your queries. This is particularly cumbersome with
 nested queries. In contrast,
 we've implemented a smart transaction system that does all this for you automatically (you can also manage your transactions manually if you choose to,
@@ -98,8 +98,8 @@ of any given query.</p>
 
 <h2>Strict Mode</h2>
 
-<p>By default CodeIgniter runs all transactions in <dfn>Strict Mode</dfn>.  When strict mode is enabled, if you are running multiple groups of
-transactions, if one group fails all groups will be rolled back. If strict mode is disabled, each group is treated independently, meaning
+<p>By default CodeIgniter runs all transactions in <dfn>Strict Mode</dfn>.  When strict mode is enabled，if you are running multiple groups of
+transactions，if one group fails all groups will be rolled back. If strict mode is disabled，each group is treated independently，meaning
 a failure of one group will not affect any others.</p>
 
 <p>Strict Mode can be disabled as follows:</p>
@@ -109,7 +109,7 @@ a failure of one group will not affect any others.</p>
 
 <h2>Managing Errors</h2>
 
-<p>If you have error reporting enabled in your <dfn>config/database.php</dfn> file you'll see a standard error message if the commit was unsuccessful. If debugging is turned off, you can
+<p>If you have error reporting enabled in your <dfn>config/database.php</dfn> file you'll see a standard error message if the commit was unsuccessful. If debugging is turned off，you can
 manage your own errors like this:</p>
 
 <code>
@@ -138,12 +138,12 @@ $this->db->query('AN SQL QUERY...');<br />
 $this->db->trans_complete();
 </code>
 
-<p class="important">When transactions are disabled, your queries will be auto-commited, just as they are when running queries without transactions.</p>
+<p class="important">When transactions are disabled，your queries will be auto-commited，just as they are when running queries without transactions.</p>
 
 
 <h2>Test Mode</h2>
 
-<p>You can optionally put the transaction system into "test mode", which will cause your queries to be rolled back -- even if the queries produce a valid result.
+<p>You can optionally put the transaction system into "test mode"，which will cause your queries to be rolled back -- even if the queries produce a valid result.
 To use test mode simply set the first parameter in the <dfn>$this->db->trans_start()</dfn> function to <samp>TRUE</samp>:</p>
 
 <code>
@@ -176,7 +176,7 @@ else<br />
 }<br />
 </code>
 
-<p class="important"><strong>注意:</strong> Make sure to use <kbd>$this->db->trans_begin()</kbd> when running manual transactions, <strong>NOT</strong>
+<p class="important"><strong>注意:</strong> Make sure to use <kbd>$this->db->trans_begin()</kbd> when running manual transactions，<strong>NOT</strong>
 <dfn>$this->db->trans_start()</dfn>.</p>
 
 
@@ -193,7 +193,7 @@ else<br />
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="table_data.html">Table Metadata</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

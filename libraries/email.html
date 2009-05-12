@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Email Class : CodeIgniter 使用手冊</title>
+<title>Email 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Email Class
+Email 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,34 +56,34 @@ Email Class
 <div id="content">
 
 
-<h1>Email Class</h1>
+<h1>Email 類別</h1>
 
-<p>CodeIgniter's robust Email Class supports the following features:</p>
+<p>CodeIgniter's robust Email 類別 supports the following features:</p>
 
 
 <ul>
-<li>Multiple Protocols: Mail, Sendmail, and SMTP</li>
+<li>Multiple Protocols: Mail，Sendmail，and SMTP</li>
 <li>Multiple recipients</li>
 <li>CC and BCCs</li>
 <li>HTML or Plaintext email</li>
 <li>Attachments</li>
 <li>Word wrapping</li>
 <li>Priorities</li>
-<li>BCC Batch Mode, enabling large email lists to be broken into small BCC batches.</li>
+<li>BCC Batch Mode，enabling large email lists to be broken into small BCC batches.</li>
 <li>Email Debugging tools</li>
 </ul>
 
 
 <h2>Sending Email</h2>
 
-<p>Sending email is not only simple, but you can configure it on the fly or set your preferences in a config file.</p>
+<p>Sending email is not only simple，but you can configure it on the fly or set your preferences in a config file.</p>
 
 <p>Here is a basic example demonstrating how you might send email.  注意:  This example assumes you are sending the email from one of your
 <a href="../general/controllers.html">controllers</a>.</p>
 
 <code>$this->load->library('email');<br />
 <br />
-$this->email->from('your@example.com', 'Your Name');<br />	
+$this->email->from('your@example.com'，'Your Name');<br />	
 $this->email->to('someone@example.com'); <br />
 $this->email->cc('another@another-example.com'); <br />
 $this->email->bcc('them@their-example.com'); <br />
@@ -101,7 +101,7 @@ echo $this->email->print_debugger();</code>
 <h2>Setting Email Preferences</h2>
 
 <p>There are 17 different preferences available to tailor how your email messages are sent. You can either set them manually
-as described here, or automatically via preferences stored in your config file, described below:</p>
+as described here，or automatically via preferences stored in your config file，described below:</p>
 
 <p>Preferences are set by passing an array of preference values to the email <dfn>initialize</dfn> function.  Here is an example of how you might set some preferences:</p>
 
@@ -116,8 +116,8 @@ $this->email->initialize($config);</code>
 
 ><h3>Setting Email Preferences in a Config File</h3>
 
-<p>If you prefer not to set preferences using the above method, you can instead put them into a config file.
-Simply create a new file called the <var>email.php</var>,  add the <var>$config</var>
+<p>If you prefer not to set preferences using the above method，you can instead put them into a config file.
+Simply create a new file called the <var>email.php</var>， add the <var>$config</var>
 array in that file. Then save the file at <var>config/email.php</var> and it will be used automatically. You
 will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you save your preferences in a config file.</p>
 
@@ -138,7 +138,7 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 </tr><tr>
 <td class="td"><strong>useragent</strong></td><td class="td">CodeIgniter</td><td class="td">None</td><td class="td">The "user agent".</td>
 </tr><tr>
-<td class="td"><strong>protocol</strong></td><td class="td">mail</td><td class="td">mail, sendmail, or smtp</td><td class="td">The mail sending protocol.</td>
+<td class="td"><strong>protocol</strong></td><td class="td">mail</td><td class="td">mail，sendmail，or smtp</td><td class="td">The mail sending protocol.</td>
 </tr><tr>
 <td class="td"><strong>mailpath</strong></td><td class="td">/usr/sbin/sendmail</td><td class="td">None</td><td class="td">The server path to Sendmail.</td>
 </tr><tr>
@@ -158,11 +158,11 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 </tr><tr>
 <td class="td"><strong>mailtype</strong></td><td class="td">text</td><td class="td">text or html</td><td class="td">Type of mail. If you send HTML email you must send it as a complete web page.  Make sure you don't have any relative links or relative image paths otherwise they will not work.</td>
 </tr><tr>
-<td class="td"><strong>charset</strong></td><td class="td">utf-8</td><td class="td"></td><td class="td">Character set (utf-8, iso-8859-1, etc.).</td>
+<td class="td"><strong>charset</strong></td><td class="td">utf-8</td><td class="td"></td><td class="td">Character set (utf-8，iso-8859-1，etc.).</td>
 </tr><tr>
 <td class="td"><strong>validate</strong></td><td class="td">FALSE</td><td class="td">TRUE or FALSE  (boolean)</td><td class="td">Whether to validate the email address.</td>
 </tr><tr>
-<td class="td"><strong>priority</strong></td><td class="td">3</td><td class="td">1, 2, 3, 4, 5</td><td class="td">Email Priority. 1 = highest.  5 = lowest.  3 = normal.</td>
+<td class="td"><strong>priority</strong></td><td class="td">3</td><td class="td">1，2，3，4，5</td><td class="td">Email Priority. 1 = highest.  5 = lowest.  3 = normal.</td>
 </tr>
 <tr>
 	<td class="td"><strong>crlf</strong></td>
@@ -185,28 +185,28 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 
 <h3>$this->email->from()</h3>
 <p>Sets the email address and name of the person sending the email:</p>
-<code>$this->email->from('<var>you@example.com</var>', '<var>Your Name</var>');</code>
+<code>$this->email->from('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
 
 <h3>$this->email->reply_to()</h3>
-<p>Sets the reply-to address.  If the information is not provided the information in the "from" function is used. Example:</p>
-<code>$this->email->reply_to('<var>you@example.com</var>', '<var>Your Name</var>');</code>
+<p>Sets the reply-to address.  If the information is not provided the information in the "from" function is used. 參考範例:</p>
+<code>$this->email->reply_to('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
 
 
 <h3>$this->email->to()</h3>
-<p>Sets the email address(s) of the recipient(s).  Can be a single email, a comma-delimited list or an array:</p>
+<p>Sets the email address(s) of the recipient(s).  Can be a single email，a comma-delimited list or an array:</p>
 
 <code>$this->email->to('<var>someone@example.com</var>');</code>
-<code>$this->email->to('<var>one@example.com</var>, <var>two@example.com</var>, <var>three@example.com</var>');</code>
+<code>$this->email->to('<var>one@example.com</var>，<var>two@example.com</var>，<var>three@example.com</var>');</code>
 
-<code>$list = array('<var>one@example.com</var>', '<var>two@example.com</var>', '<var>three@example.com</var>');<br />
+<code>$list = array('<var>one@example.com</var>'，'<var>two@example.com</var>'，'<var>three@example.com</var>');<br />
 <br />
 $this->email->to(<var>$list</var>);</code>
 
 <h3>$this->email->cc()</h3>
-<p>Sets the CC email address(s). Just like the "to", can be a single email, a comma-delimited list or an array.</p>
+<p>Sets the CC email address(s). Just like the "to"，can be a single email，a comma-delimited list or an array.</p>
 
 <h3>$this->email->bcc()</h3>
-<p>Sets the BCC email address(s). Just like the "to", can be a single email, a comma-delimited list or an array.</p>
+<p>Sets the BCC email address(s). Just like the "to"，can be a single email，a comma-delimited list or an array.</p>
 
 
 <h3>$this->email->subject()</h3>
@@ -229,7 +229,7 @@ If you do not set your own message CodeIgniter will extract the message from you
 
 <h3>$this->email->clear()</h3>
 <p>Initializes all the email variables to an empty state.  This function is intended for use if you run the email sending function
-in a loop, permitting the data to be reset between cycles.</p>
+in a loop，permitting the data to be reset between cycles.</p>
 <code>foreach ($list as $name => $address)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->clear();<br /><br />
@@ -247,7 +247,7 @@ in a loop, permitting the data to be reset between cycles.</p>
 
 
 <h3>$this->email->send()</h3>
-<p>The Email sending function. Returns boolean TRUE or FALSE based on success or failure, enabling it to be used
+<p>The Email sending function. Returns boolean TRUE or FALSE based on success or failure，enabling it to be used
 conditionally:</p>
 
 <code>if ( ! $this->email->send())<br />
@@ -257,8 +257,8 @@ conditionally:</p>
 
 
 <h3>$this->email->attach()</h3>
-<p>Enables you to send an attachment. Put the file path/name in the first parameter. 注意: Use a file path, not a URL.
-For multiple attachments use the function multiple times. For example:</p>
+<p>Enables you to send an attachment. Put the file path/name in the first parameter. 注意: Use a file path，not a URL.
+For multiple attachments use the function multiple times. For 參考範例:</p>
 
 <code>$this->email->attach('/path/to/photo1.jpg');<br />
 $this->email->attach('/path/to/photo2.jpg');<br />
@@ -268,13 +268,13 @@ $this->email->send();</code>
 
 
 <h3>$this->email->print_debugger()</h3>
-<p>Returns a string containing any server messages, the email headers, and the email messsage.  Useful for debugging.</p>
+<p>Returns a string containing any server messages，the email headers，and the email messsage.  Useful for debugging.</p>
 
 
 <h2>Overriding Word Wrapping</h2>
 
 <p>If you have word wrapping enabled (recommended to comply with RFC 822) and you have a very long link in your email it can
-get wrapped too, causing it to become un-clickable by the person receiving it.  CodeIgniter lets you manually override
+get wrapped too，causing it to become un-clickable by the person receiving it.  CodeIgniter lets you manually override
 word wrapping within part of your message like this:</p>
 
 <code>The text of your email that<br />
@@ -294,13 +294,13 @@ wrapped normally.</code>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="../database/index.html">Database Class</a>
+上個主題:&nbsp;&nbsp;<a href="../database/index.html">Database 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="encryption.html">Encryption Class</a>
+下個主題:&nbsp;&nbsp;<a href="encryption.html">Encryption 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

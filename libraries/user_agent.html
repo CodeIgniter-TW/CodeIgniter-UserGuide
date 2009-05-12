@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>User Agent Class : CodeIgniter 使用手冊</title>
+<title>User Agent 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-User Agent Class
+User Agent 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,17 +56,17 @@ User Agent Class
 <div id="content">
 
 
-<h1>User Agent Class</h1>
+<h1>User Agent 類別</h1>
 
-<p>The User Agent Class provides functions that help identify information about the browser, mobile device, or robot visiting your site.
+<p>The User Agent 類別 provides functions that help identify information about the browser，mobile device，or robot visiting your site.
 In addition you can get referrer information as well as language and supported character-set information.</p>
 
-<h2>Initializing the Class</h2>
+<h2>Initializing the 類別</h2>
 
-<p>Like most other classes in CodeIgniter, the User Agent class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Like most other classes in CodeIgniter，the User Agent class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
 
 <code>$this->load->library('user_agent');</code>
-<p>Once loaded, the object will be available using: <dfn>$this->agent</dfn></p>
+<p>Once loaded，the object will be available using: <dfn>$this->agent</dfn></p>
 
 <h2>User Agent Definitions</h2>
 
@@ -76,7 +76,7 @@ various user agent arrays if needed.</p>
 <h2>Example</h2>
 
 <p>When the User Agent class is initialized it will attempt to determine whether the user agent browsing your site is
-a web browser, a mobile device, or a robot.  It will also gather the platform information if it is available.</p>
+a web browser，a mobile device，or a robot.  It will also gather the platform information if it is available.</p>
 
 
 <code>
@@ -101,7 +101,7 @@ else<br />
 <br />
 echo $agent;<br />
 <br />
-echo $this->agent->platform(); // Platform info (Windows, Linux, Mac, etc.)
+echo $this->agent->platform(); // Platform info (Windows，Linux，Mac，etc.)
 </code>
 
 
@@ -139,10 +139,10 @@ very efficient. If you find that some bots that commonly visit your site are mis
 <p>Returns a string containing the name of the robot viewing your site.</p>
 
 <h2>$this->agent->platform()</h2>
-<p>Returns a string containing the platform viewing your site (Linux, Windows, OS X, etc.).</p>
+<p>Returns a string containing the platform viewing your site (Linux，Windows，OS X，etc.).</p>
 
 <h2>$this->agent->referrer()</h2>
-<p>The referrer, if the user agent was referred from another site. Typically you'll test for this as follows:</p>
+<p>The referrer，if the user agent was referred from another site. Typically you'll test for this as follows:</p>
 
 <code> if ($this->agent->is_referral())<br />
 {<br />
@@ -157,7 +157,7 @@ very efficient. If you find that some bots that commonly visit your site are mis
 
 
 <h2>$this->agent->accept_lang()</h2>
-<p>Lets you determine if the user agent accepts a particular language. Example:</p>
+<p>Lets you determine if the user agent accepts a particular language. 參考範例:</p>
 
 <code>if ($this->agent->accept_lang('en'))<br />
 {<br />
@@ -165,12 +165,12 @@ very efficient. If you find that some bots that commonly visit your site are mis
 }</code>
 
 <p class="important"><strong>注意:</strong> This function is not typically very reliable
-since some browsers do not provide language info, and even among those that do, it is not always accurate. </p>
+since some browsers do not provide language info，and even among those that do，it is not always accurate. </p>
 
 
 
 <h2>$this->agent->accept_charset()</h2>
-<p>Lets you determine if the user agent accepts a particular character set. Example:</p>
+<p>Lets you determine if the user agent accepts a particular character set. 參考範例:</p>
 
 <code>if ($this->agent->accept_charset('utf-8'))<br />
 {<br />
@@ -178,7 +178,7 @@ since some browsers do not provide language info, and even among those that do, 
 }</code>
 
 <p class="important"><strong>注意:</strong> This function is not typically very reliable
-since some browsers do not provide character-set info, and even among those that do, it is not always accurate. </p>
+since some browsers do not provide character-set info，and even among those that do，it is not always accurate. </p>
 
 
 
@@ -188,13 +188,13 @@ since some browsers do not provide character-set info, and even among those that
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="uri.html">URI Class</a>
+上個主題:&nbsp;&nbsp;<a href="uri.html">URI 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC Class</a>
+下個主題:&nbsp;&nbsp;<a href="xmlrpc.html">XML-RPC 類別</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

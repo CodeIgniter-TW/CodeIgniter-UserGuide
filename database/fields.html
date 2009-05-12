@@ -39,12 +39,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
 Field Names
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -92,27 +92,27 @@ foreach ($query->list_fields() as $field)<br />
 <h2>$this->db->field_exists()</h2>
 
 <p>Sometimes it's helpful to know whether a particular field exists before performing an action.
-Returns a boolean TRUE/FALSE.  Usage example:</p>
+Returns a boolean TRUE/FALSE.  使用範例:</p>
 
 <code>
-if ($this->db->field_exists('field_name', 'table_name'))<br />
+if ($this->db->field_exists('field_name'，'table_name'))<br />
 {<br />
 &nbsp;&nbsp; // some code...<br />
 }
 </code>
 
-<p>注意:  Replace <em>field_name</em> with the name of the column you are looking for, and replace
+<p>注意:  Replace <em>field_name</em> with the name of the column you are looking for，and replace
 <em>table_name</em> with the name of the table you are looking for.</p>
 
 
 <h2>$this->db->field_data()</h2>
 <p>Returns an array of objects containing field information.</p>
-<p>Sometimes it's helpful to gather the field names or other metadata, like the column type, max length, etc.</p>
+<p>Sometimes it's helpful to gather the field names or other metadata，like the column type，max length，etc.</p>
 
 
 <p class="important">注意: Not all databases provide meta-data.</p>
 
-<p>Usage example:</p>
+<p>使用範例:</p>
 
 <code>
 $fields = $this->db->field_data('table_name');<br /><br />
@@ -156,7 +156,7 @@ $fields = $query->field_data();
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="call_function.html">Custom Function Calls</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

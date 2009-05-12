@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
 Query Results
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -66,9 +66,9 @@ Query Results
 
 	<h2>result()</h2>
 	
-	<p>This function returns the query result as an array of <strong>objects</strong>, or <strong>an empty array</strong> on failure.
+	<p>This function returns the query result as an array of <strong>objects</strong>，or <strong>an empty array</strong> on failure.
 	
-	Typically you'll use this in a foreach loop, like this:</p>
+	Typically you'll use this in a foreach loop，like this:</p>
 	
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
@@ -82,7 +82,7 @@ Query Results
 	
 	<p>The above <dfn>function</dfn> is an alias of <dfn>result_object()</dfn>.</p>
 
-	<p>If you run queries that might <strong>not</strong> produce a result, you are encouraged to test the result first:</p>
+	<p>If you run queries that might <strong>not</strong> produce a result，you are encouraged to test the result first:</p>
 	
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
@@ -100,7 +100,7 @@ Query Results
 	
 	<h2>result_array()</h2>
 	
-	<p>This function returns the query result as a pure array, or an empty array when no result is produced.  Typically you'll use this in a foreach loop, like this:</p>
+	<p>This function returns the query result as a pure array，or an empty array when no result is produced.  Typically you'll use this in a foreach loop，like this:</p>
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
 	<br />
@@ -114,8 +114,8 @@ Query Results
 
 	<h2>row()</h2>
 	
-	<p>This function returns a single result row.  If your query has more than one row, it returns only the first row.
-	The result is returned as an <strong>object</strong>.  Here's a usage example:</p>
+	<p>This function returns a single result row.  If your query has more than one row，it returns only the first row.
+	The result is returned as an <strong>object</strong>.  Here's a usage 參考範例:</p>
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
 	<br />
@@ -136,7 +136,7 @@ Query Results
 
 	<h2>row_array()</h2>
 
-	<p>Identical to the above <var>row()</var> function, except it returns an array.  Example:</p>
+	<p>Identical to the above <var>row()</var> function，except it returns an array.  參考範例:</p>
 
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
@@ -157,7 +157,7 @@ Query Results
 	<code>$row = $query->row_array(<dfn>5</dfn>);</code>
 	
 
- 	<p>In addition, you can walk forward/backwards/first/last through your results using these variations:</p>
+ 	<p>In addition，you can walk forward/backwards/first/last through your results using these variations:</p>
 
 <p>
 	<strong>$row = $query->first_row()</strong><br />
@@ -177,11 +177,11 @@ Query Results
 
 
 
-<h1>Result Helper Functions</h1>
+<h1>Result 補助函數 Functions</h1>
 
 
 <h2>$query->num_rows()</h2>
-<p>The number of rows returned by the query. 注意: In this example, <dfn>$query</dfn> is the variable that the query result object is assigned to:</p>
+<p>The number of rows returned by the query. 注意: In this example，<dfn>$query</dfn> is the variable that the query result object is assigned to:</p>
 
 <code>$query = $this->db->query('SELECT * FROM my_table');<br /><br />
 echo $query->num_rows();
@@ -198,8 +198,8 @@ echo $query->num_fields();
 
 <h2>$query->free_result()</h2>
 <p>It frees the memory associated with the result and deletes the result resource ID.  Normally PHP frees its memory automatically at the end of script
-execution.  However, if you are running a lot of queries in a particular script you might want to free the result after each query result has been
-generated in order to cut down on memory consumptions.  Example:
+execution.  However，if you are running a lot of queries in a particular script you might want to free the result after each query result has been
+generated in order to cut down on memory consumptions.  參考範例:
 </p>
 
 <code>$query = $this->db->query('SELECT title FROM my_table');<br /><br />
@@ -229,9 +229,9 @@ $query2->free_result();  // The $query2 result object will no longer be availabl
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="helpers.html">Query Helper Functions</a>
+下個主題:&nbsp;&nbsp;<a href="helpers.html">Query 補助函數 Functions</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 </body>

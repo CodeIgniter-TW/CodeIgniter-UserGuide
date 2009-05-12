@@ -66,7 +66,7 @@
 <li><a href="#functions">函數(Functions))</a></li>
 <li><a href="#passinguri">傳遞 URL 段落到你的函數裡</a></li>
 <li><a href="#default">定義預設的控制器</a></li>
-<li><a href="#remapping">重新對應函數呼叫</a></li>
+<li><a href="#remapping">重新對映函數呼叫</a></li>
 <li><a href="#output">控制輸出資料</a></li>
 <li><a href="#private">私有函數</a></li>
 <li><a href="#subfolders">把控制器收納進子目錄裡頭</a></li>
@@ -202,36 +202,29 @@ class Products extends Controller {<br />
 <a name="default"></a>
 <h2>定義預設的控制器</h2>
 
-<p>CodeIgniter 可以修改預設載入的控制器，假如某個
-如要設定預設的控制器，請開啟 <dfn>application/config/routes.php</dfn> 的檔案，然後設定底下的變數:</p>
-
-can be told to load a default controller when a URI is not present,
-as will be the case when only your site root URL is requested.  To specify a default controller，open
-your <dfn>application/config/routes.php</dfn> file and set this variable:</p>
+<p>CodeIgniter 可以修改預設載入的控制器，如要設定預設的控制器，請開啟 <dfn>application/config/routes.php</dfn> 的檔案，然後設定成底下的變數:</p>
 
 <code>$route['default_controller'] = '<var>Blog</var>';</code>
 
-<p>Where <var>Blog</var> is the name of the controller class you want used. If you now load your main index.php file without
-specifying any URI segments you'll see your Hello World message by default.</p>
+<p>這邊的 <var>Blog</var> 是在控制器類別裡頭，你所想要使用的名稱。修改完成後，不需要給予任何 URI 分段內容的預設情況之下，就可以看到 Hello World 的訊息了。</p>
 
 
 
 <a name="remapping"></a>
-<h2>重新對應函數呼叫</h2>
+<h2>重新對映函數呼叫</h2>
 
-<p>As noted above，the second segment of the URI typically determines which function in the controller gets called.
-CodeIgniter permits you to override this behavior through the use of the <kbd>_remap()</kbd> function:</p>
+<p>如上頭所描述，在第二個URI分段的名稱，通常是決定那個控制器(controller)裡頭那個函數(function)要被呼叫。不過，CodeIgniter 也可以允許你用
+<kbd>_remap()</kbd> 函數來把它來改寫成:</p>
 
 <code>function _remap()<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;// Some code here...<br />
 }</code>
 
-<p class="important"><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>，it will <strong>always</strong>
-get called regardless of what your URI contains.  It overrides the normal behavior in which the URI determines which function is called,
-allowing you to define your own function routing rules.</p>
+<p class="important"><strong>非常重要:</strong>&nbsp; 如果你的控制器裡頭有個 <kbd>_remap()</kbd> 函數的話，那麼它會 <strong>總是</strong>
+不理會你的 URI 內容是什麼東西。也就是說，這個方式會改寫掉原本函數呼叫的規則，並且允許使用自己定義的函數路由規則(function routing rules)。</p>
 
-<p>The overridden function call (typically the second segment of the URI) will be passed as a parameter the <kbd>_remap()</kbd> function:</p>
+<p>改寫函數呼叫(通常是在URI的第二個分段)將會被當成是參數通過<kbd>_remap()</kbd>函數:</p>
 
 <code>function _remap(<var>$method</var>)<br />
 {<br />
@@ -247,20 +240,14 @@ allowing you to define your own function routing rules.</p>
 
 
 
-
-
 <a name="output"></a>
 <h2>輸出處理</h2>
 
-<p>CodeIgniter has an output class that takes care of sending your final rendered data to the web browser automatically.  More information on this can be found in the
-<a href="views.html">Views</a> and <a href="../libraries/output.html">Output class</a> pages.  In some cases，however，you might want to
-post-process the finalized data in some way and send it to the browser yourself.  CodeIgniter permits you to
-add a function named <dfn>_output()</dfn> to your controller that will receive the finalized output data.</p>
+<p>CodeIgniter 有個 output 類別會自動處理最後給瀏覽器的資料。更多詳細的資訊可以在 <a href="views.html">檢視(Views)</a> 以及 <a href="../libraries/output.html">Output 類別</a> 查看。某些時候，你也許會想要把最終的資料進行後續處理(post-process)，然後在把處理好的資料送回給瀏覽器。CodeIgniter 可以你新增一個 <dfn>_output()</dfn> 到控制器裡頭，來負責接收最終的的輸出資料。</p>
 
-<p><strong>非常重要::</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>，it will <strong>always</strong>
-be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.</p>
+<p><strong>非常重要:</strong>&nbsp; 如果你的控制器裡有個 <kbd>_output()</kbd> 函數的話，他也是會 <strong>總是</strong>會被 output 類別取代成直接回應最終的資料。函數的第一個參數將會包含最後的輸出。</p>
 
-<p>Here is an 參考範例:</p>
+<p>這裡有個參考範例:</p>
 
 <code>
 function _output($output)<br />
@@ -272,7 +259,7 @@ function _output($output)<br />
 cache files written (if you have caching enabled)，and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
 before it is handed off to the _output() function.  If you are using this feature the page execution timer and memory usage stats might not be perfectly accurate
 since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done，please see
-the available methods in the <a href="../libraries/output.html">Output Class</a>.</p>
+the available methods in the <a href="../libraries/output.html">Output 類別</a>.</p>
 
 <a name="private"></a>
 <h2>私有函數</h2>

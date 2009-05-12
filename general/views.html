@@ -67,7 +67,7 @@ you should do so before continuing.</p>
 
 <p>使用 example controller you created in the <a href="controllers.html">controller</a> page，let's add a view to it.</p>
 
-<h2>Creating a View</h2>
+<h2>新增 View</h2>
 
 <p>Using your text editor，create a file called <dfn>blogview.php</dfn>，and put this in it:</p>
 
@@ -84,7 +84,7 @@ you should do so before continuing.</p>
 
 <p>Then save the file in your <dfn>application/views/</dfn> folder.</p>
 
-<h2>Loading a View</h2>
+<h2>載入 View</h2>
 
 <p>To load a particular view file you will use the following function:</p>
 
@@ -113,7 +113,7 @@ class Blog extends Controller {
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<h2>Loading multiple views</h2>
+<h2>載入多個 Views</h2>
 <p>CodeIgniter will intelligently handle  multiple calls to $this-&gt;load-&gt;view from within a controller.  If more then one call happens they will be appended together. For example，you may wish to have a header view，a menu view，a content view，and a footer view. That might look something like this:</p>
 <p><code>&lt;?php<br />
 <br />
@@ -131,17 +131,17 @@ class Page extends Controller {<br /><br />
 }<br />
 	?&gt;</code></p>
 <p>In the example above，we are using &quot;dynamically added data&quot;，which you will see below.</p>
-<h2>Storing Views within Sub-folders</h2>
+<h2>把 view 收納進子目錄裡頭</h2>
 <p>Your view files can also be stored within sub-folders if you prefer that type of organization.  When doing so you will need
 to include the folder name loading the view.  參考範例:</p>
 
 <code>$this->load->view('<kbd>folder_name</kbd>/<var>file_name</var>');</code>
 
 
-<h2>Adding Dynamic Data to the View</h2>
+<h2>新增動態資料到 View</h2>
 
 <p>Data is passed from the controller to the view by way of an <strong>array</strong> or an <strong>object</strong> in the second
-parameter of the view loading function. Here is an example using an array:</p>
+parameter of the view loading function. 這裡有個example using an array:</p>
 
 <code>$data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My Title',<br />

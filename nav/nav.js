@@ -11,7 +11,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'toc.html">Table of Contents Page</a></li>' +
 		'</ul>' +	
 
-		'<h3>Basic Info</h3>' +
+		'<h3>基本資訊</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/requirements.html">Server Requirements</a></li>' +
 			'<li><a href="'+base+'license.html">License Agreement</a></li>' +
@@ -19,15 +19,15 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/credits.html">Credits</a></li>' +
 		'</ul>' +	
 		
-		'<h3>Installation</h3>' +
+		'<h3>安裝</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'installation/downloads.html">Downloading CodeIgniter</a></li>' +
-			'<li><a href="'+base+'installation/index.html">Installation Instructions</a></li>' +
+			'<li><a href="'+base+'installation/index.html">安裝 Instructions</a></li>' +
 			'<li><a href="'+base+'installation/upgrading.html">Upgrading from a Previous Version</a></li>' +
 			'<li><a href="'+base+'installation/troubleshooting.html">Troubleshooting</a></li>' +
 		'</ul>' +
 		
-		'<h3>Introduction</h3>' +
+		'<h3>簡介</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'overview/getting_started.html">Getting Started</a></li>' +
 			'<li><a href="'+base+'overview/at_a_glance.html">CodeIgniter at a Glance</a></li>' +
@@ -40,7 +40,7 @@ function create_menu(basepath)
 				
 		'</td><td class="td_sep" valign="top">' +
 
-		'<h3>General Topics</h3>' +
+		'<h3>一般主題</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/urls.html">CodeIgniter URLs</a></li>' +
 			'<li><a href="'+base+'general/controllers.html">Controllers</a></li>' +

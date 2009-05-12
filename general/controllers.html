@@ -63,7 +63,7 @@
 <ul>
 <li><a href="#what">什麼是控制器(Controller)呢?</a></li>
 <li><a href="#hello">我們的第一個程式:  Hello World!<a></li>
-<li><a href="#functions">Functions</a></li>
+<li><a href="#functions">函數(Functions))</a></li>
 <li><a href="#passinguri">傳遞 URL 段落到你的函數裡</a></li>
 <li><a href="#default">定義預設的控制器</a></li>
 <li><a href="#remapping">重新對應函數呼叫</a></li>
@@ -137,16 +137,16 @@ class <var>blog</var> extends Controller {<br />
 
 
 <a name="functions"></a>
-<h2>Functions</h2>
+<h2>函數(Functions)</h2>
 
-<p>In the above example the function name is <dfn>index()</dfn>.  The "index" function is always loaded by default if the
-<strong>second segment</strong> of the URI is empty.  Another way to show your "Hello World" message would be this:</p>
+<p>看看上面例子的函數名稱，它叫作是<dfn>index()</dfn>。這個 "index" 函數通常是預設載入， 假如 URI 的
+<strong>第二個分段(second segment)</strong> 是 empty 的話。另一個秀出 "Hello World" 的方法，則是這樣:</p>
 
 <code>example.com/index.php/<var>blog</var>/<samp>index</samp>/</code>
 
-<p><strong>The second segment of the URI determines which function in the controller gets called.</strong></p>
+<p><strong>URI 的第二個分段，決定了控制器裡頭的那一個函數得被呼叫出來。</strong></p>
 
-<p>Let's try it.  Add a new function to your controller:</p>
+<p>接下來在試試看，新增一個函數到你的控制器裡頭:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="15">
@@ -166,22 +166,22 @@ class Blog extends Controller {
 ?&gt;
 </textarea>
 
-<p>Now load the following URL to see the <dfn>comment</dfn> function:</p>
+<p>現在載入底下的 URL 來看看這個 <dfn>comment</dfn> 函數:</p>
 
 <code>example.com/index.php/<var>blog</var>/<samp>comments</samp>/</code>
 
-<p>You should see your new message.</p>
+<p>你應該會看到你的新的訊息！</p>
 
 <a name="passinguri"></a>
 <h2>傳遞 URL 段落到你的函數裡</h2>
 
-<p>If your URI contains more then two segments they will be passed to your function as parameters.</p>
+<p>假如你的 URI 包含超過兩個分段的話，他們會把這個當成是參數傳遞到你的函數裡頭。</p>
 
-<p>For example，lets say you have a URI like this:</p>
+<p>舉例來說，如果你有個像這樣的 URL :</p>
 
 <code>example.com/index.php/<var>products</var>/<samp>shoes</samp>/<kbd>sandals</kbd>/<dfn>123</dfn></code>
 
-<p>Your function will be passed URI segments 3 and 4 ("sandals" and "123"):</p>
+<p>你的函數會收到第三跟第四的 URI 分段的內容，也就是會收到 "sandals" 以及 "123" 的參數:</p>
 
 <code>
 &lt;?php<br />
@@ -196,14 +196,16 @@ class Products extends Controller {<br />
 ?&gt;
 </code>
 
-<p class="important"><strong>非常重要::</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature，the segments
-passed to your function will be the re-routed ones.</p>
+<p class="important"><strong>非常重要:</strong>&nbsp;  如果你使用 <a href="routing.html">URI Routing</a> 的功能，收到的內容則會是被 re-routed 過後的那個。</p>
 
 
 <a name="default"></a>
 <h2>定義預設的控制器</h2>
 
-<p>CodeIgniter can be told to load a default controller when a URI is not present,
+<p>CodeIgniter 可以修改預設載入的控制器，假如某個
+如要設定預設的控制器，請開啟 <dfn>application/config/routes.php</dfn> 的檔案，然後設定底下的變數:</p>
+
+can be told to load a default controller when a URI is not present,
 as will be the case when only your site root URL is requested.  To specify a default controller，open
 your <dfn>application/config/routes.php</dfn> file and set this variable:</p>
 

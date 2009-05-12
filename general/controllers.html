@@ -245,7 +245,8 @@ class Products extends Controller {<br />
 
 <p>CodeIgniter 有個 output 類別會自動處理最後給瀏覽器的資料。更多詳細的資訊可以在 <a href="views.html">檢視(Views)</a> 以及 <a href="../libraries/output.html">Output 類別</a> 查看。某些時候，你也許會想要把最終的資料進行後續處理(post-process)，然後在把處理好的資料送回給瀏覽器。CodeIgniter 可以你新增一個 <dfn>_output()</dfn> 到控制器裡頭，來負責接收最終的的輸出資料。</p>
 
-<p><strong>非常重要:</strong>&nbsp; 如果你的控制器裡有個 <kbd>_output()</kbd> 函數的話，他也是會 <strong>總是</strong>會被 output 類別取代成直接回應最終的資料。函數的第一個參數將會包含最後的輸出。</p>
+<p><strong>非常重要:</strong>&nbsp;:  If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong> be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.
+</p>
 
 <p>這裡有個參考範例:</p>
 

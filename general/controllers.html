@@ -266,8 +266,7 @@ the available methods in the <a href="../libraries/output.html">Output 類別</a
 <h2>私有函數</h2>
 
 
-<p>In some cases you may want certain functions hidden from public access.  To make a function private，simply add an
-underscore as the name prefix and it will not be served via a URL request. For example，if you were to have a function like this:</p>
+<p>有時候，你會想要把某些函數隱藏起來，不讓它可以被公開存取。要把函數隱藏起來的話，只要在函數前加上個底線，然後他就不會被送給 URL 呼叫了。舉例來說，你有個像這個樣的函數:</p>
 
 <code>
 function _utility()<br />
@@ -275,7 +274,7 @@ function _utility()<br />
 &nbsp;&nbsp;// some code<br />
 }</code>
 
-<p>Trying to access it via the URL，like this，will not work:</p>
+<p>試試看讀取像底下的 URL，應該是不會動的:</p>
 
 <code>example.com/index.php/<var>blog</var>/<samp>_utility</samp>/</code>
 
@@ -313,8 +312,10 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 
 <p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
 
+<p>這行必須要存在，因為你的 local contructor 會覆蓋在 parent controller 裡頭的那個，所以我們得手動呼叫他。</p>
 
-<p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> is simply a function that has the exact same name as the class:</p>
+
+<p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> 像類別函數有完全相同的名稱:</p>
 
 <code>
 &lt;?php<br />

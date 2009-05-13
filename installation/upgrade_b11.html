@@ -55,22 +55,22 @@
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Upgrading From Beta 1.0 到 Beta 1.1</h1>
+<h1>更新 Beta 1.0 到 Beta 1.1</h1>
 
 <p>To upgrade to Beta 1.1 please perform the following steps:</p>
 
-<h2>Step 1: Replace your index file</h2>
+<h2>步驟一: 更換 main index.php 檔</h2>
 
 <p>Replace your main <kbd>index.php</kbd> file with the new index.php file. 注意:  If you have renamed your "system" folder you will need to edit this info in the new file.</p>
 
-<h2>Step 2: Relocate your config folder</h2>
+<h2>步驟二: 重新配置設定目錄</h2>
 
 <p>This version of CodeIgniter now permits multiple sets of "applications" to all share a common set of backend files. In order to enable
 each application to have its own configuration values，the <kbd>config</kbd> directory must now reside
 inside of your <dfn>application</dfn> folder，so please move it there.</p>
 
 
-<h2>Step 3: Replace directories</h2>
+<h2>步驟三: 更新目錄</h2>
 
 <p>Replace the following directories with the new versions:</p>
 
@@ -83,13 +83,13 @@ inside of your <dfn>application</dfn> folder，so please move it there.</p>
 </ul>
 
 
-<h2>Step 4: Add the calendar language file</h2>
+<h2>步驟四: Add the calendar language file</h2>
 
 <p>There is a new language file corresponding to the new calendaring class which must be added to your language folder. Add
 the following item to your version: <dfn>language/english/calendar_lang.php</dfn></p>
 
 
-<h2>Step 5: Edit your config file</h2>
+<h2>步驟五: 修改設定檔</h2>
 
 <p>The original <kbd>application/config/config.php</kbd> file has a typo in it  Open the file and look for the items related to cookies:</p>
 

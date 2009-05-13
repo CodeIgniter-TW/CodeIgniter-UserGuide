@@ -57,7 +57,7 @@
 
 <h1>更新 1.2 到 1.3</h1>
 
-<p class="important"><strong>注意:</strong> The instructions on this page assume you are running version 1.2.  If you
+<p class="important"><strong>注意:</strong> 本頁的更新步驟，都是假設你目前使用的是 version 1.2。  If you
 have not upgraded to that version please do so first.</p>
 
 
@@ -65,11 +65,11 @@ have not upgraded to that version please do so first.</p>
 with a static one.</p>
 
 
-<h2>Step 1: Update your CodeIgniter files</h2>
+<h2>步驟一: 更新 CodeIgniter 檔案</h2>
 
 <p>Replace the following directories in your "system" folder with the new versions:</p>
 
-<p class="important"><strong>注意:</strong> If you have any custom developed files in these folders please make copies of them first.</p>
+<p class="important"><strong>注意:</strong> 如果之前在這些目錄裡頭，有任何你自己所開發的檔案，請記得要複製進去。</p>
 
 <ul>
 <li>application/<strong>models</strong>/&nbsp;&nbsp;  (new for 1.3)</li>
@@ -84,7 +84,7 @@ with a static one.</p>
 </ul>
 
 
-<h2>Step 2: Update your error files</h2>
+<h2>步驟二: 更新 error 檔</h2>
 
 <p>Version 1.3 contains two new error templates located in <dfn>application/errors</dfn>，and for naming consistency the other error templates have
 been renamed.</p>
@@ -107,7 +107,7 @@ replace this folder:</p>
 </ul>
 
 
-<h2>Step 3: Update your index.php file</h2>
+<h2>步驟三: 更新 index.php 檔</h2>
 
 <p>Please open your main <dfn>index.php</dfn> file (located at your root).  At the very bottom of the file，change this:</p>
 
@@ -118,7 +118,7 @@ replace this folder:</p>
 <code>require_once BASEPATH.'codeigniter/CodeIgniter'.EXT;</code>
 
 
-<h2>Step 4: Update your config.php file</h2>
+<h2>步驟四: 更新 config.php 檔</h2>
 
 <p>Open your <dfn>application/config/config.php</dfn> file and add these new items:</p>
 
@@ -170,7 +170,7 @@ $config['function_trigger'] = 'm';
 </pre>
 
 
-<h2>Step 5: Update your database.php file</h2>
+<h2>步驟五: 更新 datebase.php 檔</h2>
 
 <p>Open your <dfn>application/config/database.php</dfn> file and add these new items:</p>
 
@@ -180,9 +180,9 @@ $db['default']['active_r'] = TRUE;
 </pre>
 
 
-<h2>Step 6: Update your user guide</h2>
+<h2>步驟六: 更新使用手冊</h2>
 
-<p>Please also replace your local copy of the user guide with the new version.</p>
+<p>也請別忘了把 local 的使用手冊換上新的版本。</p>
 
 </div>
 <!-- END CONTENT -->

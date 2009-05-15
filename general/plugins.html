@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Plugins : CodeIgniter 使用手冊</title>
+<title>外掛模組(Plugins) : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Plugins
+外掛模組(Plugins)
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,13 +56,13 @@ Plugins
 <div id="content">
 
 
-<h1>Plugins</h1>
+<h1>外掛模組(Plugins)</h1>
 
-<p>Plugins work almost identically to <a href="helpers.html">補助函數</a>.  The main difference is that a plugin usually
+<p>外掛模組(Plugins) work almost identically to <a href="helpers.html">補助函數</a>.  The main difference is that a plugin usually
 provides a single function，whereas a 補助函數 is usually a collection of functions.  補助函數 are also considered a part of
 the core system; plugins are intended to be created and shared by our community.</p>
 
-<p>Plugins should be saved to your <dfn>system/plugins</dfn> directory or you can create a folder called <kbd>plugins</kbd> inside
+<p>外掛模組(Plugins) should be saved to your <dfn>system/plugins</dfn> directory or you can create a folder called <kbd>plugins</kbd> inside
 your <kbd>application</kbd> folder and store them there.  CodeIgniter will look first in your <dfn>system/application/plugins</dfn>
 directory.  If the directory does not exist or the specified plugin is not located there CI will instead look in your global
 <dfn>system/plugins</dfn> folder.</p>
@@ -89,19 +89,19 @@ automatically in any function，or you can load a plugin in a specific function 
 <p class="important">注意: The Plugin loading function above does not return a value，so don't try to assign it to a variable.  Just use it as shown.</p>
 
 
-<h2>Loading Multiple Plugins</h2>
+<h2>載入多個外掛模組(Plugins)</h2>
 
 <p>If you need to load more than one plugin you can specify them in an array，like this:</p>
 
 <code>$this->load->plugin( <samp>array(</samp>'<var>plugin1</var>'，'<var>plugin2</var>'，'<var>plugin3</var>'<samp>)</samp> );</code>
 
-<h2>Auto-loading Plugins</h2>
+<h2>自動載入外掛模組(Plugins)</h2>
 
 <p>If you find that you need a particular plugin globally throughout your application，you can tell CodeIgniter to auto-load it
 during system initialization. This is done by opening the <var>application/config/autoload.php</var> file and adding the plugin to the autoload array.</p>
 
 
-<h2>Using a Plugin</h2>
+<h2>使用外掛模組(Plugin)</h2>
 
 <p>Once you've loaded the Plugin，you'll call it the way you would a standard PHP function.</p>
 

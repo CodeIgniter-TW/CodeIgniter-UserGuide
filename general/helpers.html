@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>補助函數 函數(函數(Functions)) : CodeIgniter 使用手冊</title>
+<title>補助函數(Helper Functions) : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-補助函數 函數(函數(Functions))
+補助函數(Helper Functions)
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,7 +55,7 @@
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>補助函數 函數(函數(Functions))</h1>
+<h1>補助函數(Helper Functions)</h1>
 
 <p>補助函數，as the name suggests，help you with tasks.  Each helper file is simply a collection of functions in a particular
 category.  There are <dfn>URL 補助函數</dfn>，that assist in creating links，there are <dfn>Form 補助函數</dfn>
@@ -74,7 +74,7 @@ directory.  If the directory does not exist or the specified helper is not locat
 <dfn>system/helpers</dfn> folder.</p>
 
 
-<h2>Loading a 補助函數</h2>
+<h2>載入補助函數</h2>
 
 <p>Loading a helper file is quite simple using the following function:</p>
 
@@ -93,19 +93,19 @@ automatically in any function，or you can load a helper in a specific function 
 <p class="important">注意: The 補助函數 loading function above does not return a value，so don't try to assign it to a variable.  Just use it as shown.</p>
 
 
-<h2>Loading Multiple 補助函數</h2>
+<h2>載入多個補助函數</h2>
 
 <p>If you need to load more than one helper you can specify them in an array，like this:</p>
 
 <code>$this->load->helper( <samp>array(</samp>'<var>helper1</var>'，'<var>helper2</var>'，'<var>helper3</var>'<samp>)</samp> );</code>
 
-<h2>Auto-loading 補助函數</h2>
+<h2>自動載入補助函數</h2>
 
 <p>If you find that you need a particular helper globally throughout your application，you can tell CodeIgniter to auto-load it during system initialization.
 This is done by opening the <var>application/config/autoload.php</var> file and adding the helper to the autoload array.</p>
 
 
-<h2>Using a 補助函數</h2>
+<h2>使用補助函數</h2>
 
 <p>Once you've loaded the 補助函數 File containing the function you intend to use，you'll call it the way you would a standard PHP function.</p>
 
@@ -115,7 +115,7 @@ This is done by opening the <var>application/config/autoload.php</var> file and 
 
 <p>Where "Click Here" is the name of the link，and "blog/comments" is the URI to the controller/function you wish to link to.</p>
 
-<h2>"Extending" 補助函數</h2>
+<h2>"擴充" 補助函數</h2>
 
 <p>To "extend" 補助函數，create a file in your <dfn>application/helpers/</dfn> folder with an identical name to the existing 補助函數，but prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</p>
 

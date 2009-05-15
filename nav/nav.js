@@ -64,7 +64,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/alternative_php.html">Alternative PHP Syntax</a></li>' +
 			'<li><a href="'+base+'general/security.html">安全性</a></li>' +
 			'<li><a href="'+base+'general/styleguide.html">PHP 樣式指南</a></li>' +
-			'<li><a href="'+base+'doc_style/index.html">Writing Documentation</a></li>' +
+			'<li><a href="'+base+'doc_style/index.html">撰寫文件</a></li>' +
 		'</ul>' +
 		
 		'</td><td class="td_sep" valign="top">' +

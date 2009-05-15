@@ -48,7 +48,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/views.html">檢視(Views)</a></li>' +
 			'<li><a href="'+base+'general/models.html">模型(Models)</a></li>' +
 			'<li><a href="'+base+'general/helpers.html">補助函數(Helpers)</a></li>' +
-			'<li><a href="'+base+'general/plugins.html">外掛模組(外掛模組(Plugins))</a></li>' +
+			'<li><a href="'+base+'general/plugins.html">外掛模組(Plugins)</a></li>' +
 			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">建立自己的程式庫</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">新增核心類別</a></li>' +

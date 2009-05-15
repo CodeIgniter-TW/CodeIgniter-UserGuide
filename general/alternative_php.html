@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Alternate PHP Syntax for View Files : CodeIgniter 使用手冊</title>
+<title>Views 檔變換 PHP 句法 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Alternate PHP Syntax
+變換 PHP 句法
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,41 +55,38 @@ Alternate PHP Syntax
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Alternate PHP Syntax for View Files</h1>
+<h1>Views 檔變換 PHP 句法</h1>
 
-<p>If you do not utilize CodeIgniter's <a href="../libraries/parser.html">template engine</a>，you'll be using pure PHP
-in your View files.  To minimize the PHP code in these files，and to make it easier to identify the code blocks it is recommended that you use 
-PHPs alternative syntax for control structures and short tag echo statements.  If you are not familiar with this syntax，it allows you to eliminate the braces from your code,
-and eliminate "echo" statements.</p>
+<p>如果你不使用 CodeIgniter's <a href="../libraries/parser.html">樣板引擎(template engine)</a>，就得在 View files 用純 PHP 句法
+。為了最少化 PHP 程式碼在這檔案中的比重，以及要讓 View files 可以比較簡單的辨識出程式碼區塊，我們會建議你使用變換 PHP 句法的功能
+，這樣就可以利用較簡易的控制結構以及 short tag 語法。如果你不熟悉這些句法，你也能把那些句法從你的程式碼踢掉以及趕走 echo 的用法。
+</p>
 
-<h2>Automatic Short Tag Support</h2>
+<h2>自動支援 Short Tag</h2>
 
-<p><strong>注意:</strong> If you find that the syntax described in this page does not work on your server it might
-be that "short tags" are disabled in your PHP ini file. CodeIgniter will optionally rewrite short tags on-the-fly，
-allowing you to use that syntax even if your server doesn't support it.  This feature can be enabled in your
-<dfn>config/config.php</dfn> file.</p>
+<p><strong>注意:</strong>
+如果你發現在這章節中的句法，無法在你的伺服器運作的話，這有可能是在你的 PHP ini 檔案裡頭，其中的 short tags 功能被關閉了。
+就算你的伺服器不支援這個功能，你還是能夠依照需求修改 <dfn>config/config.php</dfn>，讓 CodeIgniter 可以啟用語法支援。</p>
 
-<p class="important">Please note that if you do use this feature，if PHP errors are encountered
-in your <strong>view files</strong>，the error message and line number will not be accurately shown.  Instead，all errors
-will be shown as <kbd>eval()</kbd> errors.</p>
+<p class="important">請留意如果你啟用了這個功能的話，假設你的 <strong>view files</strong> 發生 PHP 錯誤的話，錯誤訊息
+以及實際的行號則不會確實顯示出來。所有的錯誤則會被當成是 <kbd>eval()</kbd> 錯誤。</p>
 
+<h2>變換 Echos</h2>
 
-<h2>Alternative Echos</h2>
-
-<p>Normally to echo，or print out a variable you would do this:</p>
+<p>一般使用 echo 或是印出變數的作法:</p>
 
 <code>&lt;?php echo $variable; ?></code>
 
-<p>With the alternative syntax you can instead do it this way:</p>
+<p>使用變換句法後，你就可以換成這個表達方式:</p>
 
 <code>&lt;?=$variable?></code>
 
 
 
-<h2>Alternative Control Structures</h2>
+<h2>變換控制結構</h2>
 
-<p>Controls structures，like <var>if</var>，<var>for</var>，<var>foreach</var>，and <var>while</var> can be
-written in a simplified format as well.  這裡有個example using foreach:</p>
+<p>一些控制結構像是 <var>if</var>，<var>for</var>，<var>foreach</var>，以及 <var>while</var>
+也可被寫程簡單的格式。這裡有個範例使用 foreach 的控制結構:</p>
 
 <code>
 &lt;ul><br />
@@ -106,10 +103,11 @@ written in a simplified format as well.  這裡有個example using foreach:</p>
 Each of the control structures listed above has a similar closing syntax:
 <var>endif</var>，<var>endfor</var>，<var>endforeach</var>，and <var>endwhile</var></p>
 
-<p>Also notice that instead of using a semicolon after each structure (except the last one)，there is a colon.  This is
-important!</p>
+<p>
+Also notice that instead of using a semicolon after each structure (except the last one)，there is a colon.  
+這很重要！</p>
 
-<p>Here is another example，using if/elseif/else.  Notice the colons:</p>
+<p>這邊還有別的範例，使用 if/elseif/else 控制結構。.請留意分號的地方:</p>
 
 
 <code><var>&lt;?php if ($username == 'sally'): ?></var><br />

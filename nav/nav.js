@@ -43,10 +43,10 @@ function create_menu(basepath)
 		'<h3>一般主題</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/urls.html">CodeIgniter URLs</a></li>' +
-			'<li><a href="'+base+'general/controllers.html">控制器(控制器(Controllers))</a></li>' +
+			'<li><a href="'+base+'general/controllers.html">控制器(Controllers)</a></li>' +
 			'<li><a href="'+base+'general/reserved_names.html">保留字</a></li>' +
-			'<li><a href="'+base+'general/views.html">檢視(檢視(Views))</a></li>' +
-			'<li><a href="'+base+'general/models.html">模型(模型(Models))</a></li>' +
+			'<li><a href="'+base+'general/views.html">檢視(Views)</a></li>' +
+			'<li><a href="'+base+'general/models.html">模型(Models)</a></li>' +
 			'<li><a href="'+base+'general/helpers.html">補助函數(Helpers)</a></li>' +
 			'<li><a href="'+base+'general/plugins.html">外掛模組(外掛模組(Plugins))</a></li>' +
 			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +

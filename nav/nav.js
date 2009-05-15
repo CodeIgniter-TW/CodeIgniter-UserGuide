@@ -7,34 +7,34 @@ function create_menu(basepath)
 		'<td class="td" valign="top">' +
 
 		'<ul>' +
-		'<li><a href="'+base+'index.html">User Guide Home</a></li>' +	
-		'<li><a href="'+base+'toc.html">Table of Contents Page</a></li>' +
+		'<li><a href="'+base+'index.html">使用手冊首頁</a></li>' +	
+		'<li><a href="'+base+'toc.html">目錄</a></li>' +
 		'</ul>' +	
 
 		'<h3>基本資訊</h3>' +
 		'<ul>' +
-			'<li><a href="'+base+'general/requirements.html">Server Requirements</a></li>' +
-			'<li><a href="'+base+'license.html">License Agreement</a></li>' +
-			'<li><a href="'+base+'changelog.html">Change Log</a></li>' +
-			'<li><a href="'+base+'general/credits.html">Credits</a></li>' +
+			'<li><a href="'+base+'general/requirements.html">伺服器需求</a></li>' +
+			'<li><a href="'+base+'license.html">許可協議</a></li>' +
+			'<li><a href="'+base+'changelog.html">版本紀錄</a></li>' +
+			'<li><a href="'+base+'general/credits.html">所有權宣告</a></li>' +
 		'</ul>' +	
 		
 		'<h3>安裝</h3>' +
 		'<ul>' +
-			'<li><a href="'+base+'installation/downloads.html">Downloading CodeIgniter</a></li>' +
-			'<li><a href="'+base+'installation/index.html">安裝 Instructions</a></li>' +
-			'<li><a href="'+base+'installation/upgrading.html">Upgrading from a Previous Version</a></li>' +
-			'<li><a href="'+base+'installation/troubleshooting.html">Troubleshooting</a></li>' +
+			'<li><a href="'+base+'installation/downloads.html">下載 CodeIgniter</a></li>' +
+			'<li><a href="'+base+'installation/index.html">安裝指引</a></li>' +
+			'<li><a href="'+base+'installation/upgrading.html">更新</a></li>' +
+			'<li><a href="'+base+'installation/troubleshooting.html">除錯</a></li>' +
 		'</ul>' +
 		
 		'<h3>簡介</h3>' +
 		'<ul>' +
-			'<li><a href="'+base+'overview/getting_started.html">Getting Started</a></li>' +
-			'<li><a href="'+base+'overview/at_a_glance.html">CodeIgniter at a Glance</a></li>' +
-			'<li><a href="'+base+'overview/features.html">Supported Features</a></li>' +
-			'<li><a href="'+base+'overview/appflow.html">Application Flow Chart</a></li>' +
-			'<li><a href="'+base+'overview/mvc.html">Model-View-Controller</a></li>' +
-			'<li><a href="'+base+'overview/goals.html">Architectural Goals</a></li>' +
+			'<li><a href="'+base+'overview/getting_started.html">入門</a></li>' +
+			'<li><a href="'+base+'overview/at_a_glance.html">CodeIgniter 匆匆一瞥</a></li>' +
+			'<li><a href="'+base+'overview/features.html">支援功能</a></li>' +
+			'<li><a href="'+base+'overview/appflow.html">程式流程圖</a></li>' +
+			'<li><a href="'+base+'overview/mvc.html">模型-檢視-控制器</a></li>' +
+			'<li><a href="'+base+'overview/goals.html">架構目標</a></li>' +
 		'</ul>' +	
 
 				
@@ -43,27 +43,27 @@ function create_menu(basepath)
 		'<h3>一般主題</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'general/urls.html">CodeIgniter URLs</a></li>' +
-			'<li><a href="'+base+'general/controllers.html">Controllers</a></li>' +
-			'<li><a href="'+base+'general/reserved_names.html">Reserved Names</a></li>' +
-			'<li><a href="'+base+'general/views.html">Views</a></li>' +
-			'<li><a href="'+base+'general/models.html">Models</a></li>' +
-			'<li><a href="'+base+'general/helpers.html">Helpers</a></li>' +
-			'<li><a href="'+base+'general/plugins.html">Plugins</a></li>' +
-			'<li><a href="'+base+'general/libraries.html">Using CodeIgniter Libraries</a></li>' +
-			'<li><a href="'+base+'general/creating_libraries.html">Creating Your Own Libraries</a></li>' +
-			'<li><a href="'+base+'general/core_classes.html">Creating Core Classes</a></li>' +
+			'<li><a href="'+base+'general/controllers.html">控制器(控制器(Controllers))</a></li>' +
+			'<li><a href="'+base+'general/reserved_names.html">保留字</a></li>' +
+			'<li><a href="'+base+'general/views.html">檢視(檢視(Views))</a></li>' +
+			'<li><a href="'+base+'general/models.html">模型(模型(Models))</a></li>' +
+			'<li><a href="'+base+'general/helpers.html">補助函數(Helpers)</a></li>' +
+			'<li><a href="'+base+'general/plugins.html">外掛模組(外掛模組(Plugins))</a></li>' +
+			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +
+			'<li><a href="'+base+'general/creating_libraries.html">建立自己的程式庫</a></li>' +
+			'<li><a href="'+base+'general/core_classes.html">新增核心類別</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
-			'<li><a href="'+base+'general/autoloader.html">Auto-loading Resources</a></li>' +
-			'<li><a href="'+base+'general/common_functions.html">Common Functions</a></li>' +
+			'<li><a href="'+base+'general/autoloader.html">自動載入資源</a></li>' +
+			'<li><a href="'+base+'general/common_functions.html">通用函數</a></li>' +
 			'<li><a href="'+base+'general/scaffolding.html">Scaffolding</a></li>' +
 			'<li><a href="'+base+'general/routing.html">URI Routing</a></li>' +
-			'<li><a href="'+base+'general/errors.html">Error Handling</a></li>' +
-			'<li><a href="'+base+'general/caching.html">Caching</a></li>' +
+			'<li><a href="'+base+'general/errors.html">錯誤處理</a></li>' +
+			'<li><a href="'+base+'general/caching.html">快取</a></li>' +
 			'<li><a href="'+base+'general/profiling.html">Profiling Your Application</a></li>' +
-			'<li><a href="'+base+'general/managing_apps.html">Managing Applications</a></li>' +
+			'<li><a href="'+base+'general/managing_apps.html">管理 Applications</a></li>' +
 			'<li><a href="'+base+'general/alternative_php.html">Alternative PHP Syntax</a></li>' +
-			'<li><a href="'+base+'general/security.html">Security</a></li>' +
-			'<li><a href="'+base+'general/styleguide.html">PHP Style Guide</a></li>' +
+			'<li><a href="'+base+'general/security.html">安全性</a></li>' +
+			'<li><a href="'+base+'general/styleguide.html">PHP 樣式指南</a></li>' +
 			'<li><a href="'+base+'doc_style/index.html">Writing Documentation</a></li>' +
 		'</ul>' +
 		
@@ -72,65 +72,65 @@ function create_menu(basepath)
 				
 		'<h3>類別參考</h3>' +
 		'<ul>' +
-		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking Class</a></li>' +
-		'<li><a href="'+base+'libraries/calendar.html">Calendaring Class</a></li>' +
-		'<li><a href="'+base+'libraries/config.html">Config Class</a></li>' +
-		'<li><a href="'+base+'database/index.html">Database Class</a></li>' +
-		'<li><a href="'+base+'libraries/email.html">Email Class</a></li>' +
-		'<li><a href="'+base+'libraries/encryption.html">Encryption Class</a></li>' +
-		'<li><a href="'+base+'libraries/file_uploading.html">File Uploading Class</a></li>' +
-		'<li><a href="'+base+'libraries/form_validation.html">Form Validation Class</a></li>' +
-		'<li><a href="'+base+'libraries/ftp.html">FTP Class</a></li>' +
-		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
-		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +		
-		'<li><a href="'+base+'libraries/input.html">Input and Security Class</a></li>' +
-		'<li><a href="'+base+'libraries/loader.html">Loader Class</a></li>' +
-		'<li><a href="'+base+'libraries/language.html">Language Class</a></li>' +
-		'<li><a href="'+base+'libraries/output.html">Output Class</a></li>' +
-		'<li><a href="'+base+'libraries/pagination.html">Pagination Class</a></li>' +
-		'<li><a href="'+base+'libraries/sessions.html">Session Class</a></li>' +
-		'<li><a href="'+base+'libraries/trackback.html">Trackback Class</a></li>' +
-		'<li><a href="'+base+'libraries/parser.html">Template Parser Class</a></li>' +
-		'<li><a href="'+base+'libraries/typography.html">Typography Class</a></li>' +		
-		'<li><a href="'+base+'libraries/unit_testing.html">Unit Testing Class</a></li>' +
-		'<li><a href="'+base+'libraries/uri.html">URI Class</a></li>' +
-		'<li><a href="'+base+'libraries/user_agent.html">User Agent Class</a></li>' +
-		'<li><a href="'+base+'libraries/xmlrpc.html">XML-RPC Class</a></li>' +
-		'<li><a href="'+base+'libraries/zip.html">Zip Encoding Class</a></li>' +
+		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking 類別</a></li>' +
+		'<li><a href="'+base+'libraries/calendar.html">Calendaring 類別</a></li>' +
+		'<li><a href="'+base+'libraries/config.html">Config 類別</a></li>' +
+		'<li><a href="'+base+'database/index.html">Database 類別</a></li>' +
+		'<li><a href="'+base+'libraries/email.html">Email 類別</a></li>' +
+		'<li><a href="'+base+'libraries/encryption.html">Encryption 類別</a></li>' +
+		'<li><a href="'+base+'libraries/file_uploading.html">File Uploading 類別</a></li>' +
+		'<li><a href="'+base+'libraries/form_validation.html">Form Validation 類別</a></li>' +
+		'<li><a href="'+base+'libraries/ftp.html">FTP 類別</a></li>' +
+		'<li><a href="'+base+'libraries/table.html">HTML Table 類別</a></li>' +
+		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation 類別</a></li>' +		
+		'<li><a href="'+base+'libraries/input.html">Input and 安全性 類別</a></li>' +
+		'<li><a href="'+base+'libraries/loader.html">Loader 類別</a></li>' +
+		'<li><a href="'+base+'libraries/language.html">Language 類別</a></li>' +
+		'<li><a href="'+base+'libraries/output.html">Output 類別</a></li>' +
+		'<li><a href="'+base+'libraries/pagination.html">Pagination 類別</a></li>' +
+		'<li><a href="'+base+'libraries/sessions.html">Session 類別</a></li>' +
+		'<li><a href="'+base+'libraries/trackback.html">Trackback 類別</a></li>' +
+		'<li><a href="'+base+'libraries/parser.html">Template Parser 類別</a></li>' +
+		'<li><a href="'+base+'libraries/typography.html">Typography 類別</a></li>' +		
+		'<li><a href="'+base+'libraries/unit_testing.html">Unit Testing 類別</a></li>' +
+		'<li><a href="'+base+'libraries/uri.html">URI 類別</a></li>' +
+		'<li><a href="'+base+'libraries/user_agent.html">User Agent 類別</a></li>' +
+		'<li><a href="'+base+'libraries/xmlrpc.html">XML-RPC 類別</a></li>' +
+		'<li><a href="'+base+'libraries/zip.html">Zip Encoding 類別</a></li>' +
 		'</ul>' +
 
 		'</td><td class="td_sep" valign="top">' +
 
 		'<h3>補助函數參考</h3>' +
 		'<ul>' +
-		'<li><a href="'+base+'helpers/array_helper.html">Array Helper</a></li>' +
-		'<li><a href="'+base+'helpers/compatibility_helper.html">Compatibility Helper</a></li>' +
-		'<li><a href="'+base+'helpers/cookie_helper.html">Cookie Helper</a></li>' +
-		'<li><a href="'+base+'helpers/date_helper.html">Date Helper</a></li>' +
-		'<li><a href="'+base+'helpers/directory_helper.html">Directory Helper</a></li>' +
-		'<li><a href="'+base+'helpers/download_helper.html">Download Helper</a></li>' +
-		'<li><a href="'+base+'helpers/email_helper.html">Email Helper</a></li>' +
-		'<li><a href="'+base+'helpers/file_helper.html">File Helper</a></li>' +
-		'<li><a href="'+base+'helpers/form_helper.html">Form Helper</a></li>' +
-		'<li><a href="'+base+'helpers/html_helper.html">HTML Helper</a></li>' +
-		'<li><a href="'+base+'helpers/inflector_helper.html">Inflector Helper</a></li>' +
-		'<li><a href="'+base+'helpers/language_helper.html">Language Helper</a></li>' +
-		'<li><a href="'+base+'helpers/number_helper.html">Number Helper</a></li>' +
-		'<li><a href="'+base+'helpers/path_helper.html">Path Helper</a></li>' +
-		'<li><a href="'+base+'helpers/security_helper.html">Security Helper</a></li>' +
-		'<li><a href="'+base+'helpers/smiley_helper.html">Smiley Helper</a></li>' +
-		'<li><a href="'+base+'helpers/string_helper.html">String Helper</a></li>' +
-		'<li><a href="'+base+'helpers/text_helper.html">Text Helper</a></li>' +
-		'<li><a href="'+base+'helpers/typography_helper.html">Typography Helper</a></li>' +
-		'<li><a href="'+base+'helpers/url_helper.html">URL Helper</a></li>' +
-		'<li><a href="'+base+'helpers/xml_helper.html">XML Helper</a></li>' +
+		'<li><a href="'+base+'helpers/array_helper.html">Array 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/compatibility_helper.html">Compatibility 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/cookie_helper.html">Cookie 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/date_helper.html">Date 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/directory_helper.html">Directory 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/download_helper.html">Download 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/email_helper.html">Email 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/file_helper.html">File 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/form_helper.html">Form 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/html_helper.html">HTML 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/inflector_helper.html">Inflector 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/language_helper.html">Language 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/number_helper.html">Number 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/path_helper.html">Path 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/security_helper.html">安全性 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/smiley_helper.html">Smiley 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/string_helper.html">String 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/text_helper.html">Text 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/typography_helper.html">Typography 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/url_helper.html">URL 補助函數</a></li>' +
+		'<li><a href="'+base+'helpers/xml_helper.html">XML 補助函數</a></li>' +
 		'</ul>' +	
 
 
 		'<h3>更多資源</h3>' +
 		'<ul>' +
-		'<li><a href="http://codeigniter.com/forums/">Community Forums</a></li>' +
-		'<li><a href="http://codeigniter.com/wiki/">Community Wiki</a></li>' +
+		'<li><a href="http://codeigniter.com/forums/">社群論壇</a></li>' +
+		'<li><a href="http://codeigniter.com/wiki/">社群 Wiki</a></li>' +
 		'</ul>' +	
 		
 		'</td></tr></table>');

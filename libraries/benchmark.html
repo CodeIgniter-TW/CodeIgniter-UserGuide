@@ -58,16 +58,13 @@ Benchmarking 類別
 
 <h1>Benchmarking 類別</h1>
 
-<p>CodeIgniter has a Benchmarking 類別 that is always active，enabling the time difference between any
-two marked points to be calculated.</p>
+<p>CodeIgniter 的 Benchmarking 類別為常駐載入，用於計算兩個不同時間點間的效能差異。</p>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意:</strong> 此類別會自動載入，所以不需要自行手動載入。</p>
 
 
-<p>In addition，the benchmark is always started the moment the framework is
-invoked，and ended by the output class right before sending the final view to the browser，enabling a very accurate
-timing of the entire system execution to be shown.</p>
-
+<p>附帶說明，這個 benchmarking 類別常常是在 framework 被要求啟動時開始運作，然後在收
+到 optput 類別送出最後的 view 給瀏覽器之前結束運作，所以可以精準算出目前系統的運算耗時量。</p>
 
 <h3>目錄</h3>
 
@@ -83,15 +80,15 @@ timing of the entire system execution to be shown.</p>
 <a name="using"></a>
 <h2>使用 Benchmark 類別</h2>
 
-<p>The Benchmark class can be used within your <a href="../general/controllers.html">controllers</a>， <a href="../general/views.html">views</a>，or your  <a href="../general/models.html">Models</a>.  The process for usage is this:</p>
+<p>Benchmark 類別可以使用在 <a href="../general/controllers.html">控制器(controllers)</a> ， <a href="../general/views.html">檢視(views)</a>，或者在 <a href="../general/models.html">模型(Models)</a> 裡頭. 使用的方法如下:</p>
 
 <ol>
-<li>Mark a start point</li>
-<li>Mark an end point</li>
-<li>Run the "elapsed time" function to view the results</li>
+<li>標記一個起始點</li>
+<li>標記一個結束點</li>
+<li>執行 "elapsed time" 函數來看結果</li>
 </ol>
 
-<p>Here's an example using real code:</p>
+<p>這裡有個實際範例:</p>
 
 <code>$this->benchmark->mark('code_start');<br />
 <br />
@@ -101,8 +98,7 @@ $this->benchmark->mark('code_end');<br />
 <br />
 echo $this->benchmark->elapsed_time('code_start'，'code_end');</code>
 
-<p class="important"><strong>注意:</strong> The words "code_start" and "code_end" are arbitrary.  They are simply words used to set two markers.  You can
-use any words you want，and you can set multiple sets of markers. Consider this 參考範例:</p>
+<p class="important"><strong>注意:</strong> 裡頭 "code_start" 和 "code_end" 的值沒有限制。就只是簡單的用來標記的兩個字而已。你可以使用任何想用的字，以及你也可設定多組標記點。請看看這個參考範例:</p>
 
 <code>$this->benchmark->mark('dog');<br />
 <br />

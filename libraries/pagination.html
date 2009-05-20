@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Pagination 類別
+分頁(Pagination)類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,11 +56,11 @@ Pagination 類別
 <div id="content">
 
 
-<h1>Pagination 類別</h1>
+<h1>分頁(Pagination)類別</h1>
 
-<p>CodeIgniter's Pagination class is very easy to use，and it is 100% customizable，either dynamically or via stored preferences.</p>
+<p>CodeIgniter 的分頁類別是一個非常簡單，並且可以讓使用者 100% 自訂個人喜好設定</p>
 
-<p>If you are not familiar with the term "pagination"，it refers to links that allows you to navigate from page to page，like this:</p>
+<p>假如您還不是很瞭解分頁的功能用法，那底下就是一個範例，讓您製作簡單的分頁到下一個分頁</p>
 
 <code><a href="#">&laquo; First</a>&nbsp;&nbsp;<a href="#">&lt;</a>&nbsp;<a href="#">1</a>&nbsp;<a href="#">2</a>&nbsp;<b>3</b>&nbsp;<a href="#">4</a>&nbsp;<a href="#">5</a>&nbsp;<a href="#">&gt;</a>&nbsp;&nbsp;<a href="#">Last &raquo;</a></code>
 
@@ -93,7 +93,7 @@ echo  $this->pagination->create_links();</code>
 	<li><strong>per_page</strong> The number of items you intend to show per page.  In the above example，you would be showing 20 items per page.</li>
 </ul>
 
-<p>The <var>create_links()</var> function returns an empty string when there is no pagination to show.</p>
+<p>當您沒有分頁資料可以顯示的時候，<var>create_links()</var> 函數就會回傳空字串。</p>
 
 
 <h3>Setting preferences in a config file</h3>
@@ -104,7 +104,7 @@ array in that file. Then save the file in: <var>config/pagination.php</var> and 
 will NOT need to use the <dfn>$this->pagination->initialize</dfn> function if you save your preferences in a config file.</p>
 
 
-<h2>Customizing the Pagination</h2>
+<h2>自訂分頁參數</h2>
 
 <p>The following is a list of all the preferences you can pass to the initialization function to tailor the display.</p>
 

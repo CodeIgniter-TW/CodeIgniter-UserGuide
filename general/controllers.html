@@ -245,7 +245,7 @@ class Products extends Controller {<br />
 
 <p>CodeIgniter 有個 output 類別會自動處理最後給瀏覽器的資料。更多詳細的資訊可以在 <a href="views.html">檢視(Views)</a> 以及 <a href="../libraries/output.html">Output 類別</a> 查看。某些時候，你也許會想要把最終的資料進行後續處理(post-process)，然後在把處理好的資料送回給瀏覽器。CodeIgniter 可以你新增一個 <dfn>_output()</dfn> 到控制器裡頭，來負責接收最終的的輸出資料。</p>
 
-<p><strong>非常重要:</strong>&nbsp;:  If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong> be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.
+<p><strong>非常重要:</strong>&nbsp; 若你的控制器內含名為 <kbd>_output()</kbd> 的函數，它會 <strong>總是</strong> 被 output 類別所呼叫，而不是直接傳回最終資料。函數的第一個參數包含最終的輸出。
 </p>
 
 <p>這裡有個參考範例:</p>
@@ -256,11 +256,12 @@ function _output($output)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $output;<br />
 }</code>
 
-<p class="important">Please note that your <dfn>_output()</dfn> function will receive the data in its finalized state.  Benchmark and memory usage data will be rendered,
-cache files written (if you have caching enabled)，and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
-before it is handed off to the _output() function.  If you are using this feature the page execution timer and memory usage stats might not be perfectly accurate
-since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done，please see
-the available methods in the <a href="../libraries/output.html">Output 類別</a>.</p>
+
+<p class="important">請注意你的 <dfn>_output()</dfn> 函數得在它進入結束狀態時，才會收到資料。
+Benchmark 以及 memory 使用量資料會被建立出來，快取檔案被寫入(假設你有啟動快取功能)以及 headers 則會送出(假如你有使用這個<a href="../libraries/output.html">功能</a>)，而且是在另一方面把 _output() 函數關閉之前。  
+
+假如你使用這項功能的話，頁面執行效能跟記憶體使用量的統計功能，可能不會完全正確的計算。由於啟動這項功能後，它們沒有辦法完整考慮到，你在其中做的所有額外處理。另外還有個方式，可以在任何的最後程序<em>完成之前<em>來控制 output，請查看<a href="../libraries/output.html">Output 類別</a>尋找可用的 methods。
+
 
 <a name="private"></a>
 <h2>私有函數</h2>
@@ -295,9 +296,8 @@ function _utility()<br />
 
 <code>example.com/index.php/products/shoes/show/123</code>
 
-<p>Each of your sub-folders may contain a default controller which will be
-called if the URL contains only the sub-folder.  Simply name your default controller as specified in your
-<dfn>application/config/routes.php</dfn> file</p>
+<p>你的兩個子目錄中應該包含預設的控制器，當 URL 只有子目錄時可以被呼叫。
+在 <dfn>application/config/routes.php</dfn> 中，可以替你的預設控制器取個你喜歡的名字。</p>
 
 
 <p>CodeIgniter 可以讓你對映(remap)你的 URIs，只要利用 <a href="routing.html">URI Routing</a> 即可達成。</p>
@@ -306,14 +306,11 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 <h2><a name="constructors"></a>類別建構子(Class Constructors)</h2>
 
 
-<p>If you intend to use a constructor in any of your Controllers，you <strong>MUST</strong> place the following line of code in it:</p>
+<p>若打算在控制器使用建構子的話，你<strong>必須</strong> 換成底下的那行程式碼:</p>
 
 <code>parent::Controller();</code>
 
-<p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
-
-<p>這行必須要存在，因為你的 local contructor 會覆蓋在 parent controller 裡頭的那個，所以我們得手動呼叫他。</p>
-
+<p>這一行程式碼一定需要的原因，是因為你的 local 建構子會被覆蓋成 parent 控制器類別，所以我們需要以手動方式去呼叫它</p>
 
 <p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> 像類別函數有完全相同的名稱:</p>
 
@@ -346,9 +343,8 @@ class <kbd>Blog</kbd> extends Controller {<br />
 <a name="reserved"></a>
 <h2>保留函數名稱</h2>
 
-<p>Since your controller classes will extend the main application controller you
-must be careful not to name your functions identically to the ones used by that class，otherwise your local functions
-will override them. See <a href="reserved_names.html">保留字</a> for a full list.</p>
+<p>自從你的控制器類別可以擴充 application controller 以來，你必須要格外小心的替你的函數命名，好讓你的類別呼叫使用，否則會發生你的 local 函數把別的函數被覆蓋掉的情況。請看<a href="reserved_names.html">保留字</a> 的列表。</p>
+
 
 <h2>說完了！</h2>
 

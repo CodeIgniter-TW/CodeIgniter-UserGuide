@@ -66,15 +66,16 @@
 <p>以技術及建構的觀點看來，CodeIgniter 依照以下的目標建立:</p>
 
 <ul>
-<li><strong>動態實例化：</strong> 在CodeIgniter中，元件只有在請求時才會載入並執行，而不是放在global等待使用。除了最小的核心，系統對於所需要的資源不做任何假設。所以系統預設是非常輕量化的。由HTTP請求觸發的事件以及你所設計的控制器及檢視會決定要執行什麼。
+<li><strong>動態實例化(dynamic instantiation)：</strong> 在CodeIgniter中，元件只有在請求時才會載入並執行，而不是放在global等待使用。除了最小的核心，系統對於所需要的資源不做任何假設。所以預設的系統是非常輕量化的。由HTTP請求所觸發的事件，以及你所設計的控制器(controller)及檢視(view)會決定要執行什麼。
 </li>
-<li><strong>鬆散耦合：</strong>  耦合是系統中元件互相依賴的程度。越少相互依賴的元件，系統的重用以及彈性會越好。我們的目標是非常鬆散耦合的系統。
+<li><strong>鬆散耦合(loose coupling)：</strong>  耦合是系統中元件互相依賴的程度。越少相互依賴的元件，系統的重用以及彈性會越好。我們的目標是非常鬆散耦合的系統。
 </li>
-<li><strong>元件獨一性：</strong>  獨一性是元件有狹窄而專一的目的的程度。在CodeIgniter中，每個類別以及它的功能是高度自主的，以允許最大的可用性。
+<li><strong>元件單一性(component singularity)：</strong>  單一性是元件有狹隘的用途的程度。在CodeIgniter中，每個類別以及它的功能是高度自主的，以便達到最大的效用。
 </li>
 </ul>
 
-<p>CodeIgniter is a dynamically instantiated，loosely coupled system with high component singularity. It strives for simplicity，flexibility，and high performance in a small footprint package.</p>
+<p>CodeIgniter是一個動態實例化、鬆散耦合並具有高度元件單一性的系統。它致力於在一個小型套件中達到簡單、彈性與高效能。
+</p>
 
 
 

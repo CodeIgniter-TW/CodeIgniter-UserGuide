@@ -52,7 +52,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">建立自己的程式庫</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">新增核心類別</a></li>' +
-			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
+			'<li><a href="'+base+'general/hooks.html">Hooks - 擴充核心</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">自動載入資源</a></li>' +
 			'<li><a href="'+base+'general/common_functions.html">通用函數</a></li>' +
 			'<li><a href="'+base+'general/scaffolding.html">Scaffolding</a></li>' +

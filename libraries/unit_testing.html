@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Unit Testing 類別 : CodeIgniter 使用手冊</title>
+<title>單元測試類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Unit Testing 類別
+單元測試類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,33 +56,32 @@ Unit Testing 類別
 <div id="content">
 
 
-<h1>Unit Testing 類別</h1>
+<h1>單元測試類別</h1>
 
-<p>Unit testing is an approach to software development in which tests are written for each function in your application.
-If you are not familiar with the concept you might do a little googling on the subject.</p>
+<p>單元測試是為應用軟體中每一個函數撰寫測試程式的開發方式。
+如果你不熟悉這個概念，你可以稍微google一下這個主題。</p>
 
-<p>CodeIgniter's Unit Test class is quite simple，consisting of an evaluation function and two result functions.
-It's not intended to be a full-blown test suite but rather a simple mechanism to evaluate your code
-to determine if it is producing the correct data type and result.
+<p>CodeIgniter的單元測試類別非常簡單，由一個評估函數以及兩個結果函數構成。
+它並不打算成為一個完整成熟的測試套件，而只提供了簡單的機制讓你評估你的程式碼，來決定它是否產生正確的資料型別與結果。
 </p>
 
 
-<h2>Initializing the 類別</h2>
+<h2>類別初始化</h2>
 
-<p>Like most other classes in CodeIgniter，the Unit Test class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>如同在CodeIgniter中其他大多數的類別，單元測試類別可經由你的控制器(controller)使用<dfn>$this->load->library</dfn>函數來初始化：</p>
 
 <code>$this->load->library('unit_test');</code>
-<p>Once loaded，the Unit Test object will be available using: <dfn>$this->unit</dfn></p>
+<p>一旦載入了，單元測試物件可經由：<dfn>$this->unit</dfn>來使用</p>
 
 
-<h2>Running Tests</h2>
+<h2>執行測試</h2>
 
-<p>Running a test involves supplying a test and an expected result to the following function:</p>
+<p>透過提供給下列函數測試與預期的結果來執行測試：</p>
 
 <h2>$this->unit->run( <var>test</var>，<var>expected result</var>，'<var>test name</var>' );</h2>
 
-<p>Where <var>test</var> is the result of the code you wish to test,
-<var>expected result</var> is the data type you expect，and <var>test name</var> is an optional name you can give your test. 參考範例:</p>
+<p>其中<var>test</var>是你想要測試程式碼的產生的結果
+<var>expected result</var>是你預期的資料型別，而<var>test name</var>是你給測試的一個可選的名稱。參考範例：</p>
 
 <code>$test = 1 + 1;<br />
 <br />
@@ -92,16 +91,16 @@ $test_name = 'Adds one plus one';<br />
 <br />
 $this->unit->run($test，$expected_result，$test_name);</code>
 
-<p>The expected result you supply can either be a literal match，or a data type match.  Here's an example of a literal:</p>
+<p>你提供的預期結果可以是資料型別相符或是文字相符。這是文字相符的範例：</p>
 
 <code>$this->unit->run('Foo'，'Foo');</code>
 
-<p>Here is an example of a data type match:</p>
+<p>這是資料型別相符的範例：</p>
 
 <code>$this->unit->run('Foo'，'is_string');</code>
 
-<p>Notice the use of "is_string" in the second parameter?  This tells the function to evaluate whether your test is producing a string
-as the result.  Here is a list of allowed comparison types:</p>
+<p>注意到在第二個參數用到"is_string"了嗎？這是要告訴函數評估你的測試結果是否為字串。
+這裡有一份可比較型別的清單：</p>
 
 <ul>
 <li>is_string</li>
@@ -117,54 +116,52 @@ as the result.  Here is a list of allowed comparison types:</p>
 </ul>
 
 
-<h2>Generating Reports</h2>
+<h2>產生報告</h2>
 
-<p>You can either display results after each test，or your can run several tests and generate a report at the end.
-To show a report directly simply echo or return the <var>run</var> function:</p>
+<p>你可以在每個測試後顯示測試結果，或是在數個測試結束後產生一份報告。
+要直接顯示一份報告的話，只要echo或返回<var>run</var>函數：</p>
 
 <code>echo $this->unit->run($test，$expected_result);</code>
 
-<p>To run a full report of all tests，use this:</p>
+<p>用這樣的方式來執行所有測試並產生全部的報告：</p>
 
 <code>echo $this->unit->report();</code>
 
-<p>The report will be formatted in an HTML table for viewing.  If you prefer the raw data you can retrieve an array using:</p>
+<p>報告將會格式化成一個HTML表格。如果你偏好原始資料，你可以用下列方式返回一個陣列：</p>
 
 <code>echo $this->unit->result();</code>
 
 
-<h2>Strict Mode</h2>
+<h2>嚴格模式(Strict Mode)</h2>
 
-<p>By default the unit test class evaluates literal matches loosely.  Consider this 參考範例:</p>
+<p>單元測試預設會用較鬆散的方式比較文字是否符合。考慮這個參考範例：</p>
 
 <code>$this->unit->run(1，TRUE);</code>
 
-<p>The test is evaluating an integer，but the expected result is a boolean.  PHP，however，due to it's loose data-typing
-will evaluate the above code as TRUE using a normal equality test:</p>
+<p>測試評估的是一個整數(integer)，但是預期結果是一個布林值(boolean)。而由於PHP的型別鬆散特性，以上的程式如果用一般的相等測試結果會是TRUE：</p>
 
 <code>if (1 == TRUE) echo 'This evaluates as true';</code>
 
-<p>If you prefer，you can put the unit test class in to strict mode，which will compare the data type as well as the value:</p>
+<p>如果你需要，你可以把單元測試類別置於嚴格模式(strict mode)中，這樣它將同時檢查值與資料型別：</p>
 
 <code>if (1 === TRUE) echo 'This evaluates as FALSE';</code>
 
-<p>To enable strict mode use this:</p>
+<p>這樣可以啟動嚴格模式(strict mode)：</p>
 
 <code>$this->unit->use_strict(TRUE);</code>
 
-<h2>Enabling/Disabling Unit Testing</h2>
+<h2>啟動/取消單元測試</h2>
 
-<p>If you would like to leave some testing in place in your scripts，but not have it run unless you need it，you can disable
-unit testing using:</p>
+<p>如果你想要把一些測試留在程式碼中，但是只想在需要的時候執行，你可以用以下方法取消單元測試：</p>
 
 <code>$this->unit->active(FALSE)</code>
 
 
 
-<h2>Creating a Template</h2>
+<h2>建立模板</h2>
 
-<p>If you would like your test results formatted differently then the default you can set your own template.  Here is an
-example of a simple template.  Note the required pseudo-variables:</p>
+<p>如果你不想用預設的測試結果格式，你可以設定自己的模板。
+這是一個簡單的模板範例。請注意需要的虛擬變數：</p>
 
 <code>
 $str = '<br />
@@ -180,7 +177,7 @@ $str = '<br />
 $this->unit->set_template($str);
 </code>
 
-<p class="important"><strong>注意:</strong> Your template must be declared <strong>before</strong> running the unit test process.</p>
+<p class="important"><strong>注意：</strong>你的模板必須在測試程序執行<strong>之前</strong>宣告。</p>
 
 
 

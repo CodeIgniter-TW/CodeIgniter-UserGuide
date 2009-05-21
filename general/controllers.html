@@ -296,9 +296,8 @@ function _utility()<br />
 
 <code>example.com/index.php/products/shoes/show/123</code>
 
-<p>Each of your sub-folders may contain a default controller which will be
-called if the URL contains only the sub-folder.  Simply name your default controller as specified in your
-<dfn>application/config/routes.php</dfn> file</p>
+<p>你的兩個子目錄中應該包含預設的控制器，當 URL 只有子目錄時可以被呼叫。
+在 <dfn>application/config/routes.php</dfn> 中，可以替你的預設控制器取個你喜歡的名字。</p>
 
 
 <p>CodeIgniter 可以讓你對映(remap)你的 URIs，只要利用 <a href="routing.html">URI Routing</a> 即可達成。</p>
@@ -307,14 +306,11 @@ called if the URL contains only the sub-folder.  Simply name your default contro
 <h2><a name="constructors"></a>類別建構子(Class Constructors)</h2>
 
 
-<p>If you intend to use a constructor in any of your Controllers，you <strong>MUST</strong> place the following line of code in it:</p>
+<p>若打算在控制器使用建構子的話，你<strong>必須</strong> 換成底下的那行程式碼:</p>
 
 <code>parent::Controller();</code>
 
-<p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
-
-<p>這行必須要存在，因為你的 local contructor 會覆蓋在 parent controller 裡頭的那個，所以我們得手動呼叫他。</p>
-
+<p>這一行程式碼一定需要的原因，是因為你的 local 建構子會被覆蓋成 parent 控制器類別，所以我們需要以手動方式去呼叫它</p>
 
 <p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> 像類別函數有完全相同的名稱:</p>
 
@@ -347,9 +343,8 @@ class <kbd>Blog</kbd> extends Controller {<br />
 <a name="reserved"></a>
 <h2>保留函數名稱</h2>
 
-<p>Since your controller classes will extend the main application controller you
-must be careful not to name your functions identically to the ones used by that class，otherwise your local functions
-will override them. See <a href="reserved_names.html">保留字</a> for a full list.</p>
+<p>自從你的控制器類別可以擴充 application controller 以來，你必須要格外小心的替你的函數命名，好讓你的類別呼叫使用，否則會發生你的 local 函數把別的函數被覆蓋掉的情況。請看<a href="reserved_names.html">保留字</a> 的列表。</p>
+
 
 <h2>說完了！</h2>
 

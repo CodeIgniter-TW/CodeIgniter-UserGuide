@@ -59,17 +59,13 @@ Views
 
 <p><dfn>檢視(view)</dfn> 可以是網頁、頁面的片斷像是 header，footer，sidebar 之類的。事實上，如果你需要這樣的階層架構的話，檢視(views)還可以固定的嵌入在其他的 view 裡頭。</p>
 
-<p>檢視(Views)無法直接被呼叫，它必須被<a href="controllers.html">控制器(controller)</a>所呼叫。還記得在
+<p>檢視(Views)無法直接被呼叫，它必須被<a href="controllers.html">控制器(controller)</a>所呼叫。還記得在 MVC framework 裡頭，控制器(Controller)扮演的是交通警察的角色，所以它是負責取得一部分的 view。如果你還沒讀到<a href="controllers.html">控制器(Controllers)</a> 的章節的話，你應該在繼續下去之前，先把那章節讀完。</p>
 
-Remember that in an MVC framework，the Controller acts as the
-traffic cop，so it is responsible for fetching a particular view. If you have not read the <a href="controllers.html">Controllers</a> page
-you should do so before continuing.</p>
-
-<p>使用 example controller you created in the <a href="controllers.html">controller</a> page，let's add a view to it.</p>
+<p>使用你在 <a href="controllers.html">控制器(controller)</a> 章節中，所建立的範例控制器。然後替他加入 view。</p>
 
 <h2>新增 View</h2>
 
-<p>Using your text editor，create a file called <dfn>blogview.php</dfn>，and put this in it:</p>
+<p>用你的文字編輯器，新增一個 <dfn>blogview.php</dfn> 的檔案，然後把下列程式碼塞進去:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 &lt;html>
@@ -82,18 +78,18 @@ you should do so before continuing.</p>
 &lt;/html>
 </textarea>
 
-<p>Then save the file in your <dfn>application/views/</dfn> folder.</p>
+<p>然後存到 <dfn>application/views/</dfn> 目錄底下。</p>
 
 <h2>載入 View</h2>
 
-<p>To load a particular view file you will use the following function:</p>
+<p>載入部份的 view 檔，你會使用到底下的函數:</p>
 
 <code>$this->load->view('<var>name</var>');</code>
 
-<p>Where <var>name</var> is the name of your view file.  注意: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
+<p><var>name</var> 的部份表示是你的 view 檔的名字。注意: 其中副檔名不必 .php 加進去，除非你建立不使用副檔名為 <kbd>.php</kbd> 的檔案。</p>
 
 
-<p>Now，open the controller file you made earlier called <dfn>blog.php</dfn>，and replace the echo statement with the view loading function:</p>
+<p>現在開啟更早之前你建立的控制器 <dfn>blog.php</dfn> 的檔案，然後用載入 view 函數(view loading function)來取代回應的敘述(echo statement):</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -109,12 +105,14 @@ class Blog extends Controller {
 </textarea>
 
 
-<p>If you visit the your site using the URL you did earlier you should see your new view.  The URL was similar to this:</p>
+<p>這時用之前你建立的 URL，你應該可以看到新的 view 了。那個 URL 應該像底下這樣:</p>
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
 <h2>載入多個 Views</h2>
-<p>CodeIgniter will intelligently handle  multiple calls to $this-&gt;load-&gt;view from within a controller.  If more then one call happens they will be appended together. For example，you may wish to have a header view，a menu view，a content view，and a footer view. That might look something like this:</p>
+<p>
+
+CodeIgniter will intelligently handle  multiple calls to $this-&gt;load-&gt;view from within a controller.  If more then one call happens they will be appended together. For example，you may wish to have a header view，a menu view，a content view，and a footer view. That might look something like this:</p>
 <p><code>&lt;?php<br />
 <br />
 class Page extends Controller {<br /><br />

@@ -96,23 +96,19 @@ echo  $this->pagination->create_links();</code>
 <p>當您沒有分頁資料可以顯示的時候，<var>create_links()</var> 函數就會回傳空字串。</p>
 
 
-<h3>Setting preferences in a config file</h3>
+<h3>設定分頁參數</h3>
 
-<p>If you prefer not to set preferences using the above method，you can instead put them into a config file.
-Simply create a new file called <var>pagination.php</var>， add the <var>$config</var>
-array in that file. Then save the file in: <var>config/pagination.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->pagination->initialize</dfn> function if you save your preferences in a config file.</p>
+<p>假如您不喜歡上述所說的設定方式，您可以簡單的建立 <var>pagination.php</var>，把 <var>$config</var> 參數都設定到檔案裡面，並且將檔案另存到 <var>config/pagination.php</var> 可以讓它自動被載入使用。使用這個方法，你不在需要使用 <dfn>$this->pagination->initialize</dfn> 方法。</p>
 
 
 <h2>自訂分頁參數</h2>
 
-<p>The following is a list of all the preferences you can pass to the initialization function to tailor the display.</p>
+<p>下面是分頁參數列表，您可以依照個人喜好設定參數，並且設定您喜歡的顯示效果。</p>
 
 
 <h4>$config['uri_segment'] = 3;</h4>
 
-<p>The pagination function automatically determines which segment of your URI contains the page number. If you need
-something different you can specify it.</p>
+<p>分頁函數會自動偵測決定您的 URI 哪個部份包含了頁數，如果你想指定不一樣的，你可以在這裡明確設定它。</p>
 
 <h4>$config['num_links'] = 2;</h4>
 

@@ -58,52 +58,43 @@
 
 <h1>外掛模組(Plugins)</h1>
 
-<p>外掛模組(Plugins) work almost identically to <a href="helpers.html">補助函數</a>.  The main difference is that a plugin usually
-provides a single function，whereas a 補助函數 is usually a collection of functions.  補助函數 are also considered a part of
-the core system; plugins are intended to be created and shared by our community.</p>
+<p>外掛模組(Plugins) 功能與 <a href="helpers.html">補助函數</a>幾乎相同。主要的差別是外掛模組(plugins)通常提供單一函數，而補助函數(helpers)則為多個函數組合。補助函數(helpers)為部份核心系統，外掛模組則建立與分享自我們社群。</p>
 
-<p>外掛模組(Plugins) should be saved to your <dfn>system/plugins</dfn> directory or you can create a folder called <kbd>plugins</kbd> inside
-your <kbd>application</kbd> folder and store them there.  CodeIgniter will look first in your <dfn>system/application/plugins</dfn>
-directory.  If the directory does not exist or the specified plugin is not located there CI will instead look in your global
-<dfn>system/plugins</dfn> folder.</p>
+<p>外掛模組(Plugins) 應儲存於 <dfn>system/plugins</dfn> 目錄底下，或者是你可以在 <kbd>application</kbd> 目錄中，建立名稱為 <kbd>plugins</kbd> 的目錄，將外掛模組儲存於該處。CodeIgniter 會優先察看 <dfn>system/application/plugins</dfn>，若發現無目錄存在的時，則會改成察看 global 的 <dfn>system/plugins</dfn> 目錄。</p>
 
 
 <h2>載入外掛模組</h2>
 
-<p>Loading a plugin file is quite simple using the following function:</p>
+<p>只用下列的函數來載入外掛模組相當簡單:</p>
 
 <code>$this->load->plugin('<var>name</var>');</code>
 
-<p>Where <var>name</var> is the file name of the plugin，without the .php file extension or the "plugin" part.</p>
+<p><var>name</var> 為外掛模組的名稱，而不需要附加 .php 的副檔名或是 "plugin" 的部份。</p>
 
-<p>For example，to load the <dfn>Captcha</dfn> plugin，which is named <var>captcha_pi.php</var>，you will do this:</p>
+<p>假設要載入 <dfn>Captcha</dfn> 外掛模組，他的檔案名稱為 <var>captcha_pi.php</var>，_pi.php 的部份可以省略掉，所以只需要載入 captcha 即可:</p>
 
 <code>$this->load->plugin('<var>captcha</var>');</code>
 
 
 
-<p>A plugin can be loaded anywhere within your <a href="../general/controllers.html">controller</a> functions (or even within your <a href="../general/views.html">View files</a>，although that's not a good practice),
-as long as you load it before you use it.  You can load your plugins in your controller constructor so that they become available
-automatically in any function，or you can load a plugin in a specific function that needs it.</p>
+<p>外掛模組可以隨意的由 <a href="../general/controllers.html">控制器(controller)</a> 函數或是由 <a href="../general/views.html">View files</a>所載入，雖然這不是個好例子。只要你在使用前載入即可。你可以在你的控制器建構子(controller constructor)載入外掛模組，接者他們即可自動地被所有函數所用, 或是你可以在某個需要外掛模組的函數中，將它載入近來使用。</p>
 
-<p class="important">注意: The Plugin loading function above does not return a value，so don't try to assign it to a variable.  Just use it as shown.</p>
-
+<p class="important">注意: 上述外掛模組載入函數並不會回傳質，所以不用給予它變數。就把它顯示出來即可。</p>
 
 <h2>載入多個外掛模組(Plugins)</h2>
 
-<p>If you need to load more than one plugin you can specify them in an array，like this:</p>
+<p>假如需要載入更多的外掛模組到 array 的話，你可以這麼做:</p>
 
 <code>$this->load->plugin( <samp>array(</samp>'<var>plugin1</var>'，'<var>plugin2</var>'，'<var>plugin3</var>'<samp>)</samp> );</code>
 
 <h2>自動載入外掛模組(Plugins)</h2>
 
-<p>If you find that you need a particular plugin globally throughout your application，you can tell CodeIgniter to auto-load it
-during system initialization. This is done by opening the <var>application/config/autoload.php</var> file and adding the plugin to the autoload array.</p>
+<p>如果發現你的 application 需要全域(globally)使用某個外掛模組的話，你可以告訴 CodeIgniter 在系統啟動時，將那個模組自動載入近來。你可以開啟 <var>application/config/autoload.php</var> 的檔案，加入你需要的外掛模組到 autoload array 裡頭。</p>
 
 
 <h2>使用外掛模組(Plugin)</h2>
 
-<p>Once you've loaded the Plugin，you'll call it the way you would a standard PHP function.</p>
+<p>只要你載入了外掛模組後，你可以用標準的 PHP 函數來呼叫使用它。</p>
 
 
 

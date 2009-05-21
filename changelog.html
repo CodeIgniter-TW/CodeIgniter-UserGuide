@@ -159,7 +159,7 @@ SVN Revision: 1541</p>
 <ul>
 	<li>Libraries
 		<ul>
-			<li>Added a new <a href="libraries/form_validation.html">Form Validation Class</a>.  It simplifies setting rules and field names，supports arrays as field names，allows groups of validation rules to be saved in a config file，and adds some 補助函數 for use in view files.  <strong>Please note that the old Validation class is now deprecated</strong>. We will leave it in the library folder for some time so that existing applications that use it will not break，but you are encouraged to migrate to the new version.</li>
+			<li>Added a new <a href="libraries/form_validation.html">Form Validation 類別</a>.  It simplifies setting rules and field names，supports arrays as field names，allows groups of validation rules to be saved in a config file，and adds some 補助函數 for use in view files.  <strong>Please note that the old Validation class is now deprecated</strong>. We will leave it in the library folder for some time so that existing applications that use it will not break，but you are encouraged to migrate to the new version.</li>
 			<li>Updated the <a href="libraries/sessions.html">Sessions class</a> so that any custom data being saved gets stored to a database rather than the session cookie (assuming you are using a database to store session data)，permitting much more data to be saved.</li>
 			<li>Added the ability to store libraries in subdirectories within either the main "libraries" or the local application "libraries" folder. Please see the <a href="libraries/loader.html">Loader class</a> for more info.</li>
 			<li>Added the ability to assign library objects to your own variable names when you use <kbd>$this->load->library()</kbd>. Please see the <a href="libraries/loader.html">Loader class</a> for more info.</li>
@@ -185,7 +185,7 @@ SVN Revision: 1541</p>
 	</li>
 	<li>補助函數
 		<ul>
-			<li>Added several new "setting" functions to the <a href="helpers/form_helper.html">Form helper</a> that allow POST data to be retrieved and set into forms.  These are intended to be used on their own，or with the new <a href="libraries/form_validation.html">Form Validation Class</a>.</li>
+			<li>Added several new "setting" functions to the <a href="helpers/form_helper.html">Form helper</a> that allow POST data to be retrieved and set into forms.  These are intended to be used on their own，or with the new <a href="libraries/form_validation.html">Form Validation 類別</a>.</li>
 			<li>Added <kbd>current_url()</kbd> and uri_segments() to  <a href="helpers/url_helper.html">URL helper</a>.</li>
 			<li>Altered <kbd>auto_link()</kbd> in the <a href="helpers/url_helper.html">URL helper</a> so that email addresses with "+" included will be linked.</li>
 			<li>Added <kbd>meta()</kbd> function to  <a href="helpers/html_helper.html">HTML helper</a>.</li>

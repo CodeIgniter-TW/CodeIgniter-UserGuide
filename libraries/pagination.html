@@ -112,10 +112,9 @@ echo  $this->pagination->create_links();</code>
 
 <h4>$config['num_links'] = 2;</h4>
 
-<p>The number of &quot;digit&quot; links you would like before and after the selected page number. For example，the number 2
-	will place two digits on either side，as in the example links at the very top of this page.</p>
+<p>放在您目前所在頁數前面跟後面所顯示的分頁數量。舉例來說，參數設定2，就會在前面跟後面兩邊多加兩個頁數，如同此頁最頂端的例子所顯示</p>
 <h4>$config['page_query_string'] = TRUE</h4>
-<p>By default，the pagination library assume you are using <a href="../general/urls.html">URI Segments</a>，and constructs your links something like</p>
+<p>在預設情況下，分頁類會假設您使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的連結就如同底下</p>
 <p><code>http://example.com/index.php/test/page/20</code></p>
 <p>If you have $config['enable_query_strings']  set to TRUE your links will automatically be re-written using Query Strings. This option can also be explictly set. Using $config['page_query_string'] set to TRUE，the pagination link will become.</p>
 <p><code>http://example.com/index.php?c=test&amp;m=page&amp;per_page=20</code></p>

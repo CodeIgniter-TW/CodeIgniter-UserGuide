@@ -110,9 +110,8 @@ class Blog extends Controller {
 <code>example.com/index.php/<var>blog</var>/</code>
 
 <h2>載入多個 Views</h2>
-<p>
+<p>CodeIgniter 會聰明地處理在控制器中，像 $this-&gt;load-&gt;view 這樣多個 view 的呼叫。如有超過一個以上的呼叫的話，他們會附加在一起。舉例來說，你也許會希望有一個 header view、menu view、content view、footer view。依你的需求的程式碼，看起來像底下這樣:</p>
 
-CodeIgniter will intelligently handle  multiple calls to $this-&gt;load-&gt;view from within a controller.  If more then one call happens they will be appended together. For example，you may wish to have a header view，a menu view，a content view，and a footer view. That might look something like this:</p>
 <p><code>&lt;?php<br />
 <br />
 class Page extends Controller {<br /><br />
@@ -128,18 +127,16 @@ class Page extends Controller {<br /><br />
 <br />
 }<br />
 	?&gt;</code></p>
-<p>In the example above，we are using &quot;dynamically added data&quot;，which you will see below.</p>
+<p>&quot;動態新增資料&quot; 的方式，你可以在底下看到範例。</p>
 <h2>把 view 收納進子目錄裡頭</h2>
-<p>Your view files can also be stored within sub-folders if you prefer that type of organization.  When doing so you will need
-to include the folder name loading the view.  參考範例:</p>
+<p>假如你喜歡這樣的組織方式的話，你也可以把 view 檔分散儲存到子目錄之中。當這麼做的話，你需要把這個目錄的名稱 include 近來到 view 裡頭。參考範例:</p>
 
 <code>$this->load->view('<kbd>folder_name</kbd>/<var>file_name</var>');</code>
 
 
 <h2>新增動態資料到 View</h2>
 
-<p>Data is passed from the controller to the view by way of an <strong>array</strong> or an <strong>object</strong> in the second
-parameter of the view loading function. 這裡有個example using an array:</p>
+<p>由控制器(controller)傳送給檢視(view)的資料，可以在載入 view 函數(view loading function)的第二個參數，藉由使用 <strong>array</strong> 或是 <strong>object</strong> 的方式來傳遞。這裡有個使用 array 的範例:</p>
 
 <code>$data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My Title',<br />
@@ -149,15 +146,15 @@ parameter of the view loading function. 這裡有個example using an array:</p>
 <br />
 $this->load->view('blogview'，<var>$data</var>);</code>
 
-<p>And here's an example using an object:</p>
+<p>這裡有個使用 object 的範例:</p>
 
 <code>$data = new Someclass();<br />
 $this->load->view('blogview'，<var>$data</var>);</code>
 
-<p>注意: If you use an object，the class variables will be turned into array elements.</p>
+<p>注意: 如果你使用 object 的話，類別變數(class variables)會轉成 array elements。</p>
 
 
-<p>Let's try it with your controller file.  Open it add this code:</p>
+<p>讓我們來加到你的控制器裡頭試試看，開啟檔案，然後塞進底下的程式碼:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="14">
 &lt;?php
@@ -175,7 +172,7 @@ class Blog extends Controller {
 </textarea>
 
 
-<p>Now open your view file and change the text to variables that correspond to the array keys in your data:</p>
+<p>現在打開 view 檔，然後把底下的文字改成跟你的資料相關的 array key :</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">

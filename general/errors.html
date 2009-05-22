@@ -57,37 +57,36 @@
 
 <h1>錯誤處理</h1>
 
-<p>CodeIgniter lets you build error reporting into your applications using the functions described below.
-In addition，it has an error logging class that permits error and debugging messages to be saved as text files.</p>
+<p>CodeIgniter讓你使用下列的函數來在你的應用程式中建立錯誤報告。此外，它還有一個logging類別來讓錯誤以及除錯訊息可以存成文字檔。
+</p>
 
-<p class="important"><strong>注意:</strong> By default，CodeIgniter displays all PHP errors.  You might
-wish to change this behavior once your development is complete.  You'll find the <dfn>error_reporting()</dfn>
-function located at the top of your main index.php file. Disabling error reporting will NOT prevent log files
-from being written if there are errors.</p>
+<p class="important"><strong>注意：</strong>CodeIgniter預設會顯示所有PHP錯誤訊息。你可能會希望在開發過程完畢後改變這個行為。你可以在主要的 index.php 檔案的開頭找到 <dfn>error_reporting()</dfn> 這個函數。即使取消錯誤報告，錯誤仍然會寫入log檔。
+</p>
 
-<p>Unlike most systems in CodeIgniter，the error functions are simple procedural interfaces that are available
-globally throughout the application.  This approach permits error messages to get triggered without having to worry
-about class/function scoping.</p>
+<p>不像大部分CodeIgniter的系統，錯誤處理函數只是在整個系統中都可以直接呼叫的程序式函數介面。這個方式讓你觸發錯誤訊息時不必擔心類別/函數的有效範圍。
+</p>
 
-<p>The following functions let you generate errors:</p>
+<p>以下的函數讓你產生錯誤訊息：
+</p>
 
 <h2>show_error('<var>message</var>')</h2>
-<p>This function will display the error message supplied to it using the following error template:</p>
+<p>這個函數讓你用下列的錯誤訊息模板來顯示給予的錯誤訊息：
+</p>
 <p><dfn>application/errors/</dfn><kbd>error_general.php</kbd></p>
 
 <h2>show_404('<var>page</var>')</h2>
-<p>This function will display the 404 error message supplied to it using the following error template:</p>
+<p>這個函數會使用下列的錯誤訊息模板來顯示給予的404錯誤訊息。
+</p>
 <p><dfn>application/errors/</dfn><kbd>error_404.php</kbd></p>
 
-<p>The function expects the string passed to it to be the file path to the page that isn't found.
-Note that CodeIgniter automatically shows 404 messages if controllers are not found.</p>
+<p>這個函數預期你傳給它的字串是所找不到的檔案路徑。注意，CodeIgniter會在找不到控制器(controller)時自動顯示404訊息。
+</p>
 
 
 <h2>log_message('<var>level</var>'，'<samp>message</samp>')</h2>
 
-<p>This function lets you write messages to your log files.  You must supply one of three "levels"
-in the first parameter，indicating what type of message it is (debug，error，info)，with the message
-itself in the second parameter.  參考範例:</p>
+<p>這個函數讓你把訊息寫入你的log檔。你必須提供三個層級(levels)之一作為第一個參數，以指示這是哪一種訊息（除錯 debug、錯誤 error、通知 info），然後將訊息本身當作第二個參數。參考範例：
+</p>
 
 <code>
 if ($some_var == "")<br />
@@ -102,19 +101,21 @@ else<br />
 log_message('info'，'The purpose of some variable is to provide some value.');<br />
 </code>
 
-<p>There are three message types:</p>
+<p>三種訊息類型：
+</p>
 
 <ol>
-<li>Error Messages.  These are actual errors，such as PHP errors or user errors.</li>
-<li>Debug Messages.  These are messages that assist in debugging. For example，if a class has been initialized，you could log this as debugging info.</li>
-<li>Informational Messages.  These are the lowest priority messages，simply giving information regarding some process.  CodeIgniter doesn't natively generate any info messages but you may want to in your application.</li>
+<li>錯誤(Error)訊息。這是實際發生的錯誤，例如PHP產生的錯誤或是使用者的錯誤。
+</li>
+<li>除錯(Debug)訊息。這是協助除錯用的訊息。例如，假如一個類別已被初始化，你可以把它當作除錯資訊log起來。
+</li>
+<li>通知(Informational)訊息。這是低優先性的訊息，只是提供相關處理的資訊。CodeIgniter本身並不產生任何這方面的資訊，但是你可能希望在應用程式中使用這類的訊息。
+</li>
 </ol>
 
 
-<p class="important"><strong>注意:</strong> In order for the log file to actually be written，the
- "logs" folder must be writable.  In addition，you must set the "threshold" for logging.
-You might，for example，only want error messages to be logged，and not the other two types.
-If you set it to zero logging will be disabled.</p>
+<p class="important"><strong>注意：</strong> 為了能確實寫入log檔，"logs"目錄必須是可寫入的。此外，你必須設定寫入log的門檻(threshold)。例如，你可能只需要紀錄錯誤訊息，而非其他兩種訊息。如果你設為0，log動作會被取消。
+</p>
 
 
 

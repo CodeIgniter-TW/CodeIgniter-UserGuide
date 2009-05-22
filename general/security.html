@@ -57,75 +57,63 @@
 
 <h1>安全性</h1>
 
-<p>This page describes some "最佳實證" regarding web security，and details
-CodeIgniter's internal security features.</p>
+<p>本頁描述一些有關網站安全的 "最佳實證" ，同時包含了CodeIgniter 的內部安全機制細節。</p>
 
 
 <h2>URI 安全性</h2>
 
-<p>CodeIgniter is fairly restrictive regarding which characters it allows in your URI strings in order to help
-minimize the possibility that 惡意資料 can be passed to your application.  URIs may only contain the following:
-</p>
+<p>CodeIgniter 對於哪些字元允許當作 URI 字串有相當嚴格的考量，以盡量減少惡意資料進入應用程式的可能性。URIs 只能包含下列字元：</p>
 
 <ul>
-<li>Alpha-numeric text</li>
+<li>英文大小寫字母與數字Alpha-numeric text</li>
 <li>Tilde: ~ </li>
-<li>Period: .</li>
-<li>Colon: :</li>
-<li>Underscore: _</li>
-<li>Dash: -</li>
+<li>英文小數點 Period: .</li>
+<li>冒號 Colon: :</li>
+<li>底線 Underscore: _</li>
+<li>減號 Dash: -</li>
 </ul>
 
-<h2>GET，POST，and COOKIE Data</h2>
+<h2>GET，POST，以及COOKIE資料</h2>
 
-<p>GET data is simply disallowed by CodeIgniter since the system utilizes URI segments rather than traditional URL query strings (unless
-you have the query string option enabled in your config file).  The global GET
-array is <strong>unset</strong> by the Input class during system initialization.</p>
+<p>既然 CodeIgniter 使用 URI 片段而不是傳統的 URL 查詢字串，GET 資料是不允許使用的（除非你在設定檔中啟動使用查詢字串(query string)）。整體的 GET 陣列會在系統初始化時被 input 類別 <strong>unset</strong>。</p>
 
 <h2>Register_globals</h2>
 
-<p>During system initialization all global variables are unset，except those found in the $_POST and $_COOKIE arrays. The unsetting
-routine is effectively the same as register_globals = off.</p>
+<p>除了在 $_POST 以及 $_COOKIE 陣列中找到的變數，在系統初始化時，所有的整體變數都會 <strong>unset</strong> ，這個 unsetting 常式效用等同於 register_globals = off 選項設定。</p>
 
 
 <h2>magic_quotes_runtime</h2>
 
-<p>The magic_quotes_runtime directive is turned off during system initialization so that you don't have to remove slashes when
-retrieving data from your database.</p>
+<p>magic_quotes_runtime 設定指引會在系統初始化時關閉，所以當你從資料庫取得資料時不必移除 slashes。</p>
 
 <h1>最佳實證</h1>
 
-<p>Before accepting any data into your application，whether it be POST data from a form submission，COOKIE data，URI data,
-XML-RPC data，or even data from the SERVER array，you are encouraged to practice this three step approach:</p>
+<p>在接受任何資料進入應用程式前，無論是表單提交來的POST資料、COOKIE資料、URI資料、XML-RPC資料甚至是從SERVER陣列來的資料，我們都鼓勵你盡量實踐以下三步驟的進程：</p>
 
 <ol>
-<li>Filter the data as if it were tainted.</li>
-<li>資料驗證 to ensure it conforms to the correct  type，length，size，etc. (sometimes this step can replace step one)</li>
-<li>Escape the data before submitting it into your database.</li>
+<li>把資料當作已被污染來過濾。</li>
+<li>做好資料驗證以保證它符合正確的型別、長度、大小等。（有時這個步驟可以取代步驟一）</li>
+<li>在把資料送進你的資料庫前跳脫(escape)資料。</li>
 </ol>
 
-<p>CodeIgniter provides the following functions to assist in this process:</p>
+<p>CodeIgniter提供下列的函數來協助你進行這個過程：
+</p>
 
 <ul>
 
-<li><h2>XSS Filtering</h2>
+<li><h2>跨站腳本(XSS)過濾</h2>
 
-<p>CodeIgniter comes with a Cross Site Scripting filter.  This filter looks for commonly
-used techniques to embed malicious Javascript into your data，or other types of code that attempt to hijack cookies
-or do other malicious things. The XSS Filter is described <a href="../libraries/input.html">here</a>.
-</p>
+<p>CodeIgniter隨附了一個跨站腳本過濾器。這個過濾器會檢視一些在你資料中嵌入惡意Javascript的常見技術，還有企圖盜取cookie或是進行其他惡意行為的各種程式碼。跨站腳本(XSS)過濾器在 <a href="../libraries/input.html">這裡</a> 有一些說明。</p>
 </li>
 
 <li><h2>資料驗證</h2>
 
-<p>CodeIgniter has a <a href="../libraries/form_validation.html">Form Validation 類別</a> that assists you in validating，filtering，and prepping
-your data.</p>
+<p>CodeIgniter有一個 <a href="../libraries/form_validation.html">表單驗證類別</a> 來協助你驗證、過濾及準備你的資料。</p>
 </li>
 
-<li><h2>Escape all data before database insertion</h2>
+<li><h2>在資料存入資料庫前跳脫(escape)所有資料</h2>
 
-<p>Never insert information into your database without escaping it. Please see the section that discusses
-<a href="../database/queries.html">queries</a> for more information.</p>
+<p>千萬不要不跳脫(escape)任何資訊就把它存入資料庫。請看一下討論 <a href="../database/queries.html">查詢(queries)</a> 的章節來獲得更詳細的資訊。</p>
 
 </li>
 

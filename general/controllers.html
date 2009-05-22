@@ -260,7 +260,7 @@ function _output($output)<br />
 <p class="important">請注意你的 <dfn>_output()</dfn> 函數得在它進入結束狀態時，才會收到資料。
 Benchmark 以及 memory 使用量資料會被建立出來，快取檔案被寫入(假設你有啟動快取功能)以及 headers 則會送出(假如你有使用這個<a href="../libraries/output.html">功能</a>)，而且是在另一方面把 _output() 函數關閉之前。  
 
-假如你使用這項功能的話，頁面執行效能跟記憶體使用量的統計功能，可能不會完全正確的計算。由於啟動這項功能後，它們沒有辦法完整考慮到，你在其中做的所有額外處理。另外還有個方式，可以在任何的最後程序<em>完成之前<em>來控制 output，請查看<a href="../libraries/output.html">Output 類別</a>尋找可用的 methods。
+假如你使用這項功能的話，頁面執行效能跟記憶體使用量的統計功能，可能不會完全正確的計算。由於啟動這項功能後，它們沒有辦法完整考慮到，你在其中做的所有額外處理。另外還有個方式，可以在任何的最後程序<em>完成之前</em>來控制 output，請查看<a href="../libraries/output.html">Output 類別</a>尋找可用的 methods。</p>
 
 
 <a name="private"></a>

@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Hooks : CodeIgniter 使用手冊</title>
+<title>Hooks - 擴充核心 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Hooks - Extending the Framework Core
+Hooks - 擴充核心
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,25 +55,23 @@ Hooks - Extending the Framework Core
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Hooks - Extending the Framework Core</h1>
+<h1>Hooks - 擴充核心</h1>
 
-<p>CodeIgniter's Hooks feature provides a means to tap into and modify the inner workings of the framework without hacking the core files.
-When CodeIgniter runs it follows a specific execution process，diagramed in the <a href="../overview/appflow.html">程式流程圖</a> page.
-There may be instances，however，where you'd like to cause some action to take place at a particular stage in the execution process.
-For example，you might want to run a script right before your controllers get loaded，or right after，or you might want to trigger one of
-your own scripts in some other location.
+<p>CodeIgniter的Hooks機制提供了一個方法來進入並改變框架的內部作業而不用修改核心檔案。當CodeIgniter執行時，它會遵循在<a href="../overview/appflow.html">程式流程圖</a>頁面中圖示的流程。不過在一些實例中，你也許會想要在流程的特定的階段執行特定的動作。例如，你可能會想要在你的控制器(controller)載入前後執行一些程式，或是在其他位置觸發你自己的程式。
 </p>
 
-<h2>Enabling Hooks</h2>
+<h2>啟動Hooks</h2>
 
-<p>The hooks feature can be globally enabled/disabled by setting the following item in the <kbd>application/config/config.php</kbd> file:</p>
+<p>Hooks機制可以透過下列 <kbd>application/config/config.php</kbd> 檔案中的設定項目來啟動：
+</p>
 
 <code>$config['enable_hooks'] = TRUE;</code>
 
 
-<h2>Defining a Hook</h2>
+<h2>定義一個Hook</h2>
 
-<p>Hooks are defined in <dfn>application/config/hooks.php</dfn> file.  Each hook is specified as an array with this prototype:</p>
+<p>Hooks定義在 <dfn>application/config/hooks.php</dfn> 檔案中。每一個hook都用下面陣列的方式來指定：
+</p>
 
 <code>
 $hook['pre_controller'] = array(<br />
@@ -84,22 +82,27 @@ $hook['pre_controller'] = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'params'&nbsp;&nbsp;&nbsp;=> array('beer'，'wine'，'snacks')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
 
-<p><strong>注意:</strong><br />The array index correlates to the name of the particular hook point you want to
-use.  In the above example the hook point is <kbd>pre_controller</kbd>. A list of hook points is found below.
-The following items should be defined in your associative hook array:</p>
+<p><strong>注意：</strong><br />陣列索引的名稱與你要使用的特定的hook插入點相對應。在上例中，hook插入點是 <kbd>pre_controller</kbd> 。本頁底下可以找到一個hook插入點的清單。另外，以下的項目必須在hook的關係陣列中定義好：
+</p>
 
 <ul>
-<li><strong>class</strong>&nbsp; The name of the class you wish to invoke. If you prefer to use a procedural function instead of a class，leave this item blank.</li>
-<li><strong>function</strong>&nbsp; The function name you wish to call.</li>
-<li><strong>filename</strong>&nbsp; The file name containing your class/function.</li>
-<li><strong>filepath</strong>&nbsp; The name of the directory containing your script.  注意: Your script must be located in a directory INSIDE your <kbd>application</kbd> folder，so the file path is relative to that folder.  For example，if your script is located in <dfn>application/hooks</dfn>，you will simply use <samp>hooks</samp> as your filepath.  If your script is located in <dfn>application/hooks/utilities</dfn> you will use <samp>hooks/utilities</samp> as your filepath. No trailing slash.</li>
-<li><strong>params</strong>&nbsp; Any parameters you wish to pass to your script. This item is optional.</li>
+<li><strong>class</strong>&nbsp; 你想要執行的類別名稱。如果你想要使用一個函數而不是類別，就保持空白。
+</li>
+<li><strong>function</strong>&nbsp; 你要呼叫的函數名稱。
+</li>
+<li><strong>filename</strong>&nbsp; 你的類別/函數所在的檔案名稱。
+</li>
+<li><strong>filepath</strong>&nbsp; 包含你程式的目錄名稱。注意：程式必須在你的 <kbd>application</kbd> 目錄內，所以這個目錄名稱是相對於 <kbd>application</kbd> 的路徑。例如，如果你的程式放在 <dfn>application/hooks</dfn> ，那你只要用 <samp>hooks</samp> 當作filepath。如果你的程式放在 <dfn>application/hooks/utilities</dfn> ，那你要用 <samp>hooks/utilities</samp> 作為filepath。路徑最後不用加斜線。
+</li>
+<li><strong>params</strong>&nbsp; 任何你希望傳遞給程式的參數，這是非必須的選項。
+</li>
 </ul>
 
 
-<h2>Multiple Calls to the Same Hook</h2>
+<h2>在同一的Hook中多次呼叫</h2>
 
-<p>If want to use the same hook point with more then one script，simply make your array declaration multi-dimensional，like this:</p>
+<p>如果要在一個hook插入多個程式，只要把陣列宣告成多維的就可以。像這樣：
+</p>
 
 <code>
 $hook['pre_controller']<kbd>[]</kbd> = array(<br />
@@ -118,35 +121,46 @@ $hook['pre_controller']<kbd>[]</kbd> = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'params'&nbsp;&nbsp;&nbsp;=> array('red'，'yellow'，'blue')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
 
-<p>Notice the brackets after each array index:</p>
+<p>注意要在陣列索引後加上中括號：
+</p>
 
 <code>$hook['pre_controller']<kbd>[]</kbd></code>
 
-<p>This permits you to have the same hook point with multiple scripts.  The order you define your array will be the execution order.</p>
+<p>這樣就可以讓你在一個hook中插入多個程式。程式執行的順序就是你在陣列中定義的順序。
+</p>
 
 
-<h2>Hook Points</h2>
+<h2>Hook插入點</h2>
 
-<p>The following is a list of available hook points.</p>
+<p>The following is a list of available hook points.
+以下是可用的hook插入點清單：
+</p>
 
 <ul>
 		<li><strong>pre_system</strong><br />
-			Called very early during system execution.  Only the benchmark and hooks class have been loaded at this point. No routing or other processes have happened.</li>
+在系統執行的初期執行。這時只有benchmark及hook類別被載入。路由或其他程序都還沒執行。
+			</li>
 		<li><strong>pre_controller</strong><br />
-			Called immediately prior to any of your controllers being called. All base classes，routing，and security checks have been done.</li>
+在所有的控制器(controller)呼叫之前執行。此時所有的基礎類別、路由、安全檢查都已經完成。
+</li>
 		<li><strong>post_controller_constructor</strong><br />
-			Called immediately after your controller is instantiated，but prior to any method calls happening.</li>
+在控制器(controller)實例化之後但是任何方法都還未呼叫之前立刻執行。
+</li>
 		<li><strong>post_controller</strong><br />
-			Called immediately after your controller is fully executed.</li>
+在控制器(controller)執行完畢之後立刻執行。
+</li>
 		<li><strong>display_override</strong><br />
-			Overrides the <dfn>_display()</dfn> function，used to send the finalized page to the web browser at the end of system execution.  This permits you to
-			use your own display methodology.  Note that you will need to reference the CI superobject with <dfn>$this->CI =&amp; get_instance()</dfn> and then the finalized data will be available by calling <dfn>$this->CI->output->get_output()</dfn></li>
+覆蓋用來在系統執行完畢後向瀏覽器送出完成的頁面的 <dfn>_display()</dfn> 函數。這樣就允許你用你自己定義的顯示方法。注意，你必須用 <dfn>$this->CI =&amp; get_instance()</dfn> 取得CI參考物件然後才可透過呼叫 <dfn>$this->CI->output->get_output()</dfn> 來使用完成的頁面資料。
+</li>
 		<li><strong>cache_override</strong><br />
-			Enables you to call your own function instead of the <dfn>_display_cache()</dfn> function in the output class.  This permits you to use your own cache display mechanism.</li>
+讓你可以呼叫自己定義的函數而非output類別中的 <dfn>_display_cache()</dfn> 函數。這讓你可以使用自己的cache顯示機制。
+</li>
 		<li><strong>scaffolding_override</strong><br />
-			Permits a scaffolding request to trigger your own script instead.</li>
+允許一個scaffolding請求轉而觸發你自己的程式。
+</li>
 		<li><strong>post_system</strong><br />
-			Called after the final rendered page is sent to the browser，at the end of system execution after the finalized data is sent to the browser.</li>
+在完成的頁面送到瀏覽器之後呼叫。在系統執行結束時，完成的資料已送到瀏覽器之後執行。
+</li>
 	</ul>
 </div>
 <!-- END CONTENT -->

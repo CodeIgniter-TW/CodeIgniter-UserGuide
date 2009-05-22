@@ -78,13 +78,13 @@ CodeIgniter 會首先找尋 <dfn>system/application/language</dfn>
 
 <p>在此文件中，在每一行語言您都可以賦予 <var>$lang</var> 陣列方式表示:</p>
 
-<code>$lang['language_key'] = "The actual message to be shown";</code>
+<code>$lang['language_key'] = "這裡填入您想要顯示的資料";</code>
 
-<p><strong>注意:</strong> 為了避免和其他檔案變數名稱重複，最好把同一個文件的變數字首前端都加上同名稱，比如，可以把每個錯誤訊息字首都加上 <var>error_</var></p>
+<p><strong>注意:</strong> 為了避免和其他檔案變數名稱重複，最好把同一個文件的變數字首前端都加上相同名稱，例如，可以把每個錯誤訊息字首都加上 <var>error_</var></p>
 
-<code>$lang['<var>error</var>_email_missing'] = "You must submit an email address";<br />
-$lang['<var>error</var>_url_missing'] = "You must submit a URL";<br />
-$lang['<var>error</var>_username_missing'] = "You must submit a username";</code>
+<code>$lang['<var>error</var>_email_missing'] = "您必須填入電子郵件";<br />
+$lang['<var>error</var>_url_missing'] = "您必須填入完整網址";<br />
+$lang['<var>error</var>_username_missing'] = "您必須填入帳號名稱";</code>
 
 
 <h2>讀取單一語言檔案</h2>
@@ -113,7 +113,7 @@ $lang['<var>error</var>_username_missing'] = "You must submit a username";</code
 <p class="important">This feature has been deprecated from the language library and moved to the <kbd>lang()</kbd> function of the <a href="../helpers/language_helper.html">Language helper</a>.</p>
 
 <h2>自動載入語系檔案</h2>
-<p>如果要在整個程式架構載入一個特定的語言，您可以在 CodeIgniter 系統初始化的時候<a href="../general/autoloader.html">自動載入</a>語言檔案. 您可以修改 application/config/autoload.php 檔案，並且加入您想要預設載入的語言。</p>
+<p>如果要在整個程式架構載入一個特定的語言，您可以在 CodeIgniter 系統初始化的時候 <a href="../general/autoloader.html">自動載入</a> 語言檔案，可以修改 application/config/autoload.php 檔案，並且加入您想要預設載入的語言。</p>
 <p>&nbsp;</p>
 </div>
 <!-- END CONTENT -->

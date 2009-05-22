@@ -57,78 +57,66 @@
 
 <h1>補助函數(Helper Functions)</h1>
 
-<p>補助函數，as the name suggests，help you with tasks.  Each helper file is simply a collection of functions in a particular
-category.  There are <dfn>URL 補助函數</dfn>，that assist in creating links，there are <dfn>Form 補助函數</dfn>
-that help you create form elements，<dfn>Text 補助函數</dfn> perform various text formatting routines,
-<dfn>Cookie 補助函數</dfn> set and read cookies，<dfn>File 補助函數</dfn> help you deal with files，etc.
-</p>
+<p>如同它的名稱，補助函數協助你處理特定的任務。每個補助函數檔案就是一些特定用途函數的集合。有 <dfn>URL 補助函數</dfn> 協助產生連結；有 <dfn>Form 補助函數</dfn> 協助你產生表單元素；有 <dfn>Text 補助函數</dfn> 從事各種文字格式化工作；有 <dfn>Cookie 補助函數</dfn> 可設定及讀取cookies；有 <dfn>File 補助函數</dfn> 協助你處理檔案等等。</p>
 
-<p>Unlike most other systems in CodeIgniter，補助函數 are not written in an Object Oriented format.  They are simple，procedural functions.
-Each helper function performs one specific task，with no dependence on other functions.</p>
+<p>不像其他 CodeIgniter 中的系統，補助函數不是用物件導向的格式寫的。它們只是程序式的函數。每個補助函式可執行一種特定的任務，完全不依賴其他函數。</p>
 
-<p>CodeIgniter does not load 補助函數 Files by default，so the first step in using
-a 補助函數 is to load it.  Once loaded，it becomes globally available in your <a href="../general/controllers.html">controller</a> and <a href="../general/views.html">views</a>.</p>
+<p>CodeIgniter 預設並不會載入補助函數，所以要使用補助函數時，第一步就是要載入它。一旦載入後，它就可在你的 <a href="../general/controllers.html">控制器(controller)</a> 與 <a href="../general/views.html">檢視(views)</a> 中全域使用。</p>
 
-<p>補助函數 are typically stored in your <dfn>system/helpers</dfn>，or <dfn>system/application/helpers </dfn>directory.	CodeIgniter will look first in your <dfn>system/application/helpers</dfn>
-directory.  If the directory does not exist or the specified helper is not located there CI will instead look in your global
-<dfn>system/helpers</dfn> folder.</p>
+<p>補助函數一般會放在 <dfn>system/helpers</dfn> 或 <dfn>system/application/helpers </dfn> 目錄中。CodeIgniter 會先從你的 <dfn>system/application/helpers</dfn> 目錄尋找，如果這個目錄不存在或是檔案找不到，它才到全域的 <dfn>system/helpers</dfn> 目錄尋找。</p>
 
 
 <h2>載入補助函數</h2>
 
-<p>Loading a helper file is quite simple using the following function:</p>
+<p>載入一個補助函數檔案只需要簡單地使用下面的函數：</p>
 
 <code>$this->load->helper('<var>name</var>');</code>
 
-<p>Where <var>name</var> is the file name of the helper，without the .php file extension or the "helper" part.</p>
+<p>其中 <var>name</var> 是不含 ".php" 副檔名或 "helper" 部份的補助函數檔案名稱。</p>
 
-<p>For example，to load the <dfn>URL 補助函數</dfn> file，which is named <var>url_helper.php</var>，you would do this:</p>
+<p>例如，要載入 <dfn>URL 補助函數</dfn> 檔案，而他的檔名叫做 <var>url_helper.php</var> ，那你要這樣做：</p>
 
 <code>$this->load->helper('<var>url</var>');</code>
 
-<p>A helper can be loaded anywhere within your controller functions (或說在你的 View files 裡頭，although that's not a good practice),
-as long as you load it before you use it.  You can load your helpers in your controller constructor so that they become available
-automatically in any function，or you can load a helper in a specific function that needs it.</p>
+<p>一個補助函數可以在控制器(controller)函數的任何地方載入（或者說在你的檢視(view)檔案裡頭，雖然這不是個好作法），只要你載入它就可以使用。你可以在控制器(controller)的建構函數中載入它，這樣就可自動在任何函數中使用它。你也可以在需要的時候在特定的函數中載入。</p>
 
-<p class="important">注意: The 補助函數 loading function above does not return a value，so don't try to assign it to a variable.  Just use it as shown.</p>
+<p class="important">注意：以上載入補助函數的函數並不返回任何值，所以不要把它指派給任何變數，只要像我們示範的這樣使用就好了。</p>
 
 
 <h2>載入多個補助函數</h2>
 
-<p>If you need to load more than one helper you can specify them in an array，like this:</p>
+<p>如果你需要載入多個補助函數，只要在一個陣列中指定，像這樣：</p>
 
 <code>$this->load->helper( <samp>array(</samp>'<var>helper1</var>'，'<var>helper2</var>'，'<var>helper3</var>'<samp>)</samp> );</code>
 
 <h2>自動載入補助函數</h2>
 
-<p>If you find that you need a particular helper globally throughout your application，you can tell CodeIgniter to auto-load it during system initialization.
-This is done by opening the <var>application/config/autoload.php</var> file and adding the helper to the autoload array.</p>
+<p>如果你發現你需要在你的應用程式中隨處都可使用某個補助函數，你可以讓 CodeIgniter 在系統初始化時自動載入。這可透過編輯 <var>application/config/autoload.php</var> 檔案，把補助函數加到自動載入陣列來做到。
+</p>
 
 
 <h2>使用補助函數</h2>
 
-<p>Once you've loaded the 補助函數 File containing the function you intend to use，you'll call it the way you would a standard PHP function.</p>
+<p>一旦你載入了包含你要使用函數的補助函數檔案，你就可以像使用標準PHP函數這樣來呼叫它。</p>
 
-<p>For example，to create a link using the <dfn>anchor()</dfn> function in one of your view files you would do this:</p>
+<p>例如，要使用 <dfn>anchor()</dfn> 函數在你的檢視(view)檔案中產生連結，你可以這樣做：</p>
 
 <code>&lt;?php echo anchor('blog/comments'，'Click Here');?&gt;</code>
 
-<p>Where "Click Here" is the name of the link，and "blog/comments" is the URI to the controller/function you wish to link to.</p>
+<p>其中 "Click Here" 是連結的名稱，而 "blog/comments" 是你要連結到的控制器(controller)/函數的URI。</p>
 
-<h2>"擴充" 補助函數</h2>
+<h2>"擴充(extend)" 補助函數</h2>
 
-<p>To "extend" 補助函數，create a file in your <dfn>application/helpers/</dfn> folder with an identical name to the existing 補助函數，but prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</p>
+<p>要 "擴充(extend)" 補助函數，要在你的 <dfn>application/helpers/</dfn> 目錄中新增一個與現存補助函數相同名稱再加上 <kbd>MY_</kbd> 前置字串的檔案。（這是可設定的，請看下面說明）
+</p>
 
-<p>If all you need to do is add some functionality to an existing helper - perhaps add a function or two，or change how a particular
-	helper function operates - then it's overkill to replace the entire helper with your version.  In this case it's better to simply
-	"extend" the 補助函數.  The term "extend" is used loosely since 補助函數 functions are procedural and discrete and cannot be extended
-	in the traditional programmatic sense.  Under the hood，this gives you the ability to add to the functions a 補助函數 provides,
-	or to modify how the native 補助函數 functions operate.</p>
+<p>如果你需要的是在現存的補助函數中增加一些功能，也許是增加一兩個函數，或是改變某個補助函數的運作方式，那把整個補助函數用你的版本替換掉殺傷力就太大了。在這個場合較佳的做法就是 "擴充(extend)" 補助函數。既然補助函數只是程序性、離散且在傳統程式的意義上是無法擴充的，所以 "擴充(extend)" 這個詞在這裡只是在不嚴謹的意義下使用。這樣讓你能增加補助函數所提供的功能，或是更動內建補助函數的運作方式。
+</p>
 
-<p>For example，to extend the native <kbd>Array 補助函數</kbd> you'll create a file named <dfn>application/helpers/</dfn><kbd>MY_array_helper.php</kbd>，and add or override functions:</p>
+<p>例如，要擴充內建的 <kbd>Array 補助函數</kbd> ，你要新增一個叫做 <dfn>application/helpers/</dfn><kbd>MY_array_helper.php</kbd> 的檔案，然後增加或覆蓋函數：</p>
 
 <code>
-// any_in_array() is not in the Array 補助函數，so it defines a new function<br />
+// any_in_array() 並不在 Array 補助函數中，所以要定義一個新函數<br />
 function any_in_array($needle，$haystack)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$needle = (is_array($needle)) ? $needle : array($needle);<br />
@@ -144,7 +132,7 @@ function any_in_array($needle，$haystack)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;return FALSE;<br />
 }<br />
 <br />
-// random_element() is included in Array 補助函數，so it overrides the native function<br />
+// random_element() 已包含在 Array 補助函數中，所以會覆蓋原有的函數<br />
 function random_element($array)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;shuffle($array);<br />
@@ -154,16 +142,16 @@ function random_element($array)<br />
 
 <h3>自訂子類別的前置字串</h3>
 
-<p>The filename prefix for "extending" 補助函數 is the same used to extend libraries and Core classes.  To set your own prefix，open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>擴充補助函數所使用的檔名前置字串與擴充程式庫及核心類別相同。要設定你自己的前置字串，可以像這樣尋找並編輯 <dfn>application/config/config.php</dfn> 檔案中的設定：</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
-<p>Please note that all native CodeIgniter libraries are prefixed with <kbd>CI_</kbd> so DO NOT use that as your prefix.</p>
+<p>請注意所有 CodeIgniter 內建的程式庫都會使用 <kbd>CI_</kbd> 前置字串，所以避免使用它作為你自己要用的前置字串。</p>
 
 
-<h2>Now What?</h2>
+<h2>然後咧？</h2>
 
-<p>In the 目錄 you'll find a list of all the available 補助函數 Files.  Browse each one to see what they do.</p>
+<p>在目錄中你可以找到一份可用補助函數檔案的清單。瀏覽一下看看每個補助函數可以做什麼。</p>
 
 
 </div>

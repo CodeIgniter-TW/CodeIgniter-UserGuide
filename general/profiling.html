@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Profiling Your Application : CodeIgniter 使用手冊</title>
+<title>Application 效能分析 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Profiling Your Application
+Application 效能分析
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,32 +56,30 @@ Profiling Your Application
 <div id="content">
 
 
-<h1>Profiling Your Application</h1>
+<h1>Application 效能分析</h1>
 
-<p>The Profiler Class will display benchmark results，queries you have run，and $_POST data at the bottom of your pages.
-This information can be useful during development in order to help with debugging and optimization.</p>
+<p>這個效能分析類別(Profiler Class)會顯示出 benchmark 的查詢結果、然後將 $_POST 的資料置於頁面的尾端。這些資訊在進行開發時，用來協助除錯或是最佳化相當有用。</p>
 
 
-<h2>Initializing the Class</h2>
+<h2>類別初始化</h2>
+<p class="important"><strong>非常重要:</strong>&nbsp; 這各類別 <kbd>不需要</kbd> 額外步驟將它初始化。他可由
+<a href="../libraries/output.html">Output 類別</a> 自動載入，效能分析功能就會啟動並顯示結果在頁面尾端。</p>
 
-<p class="important"><strong>非常重要:</strong>&nbsp; This class does <kbd>NOT</kbd> need to be initialized. It is loaded automatically by the
-<a href="../libraries/output.html">Output 類別</a> if profiling is enabled as shown below.</p>
+<h2>啟動效能分析器</h2>
 
-<h2>Enabling the Profiler</h2>
-
-<p>To enable the profiler place the following function anywhere within your <a href="controllers.html">Controller</a> functions:</p>
+<p>可在 <a href="controllers.html">控制器(Controller)</a> 函數中，啟動效能分析器:</p>
 <code>$this->output->enable_profiler(TRUE);</code>
 
-<p>When enabled a report will be generated and inserted at the bottom of your pages.</p>
+<p>當啟動之後，效能結果就會被產生出來，然後塞進也面尾端。</p>
 
-<p>To disable the profiler you will use:</p>
+<p>關閉效能分系器的方式:</p>
 <code>$this->output->enable_profiler(FALSE);</code>
 
-<h2>Setting Benchmark Points</h2>
+<h2>設定 Benchmark 點</h2>
 
-<p>In order for the Profiler to compile and display your benchmark data you must name your mark points using specific syntax.</p>
+<p>為了要讓效能分析器可以合併且呈現 benchmark 資料，你必須要用專用句法來替標記點命名。</p>
 
-<p>Please read the information on setting Benchmark points in <a href="../libraries/benchmark.html">Benchmark Class</a> page.</p>
+<p>請閱讀<a href="../libraries/benchmark.html">Benchmark Class</a> 章節中，Benchmark 點的效能分析的部份。</p>
 
 
 

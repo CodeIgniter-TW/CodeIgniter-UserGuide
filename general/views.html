@@ -82,11 +82,11 @@ Views
 
 <h2>載入 View</h2>
 
-<p>載入部份的 view 檔，你會使用到底下的函數:</p>
+<p>載入部份的檢視檔(view file)，你會使用到底下的函數:</p>
 
 <code>$this->load->view('<var>name</var>');</code>
 
-<p><var>name</var> 的部份表示是你的 view 檔的名字。注意: 其中副檔名不必 .php 加進去，除非你建立不使用副檔名為 <kbd>.php</kbd> 的檔案。</p>
+<p><var>name</var> 的部份表示是你的檢視檔(view file)的名字。注意: 其中副檔名不必 .php 加進去，除非你建立不使用副檔名為 <kbd>.php</kbd> 的檔案。</p>
 
 
 <p>現在開啟更早之前你建立的控制器 <dfn>blog.php</dfn> 的檔案，然後用載入 view 函數(view loading function)來取代回應的敘述(echo statement):</p>
@@ -129,7 +129,7 @@ class Page extends Controller {<br /><br />
 	?&gt;</code></p>
 <p>&quot;動態新增資料&quot; 的方式，你可以在底下看到範例。</p>
 <h2>把 view 收納進子目錄裡頭</h2>
-<p>假如你喜歡這樣的組織方式的話，你也可以把 view 檔分散儲存到子目錄之中。當這麼做的話，你需要把這個目錄的名稱 include 近來到 view 裡頭。參考範例:</p>
+<p>假如你喜歡這樣的組織方式的話，你也可以把檢視檔(view file)分散儲存到子目錄之中。當這麼做的話，你需要把這個目錄的名稱 include 近來到 view 裡頭。參考範例:</p>
 
 <code>$this->load->view('<kbd>folder_name</kbd>/<var>file_name</var>');</code>
 
@@ -172,7 +172,7 @@ class Blog extends Controller {
 </textarea>
 
 
-<p>現在打開 view 檔，然後把底下的文字改成跟你的資料相關的陣列變數名稱:</p>
+<p>現在打開檢視檔(view file)，然後把底下的文字改成跟你的資料相關的陣列變數名稱:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -190,7 +190,7 @@ class Blog extends Controller {
 
 <h2>新增迴圈(Creating Loops)</h2>
 
-<p>送給 view 檔的資料陣列不限為單變數。可以送出多維陣列，用來重複產生多欄資料。
+<p>送給檢視檔(view file)的資料陣列不限為單變數。可以送出多維陣列，用來重複產生多欄資料。
 舉例來說，你從資料庫將資料拉出來，它基本上是多為度陣列的型式。</p>
 
 <p>這裡舉了簡單的例子。新增至你的控制器(controller)裡頭:</p>
@@ -213,7 +213,7 @@ class Blog extends Controller {
 </textarea>
 
 
-<p>開啟 view 檔，新增迴圈:</p>
+<p>開啟檢視檔(view file)，新增迴圈:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="24">

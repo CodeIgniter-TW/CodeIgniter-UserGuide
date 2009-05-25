@@ -145,11 +145,9 @@ $this->benchmark->mark('another_mark<kbd>_end</kbd>');
 
 <code>&lt;?php echo $this->benchmark->elapsed_time();?&gt;</code>
 
-<p>You'll notice that it's the same function used in the examples above to calculate the time between two point，except you are
-<strong>not</strong> using any parameters.  When the parameters are absent，CodeIgniter does not stop the benchmark until right before the final
-output is sent to the browser.  It doesn't matter where you use the function call，the timer will continue to run until the very end.</p>
+<p>你會發現到，在上面計算兩標記點的範例也是使用相同函數，只是你<strong>沒有使用</strong>任何參數。當沒有使用到參數的時候，CodeIgniter 不會停止 benchmark，直到最後的輸出送給瀏覽器。不論在何處呼叫此函數，計時器會在最後才結束。</p>
 
-<p>An alternate way to show your elapsed time in your view files is to use this pseudo-variable，if you prefer not to use the pure PHP:</p>
+<p>假如你比較不願意使用純粹的 PHP 的話，在檢視檔秀出時間耗用量的其他方式，就是使用虛擬變數(seudo-variable):</p>
 <code>{elapsed_time}</code>
 
 <p class="important"><strong>注意:</strong> 若要 benchmark 來衡量控制器內所有函數的話，你必須自行設定起點/終點。</p>
@@ -160,9 +158,9 @@ output is sent to the browser.  It doesn't matter where you use the function cal
 <p>若你的 PHP 安裝有啟用 --enable-memory-limit 的話，你可以將底下的程式碼置於你的檢視檔中，來顯示記憶體消耗量:</p>
 
 <code>&lt;?php echo $this->benchmark->memory_usage();?&gt;</code>
-<p>注意: This function can only be used in your view files. The consumption will reflect the total memory used by the entire app.</p>
+<p>注意: 這個函數只可用於檢視檔(view files) 該消耗量會反映出目前 app 所使用的總記憶體。</p>
 
-<p>An alternate way to show your memory usage in your view files is to use this pseudo-variable，if you prefer not to use the pure PHP:</p>
+<p>假如你比較不願意使用純粹的 PHP 的話，在檢視檔秀出記憶體使用量的其他方式，就是使用虛擬變數(seudo-variable):</p>
 <code>{memory_usage}</code>
 
 
@@ -174,7 +172,7 @@ output is sent to the browser.  It doesn't matter where you use the function cal
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="../general/security.html"> Security</a>
+上個主題:&nbsp;&nbsp;<a href="../general/security.html">安全性(Security)</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;

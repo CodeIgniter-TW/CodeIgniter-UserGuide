@@ -118,10 +118,7 @@ echo $this->benchmark->elapsed_time('dog'，'bird');</code>
 <a name="profiler"></a>
 <h2>Benchmark 點的效能分析</h2>
 
-<p>If you want your benchmark data to be available to the
-<a href="../general/profiling.html">Profiler</a> all of your marked points must be set up in pairs，and
-each mark point name must end with <kbd>_start</kbd> and <kbd>_end</kbd>.
-Each pair of points must otherwise be named identically. 參考範例:</p>
+<p>若要讓你的 benchmark 資料可被<a href="../general/profiling.html">效能分析器(Profiler)</a>所用，你的所有表記點必須成對設定(set up in pairs)。而且每個標記點的名稱必須以 <kbd>_start</kbd> 以及 <kbd>_end</kbd> 來作為結尾。同時，每個標記點名稱必須為獨一無二。參考範例:</p>
 
 <code>
 $this->benchmark->mark('my_mark<kbd>_start</kbd>');<br />
@@ -138,14 +135,13 @@ $this->benchmark->mark('another_mark<kbd>_start</kbd>');<br />
 $this->benchmark->mark('another_mark<kbd>_end</kbd>');
 </code>
 
-<p>Please read the <a href="../general/profiling.html">Profiler page</a> for more information.</p>
+<p>請閱讀 <a href="../general/profiling.html">效能分析器(Profiler page)</a> 來取得更多資訊。</p>
 
 
 <a name="execution"></a>
 <h2>顯示全部的執行時間</h2>
 
-<p>If you would like to display the total elapsed time from the moment CodeIgniter starts to the moment the final output
-is sent to the browser，simply place this in one of your view templates:</p>
+<p>若要顯示從 CodeIgniter 啟動到最後資料送至瀏覽器的所有時間耗用量，只需更改在檢視樣板(view templates)中的部份:</p>
 
 <code>&lt;?php echo $this->benchmark->elapsed_time();?&gt;</code>
 
@@ -156,14 +152,12 @@ output is sent to the browser.  It doesn't matter where you use the function cal
 <p>An alternate way to show your elapsed time in your view files is to use this pseudo-variable，if you prefer not to use the pure PHP:</p>
 <code>{elapsed_time}</code>
 
-<p class="important"><strong>注意:</strong> If you want to benchmark anything within your controller
-functions you must set your own start/end points.</p>
+<p class="important"><strong>注意:</strong> 若要 benchmark 來衡量控制器內所有函數的話，你必須自行設定起點/終點。</p>
 
 <a name="memory"></a>
 <h2>顯示記憶體消耗量</h2>
 
-<p>If your PHP installation is configured with --enable-memory-limit，you can display the amount of memory consumed by the entire
-system using the following code in one of your view file:</p>
+<p>若你的 PHP 安裝有啟用 --enable-memory-limit 的話，你可以將底下的程式碼置於你的檢視檔中，來顯示記憶體消耗量:</p>
 
 <code>&lt;?php echo $this->benchmark->memory_usage();?&gt;</code>
 <p>注意: This function can only be used in your view files. The consumption will reflect the total memory used by the entire app.</p>

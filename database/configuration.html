@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">資料庫 類別</a> &nbsp;&#8250;&nbsp;
 Configuration
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
@@ -58,14 +58,14 @@ Configuration
 <div id="content">
 
 
-<h1>Database Configuration</h1>
+<h1>資料庫設定</h1>
 
-<p>CodeIgniter has a config file that lets you store your database connection values (username，password，database name，etc.).
-The config file is located at:</p>
+<p>CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳號(username)，使用者密碼(password)，資料庫名稱(database name)等…)。
+設定檔存放位置是：</p>
 
 <p><kbd>application/config/database.php</kbd></p>
 
-<p>The config settings are stored in a multi-dimensional array with this prototype:</p>
+<p>資料庫設定值存放在一個多維陣列裡面：</p>
 
 <code>$db['default']['hostname'] = "localhost";<br />
 $db['default']['username'] = "root";<br />
@@ -80,10 +80,8 @@ $db['default']['cachedir'] =  &quot;&quot;;<br />
 $db['default']['char_set'] = "utf8";<br />
 $db['default']['dbcollat'] = "utf8_general_ci";</code>
 
-<p>The reason we use a multi-dimensional array rather than a more simple one is to permit you to optionally store
-multiple sets of connection values.  If，for example， you run multiple environments (development，production，test，etc.)
-under a single installation，you can set up a connection group for each，then switch between groups as needed.
-For example，to set up a "test" environment you would do this:</p>
+<p>我們使用多為陣列儲存的原因是為了讓您可以選擇性設定多組資料庫連接值。舉例來說，執行多重環境(開發 development，產品 production，測試 test)
+您可以為了每一個開發環境建立獨立的資料庫設定，並且可以任意時候切換資料庫。舉例，可以設定 "test" 資料庫環境如下：</p>
 
 <code>$db['test']['hostname'] = "localhost";<br />
 $db['test']['username'] = "root";<br />
@@ -99,42 +97,40 @@ $db['test']['char_set'] = "utf8";<br />
 $db['test']['dbcollat'] = "utf8_general_ci";</code>
 
 
-<p>Then，to globally tell the system to use that group you would set this variable located in the config file:</p>
+<p>然後，可以告訴系統現在要使用 "test" 連線資料庫，並且可以隨時修改此檔案：</p>
 
 <code>$active_group = "test";</code>
 
-<p>注意: The name "test" is arbitrary.  It can be anything you want. By default we've used the word "default"
-for the primary connection，but it too can be renamed to something more relevant to your project.</p>
+<p>注意: "test" 這名稱是可以任意修改的，可以任意設置。 系統預設值是 "default"，但是可以根據專案來改變此設定。</p>
 
 <h3>Active Record</h3>
 
-<p>The <a href="active_record.html">Active Record Class</a> is globally enabled or disabled by setting the $active_record variable in the database configuration file to TRUE/FALSE (boolean). If you are not using the active record class，setting it to FALSE will utilize fewer resources when the database classes are initialized.</p>
+<p><a href="active_record.html">Active Record Class</a> 可以根據設定檔內 $active_record 參數來進行全域設定(允許/禁止 TRUE/FALSE (boolean))。假如不想使用 active record class，請將此設定為 FALSE，以便讓系統降低初始化資料庫所需要的資源。</p>
 
 <code>$active_record = TRUE;</code>
 
-<p class="important"><strong>注意:</strong> that some CodeIgniter classes such as Sessions require Active Records be enabled to access certain functionality.</p>
+<p class="important"><strong>注意:</strong> 一些 CodeIgniter 類別，像是 Sessions，在執行一些函數的時候，需要用到 Active Records。</p>
 
-<h3>Explanation of Values:</h3>
+<h3>參數設定：</h3>
 
 <ul>
-<li><strong>hostname</strong> - The hostname of your database server. Often this is "localhost".</li>
-<li><strong>username</strong> - The username used to connect to the database.</li>
-<li><strong>password</strong> - The password used to connect to the database.</li>
-<li><strong>database</strong> - The name of the database you want to connect to.</li>
-<li><strong>dbdriver</strong> - The database type. ie: mysql，postgres，odbc，etc. Must be specified in lower case.</li>
+<li><strong>hostname</strong> - 連線資料庫伺服器. 通常是本地端 "localhost".</li>
+<li><strong>username</strong> - 連線資料庫帳號.</li>
+<li><strong>password</strong> - 連線資料庫密碼.</li>
+<li><strong>database</strong> - 連線資料庫名稱.</li>
+<li><strong>dbdriver</strong> - 資料庫類型。例如: mysql，postgres，odbc，等…. 必須為小寫字母.</li>
 <li><strong>dbprefix</strong> - An optional table prefix which will added to the table name when running <a href="active_record.html">Active Record</a> queries.  This permits multiple CodeIgniter installations to share one database.</li>
-<li><strong>pconnect</strong> - TRUE/FALSE (boolean) - Whether to use a persistent connection.</li>
-<li><strong>db_debug</strong> - TRUE/FALSE (boolean) - Whether database errors should be displayed.</li>
-<li><strong>cache_on</strong> - TRUE/FALSE (boolean) - Whether database query caching is enabled，see also <a href="caching.html">Database Caching Class</a>.</li>
-<li><strong>cachedir</strong> - The absolute server path to your database query cache directory.</li>
+<li><strong>pconnect</strong> - TRUE/FALSE (boolean) - 使用保持連線功能.</li>
+<li><strong>db_debug</strong> - TRUE/FALSE (boolean) - 顯示資料庫存取錯誤訊息.</li>
+<li><strong>cache_on</strong> - TRUE/FALSE (boolean) - 使用資料庫快取，詳細介紹 <a href="caching.html">資料庫快取類</a>.</li>
+<li><strong>cachedir</strong> - 使用絕對路徑來設定快取目錄.</li>
 <li><strong>char_set</strong> - The character set used in communicating with the database.</li>
 <li><strong>dbcollat</strong> - The character collation used in communicating with the database.</li>
-<li><strong>port</strong> - The database port number.  Currently only used with the Postgres driver. To use this value you have to add a line to the database config array.<code>$db['default']['port'] =  5432;</code></li>
+<li><strong>port</strong> - 資料庫連接埠。目前只有用到 Postgres 資料庫需要設定此變數，必須增加設定如下.<code>$db['default']['port'] =  5432;</code></li>
 </ul>
 
-<p class="important"><strong>注意:</strong> Depending on what database platform you are using (MySQL，Postgres，etc.)
-not all values will be needed.  For example，when using SQLite you will not need to supply a username or password，and
-the database name will be the path to your database file. The information above assumes you are using MySQL.</p>
+<p class="important"><strong>注意:</strong> 並非所有的設定都是需要的，必須根據使用的資料庫 (MySQL，Postgres，etc.) 來決定。  
+舉例來說，使用 SQLite 資料庫的時候，就不需要設定使用者帳號跟使用者密碼，只需要設定資料庫所在的路徑位置即可。本頁範例是假設使用 MySQL 資料庫。</p>
 
 
 
@@ -144,11 +140,11 @@ the database name will be the path to your database file. The information above 
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="examples.html">Quick Start: Usage Examples</a>
+上個主題:&nbsp;&nbsp;<a href="examples.html">快速入門：範例程式</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="connecting.html">Connecting to your Database</a>
+下個主題:&nbsp;&nbsp;<a href="connecting.html">連接資料庫</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

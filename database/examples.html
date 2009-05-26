@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Database Quick Start : CodeIgniter 使用手冊</title>
+<title>Database 快速入門 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -59,24 +59,23 @@ Database Example Code
 <div id="content">
 
 
-<h1>Database Quick Start: Example Code</h1>
+<h1>資料庫快速入門：範例程式</h1>
 
-<p>The following page contains example code showing how the database class is used.  For complete details please
-read the individual pages describing each function.</p>
+<p>以下的頁面包含了示範如何使用資料庫類別的範例程式。請閱讀各個函數的說明頁面來了解完整的細節。</p>
 
 
-<h2>Initializing the Database 類別</h2>
+<h2>起始化資料庫類別</h2>
 
-<p>The following code loads and initializes the database class based on your <a href="configuration.html">configuration</a> settings:</p>
+<p>以下的程式根據你<a href="configuration.html">設定檔</a>中的設定載入並初始化資料類別：</p>
 
 <code>$this->load->database();</code>
 
-<p>Once loaded the class is ready to be used as described below.</p>
+<p>類別一旦載入，就可以像下面說明這樣使用：</p>
 
-<p>注意: If all your pages require database access you can connect automatically.  See the <a href="connecting.html">connecting</a> page for details.</p>
+<p>注意：如果你的所有的頁面都需要存取你無法自動連接的資料庫，參閱 <a href="connecting.html">連接資料庫</a> 頁面來了解細節。</p>
 
 
-<h2>Standard Query With Multiple Results (Object Version)</h2>
+<h2>標準的多結果查詢（物件版）</h2>
 
 <code>$query = $this->db->query('SELECT name，title，email FROM my_table');<br />
 <br />
@@ -90,10 +89,11 @@ foreach ($query->result() as $row)<br />
 echo 'Total Results: ' . $query->num_rows();
 </code>
 
-<p>The above <dfn>result()</dfn> function returns an array of <strong>objects</strong>.  參考範例:  $row->title</p>
+<p>以上的 <dfn>result()</dfn> 函數返回一個 <strong>objects</strong> 陣列。參考範例： $row->title 。
+</p>
 
 
-<h2>Standard Query With Multiple Results (Array Version)</h2>
+<h2>標準的多結果查詢（陣列版）</h2>
 
 <code>$query = $this->db->query('SELECT name，title，email FROM my_table');<br />
 <br />
@@ -104,13 +104,12 @@ foreach ($query->result_array() as $row)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $row['email'];<br />
 }</code>
 
-<p>The above <dfn>result_array()</dfn> function returns an array of standard array indexes.  參考範例:  $row['title']</p>
+<p>以上 <dfn>result_array()</dfn> 函數返回一個標準的索引陣列。參考範例： $row['title'] 。</p>
 
 
-<h2>Testing for Results</h2>
+<h2>結果測試</h2>
 
-<p>If you run queries that might <strong>not</strong> produce a result，you are encouraged to test for a result first
-using the <dfn>num_rows()</dfn> function:</p>
+<p>如果你執行的查詢可能 <strong>不會</strong> 產生結果，那你最好先用 <dfn>num_rows()</dfn> 函數做一下測試：</p>
 
 <code>
 $query = $this->db->query("YOUR QUERY");<br />
@@ -129,7 +128,7 @@ if ($query->num_rows() > 0)<br />
 
 
 
-<h2>Standard Query With Single Result</h2>
+<h2>標準的單一結果查詢</h2>
 
 <code>$query = $this->db->query('SELECT name FROM my_table LIMIT 1');<br />
 <br />
@@ -137,10 +136,10 @@ $row = $query->row();<br />
 echo $row->name;<br />
 </code>
 
-<p>The above <dfn>row()</dfn> function returns an <strong>object</strong>.  參考範例:  $row->name</p>
+<p>上例中 <dfn>row()</dfn> 函數返回一個 <strong>物件</strong>。參考範例： $row->name 。</p>
 
 
-<h2>Standard Query With Single Result (Array version)</h2>
+<h2>標準的單一結果查詢（陣列版）</h2>
 
 <code>$query = $this->db->query('SELECT name FROM my_table LIMIT 1');<br />
 <br />
@@ -148,10 +147,10 @@ $row = $query->row_array();<br />
 echo $row['name'];<br />
 </code>
 
-<p>The above <dfn>row_array()</dfn> function returns an <strong>array</strong>.  參考範例:  $row['name']</p>
+<p>上例中 <dfn>row_array()</dfn> 函數傳回一個 <strong>陣列</strong> 。參考範例： $row['name'] 。</p>
 
 
-<h2>Standard Insert</h2>
+<h2>標準新增</h2>
 
 <code>
 $sql = "INSERT INTO mytable (title，name) <br />
@@ -165,9 +164,9 @@ echo $this->db->affected_rows();
 
 
 
-<h2>Active Record Query</h2>
+<h2>Active Record 查詢</h2>
 
-<p>The <a href="active_record.html">Active Record Pattern</a> gives you a simplified means of retrieving data:</p>
+<p><a href="active_record.html">Active Record 模式</a> 給你一個取得資料的簡單方法：</p>
 
 <code>
 $query = $this->db->get('table_name');<br />
@@ -177,12 +176,10 @@ foreach ($query->result() as $row)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $row->title;<br />
 }</code>
 
-<p>The above <dfn>get()</dfn> function retrieves all the results from the supplied table.
-The <a href="active_record.html">Active Record</a> class contains a full compliment of functions
-for working with data.</p>
+<p>上例中 <dfn>get()</dfn> 函數傳回資料表中所有的結果。<a href="active_record.html">Active Record</a> 類別包含完整操作資料的方法。</p>
 
 
-<h2>Active Record Insert</h2>
+<h2>Active Record 新增</h2>
 
 <code>
 $data = array(<br />
@@ -193,7 +190,7 @@ $data = array(<br />
 <br />
 $this->db->insert('mytable'，$data);
 <br /><br />
-// Produces: INSERT INTO mytable (title，name，date) VALUES ('{$title}'，'{$name}'，'{$date}')</code>
+// 產生： INSERT INTO mytable (title，name，date) VALUES ('{$title}'，'{$name}'，'{$date}')</code>
 
 
 

@@ -114,7 +114,7 @@ foreach ($query->result() as $row)<br />
 <code>$query = $this->db->get_where('mytable'，array('id' => $id)，$limit，$offset);</code>
 
 <p>請參閱底下關於 "where" 函數的詳細資訊。</p>
-<p class="important">注意： get_where() 之前叫做 getwhere()，但這個函數不可再使用。</p>
+<p class="important">注意： get_where() 之前叫做 getwhere()，舊的函數名稱不可繼續使用。</p>
 
 <h2>$this->db->select();</h2>
 <p>允許你自訂查詢中的 "select" 部份：</p>
@@ -165,7 +165,7 @@ $query = $this->db->get('members');<br />
 
 <h2>$this->db->from();</h2>
 
-<p>Permits you to write the FROM portion of your query:</p>
+<p>允許你撰寫查詢的 FROM 部份：</p>
 
 <code>
 $this->db->select('title，content，date');<br />
@@ -173,14 +173,13 @@ $this->db->from('mytable');<br />
 <br />
 $query = $this->db->get();<br />
 <br />
-// Produces: SELECT title，content，date FROM mytable</code>
+// 產生： SELECT title，content，date FROM mytable</code>
 
-<p class="important">注意: As shown earlier，the FROM portion of your query can be specified in the <dfn>$this->db->get()</dfn> function，so use whichever method
-you prefer.</p>
+<p class="important">注意： 如同之前看到的，你的查詢的 FROM 部份可以在 <dfn>$this->db->get()</dfn> 函數中指定，所以喜歡哪個就用哪個。</p>
 
 <h2>$this->db->join();</h2>
 
-<p>Permits you to write the JOIN portion of your query:</p>
+<p>允許你撰寫查詢的 JOIN 部份：</p>
 
 <code>
 $this->db->select('*');<br />
@@ -189,70 +188,70 @@ $this->db->join('comments'，'comments.id = blogs.id');<br />
 <br />
 $query = $this->db->get();<br />
 <br />
-// Produces: <br />
+// 產生： <br />
 // SELECT * FROM blogs<br />
 // JOIN comments ON comments.id = blogs.id<br />
 </code>
 
-<p>Multiple function calls can be made if you need several joins in one query.</p>
+<p>如果你需要在一個查詢中使用多個 JOIN ，你可以多次呼叫這個函數。</p>
 
-<p>If you need something other than a natural JOIN you can specify it via the third parameter of the function.
-Options are: left，right，outer，inner，left outer，and right outer.</p>
+<p>如果需要 natural JOIN 之外的方式，你可以透過函數的第三個參數來指定。可用的選項有： left、right、outer、inner、left outer 以及 right outer 。</p>
 
 <code>
 $this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>);<br />
 <br />
-// Produces: LEFT JOIN comments ON comments.id = blogs.id</code>
+// 產生： LEFT JOIN comments ON comments.id = blogs.id</code>
 
 
 
 
 
 <h2>$this->db->where();</h2>
-<p>This function enables you to set <strong>WHERE</strong> clauses using one of four methods:</p>
+<p>This function enables you to set <strong>WHERE</strong> clauses using one of four methods:
+這個函數讓你能用以下四個方法之一來設定 <strong>WHERE</strong> 子句：</p>
 
-<p class="important"><strong>注意:</strong> All values passed to this function are escaped automatically，producing safer queries.</p>
+<p class="important"><strong>注意：</strong> 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
 
 <ol>
-	<li><strong>Simple key/value method:</strong>
+	<li><strong>簡單的 鍵/值 方法：</strong>
 
 	<code>$this->db->where('name'，$name);
-	<br /><br />// Produces: WHERE name = 'Joe'	</code>
+	<br /><br />// 產生： WHERE name = 'Joe'	</code>
 	
-	<p>Notice that the equal sign is added for you.</p>
+	<p>注意它會為你加上等於符號。</p>
 	
-	<p>If you use multiple function calls they will be chained together with <var>AND</var> between them:</p>
+	<p>如果你多次呼叫這個函數，那它會把這些用 <var>AND</var> 串在一起：</p>
 	
 	<code>$this->db->where('name'，$name);<br />
 	$this->db->where('title'，$title);<br />
 	$this->db->where('status'，$status);
-	<br /><br />// WHERE name 'Joe' AND title = 'boss' AND status = 'active'	</code>	</li>
+	<br /><br />// WHERE name = 'Joe' AND title = 'boss' AND status = 'active'	</code>	</li>
 	
-	<li><strong>Custom key/value method:</strong>
+	<li><strong>自訂的 鍵/值 方法：</strong>
 	
-	<p>You can include an operator in the first parameter in order to control the comparison:</p>
+	<p>你可以在第一個參數包含一個運算子來控制比較的方法：</p>
 	
 	<code>$this->db->where('name !='，$name);<br />
 	$this->db->where('id <'，$id);
-	<br /><br />// Produces: WHERE name != 'Joe' AND id < 45	</code>	</li>
-	<li><strong>Associative array method:</strong>
+	<br /><br />// 產生： WHERE name != 'Joe' AND id < 45	</code>	</li>
+	<li><strong>關聯陣列方法：</strong>
 
 
 	<code>
 	$array = array('name' => $name，'title' => $title，'status' => $status);<br /><br />
 	
 	$this->db->where($array);
-	<br /><br />// Produces: WHERE name = 'Joe' AND title = 'boss' AND status = 'active'	</code>
+	<br /><br />// 產生： WHERE name = 'Joe' AND title = 'boss' AND status = 'active'	</code>
 
-	<p>You can include your own operators using this method as well:</p>
+	<p>你也可以在這個方法包含你要用的運算子：</p>
 
 	<code>
 	$array = array('name !=' => $name，'id <' => $id，'date >' => $date);<br /><br />
 	
 	$this->db->where($array);</code>	</li>
-		<li><strong>Custom string:</strong>
+		<li><strong>自訂字串：</strong>
 		
-		<p>You can write your own clauses manually:</p>
+		<p>你可以手動撰寫你要的子句：</p>
 
 		<code>
 		$where = "name='Joe' AND status='boss' OR status='active'";<br /><br />
@@ -260,160 +259,162 @@ $this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>)
 	</ol>
 
 
-<p>$this-&gt;db-&gt;where() accepts an optional third parameter. If you set it to FALSE，CodeIgniter will not try to protect your field or table names with backticks.</p>
+<p>$this-&gt;db-&gt;where() 可接受額外的第三個參數。如果你傳入 FALSE， CodeIgniter 將不會嘗試使用反單引號（`，在英文鍵盤左上方）來保護你的欄位或資料表名稱。</p>
 <p><code> 		$this-&gt;db-&gt;where('MATCH (field) AGAINST (&quot;value&quot;)'，NULL，FALSE);<br />
 </code></p>
 <h2>$this->db->or_where();</h2>
-<p>This function is identical to the one above，except that multiple instances are joined by OR:</p>
+<p>除了使用 OR 來串接傳入的查詢條件，這個函數與上面的相同：</p>
 
 <code>
 $this->db->where('name !='，$name);<br />
 $this->db->or_where('id >'，$id);
 <br />
-<br />// Produces: WHERE name != 'Joe' OR id > 50</code>
+<br />// 產生： WHERE name != 'Joe' OR id > 50</code>
 
-<p class="important">注意: or_where() was formerly known as orwhere()，which has been deprecated.</p>
+<p class="important">注意： or_where() 之前叫做 orwhere() ，舊的函數名稱不可繼續使用。</p>
 
 
 <h2>$this->db->where_in();</h2>
-<p>Generates a WHERE field IN ('item'，'item') SQL query joined with  AND if appropriate</p>
+<p>產生一個 WHERE field IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 AND 來串接。</p>
 <p><code>
 	$names = array('Frank'，'Todd'，'James');<br />
 	$this->db->where_in('username'，$names);<br />
-	// Produces: WHERE username IN ('Frank'，'Todd'，'James')</code></p>
+	// 產生： WHERE username IN ('Frank'，'Todd'，'James')</code></p>
 
 <h2>$this->db->or_where_in();</h2>
-<p>Generates a WHERE field IN ('item'，'item') SQL query joined with OR if appropriate</p>
+<p>產生一個 WHERE field IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 OR 來串接。</p>
 <p><code>
 	$names = array('Frank'，'Todd'，'James');<br />
 	$this->db->or_where_in('username'，$names);<br />
-	// Produces: OR username IN ('Frank'，'Todd'，'James')</code></p>
+	// 產生： OR username IN ('Frank'，'Todd'，'James')</code></p>
 	
 <h2>$this->db->where_not_in();</h2>
-<p>Generates a WHERE field NOT IN ('item'，'item') SQL query joined with AND if appropriate</p>
+<p>產生一個 WHERE field NOT IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 AND 來串接。</p>
 <p><code>
 	$names = array('Frank'，'Todd'，'James');<br />
 	$this->db->where_not_in('username'，$names);<br />
-	// Produces: WHERE username NOT IN ('Frank'，'Todd'，'James')</code></p>
+	// 產生： WHERE username NOT IN ('Frank'，'Todd'，'James')</code></p>
 
 <h2>$this->db->or_where_not_in();</h2>
-<p>Generates a WHERE field NOT IN ('item'，'item') SQL query joined with OR if appropriate</p>
+<p>產生一個 WHERE field NOT IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 OR 來串接。</p>
 <p><code>
 	$names = array('Frank'，'Todd'，'James');<br />
 	$this->db->or_where_not_in('username'，$names);<br />
-	// Produces: OR username NOT IN ('Frank'，'Todd'，'James')</code></p>
+	// 產生： OR username NOT IN ('Frank'，'Todd'，'James')</code></p>
 
 <h2>$this->db->like();</h2>
-<p>This function enables you to generate <strong>LIKE</strong> clauses，useful for doing searches.</p>
+<p>這個函數讓可能產生 <strong>LIKE</strong> 子句，可用來做搜尋。</p>
 
-<p class="important"><strong>注意:</strong> All values passed to this function are escaped automatically.</p>
+<p class="important"><strong>注意：</strong> 所有傳到這個函數的值都會自動跳脫(escape)。</p>
 
 
 <ol>
-	<li><strong>Simple key/value method:</strong>
+	<li><strong>簡單的 鍵/值 方法：</strong>
 
 	<code>$this->db->like('title'，'match');
-	<br /><br />// Produces: WHERE title LIKE '%match%'	</code>
+	<br /><br />// 產生： WHERE title LIKE '%match%'	</code>
 		
-	<p>If you use multiple function calls they will be chained together with <var>AND</var> between them:</p>
+	<p>If you use multiple function calls they will be chained together with <var>AND</var> between them:
+		如果你多次呼叫這個函數，它會把這些用 <var>AND</var> 串接在一起：</p>
 	
 	<code>$this->db->like('title'，'match');<br />
 	$this->db->like('body'，'match');
 	<br /><br />
-	// WHERE title LIKE '%match%' AND  body LIKE '%match%</code>
-	If you want to control where the wildcard (%) is placed，you can use an optional third argument. Your options are 'before'，'after' and 'both' (which is the default). 
+	// 產生： WHERE title LIKE '%match%' AND  body LIKE '%match%</code>
+	如果你想要控制萬用字元 (%)出現的位置，你可以使用額外的第三個參數。可以使用的選項有 'before'、'after' 以及 'both' （這是預設值）。
 	<code>$this->db->like('title'，'match'，'before');
 	<br />
-		// Produces: WHERE title LIKE '%match'	<br />
+		// 產生： WHERE title LIKE '%match'	<br />
 		<br />
 	$this-&gt;db-&gt;like('title'，'match'，'after'); <br />
-// Produces: WHERE title LIKE 'match%' <br />
+// 產生： WHERE title LIKE 'match%' <br />
 <br />
 	$this-&gt;db-&gt;like('title'，'match'，'both'); <br />
-// Produces: WHERE title LIKE '%match%' </code>	</li>
+// 產生： WHERE title LIKE '%match%' </code>	</li>
 	
-	<li><strong>Associative array method:</strong>
+	<li><strong>關聯陣列方法：</strong>
 
 	<code>
 	$array = array('title' => $match，'page1' => $match，'page2' => $match);<br /><br />
 	
 	$this->db->like($array);
-	<br /><br />// WHERE title LIKE '%match%' AND  page1 LIKE '%match%' AND  page2 LIKE '%match%'</code></li>
+	<br /><br />// 產生： WHERE title LIKE '%match%' AND  page1 LIKE '%match%' AND  page2 LIKE '%match%'</code></li>
 	</ol>
 	
 	
 <h2>$this->db->or_like();</h2>
-<p>This function is identical to the one above，except that multiple instances are joined by OR:</p>
+<p>除了使用 OR 來串接傳入的條件，著個函數與上面的相同：</p>
 
 <code>
 $this->db->like('title'，'match');<br />
 $this->db->or_like('body'，$match);
 <br />
-<br />// WHERE title LIKE '%match%' OR  body LIKE '%match%'</code>
+<br />// 產生： WHERE title LIKE '%match%' OR  body LIKE '%match%'</code>
 
 
 
 	
-<p class="important">注意: or_like() was formerly known as orlike()，which has been deprecated.</p>
+<p class="important">注意： or_like() 之前叫做 orlike()，舊的函數名稱不可繼續使用。</p>
 <h2>$this-&gt;db-&gt;not_like();</h2>
-<p>This function is identical to <strong>like()</strong>，except that it generates NOT LIKE statements:</p>
+<p>除了會產生 NOT LIKE 敘述之外，這個函數與 <strong>like()</strong> 相同。</p>
 <code> $this-&gt;db-&gt;not_like('title'，'match');<br />
 <br />
-// WHERE title NOT LIKE '%match%</code>
+// 產生： WHERE title NOT LIKE '%match%</code>
 <h2>$this-&gt;db-&gt;or_not_like();</h2>
-<p>This function is identical to <strong>not_like()</strong>，except that multiple instances are joined by OR:</p>
+<p>除了使用 OR 來串接傳入的條件，這個函數與 <strong>not_like()</strong> 相同。</p>
 <code> $this-&gt;db-&gt;like('title'，'match');<br />
 $this-&gt;db-&gt;or_not_like('body'，'match'); <br />
 <br />
-// WHERE title  LIKE '%match% OR body NOT LIKE '%match%'</code>
+// 產生： WHERE title  LIKE '%match% OR body NOT LIKE '%match%'</code>
 <h2>$this->db->group_by();</h2>
-<p>Permits you to write the GROUP BY portion of your query:</p>
+<p>Permits you to write the GROUP BY portion of your query:
+讓你撰寫你查詢中的 GROUP BY 部份：</p>
 	
 <code>$this->db->group_by("title");
-<br /><br />// Produces: GROUP BY title
+<br /><br />// 產生： GROUP BY title
 </code>
 
-<p>You can also pass an array of multiple values as well:</p>
+<p>你也可以用正列傳給它多個值：</p>
 	
 <code>$this->db->group_by(array("title"，"date"));
 <br />
-<br />// Produces: GROUP BY title，date</code>
+<br />// 產生： GROUP BY title，date</code>
 	
-<p class="important">注意: group_by() was formerly known as groupby()，which has been deprecated. </p>
+<p class="important">注意： group_by() 之前叫做 groupby()，你不可以繼續使用舊的函數名稱。</p>
 
 <h2> $this-&gt;db-&gt;distinct();<br />
 </h2>
-<p>Adds the &quot;DISTINCT&quot; keyword to  a query</p>
+<p>在查詢中加入&quot;DISTINCT&quot; 關鍵字</p>
 <p><code>$this-&gt;db-&gt;distinct();<br />
 	$this-&gt;db-&gt;get('table');<br />
 		<br />
-	// Produces: SELECT DISTINCT * FROM table</code></p>
+	// 產生： SELECT DISTINCT * FROM table</code></p>
 <h2>$this->db->having();</h2>
-<p>Permits you to write the HAVING portion of your query. There are 2 possible syntaxe，1 argument or 2:</p>
+<p>允許你撰寫你查詢中的 HAVING 部份。有兩種可用的語法，使用一個或兩個參數：</p>
 	
 <code>$this->db->having('user_id = 45');
 <br />
-// Produces: HAVING user_id = 45<br />
+// 產生： HAVING user_id = 45<br />
 <br />
 $this-&gt;db-&gt;having('user_id'， 45); <br />
-// Produces: HAVING user_id = 45<br />
+// 產生： HAVING user_id = 45<br />
 <br />
 </code>
 	
-<p>You can also pass an array of multiple values as well:</p>
+<p>你也可以用陣列來傳給它多個值：</p>
 
 
 <p><code>$this->db->having(array('title =' => 'My Title'，'id <' => $id)); <br />
 		<br />
-	// Produces: HAVING title = 'My Title'，id < 45</code></p>
-<p>If you are using a database that CodeIgniter escapes queries for，you can prevent escaping content by passing an optional third argument，and setting it to FALSE.</p>
+	// 產生： HAVING title = 'My Title'，id < 45</code></p>
+<p>如果你在使用的資料庫 CodeIgniter 會幫你跳脫(escape)查詢，你可以透過傳給它額外的第三個參數為 FALSE 來避免跳脫內容。</p>
 <p><code>$this-&gt;db-&gt;having('user_id'， 45); <br />
-// Produces: HAVING `user_id` = 45 in some databases such as MySQL
+// 產生： HAVING `user_id` = 45 in some databases such as MySQL
 		<br />
 		$this-&gt;db-&gt;having('user_id'， 45，FALSE); <br />
-// Produces: HAVING user_id = 45</code></p>
+// 產生： HAVING user_id = 45</code></p>
 <h2>$this-&gt;db-&gt;or_having();</h2>
-<p>Identical to having()，only separates multiple clauses with &quot;OR&quot;.</p>
+<p>與 haveing() 相同，但是使用 &quot;OR&quot; 來分隔多個子句。</p>
 <h2>$this->db->order_by();</h2>
 <p>Lets you set an ORDER BY clause. The first parameter contains the name of the column you would like to order by.
 The second parameter lets you set the direction of the result.  Options are <kbd>asc</kbd> or <kbd>desc</kbd>，or <kbd>random</kbd>. </p>

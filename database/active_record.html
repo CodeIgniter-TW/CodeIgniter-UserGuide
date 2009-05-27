@@ -66,15 +66,15 @@ CodeIgniter 不需要每個資料表擁有他自己的類別檔案，它取而�
 <p class="important"><strong>注意：</strong> 如果你想寫自己的查詢，你可以在資料庫設定檔裡取消使用這個類別。這樣可以讓核心的資料庫程式庫以及界面耗用更少的資源。<br /></p>
 
 <ul>
-<li><a href="#select">Selecting Data</a></li>
-<li><a href="#insert">Inserting Data</a></li>
-<li><a href="#update">Updating Data</a></li>
-<li><a href="#delete">Deleting Data</a></li>
-<li><a href="#chaining">Method Chaining</a></li>
-<li><a href="#caching">Active Record Caching</a></li>
+<li><a href="#select">挑選(Selecting)資料</a></li>
+<li><a href="#insert">新增(Inserting)資料</a></li>
+<li><a href="#update">更新(Updating)資料</a></li>
+<li><a href="#delete">刪除(Deleting)資料</a></li>
+<li><a href="#chaining">方法串接</a></li>
+<li><a href="#caching">Active Record 快取</a></li>
 </ul>
 
-<h1><a name="select">&nbsp;</a>Selecting Data</h1>
+<h1><a name="select">&nbsp;</a>挑選(Selecting)資料</h1>
 
 <p>以下函數讓你建立 SQL <strong>SELECT</strong> 語句。</p>
 
@@ -479,11 +479,10 @@ echo $this-&gt;db-&gt;count_all_results();<br />
 
 	
 <a name="insert">&nbsp;</a>
-<h1>Inserting Data</h1>
+<h1>新增(Inserting)資料</h1>
 	
 <h2>$this->db->insert();</h2>
-<p>Generates an insert string based on the data you supply，and runs the query. You can either pass an
-<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+<p>根據你提供的資料產生一個 insert 字串，然後執行查詢。你可以傳入一個 <strong>陣列</strong> 或是一個 <strong>物件</strong> 給函數。這是一個使用陣列的範例：</p>
 
 <code>
 $data = array(<br />
@@ -494,11 +493,11 @@ $data = array(<br />
 <br />
 $this->db->insert('mytable'，$data);
 <br /><br />
-// Produces: INSERT INTO mytable (title，name，date) VALUES ('My title'，'My name'，'My date')</code>
+// 產生： INSERT INTO mytable (title，name，date) VALUES ('My title'，'My name'，'My date')</code>
 
-<p>The first parameter will contain the table name，the second is an associative array of values.</p>
+<p>第一個參數要包含資料表的名稱，第二個參數是一個包含要存入值的關聯陣列。</p>
 
-<p>Here is an example using an object:</p>
+<p>這是一個使用物件的範例：</p>
 
 <code>
 /*<br />
@@ -513,41 +512,41 @@ $object = new Myclass;<br />
 <br />
 $this->db->insert('mytable'，$object);
 <br /><br />
-// Produces: INSERT INTO mytable (title，content，date) VALUES ('My Title'，'My Content'，'My Date')</code>
+// 產生： INSERT INTO mytable (title，content，date) VALUES ('My Title'，'My Content'，'My Date')</code>
 
-<p>The first parameter will contain the table name，the second is an associative array of values.</p>
+<p>第一個參數會包含資料表名稱，第二個參數是包含要存入值的物件。</p>
 
-<p class="important"><strong>注意:</strong> All values are escaped automatically producing safer queries.</p>
+<p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的查詢。</p>
 	
 	
 	
 
 <h2>$this->db->set();</h2>
-<p>This function enables you to set values for <dfn>inserts</dfn> or <dfn>updates</dfn>.</p>
+<p>這個函數讓你能設定要 <dfn>新增(insert)</dfn> 或是 <dfn>更新(update)</dfn> 的值。</p>
 
-<p><strong>It can be used instead of passing a data array directly to the insert or update functions:</strong> </p>
+<p><strong>你也可以直接傳入一個資料陣列給新增(insert)或是更新(update)的函數：</strong> </p>
 
 <code>$this->db->set('name'，$name);
 <br />
 $this->db->insert('mytable');
 <br /><br />
-// Produces: INSERT INTO mytable (name) VALUES ('{$name}')</code>
+// 產生： INSERT INTO mytable (name) VALUES ('{$name}')</code>
 
-<p>If you use multiple function called they will be assembled properly based on whether you are doing an insert or an update:</p>
+<p>如果你多次呼叫這個函數，它會在新增或是更新時適當地組合：</p>
 
 <code>$this-&gt;db-&gt;set('name'，$name);<br />
 $this-&gt;db-&gt;set('title'，$title);<br />
 $this-&gt;db-&gt;set('status'，$status);<br />
 $this-&gt;db-&gt;insert('mytable'); </code>
-<p><strong>set()</strong> will also accept an optional third parameter ($escape)，that will prevent data from being escaped if set to FALSE. To illustrate the difference，here is set() used both with and without the escape parameter.</p>
+<p><strong>set()</strong> 也可以接收額外的第三個參數 ($escape) ，如果你傳入 FALSE ，可以防止它跳脫你的資料。為了顯示這樣會有什麼不同，以下是使用與不使用這個參數的例子：</p>
 <p><code>$this-&gt;db-&gt;set('field'，'field+1'，FALSE);<br />
 	$this-&gt;db-&gt;insert('mytable'); <br />
-	// gives INSERT INTO mytable (field) VALUES (field+1)<br />
+	// 產生： INSERT INTO mytable (field) VALUES (field+1)<br />
 	<br />
 	$this-&gt;db-&gt;set('field'，'field+1');<br />
 	$this-&gt;db-&gt;insert('mytable'); <br />
-	// gives INSERT INTO mytable (field) VALUES ('field+1')</code></p>
-<p>You can also pass an associative array to this function:</p>
+	// 產生： INSERT INTO mytable (field) VALUES ('field+1')</code></p>
+<p>你也可以傳入一個關聯陣列給這個函數：</p>
 <code>
 $array = array('name' => $name，'title' => $title，'status' => $status);<br /><br />
 
@@ -555,7 +554,7 @@ $this->db->set($array);<br />
 $this->db->insert('mytable');
 </code>
 
-<p>Or an object:</p>
+<p>或是一個物件：</p>
 
 
 <code>
@@ -576,12 +575,10 @@ $this->db->insert('mytable');
 
 	
 <a name="update">&nbsp;</a>
-<h1>Updating Data</h1>
+<h1>更新(Updating)資料</h1>
 	
 <h2>$this->db->update();</h2>
-<p>Generates an update string and runs the query based on the data you supply.  You can pass an
-<strong>array</strong> or an <strong>object</strong> to the function. Here is an example using
-an array:</p>
+<p>產生一個更新字串，並根據你提供的資料來執行查詢。你可以傳一個 <strong>陣列(array)</strong> 或是一個 <strong>物件(object)</strong>給這個函數。這裡有一個使用陣列的例子：</p>
 
 <code>
 $data = array(<br />
@@ -593,12 +590,12 @@ $data = array(<br />
 $this->db->where('id'，$id);<br />
 $this->db->update('mytable'，$data);
 <br /><br />
-// Produces:<br />
+// 產生：<br />
 // UPDATE mytable <br />
 // SET title = '{$title}'，name = '{$name}'，date = '{$date}'<br />
 // WHERE id = $id</code>
 
-<p>Or you can supply an object:</p>
+<p>或是傳給它物件：</p>
 
 <code>
 /*<br />
@@ -615,126 +612,124 @@ $this->db->where('id'，$id);<br />
 $this->db->update('mytable'，$object);
 <br />
 <br />
-// Produces:<br />
+// 產生<br />
 // UPDATE mytable <br />
 // SET title = '{$title}'，name = '{$name}'，date = '{$date}'<br />
 // WHERE id = $id</code>
 
 
 
-<p class="important"><strong>注意:</strong> All values are escaped automatically producing safer queries.</p>
+<p class="important"><strong>注意：</strong> 所有的值都會自動跳脫以產生較安全的查詢。</p>
 	
-<p>You'll notice the use of the <dfn>$this->db->where()</dfn> function，enabling you to set the WHERE clause.
-You can optionally pass this information directly into the update function as a string:</p>
+<p>你要注意到 <dfn>$this->db->where()</dfn> 函數的使用，它能讓你設定 WHERE 子句。你也可以直接用字串方式傳遞這個資訊給更新函數：</p>
 
 <code>$this->db->update('mytable'，$data，"id = 4");</code>
 
-<p>Or as an array:</p>
+<p>或是用一個陣列：</p>
 
 <code>$this->db->update('mytable'，$data，array('id' => $id));</code>
 	
-<p>You may also use the <dfn>$this->db->set()</dfn> function described above when performing updates.</p>
+<p>你也可以用前面介紹過的 <dfn>$this->db->set()</dfn> 函數來進行更新。</p>
 
 	
 <a name="delete">&nbsp;</a>
-<h1>Deleting Data</h1>
+<h1>刪除(Deleting)資料</h1>
 
 
 	
 <h2>$this->db->delete();</h2>
-<p>Generates a delete SQL string and runs the query.</p>
+<p>產生刪除的 SQL 字串並執行查詢。</p>
 
 <code>
 $this->db->delete('mytable'，array('id' => $id));
 <br /><br />
-// Produces:<br />
+// 產生：<br />
 // DELETE FROM mytable <br />
 // WHERE id = $id</code>
 
-<p>The first parameter is the table name，the second is the where clause. You can also use the <dfn>where()</dfn> or <dfn>or_where()</dfn> functions instead of passing
-the data to the second parameter of the function:</p>
+<p>第一個參數是資料表名稱。第二個參數是 where 子句。你也可以使用 <dfn>where()</dfn> 或是 <dfn>or_where()</dfn> 函數，而不是用第二個參數傳資料給它：</p>
 
 <p><code> $this->db->where('id'，$id);<br />
 	$this->db->delete('mytable'); <br />
 	<br />
-	// Produces:<br />
+	// 產生：<br />
 	// DELETE FROM mytable <br />
 	// WHERE id = $id</code></p>
-<p>An array of table names can be passed into delete() if you would like to delete data from more than 1 table.</p>
+<p>如果你想刪除不只一個資料表的資料，你也可以傳遞資料表名稱的陣列給 delete() 。</p>
 <p><code>$tables = array('table1'，'table2'，'table3');<br />
 $this-&gt;db-&gt;where('id'，'5');<br />
 $this-&gt;db-&gt;delete($tables);</code></p>
-<p>If you want to delete all data from a table，you can use the <dfn>truncate()</dfn> function，or <dfn>empty_table()</dfn>.</p>
+<p>如果你要刪除一個資料表中的所有資料，你可以使用 <dfn>truncate()</dfn> 函數或是 <dfn>empty_table()</dfn> 。</p>
 <h2>$this-&gt;db-&gt;empty_table();</h2>
-<p>Generates a delete SQL string and runs the query.<code>	$this-&gt;db-&gt;empty_table('mytable'); <br />
+<p>產生一個刪除(delete)的 SQL 字串並且執行查詢。<code>	$this-&gt;db-&gt;empty_table('mytable'); <br />
 	<br />
-// Produces<br />
+// 產生： <br />
 // DELETE FROM mytable</code></p>
 <h2>$this-&gt;db-&gt;truncate();</h2>
-<p>Generates a truncate SQL string and runs the query.</p>
+<p>產生一個刪除資料表(truncate)的 SQL 字串並且執行查詢。</p>
 <code> $this-&gt;db-&gt;from('mytable'); <br />
 $this-&gt;db-&gt;truncate(); <br />
 // or <br />
 $this-&gt;db-&gt;truncate('mytable'); <br />
 <br />
-// Produce:<br />
+// 產生：<br />
 // TRUNCATE mytable <br />
 </code>
-<p class="important"><strong>注意:</strong> If the TRUNCATE command isn't available，truncate() will execute as &quot;DELETE FROM table&quot;.</p>
+<p class="important"><strong>注意：</strong> 如果 TRUNCATE 命令無法使用， truncate() 會執行 &quot;DELETE FROM table&quot; 。</p>
 
-<h1><a name="chaining">&nbsp;</a>Method Chaining</h1>
+<h1><a name="chaining">&nbsp;</a>方法串接</h1>
 
-<p>Method chaining allows you to simplify your syntax by connecting multiple functions.  Consider this 參考範例:</p>
+<p>方法串接可以利用連接多個函數來讓你你的語法更為簡化。考慮一下這個參考範例：</p>
 
 <code>
 <dfn>$this->db</dfn><kbd>-></kbd><var>select</var>('title')<kbd>-></kbd><var>from</var>('mytable')<kbd>-></kbd><var>where</var>('id'，$id)<kbd>-></kbd><var>limit</var>(10，20);<br />
 <br />
 $query = $this->db->get();</code>
 
-<p class="important"><strong>注意:</strong> Method chaining only works with PHP 5.</p>
+<p class="important"><strong>注意：</strong> 方法串接只有在 PHP 5 以上才能使用。</p>
 
 <p>&nbsp;</p>
 
-<h1><a name="caching">&nbsp;</a>Active Record Caching</h1>
+<h1><a name="caching">&nbsp;</a>Active Record 快取</h1>
 
-<p>While not &quot;true&quot; caching，Active Record enables you to save (or &quot;cache&quot;) certain parts of your queries for reuse at a later point in your script's execution. Normally，when an Active Record call is completed，all stored information is reset for the next call. With caching，you can prevent this reset，and reuse information easily.</p>
+<p>雖然不是&quot;真&quot;的快取，Active Record 讓你能儲存（或是&quot;快取&quot;）查詢的特定部份讓接下來的程式可以重複使用。正常狀況下，當 Active Record 呼叫執行完畢時，所有的資訊都會為了下一次呼叫而重置。使用快取，你可以避免這個重置，讓資訊可以簡單地重複使用。</p>
 
-<p>Cached calls are cumulative. If you make 2 cached select() calls，and then 2 uncached select() calls，this will result in 4 select() calls. There are three Caching functions available:</p>
+<p>快取的呼叫是會累積的。如果你做了兩次快取的 select() 呼叫然後兩次非快取的 select() 呼叫，結果會是四次 select() 呼叫。</p>
 
 <h2>$this-&gt;db-&gt;start_cache()</h2>
 
-<p>This function must be called to begin caching. All Active Record queries of the correct type (see below for supported queries) are stored for later use.</p>
+<p>這個函數必須在快取前呼叫。所有類型正確的的 Active Record 查詢都會被儲存起來以備使用。</p>
 
 <h2>$this-&gt;db-&gt;stop_cache()</h2>
 
-<p>This function can be called to stop caching.</p>
+<p>呼叫這個函數可以停止快取。</p>
 
 <h2>$this-&gt;db-&gt;flush_cache()</h2>
 
-<p>This function deletes all items from the Active Record cache.</p>
+<p>這個函數可以刪除所有 Active Record 快取中的資料。</p>
 
-<p>Here's a usage 參考範例:</p>
+<p>這是參考範例：</p>
 
 <p><code>$this-&gt;db-&gt;start_cache();<br />
 $this-&gt;db-&gt;select('field1');<br />
 $this-&gt;db-&gt;stop_cache();<br /><br />
 $this-&gt;db-&gt;get('tablename');<br />
 <br />
-//Generates: SELECT `field1` FROM (`tablename`)<br />
+//產生： SELECT `field1` FROM (`tablename`)<br />
 <br />
 $this-&gt;db-&gt;select('field2');<br />
 $this-&gt;db-&gt;get('tablename');<br />
 <br />
-//Generates:  SELECT `field1`，`field2` FROM (`tablename`)<br />
+//產生：  SELECT `field1`，`field2` FROM (`tablename`)<br />
 <br />
 $this-&gt;db-&gt;flush_cache();<br />
 <br />
 $this-&gt;db-&gt;select('field2');<br />
 $this-&gt;db-&gt;get('tablename');<br />
 <br />
-//Generates:  SELECT `field2` FROM (`tablename`)</code></p>
+//產生：  SELECT `field2` FROM (`tablename`)</code></p>
 
-<p class="important"> <strong>注意:</strong> The following statements can be cached: select，from，join，where，like，groupby，having，orderby，set</p>
+<p class="important"> <strong>注意：</strong>以下的敘述可以被快取：select、from、join、join、where、like、group by、having、order by、set 。</p>
 <p>&nbsp;</p>
 </div>
 <!-- END CONTENT -->

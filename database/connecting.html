@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Connecting to your Database : CodeIgniter 使用手冊</title>
+<title>連接資料庫 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Database 類別</a> &nbsp;&#8250;&nbsp;
 Connecting
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
@@ -58,51 +58,47 @@ Connecting
 <div id="content">
 
 
-<h1>Connecting to your Database</h1>
+<h1>連接您的資料庫</h1>
 
-<p>There are two ways to connect to a database:</p>
+<p>有兩種方法可以連接資料庫：</p>
 
-<h2>Automatically Connecting</h2>
+<h2>自動連接</h2>
 
-<p>The "auto connect" feature will load and instantiate the database class with every page load.
-To enable "auto connecting"，add the word <var>database</var> to the library array，as indicated in the following file:</p>
+<p>"自動連接"就是將每個頁面都載入讀取資料庫類別.
+要啟用自動連接，請修改底下檔案，增加 <var>database</var> 字串到 library 陣列裡面:</p>
 
 <p><kbd>application/config/autoload.php</kbd></p>
 
-<h2>Manually Connecting</h2>
+<h2>手動連接</h2>
 
-<p>If only some of your pages require database connectivity you can manually connect to your database by adding this
-line of code in any function where it is needed，or in your class constructor to make the database
-available globally in that class.</p>
+<p>假如只有部份網頁需要用到資料庫連接，您可以增加底下這段程式碼到需要的函式裡面，或者是可以在建構子(constructor)宣告給該類別全部函式使用.</p>
 
 <code>$this->load->database();</code>
 
-<p class="important">If the above function does <strong>not</strong> contain any information in the first parameter it will connect
-to the group specified in your database config file. For most people，this is the preferred method of use.</p>
+<p class="important">假如上述函式第一個參數<strong>不包含</strong>任何資訊，它將會在系統指定的資料庫檔案中尋找。對於大多數人來說，這是第一首選方法。</p>
 
-<h3>Available Parameters</h3>
+<h3>可用參數</h3>
 
 <ol>
-	<li>The database connection values，passed either as an array or a DSN string.</li>
-	<li>TRUE/FALSE (boolean).  Whether to return the connection ID (see Connecting to Multiple Databases below).</li>
-	<li>TRUE/FALSE (boolean).  Whether to enable the Active Record class.  Set to TRUE by default.</li>
+	<li>資料庫連接設定值，用陣列或者是 DSN 字串表示.</li>
+	<li>TRUE/FALSE (boolean).  是否回傳連線 ID 值(請繼續閱讀底下多重資料庫連接方式).</li>
+	<li>TRUE/FALSE (boolean).  是否啟用 Active Record 類別。預設值為 TRUE.</li>
 </ol>
 
 
-<h3>Manually Connecting to a Database</h3>
+<h3>手動連接到一個資料庫</h3>
 
-<p>The first parameter of this function can <strong>optionally</strong> be used to specify a particular database group
-from your config file，or you can even submit connection values for a database that is not specified in your config file.
-Examples:</p>
+<p>第一個參數是可以選擇性的設定，可以從您的設定檔裡面指定要連接的名稱，或者是您可以自行定義資料庫參數，此設定參數並非在您的設定檔裡面.
+範例:</p>
 
-<p>To choose a specific group from your config file you can do this:</p>
+<p>從檔案裡面選擇指定的 group，您可以使用下面方式:</p>
 
 <code>$this->load->database('<samp>group_name</samp>');</code>
 
-<p>Where <samp>group_name</samp> is the name of the connection group from your config file.</p>
+<p><samp>group_name</samp> 指的是從您的設定檔案裡面所存在的連接資料庫名稱.</p>
 
 
-<p>To connect manually to a desired database you can pass an array of values:</p>
+<p>要手動連接資料庫，可以指定底下參數值來呈現:</p>
 
 <code>$config['hostname'] = "localhost";<br />
 $config['username'] = "myusername";<br />
@@ -119,40 +115,39 @@ $config['dbcollat'] = "utf8_general_ci";<br />
 <br />
 $this->load->database(<samp>$config</samp>);</code>
 
-<p>For information on each of these values please see the <a href="configuration.html">configuration page</a>.</p>
+<p>想要瞭解每個參數的屬性，可以參考 <a href="configuration.html">資料庫設定頁面</a>.</p>
 
-<p>Or you can submit your database values as a Data Source Name. DSNs must have this prototype:</p>
+<p>或者是您可以以 Data Source Name 來連接資料庫。DSNs 設定方式必需如下:</p>
 
 <code>$dsn = 'dbdriver://username:password@hostname/database';<br />
 <br />
 $this->load->database(<samp>$dsn</samp>);</code>
 
-<p>To override default config values when connecting with a DSN string，add the config variables as a query string.</p>
+<p>為了覆蓋系統預設值，當使用 DSN 字串來連接資料庫時，可以增加設定值為查詢字串。</p>
 
 <code>$dsn = 'dbdriver://username:password@hostname/database?char_set=utf8&amp;dbcollat=utf8_general_ci&amp;cache_on=true&amp;cachedir=/path/to/cache';<br />
 <br />
 $this->load->database(<samp>$dsn</samp>);</code>
 
-<h2>Connecting to Multiple Databases</h2>
+<h2>連接多重資料庫</h2>
 
-<p>If you need to connect to more than one database simultaneously you can do so as follows:</p>
+<p>假如想要同時使用多個資料庫，您可以使用底下方式:</p>
 
 
 <code>$DB1 = $this->load->database('group_one'，TRUE);<br />
 $DB2 = $this->load->database('group_two'，TRUE);
 </code>
 
-<p>注意: Change the words "group_one" and "group_two" to the specific group names you are connecting to (or
-you can pass the connection values as indicated above).</p>
+<p>注意: 更改上面字串 "group_one" 和 "group_two" 為您所要指定的連接資料庫名稱(或者是您也可以使用如上所述的參數連接值).</p>
 
-<p>By setting the second parameter to TRUE (boolean) the function will return the database object.</p>
+<p>藉由設定第二個參數為 TRUE (boolean) 此函式將會回傳資料庫物件(database object).</p>
 
 <div class="important">
-<p>When you connect this way，you will use your object name to issue commands rather than the syntax used throughout this guide.  In other words，rather than issuing commands with:</p>
+<p>當您使用此方法，您將會使用物件名稱來取代原本使用的方法。換句話說，不是使用下面方式:</p>
 
 <p>$this->db->query();<br />$this->db->result();<br /> etc...</p>
 
-<p>You will instead use:</p>
+<p>您將代替使用:</p>
 
 <p>$DB1->query();<br />$DB1->result();<br /> etc...</p>
 
@@ -168,11 +163,11 @@ you can pass the connection values as indicated above).</p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="configuration.html">Database Configuration</a>
+上個主題:&nbsp;&nbsp;<a href="configuration.html">資料庫設定</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="queries.html">Queries</a>
+下個主題:&nbsp;&nbsp;<a href="queries.html">執行查詢</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

@@ -67,30 +67,29 @@
 
 <code>$this->db->query('YOUR QUERY HERE');</code>
 
-<p>The <dfn>query()</dfn> function returns a database result <strong>object</strong> when "read" type queries are run,
-which you can use to <a href="results.html">show your results</a>.  When "write" type queries are run it simply returns TRUE or FALSE
-depending on success or failure.  When retrieving data you will typically assign the query to your own variable，like this:</p>
+<p><dfn>query()</dfn> 函數以 <strong>object</strong> 方式回傳資料庫結果，當使用 "read" 模式來進行查詢的時候,
+你可以使用"<a href="results.html">顯示您的結果</a>"來顯示查詢結果. 當使用寫入查詢的時候，會依據執行成功或者失敗來回傳 TRUE 或 FALSE。
+當接受到資料，您可以自行決定查詢語法如下:</p>
 
 <code><var>$query</var> = $this->db->query('YOUR QUERY HERE');</code>
 
 <h2>$this->db->simple_query();</h2>
 
-<p>This is a simplified version of the <dfn>$this->db->query()</dfn> function.  It ONLY returns TRUE/FALSE on success or failure.
-It DOES NOT return a database result set，nor does it set the query timer，or compile bind data，or store your query for debugging.
-It simply lets you submit a query. Most users will rarely use this function.</p>
+<p>這是 <dfn>$this->db->query()</dfn> 簡化版的函數. 它只會在成功或者失敗的時候回傳真(TRUE)/假(FALSE).
+它不會回傳資料庫結果集合，也沒有設置查詢定時器，或編譯綁定數據，或存儲您的查詢診對結果。簡單的說，它只是讓你提交查詢。大多數用戶很少會使用此功能.</p>
 
 
-<h1>Adding Database prefixes manually</h1>
-<p>If you have configured a database prefix and would like to add it in manually for，you can use the following.</p>
+<h1>自訂資料庫字首名稱(Adding Database prefixes manually)</h1>
+<p>假如您已經設定資料庫表格的字首名稱，並且希望能自己手動增加，可以參考底下作法.</p>
 <p><code>$this-&gt;db-&gt;dbprefix('tablename');<br />
-// outputs prefix_tablename</code></p>
+// 輸出 prefix_tablename</code></p>
 
 
-<h1>Protecting identifiers</h1>
-<p>In many databases it is advisable to protect table and field names - for example with backticks in MySQL. <strong>Active Record queries are automatically protected</strong>，however if you need to manually protect an identifier you can use:</p>
+<h1>保護標識符號</h1>
+<p>在眾多資料庫中最好保護資料表跟欄位名稱 - for example with backticks in MySQL. <strong>Active Record 查詢會被自動的被保護</strong>，如果您需要手動保護的標識符號可以使用:</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name');</code></p>
 
-<p>This function will also add a table prefix to your table，assuming you have a prefix specified in your database config file. To enable the prefixing set <kbd>TRUE</kbd> (boolen) via the second parameter:</p>
+<p>假設您已經有設定 prefix 在您指定的資料庫設定檔裡面，此函數將會加上一段名稱在資料表前面。您可以設定第二個參數為 <kbd>TRUE</kbd> (boolen) 來啟動 prefix:</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name'，<kbd>TRUE</kbd>);</code></p>
 
 
@@ -119,10 +118,10 @@ $sql = "SELECT * FROM some_table WHERE id = <var>?</var> AND status = <var>?</va
 $this->db->query($sql，array(3，'live'，'Rick'));
 </code>
 
-<p>The question marks in the query are automatically replaced with the values in the array in the second parameter of the query function.</p>
-<p class="important">The secondary benefit of using binds is that the values are automatically escaped，producing safer queries.  You don't have to remember to manually escape data; the engine does it automatically for you.</p>
+<p>該問號會自動改為查詢函數的第二個參數陣列資料值.</p>
+<p class="important">使用封裝的第二個好處是系統會自動幫忙轉義跳脫(Escaping Queries)字串，形成較安全的查詢語法。您就不需要手動的處理這些資料; 系統將會自動的幫忙處理.</p>
 
-	
+
 
 </div>
 <!-- END CONTENT -->

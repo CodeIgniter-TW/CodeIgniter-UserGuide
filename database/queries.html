@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Queries : CodeIgniter 使用手冊</title>
+<title>查詢 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,8 +42,8 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Queries
+<a href="index.html">Database 類別</a> &nbsp;&#8250;&nbsp;
+查詢
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -59,11 +59,11 @@ Queries
 <div id="content">
 
 
-<h1>Queries</h1>
+<h1>查詢</h1>
 
 <h2>$this->db->query();</h2>
 
-<p>To submit a query，use the following function:</p>
+<p>可以使用下面的函數來提交查尋:</p>
 
 <code>$this->db->query('YOUR QUERY HERE');</code>
 
@@ -94,9 +94,8 @@ It simply lets you submit a query. Most users will rarely use this function.</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name'，<kbd>TRUE</kbd>);</code></p>
 
 
-<h1>Escaping Queries</h1>
-<p>It's a very good security practice to escape your data before submitting it into your database.
-CodeIgniter has two functions that help you do this:</p>
+<h1>轉義查詢(Escaping Queries)</h1>
+<p>這是一個非常良好的安全去轉義資料，然後在傳送資料到資料庫。CodeIgniter 提供兩個方法可以幫助您做到這一點:</p>
 
 <ol>
 <li><strong>$this->db->escape()</strong> This function determines the data type so that it

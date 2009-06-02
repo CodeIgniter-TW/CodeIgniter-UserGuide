@@ -86,7 +86,7 @@
 
 
 <h1>保護標識符號</h1>
-<p>在眾多資料庫中最好保護資料表跟欄位名稱 - for example with backticks in MySQL. <strong>Active Record 查詢會被自動的被保護</strong>，如果您需要手動保護的標識符號可以使用:</p>
+<p>在眾多資料庫中最好保護資料表跟欄位名稱 - 例如在 MySQL 使用反引號. <strong>Active Record 查詢都已被自動的保護</strong>，如果您需要手動保護的標識符號可以使用:</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name');</code></p>
 
 <p>假設您已經有設定 prefix 在您指定的資料庫設定檔裡面，此函數將會加上一段名稱在資料表前面。您可以設定第二個參數為 <kbd>TRUE</kbd> (boolen) 來啟動 prefix:</p>

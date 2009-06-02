@@ -98,22 +98,20 @@ It simply lets you submit a query. Most users will rarely use this function.</p>
 <p>這是一個非常良好的安全去轉義資料，然後在傳送資料到資料庫。CodeIgniter 提供兩個方法可以幫助您做到這一點:</p>
 
 <ol>
-<li><strong>$this->db->escape()</strong> This function determines the data type so that it
-can escape only string data.  It also automatically adds single quotes around the data so you don't have to:
+<li><strong>$this->db->escape()</strong> 此函數決定了可以轉義跳脫的資料型態。它會自動增加單引號(single quotes)在資料旁邊，所以你不必加上單引號:
 
 <code>$sql = "INSERT INTO table (title) VALUES(".$this->db->escape($title).")";</code></li>
 
-<li><strong>$this->db->escape_str()</strong>  This function escapes the data passed to it，regardless of type.
-Most of the time you'll use the above function rather than this one. Use the function like this:
+<li><strong>$this->db->escape_str()</strong> 此函數可以轉義跳脫跳脫任何資料型態。在大多倏地情況底下，都是使用上述的函數多於使用此函數。此函數用法如下:
 
 <code>$sql = "INSERT INTO table (title) VALUES('".$this->db->escape_str($title)."')";</code></li>
 </ol>
 
 
-<h1>Query Bindings</h1>
+<h1>封裝查詢(Query Bindings)</h1>
 
 
-<p>Bindings enable you to simplify your query syntax by letting the system put the queries together for you. Consider the following 參考範例:</p>
+<p>封裝可以簡化你的查詢語法，讓系統幫忙放入資料為您查詢. 請參照底下範例:</p>
 
 <code>
 $sql = "SELECT * FROM some_table WHERE id = <var>?</var> AND status = <var>?</var> AND author = <var>?</var>";

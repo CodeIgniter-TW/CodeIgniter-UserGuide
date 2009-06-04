@@ -72,10 +72,10 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->count_all();</h2>
-<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. 參考範例:</p>
+<p>取得特定表格所有行數。第一個參數請填入指定表格。 參考範例:</p>
 <code>echo $this->db->count_all('<var>my_table</var>');<br />
 <br />
-// Produces an integer，like 25
+// 產生整數，如 25
 </code>
 
 
@@ -94,7 +94,7 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 <code>$str = $this->db->last_query();<br />
 <br />
-// Produces:  SELECT * FROM sometable....
+// 產生:  SELECT * FROM sometable....
 </code>
 
 
@@ -102,22 +102,22 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->insert_string(); </h2>
-<p>This function simplifies the process of writing database inserts. It returns a correctly formatted SQL insert string. 參考範例:</p>
+<p>此函數簡化了新增資料SQL語法。它將會回傳正確格式的 Insert SQL 語法。參考範例:</p>
 
 <code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
 <br />
 $str = $this->db->insert_string('table_name'，$data);
 </code>
 
-<p>The first parameter is the table name，the second is an associative array with the data to be inserted.  The above example produces:</p>
+<p>第一個參數請填入表格名稱，第二個參數填入要新增的資料陣列. 上述例子會產生如下:</p>
 <code>INSERT INTO table_name (name，email，url) VALUES ('Rick'，'rick@example.com'，'example.com')</code>
 
-<p class="important">注意: Values are automatically escaped，producing safer queries.</p>
+<p class="important">注意: 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
 
 
 
 <h2>$this->db->update_string(); </h2>
-<p>This function simplifies the process of writing database updates. It returns a correctly formatted SQL update string. 參考範例:</p>
+<p>此函數簡化了修改資料的SQL語法。它會回傳正確格式的 Update SQL 語法。參考範例:</p>
 
 <code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
 <br />
@@ -126,10 +126,10 @@ $where = "author_id = 1 AND status = 'active'";
 $str = $this->db->update_string('table_name'，$data，$where);
 </code>
 
-<p>The first parameter is the table name，the second is an associative array with the data to be updated，and the third parameter is the "where" clause. The above example produces:</p>
+<p>第一個參數為表格名稱，第二個參數填入修改的資料陣列，第三個參數填入 where 條件語法。上述例子會產生如下:</p>
 <code> UPDATE table_name SET name = 'Rick'，email = 'rick@example.com'，url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
 
-<p class="important">注意: Values are automatically escaped，producing safer queries.</p>
+<p class="important">注意: 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
 
 
 </div>
@@ -138,11 +138,11 @@ $str = $this->db->update_string('table_name'，$data，$where);
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="results.html">Query Results</a>
+上個主題:&nbsp;&nbsp;<a href="results.html">查詢結果</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="active_record.html">Active Record Pattern</a>
+下個主題:&nbsp;&nbsp;<a href="active_record.html">Active Record 類別</a>
 </p>
 <p><a href="http://www.codeigniter.com.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2008 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

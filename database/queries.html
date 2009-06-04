@@ -93,15 +93,15 @@
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name'，<kbd>TRUE</kbd>);</code></p>
 
 
-<h1>轉義查詢(Escaping Queries)</h1>
-<p>這是一個非常良好的安全去轉義資料，然後在傳送資料到資料庫。CodeIgniter 提供兩個方法可以幫助您做到這一點:</p>
+<h1>跳脫查詢(Escaping Queries)</h1>
+<p>這是一個非常良好的安全去跳脫資料，然後在傳送到資料庫。CodeIgniter 提供兩個方法可以幫助您做到這一點:</p>
 
 <ol>
-<li><strong>$this->db->escape()</strong> 此函數決定了可以轉義跳脫的資料型態。它會自動增加單引號(single quotes)在資料旁邊，所以你不必加上單引號:
+<li><strong>$this->db->escape()</strong> 此函數決定了可以跳脫的資料型態。它會自動增加單引號(single quotes)在資料旁邊，所以你不必加上單引號:
 
 <code>$sql = "INSERT INTO table (title) VALUES(".$this->db->escape($title).")";</code></li>
 
-<li><strong>$this->db->escape_str()</strong> 此函數可以轉義跳脫跳脫任何資料型態。在大多倏地情況底下，都是使用上述的函數多於使用此函數。此函數用法如下:
+<li><strong>$this->db->escape_str()</strong> 此函數可以跳脫任何資料型態。在大多數的情況底下，都是使用上述的函數多於使用此函數。此函數用法如下:
 
 <code>$sql = "INSERT INTO table (title) VALUES('".$this->db->escape_str($title)."')";</code></li>
 </ol>

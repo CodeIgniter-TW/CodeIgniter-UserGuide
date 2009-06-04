@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.com.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Database 類</a> &nbsp;&#8250;&nbsp;
 Query 補助函數
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.com.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
@@ -63,11 +63,11 @@ Query 補助函數
 
 
 <h2>$this->db->insert_id()</h2>
-<p>The insert ID number when performing database inserts.</p>
+<p>當使用資料庫新增語法，會回傳ID值。</p>
 
 <h2>$this->db->affected_rows()</h2>
-<p>Displays the number of affected rows，when doing "write" type queries (insert，update，etc.).</p>
-<p>注意:  In MySQL "DELETE FROM TABLE" returns 0 affected rows. The database class has a small hack that allows it to return the
+<p>當您對資料庫使用新增或者是修改語法(insert，update，etc.)，上述會回傳影響筆數.</p>
+<p>注意: 在 MySQL 裡面使用 "DELETE FROM TABLE" 會還傳零筆資料。 The database class has a small hack that allows it to return the
 correct number of affected rows.  By default this hack is enabled but it can be turned off in the database driver file.</p>
 
 
@@ -80,17 +80,17 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 
 
 <h2>$this->db->platform()</h2>
-<p>Outputs the database platform you are running (MySQL，MS SQL，Postgres，etc...):</p>
+<p>得到您使用的資料庫型態，例如(MySQL，MS SQL，Postgres，etc...):</p>
 <code>echo $this->db->platform();</code>
 
 
 <h2>$this->db->version()</h2>
-<p>Outputs the database version you are running:</p>
+<p>使用底下語法會得到資料庫版本型號:</p>
 <code>echo $this->db->version();</code>
 
 
 <h2>$this->db->last_query();</h2>
-<p>Returns the last query that was run (the query string，not the result).  參考範例:</p>
+<p>回傳最後使用的查詢語法(回傳查詢字串，並非是查詢結果)。參考範例:</p>
 
 <code>$str = $this->db->last_query();<br />
 <br />
@@ -98,7 +98,7 @@ correct number of affected rows.  By default this hack is enabled but it can be 
 </code>
 
 
-<p>The following two functions help simplify the process of writing database INSERTs and UPDATEs.</p>
+<p>底下有兩個函數可以幫助簡化撰寫新增(INSERTs)跟修改(UPDATEs)SQL語法。</p>
 
 
 <h2>$this->db->insert_string(); </h2>

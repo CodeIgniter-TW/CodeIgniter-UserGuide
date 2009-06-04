@@ -67,8 +67,7 @@ Query 補助函數
 
 <h2>$this->db->affected_rows()</h2>
 <p>當您對資料庫使用新增或者是修改語法(insert，update，etc.)，上述會回傳影響筆數.</p>
-<p>注意: 在 MySQL 裡面使用 "DELETE FROM TABLE" 會還傳零筆資料。 The database class has a small hack that allows it to return the
-correct number of affected rows.  By default this hack is enabled but it can be turned off in the database driver file.</p>
+<p>注意: 在 MySQL 裡面使用 "DELETE FROM TABLE" 語法會回傳零筆資料。 在 database 類別有提供小技巧，它可以正確回傳影響的資料筆數。系統預設將此功能打開，但您可以在資料庫驅動檔案(database driver file)將它關閉.</p>
 
 
 <h2>$this->db->count_all();</h2>

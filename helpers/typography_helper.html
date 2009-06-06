@@ -58,34 +58,31 @@ Typography 補助函數
 
 <h1>Typography 補助函數</h1>
 
-<p>The Typography 補助函數 file contains functions that help your format text in semantically relevant ways.</p>
+<p>Typography 補助函數的檔案裡，其中所包含的函數可以協助你的格式文件(formats text)使用語意相關的方式。</p>
 
 
-<h2>載入 補助函數</h2>
+<h2>載入補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>補助函數載入方式的程式碼:</p>
 <code>$this->load->helper('typography');</code>
 
-<p>The following functions are available:</p>
+<p>下列的函數則可以使用:</p>
 
 
 <h2>auto_typography()</h2>
 
-<p>Formats text so that it is semantically and typographically correct HTML.  Please see the <a href="../libraries/typography.html">Typography Class</a> for more info.</p>
+<p>格式文件(formats)可說是語意以及印刷正確的 HTML。詳細請閱讀<a href="../libraries/typography.html">Typography 類別函數</a>來取得更多的訊息。</p>
 
 <p>使用範例:</p>
 
 <code>$string = auto_typography($string);</code>
 
-<p><strong>注意:</strong> Typographic formatting can be processor intensive，particularly if you have a lot of content being formatted.
-If you choose to use this function you may want to consider
-<a href="../general/caching.html">caching</a> your pages.</p>
+<p><strong>注意:</strong> 印刷上的格式是處理器密集的，特別是如果其中有許多的內容都是格式化的。如果你選擇使用這個函數的話，你應該可以考慮<a href="../general/caching.html">建立快取</a>你的頁面。</p>
 
 
 <h2>nl2br_except_pre()</h2>
 
-<p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
-This function is identical to the native PHP <dfn>nl2br()</dfn> function，except that it ignores &lt;pre&gt; tags.</p>
+<p>把換行符號轉換成 &lt;br /&gt; 標籤，除非他們之中沒有出現 &lt;pre&gt; 標籤。這個函數等同是 PHP <dfn>nl2br()</dfn> 的原生函數。除了它忽略 &lt;pre&gt; 標籤。</p>
 
 <p>使用範例:</p>
 

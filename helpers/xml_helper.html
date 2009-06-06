@@ -58,34 +58,29 @@ XML 補助函數
 
 <h1>XML 補助函數</h1>
 
-<p>The XML 補助函數 file contains functions that assist in working with XML data.</p>
+<p>XML 補助函數裡所包含的函數是用來處理 XML 資料。</p>
 
 
 <h2>載入 補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>載入補助函數所使用的程式碼:</p>
 <code>$this->load->helper('xml');</code>
 
-<p>The following functions are available:</p>
+<p>底下的函數就可以使用了:</p>
 
 <h2>xml_convert('<var>string</var>')</h2>
 
-<p>Takes a string as input and converts the following reserved XML characters to entities:</p>
+<p>取得字串當作是輸入(input)，並轉換成(convert)底下所保留的 XML 字元變成 entities:</p>
 
 <p>
 Ampersands: &amp;<br />
-Less then and greater than characters: &lt; &gt;<br />
-Single and double quotes: ' &nbsp;"<br />
-Dashes: -</p>
+小於以及大於符號: &lt; &gt;<br />
+單引號以及雙引號: ' &nbsp;"<br />
+減號: -</p>
 
-<p>This function ignores ampersands if they are part of existing character entities.  參考範例:</p>
+<p>此函數略過 ampersands (&)，假如那是現有字元實體(character entities)的一部分。參考範例:</p>
 
 <code>$string = xml_convert($string);</code>
-
-
-
-
-
 
 </div>
 <!-- END CONTENT -->

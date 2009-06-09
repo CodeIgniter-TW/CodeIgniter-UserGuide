@@ -58,24 +58,18 @@ Config 類別
 
 <h1>Config 類別</h1>
 
-<p>The Config 類別 provides a means to retrieve configuration preferences.  These preferences can
-come from the default config file (<samp>application/config/config.php</samp>) or from your own custom config files.</p>
+<p>Config 類別提供一個取得偏好設定的方法。這些偏好設定可以從預設的設定檔 (<samp>application/config/config.php</samp>) 或是你自訂的設定檔中取得。</p>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意：</strong> 這個類別會由系統自動初始化，所以不需要手動執行。</p>
 
 
-<h2>Anatomy of a Config File</h2>
+<h2>設定檔剖析</h2>
 
-<p>By default，CodeIgniter has a one primary config file，located at <samp>application/config/config.php</samp>.  If you open the file using
-your text editor you'll see that config items are stored in an array called <var>$config</var>.</p>
+<p>Codeigniter 在 <samp>application/config/config.php</samp> 目錄中有一個預設的主要設定檔。如果你用文字編輯器打開這個檔案，你會看到設定的事項存放在一個叫做 <var>$config</var> 的陣列裡面。</p>
 
-<p>You can add your own config items to
-this file，or if you prefer to keep your configuration items separate (assuming you even need config items),
-simply create your own file and save it in <dfn>config</dfn> folder.</p>
+<p>你可以增加自己的設定項目到這個檔案裡。如果你偏好將設定項目分離（假設你即使這樣也需要設定項目），只要新增你自己的設定檔並且存放在 <dfn>config</dfn> 目錄中。</p>
 
-<p><strong>注意:</strong> If you do create your own config files use the same format as the primary one，storing your items in
-an array called  <var>$config</var>. CodeIgniter will intelligently manage these files so there will be no conflict even though
-the array has the same name (assuming an array index is not named the same as another).</p>
+<p><strong>注意：</strong> 如果你確實用主要設定檔的格式（把你的設定項目存放在 <var>$config</var> 陣列）來新增你個人的設定檔，Codeigniter 也會聰明地管理這些檔案，所以即使你的陣列名稱相同也不會發生衝突（假設你的陣列索引不同）。</p>
 
 <h2>Loading a Config File</h2>
 

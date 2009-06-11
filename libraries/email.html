@@ -58,28 +58,27 @@ Email 類別
 
 <h1>Email 類別</h1>
 
-<p>CodeIgniter's robust Email 類別 supports the following features:</p>
+<p>CodeIgniter 擁有強大的 Email 類別函數，支持下列功能:</p>
 
 
 <ul>
-<li>Multiple Protocols: Mail，Sendmail，and SMTP</li>
-<li>Multiple recipients</li>
-<li>CC and BCCs</li>
-<li>HTML or Plaintext email</li>
-<li>Attachments</li>
-<li>Word wrapping</li>
-<li>Priorities</li>
+<li>多重協定: Mail，Sendmail，and SMTP</li>
+<li>多重收件人</li>
+<li>副本(CC)和密件副本(BCCs)</li>
+<li>支援HTML或者是純文字(Plaintext)郵件</li>
+<li>附件檔案</li>
+<li>文字包裝(Word wrapping)</li>
+<li>優先順序(Priorities)</li>
 <li>BCC Batch Mode，enabling large email lists to be broken into small BCC batches.</li>
-<li>Email Debugging tools</li>
+<li>郵件錯誤偵測工具(Email Debugging tools)</li>
 </ul>
 
 
 <h2>Sending Email</h2>
 
-<p>Sending email is not only simple，but you can configure it on the fly or set your preferences in a config file.</p>
+<p>發送電子郵件不僅是簡單，也可以輕鬆設定個人偏好到檔案中。</p>
 
-<p>Here is a basic example demonstrating how you might send email.  注意:  This example assumes you are sending the email from one of your
-<a href="../general/controllers.html">controllers</a>.</p>
+<p>底下是一個基本的例子，教您如何簡單的寄送電子郵件。注意: 這例子假設您的其中一個控制器(<a href="../general/controllers.html">controllers</a>)要發送電子郵件。</p>
 
 <code>$this->load->library('email');<br />
 <br />
@@ -98,12 +97,11 @@ echo $this->email->print_debugger();</code>
 
 
 
-<h2>Setting Email Preferences</h2>
+<h2>設定 Email 參數</h2>
 
-<p>There are 17 different preferences available to tailor how your email messages are sent. You can either set them manually
-as described here，or automatically via preferences stored in your config file，described below:</p>
+<p>Email 類別函數提供了17個參數，讓您量身定制的電子郵件偏好設定。您可以手動設定，或者是自動設定在您的設定檔，說明如下:</p>
 
-<p>Preferences are set by passing an array of preference values to the email <dfn>initialize</dfn> function.  Here is an example of how you might set some preferences:</p>
+<p>可以利用陣列來初始化(<dfn>initialize</dfn>) E-mail 設定。底下這個例子，讓您知道如何設定基本參數:</p>
 
 <code>$config['protocol'] = 'sendmail';<br />
 $config['mailpath'] = '/usr/sbin/sendmail';<br />
@@ -112,9 +110,9 @@ $config['wordwrap'] = TRUE;<br />
 <br />
 $this->email->initialize($config);</code>
 
-<p><strong>注意:</strong> Most of the preferences have default values that will be used if you do not set them.</p
+<p><strong>注意:</strong> 假如您沒有設定參數值，大多數的參數都有各自預設值。</p>
 
-><h3>Setting Email Preferences in a Config File</h3>
+<h3>Setting Email Preferences in a Config File</h3>
 
 <p>If you prefer not to set preferences using the above method，you can instead put them into a config file.
 Simply create a new file called the <var>email.php</var>， add the <var>$config</var>
@@ -124,17 +122,17 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 
 
 
-<h2>Email Preferences</h2>
+<h2>Email 設定偏好</h2>
 
-<p>The following is a list of all the preferences that can be set when sending email.</p>
+<p>當您要發送郵件，底下是全部的偏好參數設定。</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>偏好設定</th>
+<th>預設值</th>
+<th>選擇</th>
+<th>描述</th>
 </tr><tr>
 <td class="td"><strong>useragent</strong></td><td class="td">CodeIgniter</td><td class="td">None</td><td class="td">The "user agent".</td>
 </tr><tr>
@@ -181,10 +179,10 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 </table>
 
 
-<h2>Email Function Reference</h2>
+<h2>Email 函數說明</h2>
 
 <h3>$this->email->from()</h3>
-<p>Sets the email address and name of the person sending the email:</p>
+<p>設定寄件者 E-mail 跟名稱:</p>
 <code>$this->email->from('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
 
 <h3>$this->email->reply_to()</h3>
@@ -193,7 +191,7 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 
 
 <h3>$this->email->to()</h3>
-<p>Sets the email address(s) of the recipient(s).  Can be a single email，a comma-delimited list or an array:</p>
+<p>設定接受者 E-mail 位址. 可以是單一郵件，或是以逗號分隔名單，或者是陣列資料.:</p>
 
 <code>$this->email->to('<var>someone@example.com</var>');</code>
 <code>$this->email->to('<var>one@example.com</var>，<var>two@example.com</var>，<var>three@example.com</var>');</code>
@@ -203,18 +201,18 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 $this->email->to(<var>$list</var>);</code>
 
 <h3>$this->email->cc()</h3>
-<p>Sets the CC email address(s). Just like the "to"，can be a single email，a comma-delimited list or an array.</p>
+<p>設定郵件副本(CC). 就像寄送郵件，可以是單一郵件，或是以逗號分隔名單，或者是陣列資料.</p>
 
 <h3>$this->email->bcc()</h3>
-<p>Sets the BCC email address(s). Just like the "to"，can be a single email，a comma-delimited list or an array.</p>
+<p>設定密件副本(BCC). 就像寄送郵件，可以是單一郵件，或是以逗號分隔名單，或者是陣列資料.</p>
 
 
 <h3>$this->email->subject()</h3>
-<p>Sets the email subject:</p>
+<p>設定郵件標題:</p>
 <code>$this->email->subject('<var>This is my subject</var>');</code>
 
 <h3>$this->email->message()</h3>
-<p>Sets the email message body:</p>
+<p>設定郵件內容(body):</p>
 <code>$this->email->message('<var>This is my message</var>');</code>
 
 <h3>$this->email->set_alt_message()</h3>

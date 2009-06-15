@@ -71,89 +71,83 @@ Config 類別
 
 <p><strong>注意：</strong> 如果你確實用主要設定檔的格式（把你的設定項目存放在 <var>$config</var> 陣列）來新增你個人的設定檔，Codeigniter 也會聰明地管理這些檔案，所以即使你的陣列名稱相同也不會發生衝突（假設你的陣列索引不同）。</p>
 
-<h2>Loading a Config File</h2>
+<h2>載入設定檔</h2>
 
-<p><strong>注意:</strong> CodeIgniter automatically loads the primary config file (<samp>application/config/config.php</samp>),
-so you will only need to load a config file if you have created your own.</p>
+<p><strong>注意：</strong> CodeIgniter 會自動載入主要設定檔 (<samp>application/config/config.php</samp>) ，所以你只需要載入你自己新增的。</p>
 
-<p>There are two ways to load a config file:</p>
+<p>有兩種方式可以載入設定檔：</p>
 
-<ol><li><strong>Manual Loading</strong>
+<ol><li><strong>手動載入</strong>
 
-<p>To load one of your custom config files you will use the following function within the <a href="../general/controllers.html">controller</a> that needs it:</p>
+<p>要載入你自訂的設定檔，你需要使用在 <a href="../general/controllers.html">controller</a> 中的函數：</p>
 
 <code>$this->config->load('<var>filename</var>');</code>
 
-<p>Where <var>filename</var> is the name of your config file，without the .php file extension.</p>
+<p>其中 <var>filename</var> 是設定檔的檔名，不包括 .php 副檔名。</p>
 
-<p>If you need to load multiple config files normally they will be merged into one master config array.  Name collisions can occur，however，if
-you have identically named array indexes in different config files.  To avoid collisions you can set the second parameter to <kbd>TRUE</kbd>
-and each config file will be stored in an array index corresponding to the name of the config file. 參考範例:</p>
+<p>如果你需要載入多個設定檔，一般狀況下你要把它合併到一個主要的設定陣列。不過如果你在不同設定檔中有相同名稱的陣列索引就會發生名稱衝突。要避免衝突，你可以設定第二個參數為 <kbd>TRUE</kbd> ，這樣不同設定會存放在以檔名為索引的陣列中。參考範例：</p>
 
 <code>
-// Stored in an array with this prototype:  $this->config['blog_settings'] = $config<br />
+// 用像這樣的原型存放在一個陣列中： $this->config['blog_settings'] = $config<br />
 $this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);</code>
 
-<p>Please see the section entitled <dfn>Fetching Config Items</dfn> below to learn how to retrieve config items set this way.</p>
+<p>請參見底下的 <dfn>取得設定項目</dfn> 這一節來學習如何用這個方式取得設定項目。</p>
 
-<p>The third parameter allows you to suppress errors in the event that a config file does not exist:</p>
+<p>第三個參數讓你抑制當設定檔不存在時會產生的錯誤訊息。</p>
 
 <code>$this->config->load('<var>blog_settings</var>'，<dfn>FALSE</dfn>，<kbd>TRUE</kbd>);</code>
 
 </li>
 <li><strong>自動載入</strong>
 
-<p>If you find that you need a particular config file globally，you can have it loaded automatically by the system.  To do this,
-open the <strong>autoload.php</strong> file，located at <samp>application/config/autoload.php</samp>，and add your config file as
-indicated in the file.</p>
+<p>如果你發現你需要某個設定檔是全域的，你可以讓系統自動載入它。你可以開啟位於 <samp>application/config/autoload.php</samp> 的 <strong>autoload.php</strong> 檔案，將你的設定檔依照檔案中的指示加入。</p>
 </li>
 </ol>
 
 
-<h2>Fetching Config Items</h2>
+<h2>取得設定項目</h2>
 
-<p>To retrieve an item from your config file，use the following function:</p>
+<p>使用下來函數來取得設定檔中的項目：</p>
 
 <code>$this->config->item('<var>item name</var>');</code>
 
-<p>Where <var>item name</var> is the $config array index you want to retrieve. For example，to fetch your language choice you'll do this:</p>
+<p>其中 <var>item name</var> 是你要取得的 $config 陣列的索引。例如，要取得你選擇的語言 (language) 你可以這樣做：</p>
 
 <code>$lang = $this->config->item('language');</code>
 
-<p>The function returns FALSE (boolean) if the item you are trying to fetch does not exist.</p>
+<p>如果你嘗試取得的設定項目不存在，函數會返回 FALSE (boolean) 。</p>
 
-<p>If you are using the second parameter of the <kbd>$this->config->load</kbd> function in order to assign your config items to a specific index
-you can retrieve it by specifying the index name in the second parameter of the <kbd>$this->config->item()</kbd> function.  參考範例:</p>
+<p>如果你要用 <kbd>$this->config->load</kbd> 函數的第二個參數來指派設定項目給特定的索引，你可以指定索引名稱給 <kbd>$this->config->item()</kbd> 函數的第二個參數來取得它。參考範例：</p>
 
 <code>
-// Loads a config file named blog_settings.php and assigns it to an index named "blog_settings"<br />
+// 載入一個叫做 blog_settings.php 的設定檔，並指派一個叫做 "blog_settings" 的索引<br />
 $this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);<br /><br />
 
-// Retrieve a config item named site_name contained within the blog_settings array<br />
+// 從 blog_settings 陣列中取得一個叫做 site_name 的設定項目<br />
 $site_name = $this->config->item('<dfn>site_name</dfn>'，'<var>blog_settings</var>');<br /><br />
 
-// An alternate way to specify the same item:<br />
+// 另一個指定相同項目的方法：<br />
 $blog_config = $this->config->item('<var>blog_settings</var>');<br />
 $site_name = $blog_config['site_name'];</code>
 
-<h2>Setting a Config Item</h2>
+<h2>設定一個設定項目</h2>
 
-<p>If you would like to dynamically set a config item or change an existing one，you can so using:</p>
+<p>如果你要動態設定一個設定項目或是修改一個現存的項目，你可以用：</p>
 
 <code>$this->config->set_item('<var>item_name</var>'，'<var>item_value</var>');</code>
 
-<p>Where <var>item_name</var> is the $config array index you want to change，and <var>item_value</var> is its value.</p>
+<p>其中 <var>item_name</var> 是你要修改 $config 陣列索引，而 <var>item_value</var> 是它的值。</p>
 
 
-<h2>補助函數(Helper Functions</h2>
+<h2>補助函數(Helper Functions)</h2>
 
-<p>The config class has the following 補助函數:</p>
+<p>config 類別有下列補助函數：</p>
 
 <h2>$this->config->site_url();</h2>
-<p>This function retrieves the URL to your site，along with the "index" value you've specified in the config file.</p>
+<p>本函數根據你在設定檔中指定的索引取得網站的url。</p>
 
 <h2>$this->config->system_url();</h2>
-<p>This function retrieves the URL to your <dfn>system folder</dfn>.</p>
+<p>本函數取得 <dfn>system folder</dfn> 的URL。</p>
 
 
 </div>

@@ -1,0 +1,25 @@
+關於 CodeIgniter:
+
+CodeIgniter 是一套小巧但功能强大的 PHP 框架，做為一個簡單而“優雅”的工具包，它是一套專為 PHP 開發者建立功能完善的 Web 應用程序。如果你是一個使用虛擬主機，並且為客戶所要求的期限而煩惱的開發人員，如果你已經厭倦那些難而且效率不高的框架，那麼 CodeIgniter 就是你所需要的
+
+CodeIgniter 為你而存在，假如 ..
+
+    * 你想要小巧的 framework 。
+    * 你需要卓越的效能。
+    * 你需要廣泛的支援，於各 PHP 版本的主機皆運作良好。
+    * 你需要幾乎不需額外設定的 framework。
+    * 你想要不需使用 command line 的 framework。
+    * 你想要不強制要求 coding rules 的 framework。
+    * 你對 PEAR 那樣包山包海的程式庫不感興趣。
+    * 你不想被迫學習樣板語言(若有需要的話，仍有樣板解析器可隨侍在後)。
+    * 你避免複雜，期待簡單。
+    * 你需要清楚、完整的文件說明。
+
+中文官方網站：http://www.codeigniter.com.tw
+中文官方文件：http://www.codeigniter.com.tw/user_guide/
+
+英文官方網站：http://codeigniter.com
+英文官方文件：http://codeigniter.com/user_guide/
+
+中文官方文件翻譯：appleboy, jiz, fillano
+

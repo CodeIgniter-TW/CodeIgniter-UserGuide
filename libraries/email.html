@@ -245,8 +245,7 @@ in a loop，permitting the data to be reset between cycles.</p>
 
 
 <h3>$this->email->send()</h3>
-<p>The Email sending function. Returns boolean TRUE or FALSE based on success or failure，enabling it to be used
-conditionally:</p>
+<p>郵件寄送函數。當函數執行將會回傳 boolean TRUE(成功)或 FALSE(失敗)，可以透過條件函數來判斷:</p>
 
 <code>if ( ! $this->email->send())<br />
 {<br />
@@ -255,7 +254,7 @@ conditionally:</p>
 
 
 <h3>$this->email->attach()</h3>
-<p>Enables you to send an attachment. Put the file path/name in the first parameter. 注意: Use a file path，not a URL.
+<p>啟動附件檔案. Put the file path/name in the first parameter. 注意: Use a file path，not a URL.
 For multiple attachments use the function multiple times. For 參考範例:</p>
 
 <code>$this->email->attach('/path/to/photo1.jpg');<br />

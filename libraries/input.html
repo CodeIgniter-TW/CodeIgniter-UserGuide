@@ -58,37 +58,34 @@ Input and Security 類別
 
 <h1>Input 類別</h1>
 
-<p>The Input 類別 serves two purposes:</p>
+<p>Input 類別有兩個目的：</p>
 
 <ol>
-<li>It pre-processes global input data for security.</li>
-<li>It provides some 補助函數 for fetching input data and pre-processing it.</li>
+<li>基於安全，它預處理全域輸入資料。</li>
+<li>它提提供幾個補助函數用來取得輸入資料並預處理。</li>
 </ol>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意：</strong> 系統會自動初始這個類別，所以不需要手動載入。</p>
 
 
-<h2>Security Filtering</h2>
+<h2>安全過濾</h2>
 
-<p>The security filtering function is called automatically when a new <a href="../general/controllers.html">controller</a> is invoked.  It does the following:</p>
+<p>安全過濾函數在執行一個新的<a href="../general/controllers.html">controller</a> 時會自動呼叫。它會執行：</p>
 
 <ul>
-<li>Destroys the global GET array.  Since CodeIgniter does not utilize GET strings，there is no reason to allow it.</li>
-<li>Destroys all global variables in the event register_globals is turned on.</li>
-<li>Filters the POST/COOKIE array keys，permitting only alpha-numeric (and a few other) characters.</li>
-<li>Provides XSS (Cross-site Scripting Hacks) filtering.  This can be enabled globally，or upon request.</li>
-<li>Standardizes newline characters to \n</li>
+<li>破壞全域 GET 陣列。既然 CodeIgniter 不使用 GET 字串，也沒有理由要允許使用它。</li>
+<li>在 register_globals 打開時，破壞所有全域變數。</li>
+<li>過濾 POST/COOKIE 陣列的索引鍵值，只允許英文文數字與少數其他字元。</li>
+<li>提供 XSS (Cross-site Scripting Hacks) 過濾。這可以是全域啟動或根據請求啟動 (request)。</li>
+<li>將換行字元標準化成為 \n 。</li>
 </ul>
 
 
-<h2>XSS Filtering</h2>
+<h2>XSS 過濾</h2>
 
-<p>CodeIgniter comes with a Cross Site Scripting Hack prevention filter which can either run automatically to filter
-all POST and COOKIE data that is encountered，or you can run it on a per item basis.  By default it does <strong>not</strong>
-run globally since it requires a bit of processing overhead，and since you may not need it in all cases.</p>
+<p>CodeIgniter 內建一個防止跨站腳本攻擊的過濾器，它可以自動過濾所有 POST 與 COOKIE 的資料，或是你自己一項一項過濾。因為進行處理需要額外的負擔，而且你也不是在所有的狀況下需要使用，所以預設它 <strong>不會</strong> 全域執行。</p>
 
-<p>The XSS filter looks for commonly used techniques to trigger Javascript or other types of code that attempt to hijack cookies
-or do other malicious things.  If anything disallowed is encountered it is rendered safe by converting the data to character entities.</p>
+<p>XSS 過濾器會搜尋常使用來觸發 Javascript 或是其他企圖挾持 cookie 或是進行危險活動的程式碼。如果碰到不允許的東西，它會用安全的方式把它轉成html entities來呈現。</p>
 
 <p>
 注意: This function should only be used to deal with data upon submission. It's not something that should be used for general runtime processing since it requires a fair amount of processing overhead.</p>

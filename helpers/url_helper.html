@@ -188,20 +188,20 @@ written with JavaScript to help prevent the email address from being harvested b
 
 <h2>auto_link()</h2>
 
-<p>Automatically turns URLs and email addresses contained in a string into links.  參考範例:</p>
+<p>將文章內容包含 email 與 URL 字串自動轉換成連結。參考範例:</p>
 
 <code>$string = auto_link($string);</code>
 
-<p>The second parameter determines whether URLs and emails are converted or just one or the other.  Default behavior is both
+<p>第二個參數來決定轉換 URL 或者是 email. 預設是全部轉換
 if the parameter is not specified.  Email links are encoded as safe_mailto() as shown above.</p>
 
-<p>Converts only URLs:</p>
+<p>只有轉換 URLs:</p>
 <code>$string = auto_link($string，'url');</code>
 
-<p>Converts only Email addresses:</p>
+<p>只有轉換 Email addresses:</p>
 <code>$string = auto_link($string，'email');</code>
 
-<p>The third parameter determines whether links are shown in a new window.  The value can be TRUE or FALSE (boolean):</p>
+<p>第三個參數是用來表示點選是否開啟新視窗。此參數只能用布林表示值 TRUE or FALSE (boolean):</p>
 <code>$string = auto_link($string，'both'，TRUE);</code>
 
 

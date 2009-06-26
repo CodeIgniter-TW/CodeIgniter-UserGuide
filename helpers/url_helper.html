@@ -57,19 +57,19 @@ URL 補助函數
 
 <h1>URL 補助函數</h1>
 
-<p>The URL 補助函數 file contains functions that assist in working with URLs.</p>
+<p>URL 補助函數用來處理包含網址的資料內容。</p>
 
 
-<h2>載入 補助函數</h2>
+<h2>載入 URL 補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>可以利用下面程式碼載入 URL 補助函數:</p>
 <code>$this->load->helper('url');</code>
 
-<p>The following functions are available:</p>
+<p>底下包含可用的函數:</p>
 
 <h2>site_url()</h2>
 
-<p>Returns your site URL，as specified in your config file.  The index.php file (or whatever you have set as your
+<p>回傳網站 URL，定義在您的 config 檔案裡面.  The index.php file (or whatever you have set as your
 site <dfn>index_page</dfn> in your config file) will be added to the URL，as will any URI segments you pass to the function.</p>
 
 <p>You are encouraged to use this function any time you need to generate a local URL so that your pages become more portable
@@ -173,7 +173,7 @@ If you want the function to use all of its defaults simply pass an empty array i
 
 <h2>mailto()</h2>
 
-<p>Creates a standard HTML email link.  使用範例:</p>
+<p>建立寄送郵件連結。使用範例:</p>
 
 <code>echo mailto('me@my-site.com'，'Click Here to Contact Me');</code>
 

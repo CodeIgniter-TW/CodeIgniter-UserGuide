@@ -59,21 +59,20 @@
 
 <h1>語言(Language)補助函數</h1>
 
-<p>語言(Language)補助函數包含一些用於補助處理語言檔案的函數.</p>
+<p>Language 補助函數檔包含用於處理語言檔案的函數..</p>
 
 
 <h2>載入補助函數</h2>
 
-<p>此補助函數用法如下:</p>
+<p>使用下列的程式碼載入補助程式:</p>
 <code>$this->load->helper('language');</code>
 
 <p>下面的函數就可以使用了:</p>
 
 <h2>lang('<var>language line</var>'，'<var>element id</var>')</h2>
 
-<p>This function returns a line of text from a loaded language file with simplified syntax
-	that may be more desirable for view files than calling <kbd>$this-&gt;lang-&gt;line()</kbd>.
-	The optional second parameter will also output a form label for you.  參考範例:</p>
+<p>此函數使用簡單的語法從指定載入的語言檔中傳回一行文字。這種語法在視圖文件中可能比執行 <kbd>$this-&gt;lang-&gt;line()</kbd>.
+	更具意義。可選擇的第二個參數還將為你輸出一個表單。參考範例：</p>
 
 <code>echo lang('<samp>language_key</samp>'，'<samp>form_item_id</samp>');<br />
 // becomes &lt;label for="form_item_id"&gt;language_key&lt;/label&gt;</code>

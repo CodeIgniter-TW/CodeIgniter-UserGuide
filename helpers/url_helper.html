@@ -132,20 +132,18 @@ echo site_url($segments);</code>
 
 <code>echo anchor('news/local/123'，'My News');</code>
 
-<p>Would produce: &lt;a href="http://example.com/index.php/news/local/123" title="My News">My News&lt;/a></p>
+<p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="My News">My News&lt;/a></p>
 
 <code>echo anchor('news/local/123'，'My News'，array('title' => 'The best news!'));</code>
 
-<p>Would produce: &lt;a href="http://example.com/index.php/news/local/123" title="The best news!">My News&lt;/a></p>
+<p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="The best news!">My News&lt;/a></p>
 
 
 <h2>anchor_popup()</h2>
 
-<p>Nearly identical to the <dfn>anchor()</dfn> function except that it opens the URL in a new window.
+<p>幾乎和 <dfn>anchor()</dfn> 函數相同，不同的是anchor_popup()會在新視窗開啟鏈結。
 
-You can specify JavaScript window attributes in the third parameter to control how the window is opened. If
-the third parameter is not set it will simply open a new window with your own browser settings.  Here is an example
-with attributes:</p>
+你可以在第三個參數中指定JavaScript視窗屬性來控制視窗的開啟方式。如果第三個參數沒有設定，它會直接根據你的瀏覽器設定開啟新視窗。以下是一個屬性設定的例子:</p>
 
 <code>
 
@@ -161,35 +159,32 @@ $atts = array(<br />
 <br />
 echo anchor_popup('news/local/123'，'Click Me!'，$atts);</code>
 
-<p>注意: The above attributes are the function defaults so you only need to set the ones that are different from what you need.
-If you want the function to use all of its defaults simply pass an empty array in the third parameter:</p>
+<p>注意: 以上的屬性是函數預設值，你只要根據自己需要設定不同值。如果你想要函數使用預設值，直接傳一個空陣列給第三個參數就行了:</p>
 
 <code>echo anchor_popup('news/local/123'，'Click Me!'，array());</code>
 
 
 <h2>mailto()</h2>
 
-<p>建立寄送郵件連結。使用範例:</p>
+<p>建立標準HTML電子郵件鏈結的使用範例</p>
 
 <code>echo mailto('me@my-site.com'，'Click Here to Contact Me');</code>
 
-<p>As with the <dfn>anchor()</dfn> tab above，you can set attributes using the third parameter.</p>
+<p>像上列的 <dfn>anchor()</dfn> 函數一樣，你可以用第三個參數設定屬性。</p>
 
 
 <h2>safe_mailto()</h2>
 
-<p>Identical to the above function except it writes an obfuscated version of the mailto tag using ordinal numbers
-written with JavaScript to help prevent the email address from being harvested by spam bots.</p>
+<p>用法和上面的函數相同，不同的是它用JavaScript編寫了基於順序號碼不易識別的mailto版本標籤，以便阻止email位址被垃圾郵件截獲。</p>
 
 
 <h2>auto_link()</h2>
 
-<p>將文章內容包含 email 與 URL 字串自動轉換成連結。參考範例:</p>
+<p>自動把包含URL和email位址的字串轉換成鏈結。例如:</p>
 
 <code>$string = auto_link($string);</code>
 
-<p>第二個參數來決定轉換 URL 或者是 email. 預設是全部轉換
-if the parameter is not specified.  Email links are encoded as safe_mailto() as shown above.</p>
+<p>第二個參數決定URL和email是否都轉換或只有其中一個轉換，如果參數沒有指定預設值是兩個都轉換，電子郵件連結編碼為 safe_mailto() 如上所示。</p>
 
 <p>只有轉換 URLs:</p>
 <code>$string = auto_link($string，'url');</code>
@@ -202,18 +197,17 @@ if the parameter is not specified.  Email links are encoded as safe_mailto() as 
 
 
 <h2>url_title()</h2>
-<p>Takes a string as input and creates a human-friendly URL string. This is useful if，for example，you have a blog
-in which you'd like to use the title of your entries in the URL.  參考範例:</p>
+<p>使用字串作為輸入，並建立一個友好的 URL 字串。例如：你有一個blog，而且你想在URL中使用項目的標題，就可以使用這個函數。  參考範例:</p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
 $url_title = url_title($title);<br />
 <br />
-// Produces:  whats-wrong-with-css
+// 產生:  whats-wrong-with-css
 </code>
 
 
-<p>The second parameter determines the word delimiter.  By default dashes are used.  Options are:  <dfn>dash</dfn>，or <dfn>underscore</dfn>:</p>
+<p>第二個參數指定單字之間的分隔符號。有：破折號'<dfn>-</dfn>'， 或者 底線'<dfn>_</dfn>'兩種選項，預設值使用破折號'-': </p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
@@ -222,17 +216,17 @@ $url_title = url_title($title，'underscore');<br />
 // Produces:  Whats_wrong_with_CSS
 </code>
 
-<p>The third parameter determines whether or not lowercase characters are forced.  By default they are not.  Options are boolean <dfn>TRUE</dfn>/<dfn>FALSE</dfn>:</p>
+<p>第三個參數為確定建立的 URL 字串是否要全部轉換為小寫字元。預設值為不是。有布林值 <dfn>TRUE</dfn>/<dfn>FALSE</dfn> :</p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
 $url_title = url_title($title，'underscore'，TRUE);<br />
 <br />
-// Produces:  whats_wrong_with_css
+// 處理:  whats_wrong_with_css
 </code>
 
 <h3>prep_url()</h3>
-<p>This function will add <kbd>http://</kbd> in the event it is missing from a URL.  Pass the URL string to the function like this:</p>
+<p>這個函數可以附加上<kbd>http://</kbd>在沒有http://的URL中，將URL字串傳遞給函數：</p>
 <code>
 $url = "example.com";<br /><br />
 $url = prep_url($url);</code>
@@ -242,12 +236,9 @@ $url = prep_url($url);</code>
 
 <h2>redirect()</h2>
 
-<p>Does a "header redirect" to the local URI specified. Just like other functions in this helper，this one is designed
-to redirect to a local URL within your site.  You will <strong>not</strong> specify the full site URL，but rather simply the URI segments
-to the controller you want to direct to. The function will build the URL based on your config file values.</p>
+<p>執行一個利用header頭檔指定跳轉到本地網址URL的操作。和該類輔助函數的其他函數一樣，它用於重新導向到你網站的一個網址URL。你<strong>不能</strong>指定一個完整網址URL，而只能指向你所需的一個控制器(controller)。該函數將自動根據你的設置檔(config file)來幫你構建完整網址URL。</p>
 
-<p>The optional second parameter allows you to choose between the "location"
-method (default) or the "refresh" method.  Location is faster，but on Windows servers it can sometimes be a problem.  The optional third parameter allows you to send a specific HTTP Response Code - this could be used for example to create 301 redirects for search engine purposes. The default Response Code is 302. The third parameter is <em>only</em> available with 'location' redirects，and not 'refresh'. Examples:</p>
+<p>你可以設定第二個參數為 location 定位操作(預設)或者 refresh 刷新操作。定位操作比刷新操作執行速度快，但是在Windows伺服器上它將有時被認為是一個錯誤操作。可選擇的第三個參數允許你送一則具體的HTTP 回應代碼 - 這可能使用在例如建立301把目的重新導向給搜索引擎。預設回應代碼是302。第三個參數<em>只有</em>'位址'可提供更改方向，而不'刷新'動作。範例:</p>
 
 <code>if ($logged_in == FALSE)<br />
 {<br />
@@ -257,9 +248,8 @@ method (default) or the "refresh" method.  Location is faster，but on Windows s
 // with 301 redirect<br />
 redirect('/article/13'，'location'，301);</code>
 
-<p class="important"><strong>注意:</strong> In order for this function to work it must be used before anything is outputted
-to the browser since it utilizes server headers.<br />
-<strong>注意:</strong> For  very fine grained control over headers，you should use the <a href="../libraries/output.html">Output  Library</a>'s set_header() function.</p>
+<p class="important"><strong>注意:</strong> 由於此函數需要處理header檔頭，必須使用在任何輸出給瀏覽器的內容之前。<br />
+<strong>注意:</strong> 注意：對非常精密對應的控制來說，你應該使用<a href="../libraries/output.html">輸出函數</a>的 set_header() 函數。</p>
 
 
 

@@ -58,21 +58,21 @@ String 補助函數
 
 <h1>String 補助函數</h1>
 
-<p>The String 補助函數 file contains functions that assist in working with strings.</p>
+<p>String 補助函數檔包含協助使用字串的函數。</p>
 
 
-<h2>載入 補助函數</h2>
+<h2>載入補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>使用下列的程式碼載入補助程式：</p>
 <code>$this->load->helper('string');</code>
 
-<p>The following functions are available:</p>
+<p>下列為可以使用的函數：</p>
 
 <h2>random_string()</h2>
 
-<p>Generates a random string based on the type and length you specify.  Useful for creating passwords or generating random hashes.</p>
+<p>根據你所指定字串的類型和長度產生一個隨機字串。可用於產生密碼字串或隨機字串。</p>
 
-<p>The first parameter specifies the type of string，the second parameter specifies the length.  The following choices are available:</p>
+<p>第一個參數指定字串類型，第二個參數指定字串長度。以下為可以使用的字串類型：</p>
 
 
 <ul>
@@ -90,7 +90,7 @@ Returns a fixed length 32 character string.</li>
 
 <h2>alternator()</h2>
 
-<p>Allows two or more items to be alternated between，when cycling through a loop.  參考範例:</p>
+<p>當執行一個迴圈時，讓兩個或兩個以上的項目交替使用。參考範例:</p>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
@@ -98,7 +98,7 @@ Returns a fixed length 32 character string.</li>
 }<br />
 </code>
 
-<p>You can add as many parameters as you want，and with each iteration of your loop the next item will be returned.</p>
+<p>你可以任意增加項目的數量，每一次迴圈執行後，下一個項目將成為傳回值。</p>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
@@ -106,38 +106,37 @@ Returns a fixed length 32 character string.</li>
 }<br />
 </code>
 
-<p><strong>注意:</strong> To use multiple separate calls to this function simply call the function with no arguments to re-initialize.</p>
+<p><strong>注意:</strong> 為了讓多次呼叫該函數簡單方便，呼叫該函數時，只需呼叫函數，不用重新初始化參數。</p>
 
 
 
 <h2>repeater()</h2>
-<p>Generates repeating copies of the data you submit. 參考範例:</p>
+<p>重複產生你所指定次數的資料。參考範例：</p>
 <code>$string = "\n";<br />
 echo repeater($string，30);</code>
 
-<p>The above would generate 30 newlines.</p>
+<p>上面的例子將會產生30列空白列。</p>
 <h2>reduce_double_slashes()</h2>
-<p>Converts double slashes in a string to a single slash，except those found in http://. 參考範例: </p>
+<p>將字串中的雙斜線(//)轉換為單斜線(/)，但不轉換如http://中的雙斜線。參考範例：</p>
 <code>$string = &quot;http://example.com//index.php&quot;;<br />
 echo reduce_double_slashes($string); // results in &quot;http://example.com/index.php&quot;</code>
 <h2>trim_slashes()</h2>
-<p>Removes any leading/trailing slashes from a string. 參考範例:<br />
+<p>去除任何出現在字串開頭或結尾的斜線。參考範例：<br />
 	<br />
 	<code>$string = &quot;/this/that/theother/&quot;;<br />
 echo trim_slashes($string); // results in this/that/theother</code></p>
 
 
 <h2>reduce_multiples()</h2>
-<p>Reduces multiple instances of a particular character occuring directly after each other. 參考範例:</p>
+<p>去除多餘的重複出現特殊字元。參考範例：</p>
 <code>
 $string="Fred，Bill,，Joe，Jimmy";<br />
 $string=reduce_multiples($string,","); //results in "Fred，Bill，Joe，Jimmy"
 </code>
-<p>The function accepts the following parameters:
+<p>本函數接受以下參數：
 <code>reduce_multiples(string: text to search in，string: character to reduce，boolean: whether to remove the character from the front and end of the string)</code>
 
-The first parameter contains the string in which you want to reduce the multiplies. The second parameter contains the character you want to have reduced.
-The third parameter is FALSE by default; if set to TRUE it will remove occurences of the character at the beginning and the end of the string. 參考範例:
+第一個參數用於傳送你所要去除重複的字串。第二個參數用於傳送你所要去除的字元。第三個參數預設為 False。如果為True將會去除出現在字串開頭或結尾的字元(即使字元不重複也會去除)。參考範例：
 
 <code>
 $string=",Fred，Bill,，Joe，Jimmy,";<br />
@@ -146,13 +145,13 @@ $string=reduce_multiples($string，"，"，TRUE); //results in "Fred，Bill，Jo
 </p> 
 
 <h2>quotes_to_entities()</h2>
-<p>Converts single and double quotes in a string to the corresponding HTML entities. 參考範例:</p>
+<p>將字串中的單引號和雙引號轉換為對應的 HTML 字元符號表示。範例：</p>
 <code>$string="Joe's \"dinner\"";<br />
 $string=quotes_to_entities($string); //results in "Joe&amp;#39;s &amp;quot;dinner&amp;quot;"
 </code>
 
 <h2>strip_quotes()</h2>
-<p>Removes single and double quotes from a string. 參考範例:</p>
+<p>去除字串中的單引號和雙引號。 參考範例：</p>
 <code>$string="Joe's \"dinner\"";<br />
 $string=strip_quotes($string); //results in "Joes dinner"
 </code>

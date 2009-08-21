@@ -88,25 +88,24 @@ Input and Security 類別
 <p>XSS 過濾器會搜尋常使用來觸發 Javascript 或是其他企圖挾持 cookie 或是進行危險活動的程式碼。如果碰到不允許的東西，它會用安全的方式把它轉成html entities來呈現。</p>
 
 <p>
-注意: This function should only be used to deal with data upon submission. It's not something that should be used for general runtime processing since it requires a fair amount of processing overhead.</p>
+注意： 這個函數應該只用在處理提交(submit)的資料。它並不適用在一般執行時處理的狀況下，因為它需要相當大量的負載支出。</p>
 
 
-<p>To filter data through the XSS filter use this function:</p>
+<p>要用XSS過濾器來過濾資料，要用這個函數：</p>
 
 <h2>$this->input->xss_clean()</h2>
 
-<p>Here is an usage 參考範例:</p>
+<p>使用參考範例：</p>
 
 <code>$data = $this->input->xss_clean($data);</code>
 
-<p>If you want the filter to run automatically every time it encounters POST or COOKIE data you can enable it by opening your
-<kbd>application/config/config.php</kbd> file and setting this:</p>
+<p>如果你要每次碰到 POST 或是 COOKIE 時都會自動過濾，你可以編輯 <kbd>application/config/config.php</kbd> 檔案並設定以下項目：</p>
 
 <code>$config['global_xss_filtering'] = TRUE;</code>
 
-<p>注意: If you use the form validation class，it gives you the option of XSS filtering as well.</p>
+<p>注意： 如果你使用表單驗證類別，它也會給你XSS過濾的選項。</p>
 
-<p>An optional second parameter，<dfn>is_image</dfn>，allows this function to be used to test images for potential XSS attacks，useful for file upload security.  When this second parameter is set to <dfn>TRUE</dfn>，instead of returning an altered string，the function returns TRUE if the image is safe，and FALSE if it contained potentially malicious information that a browser may attempt to execute.</p>
+<p>可選的第二個參數 <dfn>is_image</dfn> 允許這個函數用來測試影像以預防潛在的 XSS 攻擊，這對於檔案上傳的安全性非常有用。當這個參數設定為 <dfn>TRUE</dfn> 時，這個函數就不是回傳替代字串，而是在影像檔是安全的時回傳 TRUE ，並在影像檔包含可能讓瀏覽器執行的潛在危險資訊時回傳 FALSE。</p>
 
 <code>if ($this->input->xss_clean($file，TRUE) === FALSE)<br />
 {<br />
@@ -114,12 +113,9 @@ Input and Security 類別
 }</code>
 
 
-<h2>Using POST，COOKIE，or SERVER Data</h2>
+<h2>使用 POST, COOKIE, 或 SERVER 資料</h2>
 
-<p>CodeIgniter comes with three 補助函數 that let you fetch POST，COOKIE or SERVER items.  The main advantage of using the provided
-functions rather than fetching an item directly ($_POST['something']) is that the functions will check to see if the item is set and
-return false (boolean) if not.  This lets you conveniently use data without having to test whether an item exists first.
-In other words，normally you might do something like this:</p>
+<p>CodeIgniter 提供三個讓你取出 POST, COOKIE 或 SERVER 中項目的補助函數。使用這些函數的主要便利性在於，它們會確認並檢視是否這些項目已被設定並且在未設定時回傳 false (boolean) ，而不是直接取出 ($_POST['something'])。這讓你可以方便地使用資料而不必預先測試它們是否存在。不然，通常你可能會像這樣做：</p>
 
 <code>
 if ( ! isset($_POST['something']))<br />
@@ -131,11 +127,11 @@ else<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$something = $_POST['something'];<br />
 }</code>
 
-<p>With CodeIgniter's built in functions you can simply do this:</p>
+<p>有了 CodeIgniter 的內建函數，你可以簡單地這樣做：</p>
 
 <code>$something = $this->input->post('something');</code>
 
-<p>The three functions are:</p>
+<p>這三個函數是：</p>
 
 <ul>
 <li>$this->input->post()</li>
@@ -145,37 +141,37 @@ else<br />
 
 <h2>$this->input->post()</h2>
 
-<p>The first parameter will contain the name of the POST item you are looking for:</p>
+<p>第一個參數包含你要找的 POST 項目名稱：</p>
 
 <code>$this->input->post('some_data');</code>
 
-<p>The function returns FALSE (boolean) if the item you are attempting to retrieve does not exist.</p>
+<p>這個函數在你要取得的項目不存在時會回傳 FALSE (boolean)。</p>
 
-<p>The second optional parameter lets you run the data through the XSS filter.  It's enabled by setting the second parameter to boolean TRUE;</p>
+<p>額外的第二個參數讓你用 XSS 過濾器處理資料。把第二個參數設定為 TRUE (boolean) 就可以啟動：</p>
 
 <code>$this->input->post('some_data'，TRUE);</code>
 
 <h2>$this->input->get()</h2>
 
-<p>This function is identical to the post function，only it fetches get data:</p>
+<p>這個函數與 post 函數相同，只是他會取得 get 的資料：</p>
 
 <code>$this->input->get('some_data'，TRUE);</code>
 
 <h2>$this->input->get_post()</h2>
 
-<p>This function will search through both the post and get streams for data，looking first in post，and then in get:</p>
+<p>這個函數會搜尋 post 及 get 串流來取得資料，會先尋找 post 而後尋找 get ：</p>
 
 <code>$this->input->get_post('some_data'，TRUE);</code>
 
 <h2>$this->input->cookie()</h2>
 
-<p>This function is identical to the post function，only it fetches cookie data:</p>
+<p>這個函數與 post 函數相同，只是他會取得 cookie 的資料：</p>
 
 <code>$this->input->cookie('some_data'，TRUE);</code>
 
 <h2>$this->input->server()</h2>
 
-<p>This function is identical to the above functions，only it fetches server data:</p>
+<p>這個函數與以上的函數相同，只是他會取得 server 的資料：</p>
 
 <code>$this->input->server('some_data');</code>
 
@@ -183,14 +179,13 @@ else<br />
 
 
 <h2>$this->input->ip_address()</h2>
-<p>Returns the IP address for the current user.  If the IP address is not valid，the function will return an IP of: 0.0.0.0</p>
+<p>取得當前使用者的 IP 位址。如果 IP 位址不合法，那函數會回傳 0.0.0.0。</p>
 <code>echo $this->input->ip_address();</code>
 
 
 <h2>$this->input->valid_ip(<var>$ip</var>)</h2>
 
-<p>Takes an IP address as input and returns TRUE or FALSE (boolean) if it is valid or not.  注意:  The $this->input->ip_address() function above
-validates the IP automatically.</p>
+<p>傳入一個 IP 位址並依照它是否合法來返回 TRUE 或 FALSE (boolean) 。 注意： 上面的 $this->input->ip_address() 函數會自動驗證 IP 是否合法。</p>
 
 <code>if ( ! $this-&gt;input-&gt;valid_ip($ip))<br />
 {<br />
@@ -203,7 +198,7 @@ else<br />
 
 
 <h2>$this->input->user_agent()</h2>
-<p>Returns the user agent (web browser) being used by the current user. Returns FALSE if it's not available.</p>
+<p>返回當前使用者所使用的網頁瀏覽器，如果沒有有效資訊則回傳 FALSE 。</p>
 <code>echo $this->input->user_agent();</code>
 
 

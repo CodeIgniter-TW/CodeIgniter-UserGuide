@@ -59,34 +59,31 @@ Directory 補助函數
 
 <h1>Directory 補助函數</h1>
 
-<p>The Directory 補助函數 file contains functions that assist in working with directories.</p>
+<p>目錄補助函數檔包含協助目錄使用的函數。</p>
 
 
 <h2>載入 補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>使用下列的程式碼載入補助程式：</p>
 <code>$this->load->helper('directory');</code>
 
-<p>The following functions are available:</p>
+<p>下列為可以使用的函數：</p>
 
 <h2>directory_map('<var>source directory</var>')</h2>
 
-<p>This function reads the directory path specified in the first parameter
-and builds an array representation of it and all its contained files. 參考範例:</p>
+<p>此函數讀取第一個參數中指定的目錄路徑，建立一個以陣列表示該目錄包含的所有的檔案的資料。 參考範例：</p>
 
 <code>$map = directory_map('./mydirectory/');</code>
 
-<p class="important"><strong>注意:</strong> Paths are almost always relative to your main index.php file.</p>
+<p class="important"><strong>注意:</strong> 路徑總是相對於您的主要 index.php 檔</p>
 
 
 
-<p>Sub-folders contained within the directory will be mapped as well.  If you wish to map
-only the top level directory set the second parameter to <var>true</var> (boolean):</p>
+<p>目錄中包含的子資料夾也會列出。如果你只想列出根目錄，那第二個參數要設置為<var>true</var> (boolean):</p>
 
 <code>$map = directory_map('./mydirectory/'，TRUE);</code>
 
-<p>Each folder name will be an array index，while its contained files will be numerically indexed.
-Here is an example of a typical array:</p>
+<p>每個資料夾名稱將是一個陣列索引，被包含的檔案將以數字表示作為陣列索引值。下面是陣列的一個典型的範例：</p>
 
 <code>Array<br />
 (<br />

@@ -58,20 +58,20 @@ Inflector 補助函數
 
 <h1>Inflector 補助函數</h1>
 
-<p>The Inflector 補助函數 file contains functions that permits you to change words to plural，singular，camel case，etc.</p>
+<p>Inflector 補助函數檔包含允許您將單字換成複數、單數，駱駝拼寫法等形式的函數。</p>
 
 
 <h2>載入 補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>使用下列的程式碼載入補助程式：</p>
 <code>$this->load->helper('inflector');</code>
 
-<p>The following functions are available:</p>
+<p>下列為可以使用的函數：</p>
 
 
 <h2>singular()</h2>
 
-<p>Changes a plural word to singular.  參考範例:</p>
+<p>將一個複數的單字換成單數單字。參考範例：</p>
 
 <code>
 $word = "dogs";<br />
@@ -81,7 +81,7 @@ echo singular($word); // Returns "dog"
 
 <h2>plural()</h2>
 
-<p>Changes a singular word to plural.  參考範例:</p>
+<p>將一個單數的單字換成複數單字。參考範例：</p>
 
 <code>
 $word = "dog";<br />
@@ -89,12 +89,12 @@ echo plural($word); // Returns "dogs"
 </code>
 
 
-<p>To force a word to end with &quot;es&quot; use a second &quot;true&quot; argument. </p>
+<p>若要強迫一個單字以 "es" 當作結尾，則把第二個參數設定為「true」。</p>
 <code> $word = &quot;pass&quot;;<br />
 echo plural($word，TRUE); // Returns &quot;passes&quot; </code>
 
 <h2>camelize()</h2>
-<p>Changes a string of words separated by spaces or underscores to camel case.  參考範例:</p>
+<p>把一個以空格或以底線分隔的單字更改為駱駝拼寫法( 混合使用英文大小寫字母來構成變數和函數的名稱，每一個關鍵字都有一個大寫字母或底線來標記，命名時變數和函數的名稱第一個英文字母小寫 )。參考範例：</p>
 
 <code>
 $word = "my_dog_spot";<br />
@@ -104,7 +104,7 @@ echo camelize($word); // Returns "myDogSpot"
 
 <h2>underscore()</h2>
 
-<p>Takes multiple words separated by spaces and underscores them.  參考範例:</p>
+<p>把以空格分隔的多個單字更改為以底線分隔。參考範例：</p>
 
 <code>
 $word = "my dog spot";<br />
@@ -114,7 +114,7 @@ echo underscore($word); // Returns "my_dog_spot"
 
 <h2>humanize()</h2>
 
-<p>Takes multiple words separated by underscores and adds spaces between them.  Each word is capitalized. 參考範例:</p>
+<p>把以底線分隔的多個單字更改為以空格分隔，並且每個單字以大寫開頭。參考範例：</p>
 
 <code>
 $word = "my_dog_spot";<br />

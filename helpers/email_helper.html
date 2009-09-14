@@ -59,19 +59,19 @@ Email 補助函數
 
 <h1>Email 補助函數</h1>
 
-<p>The Email 補助函數 provides some assistive functions for working with Email. For a more robust email solution，see CodeIgniter's <a href="../libraries/email.html">Email 類別</a>.</p>
+<p>Email補助函數提供一些使用於電子郵件相關操作的函數。若要瞭解更多的電子郵件解決方案，請參閱 CodeIgniter 的 <a href="../libraries/email.html">Email 類別</a>。</p>
 
-<h2>載入 補助函數</h2>
+<h2>載入補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>使用下列的程式碼載入補助程式：</p>
 <p><code>$this->load->helper('email');</code></p>
 
-<p>The following functions are available:</p>
+<p>下列為可以使用的函數：</p>
 
 <h2>valid_email('<var>email</var>')</h2>
 
-<p>Checks if an email is a correctly formatted email. Note that is doesn't actually prove the email will recieve mail，simply that it is a validly formed address.</p>
-<p>It returns TRUE/FALSE</p>
+<p>檢查電子郵件是否為正確的電子郵件位址格式。請注意事實上並不表示這個位址一定能夠接收郵件，只是簡單地說明這是一個有效的電子郵件位址格式。</p>
+<p>這個函數傳回 TRUE/FALSE。</p>
 <code> $this-&gt;load-&gt;helper('email');<br />
 <br />
 if (valid_email('email@somesite.com'))<br />
@@ -83,7 +83,7 @@ else<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo 'email is not valid';<br />
 }</code>
 <h2>send_email('<var>recipient</var>'，'<var>subject</var>'，'<var>message</var>')</h2>
-<p>Sends an email using PHP's native <a href="http://www.php.net/function.mail">mail()</a> function. For a more robust email solution，see CodeIgniter's <a href="../libraries/email.html">Email 類別</a>.</p>
+<p>使用 PHP 內定的本機 <a href="http://www.php.net/function.mail">mail ()</a> 函數發送一封電子郵件。如果需要更強大的電子郵件解決方案，請參考 CodeIgniter 的 Email 類。</p>
 </div>
 <!-- END CONTENT -->
 

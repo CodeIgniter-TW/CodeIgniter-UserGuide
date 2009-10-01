@@ -58,33 +58,29 @@ Session 類別
 
 <h1>Session 類別</h1>
 
-<p>The Session class permits you maintain a user's "state" and track their activity while they browse your site.
-The Session class stores session information for each user as serialized (and optionally encrypted) data in a cookie.
-It can also store the session data in a database table for added security，as this permits the session ID in the
-user's cookie to be matched against the stored session ID. By default only the cookie is saved.  If you choose to
-use the database option you'll need to create the session table as indicated below.
-</p>
+<p>Session類別允許你在使用者瀏覽你的網頁時，保存使用者的"狀態"及紀錄使用者活動。Session類別將每個使用者的session資訊序列化
+（並可經過加密）後，儲存在cookie中。除此之外，亦可將session資料儲存於資料庫表格中，藉由比對使用者cookie中所儲存的session id
+是否與資料庫中的id符合，來增強其安全性。Session類別預設僅將session儲存於cookie當中，若要使用資料庫來儲存，必須依照下面指示的
+方式來建立session表格。</p>
 
-<p class="important"><strong>注意:</strong> The Session class does <strong>not</strong> utilize native PHP sessions. It
-generates its own session data，offering more flexibility for developers.</p>
+<p class="important"><strong>注意:</strong> CI的Session類別採用自己建立的session資料，<strong>而非</strong> PHP所提供的
+session，藉此為開發者提供更佳的彈性。</p>
 
-<h2>Initializing a Session</h2>
+<h2>初始化Session</h2>
 
-<p>Sessions will typically run globally with each page load，so the session class must either be
-<a href="../general/libraries.html">initialized</a> in your
-<a href="../general/controllers.html">controller</a> constructors，or it can be
-<a href="../general/autoloader.html">auto-loaded</a> by the system.
-For the most part the session class will run unattended in the background，so simply initializing the class
-will cause it to read，create，and update sessions.</p>
+<p>基本上，session會在每個頁面載入後，以全域的方式運行。Session類別可利用<a href="../general/controllers.html">控制器</a>的
+建構子作<a href="../general/libraries.html">初始化</a>，抑或是利用系統的<a href="../general/autoloader.html">自動載入</a>
+機制（譯注：即application/config/autoload.php檔）。大部分的情形下，session載入後便會在背景運行，因此初始化之後，session的資
+料便會自動被讀取、建立及更新。</p>
 
 
-<p>To initialize the Session class manually in your controller constructor，use the <dfn>$this->load->library</dfn> function:</p>
+<p>若要在控制器的建構子裡手動初始化Session類別，可使用<dfn>$this->load->library</dfn>函數：</p>
 
 <code>$this->load->library('session');</code>
-<p>Once loaded，the Sessions library object will be available using: <dfn>$this->session</dfn></p>
+<p>一旦類別被載入，便可透過<dfn>$this->session</dfn>的方式來存取Session物件</p>
 
 
-<h2>How do Sessions work?</h2>
+<h2>Session如何運作？</h2>
 
 <p>When a page is loaded，the session class will check to see if valid session data exists in the user's session cookie.
 If sessions data does <strong>not</strong> exist (or if it has expired) a new session will be created and saved in the cookie.

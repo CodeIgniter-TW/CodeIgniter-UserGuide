@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>更新 1.5.4 到 1.6.0 : CodeIgniter 使用手冊</title>
+<title>CodeIgniter Cheatsheets : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,7 +24,7 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle 目錄" alt="Toggle 目錄" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-更新 1.5.4 到 1.6.0
+CodeIgniter Cheatsheets
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,56 +55,14 @@
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>更新 1.5.4 到 1.6.0</h1>
+<h1>CodeIgniter Cheatsheets</h1>
 
-<p>在準備更新之前，你應該把 index.php 換成靜態檔，這樣即可暫時休站。</p>
+<h2>參照函式庫</h2>
 
+<div><a href="../images/codeigniter_1.7.1_library_reference.pdf"><img src="../images/codeigniter_1.7.1_library_reference.png" width="600" height="195" border="0" alt="CodeIgniter Library Reference" /></a></div>
 
-
-<h2>步驟一: 更新 CodeIgniter 檔案</h2>
-
-<p>把 system 目錄中的這些檔案換上新的版本:</p>
-
-<ul>
-
-<li><dfn>system/codeigniter</dfn></li>
-<li><dfn>system/database</dfn></li>
-<li><dfn>system/helpers</dfn></li>
-<li><dfn>system/libraries</dfn></li>
-<li><dfn>system/plugins</dfn></li>
-<li><dfn>system/language</dfn></li>
-</ul>
-
-<p class="important"><strong>注意:</strong> 如果之前在這些目錄裡頭，有任何你自己所開發的檔案，請記得要複製進去。</p>
-
-<h2>步驟二: Add time_to_update to your config.php </h2>
-<p>Add the following to system/application/config/config.php with the other session configuration options</p>
-<p><code>$config['sess_time_to_update'] 		= 300;</code></p>
-<h2>步驟三: Add $autoload['model']</h2>
-<p>Add the following to system/application/autoload.php</p>
-<p><code> /*<br />
-	| -------------------------------------------------------------------<br />
-	|  Auto-load Model files<br />
-	| -------------------------------------------------------------------<br />
-	| Prototype:<br />
-	|<br />
-	|  $autoload['model'] = array('my_model');<br />
-	|<br />
-	*/<br />
-	<br />
-	$autoload['model'] = array();</code></p>
-<h2>步驟四: Add  to your database.php </h2>
-<p>Make the following changes to your system/application/config/database.php file:</p>
-<p>Add the following variable above the database configuration options，with <dfn>$active_group</dfn></p>
-<p><code>$active_record = TRUE;</code></p>
-<p>Remove the following from your database configuration options</p>
-<p><code>$db['default']['active_r'] = TRUE;</code></p>
-<p>Add the following to your database configuration options</p>
-<p><code>$db['default']['char_set'] = &quot;utf8&quot;;<br />
-$db['default']['dbcollat'] = &quot;utf8_general_ci&quot;;</code></p>
-
-<h2>步驟五: 更新使用手冊</h2>
-<p>也請別忘了把 local 的使用手冊換上新的版本。</p>
+<h2>參照補助函式</h2>
+<div><a href="../images/codeigniter_1.7.1_helper_reference.pdf"><img src="../images/codeigniter_1.7.1_helper_reference.png" width="600" height="196" border="0" alt="CodeIgniter Library Reference" /></a></div>
 
 </div>
 <!-- END CONTENT -->
@@ -112,11 +70,11 @@ $db['default']['dbcollat'] = &quot;utf8_general_ci&quot;;</code></p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="index.html">安裝指引</a>
+上個主題:&nbsp;&nbsp;<a href="at_a_glance.html">CodeIgniter 匆匆一瞥</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="troubleshooting.html">除錯</a>
+下個主題:&nbsp;&nbsp;<a href="features.html">支援功能</a>
 </p>
 <p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>

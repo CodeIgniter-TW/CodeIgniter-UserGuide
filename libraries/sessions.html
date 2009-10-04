@@ -82,13 +82,12 @@ session，藉此為開發者提供更佳的彈性。</p>
 
 <h2>Session如何運作？</h2>
 
-<p>When a page is loaded，the session class will check to see if valid session data exists in the user's session cookie.
-If sessions data does <strong>not</strong> exist (or if it has expired) a new session will be created and saved in the cookie.
-If a session does exist，its information will be updated and the cookie will be updated. With each update，the session_id will be regenerated.</p>
+<p>當一頁面被載入時，session類別會檢查使用者的cookie檔是否存在有效的session資料。若是<strong>不</strong>存在（或是已經過期）
+，則會建立一新session並儲存於cookie中；若是存在，則該session的資訊與其cookie皆會同時被更新。而每次更新時，session_id亦會重
+新被產生。</p>
 
-<p>It's important for you to understand that once initialized，the Session class runs automatically.  There is nothing
-you need to do to cause the above behavior to happen.  You can，as you'll see below，work with session data or
-even add your own data to a user's session，but the process of reading，writing，and updating a session is automatic.</p>
+<p>對於使用者來說，非常重要且需要了解的一點是，Session類別一旦被初始化後，便會自動運作，使用者無需理會接下來的任何事情。如同
+下面所示，你可任意使用，甚至新增自己的session資料。而在此過程中，讀取、寫入以及更新session等動作都是自動完成的。</p>
 
 
 <h2>What is Session Data?</h2>

@@ -90,18 +90,18 @@ session，藉此為開發者提供更佳的彈性。</p>
 下面所示，你可任意使用，甚至新增自己的session資料。而在此過程中，讀取、寫入以及更新session等動作都是自動完成的。</p>
 
 
-<h2>What is Session Data?</h2>
+<h2>Session資料是什麼？</h2>
 
-<p>A <em>session</em>，as far as CodeIgniter is concerned，is simply an array containing the following information:</p>
+<p>就CodeIgniter而言，一個<em>session</em>是由包含下列資訊的陣列所組成。</p>
 
 <ul>
-<li>The user's unique Session ID (this is a statistically random string with very strong entropy，hashed with MD5 for portability，and regenerated (by default) every five minutes)</li>
-<li>The user's IP Address</li>
-<li>The user's User Agent data (the first 50 characters of the browser data string)</li>
-<li>The "last activity"  time stamp.</li>
+<li>單一且不重複的使用者Session ID（此為一統計意義上具極大亂度(entropy)的隨機字串。為具備可移植性，採MD5演算法作雜湊運算，且預設每五分鐘重新產生一次）</li>
+<li>使用者的IP位址</li>
+<li>用戶瀏覽器的User Agent資料（取前50個字元）</li>
+<li>"上次活動"時間戳記</li>
 </ul>
 
-<p>The above data is stored in a cookie as a serialized array with this prototype:</p>
+<p>上述資料以下列的陣列格式序列化並儲存至cookie中：</p>
 
 <code>[array]<br />
 (<br />

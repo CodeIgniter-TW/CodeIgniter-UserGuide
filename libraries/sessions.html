@@ -98,7 +98,7 @@ session，藉此為開發者提供更佳的彈性。</p>
 <li>單一且不重複的使用者Session ID（此為一統計意義上具極大亂度(entropy)的隨機字串。為具備可移植性，採MD5演算法作雜湊運算，且預設每五分鐘重新產生一次）</li>
 <li>使用者的IP位址</li>
 <li>用戶瀏覽器的User Agent資料（取前50個字元）</li>
-<li>"上次活動"時間戳記</li>
+<li>"上次活動"(last activity)時間戳記</li>
 </ul>
 
 <p>上述資料以下列的陣列格式序列化並儲存至cookie中：</p>
@@ -111,43 +111,37 @@ session，藉此為開發者提供更佳的彈性。</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_activity' => timestamp<br />
 )</code>
 
-<p>If you have the encryption option enabled，the serialized array will be encrypted before being stored in the cookie,
-making the data highly secure and impervious to being read or altered by someone. More info regarding encryption
-can be <a href="encryption.html">found here</a>，although the Session class will take care of initializing
-and encrypting the data automatically.</p>
+<p>若將加密選項開啟，則該序列化陣列會在儲存於cookie前先作加密的動作，以避免該資料被他人讀取或是更動，達到更高的安全性。
+事實上，Session類別會自動處理資料初始化及加密的動作，想了解更多關於加密的資訊，可在<a href="encryption.html">這裡</a>找到。</p>
 
-<p>注意: Session cookies are only updated every five minutes by default to reduce processor load.  If you repeatedly reload a page
-you'll notice that the "last activity" time only updates if five minutes or more has passed since the last time
-the cookie was written. This time is configurable by changing the $config['time_to_update'] line in your system/config/config.php file.</p>
+<p>注意：為了減少處理器的負擔，Session cookie預設每5分鐘更新一次。若是持續重複載入頁面，則"last activity"的時間值，只有在距上次
+cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更改system/config/config.php檔案中的$config['time_to_update']該行來作設定。</p>
 
-<h2>Retrieving Session Data</h2>
+<h2>取得Session資料</h2>
 
-<p>Any piece of information from the session array is available using the following function:</p>
+<p>Session陣列裡的任何資料，可藉由下列函數取得：</p>
 
 <code>$this->session->userdata('<samp>item</samp>');</code>
 
-<p>Where <samp>item</samp> is the array index corresponding to the item you wish to fetch.  For example，to fetch the session ID you
-will do this:</p>
+<p>其中<samp>item</samp>為所要取得的資料其對應的陣列索引。舉例來說，要取得session ID，可使用以下方式：</p>
 
 <code>$session_id = $this->session->userdata('<samp>session_id</samp>');</code>
 
-<p><strong>注意:</strong> The function returns FALSE (boolean) if the item you are trying to access does not exist.</p>
+<p><strong>注意:</strong> 若是所要存取的資料不存在，則該function傳回FALSE（布林值）。</p>
 
 
-<h2>Adding Custom Session Data</h2>
+<h2>增加自訂Session資料</h2>
 
-<p>A useful aspect of the session array is that you can add your own data to it and it will be stored in the user's cookie.
-Why would you want to do this?  Here's one 參考範例:</p>
+<p>Session陣列一個方便的好處在於，使用者可新增自己的資料，該資料會儲存於該使用者的cookie中。至於這麼做的目的為何？參考以下範例：</p>
 
-<p>Let's say a particular user logs into your site. Once authenticated,
-you could add their username and email address to the session cookie，making that data globally available to you without
-having to run a database query when you need it.</p>
+<p>假設某個特定用戶登入到你的網站，當其通過身份認證之後，便可將使用者名稱及email位址儲存至session cookie中。如此一來，當有需要
+使用這些資料時，便可以全域變數的方式來存取這些資料，而不需另外對資料庫作查詢。</p>
 
-<p>To add your data to the session array involves passing an array containing your new data to this function:</p>
+<p>利用下列函數，可增加新的資料至session陣列中：</p>
 
 <code>$this->session->set_userdata(<samp>$array</samp>);</code>
 
-<p>Where <samp>$array</samp> is an associative array containing your new data.  Here's an 參考範例:</p>
+<p>其中<samp>$array</samp>為一關聯式陣列，包含所要新增的資料。以下為使用範例：</p>
 
 
 <p><code>$newdata = array(<br />
@@ -157,15 +151,16 @@ having to run a database query when you need it.</p>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 	<br />
 	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
-<p>If you want to add userdata one value at a time，set_userdata() also supports this syntax. </p>
+<p>若要一次新增一筆資料，set_userdata()亦支援下面的寫法。</p>
 <p><code>$this-&gt;session-&gt;set_userdata('some_name'，'some_value');</code></p>
-<p class="important"><strong>注意:</strong> Cookies can only hold 4KB of data，so be careful not to exceed the capacity.  The
-encryption process in particular produces a longer data string than the original so keep careful track of how much data you are storing.</p>
+<p class="important"><strong>注意:</strong> Cookie只能儲存4KB的資料，因此使用時需注意勿超過此限制。此外若是有對資料作加密的動作，由於
+加密後會產生比原始資料長度還要長的字串，因此更需留意儲存資料的數量。</p>
 
-<h2>Removing Session Data</h2>
-<p>Just as set_userdata() can be used to add information into a session，unset_userdata() can be used to remove it，by passing the session key. For example，if you wanted to remove 'some_name' from your session information: </p>
+<h2>刪除Session資料</h2>
+<p>如同set_userdata()可用來新增資料至session中，使用者亦可透過傳遞session的key值給unset_userdata() 函數以刪除該筆資料。舉例來說，若想
+從session資料中刪除'some_name'：</p>
 <p><code>$this-&gt;session-&gt;unset_userdata('some_name');</code></p>
-<p>This function can also be passed an associative array of items to unset.</p>
+<p>除此之外，亦可傳遞一包含欲刪項目的關聯陣列給該函數：</p>
 <p><code>$array_items = array('username' => ''，'email' => '');<br />
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
@@ -179,7 +174,8 @@ $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <p><code>$this-&gt;session-&gt;flashdata('item');</code></p>
 <p>If you find that you need to preserve a flashdata variable through an additional request，you can do so using the keep_flashdata() function.</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
-<h2>Saving Session Data to a Database</h2>
+
+<h2>將Session資料存入資料庫</h2>
 <p>While the session data array stored in the user's cookie contains a Session ID,
 unless you store session data in a database there is no way to validate it.  For some applications that require little or no
 security，session ID validation may not be needed，but if your application requires security，validation is mandatory.</p>

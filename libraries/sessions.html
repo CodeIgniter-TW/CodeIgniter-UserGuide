@@ -157,8 +157,8 @@ cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更�
 加密後會產生比原始資料長度還要長的字串，因此更需留意儲存資料的數量。</p>
 
 <h2>刪除Session資料</h2>
-<p>如同set_userdata()可用來新增資料至session中，使用者亦可透過傳遞session的key值給unset_userdata() 函數以刪除該筆資料。舉例來說，若想
-從session資料中刪除'some_name'：</p>
+<p>如同set_userdata()可用來新增資料至session中，使用者亦可透過傳遞session的key值給unset_userdata() 函數來刪除該筆資料。舉例來說，若想
+從session中刪除'some_name'：</p>
 <p><code>$this-&gt;session-&gt;unset_userdata('some_name');</code></p>
 <p>除此之外，亦可傳遞一包含欲刪項目的關聯陣列給該函數：</p>
 <p><code>$array_items = array('username' => ''，'email' => '');<br />
@@ -176,16 +176,14 @@ $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
 
 <h2>將Session資料存入資料庫</h2>
-<p>While the session data array stored in the user's cookie contains a Session ID,
-unless you store session data in a database there is no way to validate it.  For some applications that require little or no
-security，session ID validation may not be needed，but if your application requires security，validation is mandatory.</p>
+<p>基本上，session資料是以包含Session ID的陣列型態儲存在用戶的cookie裡。除非將其保存在資料庫中，否則一般很難驗證其正確性。當然，在一般
+不那麼要求安全性，或是對安全性要求較低的應用中，驗證Session ID或許沒那麼重要。不過針對需較高安全性的應用，Session ID的驗證卻是必需的。
+</p>
 
-<p>When session data is available in a database，every time a valid session is found in the user's cookie，a database
-query is performed to match it.  If the session ID does not match，the session is destroyed.  Session IDs can never
-be updated，they can only be generated when a new session is created.</p>
+<p>當session資料是保存在資料庫時，每當從用戶的cookie中找到一有效的session時，便會執行一次資料庫查詢來比對兩者的session id是否符合。若不
+符合，則該session便會被銷毀。這是因為session id只會在session建立時產生，在這之後永遠不會有更新的動作。</p>
 
-<p>In order to store sessions，you must first create a database table for this purpose.  Here is the basic
-prototype (for MySQL) required by the session class:</p>
+<p>為了將session儲存於資料庫中，必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="8">
 CREATE TABLE IF NOT EXISTS  `ci_sessions` (
@@ -197,15 +195,14 @@ user_data text NOT NULL,
 PRIMARY KEY (session_id)
 );</textarea>
 
-<p><strong>注意:</strong> By default the table is called <dfn>ci_sessions</dfn>，but you can name it anything you want
-as long as you update the <kbd>application/config/config.php</kbd> file so that it contains the name you have chosen.
-Once you have created your database table you can enable the database option in your config.php file as follows:</p>
+<p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>，但可藉由修改<kbd>application/config/config.php</kbd>來設定你所指定的
+表格名稱。建立了資料庫表格之後，便可以在config.php中啟動資料庫選項，如下所示：</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
 
-<p>Once enabled，the Session class will store session data in the DB.</p>
+<p>一旦啟用該選項，Session類別便會將所有的session資料存於資料庫中。</p>
 
-<p>Make sure you've specified the table name in your config file as well:</p>
+<p>同時，確認有在config檔中指定儲存session的表格名稱：</p>
 
 <code>$config['sess_table_name'] = 'ci_sessions";</code>
 

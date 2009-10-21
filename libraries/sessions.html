@@ -202,16 +202,16 @@ PRIMARY KEY (session_id)
 
 <p>一旦啟用該選項，Session類別便會將所有的session資料存於資料庫中。</p>
 
-<p>同時，確認有在config檔中指定儲存session的表格名稱：</p>
+<p>同時也要確認有在config檔中指定儲存session的表格名稱：</p>
 
 <code>$config['sess_table_name'] = 'ci_sessions";</code>
 
-<p class="important"><strong>注意:</strong> The Session class has built-in garbage collection which clears out expired sessions so you
-do not need to write your own routine to do it.</p>
+<p class="important"><strong>注意：</strong>Session類別內建垃圾回收機制（garbage collection），因此使用者無須自行撰寫程式來處理相關
+問題。</p>
 
 
-<h2>Destroying a Session </h2>
-<p>To clear the current session: </p>
+<h2>銷毀Session</h2>
+<p>欲清除目前的session：</p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
 <p class="important"><strong>注意:</strong> This function should be the last one called，and even flash variables will no longer be available.  If you only want some items destroyed and not all，use <dfn>unset_userdata()</dfn>.</p>
 

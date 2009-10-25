@@ -164,15 +164,16 @@ cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更�
 <p><code>$array_items = array('username' => ''，'email' => '');<br />
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
-<h2>Flashdata</h2>
-<p>CodeIgniter supports &quot;flashdata&quot;，or session data that will only be available for the next server request，and are then automatically cleared. These can be very useful，and are typically used for informational or status messages (for 參考範例: &quot;record 2 deleted&quot;).</p>
-<p>注意: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
-<p>To add flashdata:</p>
+<h2>快閃資料</h2>
+<p>CodeIgniter支援&quot;快閃資料(Flashdata)&quot;，其為一session資料，並只對下一次的Server請求有效，之後就自動清除。快閃資料在某些情況下
+非常有用，一般是用來提供資訊或狀態訊息等。（例如：&quot;紀錄2已刪除&quot;）</p>
+<p>注意：快閃資料變數名以&quot;flash&quot;開頭，因此需避免在自訂的session名稱中使用此前綴。</p>
+<p>欲新增快閃資料：</p>
 <p><code>$this-&gt;session-&gt;set_flashdata('item'，'value');</code></p>
-<p>You can also pass an array to set_flashdata()，in the same manner as set_userdata(). </p>
-<p>To read a flashdata variable:</p>
+<p>如同set_userdata()的用法，亦可傳遞一陣列給set_flashdata()。</p>
+<p>讀取快閃資料：</p>
 <p><code>$this-&gt;session-&gt;flashdata('item');</code></p>
-<p>If you find that you need to preserve a flashdata variable through an additional request，you can do so using the keep_flashdata() function.</p>
+<p>若是需要為其它的伺服器請求保留一快閃資料，可使用keep_flashdata()函數：</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
 
 <h2>將Session資料存入資料庫</h2>
@@ -195,7 +196,7 @@ user_data text NOT NULL,
 PRIMARY KEY (session_id)
 );</textarea>
 
-<p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>，但可藉由修改<kbd>application/config/config.php</kbd>來設定你所指定的
+<p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>，但可藉由修改<kbd>application/config/config.php</kbd>來設定你想要的
 表格名稱。建立了資料庫表格之後，便可以在config.php中啟動資料庫選項，如下所示：</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
@@ -213,69 +214,70 @@ PRIMARY KEY (session_id)
 <h2>銷毀Session</h2>
 <p>欲清除目前的session：</p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
-<p class="important"><strong>注意:</strong> This function should be the last one called，and even flash variables will no longer be available.  If you only want some items destroyed and not all，use <dfn>unset_userdata()</dfn>.</p>
+<p class="important"><strong>注意：</strong>此函式應該最後被呼叫，一旦執行，即使是flash變數也會被刪除。若只是要刪除特定變數，使用<dfn>
+unset_userdata()</dfn>函式。</p>
 
 
 
-<h2>Session Preferences</h2>
-<p>You'll find the following Session related preferences in your <kbd>application/config/config.php</kbd> file:</p>
+<h2>Session參數設定</h2>
+<p>以下session相關參數可在<kbd>application/config/config.php</kbd>檔案中找到：</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-	<th>Preference</th>
-	<th>Default</th>
-	<th>Options</th>
-	<th>Description</th>
+	<th>參數</th>
+	<th>預設值</th>
+	<th>選項</th>
+	<th>說明</th>
 </tr>
 <tr>
 	<td class="td"><strong>sess_cookie_name</strong></td>
 	<td class="td">ci_session</td>
-	<td class="td">None</td>
-	<td class="td">The name you want the session cookie saved as.</td>
+	<td class="td">無</td>
+	<td class="td">儲存session cookie所要使用的名稱。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_expiration</strong></td>
 	<td class="td">7200</td>
-	<td class="td">None</td>
-	<td class="td">The number of seconds you would like the session to last. The default value is 2 hours (7200 seconds). If you would like a non-expiring session set the value to zero: 0</td>
+	<td class="td">無</td>
+	<td class="td">session所要保留的時間（秒），預設為2個小時（7200秒），若希望session永遠有效，將此值設為0。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_encrypt_cookie</strong></td>
 	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to encrypt the session data.</td>
+	<td class="td">TRUE/FALSE (布林值)</td>
+	<td class="td">是否加密session資料。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_use_database</strong></td>
 	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to save the session data to a database.  You must create the table before enabling this option.</td>
+	<td class="td">TRUE/FALSE (布林值)</td>
+	<td class="td">是否將session資料儲存於資料庫，必須在啟用此選項前先建立一資料庫表格。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_table_name</strong></td>
 	<td class="td">ci_sessions</td>
-	<td class="td">Any valid SQL table name</td>
-	<td class="td">The name of the session database table.</td>
+	<td class="td">任何有效的SQL表格名稱</td>
+	<td class="td">session的資料庫表格名稱。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_time_to_update</strong></td>
 	<td class="td">300</td>
-	<td class="td">Time in seconds</td>
-	<td class="td">This options controls how often the session class will regenerate itself and create a new session id.</td>
+	<td class="td">以秒計時</td>
+	<td class="td">此選項控制session類別多久重新產生一session以及新的session id。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_match_ip</strong></td>
 	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the user's IP address when reading the session data.  Note that some ISPs dynamically
-	changes the IP，so if you want a non-expiring session you will likely set this to FALSE.</td>
+	<td class="td">TRUE/FALSE (布林值)</td>
+	<td class="td">是否根據對應的使用者IP來讀取session資料。需注意某些ISP會動態地改變用戶IP，因此，在此情況下必須將此選項設為FALSE
+	，以得到永久有效的session。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_match_useragent</strong></td>
 	<td class="td">TRUE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the User Agent when reading the session data.</td>
+	<td class="td">TRUE/FALSE (布林值）</td>
+	<td class="td">是否根據對應的User Agent來讀取session資料。</td>
 </tr>
 </table>
 

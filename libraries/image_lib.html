@@ -6,7 +6,7 @@
 <title>Image Manipulation 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+<link rel='stylesheet' type='text/css' media='all' href='userguide.css' />
 
 <script type="text/javascript" src="../nav/nav.js"></script>
 <script type="text/javascript" src="../nav/prototype.lite.js"></script>
@@ -58,38 +58,37 @@ Image Manipulation 類別
 
 <h1>Image Manipulation 類別</h1>
 
-<p>CodeIgniter's Image Manipulation class lets you perform the following actions:</p>
+<p>CodeIgniter' 的 Image Manipulation 類別讓你可以執行以下動作:</p>
 
 <ul>
-<li>Image Resizing</li>
-<li>Thumbnail Creation</li>
-<li>Image Cropping</li>
-<li>Image Rotating</li>
-<li>Image Watermarking</li>
+<li>修改影像的尺寸</li>
+<li>建立縮圖</li>
+<li>影像裁剪</li>
+<li>影像旋轉</li>
+<li>浮水印</li>
 </ul>
 
-<p>All three major image libraries are supported:  GD/GD2，NetPBM，and ImageMagick</p>
+<p>支援三個主要的影像函式庫: GD/GD2，NetPBM，以及 ImageMagick</p>
 
-<p class="important"><strong>注意:</strong> Watermarking is only available using the GD/GD2 library.
+<p class="important"><strong>注意:</strong> 只有 GD/GD2 函式庫才支援浮水印。
 In addition，even though other libraries are supported，GD is required in
 order for the script to calculate the image properties.  The image processing，however，will be performed with the
 library you specify.</p>
 
 
-<h2>Initializing the 類別</h2>
+<h2>初始化類別</h2>
 
-<p>Like most other classes in CodeIgniter，the image class is initialized in your controller
-using the <dfn>$this->load-&gt;library</dfn> function:</p>
+<p>就像其他 CodeIgniter 的類別，圖片類別必須在 controller 裡呼叫 <dfn>$this->load-&gt;library</dfn> 
+函式來初始化:</p>
 <code>$this->load->library('image_lib');</code>
 
-<p>Once the library is loaded it will be ready for use.  The image library object you will use to call all functions is: <dfn>$this->image_lib</dfn></p>
+<p>載入函式庫後就可以使用了。用 <dfn>$this->image_lib </dfn>來使用的影像函式庫物件，以及執行各種動作。</p>
 
 
-<h2>Processing an Image</h2>
+<h2>Processing an Image 處理影像</h2>
 
-<p>Regardless of the type of processing you would like to perform (resizing，cropping，rotation，or watermarking)，the general process is
-identical. You will set some preferences corresponding to the action you intend to perform，then
-call one of four available processing functions.  For example，to create an image thumbnail you'll do this:</p>
+<p>不管你要對影像執行哪種動作(修改尺寸、裁剪、旋轉或者加上浮水印)，一般的處理流程都很雷同。你需要做些喜好設定，然後呼叫其中一個(總共有四個)可用的影像處理函數。例如你想建立縮圖，那麼
+可以這麼做：</p>
 
 <code>$config['image_library'] = 'gd2';<br />
 $config['source_image']	= '/path/to/image/mypic.jpg';<br />
@@ -103,19 +102,19 @@ $this->load->library('image_lib'，$config);
 <br />
 $this->image_lib->resize();</code>
 
-<p>The above code tells the <dfn>image_resize</dfn> function to look for an image called <em>mypic.jpg</em>
-located in the <dfn>source_image</dfn> folder，then create a thumbnail that is 75 X 50 pixels using the GD2 <dfn>image_library</dfn>.
-Since the <dfn>maintain_ratio</dfn> option is enabled，the thumb will be as close to the target <dfn>width</dfn> and
-<dfn>height</dfn> as possible while preserving the original aspect ratio.  The thumbnail will be called <em>mypic_thumb.jpg</em>
-</p>
+<p>上頭的程式碼告訴 <dfn>image_resize</dfn> 函式庫去找一個位於 <dfn>source_image</dfn> 資料夾裡，名叫 <em>mypic.jpg</em>
+的圖片，然後呼叫 GD2 <dfn>image_library </dfn>影像函式庫來創建一張尺寸為 75 X 50 像素的縮圖。
+啟動 <dfn>maintain_ratio</dfn> 選項後，縮圖會在維持原本的長寬比例下，會盡可能的接近 <dfn>width</dfn> 跟
+<dfn>height</dfn> 的像素尺寸大小。 同時這張縮圖的檔名會命名為 <em>mypic_thumb.jpg</em>
+。</p>
 
 <p class="important"><strong>注意:</strong> In order for the image class to be allowed to do any processing，the
 folder containing the image files must have write permissions.</p>
 
 
-<h2>Processing 函數</h2>
+<h2>Processing 處理函數</h2>
 
-<p>There are four available processing functions:</p>
+<p>總共有四個可用的影像處理函數:</p>
 
 <ul>
 <li>$this->image_lib->resize()</li>
@@ -125,39 +124,36 @@ folder containing the image files must have write permissions.</p>
 <li>$this-&gt;image_lib-&gt;clear()</li>
 </ul>
 
-<p>These functions return boolean TRUE upon success and FALSE for failure.  If they fail you can retrieve the
-error message using this function:</p>
+<p>這些函數若執行成功會回傳 TRUE 而失敗則回傳 FALSE。 萬一失敗了，可由以下函數來取得錯誤訊息:</p>
 
 <code>echo $this->image_lib->display_errors();</code>
 
-<p>A good practice is use the processing function conditionally，showing an error upon failure，like this:</p>
+<p>把影像處裡函數放在條件判斷中是個好方法是，萬一失敗就會印出錯誤訊息，就像:</p>
 
 <code>if ( ! $this->image_lib->resize())<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $this->image_lib->display_errors();<br />
 }</code>
 
-<p>注意:  You can optionally specify the HTML formatting to be applied to the errors，by submitting the opening/closing
-tags in the function，like this:</p>
+<p>注意:  你可以選擇性的指定錯誤訊息的HTML格式，只消在參數指定開頭/結尾標籤，就像:</p>
 
 <code>$this->image_lib->display_errors('<var>&lt;p></var>'，'<var>&lt;/p></var>');</code>
 
 
-<h2>Preferences</h2>
+<h2>Preferences 喜好設定</h2>
 
-<p>The  preferences described below allow you to tailor the image processing to suit your needs.</p>
+<p>這邊講述了一些喜好設定，允許你依照你的需求來處理影像。</p>
 
-<p>Note that not all preferences are available for every
-function.  For example，the x/y axis preferences are only available for image cropping. Likewise，the width and height
-preferences have no effect on cropping.  The "availability" column indicates which functions support a given preference.</p>
+<p>請注意並不是每個選項都對每個函數有作用。 例如只有影像裁剪才能設定 x/y 軸。同樣地，設定寬度及高度對影像裁剪就沒影響了.  表格中"可用" 
+這欄指出那個函數支援哪些設定。</p>
 
-<p>Availability Legend:</p>
+<p>可用的函數縮寫:</p>
 
 <ul>
-<li><var>R</var> - Image Resizing</li>
-<li><var>C</var> - Image Cropping</li>
-<li><var>X</var> - Image Rotation</li>
-<li><var>W</var> - Image Watermarking</li>
+<li><var>R</var> - Image Resizing 修改尺寸</li>
+<li><var>C</var> - Image Cropping 影像裁剪</li>
+<li><var>X</var> - Image Rotation 影像旋轉</li>
+<li><var>W</var> - Image Watermarking 浮水印</li>
 
 </ul>
 
@@ -167,11 +163,11 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
-<th>Availability</th>
+<th>設定</th>
+<th>預設值</th>
+<th>其他選擇</th>
+<th>敘述</th>
+<th>可用</th>
 </tr>
 
 <tr>

@@ -61,15 +61,15 @@ Zip Encoding 類別
 
 
 <h2>Initializing the 類別</h2>
-<p>Like most other classes in CodeIgniter，the Zip class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>使用方式就像其他 CodeIgniter 類別一樣，在控制器(Controller)使用此類別 <dfn>$this->load->library</dfn> 函式:</p>
 
 <code>$this->load->library('zip');</code>
-<p>Once loaded，the Zip library object will be available using: <dfn>$this->zip</dfn></p>
+<p>經過系統載入，您就可以使用 Zip 物件函式: <dfn>$this->zip</dfn></p>
 
 
-<h2>Usage Example</h2>
+<h2>範例</h2>
 
-<p>This example demonstrates how to compress a file，save it to a folder on your server，and download it to your desktop.</p>
+<p>此範例教您如何壓縮一個檔案，將其檔案存放入您指定的伺服器資料夾，下載此檔案到使用者端電腦桌面。.</p>
 
 <code>
 $name = 'mydata1.txt';<br />
@@ -77,10 +77,10 @@ $data = 'A Data String!';<br />
 <br />
 $this->zip->add_data($name，$data);<br />
 <br />
-// Write the zip file to a folder on your server. Name it "my_backup.zip"<br />
+// 將檔案壓縮到您的伺服器，指定名稱為 "my_backup.zip"<br />
 $this->zip->archive('/path/to/directory/my_backup.zip');
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
+ // 下載到您的桌面，指定名稱為 "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 

@@ -88,9 +88,7 @@ echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
 
 <h2>傳遞資料到日曆單元格(Cell)</h2>
 
-<p>To add data to your calendar cells involves creating an associative array in which the keys correspond to the days
-you wish to populate and the array value contains the data.  The array is passed to the third parameter of the calendar
-generating function.  Consider this 參考範例:</p>
+<p>增加資料到日曆的單元格就要建立一個關聯陣列，在這個陣列中索引是你想設定的天數 value 值包含你要傳入的值。請傳送此關聯陣列到日曆產生函式第三個參數。 參考下面這個例子：</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
@@ -105,9 +103,7 @@ echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>，<var>$data</var>
 
 <p>使用上面的例子，天數3,7,13和26將變成連接指向您提供的 URLs。</p>
 
-<p class="important"><strong>注意:</strong> By default it is assumed that your array will contain links.
-In the section that explains the calendar template below you'll see how you can customize
-how data passed to your cells is handled so you can pass different types of information.</p>
+<p class="important"><strong>注意：</strong>在默認情況,系統假定你的陣列中已經包含了連結。在下面解釋日曆模板部分您會看到可以自行定義資料如何被傳入日曆單元格以便可以傳不同類型的資訊。</p>
 
 
 <h2>設置偏好</h2>
@@ -138,28 +134,27 @@ echo $this->calendar->generate();</code>
 <th>Options</th>
 <th>Description</th>
 </tr><tr>
-<td class="td"><strong>template</strong></td><td class="td">None</td><td class="td">None</td><td class="td">A string containing your calendar template. See the template section below.</td>
+<td class="td"><strong>template</strong></td><td class="td">None</td><td class="td">None</td><td class="td">字串包含您的日曆模板。參考底下模板章節。</td>
 </tr><tr>
 <td class="td"><strong>local_time</strong></td><td class="td">time()</td><td class="td">None</td><td class="td">A Unix timestamp corresponding to the current time.</td>
 </tr><tr>
-<td class="td"><strong>start_day</strong></td><td class="td">sunday</td><td class="td">Any week day (sunday，monday，tuesday，etc.)</td><td class="td">Sets the day of the week the calendar should start on.</td>
+<td class="td"><strong>start_day</strong></td><td class="td">sunday</td><td class="td">一週內的任一天（sunday,monday,ect.）</td><td class="td">指定每週的第一天。</td>
 </tr><tr>
-<td class="td"><strong>month_type</strong></td><td class="td">long</td><td class="td">long，short</td><td class="td">Determines what version of the month name to use in the header. long = January，short = Jan.</td>
+<td class="td"><strong>month_type</strong></td><td class="td">long</td><td class="td">long，short</td><td class="td">月份的顯示樣式.long = January, short = Jan。</td>
 </tr><tr>
-<td class="td"><strong>day_type</strong></td><td class="td">abr</td><td class="td">long，short，abr</td><td class="td">Determines what version of the weekday names to use in the column headers. long = Sunday，short = Sun，abr = Su.</td>
+<td class="td"><strong>day_type</strong></td><td class="td">abr</td><td class="td">long，short，abr</td><td class="td">星期的顯示樣式long = Sunday, short = Sun, abr = Su.</td>
 </tr><tr>
-<td class="td"><strong>show_next_prev</strong></td><td class="td">FALSE</td><td class="td">TRUE/FALSE (boolean)</td><td class="td">Determines whether to display links allowing you to toggle to next/previous months. See information on this feature below.</td>
+<td class="td"><strong>show_next_prev</strong></td><td class="td">FALSE</td><td class="td">TRUE/FALSE (boolean)</td><td class="td">是否顯示"上個月"和"下個月"連結。</td>
 </tr><tr>
-<td class="td"><strong>next_prev_url</strong></td><td class="td">None</td><td class="td">A URL</td><td class="td">Sets the basepath used in the next/previous calendar links.</td>
+<td class="td"><strong>next_prev_url</strong></td><td class="td">None</td><td class="td">A URL</td><td class="td">設定上個月/下個月連接位址。</td>
 </tr>
 </table>
 
 
 
-<h2>Showing Next/Previous Month Links</h2>
+<h2>顯示下一月/上一月連結</h2>
 
-<p>To allow your calendar to dynamically increment/decrement via the next/previous links requires that you set up your calendar
-code similar to this 參考範例:</p>
+<p>要讓你的日曆透過顯示下一月/上一月連結來動態的減少/增加，可以仿照下面的例子建立你的日曆：</p>
 
 
 <code>$prefs = array (<br />
@@ -171,20 +166,19 @@ $this-&gt;load-&gt;library('calendar'，$prefs);<br />
 <br />
 echo $this->calendar->generate(<var>$this->uri->segment(3)</var>，<var>$this->uri->segment(4)</var>);</code>
 
-<p>You'll notice a few things about the above 參考範例:</p>
+<p>在上面的例子中，你會注意到這幾點：</p>
 
 <ul>
-<li>You must set the "show_next_prev" to TRUE.</li>
-<li>You must supply the URL to the controller containing your calendar in the "next_prev_url" preference.</li>
-<li>You must supply the "year" and "month" to the calendar generating function via the URI segments where they appear (注意:  The calendar class automatically adds the year/month to the base URL you provide.).</li>
+<li>您必須把 "show_next_prev" 設定為 TRUE。</li>
+<li>您必須在 "next_prev_url" 偏好中提供 URL 給日曆類別。</li>
+<li>您必須透過 URI segments 參數提供 "year" 合和 "month" 給日曆產生函式(注意:  日曆類別會自動新增 year/month 給您提供的 URL)。</li>
 </ul>
 
 
 
-<h2>Creating a Calendar Template</h2>
+<h2>建立一個日曆模板</h2>
 
-<p>By creating a calendar template you have 100% control over the design of your calendar. Each component of your
-calendar will be placed within a pair of pseudo-variables as shown here:</p>
+<p>藉由建立一個日曆模板你能夠100%的控制界面設計。日曆的每一部分都要被放在一對偽變數中，像底下這樣：</p>
 
 
 <code>

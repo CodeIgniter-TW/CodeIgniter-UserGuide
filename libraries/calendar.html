@@ -103,7 +103,7 @@ $data = array(<br />
 <br />
 echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>，<var>$data</var>);</code>
 
-<p>使用 above example，day numbers 3，7，13，and 26 will become links pointing to the URLs you've provided.</p>
+<p>使用上面的例子，天數3,7,13和26將變成連接指向您提供的 URLs。</p>
 
 <p class="important"><strong>注意:</strong> By default it is assumed that your array will contain links.
 In the section that explains the calendar template below you'll see how you can customize
@@ -112,8 +112,7 @@ how data passed to your cells is handled so you can pass different types of info
 
 <h2>設置偏好</h2>
 
-<p>There are seven preferences you can set to control various aspects of the calendar.  Preferences are set by passing an 
-array of preferences in the second parameter of the loading function. Here is an 參考範例:</p>
+<p>有 7 種偏好可以讓你設置日曆的各個方面。偏好設定可以透過傳入陣列函數到第二個參數。下面是一個參考範例：</p>
 
 
 <code>
@@ -127,8 +126,7 @@ $this->load->library('calendar'，$prefs);<br />
 <br />
 echo $this->calendar->generate();</code>
 
-<p>The above code would start the calendar on saturday，use the "long" month heading，and the "short" day names.  More information
-regarding preferences below.</p>
+<p>上面的程式碼將從禮拜六開始，用"長"月標題和"短"天數格式。更多關於偏好的設定資訊請看下面。</p>
 
 
 

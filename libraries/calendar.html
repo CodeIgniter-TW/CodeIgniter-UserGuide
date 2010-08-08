@@ -64,30 +64,29 @@ Calendaring 類別
 
 <h2>初始化類別</h2>
 
-<p>Like most other classes in CodeIgniter，the Calendar class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>和大多數其他CI中的類別一樣，在控制器中初始化日曆類用 <dfn>$this->load->library</dfn> 函數：</p>
 
 <code>$this->load->library('calendar');</code>
-<p>Once loaded，the Calendar object will be available using: <dfn>$this->calendar</dfn></p>
+<p>載入之後,日曆類別可以這樣使用: <dfn>$this->calendar</dfn></p>
 
 
-<h2>Displaying a Calendar</h2>
+<h2>顯示單一日曆</h2>
 
-<p>Here is a very simple example showing how you can display a calendar:</p>
+<p>這是一個簡單的例子告訴你如何去顯示一個日曆：</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
 echo $this->calendar->generate();</code>
 
-<p>The above code will generate a calendar for the current month/year based on your server time.
-To show a calendar for a specific month and year you will pass this information to the calendar generating function:</p>
+<p>上面的代碼將根據您的伺服器時間建立一個當前月/年的日曆。要顯示一個指定月和年的日曆，你要傳送這些訊息到日曆生成函數：</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
 echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
 
-<p>The above code will generate a calendar showing the month of June in 2006.  The first parameter specifies the year，the second parameter specifies the month.</p>
+<p>上面的程式碼將建立一個顯示2006年6月的日曆。第一個參數指定了年，第二個參數指定了月。</p>
 
-<h2>Passing Data to your Calendar Cells</h2>
+<h2>傳遞資料到日曆單元格(Cell)</h2>
 
 <p>To add data to your calendar cells involves creating an associative array in which the keys correspond to the days
 you wish to populate and the array value contains the data.  The array is passed to the third parameter of the calendar

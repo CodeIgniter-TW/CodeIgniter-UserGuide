@@ -58,37 +58,35 @@ Calendaring 類別
 
 
 
-<h1>Calendaring 類別</h1>
+<h1>日曆類別</h1>
 
-<p>The Calendar class enables you to dynamically create calendars. Your calendars can be formatted through the use of a calendar
-template，allowing 100% control over every aspect of its design. In addition，you can pass data to your calendar cells.</p>
+<p>日曆類可以讓你動態創建日曆。並且用日曆模板對建立的日曆格式化,100%的控制它的樣式。另外，你可以傳送資料到你的日曆單元格中。</p>
 
-<h2>Initializing the 類別</h2>
+<h2>初始化類別</h2>
 
-<p>Like most other classes in CodeIgniter，the Calendar class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>和大多數其他CI中的類別一樣，在控制器中初始化日曆類用 <dfn>$this->load->library</dfn> 函數：</p>
 
 <code>$this->load->library('calendar');</code>
-<p>Once loaded，the Calendar object will be available using: <dfn>$this->calendar</dfn></p>
+<p>載入之後,日曆類別可以這樣使用: <dfn>$this->calendar</dfn></p>
 
 
-<h2>Displaying a Calendar</h2>
+<h2>顯示單一日曆</h2>
 
-<p>Here is a very simple example showing how you can display a calendar:</p>
+<p>這是一個簡單的例子告訴你如何去顯示一個日曆：</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
 echo $this->calendar->generate();</code>
 
-<p>The above code will generate a calendar for the current month/year based on your server time.
-To show a calendar for a specific month and year you will pass this information to the calendar generating function:</p>
+<p>上面的代碼將根據您的伺服器時間建立一個當前月/年的日曆。要顯示一個指定月和年的日曆，你要傳送這些訊息到日曆生成函數：</p>
 
 <code>$this->load->library('calendar');<br />
 <br />
 echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
 
-<p>The above code will generate a calendar showing the month of June in 2006.  The first parameter specifies the year，the second parameter specifies the month.</p>
+<p>上面的程式碼將建立一個顯示2006年6月的日曆。第一個參數指定了年，第二個參數指定了月。</p>
 
-<h2>Passing Data to your Calendar Cells</h2>
+<h2>傳遞資料到日曆單元格(Cell)</h2>
 
 <p>To add data to your calendar cells involves creating an associative array in which the keys correspond to the days
 you wish to populate and the array value contains the data.  The array is passed to the third parameter of the calendar
@@ -112,7 +110,7 @@ In the section that explains the calendar template below you'll see how you can 
 how data passed to your cells is handled so you can pass different types of information.</p>
 
 
-<h2>Setting Display Preferences</h2>
+<h2>設置偏好</h2>
 
 <p>There are seven preferences you can set to control various aspects of the calendar.  Preferences are set by passing an 
 array of preferences in the second parameter of the loading function. Here is an 參考範例:</p>

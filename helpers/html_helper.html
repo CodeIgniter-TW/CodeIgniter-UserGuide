@@ -58,28 +58,27 @@ HTML 補助函數
 
 <h1>HTML 補助函數</h1>
 
-<p>The HTML 補助函數 file contains functions that assist in working with HTML.</p>
+<p>HTML 補助函數提供一些輔助 html 操作的相關函數</p>
 
 
-<h2>載入 補助函數</h2>
+<h2>載入補助函數</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>補助函數使用下列方式載入：</p>
 <code>$this->load->helper('html');</code>
 
-<p>The following functions are available:</p>
+<p>可用函數如下所示：</p>
 
 <h2>br()</h2>
-<p>Generates line break tags (&lt;br />) based on the number you submit. 參考範例:</p>
+<p>根據您所輸入的數字來產生斷行符號標籤(&lt;br />). 參考範例:</p>
 <code>echo br(3);</code>
-<p>The above would produce: &lt;br />&lt;br />&lt;br /></p>
+<p>上述程式碼將產生: &lt;br />&lt;br />&lt;br /></p>
 
 <h2>heading()</h2>
-<p>Lets you create HTML &lt;h1> tags.  The first parameter will contain the data，the
-second the size of the heading.  參考範例:</p>
+<p>讓您產生 &lt;h1> 相關標籤.  第一個參數請輸入顯示字串，第二個參數來代表您所要顯示的 heading 大小. 參考範例:</p>
 <code>echo heading('Welcome!'，3);</code>
-<p>The above would produce:  &lt;h3>Welcome!&lt;/h3></p>
+<p>上述程式碼將產生:  &lt;h3>Welcome!&lt;/h3></p>
 <h2>img()</h2>
-<p>Lets you create HTML &lt;img /&gt; tags.  The first parameter  contains the image source. 參考範例:</p>
+<p>讓您產生 &lt;img /&gt; 相關標籤. 第一個參數包含圖片相關原始碼. 參考範例:</p>
 <code>echo img('images/picture.jpg');<br />
 // gives &lt;img src=&quot;http://site.com/images/picture.jpg&quot; /&gt;</code>
 <p>There is an optional second parameter that is a TRUE/FALSE value that specifics if the src should have the page specified by $config['index_page'] added to the address it creates. Presumably，this would be if you were using a media controller.</p>
@@ -124,7 +123,7 @@ echo link_tag('css/mystyles.css');<br />
 	// &lt;link href=&quot;http://site.com/css/printer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;print&quot; /&gt;</code></p>
 	
 <h2>nbs()</h2>
-<p>Generates non-breaking spaces (&amp;nbsp;) based on the number you submit. 參考範例:</p>
+<p>根據所自訂的數量來產生非斷行空白(&amp;nbsp;). 參考範例:</p>
 <code>echo nbs(3);</code>
 <p>The above would produce: &amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
 
@@ -204,7 +203,7 @@ $list = array(<br />
 <br />
 echo ul($list，$attributes);</code>
 
-<p>The above code will produce this:</p>
+<p>上述程式碼將產生如下:</p>
 
 <code>
 &lt;ul&nbsp;class="boldlist"&nbsp;id="mylist"&gt;<br />
@@ -254,7 +253,7 @@ echo ul($list，$attributes);</code>
 
 <h2>meta()</h2>
 
-<p>Helps you generate meta tags.  You can pass strings to the function，or simple arrays，or multidimensional ones. Examples:</p>
+<p>幫助您產生 meta 標籤資訊.  You can pass strings to the function，or simple arrays，or multidimensional ones. Examples:</p>
 
 <code>
 echo meta('description'，'My Great site');<br />

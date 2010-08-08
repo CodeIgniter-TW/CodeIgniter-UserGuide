@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Scaffolding : CodeIgniter 使用手冊</title>
+<title>腳手架 (Scaffolding) : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Scaffolding
+腳手架 (Scaffolding)
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,48 +55,36 @@ Scaffolding
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Scaffolding</h1>
+<h1>腳手架 (Scaffolding)</h1>
 
-<p class="important">Scaffolding has been deprecated from CodeIgniter as of 1.6.0.</p>
+<p class="important">從 CodeIgniter 1.6.0 開始，腳手架功能已經廢除掉了。</p>
 
-<p>CodeIgniter's Scaffolding feature provides a fast and very convenient way to add，edit，or delete information in your database
-during development.</p>
+<p>CodeIgniter 的腳手架功能使您可以在開發過程中方便快速的在資料庫中使用新增、刪除、修改資料。</p>
 
-<p class="important"><strong>非常重要:</strong>  Scaffolding is intended for development use only.  It provides very little
-security other than a "secret" word，so anyone who has access to your CodeIgniter site can potentially edit or delete your information.
-If you use scaffolding make sure you disable it immediately after you are through using it.  DO NOT leave it enabled on a live site.
-And please，set a secret word before you use it.</p>
+<p class="important"><strong>非常重要:</strong>腳手架只可以在開發過程中使用。因為它提供了非常少的安全保護，所以可以瀏覽到您的 CodeIgniter 網站的任何人都可以新增刪除或修改您資料庫中的資料。如果您使用腳手架，那麼請確認您在使用完之後一定要立刻禁止它。千萬不要在上線的網站中啟動它，並且一定要在使用前給它設置一個密碼（secret word）。</p>
 
-<h2>Why would someone use scaffolding?</h2>
+<h2>為什麼要使用腳手架？</h2>
 
-<p>Here's a typical scenario:  You create a new database table during development and you'd like a quick way to insert some data
-into it to work with.  Without scaffolding your choices are either to write some inserts using the command line or to use a
-database management tool like phpMyAdmin.  With CodeIgniter's scaffolding feature you can quickly add some data using its browser
-interface.  And when you are through using the data you can easily delete it.</p>
+<p>這是一個典型的情境：開發過程中，你建立了一個資料庫並且希望快速地寫入一些資料。沒有"腳手架"時，你要麼寫些插入指令，要麼就使用如 phpMyAdmin 之類的資料庫管理工具。用 CodeIgniter 的腳手架特性，你可以快速地透過瀏覽器來新增資料。當你用完時，也可以輕易刪除掉這些資料。</p>
 
-<h2>Setting a Secret Word</h2>
+<h2>設置密碼（Secret Word）</h2>
 
-<p>Before enabling scaffolding please take a moment to set a secret word.  This word，when encountered in your URL,
-will launch the scaffolding interface，so please pick something obscure that no one is likely to guess.</p>
+<p>啟動腳手架之前，要先設置一個密碼。我們將通過這個密碼來啟動腳手架，所以要用一些不常見的詞防止被人猜到。</p>
 
-<p>To set a secret word，open your <kbd>application/config/routes.php</kbd> file and look for this item:</p>
+<p>設定密碼，請打開 <kbd>application/config/routes.php</kbd> 檔案，找到下面字串：</p>
 
 <code>$route['scaffolding_trigger'] = '';</code>
 
-<p>Once you've found it add your own unique word.</p>
+<p>把它替換成您要的密碼</p>
 
-<p class="important"><strong>注意:</strong> The scaffolding word can <strong>not</strong> start with an underscore.</p>
+<p class="important"><strong>注意:</strong>腳手架密碼 <strong>不能</strong> 是底線開頭。</p>
 
 
-<h2>Enabling Scaffolding</h2>
+<h2>啟動腳手架</h2>
 
-<p>注意: The information on this page assumes you already know how <a href="controllers.html">controllers</a> work，and that you have
-a working one available.  It also assumes you have configured CodeIgniter to auto-connect to your <a href="../database/index.html">database</a>.
-If not，the information here won't be very relevant，so you are encouraged to go through those sections first.
-Lastly，it assumes you understand what a class constructor is.  If not，read the last section of the <a href="controllers.html">controllers</a>
-page.</p>
+<p>注意: 本頁資訊假設你已經知道 <a href="controllers.html">控制器</a> 是怎麼工作的了, 並且你已經有一個正在運行的控制器。同時，我們假設你已經設定好 CodeIgniter 使之能自動連上 <a href="../database/index.html">資料庫</a> 。如果不是，此頁的資訊不會很有價值，所以我們建議你先閱讀相關內容。最後，我們假設你已經知道什麼叫類別建構子。否則，請閱讀 <a href="controllers.html">控制器</a> 的最後一章節。</p>
 
-<p>To enable scaffolding you will initialize it in your constructor like this:</p>
+<p>啟動腳手架，你的控制器函數應該有像這樣的代碼：</p>
 
 <code>
 &lt;?php<br />
@@ -110,24 +98,22 @@ class Blog extends Controller {<br />
 }<br />
 ?&gt;</code>
 
-<p>Where <kbd>table_name</kbd> is the name of the table (table，not database) you wish to work with.</p>
+<p>此處的 <kbd>table_name</kbd> 為你想操作的資料表名稱 (表名，不是資料庫名稱)。</p>
 
-<p>Once you've initialized scaffolding，you will access it with this URL prototype:</p>
+<p>一旦初始化腳手架，你可以以這樣的URL來瀏覽它：</p>
 
 <code>example.com/index.php/<var>class</var>/<dfn>secret_word</dfn>/</code>
 
-<p>For example，using a controller named <var>Blog</var>，and <dfn>abracadabra</dfn> as the secret word,
-you would access scaffolding like this:</p>
+<p>比如，控制器名為 <var>Blog</var> ，密匙為 <dfn>abracadabra</dfn>，你可以這樣瀏覽腳手架：</p>
 
 <code>example.com/index.php/<var>blog</var>/<dfn>abracadabra</dfn>/</code>
 
-<p>The scaffolding interface should be self-explanatory.  You can add，edit or delete records.</p>
+<p>腳手架界面是簡單明了的。你可以新增，修改或刪除資料。</p>
 
 
-<h2>A Final 注意:</h2>
+<h2>最後需要注意的地方:</h2>
 
-<p>The scaffolding feature will only work with tables that contain a primary key，as this is information is needed to perform the various
-database functions.</p>
+<p>腳手架特性只能操作有主鍵的資料表，因為這是各種資料庫函數所必需的資訊。</p>
 
 
 </div>

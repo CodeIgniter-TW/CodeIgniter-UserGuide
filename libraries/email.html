@@ -112,12 +112,9 @@ $this->email->initialize($config);</code>
 
 <p><strong>注意:</strong> 假如您沒有設定參數值，大多數的參數都有各自預設值。</p>
 
-<h3>Setting Email Preferences in a Config File</h3>
+<h3>在設定文件檔中(Config File)設置 Email 參數偏好</h3>
 
-<p>If you prefer not to set preferences using the above method，you can instead put them into a config file.
-Simply create a new file called the <var>email.php</var>， add the <var>$config</var>
-array in that file. Then save the file at <var>config/email.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you save your preferences in a config file.</p>
+<p>如果您不想使用使用上述方法設定參數，您可以把它們放入一個設定檔。建立一個新檔案名稱為 <var>email.php</var>，新增 <var>$config</var> 變數在該文件中。然後將該文件另存為 <var>config/email.php</var> 它將自動的被使用。如果您儲存偏好參數在設定檔，就不需要使用 <dfn>$this->email->initialize()</dfn> 函數來初始化參數了。</p>
 
 
 
@@ -186,7 +183,7 @@ will NOT need to use the <dfn>$this->email->initialize()</dfn> function if you s
 <code>$this->email->from('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
 
 <h3>$this->email->reply_to()</h3>
-<p>Sets the reply-to address.  If the information is not provided the information in the "from" function is used. 參考範例:</p>
+<p>設定郵件回覆地址。如果沒有提供這個信息，將會使用 "from()" 函數中的值. 參考範例：</p>
 <code>$this->email->reply_to('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
 
 
@@ -216,18 +213,15 @@ $this->email->to(<var>$list</var>);</code>
 <code>$this->email->message('<var>This is my message</var>');</code>
 
 <h3>$this->email->set_alt_message()</h3>
-<p>Sets the alternative email message body:</p>
+<p>設置替代電子郵件內容:Sets the alternative email message body:</p>
 <code>$this->email->set_alt_message('<var>This is the alternative message</var>');</code>
 
-<p>This is an optional message string which can be used if you send HTML formatted email.  It lets you specify an alternative
-message with no HTML formatting which is added to the header string for people who do not accept HTML email.
-If you do not set your own message CodeIgniter will extract the message from your HTML email and strip the tags.</p>
+<p>這是EMAIL可選擇使用的一部分，如果你發送帶有 HTML 語法的郵件，這就可以用到。它用於當接收郵件都不支持 HTML 格式時顯示給用戶的內容。如果你沒有設置這部分，CodeIginiter 會自動從郵件內容中提取去掉TAGS的部分。</p>
 
 
 
 <h3>$this->email->clear()</h3>
-<p>Initializes all the email variables to an empty state.  This function is intended for use if you run the email sending function
-in a loop，permitting the data to be reset between cycles.</p>
+<p>初始化將所有 EMAIL 的變數清空. 這個方法用於當你在重複發送郵件時，可以在兩次發送中重新設置郵件內容。</p>
 <code>foreach ($list as $name => $address)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->clear();<br /><br />
@@ -239,7 +233,7 @@ in a loop，permitting the data to be reset between cycles.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->send();<br />
 }</code>
 
-<p>If you set the parameter to TRUE any attachments will be cleared as well:</p>
+<p>如果將參數設為TRUE，附件也會被清空：</p>
 
 <code>$this->email->clear(TRUE);</code>
 

@@ -268,7 +268,7 @@ $this->email->send();</code>
 <p>Returns a string containing any server messages，the email headers，and the email messsage.  Useful for debugging.</p>
 
 
-<h2>Overriding Word Wrapping</h2>
+<h2>取消自動換行</h2>
 
 <p>If you have word wrapping enabled (recommended to comply with RFC 822) and you have a very long link in your email it can
 get wrapped too，causing it to become un-clickable by the person receiving it.  CodeIgniter lets you manually override
@@ -282,7 +282,7 @@ gets wrapped normally.<br />
 More text that will be<br />
 wrapped normally.</code>
 
-<p>Place the item you do not want word-wrapped between: <var>{unwrap}</var> <var>{/unwrap}</var></p>
+<p>將你不想自動換行的部分放入： <var>{unwrap}</var> <var>{/unwrap}</var> 中間</p>
 
 
 </div>

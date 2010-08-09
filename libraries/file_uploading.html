@@ -336,15 +336,14 @@ $this->upload->do_upload($field_name)</code>
 <p>Retrieves any error messages if the <dfn>do_upload()</dfn> function returned false.  The function does not echo automatically，it
 returns the data so you can assign it however you need.</p>
 
-<h3>Formatting Errors</h3>
-<p>By default the above function wraps any errors within &lt;p> tags.  You can set your own delimiters like this:</p>
+<h3>格式化錯誤</h3>
+<p>上面的函式默認使用 &lt;p> 標記錯誤訊息。你可以像這樣設定自己的分隔符號：</p>
 
 <code>$this->upload->display_errors('<var>&lt;p></var>'，'<var>&lt;/p></var>');</code>
 
 <h2>$this->upload->data()</h2>
 
-<p>This is a helper function that returns an array containing all of the data related to the file you uploaded.
-Here is the array prototype:</p>
+<p>這是一個輔助函數，它回傳您上傳文件的所有相關訊息的陣列。</p>
 
 <code>Array<br />
 (<br />
@@ -363,9 +362,9 @@ Here is the array prototype:</p>
 &nbsp;&nbsp;&nbsp;&nbsp;[image_size_str] => width="800" height="200"<br />
 )</code>
 
-<h3>Explanation</h3>
+<h3>解釋</h3>
 
-<p>Here is an explanation of the above array items.</p>
+<p>這裡是對上面陣列選項的解釋。</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr><th>Item</th><th>Description</th></tr>

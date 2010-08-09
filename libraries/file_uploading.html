@@ -79,7 +79,7 @@ File Uploading 類別
 
 
 
-<p>使用文字編輯器建立一個表單，該表單命名為 <dfn>upload_form.php</dfn>。將底下程式碼寫入檔案，並且另存到您的 <samp>applications/views/</samp> 資料夾：</p>
+<p>利用文字編輯器建立一個名為 <dfn>upload_form.php</dfn>。將底下程式碼寫入檔案，並且另存到您的 <samp>applications/views/</samp> 資料夾：</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="23">
@@ -111,7 +111,7 @@ the user does something wrong.</p>
 
 <h2>上傳成功的頁面</h2>
 
-<p>運用文本編輯器創建一個名為 <dfn>upload_success.php</dfn> 的文件。複製以下代碼保存到 <samp>applications/views/</samp> 目錄裡：</p>
+<p>利用文字編輯器建立一個名為 <dfn>upload_success.php</dfn> 的檔案。複製以下程式碼另存到 <samp>applications/views/</samp> 目錄裡：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="20">&lt;html>
 &lt;head>
@@ -133,10 +133,9 @@ the user does something wrong.</p>
 &lt;/html></textarea>
 
 
-<h2>The Controller</h2>
+<h2>控制器</h2>
 
-<p>Using a text editor，create a controller called <dfn>upload.php</dfn>.  In it，place this code and save it to your <samp>applications/controllers/</samp>
-folder:</p>
+<p>利用文字編輯器建立一個名為 <dfn>upload.php</dfn> 的檔案。複製以下程式碼另存到 <samp>applications/controllers/</samp> 目錄裡:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="43">&lt;?php
@@ -181,10 +180,9 @@ class Upload extends Controller {
 ?&gt;</textarea>
 
 
-<h2>The Upload Folder</h2>
+<h2>上傳目錄</h2>
 
-<p>You'll need a destination folder for your uploaded images.  Create a folder at the root of your CodeIgniter installation called
-<dfn>uploads</dfn> and set its file permissions to 777.</p>
+<p>你還需要一個目錄存儲上傳的圖片。在根目錄上建立一個名稱為 <dfn>uploads</dfn> 的目錄並設置該目錄的屬性為 777。（即可讀寫）</p>
 
 
 <h2>Try it!</h2>

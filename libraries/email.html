@@ -131,47 +131,47 @@ $this->email->initialize($config);</code>
 <th>選擇</th>
 <th>描述</th>
 </tr><tr>
-<td class="td"><strong>useragent</strong></td><td class="td">CodeIgniter</td><td class="td">None</td><td class="td">The "user agent".</td>
+<td class="td"><strong>useragent</strong></td><td class="td">CodeIgniter</td><td class="td">None</td><td class="td">用戶代理 "user agent"。</td>
 </tr><tr>
-<td class="td"><strong>protocol</strong></td><td class="td">mail</td><td class="td">mail，sendmail，or smtp</td><td class="td">The mail sending protocol.</td>
+<td class="td"><strong>protocol</strong></td><td class="td">mail</td><td class="td">mail，sendmail，or smtp</td><td class="td">電子郵件協定。</td>
 </tr><tr>
-<td class="td"><strong>mailpath</strong></td><td class="td">/usr/sbin/sendmail</td><td class="td">None</td><td class="td">The server path to Sendmail.</td>
+<td class="td"><strong>mailpath</strong></td><td class="td">/usr/sbin/sendmail</td><td class="td">None</td><td class="td">系統 Sendmail 路徑。</td>
 </tr><tr>
-<td class="td"><strong>smtp_host</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP Server Address.</td>
+<td class="td"><strong>smtp_host</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP 伺服器位址。</td>
 </tr><tr>
-<td class="td"><strong>smtp_user</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP Username.</td>
+<td class="td"><strong>smtp_user</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP 使用者帳號。</td>
 </tr><tr>
-<td class="td"><strong>smtp_pass</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP Password.</td>
+<td class="td"><strong>smtp_pass</strong></td><td class="td">No Default</td><td class="td">None</td><td class="td">SMTP 使用者密碼。</td>
 </tr><tr>
-<td class="td"><strong>smtp_port</strong></td><td class="td">25</td><td class="td">None</td><td class="td">SMTP Port.</td>
+<td class="td"><strong>smtp_port</strong></td><td class="td">25</td><td class="td">None</td><td class="td">SMTP 連接埠。</td>
 </tr><tr>
-<td class="td"><strong>smtp_timeout</strong></td><td class="td">5</td><td class="td">None</td><td class="td">SMTP Timeout (in seconds).</td>
+<td class="td"><strong>smtp_timeout</strong></td><td class="td">5</td><td class="td">None</td><td class="td">SMTP 逾時(秒)。</td>
 </tr><tr>
-<td class="td"><strong>wordwrap</strong></td><td class="td">TRUE</td><td class="td">TRUE or FALSE (boolean)</td><td class="td">Enable word-wrap.</td>
+<td class="td"><strong>wordwrap</strong></td><td class="td">TRUE</td><td class="td">TRUE or FALSE (boolean)</td><td class="td">開啟自動換行。</td>
 </tr><tr>
-<td class="td"><strong>wrapchars</strong></td><td class="td">76</td><td class="td"> </td><td class="td">Character count to wrap at.</td>
+<td class="td"><strong>wrapchars</strong></td><td class="td">76</td><td class="td"> </td><td class="td">自動換行時每行的最大字符數。</td>
 </tr><tr>
-<td class="td"><strong>mailtype</strong></td><td class="td">text</td><td class="td">text or html</td><td class="td">Type of mail. If you send HTML email you must send it as a complete web page.  Make sure you don't have any relative links or relative image paths otherwise they will not work.</td>
+<td class="td"><strong>mailtype</strong></td><td class="td">text</td><td class="td">text or html</td><td class="td">郵件型態。郵件類型。發送 HTML 郵件時，必須是完整的網頁。請確認網頁中是否有相對路徑的連結和圖片位址，它們在郵件中不能正確顯示。</td>
 </tr><tr>
-<td class="td"><strong>charset</strong></td><td class="td">utf-8</td><td class="td"></td><td class="td">Character set (utf-8，iso-8859-1，etc.).</td>
+<td class="td"><strong>charset</strong></td><td class="td">utf-8</td><td class="td"></td><td class="td">字元集 (utf-8，iso-8859-1，等.)。</td>
 </tr><tr>
-<td class="td"><strong>validate</strong></td><td class="td">FALSE</td><td class="td">TRUE or FALSE  (boolean)</td><td class="td">Whether to validate the email address.</td>
+<td class="td"><strong>validate</strong></td><td class="td">FALSE</td><td class="td">TRUE or FALSE  (boolean)</td><td class="td">是否驗證郵件地址。</td>
 </tr><tr>
-<td class="td"><strong>priority</strong></td><td class="td">3</td><td class="td">1，2，3，4，5</td><td class="td">Email Priority. 1 = highest.  5 = lowest.  3 = normal.</td>
+<td class="td"><strong>priority</strong></td><td class="td">3</td><td class="td">1，2，3，4，5</td><td class="td">Email 優先級. 1 = 最高. 5 = 最低. 3 = 正常。</td>
 </tr>
 <tr>
 	<td class="td"><strong>crlf</strong></td>
 	<td class="td">\n</td>
 	<td class="td">&quot;\r\n&quot; or &quot;\n&quot; or &quot;\r&quot;</td>
-	<td class="td">Newline character. (Use &quot;\r\n&quot; to comply with RFC 822).</td>
+	<td class="td">換行符號。(使用 &quot;\r\n&quot; 遵守 822)。</td>
 </tr>
 <tr>
 <td class="td"><strong>newline</strong></td><td class="td">\n</td>
-<td class="td">"\r\n" or "\n" or &quot;\r&quot;</td><td class="td">Newline character. (Use "\r\n" to comply with RFC 822).</td>
+<td class="td">"\r\n" or "\n" or &quot;\r&quot;</td><td class="td">換行符號。 (使用 "\r\n" 遵守 RFC 822).</td>
 </tr><tr>
-<td class="td"><strong>bcc_batch_mode</strong></td><td class="td">FALSE</td><td class="td">TRUE or FALSE (boolean)</td><td class="td">Enable BCC Batch Mode.</td>
+<td class="td"><strong>bcc_batch_mode</strong></td><td class="td">FALSE</td><td class="td">TRUE or FALSE (boolean)</td><td class="td">啟動 BCC Batch 模式。</td>
 </tr><tr>
-<td class="td"><strong>bcc_batch_size</strong></td><td class="td">200</td><td class="td">None</td><td class="td">Number of emails in each BCC batch.</td>
+<td class="td"><strong>bcc_batch_size</strong></td><td class="td">200</td><td class="td">None</td><td class="td">每個 BCC batch 傳送多少郵件。</td>
 </tr>
 </table>
 

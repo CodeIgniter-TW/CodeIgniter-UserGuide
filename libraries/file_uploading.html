@@ -104,9 +104,7 @@ File Uploading 類別
 &lt;/body>
 &lt;/html></textarea>
 
-<p>You'll notice we are using a form helper to create the opening form tag.  File uploads require a multipart form，so the helper
-creates the proper syntax for you.  You'll also notice we have an $error variable.  This is so we can show error messages in the event
-the user does something wrong.</p>
+<p>您會發現這裡運用了 Form 補助函數來建立表單，檔案上傳需要一個 multipart form，所以補助函數將幫助您建立合適的語法，您也會發現表單內有 $error 變數，那是用來顯示使用者上傳檔案會遇到的錯誤訊息。</p>
 
 
 <h2>上傳成功的頁面</h2>
@@ -222,19 +220,19 @@ $this->load->library('upload'，$config);<br /><br />
 // Alternately you can set preferences by calling the initialize function.  Useful if you auto-load the class:<br />
 $this->upload->initialize($config);</code>
 
-<p>The above preferences should be fairly self-explanatory.  Below is a table describing all available preferences.</p>
+<p>以上偏好設定將被完全執行。以下是所有偏好設定參數的描述。</p>
 
 
-<h2>Preferences</h2>
+<h2>偏好設定參數</h2>
 
-<p>The following preferences are available.  The default value indicates what will be used if you do not specify that preference.</p>
+<p>以下偏好設定都是可以使用。假如您不知道如何設定偏好參數，可以參考底下的預設值</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>偏好設定</th>
+<th>預設值</th>
+<th>選項</th>
+<th>描述</th>
 </tr>
 
 <tr>
@@ -256,7 +254,7 @@ $this->upload->initialize($config);</code>
 <td class="td"><strong>overwrite</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to true，if a file with the same name as the one you are uploading exists，it will be overwritten. If set to false，a number will be appended to the filename if another with the same name exists.</td>
+<td class="td">假如設定 TRUE，當您上傳檔案名稱在伺服器端已經有相同檔名的時候，它將會被覆蓋，假如設定 FALSE，CI 會將檔名後面加上數字當區別。</td>
 </tr>
 
 
@@ -264,7 +262,7 @@ $this->upload->initialize($config);</code>
 <td class="td"><strong>max_size</strong></td>
 <td class="td">0</td>
 <td class="td">None</td>
-<td class="td">The maximum size (in kilobytes) that the file can be.  Set to zero for no limit. 注意:  Most PHP installations have their own limit，as specified in the php.ini file.  Usually 2 MB (or 2048 KB) by default.</td>
+<td class="td">允許上傳文件大小的最大值（以K為單位）。該參數為0則不限制。注意：通常PHP也有這項限制，可以在php.ini檔案中設定。通常預設值為2MB。</td>
 </tr>
 
 <tr>
@@ -292,39 +290,35 @@ $this->upload->initialize($config);</code>
 <td class="td"><strong>encrypt_name</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to TRUE the file name will be converted to a random encrypted string. This can be useful if you would like the file saved with a name that can not be discerned by the person uploading it.</td>
+<td class="td">設定為 TRUE，上傳檔名將會被隨機的加密字串取代，當你想讓使用者不能區分自己上傳的檔案，這是非常有用的，當 overwrite 為 FALSE 時，此選項才起作用。</td>
 </tr>
 
 <tr>
 <td class="td"><strong>remove_spaces</strong></td>
 <td class="td">TRUE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to TRUE，any spaces in the file name will be converted to underscores. This is recommended.</td>
+<td class="td">參數為 TRUE 的時候，檔名有出現任何空白都會被取代為底線，建議設定為 TRUE。</td>
 </tr>
 </table>
 
 
-<h2>Setting preferences in a config file</h2>
+<h2>在 Config 檔案設定偏好值</h2>
 
-<p>If you prefer not to set preferences using the above method，you can instead put them into a config file.
-Simply create a new file called the <var>upload.php</var>， add the <var>$config</var>
-array in that file. Then save the file in: <var>config/upload.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->upload->initialize</dfn> function if you save your preferences in a config file.</p>
+<p>假如您不喜歡用上述方法來設定偏好，您可以將設定寫入到 config 檔案，簡單建立一個名為 <var>upload.php</var> 的檔案，新增 <var>$config </var>陣列到該檔案裡，然後另存檔案到：<var>config/upload.php</var>，它將被自動載入。當你把偏好設定存到該檔案裡，你不需要用 <dfn>$this->upload->initialize</dfn> 函數進行手動載入。</p>
 
 
-<h2>Function Reference</h2>
+<h2>運用到的函數</h2>
 
-<p>The following functions are available</p>
+<p>以下函數都可以被使用</p>
 
 
 <h2>$this->upload->do_upload()</h2>
 
-<p>Performs the upload based on the preferences you've set.  注意:  By default the upload routine expects the file to come from a form field
-called <dfn>userfile</dfn>，and the form must be a "multipart type:</p>
+<p>根據您的偏好設定來執行此函數。注意：在預設狀況下，表單內的上傳檔案欄位是 <dfn>userfile</dfn>，而且表單必須是 "multipart 型態：</p>
 
 <code>&lt;form method="post" action="some_action" enctype="multipart/form-data" /></code>
 
-<p>If you would like to set your own field name simply pass its value to the <dfn>do_upload</dfn> function:</p>
+<p>假如您想使用自己定義的欄位名稱，您可以將變數傳入到 <dfn>do_upload</dfn> 函數：</p>
 
 <code>
 $field_name = "some_field_name";<br />
@@ -333,18 +327,16 @@ $this->upload->do_upload($field_name)</code>
 
 <h2>$this->upload->display_errors()</h2>
 
-<p>Retrieves any error messages if the <dfn>do_upload()</dfn> function returned false.  The function does not echo automatically，it
-returns the data so you can assign it however you need.</p>
+<p>假如 <dfn>do_upload()</dfn> 函數回傳 FALSE，就會顯示錯誤訊息，此函數並不會自動輸出，而是回傳一個變數，您可以依據畫面來擺放顯示的地方。</p>
 
-<h3>Formatting Errors</h3>
-<p>By default the above function wraps any errors within &lt;p> tags.  You can set your own delimiters like this:</p>
+<h3>格式化錯誤</h3>
+<p>上面的函式默認使用 &lt;p> 標記錯誤訊息。你可以像這樣設定自己的分隔符號：</p>
 
 <code>$this->upload->display_errors('<var>&lt;p></var>'，'<var>&lt;/p></var>');</code>
 
 <h2>$this->upload->data()</h2>
 
-<p>This is a helper function that returns an array containing all of the data related to the file you uploaded.
-Here is the array prototype:</p>
+<p>這是一個輔助函數，它回傳您上傳文件的所有相關訊息的陣列。</p>
 
 <code>Array<br />
 (<br />
@@ -363,51 +355,51 @@ Here is the array prototype:</p>
 &nbsp;&nbsp;&nbsp;&nbsp;[image_size_str] => width="800" height="200"<br />
 )</code>
 
-<h3>Explanation</h3>
+<h3>解釋</h3>
 
-<p>Here is an explanation of the above array items.</p>
+<p>這裡是對上面陣列選項的解釋。</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr><th>Item</th><th>Description</th></tr>
 
 <tr><td class="td"><strong>file_name</strong></td>
-<td class="td">The name of the file that was uploaded including the file extension.</td></tr>
+<td class="td">上傳檔案名稱，包含副檔名</td></tr>
 
 <tr><td class="td"><strong>file_type</strong></td>
-<td class="td">The file's Mime type</td></tr>
+<td class="td">檔案的 Mime 類型</td></tr>
 
 <tr><td class="td"><strong>file_path</strong></td>
-<td class="td">The absolute server path to the file</td></tr>
+<td class="td">不包含檔案名稱的上傳絕對路徑</td></tr>
 
 <tr><td class="td"><strong>full_path</strong></td>
-<td class="td">The absolute server path including the file name</td></tr>
+<td class="td">包含檔案名稱的上傳絕對路徑</td></tr>
 
 <tr><td class="td"><strong>raw_name</strong></td>
-<td class="td">The file name without the extension</td></tr>
+<td class="td">檔案名稱不包含副檔名</td></tr>
 
 <tr><td class="td"><strong>orig_name</strong></td>
-<td class="td">The original file name.  This is only useful if you use the encrypted name option.</td></tr>
+<td class="td">上傳檔案最初原始檔名，這只有在設定（encrypt_name）選項有效。</td></tr>
 
 <tr><td class="td"><strong>file_ext</strong></td>
-<td class="td">The file extension with period</td></tr>
+<td class="td">檔案副檔名（包含"."）</td></tr>
 
 <tr><td class="td"><strong>file_size</strong></td>
-<td class="td">The file size in kilobytes</td></tr>
+<td class="td">檔案大小(KB單位)</td></tr>
 
 <tr><td class="td"><strong>is_image</strong></td>
-<td class="td">Whether the file is an image or not.  1 = image. 0 = not.</td></tr>
+<td class="td">檔案是否為圖片。1 = 是. 0 = 否.</td></tr>
 
 <tr><td class="td"><strong>image_width</strong></td>
-<td class="td">Image width.</td></tr>
+<td class="td">圖片寬度</td></tr>
 
 <tr><td class="td"><strong>image_heigth</strong></td>
-<td class="td">Image height</td></tr>
+<td class="td">圖片高度</td></tr>
 
 <tr><td class="td"><strong>image_type</strong></td>
-<td class="td">Image type.  Typically the file extension without the period.</td></tr>
+<td class="td">圖片類型。就是副檔名（不包含"."）</td></tr>
 
 <tr><td class="td"><strong>image_size_str</strong></td>
-<td class="td">A string containing the width and height.  Useful to put into an image tag.</td></tr>
+<td class="td">包含寬度跟高度的字串，適用於 image HTML 標籤裡面。</td></tr>
 
 
 </table>
@@ -424,7 +416,7 @@ Here is the array prototype:</p>
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="form_validation.html">Form Validation 類別</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
+<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2010 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 <script type="text/javascript">

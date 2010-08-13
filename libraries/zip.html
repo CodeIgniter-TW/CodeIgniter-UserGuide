@@ -84,12 +84,11 @@ $this->zip->archive('/path/to/directory/my_backup.zip');
 $this->zip->download('my_backup.zip');
 </code>
 
-<h1>Function Reference</h1>
+<h1>函數參考</h1>
 
 <h2>$this->zip->add_data()</h2>
 
-<p>Permits you to add data to the Zip archive. The first parameter must contain the name you would like
-given to the file，the second parameter must contain the file data as a string:</p>
+<p>新增資料到 ZIP 壓縮檔案，第一個參數請放入您想要的檔案名稱，第二個參數請放入檔案內容：</p>
 
 <code>
 $name = 'my_bio.txt';<br />
@@ -98,8 +97,7 @@ $data = 'I was born in an elevator...';<br />
 $this->zip->add_data($name，$data);
 </code>
 
-<p>You are allowed multiple calls to this function in order to
-add several files to your archive.  參考範例:</p>
+<p>允許您多次呼叫此函數來增加多個檔案。參考範例：</p>
 
 <code>
 $name = 'mydata1.txt';<br />
@@ -111,7 +109,7 @@ $data = 'Another Data String!';<br />
 $this->zip->add_data($name，$data);<br />
 </code>
 
-<p>Or you can pass multiple files using an array:</p>
+<p>或者是您可以利用陣列方式來新增多個檔案：</p>
 
 <code>
 $data = array(<br />
@@ -124,7 +122,7 @@ $this->zip->add_data($data);<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>If you would like your compressed data organized into sub-folders，include the path as part of the filename:</p>
+<p>如果您想要將壓縮後的資料放入子目錄，請把路徑也加入到檔案名稱的一部分：</p>
 
 <code>
 $name = '<kbd>personal/</kbd>my_bio.txt';<br />
@@ -133,7 +131,7 @@ $data = 'I was born in an elevator...';<br />
 $this->zip->add_data($name，$data);
 </code>
 
-<p>The above example will place <dfn>my_bio.txt</dfn> inside a folder called <kbd>personal</kbd>.</p>
+<p>上面的例子是將 <dfn>my_bio.txt</dfn> 檔案放到一個叫做 <kbd>personal</kbd> 的子目錄。</p>
 
 
 <h2>$this->zip->add_dir()</h2>

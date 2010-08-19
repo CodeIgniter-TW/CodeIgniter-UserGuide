@@ -60,16 +60,15 @@ URI 類別
 
 <p>URI 類別提供函數，它幫助您解析 URI 字串資訊。假如您使用了 URI routing，也可以利用類別解析網址字串所設定的 re-routed 區段</p>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意：</strong>URI 類別會被系統自動初始化，所以不必手動啟動它。</p>
 
 <h2>$this->uri->segment(<var>n</var>)</h2>
 
-<p>Permits you to retrieve a specific segment. Where <var>n</var> is the segment number you wish to retrieve.
-Segments are numbered from left to right. For example，if your full URL is this:</p>
+<p>允許你檢索特定的區段部份。<var>n</var> 是您想檢索的特定區段，區段是由左到右順序排列，底下簡單來說，假設您的 URL 網址如下：</p>
 
 <code>http://example.com/index.php/news/local/metro/crime_is_up</code>
 
-<p>The segment numbers would be this:</p>
+<p>全部的區段分別是：</p>
 
 <ol>
 <li>news</li>
@@ -78,9 +77,7 @@ Segments are numbered from left to right. For example，if your full URL is this
 <li>crime_is_up</li>
 </ol>
 
-<p>By default the function returns FALSE (boolean) if the segment does not exist. There is an optional second parameter that
-permits you to set your own default value if the segment is missing.
-For example，this would tell the function to return the number zero in the event of failure:</p>
+<p>假如指定區段不存在，此函數將會回傳 FALSE (boolean)。如果該區段不存在，您也可以設定第二個參數來代表。底下例子代表說，當發生區段不存在時，就會回傳預設值 0：</p>
 
 <code>$product_id = $this->uri->segment(3，0);</code>
 

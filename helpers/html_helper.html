@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>HTML 補助函數 : CodeIgniter 使用手冊</title>
+<title>HTML 輔助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-HTML 補助函數
+HTML 輔助函數
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,14 +56,14 @@ HTML 補助函數
 <div id="content">
 
 
-<h1>HTML 補助函數</h1>
+<h1>HTML 輔助函數</h1>
 
-<p>HTML 補助函數提供一些輔助 html 操作的相關函數</p>
+<p>HTML 輔助函數提供一些輔助 html 操作的相關函數</p>
 
 
-<h2>載入補助函數</h2>
+<h2>載入輔助函數</h2>
 
-<p>補助函數使用下列方式載入：</p>
+<p>輔助函數使用下列方式載入：</p>
 <code>$this->load->helper('html');</code>
 
 <p>可用函數如下所示：</p>
@@ -78,13 +78,13 @@ HTML 補助函數
 <code>echo heading('Welcome!'，3);</code>
 <p>上述程式碼將產生:  &lt;h3>Welcome!&lt;/h3></p>
 <h2>img()</h2>
-<p>讓您產生 &lt;img /&gt; 相關標籤. 第一個參數包含圖片相關原始碼. 參考範例:</p>
+<p>讓您產生 &lt;img /&gt; 相關標籤。第一個參數包含圖片相關原始碼. 參考範例:</p>
 <code>echo img('images/picture.jpg');<br />
-// gives &lt;img src=&quot;http://site.com/images/picture.jpg&quot; /&gt;</code>
-<p>There is an optional second parameter that is a TRUE/FALSE value that specifics if the src should have the page specified by $config['index_page'] added to the address it creates. Presumably，this would be if you were using a media controller.</p>
+// 產生 &lt;img src=&quot;http://site.com/images/picture.jpg&quot; /&gt;</code>
+<p>第二個參數可以不用設定，如需設定，其值可為 TRUE/FALSE，此參數是用來決定 img 路徑中是否包含 $config['index_page'] 所定義的網址。一般來說，在媒體播放的時候就會需要此參數。</p>
 <p><code>echo img('images/picture.jpg'，TRUE);<br />
-// gives &lt;img src=&quot;http://site.com/index.php/images/picture.jpg&quot; /&gt;</code></p>
-<p>Additionally，an associative array can be passed to the img() function for complete control over all attributes and values.</p>
+// 產生 &lt;img src=&quot;http://site.com/index.php/images/picture.jpg&quot; /&gt;</code></p>
+<p>此外，您也以設定相關陣列參數來傳入 img() 函數中，用來實做屬性跟其值的對應。</p>
 <p><code> $image_properties = array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'src' =&gt; 'images/picture.jpg',<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'alt' =&gt; 'Me，demonstrating how to eat 4 slices of pizza at one time',<br />
@@ -98,10 +98,10 @@ HTML 補助函數
 	img($image_properties);<br />
 	// &lt;img src=&quot;http://site.com/index.php/images/picture.jpg&quot; alt=&quot;Me，demonstrating how to eat 4 slices of pizza at one time&quot; class=&quot;post_images&quot; width=&quot;200&quot; height=&quot;200&quot; title=&quot;That was quite a night&quot; rel=&quot;lightbox&quot; /&gt;</code></p>
 <h2>link_tag()</h2>
-<p>Lets you create HTML &lt;link /> tags.  This is useful for stylesheet links，as well as other links. The parameters are href，with optional rel，type，title，media and index_page. index_page is a TRUE/FALSE value that specifics if the href should have the page specified by $config['index_page'] added to the address it creates.<code>
+<p>讓您建立 HTML &lt;link /> 標籤。對於產生 stylesheet 或者是其他內容都相當有用的。參數包含 href，以及選擇性 rel，type，title，media and index_page 參數，index_page 其值可為 TRUE/FALSE，此參數是用來決定 link 路徑中是否包含 $config['index_page'] 所定義的網址。<code>
 echo link_tag('css/mystyles.css');<br />
 // gives &lt;link href=&quot;http://site.com/css/mystyles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
-<p>Further examples:</p>
+<p>更多範例：</p>
 
 <code>
 	echo link_tag('favicon.ico'，'shortcut icon'，'image/ico');<br />
@@ -110,7 +110,7 @@ echo link_tag('css/mystyles.css');<br />
 	<br />
 	echo link_tag('feed'，'alternate'，'application/rss+xml'，'My RSS Feed');<br />
 	// &lt;link href=&quot;http://site.com/feed&quot; rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;My RSS Feed&quot; /&gt; </code>
-<p>Additionally，an associative array can be passed to the link() function for complete control over all attributes and values.</p>
+<p>此外，您也以設定相關陣列參數來傳入 link() 函數中，用來實做屬性跟其值的對應。</p>
 <p><code>
 	$link = array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'href' =&gt; 'css/printer.css',<br />
@@ -125,11 +125,11 @@ echo link_tag('css/mystyles.css');<br />
 <h2>nbs()</h2>
 <p>根據所自訂的數量來產生非斷行空白(&amp;nbsp;). 參考範例:</p>
 <code>echo nbs(3);</code>
-<p>The above would produce: &amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p>上述程式碼產生： &amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
 
 <h2>ol()&nbsp; and&nbsp; ul()</h2>
 
-<p>Permits you to generate ordered or unordered HTML lists from simple or multi-dimensional arrays. 參考範例:</p>
+<p>云許您透過單一或多維陣列來傳遞參數，以便產生有順序條列式的 html。參考範例:</p>
 
 <code>
 $this->load->helper('html');<br />
@@ -149,7 +149,7 @@ $attributes = array(<br />
 echo ul($list，$attributes);<br />
 </code>
 
-<p>The above code will produce this:</p>
+<p>上面程式碼將會顯示：</p>
 
 <code>
 &lt;ul&nbsp;class="boldlist"&nbsp;id="mylist"><br />
@@ -160,7 +160,7 @@ echo ul($list，$attributes);<br />
 &lt;/ul>
 </code>
 
-<p>Here is a more complex example，using a multi-dimensional array:</p>
+<p>這是一個更複雜的例子，用多為陣列產生：</p>
 
 <code>
 $this->load->helper('html');<br />
@@ -253,7 +253,7 @@ echo ul($list，$attributes);</code>
 
 <h2>meta()</h2>
 
-<p>幫助您產生 meta 標籤資訊.  You can pass strings to the function，or simple arrays，or multidimensional ones. Examples:</p>
+<p>幫助您產生 meta 標籤資訊。您可以透過傳遞字串、單一陣列、多重陣列到函數裡面。範例：</p>
 
 <code>
 echo meta('description'，'My Great site');<br />
@@ -291,7 +291,7 @@ echo meta($meta);
 
 <h2>doctype()</h2>
 
-<p>Helps you generate document type declarations，or DTD's. XHTML 1.0 Strict is used by default，but many doctypes are available.</p>
+<p>幫助你建立檔案類型聲明以及 DTD。預設值是 XHTML 1.0 Strict ，但你也可以指定其他很多檔案類型。</p>
 
 <code>
 echo docytype();<br />
@@ -301,7 +301,7 @@ echo doctype('html4-trans');<br />
 // &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
 </code>
 
-<p>The following is a list of doctype choices.  These are configurable，and pulled from <samp>application/config/doctypes.php</samp></p>
+<p>下面是支援的檔案類型列表。它們都是可靈活設定的，可以在 <samp>application/config/doctypes.php</samp> 加以設定。</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 	<tr>
@@ -360,11 +360,11 @@ echo doctype('html4-trans');<br />
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="form_helper.html">Form 補助函數</a>
+上個主題:&nbsp;&nbsp;<a href="form_helper.html">Form 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="path_helper.html"> Path 補助函數</a></p>
+下個主題:&nbsp;&nbsp;<a href="path_helper.html"> Path 輔助函數</a></p>
 <p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 

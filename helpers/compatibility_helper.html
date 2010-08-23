@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Compatibility 補助函數 : CodeIgniter 使用手冊</title>
+<title>Compatibility 輔助函數 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -43,7 +43,7 @@
 <td id="breadcrumb">
 <a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Compatibility 補助函數
+Compatibility 輔助函數
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -57,39 +57,33 @@ Compatibility 補助函數
 <div id="content">
 
 
-<h1>Compatibility 補助函數</h1>
+<h1>Compatibility 輔助函數</h1>
 
-<p>The Compatibility 補助函數 file contains PHP 4 implementations of some PHP 5 only native PHP functions and constants.  This can be useful
-	if you'd like to take advantage of some of these native function but your application may end up running on a PHP 4 server.
-	In these cases，it may be advantageous to <a href="../general/autoloader.html">Auto-load</a> the Compatibility 補助函數 so you
-	do not have to load it in each controller.</p>
+<p>相容性輔助函數在 PHP 4 上面實做了 PHP5 的一些函數以及常數。當你想在 PHP4 伺服器上面想要使用 PHP 5 相關函數，這輔助函數對您是相當有幫助的。這時，您可以利用 <a href="../general/autoloader.html">Auto-load</a> 來載入，而不必在每個控制器(Controller)都載入此輔助函數。</p>
 
-<p class="important"><strong>注意:</strong> There are a few compatibility functions that are in CodeIgniter's native Compat.php file.
-	You may use those functions without loading this helper.  The functions are split between that file and this 補助函數 so that only
-	functions required by the framework are included by default.  This way，whether or not you load the additional functions in this 補助函數
-	remains your choice.</p>
-	
-<h2>載入 補助函數</h2>
+<p class="important"><strong>注意：</strong> 在 CodeIgniter 核心程式碼當中有包含了一些相容性輔助函數，您可以在不載入此『相容性函數』之下使用它們。相容性函數被分開存放在 Compat.php 檔案和此 helper 中，所以只有 Framework 需要使用到這些函數，才會被預設載入。 這樣，你可以自由選擇是否載入此相容性輔助函數。</p>
 
-<p>This helper is loaded using the following code:</p>
+<h2>載入輔助函數</h2>
+
+<p>補助函數使用下列方式載入：</p>
 <code>$this->load->helper('compatibility');</code>
 
-<h2>Available Constants</h2>
-<p>The following constants are available:</p>
+<h2>可用常數</h2>
+<p>底下為可用的常數：</p>
 
 <h3>PHP_EOL</h3>
-<p>The newline character for the server's current OS，e.g. on Windows systems "\r\n"，on *nix "\n".
+<p>目前系統的換行符號，例如 Windows 是 "\r\n"，Unix 則是 "\n"。
 
-<h2>Available 函數</h2>
-<p>The following functions are available (see linked PHP documentation for documentation):</p>
+<h2>可用函數</h2>
+<p>底下函數為可用的(可以點擊該函數來觀看線上英文文件)：</p>
 
-<h3><a href="http://us.php.net/manual/en/function.file-put-contents.php">file_put_contents()</a> - The fourth parameter，<var>$context</var>，is not supported.</h3>
+<h3><a href="http://us.php.net/manual/en/function.file-put-contents.php">file_put_contents()</a> - 此函數不支援第四個參數 <var>$context</var>。</h3>
 
 <h3><a href="http://us.php.net/manual/en/function.fputcsv.php">fputcsv()</a></h3>
 
 <h3><a href="http://us.php.net/manual/en/function.http-build-query.php">http_build_query()</a></h3>
 
-<h3><a href="http://us.php.net/manual/en/function.str-ireplace.php">str_ireplace()</a> - The fourth parameter，<var>$count</var>，is not supported，as PHP 4 would make it become required.</h3>
+<h3><a href="http://us.php.net/manual/en/function.str-ireplace.php">str_ireplace()</a> - 此函數不支援第四個參數 <var>$count</var>，因為在 PHP 4 當中它是必填的。</h3>
 
 <h3><a href="http://us.php.net/manual/en/function.stripos.php">stripos()</a></h3>
 
@@ -105,13 +99,13 @@ Compatibility 補助函數
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="array_helper.html">Array 補助函數</a>
+上個主題:&nbsp;&nbsp;<a href="array_helper.html">Array 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="cookie_helper.html">Cookie 補助函數</a>
+下個主題:&nbsp;&nbsp;<a href="cookie_helper.html">Cookie 輔助函數</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
+<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2010 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
 </div>
 
 <script type="text/javascript">

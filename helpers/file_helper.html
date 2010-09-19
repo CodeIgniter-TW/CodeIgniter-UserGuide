@@ -78,8 +78,7 @@ File 輔助函數
 <p class="important"><strong>注意:</strong> 檔案路徑是相對於網站根目錄 index.php 檔案，而不是相對路徑於您的控制器(controller)或是顯示(view)的檔案。
 CodeIgniter 所使用的前端控制器都是相對於根目錄的 index 檔案。</p>
 
-<p>If your server is running an open_basedir restriction this function
-might not work if you are trying to access a file above the calling script.</p>
+<p>假如您的伺服器有針對 open_basedir 做限制，這樣您就不能利用上面函式存取檔案。</p>
 
 <h2>write_file('<var>path</var>', <kbd>$data</kbd>)</h2>
 

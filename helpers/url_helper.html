@@ -118,7 +118,7 @@ echo site_url($segments);</code>
 
 <p>這個標記有三個可以選擇的參數：</p>
 
-<code>anchor(<var>uri segments</var>，<var>text</var>，<var>attributes</var>)</code>
+<code>anchor(<var>uri segments</var>, <var>text</var>, <var>attributes</var>)</code>
 
 <p>第一個參數包含你想附加到URL的任何段，像上面的site_url() 函數一樣，段可以是字串或陣列。</p>
 
@@ -130,11 +130,11 @@ echo site_url($segments);</code>
 
 <p>以下是一些例子:</p>
 
-<code>echo anchor('news/local/123'，'My News');</code>
+<code>echo anchor('news/local/123', 'My News');</code>
 
 <p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="My News">My News&lt;/a></p>
 
-<code>echo anchor('news/local/123'，'My News'，array('title' => 'The best news!'));</code>
+<code>echo anchor('news/local/123', 'My News', array('title' => 'The best news!'));</code>
 
 <p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="The best news!">My News&lt;/a></p>
 
@@ -157,18 +157,18 @@ $atts = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'screeny'&nbsp;&nbsp;&nbsp;&nbsp;=> '0'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-echo anchor_popup('news/local/123'，'Click Me!'，$atts);</code>
+echo anchor_popup('news/local/123', 'Click Me!', $atts);</code>
 
 <p>注意: 以上的屬性是函數預設值，你只要根據自己需要設定不同值。如果你想要函數使用預設值，直接傳一個空陣列給第三個參數就行了:</p>
 
-<code>echo anchor_popup('news/local/123'，'Click Me!'，array());</code>
+<code>echo anchor_popup('news/local/123', 'Click Me!', array());</code>
 
 
 <h2>mailto()</h2>
 
 <p>建立標準HTML電子郵件鏈結的使用範例</p>
 
-<code>echo mailto('me@my-site.com'，'Click Here to Contact Me');</code>
+<code>echo mailto('me@my-site.com', 'Click Here to Contact Me');</code>
 
 <p>像上列的 <dfn>anchor()</dfn> 函數一樣，你可以用第三個參數設定屬性。</p>
 
@@ -187,13 +187,13 @@ echo anchor_popup('news/local/123'，'Click Me!'，$atts);</code>
 <p>第二個參數決定URL和email是否都轉換或只有其中一個轉換，如果參數沒有指定預設值是兩個都轉換，電子郵件連結編碼為 safe_mailto() 如上所示。</p>
 
 <p>只有轉換 URLs:</p>
-<code>$string = auto_link($string，'url');</code>
+<code>$string = auto_link($string, 'url');</code>
 
 <p>只有轉換 Email addresses:</p>
-<code>$string = auto_link($string，'email');</code>
+<code>$string = auto_link($string, 'email');</code>
 
 <p>第三個參數是用來表示點選是否開啟新視窗。此參數只能用布林表示值 TRUE or FALSE (boolean):</p>
-<code>$string = auto_link($string，'both'，TRUE);</code>
+<code>$string = auto_link($string, 'both', TRUE);</code>
 
 
 <h2>url_title()</h2>
@@ -211,7 +211,7 @@ $url_title = url_title($title);<br />
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
-$url_title = url_title($title，'underscore');<br />
+$url_title = url_title($title, 'underscore');<br />
 <br />
 // Produces:  Whats_wrong_with_CSS
 </code>
@@ -220,7 +220,7 @@ $url_title = url_title($title，'underscore');<br />
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
-$url_title = url_title($title，'underscore'，TRUE);<br />
+$url_title = url_title($title, 'underscore',TRUE);<br />
 <br />
 // 處理:  whats_wrong_with_css
 </code>
@@ -242,11 +242,11 @@ $url = prep_url($url);</code>
 
 <code>if ($logged_in == FALSE)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redirect('/login/form/'，'refresh');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redirect('/login/form/', 'refresh');<br />
 }<br />
 <br />
 // with 301 redirect<br />
-redirect('/article/13'，'location'，301);</code>
+redirect('/article/13', 'location', 301);</code>
 
 <p class="important"><strong>注意:</strong> 由於此函數需要處理header檔頭，必須使用在任何輸出給瀏覽器的內容之前。<br />
 <strong>注意:</strong> 注意：對非常精密對應的控制來說，你應該使用<a href="../libraries/output.html">輸出函數</a>的 set_header() 函數。</p>

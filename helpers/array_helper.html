@@ -73,13 +73,13 @@ Array 輔助函數
 <p>從陣列中讀取元素，此函數會檢查陣列索引是否已設定，且陣列值是否存在。若存在則傳回陣列值，否則傳回False或是任何你所指定的預設值（透過函數第三個參數設定）。參考範例如下：</p>
 
 <code>
-$array = array('color' => 'red'，'shape' => 'round'，'size' => '');<br />
+$array = array('color' => 'red', 'shape' => 'round', 'size' => '');<br />
 <br />
 // 回傳 "red"<br />
-echo element('color'，$array);<br />
+echo element('color', $array);<br />
 <br />
 // 回傳 NULL<br />
-echo element('size'，$array，NULL);
+echo element('size', $array，NULL);
 </code>
 
 

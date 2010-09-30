@@ -92,7 +92,7 @@ class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;get_last_ten_entries()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $this->db->get('entries'，10);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $this->db->get('entries',10);<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $query->result();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 <br />
@@ -111,7 +111,7 @@ class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->content = $_POST['content'];<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->date&nbsp;&nbsp;&nbsp; = time();<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->db->update('entries',&nbsp;$this，array('id' => $_POST['id']));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->db->update('entries',&nbsp;$this,array('id' => $_POST['id']));<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 <br />
 }</code>
@@ -179,7 +179,7 @@ $this-><var>Model_name</var>->function();
 
 
 <code>
-$this->load->model('<var>Model_name</var>'，'<kbd>fubar</kbd>');<br />
+$this->load->model('<var>Model_name</var>','<kbd>fubar</kbd>');<br />
 <br />
 $this-><kbd>fubar</kbd>->function();
 </code>
@@ -194,7 +194,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->model('Blog');<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['query'] = $this->Blog->get_last_ten_entries();<br /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('blog'，$data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('blog',$data);<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -211,7 +211,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <li>你可以使用<a href="../database/connecting.html">這裡描述</a>的標準資料庫方法來連接，從你的控制器(Controller)類別或是模型(Model)類別都可以。</li>
 <li>你可以經由傳給模型(model)載入函數的第三個參數<kbd>TRUE</kbd> (boolean)去自動連接。這時會使用定義在資料庫設定檔中的連接設定。
 
-	<code>$this->load->model('<var>Model_name</var>'，''，<kbd>TRUE</kbd>);</code>	
+	<code>$this->load->model('<var>Model_name</var>','',<kbd>TRUE</kbd>);</code>	
 	</li>
 
 
@@ -227,7 +227,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 		$config['pconnect'] = FALSE;<br />
 		$config['db_debug'] = TRUE;<br />
 		<br />
-		$this->load->model('<var>Model_name</var>'，''，<kbd>$config</kbd>);</code></li>
+		$this->load->model('<var>Model_name</var>','',<kbd>$config</kbd>);</code></li>
 </ul>
 
 
@@ -243,7 +243,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="helpers.html">補助函數(Helpers)</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
+<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab,Inc.</a></p>
 </div>
 
 <script type="text/javascript">

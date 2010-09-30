@@ -120,22 +120,21 @@ class Someclass {<br />
 <p>
 一但載入之後，你可以取用你的類別採用 <kbd>小寫</kbd> 的方式:</p>
 
-<code>$this-><kbd>someclass</kbd>->some_function();&nbsp; // Object instances will always be lower case
+<code>$this-><kbd>someclass</kbd>->some_function();&nbsp; // 物件方法名稱必須是小寫
 </code>
 
 
 
-<h2>於初使化時，傳遞參數(Passing Parameters When Initializing Your Class)</h2>
+<h2>於初使化自定類別時傳遞參數</h2>
 
-<p>In the library loading function you can dynamically pass data via the second parameter and it will be passed to your class
-constructor:</p>
+<p>在初始化類別時，您可以透過傳遞第二個陣列參數來設定初始建構子：/p>
 
 <code>
 $params = array('type' => 'large'，'color' => 'red');<br />
 <br />
 $this->load->library('Someclass'，<kbd>$params</kbd>);</code>
 
-<p>If you use this feature you must set up your class constructor to expect data:</p>
+<p>當你使用這個特性時，你必須為類別的建構子加上底下程式碼：</p>
 
 <code>&lt;?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');<br />
 <br />
@@ -158,7 +157,7 @@ the config file option will not be available.</p>
 
 
 
-<h2>讓你的程式庫使用 CodeIgniter 資源(Utilizing CodeIgniter Resources within Your Library)</h2>
+<h2>在您的程式裡面使用 CodeIgniter 資源</h2>
 
 
 <p>To access CodeIgniter's native resources within your library use the <kbd>get_instance()</kbd> function.

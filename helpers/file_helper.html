@@ -82,7 +82,7 @@ CodeIgniter 所使用的前端控制器都是相對於根目錄的 index 檔案�
 
 <h2>write_file('<var>path</var>', <kbd>$data</kbd>)</h2>
 
-<p>Writes data to the file specified in the path.  If the file does not exist the function will create it. 參考範例:</p>
+<p>將資料寫入到指定的檔案裡面，假如此檔案不存在，函式將會自動建立新檔案。參考範例:</p>
 
 <code>
 $data = 'Some file data';<br />
@@ -96,28 +96,27 @@ else<br />
 &nbsp;&nbsp;&nbsp;&nbsp; echo 'File written!';<br />
 }</code>
 
-<p>You can optionally set the write mode via the third parameter:</p>
+<p>您可以選擇性的指定第三個參數來決定寫入的模式:</p>
 
 <code>write_file('./path/to/file.php', $data，<var>'r+'</var>);</code>
 
-<p>The default mode is <kbd>wb</kbd>.  Please see the <a href="http://php.net/fopen">PHP user guide</a> for mode options.</p>
+<p>檔案預設模式為 <kbd>wb</kbd>。針對檔案模式請參考官方網站使用手冊 <a href="http://php.net/fopen">PHP user guide</a></p>
 
-<p>注意: In order for this function to write data to a file its file permissions must be set such that it is writable (666，777，etc.).
-If the file does not already exist，the directory containing it must be writable.</p>
+<p>注意: 要使用此函數寫資料到檔案，請先確定該檔案是否可以"寫入"，如果該檔案不存在則該使用者應該對包含該檔案的目錄有寫入權限(即 UNIX 底下的 666, 777 權限)。</p>
 
-<p class="important"><strong>注意:</strong> The path is relative to your main site index.php file，NOT your controller or view files.
-CodeIgniter uses a front controller so paths are always relative to the main site index.</p>
+<p class="important"><strong>注意:</strong> 檔案路徑是相對於網站根目錄 index.php 檔案，而不是相對路徑於您的控制器(controller)或是顯示(view)的檔案。
+CodeIgniter 所使用的前端控制器都是相對於根目錄的 index 檔案。</p>
 
 <h2>delete_files('<var>path</var>')</h2>
 
-<p>Deletes ALL files contained in the supplied path.  參考範例:</p>
+<p>刪除指定目錄底下所有檔案。參考範例:</p>
 <code>delete_files('./path/to/directory/');</code>
 
-<p>If the second parameter is set to <kbd>true</kbd>，any directories contained within the supplied root path will be deleted as well. 參考範例:</p>
+<p>假設第二個參數設定為 <kbd>true</kbd>，指定目錄底下的所有檔案包含子目錄都會被刪除。參考範例:</p>
 
 <code>delete_files('./path/to/directory/', TRUE);</code>
 
-<p class="important"><strong>注意:</strong> The files must be writable or owned by the system in order to be deleted.</p>
+<p class="important"><strong>注意:</strong> 要被刪除的檔案或者是目錄都必須是該使用者可以寫入的權限，這樣才可以刪除。</p>
 
 <h2>get_filenames('<var>path/to/directory/</var>')</h2>
 

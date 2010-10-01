@@ -57,13 +57,13 @@
 
 <h1>建立自己的程式庫</h1>
 
-<p>當我們使用"程式庫(Libraries)"這個名稱的時候，我們通常指的是位在 <kbd>libraries</kbd> 目錄底下的類別，詳細可參考使用手冊中的類別參考的說明。
+<p>當我們使用"程式庫(Libraries)"這個名稱的時候, 我們通常指的是位在 <kbd>libraries</kbd> 目錄底下的類別, 詳細可參考使用手冊中的類別參考的說明。
 
-In this case，however，we will instead describe how you can create
+In this case, however, we will instead describe how you can create
 your own libraries within your <dfn>application/libraries</dfn> directory in order to maintain separation between your local resources
 and the global framework resources.</p>
 
-<p>As an added bonus，CodeIgniter permits your libraries to <kbd>extend</kbd> native classes if you simply need to add some functionality
+<p>As an added bonus, CodeIgniter permits your libraries to <kbd>extend</kbd> native classes if you simply need to add some functionality
 to an existing library. Or you can even replace native libraries just by placing identically named versions in your <dfn>application/libraries</dfn> folder.</p>
 
 <p>總結歸納:</p>
@@ -82,7 +82,7 @@ nor can the Loader class in PHP 4.  其他的類別才可以被擴充/取代。<
 
 <h2>存檔位置</h2>
 
-<p>自己建立的類別函數可以存放在 <dfn>application/libraries</dfn> 資料夾，當 CodeIgniter 必須初始化建立類別函數，系統就會來此資料夾查詢並且載入.</p>
+<p>自己建立的類別函數可以存放在 <dfn>application/libraries</dfn> 資料夾, 當 CodeIgniter 必須初始化建立類別函數, 系統就會來此資料夾查詢並且載入.</p>
 
 
 <h2>命名規則</h2>
@@ -111,14 +111,14 @@ class Someclass {<br />
 
 <h2>使用自建類別(Using Your Class)</h2>
 
-<p>由 <a href="controllers.html">控制器(Controller)</a> 內的函數載入任何類別，可使用下列的標準語法:</p>
+<p>由 <a href="controllers.html">控制器(Controller)</a> 內的函數載入任何類別, 可使用下列的標準語法:</p>
 
 <code>$this->load->library('<kbd>someclass</kbd>');</code>
 
-<p>在 <em>someclass</em> 的部份，只是該類別檔案名稱，不需要包含 ".php" 副檔名。你可以使用大寫或是小寫的檔案名稱，CodeIgniter 都可以接受。</p>
+<p>在 <em>someclass</em> 的部份, 只是該類別檔案名稱, 不需要包含 ".php" 副檔名。你可以使用大寫或是小寫的檔案名稱, CodeIgniter 都可以接受。</p>
 
 <p>
-一但載入之後，你可以取用你的類別採用 <kbd>小寫</kbd> 的方式:</p>
+一但載入之後, 你可以取用你的類別採用 <kbd>小寫</kbd> 的方式:</p>
 
 <code>$this-><kbd>someclass</kbd>->some_function();&nbsp; // 物件方法名稱必須是小寫
 </code>
@@ -127,14 +127,14 @@ class Someclass {<br />
 
 <h2>於初使化自定類別時傳遞參數</h2>
 
-<p>在初始化類別時，您可以透過傳遞第二個陣列參數來設定初始建構子：/p>
+<p>在初始化類別時, 您可以透過傳遞第二個陣列參數來設定初始建構子：/p>
 
 <code>
-$params = array('type' => 'large'，'color' => 'red');<br />
+$params = array('type' => 'large', 'color' => 'red');<br />
 <br />
-$this->load->library('Someclass'，<kbd>$params</kbd>);</code>
+$this->load->library('Someclass', <kbd>$params</kbd>);</code>
 
-<p>當你使用這個特性時，你必須為類別的建構子加上底下程式碼：</p>
+<p>當你使用這個特性時, 你必須為類別的建構子加上底下程式碼</p>
 
 <code>&lt;?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');<br />
 <br />
@@ -172,15 +172,15 @@ This function returns the CodeIgniter super object.</p>
 etc.
 </code>
 
-<p><kbd>$this</kbd>，however，only works directly within your controllers，your models，or your views.
+<p><kbd>$this</kbd>, however, only works directly within your controllers, your models, or your views.
 If you would like to use CodeIgniter's classes from within your own custom classes you can do so as follows:</p>
 
 
-<p>First，assign the CodeIgniter object to a variable:</p>
+<p>First, assign the CodeIgniter object to a variable:</p>
 
 <code>$CI =&amp; get_instance();</code>
 
-<p>Once you've assigned the object to a variable，you'll use that variable <em>instead</em> of <kbd>$this</kbd>:</p>
+<p>Once you've assigned the object to a variable, you'll use that variable <em>instead</em> of <kbd>$this</kbd>:</p>
 
 <code>
 $CI =&amp; get_instance();<br />
@@ -198,7 +198,7 @@ etc.
 <br />
 <kbd>This is very important.</kbd> Assigning by reference allows you to use the original CodeIgniter object rather than creating a copy of it.
 <br /><br />
-<kbd>Also，please note:</kbd> If you are running PHP 4 it's usually best to avoid calling <dfn>get_instance()</dfn>
+<kbd>Also, please note:</kbd> If you are running PHP 4 it's usually best to avoid calling <dfn>get_instance()</dfn>
 from within your class constructors.  PHP 4 has trouble referencing the CI super object within application constructors 
 since objects do not exist until the class is fully instantiated.</p>
 
@@ -206,8 +206,8 @@ since objects do not exist until the class is fully instantiated.</p>
 <h2>原生程式庫替換至個人版本(Replacing Native Libraries with Your Versions)</h2>
 
 <p>Simply by naming your class files identically to a native library will cause CodeIgniter to use it instead of the native one. To use this
-feature you must name the file and the class declaration exactly the same as the native library.  For example，to replace the native <kbd>Email</kbd> library
-you'll create a file named <dfn>application/libraries/Email.php</dfn>，and declare your class with:</p>
+feature you must name the file and the class declaration exactly the same as the native library.  For example, to replace the native <kbd>Email</kbd> library
+you'll create a file named <dfn>application/libraries/Email.php</dfn>, and declare your class with:</p>
 
 <code>
 class CI_Email {<br /><br />
@@ -234,7 +234,7 @@ Extending a class is nearly identical to replacing a class with a couple excepti
 <li>Your new class name and filename must be prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</li>
 </ul>
 
-<p>For example，to extend the native <kbd>Email</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Email.php</kbd>，and declare your class with:</p>
+<p>For example, to extend the native <kbd>Email</kbd> class you'll create a file named <dfn>application/libraries/</dfn><kbd>MY_Email.php</kbd>, and declare your class with:</p>
 
 <code>
 class MY_Email extends CI_Email {<br /><br />
@@ -257,7 +257,7 @@ class MY_Email extends CI_Email {<br />
 <h3>載入子類別</h3>
 
 <p>To load your sub-class you'll use the standard syntax normally used.  DO NOT include your prefix.  For example,
-to load the example above，which extends the Email 類別，you will use:</p>
+to load the example above, which extends the Email 類別, you will use:</p>
 
 <code>$this->load->library('<kbd>email</kbd>');</code>
 
@@ -270,11 +270,11 @@ the email class all calls will use:</p>
 
 <h3>自訂子類別的前置字串</h3>
 
-<p>要設定自己的子類別前置字串(sub-class prefix)，請開啟 <dfn>application/config/config.php</dfn> 然後找到底下的部份:</p>
+<p>要設定自己的子類別前置字串(sub-class prefix), 請開啟 <dfn>application/config/config.php</dfn> 然後找到底下的部份:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
-<p>所有原生的 CodeIgniter 程式庫，都是使用 <kbd>CI_</kbd> 的前置字串，所以別把它拿來用了。</p>
+<p>所有原生的 CodeIgniter 程式庫, 都是使用 <kbd>CI_</kbd> 的前置字串, 所以別把它拿來用了。</p>
 
 
 
@@ -290,7 +290,7 @@ the email class all calls will use:</p>
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="core_classes.html">新增系統核心類別</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab，Inc.</a></p>
+<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2009 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

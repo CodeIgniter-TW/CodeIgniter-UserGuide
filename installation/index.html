@@ -66,8 +66,13 @@
 <li>如果你打算使用資料庫的話，請開啟 <dfn>application/config/database.php</dfn> 填入你的資料庫資訊。</li>
 </ol>
 
-<p>
-如果你想要增加安全性的話，你可以把 CodeIgniter 裡頭的 <dfn>system</dfn> 改名成安全的名字。如果改名之後，你必須編輯 <kbd>index.php</kbd> ，並且把檔案裡頭最上面的 <samp>$system_folder</samp> 變數，改成你修改後的名字。</p>
+<p>If you wish to increase security by hiding the location of your CodeIgniter files you can rename the <dfn>system</dfn> and <dfn>application</dfn> folders
+to something more private.  If you do rename them, you must open your main <kbd>index.php</kbd> file and set the <samp>$system_folder</samp> and <samp>$application_folder</samp>
+variables at the top of the file with the new name you've chosen.</p>
+
+<p>For the best security, both the <dfn>system</dfn> and any <dfn>application</dfn> folders should be placed above web root so that they are not directly accessible via a browser.  By default, .htaccess files are included in each folder to help prevent direct access, but it is best to remove them from public access entirely in case the web server configuration changes or doesn't abide by the .htaccess.</p>
+
+<p>After moving them, open your main <kbd>index.php</kbd> file and set the <samp>$system_folder</samp> and <samp>$application_folder</samp> variables, preferably with a full path, e.g. '<dfn>/www/MyUser/system</dfn>'.</p>
 
 <p>大功告成！</p>
 

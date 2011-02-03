@@ -23,7 +23,7 @@ function create_menu(basepath)
 		'<ul>' +
 			'<li><a href="'+base+'installation/downloads.html">下載 CodeIgniter</a></li>' +
 			'<li><a href="'+base+'installation/index.html">安裝指引</a></li>' +
-			'<li><a href="'+base+'installation/upgrading.html">更新</a></li>' +
+			'<li><a href="'+base+'installation/upgrading.html">升級版本</a></li>' +
 			'<li><a href="'+base+'installation/troubleshooting.html">程式除錯</a></li>' +
 		'</ul>' +
 

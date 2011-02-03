@@ -66,13 +66,11 @@
 <li>如果你打算使用資料庫的話，請開啟 <dfn>application/config/database.php</dfn> 填入你的資料庫資訊。</li>
 </ol>
 
-<p>If you wish to increase security by hiding the location of your CodeIgniter files you can rename the <dfn>system</dfn> and <dfn>application</dfn> folders
-to something more private.  If you do rename them, you must open your main <kbd>index.php</kbd> file and set the <samp>$system_folder</samp> and <samp>$application_folder</samp>
-variables at the top of the file with the new name you've chosen.</p>
+<p>如果您希望隱藏 CodeIgniter 檔案位置來增加網站安全姓，您可以重新命名 <dfn>system</dfn> and <dfn>application</dfn> 資料夾，把它改成任何你想改的。如果已經修改過資料夾名稱，您必須編輯 <kbd>index.php</kbd> 檔案，將 <samp>$system_folder</samp> and <samp>$application_folder</samp> 這兩個變數換成您修改的目錄名稱。
 
-<p>For the best security, both the <dfn>system</dfn> and any <dfn>application</dfn> folders should be placed above web root so that they are not directly accessible via a browser.  By default, .htaccess files are included in each folder to help prevent direct access, but it is best to remove them from public access entirely in case the web server configuration changes or doesn't abide by the .htaccess.</p>
+<p>最安全的做法是將 <dfn>system</dfn> 和任何 <dfn>application</dfn> 目錄移動到 Web 根目錄上一層，讓 Web 瀏覽器無法直接存取它。在預設狀況，每個目錄底下都包含 .htaccess 檔案，用來保護直接存取檔案，但是最好的方式就是全部移除 .htaccess，因為並非所有 Web 伺服器都支援 .htaccess 或者是 Web 伺服器改變設定。</p>
 
-<p>After moving them, open your main <kbd>index.php</kbd> file and set the <samp>$system_folder</samp> and <samp>$application_folder</samp> variables, preferably with a full path, e.g. '<dfn>/www/MyUser/system</dfn>'.</p>
+<p>如果移動了以上兩個資料夾，您必須編輯 <kbd>index.php</kbd> 檔案，並且將 <samp>$system_folder</samp> 和 <samp>$application_folder</samp> 變數，替換成絕對路徑，例如: '<dfn>/www/MyUser/system</dfn>'。</p>
 
 <p>大功告成！</p>
 

@@ -78,6 +78,7 @@ function create_menu(basepath)
 		'<ul>' +
 		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking 類別</a></li>' +
 		'<li><a href="'+base+'libraries/calendar.html">Calendaring 類別</a></li>' +
+		'<li><a href="'+base+'libraries/cart.html">Cart 類別</a></li>' +
 		'<li><a href="'+base+'libraries/config.html">Config 類別</a></li>' +
 		'<li><a href="'+base+'database/index.html">Database 類別</a></li>' +
 		'<li><a href="'+base+'libraries/email.html">Email 類別</a></li>' +

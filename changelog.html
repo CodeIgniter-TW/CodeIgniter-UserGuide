@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 版本 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 版本 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="./toc.html">目錄</a></td>
 </tr>
 </table>
@@ -57,14 +57,165 @@
 
 <h1>版本紀錄</h1>
 
-<h2>版本 1.7.3</h2>
-<p>發佈日期: 2010年12月06日</p>
-<p>Version 1.7.3 is a security maintenance release, including a previously patched file Upload class, and a new security fix to prevent possible directory traversal in certain circumstances.  There are no other significant changes.</p>
+<p>The <img src="images/reactor-bullet.png" width="16" height="16" alt="Reactor Marker" /> indicates items that were contributed to CodeIgniter via CodeIgniter Reactor.</p>
 
+<h2>版本 2.0.0</h2>
+<p>發佈日期: 2011年1月28日<br />
+Hg 標籤: v2.0.0</p>
+
+<ul>
+	<li>General changes
+		<ul>
+			<li>PHP 4 support is removed. CodeIgniter now requires PHP 5.1.6.</li>
+			<li>Scaffolding, having been deprecated for a number of versions, has been removed.</li>
+			<li>Plugins have been removed, in favor of Helpers.  The CAPTCHA plugin has been converted to a Helper and <a href="./helpers/captcha_helper.html">documented</a>.  The JavaScript calendar plugin was removed due to the ready availability of great JavaScript calendars, particularly with jQuery.</li>
+			<li>Added new special Library type: <a href="./general/drivers.html">Drivers</a>.</li>
+			<li class="reactor">Added full query-string support.  See the config file for details.</li>
+			<li>Moved the application folder outside of the system folder.</li>
+			<li>Moved system/cache and system/logs directories to the application directory.</li>
+			<li>Added routing overrides to the main index.php file, enabling the normal routing to be overridden on a per "index" file basis.</li>
+			<li>Added the ability to set config values (or override config values) directly from data set in the main index.php file.  This allows a single application to be used with multiple front controllers, each having its own config values.</li>
+			<li>Added <kbd>$config['directory_trigger']</kbd> to the config file so that a controller sub-directory can be specified when running _GET strings instead of URI segments.</li>
+			<li>Added ability to set "Package" paths - specific paths where the Loader and Config classes should try to look first for a requested file.  This allows distribution of sub-applications with their own libraries, models, config files, etc. in a single "package" directory.  See the <a href="libraries/loader.html">Loader class</a> documentation for more details.</li>
+			<li>In-development code is now hosted at <a href="http://bitbucket.org/ellislab/codeigniter-reactor/">BitBucket</a>.</li>
+			<li>Removed the deprecated Validation Class.</li>
+			<li>Added CI_ Prefix to all core classes.</li>
+			<li class="reactor">Package paths can now be set in application/config/autoload.php.</li>
+			<li class="reactor"><a href="libraries/file_uploading.html">Upload library</a> file_name can now be set without an extension, the extension will be taken from the uploaded file instead of the given name.</li>
+			<li class="reactor">In <a href="database/forge.html">Database Forge</a> the name can be omitted from $this->dbforge->modify_column()'s 2nd param if you aren't changing the name.</li>
+			<li class="reactor"><kbd>$config['base_url']</kbd> is now empty by default and will guess what it should be.</li>
+			<li class="reactor">Enabled full Command Line Interface compatibility with <kbd>config['uri_protocol'] = 'CLI';</kbd>.</li>
+		</ul>
+	<li>Libraries
+		<ul>
+			<li class="reactor">Added a <a href="libraries/caching.html">Cache driver</a> with APC, memcached, and file-based support.</li>
+			<li>Added <var>$prefix</var>, <var>$suffix</var> and <var>$first_url</var> properties to <a href="./libraries/pagination.html">Pagination library</a>.</li>
+			<li>Added the ability to suppress first, previous, next, last, and page links by setting their values to FALSE in the <a href="./libraries/pagination.html">Pagination library</a>.</li>
+			<li>Added <a href="./libraries/security.html">Security library</a>, which now contains the <dfn>xss_clean</dfn> function, <dfn>filename_security</dfn> function and other security related functions.</li>
+			<li>Added CSRF (Cross-site Reference Forgery) protection to the <a href="./libraries/security.html">Security library</a>.</li>
+			<li>Added <var>$parse_exec_vars</var> property to Output library.</li>
+			<li>Added ability to enable / disable individual sections of the <a href="general/profiling.html">Profiler</a></li>
+			<li>Added a wildcard option <kbd>$config['allowed_types'] = '*'</kbd> to the <a href="./libraries/file_uploading.html">File Uploading Class</a>.</li>
+			<li>Added an 'object' config variable to the XML-RPC Server library so that one can specify the object to look for requested methods, instead of assuming it is in the $CI superobject.</li>
+			<li>Added "is_object" into the list of unit tests capable of being run.</li>
+			<li>Table library will generate an empty cell with a blank string, or NULL value.</li>
+			<li>Added ability to set tag attributes for individual cells in the Table library</li>
+			<li>Added a <kbd>parse_string()</kbd> method to the <a href="libraries/parser.html">Parser Class</a>.</li>
+			<li>Added HTTP headers and Config information to the <a href="general/profiling.html">Profiler</a> output.</li>
+			<li>Added Chrome and Flock to the list of detectable browsers by <kbd>browser()</kbd> in the <a href="libraries/user_agent.html">User Agent Class</a>.</li>
+			<li>The <a href="libraries/unit_testing.html">Unit Test Class</a> now has an optional "notes" field available to it, and allows for discrete display of test result items using <kbd>$this->unit->set_test_items()</kbd>.</li>
+			<li>Added a <kbd>$xss_clean</kbd> class variable to the XMLRPC library, enabling control over the use of the Security library's <kbd>xss_clean()</kbd> method.</li>
+			<li>Added a <kbd>download()</kbd> method to the <a href="libraries/ftp.html">FTP library</a></li>
+			<li>Changed <kbd>do_xss_clean()</kbd> to return FALSE if the uploaded file fails XSS checks.</li>
+			<li>Added stripslashes() and trim()ing of double quotes from $_FILES type value to standardize input in Upload library.</li>
+			<li>Added a second parameter (boolean) to <kbd>$this->zip->read_dir('/path/to/directory', FALSE)</kbd> to remove the preceding trail of empty folders when creating a Zip archive. This example would contain a zip with "directory" and all of its contents.</li>
+			<li>Added ability in the Image Library to handle PNG transparency for resize operations when using the GD lib.</li>
+			<li>Modified the Session class to prevent use if no encryption key is set in the config file.</li>
+			<li>Added a new config item to the Session class <kbd>sess_expire_on_close</kbd> to allow sessions to auto-expire when the browser window is closed.</li>
+			<li>Improved performance of the Encryption library on servers where Mcrypt is available.</li>
+			<li>Changed the default encryption mode in the Encryption library to CBC.</li>
+			<li>Added an <kbd>encode_from_legacy()</kbd> method to provide a way to transition encrypted data from CodeIgniter 1.x to CodeIgniter 2.x.
+				Please see the <a href="./installation/upgrade_200.html">upgrade instructions</a> for details.</li>
+			<li>Altered Form_Validation library to allow for method chaining on <kbd>set_rules()</kbd>, <kbd>set_message()</kbd> and <kbd>set_error_delimiters()</kbd> functions.</li>
+			<li>Altered Email Library to allow for method chaining.</li>
+			<li>Added <kbd>request_headers()</kbd>, <kbd>get_request_header()</kbd> and <kbd>is_ajax_request()</kbd> to the input class.</li>
+			<li class="reactor">Altered <a href="libraries/user_agent.html">User agent library</a> so that <kbd>is_browser()</kbd>, <kbd>is_mobile()</kbd> and <kbd>is_robot()</kbd> can optionally check for a specific browser or mobile device.</li>
+		</ul>
+	</li>
+	<li>Database
+		<ul>
+			<li><a href="./database/configuration.html">database configuration</a>.</li>
+			<li>Added <kbd>autoinit</kbd> value to <a href="./database/configuration.html">database configuration</a>.</li>
+			<li>Added <kbd>stricton</kbd> value to <a href="./database/configuration.html">database configuration</a>.</li>
+			<li>Added <kbd>database_exists()</kbd> to the <a href="database/utilities.html">Database Utilities Class</a>.</li>
+			<li>Semantic change to db->version() function to allow a list of exceptions for databases with functions to return version string instead of specially formed SQL queries. Currently this list only includes Oracle and SQLite.</li>
+			<li>Fixed a bug where driver specific table identifier protection could lead to malformed queries in the <kbd>field_data()</kbd> functions.</li>
+			<li>Fixed a bug where an undefined class variable was referenced in database drivers.</li>
+			<li>Modified the database errors to show the filename and line number of the problematic query.</li>
+			<li>Removed the following deprecated functions: orwhere, orlike, groupby, orhaving, orderby, getwhere.</li>
+			<li>Removed deprecated _drop_database() and _create_database() functions from the db utility drivers.</li>
+			<li>Improved dbforge create_table() function for the Postgres driver.</li>
+		</ul>
+	</li>
+	<li>Helpers
+		<ul>
+			<li>Added <kbd>convert_accented_characters()</kbd> function to <a href="./helpers/text_helper.html">text helper</a>.</li>
+			<li>Added accept-charset to the list of inserted attributes of <kbd>form_open()</kbd> in the <a href="helpers/form_helper.html">Form Helper</a>.</li>
+			<li>Deprecated the <kbd>dohash()</kbd> function in favour of <kbd>do_hash()</kbd> for naming consistency.</li>
+			<li>Non-backwards compatible change made to <kbd>get_dir_file_info()</kbd> in the <a href="helpers/file_helper.html">File Helper</a>.  No longer recurses
+				by default so as to encourage responsible use (this function can cause server performance issues when used without caution).</li>
+			<li>Modified the second parameter of <kbd>directory_map()</kbd> in the <a href="helpers/directory_helper.html">Directory Helper</a> to accept an integer to specify recursion depth.</li>
+			<li>Modified <kbd>delete_files()</kbd> in the <a href="helpers/file_helper.html">File Helper</a> to return FALSE on failure.</li>
+			<li>Added an optional second parameter to <kbd>byte_format()</kbd> in the <a href="helpers/number_helper.html">Number Helper</a> to allow for decimal precision.</li>
+			<li>Added alpha, and sha1 string types to <kbd>random_string()</kbd> in the <a href="helpers/string_helper.html">String Helper</a>.</li>
+			<li>Modified <kbd>prep_url()</kbd> so as to not prepend http:// if the supplied string already has a scheme.</li>
+			<li>Modified <kbd>get_file_info</kbd> in the file helper, changing filectime() to filemtime() for dates.</li>
+			<li>Modified <kbd>smiley_js()</kbd> to add optional third parameter to return only the javascript with no script tags.</li>
+			<li>The <kbd>img()</kbd> function of the <a href="./helpers/html_helper.html">HTML helper</a> will now generate an empty string as an alt attribute if one is not provided.</li>
+			<li>If CSRF is enabled in the application config file, <kbd>form_open()</kbd> will automatically insert it as a hidden field.</li>
+			<li>Added <kbd>sanitize_filename()</kbd> into the <a href="./helpers/security_helper.html">Security helper</a>.</li>
+			<li>Added <kbd>ellipsize()</kbd> to the <a href="./helpers/text_helper.html">Text Helper</a></li>
+			<li>Added <kbd>elements()</kbd> to the <a href="./helpers/array_helper.html">Array Helper</a></li>
+		</ul>
+	</li>
+	<li>Other Changes
+		<ul>
+			<li>Added an optional second parameter to <kbd>show_404()</kbd> to disable logging.</li>
+			<li>Updated loader to automatically apply the sub-class prefix as an option when loading classes.  Class names can be prefixed with the standard "CI_" or the same prefix as the subclass prefix, or no prefix at all.</li>
+			<li>Increased randomness with <kbd>is_really_writable()</kbd> to avoid file collisions when hundreds or thousands of requests occur at once.</li>
+			<li>Switched some DIR_WRITE_MODE constant uses to FILE_WRITE_MODE where files and not directories are being operated on.</li>
+			<li><kbd>get_mime_by_extension()</kbd> is now case insensitive.</li>
+			<li>Added "default" to the list <a href="general/reserved_names.html">Reserved Names</a>.</li>
+			<li>Added 'application/x-msdownload' for .exe files and ''application/x-gzip-compressed' for .tgz files to config/mimes.php.</li>
+			<li>Updated the output library to no longer compress output or send content-length headers if the server runs with zlib.output_compression enabled.</li>
+			<li>Eliminated a call to is_really_writable() on each request unless it is really needed (Output caching)</li>
+			<li>Documented <kbd>append_output()</kbd> in the <a href="libraries/output.html">Output Class</a>.</li>
+			<li>Documented a second argument in the <kbd>decode()</kbd> function for the <a href="libraries/encryption.html">Encryption Class</a>.</li>
+			<li>Documented db->close().</li>
+			<li>Updated the router to support a default route with any number of segments.</li>
+			<li>Moved _remove_invisible_characters() function from the <a href="libraries/security.html">Security Library</a> to <a href="general/common_functions.html">common functions.</a></li>
+			<li>Added audio/mpeg3 as a valid mime type for MP3.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Bug fixes for 2.0.0</h3>
+<ul>
+	<li class="reactor">Fixed a bug where you could not change the User-Agent when sending email.</li>
+	<li>Fixed a bug where the Output class would send incorrect cached output for controllers implementing their own <dfn>_output()</dfn> method.</li>
+	<li>Fixed a bug where a failed query would not have a saved query execution time causing errors in the Profiler</li>
+	<li>Fixed a bug that was writing log entries when multiple identical helpers and plugins were loaded.</li>
+	<li>Fixed assorted user guide typos or examples (#10693, #8951, #7825, #8660, #7883, #6771, #10656).</li>
+	<li>Fixed a language key in the profiler: "profiler_no_memory_usage" to "profiler_no_memory".</li>
+	<li>Fixed an error in the Zip library that didn't allow downloading on PHP 4 servers.</li>
+	<li>Fixed a bug in the Form Validation library where fields passed as rule parameters were not being translated (#9132)</li>
+	<li>Modified inflector helper to properly pluralize words that end in 'ch' or 'sh'</li>
+	<li>Fixed a bug in xss_clean() that was not allowing hyphens in query strings of submitted URLs.</li>
+	<li>Fixed bugs in get_dir_file_info() and get_file_info() in the File Helper with recursion, and file paths on Windows.</li>
+	<li>Fixed a bug where Active Record override parameter would not let you disable Active Record if it was enabled in your database config file.</li>
+	<li>Fixed a bug in reduce_double_slashes() in the String Helper to properly remove duplicate leading slashes (#7585)</li>
+	<li>Fixed a bug in values_parsing() of the XML-RPC library which prevented NULL variables typed as 'string' from being handled properly.</li>
+	<li>Fixed a bug were form_open_multipart() didn't accept string attribute arguments (#10930).</li>
+	<li>Fixed a bug (#10470) where <kdb>get_mime_by_extension()</kbd> was case sensitive.</li>
+	<li>Fixed a bug where some error messages for the SQLite and Oracle drivers would not display.</li>
+	<li>Fixed a bug where files created with the Zip Library would result in file creation dates of 1980.</li>
+	<li>Fixed a bug in the Session library that would result in PHP error when attempting to store values with objects.</li>
+	<li>Fixed a bug where extending the Controller class would result in a fatal PHP error.</li>
+	<li>Fixed a PHP Strict Standards Error in the index.php file.</li>
+	<li>Fixed a bug where getimagesize() was being needlessly checked on non-image files in is_allowed_type().</li>
+	<li>Fixed a bug in the Encryption library where an empty key was not triggering an error.</li>
+	<li>Fixed a bug in the Email library where CC and BCC recipients were not reset when using the clear() method (#109).</li>
+	<li>Fixed a bug in the URL Helper where prep_url() could cause a PHP error on PHP versions &lt; 5.1.2.</li>
+	<li>Added a log message in core/output if the cache directory config value was not found.</li>
+	<li>Fixed a bug where multiple libraries could not be loaded by passing an array to load-&gt;library()</li>
+	<li>Fixed a bug in the html helper where too much white space was rendered between the src and alt tags in the img() function.</li>
+	<li>Fixed a bug in the profilers _compile_queries() function.</li>
+	<li>Fixed a bug in the date helper where the DATE_ISO8601 variable was returning an incorrectly formatted date string.</li>
+</ul>
 
 <h2>版本 1.7.2</h2>
 <p>發佈日期: 2009年9月11日<br />
-SVN 版本: 1737</p>
+Hg 標籤: v1.7.2</p>
 
 <ul>
 	<li>Libraries
@@ -130,8 +281,8 @@ SVN 版本: 1737</p>
 </ul>
 
 <h2>版本 1.7.1</h2>
-<p>發佈日期: February 10, 2009<br />
-SVN Revision: 1640</p>
+<p>發佈日期: 2009年2月10日<br />
+Hg 標籤: 1.7.1</p>
 
 <ul>
 	<li>Libraries
@@ -214,8 +365,8 @@ SVN Revision: 1640</p>
 
 
 <h2>版本 1.7</h2>
-<p>發佈日期: October 23, 2008<br />
-SVN Revision: 1541</p>
+<p>發佈日期: 2008年10月23日<br />
+Hg 標籤: 1.7.0</p>
 
 <ul>
 	<li>Libraries
@@ -306,8 +457,8 @@ SVN Revision: 1541</p>
 </ul>
 
 <h2>版本 1.6.3</h2>
-<p>發佈日期: June 26, 2008<br />
-SVN Revision: 1238</p>
+<p>發佈日期: 2008年六月26日<br />
+Hg 標籤: v1.6.3</p>
 <p>版本 1.6.3 is a security and maintenance release and is recommended for all users.</p>
 <ul>
 	<li>Database
@@ -365,8 +516,8 @@ SVN Revision: 1238</p>
 </ul>
 
 <h2>版本 1.6.2</h2>
-<p>發佈日期: May 13, 2008<br />
-SVN Revision: 1155</p>
+<p>發佈日期: 2008年3月13日<br />
+Hg 標籤: 1.6.2</p>
 <ul>
 	<li>Active Record
 		<ul>
@@ -468,8 +619,8 @@ SVN Revision: 1155</p>
 	</ul>
 
 <h2>版本 1.6.1</h2>
-<p>發佈日期: February 12, 2008<br />
-	SVN Revision: 984</p>
+<p>發佈日期: 2008年2月12日<br />
+	Hg 標籤: 1.6.1</p>
 <ul>
 	<li>Active Record 
 		<ul>
@@ -520,7 +671,7 @@ SVN Revision: 1155</p>
 
 
 <h2>版本 1.6.0</h2>
-<p>發佈日期: January 30, 2008 </p>
+<p>發佈日期: 2008年1月30日</p>
 <ul>
 	<li>DBForge
 		<ul>
@@ -690,7 +841,7 @@ SVN Revision: 1155</p>
 	<li>Fixed assorted user guide typos.</li>
 </ul>
 <h2>版本 1.5.4</h2>
-<p>發佈日期: July 12, 2007 </p>
+<p>發佈日期: 2007年7月12日</p>
 <ul>
 	<li>Added <a href="./libraries/language.html">custom Language files</a> to the <a href="./general/autoloader.html">autoload</a> options. </li>
 	<li>Added stripslashes() to the _clean_input_data() function in the <a href="./libraries/input.html">Input class</a> when magic quotes is on so that data will always be un-slashed within the framework.</li>
@@ -1074,7 +1225,7 @@ all controller methods are prefixed with <dfn>_ci</dfn> to avoid controller coll
 <a href="index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="./general/credits.html">所有權宣告</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

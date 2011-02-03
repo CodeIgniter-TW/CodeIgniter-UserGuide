@@ -7,9 +7,9 @@ function create_menu(basepath)
 		'<td class="td" valign="top">' +
 
 		'<ul>' +
-		'<li><a href="'+base+'index.html">使用手冊首頁</a></li>' +	
-		'<li><a href="'+base+'toc.html">目錄</a></li>' +
-		'</ul>' +	
+		'<li><a href="'+base+'index.html">使用手冊首頁</a></li>' +
+		'<li><a href="'+base+'toc.html">手冊目錄</a></li>' +
+		'</ul>' +
 
 		'<h3>基本資訊</h3>' +
 		'<ul>' +
@@ -17,27 +17,27 @@ function create_menu(basepath)
 			'<li><a href="'+base+'license.html">許可協議</a></li>' +
 			'<li><a href="'+base+'changelog.html">版本紀錄</a></li>' +
 			'<li><a href="'+base+'general/credits.html">所有權宣告</a></li>' +
-		'</ul>' +	
-		
+		'</ul>' +
+
 		'<h3>安裝</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'installation/downloads.html">下載 CodeIgniter</a></li>' +
 			'<li><a href="'+base+'installation/index.html">安裝指引</a></li>' +
 			'<li><a href="'+base+'installation/upgrading.html">更新</a></li>' +
-			'<li><a href="'+base+'installation/troubleshooting.html">除錯</a></li>' +
+			'<li><a href="'+base+'installation/troubleshooting.html">程式除錯</a></li>' +
 		'</ul>' +
-		
+
 		'<h3>簡介</h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'overview/getting_started.html">入門</a></li>' +
 			'<li><a href="'+base+'overview/at_a_glance.html">CodeIgniter 匆匆一瞥</a></li>' +
+			'<li><a href="'+base+'overview/cheatsheets.html">CodeIgniter 備忘錄</a></li>' +
 			'<li><a href="'+base+'overview/features.html">支援功能</a></li>' +
 			'<li><a href="'+base+'overview/appflow.html">程式流程圖</a></li>' +
 			'<li><a href="'+base+'overview/mvc.html">模型-檢視-控制器</a></li>' +
 			'<li><a href="'+base+'overview/goals.html">架構目標</a></li>' +
-		'</ul>' +	
+		'</ul>' +
 
-				
 		'</td><td class="td_sep" valign="top">' +
 
 		'<h3>一般主題</h3>' +
@@ -64,10 +64,16 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/styleguide.html">PHP 風格指南</a></li>' +
 			'<li><a href="'+base+'doc_style/index.html">撰寫文件</a></li>' +
 		'</ul>' +
-		
+
+		'<h3>更多資源</h3>' +
+		'<ul>' +
+		'<li><a href="http://codeigniter.org.tw/forums/">社群論壇(中)</a></li>' +
+		'<li><a href="http://codeigniter.com/forums/">社群論壇(英)</a></li>' +
+		'<li><a href="http://codeigniter.com/wiki/">社群 Wiki</a></li>' +
+		'</ul>' +
+
 		'</td><td class="td_sep" valign="top">' +
 
-				
 		'<h3>類別參考</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking 類別</a></li>' +
@@ -91,7 +97,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/sessions.html">Session 類別</a></li>' +
 		'<li><a href="'+base+'libraries/trackback.html">Trackback 類別</a></li>' +
 		'<li><a href="'+base+'libraries/parser.html">Template Parser 類別</a></li>' +
-		'<li><a href="'+base+'libraries/typography.html">Typography 類別</a></li>' +		
+		'<li><a href="'+base+'libraries/typography.html">Typography 類別</a></li>' +
 		'<li><a href="'+base+'libraries/unit_testing.html">Unit Testing 類別</a></li>' +
 		'<li><a href="'+base+'libraries/uri.html">URI 類別</a></li>' +
 		'<li><a href="'+base+'libraries/user_agent.html">User Agent 類別</a></li>' +
@@ -100,6 +106,13 @@ function create_menu(basepath)
 		'</ul>' +
 
 		'</td><td class="td_sep" valign="top">' +
+
+		'<h3>Driver 參考</h3>' +
+		'<ul>' +
+		'<li><a href="'+base+'libraries/caching.html">Caching 類別</a></li>' +
+		'<li><a href="'+base+'database/index.html">Database 類別</a></li>' +
+		'<li><a href="'+base+'libraries/javascript.html">Javascript 類別</a></li>' +
+		'</ul>' +
 
 		'<h3>輔助函數參考</h3>' +
 		'<ul>' +
@@ -126,13 +139,5 @@ function create_menu(basepath)
 		'<li><a href="'+base+'helpers/xml_helper.html">XML 輔助函數</a></li>' +
 		'</ul>' +	
 
-
-		'<h3>更多資源</h3>' +
-		'<ul>' +
-		'<li><a href="http://codeigniter.org.tw/forums/">社群論壇(中)</a></li>' +
-		'<li><a href="http://codeigniter.com/forums/">社群論壇(英)</a></li>' +
-		'<li><a href="http://codeigniter.com/wiki/">社群 Wiki</a></li>' +
-		'</ul>' +	
-		
 		'</td></tr></table>');
 }

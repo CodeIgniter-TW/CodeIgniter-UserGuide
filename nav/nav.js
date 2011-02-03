@@ -48,14 +48,12 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/views.html">檢視(Views)</a></li>' +
 			'<li><a href="'+base+'general/models.html">模型(Models)</a></li>' +
 			'<li><a href="'+base+'general/helpers.html">輔助函數(Helpers)</a></li>' +
-			'<li><a href="'+base+'general/plugins.html">外掛模組(Plugins)</a></li>' +
 			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">建立自己的程式庫</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">新增核心類別</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - 擴充核心</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">自動載入資源</a></li>' +
 			'<li><a href="'+base+'general/common_functions.html">通用函數</a></li>' +
-			'<li><a href="'+base+'general/scaffolding.html">腳手架 (Scaffolding)</a></li>' +
 			'<li><a href="'+base+'general/routing.html">URI 路由</a></li>' +
 			'<li><a href="'+base+'general/errors.html">錯誤處理</a></li>' +
 			'<li><a href="'+base+'general/caching.html">快取</a></li>' +
@@ -83,11 +81,13 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/ftp.html">FTP 類別</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table 類別</a></li>' +
 		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation 類別</a></li>' +		
-		'<li><a href="'+base+'libraries/input.html">Input and 安全性 類別</a></li>' +
+		'<li><a href="'+base+'libraries/input.html">Input 類別</a></li>' +
+		'<li><a href="'+base+'libraries/javascript.html">Javascript 類別</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Loader 類別</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Language 類別</a></li>' +
 		'<li><a href="'+base+'libraries/output.html">Output 類別</a></li>' +
 		'<li><a href="'+base+'libraries/pagination.html">Pagination 類別</a></li>' +
+		'<li><a href="'+base+'libraries/security.html">Security 類別</a></li>' +
 		'<li><a href="'+base+'libraries/sessions.html">Session 類別</a></li>' +
 		'<li><a href="'+base+'libraries/trackback.html">Trackback 類別</a></li>' +
 		'<li><a href="'+base+'libraries/parser.html">Template Parser 類別</a></li>' +
@@ -104,8 +104,8 @@ function create_menu(basepath)
 		'<h3>輔助函數參考</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'helpers/array_helper.html">Array 輔助函數</a></li>' +
-		'<li><a href="'+base+'helpers/compatibility_helper.html">Compatibility 輔助函數</a></li>' +
-		'<li><a href="'+base+'helpers/cookie_helper.html">Cookie 輔助函數</a></li>' +
+		'<li><a href="'+base+'helpers/captcha_helper.html">CAPTCHA 輔助函數</a></li>' +
+        '<li><a href="'+base+'helpers/cookie_helper.html">Cookie 輔助函數</a></li>' +
 		'<li><a href="'+base+'helpers/date_helper.html">Date 輔助函數</a></li>' +
 		'<li><a href="'+base+'helpers/directory_helper.html">Directory 輔助函數</a></li>' +
 		'<li><a href="'+base+'helpers/download_helper.html">Download 輔助函數</a></li>' +
@@ -129,7 +129,8 @@ function create_menu(basepath)
 
 		'<h3>更多資源</h3>' +
 		'<ul>' +
-		'<li><a href="http://codeigniter.com/forums/">社群論壇</a></li>' +
+		'<li><a href="http://codeigniter.org.tw/forums/">社群論壇(中)</a></li>' +
+		'<li><a href="http://codeigniter.com/forums/">社群論壇(英)</a></li>' +
 		'<li><a href="http://codeigniter.com/wiki/">社群 Wiki</a></li>' +
 		'</ul>' +	
 		

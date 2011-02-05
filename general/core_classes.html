@@ -82,13 +82,14 @@
 <li>Output</li>
 <li>Router</li>
 <li>URI</li>
+<li>Utf8</li>
 </ul>
 
 <h2>更換核心類別</h2>
 
-<p>要用你自己的系統核心類別來置換預設的，只要將你自己的版本放在 <dfn>application/libraries</dfn> 目錄裡：</p>
+<p>要用你自己的系統核心類別來置換預設的，只要將你自己的版本放在 <dfn>application/core</dfn> 目錄裡：</p>
 
-<code>application/libraries/<dfn>some-class.php</dfn></code>
+<code>application/core/<dfn>some-class.php</dfn></code>
 
 <p>如果這個目錄不存在，你可以自己新增。</p>
 
@@ -114,7 +115,7 @@ class CI_Input {<br /><br />
 <li>你的新類別名稱與檔名必須使用 <kbd>MY_</kbd> 前置字串（這是可設定的，請見下述）。</li>
 </ul>
 
-<p>例如，要擴充一個內建的 <kbd>Input</kbd> 類別，你要先新增檔名為 <dfn>application/libraries/</dfn><kbd>MY_Input.php</kbd> 的檔案，然後這樣宣告你的類別：/p>
+<p>例如，要擴充一個內建的 <kbd>Input</kbd> 類別，你要先新增檔名為 <dfn>application/core/</dfn><kbd>MY_Input.php</kbd> 的檔案，然後這樣宣告你的類別：/p>
 
 <code>
 class MY_Input extends CI_Input {<br /><br />
@@ -126,9 +127,9 @@ class MY_Input extends CI_Input {<br /><br />
 <code>
 class MY_Input extends CI_Input {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function My_Input()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::CI_Input();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -139,9 +140,9 @@ class MY_Input extends CI_Input {<br />
 
 <code>class Welcome extends MY_Controller {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function Welcome()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::MY_Controller();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function index()<br />

@@ -57,17 +57,16 @@
 
 <h1>自動載入資源</h1>
 
-<p>CodeIgniter 具有 "自動載入(auto-load)" 的功能，可允許程式庫、輔助函數、外掛模組在每次系統啟動時自動載入。如果你需要某個資源可在 application 被全域(globally)使用的話，你應該考慮使用自動載入的功能。</p>
+<p>CodeIgniter 具有 "自動載入(auto-load)" 的功能，可允許程式庫、輔助函數、Model 模組在每次系統啟動時自動載入。如果你需要某個資源可在 application 被全域(globally)使用的話，你應該考慮使用自動載入的功能。</p>
 
 <p>底下的項目可以被自動載入:</p>
 
 <ul>
 <li>位在 "libraries" 目錄下的核心類別檔(core classes)</li>
 <li>位在 "helpers 目錄下的補助函數檔(helpers)</li>
-<li>位在 "plugins" 目錄下的外掛模組檔(plugins)</li>
 <li>位在 "config" 目錄下的自訂設定檔(config)</li>
-<li>位在 "system/language" 下的語言檔(language)</li>
-<li>Models found in the &quot;models&quot; folder</li>
+<li>位在 "system/language" 目錄下的語言檔(language)</li>
+<li>位在 &quot;models&quot; 目錄下的資料庫檔(models)</li>
 </ul>
 
 <p>要自動載入資源，請開啟 <var>application/config/autoload.php</var> 的檔案，然後將要自動載入的項目置於 

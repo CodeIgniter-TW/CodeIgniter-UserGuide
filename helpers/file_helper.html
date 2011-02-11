@@ -123,9 +123,10 @@ CodeIgniter 所使用的前端控制器都是相對於根目錄的 index 檔案�
 <p>Takes a server path as input and returns an array containing the names of all files contained within it. The file path
 can optionally be added to the file names by setting the second parameter to TRUE.</p>
 
-<h2>get_dir_file_info('<var>path/to/directory/</var>')</h2>
+<h2>get_dir_file_info('<var>path/to/directory/</var>', <kbd>$top_level_only</kbd> = TRUE)</h2>
 
-<p>Reads the specified directory and builds an array containing the filenames，filesize，dates，and permissions.  Any sub-folders contained within the specified path are read as well.</p>
+<p>Reads the specified directory and builds an array containing the filenames, filesize, dates, and permissions.  Sub-folders contained within the specified path are only read if forced
+    by sending the second parameter, <kbd>$top_level_only</kbd> to <samp>FALSE</samp>, as this can be an intensive operation.</p>
 
 <h2>get_file_info('<var>path/to/file</var>'，<kbd>$file_information</kbd>)</h2>
 

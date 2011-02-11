@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>升級版本 1.7.3 to 2.0.0 : CodeIgniter 使用手冊</title>
+<title>從 1.7.3 升級到 2.0.0 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-升級版本 1.7.3 to 2.0.0
+從 1.7.3 升級到 2.0.0
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />Search 使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,62 +55,58 @@
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>升級版本 1.7.3 to 2.0.0</h1>
+<h1>從 1.7.3 升級到 2.0.0</h1>
 
 <p>Before performing an update you should take your site offline by replacing the index.php file with a static one.</p>
 
 
 
-<h2>Step 1: Update your CodeIgniter files</h2>
+<h2>步驟 1: 更新您的 CodeIgniter 檔案</h2>
 
-<p>Replace all files and directories in your "system" folder <strong>except</strong> your <kbd>application</kbd> folder.</p>
+<p><strong>除了</strong>您的 <kbd>application</kbd> 目錄之外，請取代 "system" 目錄下所有檔案根目錄。</p>
 
-<p class="important"><strong>Note:</strong> If you have any custom developed files in these folders please make copies of them first.</p>
+<p class="important"><strong>注意:</strong> 假如您有自己開發的目錄跟程式，請先備份它們。</p>
 
-<h2>Step 2: Adjust get_dir_file_info() where necessary</h2>
+<h2>步驟 2: 在必要的地方調整 get_dir_file_info() 函數</h2>
 
-<p>Version 2.0.0 brings a non-backwards compatible change to <kbd>get_dir_file_info()</kbd> in the <a href="../helpers/file_helper.html">File Helper</a>.  Non-backwards compatible changes are extremely rare
-	in CodeIgniter, but this one we feel was warranted due to how easy it was to create serious server performance issues.  If you <em>need</em>
-	recursiveness where you are using this helper function, change such instances, setting the second parameter, <kbd>$top_level_only</kbd> to FALSE:</p>
+<p>2.0.0 版本帶來一個不能向前相容性的函數改變 <kbd>get_dir_file_info()</kbd>，此函數在 <a href="../helpers/file_helper.html">File 輔助函數</a>。這行為在 CodeIgniter 是很少遇到的，但是這次我們覺得非常有道理，因為這次是嚴重的效能上問題。假如您<em>需要</em>遞迴使用此函數，您可以設定第二個參數 <kbd>$top_level_only</kbd> 將其改為 FALSE:
 
 <code>get_dir_file_info('/path/to/directory', <kbd>FALSE</kbd>);</code>
 
 </p>
 
-<h2>Step 3: Convert your Plugins to Helpers</h2>
+<h2>步驟 3: 將 Plugins 轉換成 Helpers</h2>
 
-<p>2.0.0 gets rid of the "Plugin" system as their functionality was identical to Helpers, but non-extensible.  You will need to rename your plugin files from <var>filename_pi.php</var> to <var>filename_helper.php</var>, move them to your <kbd>helpers</kbd> folder, and change all instances of:
+<p>2.0.0 版本移除 "Plugin" 功能，因為它和補助函數(helpers)功能相同，但是缺乏擴充性。您必須重新命名 plugin 檔案，例如從 <var>filename_pi.php</var> 更改成 <var>filename_helper.php</var>，並且移動檔案到 <kbd>helpers</kbd> 目錄，修改所有檔案如下:
 
 	<code>$this->load->plugin('foo');</code>
 
-to
+修改為
 
 	<code>$this->load->helper('foo');</code>
 
 </p>
 
-<h2>Step 4: Update stored encrypted data</h2>
+<h2>步驟 4: 更新儲存加密的資料</h2>
 
-<p class="important"><strong>Note:</strong> If your application does not use the Encryption library, does not store Encrypted data permanently, or is on an environment that does not support Mcrypt, you may skip this step.</p>
+<p class="important"><strong>注意:</strong> 假如您的 application 尚未使用 Encryption 類別功能，之前沒有儲存加密資料，或環境不支援 Mcrypt 加密，您可以略過此步驟。</p>
 
-<p>The Encryption library has had a number of improvements, some for encryption strength and some for performance, that has an unavoidable consequence of
-	making it no longer possible to decode encrypted data produced by the original version of this library.  To help with the transition, a new method has
-	been added, <kbd>encode_from_legacy()</kbd> that will decode the data with the original algorithm and return a re-encoded string using the improved methods.
-	This will enable you to easily replace stale encrypted data with fresh in your applications, either on the fly or en masse.</p>
+<p>Encryption 類別經過數次改善，一些加強加密強度和效能改善，由於這些改變造成之前版本加密的資料無法解密。為了解決此轉換問題，新的類別提供了一個新函數 <kbd>encode_from_legacy()</kbd>，它將原本的加密演算法解密，並解升級到新版加密演算法。
+這樣您就可以輕鬆快速轉換原來在資料庫所有已加密的資料。</p>
 
-<p>Please read <a href="../libraries/encryption.html#legacy">how to use this method</a> in the Encryption library documentation.</p>
+<p>請在 <a href="../libraries/encryption.html#legacy">Encryption 類別</a>手冊中閱讀如何使用此方法</p>
 
-<h2>Step 5: Remove loading calls for the compatibility helper.</h2>
-<p>The compatibility helper has been removed from the CodeIgniter core. All methods in it should be natively available in supported PHP versions.</p>
+<h2>步驟 5: 移除已載入使用的 compatibility 輔助函數</h2>
+<p>CodeIgniter 核心程式已經移除 compatibility 補助函數，所有 compatibility 函數都已經在新版 PHP5 支援。</p>
 
-<h2>Step 6: Update Class extension</h2>
-<p>All core classes are now prefixed with <kbd>CI_</kbd>.  Update Models and Controllers to extend CI_Model and CI_Controller, respectively.</p> 
+<h2>步驟 6: 更新 Class 繼承方式</h2>
+<p>所有核心類別函數都加上前置符號: <kbd>CI_</kbd>，請更新所有 Models 和 Controllers 去個別繼承 CI_Model 和 CI_Controller。</p> 
 
-<h2>Step 7: Update Parent Constructor calls</h2>
-<p>All native CodeIgniter classes now use the PHP 5 <kbd>__construct()</kbd> convention. Please update extended libraries to call <kbd>parent::__construct()</kbd>.</p>
+<h2>步驟 7: 更新父類別建構子呼叫方式</h2>
+<p>現在所有 CodeIgniter 類別函式都使用 PHP5 建構子函數 <kbd>__construct()</kbd>。請更新繼承類別的寫法 <kbd>parent::__construct()</kbd>。</p>
 
-<h2>Step 8: Update your user guide</h2>
-<p>Please replace your local copy of the user guide with the new version, including the image files.</p>
+<h2>步驟 8: 更新使用手冊</h2>
+<p>請將原本使用手冊替換成新版本，包括圖片檔案。</p>
 
 </div>
 <!-- END CONTENT -->

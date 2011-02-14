@@ -70,7 +70,7 @@ CAPTCHA 輔助函數
 
 <h2>captcha_create(<var>$data</var>)</h2>
 
-<p>Takes an array of information to generate the CAPTCHA as input and creates the image to your specifications, returning an array of associative data about the image.</p>
+<p>傳入一個您定義的陣列函數值來產生驗證碼，函數會回傳產生驗證碼圖片鎮列資料。</p>
 
 <code>[array]<br />
 (<br />
@@ -79,14 +79,12 @@ CAPTCHA 輔助函數
 &nbsp;&nbsp;'word'	=> CAPTCHA WORD<br />
 )</code>
 
-	<p>The "image" is the actual image tag:
+	<p>"image" 值為實際 image 標籤:
 <code>&lt;img src=&quot;http://example.com/captcha/12345.jpg&quot; width=&quot;140&quot; height=&quot;50&quot; /&gt;</code></p>
 
-	<p>The "time" is the micro timestamp used as the image name without the file
-	extension.  It will be a number like this:  1139612155.3422</p>
+	<p>"time" 值為 micro timestamp 用來當作驗證碼圖片檔明，但是不含副檔名。例如就像:  1139612155.3422</p>
 
-	<p>The "word" is the word that appears in the captcha image, which if not
-	supplied to the function, will be a random string.</p>
+	<p>"word" 值為圖片上的驗證碼, 假如您沒有設定它，函數將會隨機選取字串(random string)。</p>
 
 	<h3>使用驗證碼補助函數</h3>
 
@@ -110,21 +108,17 @@ echo $cap['image'];</code>
 		<li>只需要 img_path 跟 img_url 就可以產生驗證碼</li>
 		<li>假如 word 欄位沒有填寫，此函數會自動幫您產生隨機字串(ASCII string)。
         或者是您可以放入自行產生的隨機函式庫。</li>
-		<li>If you do not specify a path to a TRUE TYPE font, the native ugly GD
-		font will be used.</li>
+		<li>假如您沒有實際設定字型的路徑，系統將會用預設 GD 字型。</li>
 		<li>"captcha" 目錄必須是要可以寫入的 (666, or 777)</li>
-		<li>The "expiration" (in seconds) signifies how long an image will
-		remain in the captcha folder before it will be deleted.  預設值是兩小時。</li>
+		<li>"expiration" 值(秒) 代表驗證碼圖片可以存在資料夾多久，超過時間就必須移除。預設值是兩小時。</li>
 	</ul>
 
 	<h3>新增資料庫</h3>
 
-	<p>In order for the captcha function to prevent someone from submitting, you will need
-	to add the information returned from <kbd>create_captcha()</kbd> function to your database.
-	Then, when the data from the form is submitted by the user you will need to verify
-	that the data exists in the database and has not expired.</p>
+	<p>驗證函數為了防止使用者送出違法資料, 您需要將 <kbd>create_captcha()</kbd> 
+    回傳的陣列值資料存放到資料庫。然後當使用者送出資料時，您必須從資料庫驗證資料是否過期。</p>
 
-	<p>Here is a table prototype:</p>
+	<p>底下為資料表欄位格式:</p>
 
 <code>CREATE TABLE captcha (<br />
 &nbsp;captcha_id bigint(13) unsigned NOT NULL auto_increment,<br />
@@ -160,11 +154,11 @@ echo &#x27;&lt;input type=&quot;text&quot; name=&quot;captcha&quot; value=&quot;
 
 	<p>然後, 此頁面會接受前端傳送的資料，程式碼如下：</p>
 
-<code>// First, delete old captchas<br />
+<code>// 第一步, 刪除舊有驗證碼資料<br />
 $expiration = time()-7200; // Two hour limit<br />
 $this-&gt;db-&gt;query(&quot;DELETE FROM captcha WHERE captcha_time &lt; &quot;.$expiration);	<br />
 <br />
-// Then see if a captcha exists:<br />
+// 然後驗證是否存在資料:<br />
 $sql = &quot;SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND date &gt; ?&quot;;<br />
 $binds = array($_POST[&#x27;captcha&#x27;], $this-&gt;input-&gt;ip_address(), $expiration);<br />
 $query = $this-&gt;db-&gt;query($sql, $binds);<br />

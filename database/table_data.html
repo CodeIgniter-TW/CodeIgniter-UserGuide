@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Table Data : CodeIgniter 使用手冊</title>
+<title>資料表資訊 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,8 +42,8 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Table Data
+<a href="index.html">Database 類別</a> &nbsp;&#8250;&nbsp;
+資料表資訊
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -59,13 +59,13 @@ Table Data
 
 
 
-<h1>Table Data</h1>
+<h1>資料表資訊</h1>
 
-<p>These functions let you fetch table information.</p>
+<p>底下函式將帶您取得資料表資訊。</p>
 
 <h2>$this->db->list_tables();</h2>
 
-<p>Returns an array containing the names of all the tables in the database you are currently connected to.  參考範例:</p>
+<p>回傳陣列值其中包含您所聯接的資料庫全部資料表名稱。參考範例:</p>
 
 <code>$tables = $this->db->list_tables();<br />
 <br />
@@ -78,8 +78,7 @@ foreach ($tables as $table)<br />
 
 <h2>$this->db->table_exists();</h2>
 
-<p>Sometimes it's helpful to know whether a particular table exists before running an operation on it.
-Returns a boolean TRUE/FALSE.  使用範例:</p>
+<p>針對您所需要操作的資料表，可以利用底下函式判斷資料表示否存在。回傳布林函數值 TRUE/FALSE.  使用範例:</p>
 
 <code>
 if ($this->db->table_exists('table_name'))<br />
@@ -88,7 +87,7 @@ if ($this->db->table_exists('table_name'))<br />
 }
 </code>
 
-<p>注意:  Replace <em>table_name</em> with the name of the table you are looking for.</p>
+<p>注意:  請將 <em>table_name</em> 取代成您所需要操作的資料表。</p>
 
 
 
@@ -100,11 +99,11 @@ if ($this->db->table_exists('table_name'))<br />
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="transactions.html"> Transactions</a>
+上個主題:&nbsp;&nbsp;<a href="transactions.html"> 交易</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="fields.html"> Field Metadata</a>
+下個主題:&nbsp;&nbsp;<a href="fields.html"> 欄位資訊</a>
 </p>
 <p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

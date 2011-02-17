@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Security Class : CodeIgniter 使用手冊</title>
+<title>Security 類別 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-Security Class
+Security 類別
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -56,41 +56,37 @@ Security Class
 <div id="content">
 
 
-<h1>Security Class</h1>
+<h1>Security 類別</h1>
 
-<p>The Security Class contains methods that help you create a secure application, processing input data for security.</p>
+<p>Security 類別提供函數幫助您建立安全 application，處理 input 資料，增加網站安全性.</p>
 
-<h2>XSS Filtering</h2>
+<h2>XSS 過濾</h2>
 
-<p>CodeIgniter comes with a Cross Site Scripting Hack prevention filter which can either run automatically to filter
-all POST and COOKIE data that is encountered, or you can run it on a per item basis.  By default it does <strong>not</strong>
-run globally since it requires a bit of processing overhead, and since you may not need it in all cases.</p>
+<p>CodeIgniter 內建一個防止跨站腳本攻擊的過濾器，它可以自動過濾所有 POST 與 COOKIE 的資料，或是你自己一項一項過濾。因為進行處理需要額外的負擔，而且你也不是在所有的狀況下需要使用，所以預設它 <strong>不會</strong> 全域執行。</p>
 
-<p>The XSS filter looks for commonly used techniques to trigger Javascript or other types of code that attempt to hijack cookies
-or do other malicious things.  If anything disallowed is encountered it is rendered safe by converting the data to character entities.</p>
+<p>XSS 過濾器會搜尋常使用來觸發 Javascript 或是其他企圖挾持 cookie 或是進行危險活動的程式碼。如果碰到不允許的東西，它會用安全的方式把它轉成html entities來呈現。</p>
 
 <p>
-Note: This function should only be used to deal with data upon submission. It's not something that should be used for general runtime processing since it requires a fair amount of processing overhead.</p>
+注意： 這個函數應該只用在處理提交(submit)的資料。它並不適用在一般執行時處理的狀況下，因為它需要相當大量的負載支出。</p>
 
 
-<p>To filter data through the XSS filter use this function:</p>
+<p>要用XSS過濾器來過濾資料，要用這個函數：</p>
 
 <h2>$this->security->xss_clean()</h2>
 
-<p>Here is an usage example:</p>
+<p>使用參考範例：</p>
 
 <code>$data = $this->security->xss_clean($data);</code>
 
-<p>If you want the filter to run automatically every time it encounters POST or COOKIE data you can enable it by opening your
-<kbd>application/config/config.php</kbd> file and setting this:</p>
+<p>如果你要每次碰到 POST 或是 COOKIE 時都會自動過濾，你可以編輯 <kbd>application/config/config.php</kbd> 檔案並設定以下項目：</p>
 
 <code>$config['global_xss_filtering'] = TRUE;</code>
 
-<p>Note: If you use the form validation class, it gives you the option of XSS filtering as well.</p>
+<p>注意： 如果你使用表單驗證類別，它也會給你XSS過濾的選項。</p>
 
-<p>An optional second parameter, <dfn>is_image</dfn>, allows this function to be used to test images for potential XSS attacks, useful for file upload security.  When this second parameter is set to <dfn>TRUE</dfn>, instead of returning an altered string, the function returns TRUE if the image is safe, and FALSE if it contained potentially malicious information that a browser may attempt to execute.</p>
+<p>可選的第二個參數 <dfn>is_image</dfn> 允許這個函數用來測試影像以預防潛在的 XSS 攻擊，這對於檔案上傳的安全性非常有用。當這個參數設定為 <dfn>TRUE</dfn> 時，這個函數就不是回傳替代字串，而是在影像檔是安全的時回傳 TRUE ，並在影像檔包含可能讓瀏覽器執行的潛在危險資訊時回傳 FALSE。</p>
 
-<code>if ($this->security->xss_clean($file, TRUE) === FALSE)<br />
+<code>if ($this->security->xss_clean($file，TRUE) === FALSE)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;// file failed the XSS test<br />
 }</code>

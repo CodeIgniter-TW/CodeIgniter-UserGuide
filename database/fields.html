@@ -61,10 +61,10 @@
 
 
 <h2>$this->db->list_fields()</h2>
-<p>Returns an array containing the field names. This query can be called two ways:</p>
+<p>底下有兩種方式可以取得資料表欄位陣列資訊:</p>
 
 
-<p>1. You can supply the table name and call it from the <dfn>$this->db-></dfn> object:</p>
+<p>1. 你可以利用 <dfn>$this->db-></dfn> 物件提供資料表名稱取得欄位資訊:</p>
 
 <code>
 $fields = $this->db->list_fields('table_name');<br /><br />
@@ -75,8 +75,7 @@ foreach ($fields as $field)<br />
 }
 </code>
 
-<p>2. You can gather the field names associated with any query you run by calling the function
-from your query result object:</p>
+<p>2. 你可以利用執行 SQL 後所得到的物件來取得該資料表欄位資訊:</p>
 
 <code>
 $query = $this->db->query('SELECT * FROM some_table');
@@ -91,8 +90,7 @@ foreach ($query->list_fields() as $field)<br />
 
 <h2>$this->db->field_exists()</h2>
 
-<p>Sometimes it's helpful to know whether a particular field exists before performing an action.
-Returns a boolean TRUE/FALSE.  使用範例:</p>
+<p>針對您所需要操作的資料欄位，可以利用底下函式判斷資料欄位示否存在。回傳布林函數值 TRUE/FALSE.  使用範例::</p>
 
 <code>
 if ($this->db->field_exists('field_name'，'table_name'))<br />
@@ -101,16 +99,15 @@ if ($this->db->field_exists('field_name'，'table_name'))<br />
 }
 </code>
 
-<p>注意:  Replace <em>field_name</em> with the name of the column you are looking for，and replace
-<em>table_name</em> with the name of the table you are looking for.</p>
+<p>注意:  請把 <em>field_name</em> 欄位名稱跟 <em>table_name</em> 資料表欄位替換成您想找尋的資訊。</p>
 
 
 <h2>$this->db->field_data()</h2>
-<p>Returns an array of objects containing field information.</p>
-<p>Sometimes it's helpful to gather the field names or other metadata，like the column type，max length，etc.</p>
+<p>回傳該欄位資訊陣列資訊.</p>
+<p>它幫助您取得欄位名稱或者是其他資訊，例如 type 和 max length...等。</p>
 
 
-<p class="important">注意: Not all databases provide meta-data.</p>
+<p class="important">注意: 並非所有資料庫都提供這些 meta-data 資訊.</p>
 
 <p>使用範例:</p>
 
@@ -126,7 +123,7 @@ foreach ($fields as $field)<br />
 }
 </code>
 
-<p>If you have run a query already you can use the result object instead of supplying the table name:</p>
+<p>假如您已經有執行過 SQL 語法，可以利用它回傳的物件來取的資料，這樣就取代輸入資料表名稱:</p>
 
 <code>
 $query = $this->db->query("YOUR QUERY");<br />
@@ -134,13 +131,13 @@ $fields = $query->field_data();
 </code>
 
 
-<p>The following data is available from this function if supported by your database:</p>
+<p>假如資料庫有支援，底下欄位資料就可以任意取得:</p>
 
 <ul>
-<li>name - column name</li>
-<li>max_length - maximum length of the column</li>
-<li>primary_key - 1 if the column is a primary key</li>
-<li>type - the type of the column</li>
+<li>name - 欄位名稱</li>
+<li>max_length - 欄位長度</li>
+<li>primary_key - 判斷是否為主鍵(primary key)</li>
+<li>type - 欄位 Type</li>
 </ul>
 	
 
@@ -150,11 +147,11 @@ $fields = $query->field_data();
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="table_data.html"> Table Data</a>
+上個主題:&nbsp;&nbsp;<a href="table_data.html">資料表資訊</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-下個主題:&nbsp;&nbsp;<a href="call_function.html">Custom Function Calls</a>
+下個主題:&nbsp;&nbsp;<a href="call_function.html">自訂函數</a>
 </p>
 <p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>

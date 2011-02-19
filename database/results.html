@@ -65,11 +65,11 @@
 <p>底下有幾種方法可以產生查詢結果:</p>
 
 	<h2>result()</h2>
-	
+
 	<p>這函數會回傳一個陣列物件(<strong>objects</strong>)，或者失敗時會是<strong>空陣列</strong>。
-	
+
 	一般狀況可以使用 foreach 迴圈，就像底下:</p>
-	
+
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
 	<br />
@@ -79,11 +79,11 @@
 	&nbsp;&nbsp;&nbsp;echo $row->name;<br />
 	&nbsp;&nbsp;&nbsp;echo $row->body;<br />
 	}</code>
-	
+
 	<p>上述 <dfn>函數</dfn> 的別名是 <dfn>result_object()</dfn>。</p>
 
 	<p>假如您的查詢可能不會產生結果，我們建議您先用下面方式進行判斷:</p>
-	
+
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
 	<br />
@@ -97,9 +97,9 @@
 	&nbsp;&nbsp;&nbsp;}<br />
 	}
 	</code>
-	
+
 	<h2>result_array()</h2>
-	
+
 	<p>此函數會回傳查詢的陣列資料，或者當查無資料會回傳空陣列。一般狀況可以使用 foreach 迴圈，就像底下:</p>
 	<code>
 	$query = $this->db->query("YOUR QUERY");<br />
@@ -113,7 +113,7 @@
 
 
 	<h2>row()</h2>
-	
+
 	<p>此函數會回傳單筆陣列資料。假如您查詢的資料超過一筆，它只會回傳第一筆資料。
 	結果會回傳單一 <strong>物件(object)</strong>。參考範例:</p>
 	<code>
@@ -128,9 +128,9 @@
 	&nbsp;&nbsp;&nbsp;echo $row->body;<br />
 	}
 	</code>
-	
+
 	<p>如果您想要回傳特定的第幾筆資料，可以設定第一個參數為您想要的該筆資料：</p>
-	
+
 	<code>$row = $query->row(<dfn>5</dfn>);</code>
 
 
@@ -153,9 +153,9 @@
 
 	
 	<p>如果您想要回傳特定的第幾筆資料，可以設定第一個參數為您想要的該筆資料：</p>
-	
+
 	<code>$row = $query->row_array(<dfn>5</dfn>);</code>
-	
+
 
  	<p>除此之外，您可以進而利用底下方式查詢到第一筆/最後一筆/下一筆/或者是前一筆資料:</p>
 
@@ -216,7 +216,7 @@ $query2->free_result();  // $query2 物件將不再使用了
 
 
 
-	
+
 
 </div>
 <!-- END CONTENT -->

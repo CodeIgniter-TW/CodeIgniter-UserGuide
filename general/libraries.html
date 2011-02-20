@@ -64,9 +64,13 @@
 
 <p>其中 <var>class name</var> 為你想取的類別名稱。舉例來說，你可以底下方式來載入 validation 類別:</p>
 
-<code>$this->load->library('<var>validation</var>'); </code>
+<code>$this->load->library('<var>form_validation</var>'); </code>
 
 <p>只要載入後，你就可以依照教學手冊的相關章節來使用它:</p>
+
+<p>Additionally, multiple libraries can be loaded at the same time by passing an array of libraries to the load function.</p>
+
+<code>$this->load->library(array('<var>email</var>', '<var>table</var>'));</code>
 
 <h2>建立自己的程式庫</h2>
 
@@ -80,7 +84,7 @@
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="plugins.html">Plugins</a>
+上個主題:&nbsp;&nbsp;<a href="helpers.html">輔助函數(Helpers)</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;

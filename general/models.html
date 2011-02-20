@@ -78,16 +78,16 @@
 舉例來說，這樣的模型類別或許看起來會像：</p>
 
 <code>
-class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;Blogmodel&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $title&nbsp;&nbsp; = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $content = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $date&nbsp;&nbsp;&nbsp; = '';<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Blogmodel()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;__construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 呼叫模型(Model)的建構函數<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;get_last_ten_entries()<br />
@@ -126,11 +126,11 @@ class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
 
 
 <code>
-class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>Model_name</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -140,11 +140,11 @@ class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
 <p>檔案名稱是全部小寫的類別名稱。舉個例子，假設你的類別如下：</p>
 
 <code>
-class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>User_model</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -187,7 +187,7 @@ $this-><kbd>fubar</kbd>->function();
 <p>這裡有個控制器(controller)範例，它會載入一個模型(model)，然後備置一個檢視(view)：</p>
 
 <code>
-class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
+class&nbsp;Blog_controller&nbsp;extends&nbsp;CI_Controller&nbsp;{<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;blog()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
@@ -211,7 +211,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <li>你可以使用<a href="../database/connecting.html">這裡描述</a>的標準資料庫方法來連接，從你的控制器(Controller)類別或是模型(Model)類別都可以。</li>
 <li>你可以經由傳給模型(model)載入函數的第三個參數<kbd>TRUE</kbd> (boolean)去自動連接。這時會使用定義在資料庫設定檔中的連接設定。
 
-	<code>$this->load->model('<var>Model_name</var>','',<kbd>TRUE</kbd>);</code>	
+	<code>$this->load->model('<var>Model_name</var>','',<kbd>TRUE</kbd>);</code>
 	</li>
 
 

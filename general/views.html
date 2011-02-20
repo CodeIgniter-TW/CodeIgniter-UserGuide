@@ -94,7 +94,7 @@ Views
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 &lt;?php
-class Blog extends Controller {
+class Blog extends CI_Controller {
 
 	function index()
 	{
@@ -158,13 +158,13 @@ $this->load->view('blogview'，<var>$data</var>);</code>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="14">
 &lt;?php
-class Blog extends Controller {
+class Blog extends CI_Controller {
 
 	function index()
 	{
 		$data['title'] = "My Real Title";
 		$data['heading'] = "My Real Heading";
-		
+
 		$this->load->view('blogview'，$data);
 	}
 }
@@ -197,7 +197,7 @@ class Blog extends Controller {
 
 <textarea class="textarea" style="width:100%" cols="50" rows="17">
 &lt;?php
-class Blog extends Controller {
+class Blog extends CI_Controller {
 
 	function index()
 	{
@@ -205,7 +205,7 @@ class Blog extends Controller {
 
 		$data['title'] = "My Real Title";
 		$data['heading'] = "My Real Heading";
-		
+
 		$this->load->view('blogview'，$data);
 	}
 }
@@ -223,8 +223,8 @@ class Blog extends Controller {
 &lt;/head>
 &lt;body>
 &lt;h1>&lt;?php echo $heading;?>&lt;/h1>
-	
-&lt;h3>My Todo List&lt;/h3>	
+
+&lt;h3>My Todo List&lt;/h3>
 
 &lt;ul>
 &lt;?php foreach ($todo_list as $item):?>
@@ -233,7 +233,7 @@ class Blog extends Controller {
 
 &lt;?php endforeach;?>
 &lt;/ul>
-	
+
 &lt;/body>
 &lt;/html>
 </textarea>

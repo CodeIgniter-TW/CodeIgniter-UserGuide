@@ -101,13 +101,8 @@ example.com/product/4/
 <p>你可以用文字的值或是兩種萬用字元來匹配：
 </p>
 
-<p>
-:num<br />
-:any
-</p>
-
-<p><strong>:num</strong>將匹配只含有數字的一個片段<br />
-<strong>:any</strong>將匹配含有任何字元的一個片段
+<p><strong>(:num)</strong>將匹配只含有數字的一個片段<br />
+<strong>(:any)</strong>將匹配含有任何字元的一個片段
 </p>
 
 <p class="important"><strong>注意：</strong>路由將依照它們定義時的順序執行。較高的路由總是凌駕較低的。
@@ -126,7 +121,7 @@ example.com/product/4/
 <p>一個包含"blog/joe"片段的URL，將重新對應到"blogs"類別以及"users"方法。ID將會設定成"34"。
 </p>
 
-<code>$route['product/:any'] = "catalog/product_lookup";</code>
+<code>$route['product/(:any)'] = "catalog/product_lookup";</code>
 <p>一個在第一片段是"product"而在第二片段是任何值的URL，將重新對應到"catalog"類別以及"product_lookup"方法。
 </p>
 
@@ -166,11 +161,6 @@ example.com/product/4/
 <p>這個路由指定在URI裡沒有任何資料時要載入哪個控制器(controller)類別，人們載入根URL時就是這個情況。在上例中，"welcome"類別將被載入。你要儘量有一個預設路由，否則預設會出現一個404頁面。
 </p>
 
-<code>$route['scaffolding_trigger'] = 'scaffolding';</code>
-
-<p>這個路由讓你設定一個密語，當它出現在URL中時，就會觸發scaffolding功能。請閱讀<a href="scaffolding.html">Scaffolding</a> 頁面來獲得詳情。
-</p>
-
 <p class="important"><strong>非常重要：</strong>保留的路由必須在任何萬用字元或正規式路由之前。
 </p>
 
@@ -180,7 +170,7 @@ example.com/product/4/
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="scaffolding.html">Scaffolding</a>
+上個主題:&nbsp;&nbsp;<a href="common_functions.html">通用函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;

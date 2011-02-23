@@ -75,11 +75,14 @@ String 輔助函數
 <p>第一個參數指定字串類型，第二個參數指定字串長度。以下為可以使用的字串類型：</p>
 
 
+alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
 <ul>
-<li><strong>alnum</strong>:&nbsp; 含有大小寫字母以及數字。</li>
-<li><strong>numeric</strong>:&nbsp; 數字字串。</li>
-<li><strong>nozero</strong>:&nbsp; 不含零的數字字串。</li>
-<li><strong>unique</strong>:&nbsp; 用 MD5 and uniqid()加密的字串。注意：第二個長度參數在這種類型無效。均傳回一個固定32位長度的字串。</li>
+    <li><strong>alpha</strong>:&nbsp; A string with lower and uppercase letters only.</li>
+    <li><strong>alnum</strong>:&nbsp; 含有大小寫字母以及數字。</li>
+    <li><strong>numeric</strong>:&nbsp; 數字字串。</li>
+    <li><strong>nozero</strong>:&nbsp; 不含零的數字字串。</li>
+    <li><strong>unique</strong>:&nbsp; 用 MD5 and uniqid()加密的字串。注意：第二個長度參數在這種類型無效。均傳回一個固定32位長度的字串。</li>
+    <li><strong>sha1</strong>:&nbsp; An encrypted random number based on <kbd>do_hash()</kbd> from the <a href="security_helper.html">security helper</a>.</li>
 </ul>
 
 <p>使用範例:</p>
@@ -141,7 +144,7 @@ $string=reduce_multiples($string,","); //results in "Fred，Bill，Joe，Jimmy"
 $string=",Fred，Bill,，Joe，Jimmy,";<br />
 $string=reduce_multiples($string，"，"，TRUE); //results in "Fred，Bill，Joe，Jimmy"
 </code>
-</p> 
+</p>
 
 <h2>quotes_to_entities()</h2>
 <p>將字串中的單引號和雙引號轉換為對應的 HTML 字元符號表示。範例：</p>

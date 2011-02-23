@@ -79,9 +79,10 @@ Directory 輔助函數
 
 
 
-<p>目錄中包含的子資料夾也會列出。如果你只想列出根目錄，那第二個參數要設置為<var>true</var> (boolean):</p>
+<p>Sub-folders contained within the directory will be mapped as well.  If you wish to control the recursion depth,
+you can do so using the second parameter (integer). A depth of 1 will only map the top level directory:</p>
 
-<code>$map = directory_map('./mydirectory/'，TRUE);</code>
+<code>$map = directory_map('./mydirectory/', 1);</code>
 
 <p>每個資料夾名稱將是一個陣列索引，被包含的檔案將以數字表示作為陣列索引值。下面是陣列的一個典型的範例：</p>
 

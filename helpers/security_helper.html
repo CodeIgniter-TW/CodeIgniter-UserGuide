@@ -73,17 +73,23 @@ Security 輔助函數
 <p>提供跨網站攻擊程式的過濾，此函數是<a href="../libraries/input.html">Input 類別</a>的其中的一個別名。</p>
 
 
-<h2>dohash()</h2>
+<h2>sanitize_filename()</h2>
+
+<p>Provides protection against directory traversal.  This function is an alias to the one in the
+<a href="../libraries/security.html">Security class</a>.  More info can be found there.</p>
+
+
+<h2>do_hash()</h2>
 
 <p>允取建立單向 SHA1 或是 MD5 表來供作加密密碼。預設建立 SHA1。範例:</p>
 
 <code>
-$str = dohash($str); // SHA1<br />
+$str = do_hash($str); // SHA1<br />
 <br />
-$str = dohash($str，'md5'); // MD5
+$str = do_hash($str, 'md5'); // MD5
 </code>
 
-
+<p class="important"><strong>Note:</strong>  This function was formerly named <kbd>dohash()</kbd>, which has been deprecated in favour of <kbd>do_hash()</kbd>.</p>
 
 
 <h2>strip_image_tags()</h2>

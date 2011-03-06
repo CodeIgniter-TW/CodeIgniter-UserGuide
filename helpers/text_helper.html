@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Text 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -109,6 +109,14 @@ $string = character_limiter($string，20);<br /><br />
 
 <p>此函數提供的是前個函數的逆向功能。它將字元實體還原至 ACSII 數值。</p>
 
+<h2>convert_accented_characters()</h2>
+
+<p>Transliterates high ASCII characters to low ASCII equivalents, useful when non-English characters need to be used where only standard ASCII characters are safely used, for instance, in URLs.</p>
+
+<code>$string = convert_accented_characters($string);</code>
+
+<p>This function uses a companion config file <dfn>application/config/foreign_chars.php</dfn> to define the to and from array for transliteration.</p>
+
 <h2>word_censor()</h2>
 
 <p>允許你去檢查字串中的單字。第一個參數將會包含原始的字串。第二個字串則包含你所不允許的單字陣列。第三個字串的是選擇性的參數，包含用來取代單字的值。如果未提供取代的值的話，那麼就會用 #### 來取代。參考範例:</p>
@@ -158,7 +166,19 @@ of text that will help<br />
 us demonstrate this<br />
 function</code>
 
+<h2>ellipsize()</h2>
 
+<p>This function will strip tags from a string, split it at a defined maximum length, and insert an ellipsis.</p>
+<p>The first parameter is the string to ellipsize, the second is the number of characters in the final string. The third parameter is where in the string the ellipsis should appear from 0 - 1, left to right.  For example.  a value of 1 will place the ellipsis at the right of the string, .5 in the middle, and 0 at the left.</p>
+<p>An optional forth parameter is the kind of ellipsis.  By default, <samp>&amp;hellip;</samp> will be inserted.</p>
+
+<code>$str = 'this_string_is_entirely_too_long_and_might_break_my_design.jpg';<br />
+<br />
+echo ellipsize($str, 32, .5);</code>
+
+Produces:
+
+<code>this_string_is_e&hellip;ak_my_design.jpg</code>
 
 
 </div>
@@ -169,11 +189,11 @@ function</code>
 <p>
 上個主題:&nbsp;&nbsp;<a href="string_helper.html">String 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="typography_helper.html">Typography 輔助函數</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

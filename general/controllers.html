@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 控制器(Controllers)
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -96,7 +96,7 @@
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 &lt;?php
-class Blog extends Controller {
+class Blog extends CI_Controller {
 
 	function index()
 	{
@@ -119,7 +119,7 @@ class Blog extends Controller {
 <p>注意: Class 命名必須要字首大寫，換句話說，這樣是可以的命名:</p>
 
 <code>&lt;?php<br />
-class <var>Blog</var> extends Controller {<br />
+class <var>Blog</var> extends CI_Controller {<br />
 <br />
 }<br />
 ?&gt;</code>
@@ -127,7 +127,7 @@ class <var>Blog</var> extends Controller {<br />
 <p>這個就是 <strong>不被接受的命名</strong>:</p>
 
 <code>&lt;?php<br />
-class <var>blog</var> extends Controller {<br />
+class <var>blog</var> extends CI_Controller {<br />
 <br />
 }<br />
 ?&gt;</code>
@@ -151,7 +151,7 @@ class <var>blog</var> extends Controller {<br />
 
 <textarea class="textarea" style="width:100%" cols="50" rows="15">
 &lt;?php
-class Blog extends Controller {
+class Blog extends CI_Controller {
 
 	function index()
 	{
@@ -185,7 +185,7 @@ class Blog extends Controller {
 
 <code>
 &lt;?php<br />
-class Products extends Controller {<br />
+class Products extends CI_Controller {<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function shoes($sandals, $id)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
@@ -224,7 +224,7 @@ class Products extends Controller {<br />
 <p class="important"><strong>非常重要:</strong>&nbsp; 如果你的控制器裡頭有個 <kbd>_remap()</kbd> 函數的話，那麼它會 <strong>總是</strong>
 不理會你的 URI 內容是什麼東西。也就是說，這個方式會改寫掉原本函數呼叫的規則，並且允許使用你自己定義的函數路由規則(function routing rules)。</p>
 
-<p>改寫函數呼叫(通常是在URI的第二個分段)將會被當成是參數通過<kbd>_remap()</kbd>函數:</p>
+<p>改寫函數(通常是在URI的第二個區段)將會被當成是參數傳入<kbd>_remap()</kbd>函數:</p>
 
 <code>function _remap(<var>$method</var>)<br />
 {<br />
@@ -238,7 +238,17 @@ class Products extends Controller {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
+<p>Any extra segments after the method name are passed into <kbd>_remap()</kbd> as an optional second parameter. This array can be used in combination with PHP's <a href="http://php.net/call_user_func_array">call_user_func_array</a> to emulate CodeIgniter's default behavior.</p>
 
+<code>function _remap($method, $params = array())<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$method = 'process_'.$method;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (method_exists($this, $method)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return call_user_func_array(array($this, $method), $params);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;show_404();<br />
+}</code>
 
 <a name="output"></a>
 <h2>輸出處理</h2>
@@ -256,12 +266,26 @@ function _output($output)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $output;<br />
 }</code>
 
+<p class="important">Please note that your <dfn>_output()</dfn> function will receive the data in its finalized state.  Benchmark and memory usage data will be rendered,
+cache files written (if you have caching enabled), and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
+before it is handed off to the _output() function.<br />
+<br />
+To have your controller's output cached properly, its <dfn>_output()</dfn> method can use:<br />
 
+<code>if ($this-&gt;output-&gt;cache_expiration &gt; 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;output-&gt;_write_cache($output);<br />
+}</code>
+
+If you are using this feature the page execution timer and memory usage stats might not be perfectly accurate
+since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done, please see
+the available methods in the <a href="../libraries/output.html">Output Class</a>.</p>
+<!--
 <p class="important">請注意你的 <dfn>_output()</dfn> 函數得在它進入結束狀態時，才會收到資料。
 Benchmark 以及 memory 使用量資料會被建立出來，快取檔案被寫入(假設你有啟動快取功能)以及 headers 則會送出(假如你有使用這個<a href="../libraries/output.html">功能</a>)，而且是在另一方面把 _output() 函數關閉之前。  
 
 假如你使用這項功能的話，頁面執行效能跟記憶體使用量的統計功能，可能不會完全正確的計算。由於啟動這項功能後，它們沒有辦法完整考慮到，你在其中做的所有額外處理。另外還有個方式，可以在任何的最後程序<em>完成之前</em>來控制 output，請查看<a href="../libraries/output.html">Output 類別</a>尋找可用的 methods。</p>
-
+-->
 
 <a name="private"></a>
 <h2>私有函數</h2>
@@ -308,32 +332,18 @@ function _utility()<br />
 
 <p>若打算在控制器使用建構子的話，你<strong>必須</strong> 換成底下的那行程式碼:</p>
 
-<code>parent::Controller();</code>
+<code>parent::__construct();</code>
 
 <p>這一行程式碼一定需要的原因，是因為你的 local 建構子會被覆蓋成 parent 控制器類別，所以我們需要以手動方式去呼叫它</p>
 
-<p>如果你不太熟悉建構子的話，在 PHP4 裡頭，<em>建構子(constructor)</em> 像類別函數有完全相同的名稱:</p>
-
 <code>
 &lt;?php<br />
-class <kbd>Blog</kbd> extends Controller {<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function <kbd>Blog()</kbd><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>parent::Controller();</var><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}<br />
-?&gt;</code>
-
-<p>在 PHP5 裡頭，建構子使用的是下列句法:</p>
-
-<code>
-&lt;?php<br />
-class <kbd>Blog</kbd> extends Controller {<br />
+class <kbd>Blog</kbd> extends CI_Controller {<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function <kbd>__construct()</kbd><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>parent::Controller();</var><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>parent::__construct();</var><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Your own constructor code<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }<br />
 ?&gt;</code>
@@ -360,10 +370,10 @@ class <kbd>Blog</kbd> extends Controller {<br />
 <p>
 上個主題:&nbsp;&nbsp;<a href="urls.html">CodeIgniter URLs</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="reserved_names.html">保留字</a></p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

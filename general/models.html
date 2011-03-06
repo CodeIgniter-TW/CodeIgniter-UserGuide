@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 模型(Models)
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -78,16 +78,16 @@
 舉例來說，這樣的模型類別或許看起來會像：</p>
 
 <code>
-class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;Blogmodel&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $title&nbsp;&nbsp; = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $content = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $date&nbsp;&nbsp;&nbsp; = '';<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Blogmodel()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;__construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 呼叫模型(Model)的建構函數<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;get_last_ten_entries()<br />
@@ -126,11 +126,11 @@ class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
 
 
 <code>
-class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>Model_name</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -140,11 +140,11 @@ class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
 <p>檔案名稱是全部小寫的類別名稱。舉個例子，假設你的類別如下：</p>
 
 <code>
-class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
+class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>User_model</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -187,7 +187,7 @@ $this-><kbd>fubar</kbd>->function();
 <p>這裡有個控制器(controller)範例，它會載入一個模型(model)，然後備置一個檢視(view)：</p>
 
 <code>
-class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
+class&nbsp;Blog_controller&nbsp;extends&nbsp;CI_Controller&nbsp;{<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;blog()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
@@ -211,7 +211,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <li>你可以使用<a href="../database/connecting.html">這裡描述</a>的標準資料庫方法來連接，從你的控制器(Controller)類別或是模型(Model)類別都可以。</li>
 <li>你可以經由傳給模型(model)載入函數的第三個參數<kbd>TRUE</kbd> (boolean)去自動連接。這時會使用定義在資料庫設定檔中的連接設定。
 
-	<code>$this->load->model('<var>Model_name</var>','',<kbd>TRUE</kbd>);</code>	
+	<code>$this->load->model('<var>Model_name</var>','',<kbd>TRUE</kbd>);</code>
 	</li>
 
 
@@ -239,11 +239,11 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <p>
 上個主題:&nbsp;&nbsp;<a href="views.html">檢視(Views)</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="helpers.html">補助函數(Helpers)</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab,Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab,Inc.</a></p>
 </div>
 
 <script type="text/javascript">

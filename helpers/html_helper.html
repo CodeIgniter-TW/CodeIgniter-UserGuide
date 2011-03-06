@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 HTML 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -83,8 +83,8 @@ HTML 輔助函數
 // 產生 &lt;img src=&quot;http://site.com/images/picture.jpg&quot; /&gt;</code>
 <p>第二個參數可以不用設定，如需設定，其值可為 TRUE/FALSE，此參數是用來決定 img 路徑中是否包含 $config['index_page'] 所定義的網址。一般來說，在媒體播放的時候就會需要此參數。</p>
 <p><code>echo img('images/picture.jpg'，TRUE);<br />
-// 產生 &lt;img src=&quot;http://site.com/index.php/images/picture.jpg&quot; /&gt;</code></p>
-<p>此外，您也以設定相關陣列參數來傳入 img() 函數中，用來實做屬性跟其值的對應。</p>
+// 產生 &lt;img src=&quot;http://site.com/index.php/images/picture.jpg&quot; alt=&quot;&quot; /&gt;</code></p>
+<p>Additionally, an associative array can be passed to the img() function for complete control over all attributes and values. If an alt attribute is not provided, CodeIgniter will generate an empty string.</p>
 <p><code> $image_properties = array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'src' =&gt; 'images/picture.jpg',<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'alt' =&gt; 'Me，demonstrating how to eat 4 slices of pizza at one time',<br />
@@ -105,7 +105,7 @@ echo link_tag('css/mystyles.css');<br />
 
 <code>
 	echo link_tag('favicon.ico'，'shortcut icon'，'image/ico');<br />
-	// &lt;link href=&quot;http://site.com/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; /&gt; 
+	// &lt;link href=&quot;http://site.com/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; /&gt;
 	<br />
 	<br />
 	echo link_tag('feed'，'alternate'，'application/rss+xml'，'My RSS Feed');<br />
@@ -121,7 +121,7 @@ echo link_tag('css/mystyles.css');<br />
 	<br />
 	echo link_tag($link);<br />
 	// &lt;link href=&quot;http://site.com/css/printer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;print&quot; /&gt;</code></p>
-	
+
 <h2>nbs()</h2>
 <p>根據所自訂的數量來產生非斷行空白(&amp;nbsp;). 參考範例:</p>
 <code>echo nbs(3);</code>
@@ -362,10 +362,10 @@ echo doctype('html4-trans');<br />
 <p>
 上個主題:&nbsp;&nbsp;<a href="form_helper.html">Form 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="path_helper.html"> Path 輔助函數</a></p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

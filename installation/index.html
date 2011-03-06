@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 安裝指引
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -66,8 +66,11 @@
 <li>如果你打算使用資料庫的話，請開啟 <dfn>application/config/database.php</dfn> 填入你的資料庫資訊。</li>
 </ol>
 
-<p>
-如果你想要增加安全性的話，你可以把 CodeIgniter 裡頭的 <dfn>system</dfn> 改名成安全的名字。如果改名之後，你必須編輯 <kbd>index.php</kbd> ，並且把檔案裡頭最上面的 <samp>$system_folder</samp> 變數，改成你修改後的名字。</p>
+<p>如果您希望隱藏 CodeIgniter 檔案位置來增加網站安全姓，您可以重新命名 <dfn>system</dfn> and <dfn>application</dfn> 資料夾，把它改成任何你想改的。如果已經修改過資料夾名稱，您必須編輯 <kbd>index.php</kbd> 檔案，將 <samp>$system_folder</samp> and <samp>$application_folder</samp> 這兩個變數換成您修改的目錄名稱。
+
+<p>最安全的做法是將 <dfn>system</dfn> 和任何 <dfn>application</dfn> 目錄移動到 Web 根目錄上一層，讓 Web 瀏覽器無法直接存取它。在預設狀況，每個目錄底下都包含 .htaccess 檔案，用來保護直接存取檔案，但是最好的方式就是全部移除 .htaccess，因為並非所有 Web 伺服器都支援 .htaccess 或者是 Web 伺服器改變設定。</p>
+
+<p>如果移動了以上兩個資料夾，您必須編輯 <kbd>index.php</kbd> 檔案，並且將 <samp>$system_folder</samp> 和 <samp>$application_folder</samp> 變數，替換成絕對路徑，例如: '<dfn>/www/MyUser/system</dfn>'。</p>
 
 <p>大功告成！</p>
 
@@ -88,7 +91,7 @@
 下個主題:&nbsp;&nbsp;<a href="upgrading.html">更新</a>
 </p>
 
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

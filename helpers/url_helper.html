@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 URL 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -130,9 +130,9 @@ echo site_url($segments);</code>
 
 <p>以下是一些例子:</p>
 
-<code>echo anchor('news/local/123', 'My News');</code>
+<code>echo anchor('news/local/123', 'My News', 'title="News title"');</code>
 
-<p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="My News">My News&lt;/a></p>
+<p>輸出: &lt;a href="http://example.com/index.php/news/local/123" title="News title">My News&lt;/a></p>
 
 <code>echo anchor('news/local/123', 'My News', array('title' => 'The best news!'));</code>
 
@@ -226,7 +226,7 @@ $url_title = url_title($title, 'underscore',TRUE);<br />
 </code>
 
 <h3>prep_url()</h3>
-<p>這個函數可以附加上<kbd>http://</kbd>在沒有http://的URL中，將URL字串傳遞給函數：</p>
+<p>這個函數可以附加上<kbd>http://</kbd>在沒有http://的URL中，將 URL 字串傳遞給函數：</p>
 <code>
 $url = "example.com";<br /><br />
 $url = prep_url($url);</code>
@@ -236,7 +236,8 @@ $url = prep_url($url);</code>
 
 <h2>redirect()</h2>
 
-<p>執行一個利用header頭檔指定跳轉到本地網址URL的操作。和該類輔助函數的其他函數一樣，它用於重新導向到你網站的一個網址URL。你<strong>不能</strong>指定一個完整網址URL，而只能指向你所需的一個控制器(controller)。該函數將自動根據你的設置檔(config file)來幫你構建完整網址URL。</p>
+<p>Does a "header redirect" to the URI specified. If you specify the full site URL that link will be build, but for local links simply providing the URI segments
+to the controller you want to direct to will create the link. The function will build the URL based on your config file values.</p>
 
 <p>你可以設定第二個參數為 location 定位操作(預設)或者 refresh 刷新操作。定位操作比刷新操作執行速度快，但是在Windows伺服器上它將有時被認為是一個錯誤操作。可選擇的第三個參數允許你送一則具體的HTTP 回應代碼 - 這可能使用在例如建立301把目的重新導向給搜索引擎。預設回應代碼是302。第三個參數<em>只有</em>'位址'可提供更改方向，而不'刷新'動作。範例:</p>
 
@@ -264,11 +265,11 @@ redirect('/article/13', 'location', 301);</code>
 <p>
 上個主題:&nbsp;&nbsp;<a href="typography_helper.html">Typography 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="xml_helper.html">XML 輔助函數</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

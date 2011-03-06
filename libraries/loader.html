@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Loader 類別
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,41 +58,41 @@ Loader 類別
 
 <h1>Loader 類別</h1>
 
-<p>Loader,as the name suggests,is used to load elements.  These elements can be libraries (classes) <a href="../general/views.html">View files</a>,
-<a href="../general/helpers.html">補助函數</a>,<a href="../general/plugins.html">Plugins</a>,or your own files.</p>
+<p>讀取器 (Loader) 就如同名字一樣, 用來讀取元件. 這些元件可以是程式庫(libraries) (類別classes) <a href="../general/views.html">視圖(Views)</a>,
+<a href="../general/helpers.html">補助函數(Helpers)</a>, <a href="../general/models.html">模型(Models)</a> 或是你自己的檔案。</p>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意:</strong> 此類別由系統自動初始化所以不需要手動載入。</p>
 
-<p>The following functions are available in this class:</p>
+<p>此類別擁有以下的函式(functions):</p>
 
 
 <h2>$this->load->library('<var>class_name</var>',<samp>$config</samp>,<kbd>'object name'</kbd>)</h2>
 
 
-<p>This function is used to load core classes.  Where <var>class_name</var> is the name of the class you want to load.
-注意: We use the terms "class" and "library" interchangeably.</p>
+<p>這函式用來讀取核心類別.   <var>class_name</var> 為你要讀取的類別名稱.
+注意: 我們使用的術語 "類別(class)" 和 "程式庫(library)" 是可交換的.</p>
 
-<p>For example,if you would like to send email with CodeIgniter,the first step is to load the email class within your controller:</p>
+<p>舉例來說, 如果你要藉由CodeIgniter來發送E-mail, 第一步驟為在控制器(controller)讀取郵件類別(email class):</p>
 
 <code>$this->load->library('email');</code>
 
-<p>Once loaded,the library will be ready for use,using <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.
+<p>讀取後, 即可使用此郵件類別(mail class), 使用 <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.
 
-<p>Library files can be stored in subdirectories within the main "libraries" folder,or within your personal <dfn>application/libraries</dfn> folder.  
-To load a file located in a subdirectory,simply include the path,relative to the "libraries" folder.  
-For example,if you have file located at:</p>
+<p>程式庫(Library)檔案可以被存在主要的&quot;程式庫libraries&quot;子目錄中, 或是你自己的 <dfn>application/libraries</dfn> 目錄.  
+讀取位於子目錄中的程式庫(library)檔案, 簡單的加入相對路徑至程式庫(libraries)資料夾中.  
+舉例來說, 如果你的檔案位於:</p>
 
 <code>libraries/flavors/chocolate.php</code>
 
-<p>You will load it using:</p>
+<p>你必須使用以下程式來讀取它:</p>
 
 <code>$this->load->library('flavors/chocolate');</code>
 
-<p>You may nest the file in as many subdirectories as you want.</p>
+<p>你可以自行建立任何的子目錄來放置程式庫</p>
 
-<h3>Setting options</h3>
+<h3>設置選項 Setting options</h3>
 
-<p>The second (optional) parameter allows you to optionally pass configuration setting.  You will typically pass these as an array:</p>
+<p>第二個參數 (可選擇的) 允許你設置設定值.  你可以經由一個陣列(array)來傳遞設定值:</p>
 
 <code>
 $config = array (<br />
@@ -103,18 +103,17 @@ $config = array (<br />
 <br />
 $this->load->library('email',$config);</code>
 
-<p>Config options can usually also be set via a config file. Each library is explained in detail in its own page,so please read the information regarding each one you would like to use.</p>
+<p>設定選項(Setting options)可以經由單一的設定檔(config file)來設定. 每個程式庫(library)的詳細功能說明在各自的說明文件中, 所以請閱讀你想使用的程式庫的相關資訊.</p>
 
-<h3>Assigning a Library to a different object name</h3>
+<h3>指定程式庫(Library)為不同的物件名稱</h3>
 
-<p>If the third (optional) parameter is blank,the library will usually be assigned to an object with the same name as the library.  For example,if the library is named <dfn>Session</dfn>,it
-will be assigned to a variable named <dfn>$this->session</dfn>.</p>
+<p>如果第三個參數 (可選擇的) 為空值, 程式庫(library)通常被分配到一個與程式庫(library)擁有相同名稱的物件.  舉例來說, 如果程式庫(library)被命名為<dfn>Session</dfn>, 參數名將為 <dfn>$this->session</dfn>.</p>
 
-<p>If you prefer to set your own class names you can pass its value to the third parameter:</p>
+<p>如果你希望設定為自己想要的名稱，你可以設置在第三個參數:</p>
 
 <code>$this->load->library('session','','my_session');<br /><br />
 
-// Session class is now accessed using:<br /><br />
+// Session 類別的存取方式將為:<br /><br />
 
 $this->my_session
 
@@ -202,11 +201,11 @@ and merged into one array for conversion to variables.
 <p>
 上個主題:&nbsp;&nbsp;<a href="input.html">Input 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="language.html">Language 類別</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab,Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab,Inc.</a></p>
 </div>
 
 <script type="text/javascript">

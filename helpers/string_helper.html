@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 String 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -75,11 +75,14 @@ String 輔助函數
 <p>第一個參數指定字串類型，第二個參數指定字串長度。以下為可以使用的字串類型：</p>
 
 
+alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
 <ul>
-<li><strong>alnum</strong>:&nbsp; 含有大小寫字母以及數字。</li>
-<li><strong>numeric</strong>:&nbsp; 數字字串。</li>
-<li><strong>nozero</strong>:&nbsp; 不含零的數字字串。</li>
-<li><strong>unique</strong>:&nbsp; 用 MD5 and uniqid()加密的字串。注意：第二個長度參數在這種類型無效。均傳回一個固定32位長度的字串。</li>
+    <li><strong>alpha</strong>:&nbsp; A string with lower and uppercase letters only.</li>
+    <li><strong>alnum</strong>:&nbsp; 含有大小寫字母以及數字。</li>
+    <li><strong>numeric</strong>:&nbsp; 數字字串。</li>
+    <li><strong>nozero</strong>:&nbsp; 不含零的數字字串。</li>
+    <li><strong>unique</strong>:&nbsp; 用 MD5 and uniqid()加密的字串。注意：第二個長度參數在這種類型無效。均傳回一個固定32位長度的字串。</li>
+    <li><strong>sha1</strong>:&nbsp; An encrypted random number based on <kbd>do_hash()</kbd> from the <a href="security_helper.html">security helper</a>.</li>
 </ul>
 
 <p>使用範例:</p>
@@ -141,7 +144,7 @@ $string=reduce_multiples($string,","); //results in "Fred，Bill，Joe，Jimmy"
 $string=",Fred，Bill,，Joe，Jimmy,";<br />
 $string=reduce_multiples($string，"，"，TRUE); //results in "Fred，Bill，Joe，Jimmy"
 </code>
-</p> 
+</p>
 
 <h2>quotes_to_entities()</h2>
 <p>將字串中的單引號和雙引號轉換為對應的 HTML 字元符號表示。範例：</p>
@@ -163,11 +166,11 @@ $string=strip_quotes($string); //results in "Joes dinner"
 <p>
 上個主題:&nbsp;&nbsp;<a href="smiley_helper.html">Smiley 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="text_helper.html">Text 輔助函數</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

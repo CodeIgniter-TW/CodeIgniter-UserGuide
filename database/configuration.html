@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">資料庫 類別</a> &nbsp;&#8250;&nbsp;
 Configuration
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -78,7 +78,10 @@ $db['default']['db_debug'] = FALSE;<br />
 $db['default']['cache_on'] = FALSE;<br />
 $db['default']['cachedir'] =  &quot;&quot;;<br />
 $db['default']['char_set'] = "utf8";<br />
-$db['default']['dbcollat'] = "utf8_general_ci";</code>
+$db['default']['dbcollat'] = "utf8_general_ci";<br />
+$db['default']['swap_pre'] = "";<br />
+$db['default']['autoinit'] = TRUE;<br />
+$db['default']['stricton'] = FALSE;</code>
 
 <p>我們使用多為陣列儲存的原因是為了讓您可以選擇性設定多組資料庫連接值。舉例來說，執行多重環境(開發 development，產品 production，測試 test)
 您可以為了每一個開發環境建立獨立的資料庫設定，並且可以任意時候切換資料庫。舉例，可以設定 "test" 資料庫環境如下：</p>
@@ -94,7 +97,10 @@ $db['test']['db_debug'] = FALSE;<br />
 $db['test']['cache_on'] = FALSE;<br />
 $db['test']['cachedir'] =  &quot;&quot;;<br />
 $db['test']['char_set'] = "utf8";<br />
-$db['test']['dbcollat'] = "utf8_general_ci";</code>
+$db['test']['dbcollat'] = "utf8_general_ci";<br />
+$db['test']['swap_pre'] = "";<br />
+$db['test']['autoinit'] = TRUE;<br />
+$db['test']['stricton'] = FALSE;</code>
 
 
 <p>然後，可以告訴系統現在要使用 "test" 連線資料庫，並且可以隨時修改此檔案：</p>
@@ -126,7 +132,10 @@ $db['test']['dbcollat'] = "utf8_general_ci";</code>
 <li><strong>cachedir</strong> - 使用絕對路徑來設定快取目錄.</li>
 <li><strong>char_set</strong> - The character set used in communicating with the database.</li>
 <li><strong>dbcollat</strong> - The character collation used in communicating with the database.</li>
-<li><strong>port</strong> - 資料庫連接埠。目前只有用到 Postgres 資料庫需要設定此變數，必須增加設定如下.<code>$db['default']['port'] =  5432;</code></li>
+<li><strong>swap_pre</strong> - A default table prefix that should be swapped with <var>dbprefix</var>.  This is useful for distributed applications where you might run manually written queries, and need the prefix to still be customizable by the end user.</li>
+<li><strong>autoinit</strong> - Whether or not to automatically initialize the database.</li>
+<li><strong>stricton</strong> - TRUE/FALSE (boolean) - Whether to force "Strict Mode" connections, good for ensuring strict SQL while developing an application.</li>
+<li><strong>port</strong> - 資料庫連接埠。資料庫需要設定此變數，必須增加設定如下.<code>$db['default']['port'] =  5432;</code></li>
 </ul>
 
 <p class="important"><strong>注意:</strong> 並非所有的設定都是需要的，必須根據使用的資料庫 (MySQL，Postgres，etc.) 來決定。  
@@ -142,11 +151,11 @@ $db['test']['dbcollat'] = "utf8_general_ci";</code>
 <p>
 上個主題:&nbsp;&nbsp;<a href="examples.html">快速入門：範例程式</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="connecting.html">連接資料庫</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

@@ -34,7 +34,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -46,11 +46,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 風格指南
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -88,7 +88,7 @@
 	<li><a href="#line_breaks">分行</a></li>
 	<li><a href="#code_indenting">程式碼縮排</a></li>
 	<li><a href="#bracket_spacing">中括號與小括號空格</li>
-	<li><a href="#localized_text_in_control_panel">控制台中的本地化文字</a></li>
+	<li><a href="#localized_text">Localized Text</a></li>
 	<li><a href="#private_methods_and_variables">私有方法與變數</a></li>
 	<li><a href="#php_errors">PHP錯誤</a></li>
 	<li><a href="#short_open_tags">簡短的開始標籤</a></li>
@@ -96,7 +96,6 @@
 	<li><a href="#strings">字串</a></li>
 	<li><a href="#sql_queries">SQL 查詢</a></li>
 	<li><a href="#default_function_arguments">函數參數預設值</a></li>
-	<li><a href="#overlapping_tag_parameters">重疊的標籤參數</a></li>
 </ul>
 
 <li>
@@ -108,9 +107,9 @@
 				不好的副作用，使得應用程式無法設定自己的 headers 。Unix 換行字元必須使用 (LF) 。</p>
 			
 			<p>以下是用來設定幾個常用的文字編輯器的方法。設定方法在你的文字編輯器中可能會有一些不同，請參考你的編輯器的說明文件。</p>
-		
+
 			<h5>TextMate</h5>
-		
+
 			<ol>
 				<li>開啟 "Application Preferences"</li>
 				<li>點選 "Advanced" ，然後選擇 "Saving" 頁籤。</li>
@@ -118,9 +117,9 @@
 				<li>在 "Line Endings" 中，選擇 "LF (recommended)"</li>
 				<li><em>可選：</em> 如果你想要在開啟檔案時改變檔案的換行字元 ，勾選 "Use for existing files as well" 選項</li>
 			</ol>
-		
+
 			<h5>BBEdit</h5>
-		
+
 			<ol>
 				<li>開啟 "Application Preferences"</li>
 				<li>選擇左側的 "Text Encodings"</li>
@@ -151,10 +150,10 @@ echo "Here's my code!";
 </code>
 		</div>
 
-	
+
 		<h2><a name="class_and_method_naming"></a>類別與方法命名</h2>
 		<div class="guidelineDetails">
-			<p>類別名稱必須第一個字母大寫，且建構函數必須與類別名稱一致。多個字必須使用底線來分隔，而不是 CamelCased 。其他所有類別方法必須完全使用小寫字母，且名稱可以表明它的功能，最好包含一個動詞。盡量避免冗長的名稱。</p>
+			<p>類別名稱第一個字母必須為大寫。多個字必須使用底線來分隔，而不是 CamelCased 。其他所有類別方法必須完全使用小寫字母，且名稱可以表明它的功能，最好包含一個動詞。盡量避免冗長的名稱。</p>
 
 	<code><strong>不正確</strong>:
 class superclass
@@ -163,11 +162,10 @@ class SuperClass
 <strong>正確</strong>:
 class Super_class</code>
 
-			<p>注意類別與建構函數的名稱與大小寫要相同：</p>
 
 	<code>class Super_class {
 
-	function Super_class()
+	function __construct()
 	{
 
 	}
@@ -186,8 +184,8 @@ function get_the_file_properties_from_the_file()	// 太累贅
 function get_file_properties()	// 敘述性、底線分隔且全部用小寫字母</code>
 
 		</div>
-	
-	
+
+
 		<h2><a name="variable_names"></a>變數名稱</h2>
 		<div class="guidelineDetails">
 			<p>變數命名指引與類別的方法的指引類似。換句話說，變數名稱必須使用小寫字母，使用底線來分隔不同的字，並且合理地指出他的用途與內容。極短與非用字的變數命名最好只在 for() 迴圈中作為迭代使用。</p>
@@ -206,8 +204,8 @@ $group_id
 $last_city
 </code>
 		</div>
-	
-	
+
+
 		<h2><a name="commenting"></a>註解</h2>
 		<div class="guidelineDetails">
 			<p>一般來說，程式碼應當適當地註解。這不只可以提供描述程式流程與目的來協助經驗較少的程式設計師，在你回頭看幾個月前開發的東西時會非常有用。註解並沒有特別的格式要求，但是建議如下：</p>
@@ -250,8 +248,8 @@ $parts = explode("\n"，$str);
 $parts = $this->foo($parts);
 </code>
 		</div>
-	
-	
+
+
 		<h2><a name="constants"></a>常數</h2>
 		<div class="guidelineDetails">
 			<p>常數遵循與變數類似的指引，只是常數必須全部使用大寫字母命名。 <em>適當時一律使用 ExpressionEngine 常數，例如 SLASH，LD，RD，PATH_CACHE 等。</em></p>
@@ -268,8 +266,8 @@ SUPER_CLASS_VERSION
 $str = str_replace(LD.'foo'.RD，'bar'，$str);
 </code>
 		</div>
-	
-	
+
+
 		<h2><a name="true_false_and_null"></a>TRUE 、 FALSE 與 NULL</h2>
 		<div class="guidelineDetails">
 			<p><strong>TRUE</strong> 、 <strong>FALSE</strong> 與 <strong>NULL</strong> 關鍵字必須全部使用大寫字母。</p>
@@ -283,9 +281,9 @@ if ($foo == TRUE)
 $bar = FALSE;
 function foo($bar = NULL)</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="logical_operators"></a>邏輯運算子</h2>
 		<div class="guidelineDetails">
 			<p>不建議使用 <strong>||</strong> ，因為它在一些輸出裝置上可能會看不清楚（例如看起來像數字 11 ）。偏好使用 <strong>&amp;&amp;</strong> 而不是 <strong>AND</strong> ，但是都可接受。必須在 <strong>!</strong> 前後加上空白。</p>
@@ -302,9 +300,9 @@ if ( ! $foo)
 if ( ! is_array($foo))
 </code>
 		</div>
-	
-	
-	
+
+
+
 		<h2><a name="comparing_return_values_and_typecasting"></a>比較返回值與型別轉換</h2>
 		<div class="guidelineDetails">
 			<p>一些 PHP 函數在失敗時返回 FALSE ，但是在成功時還是可能返回空字串 "" 或是 0 ， 這樣在較寬鬆的比較下結果也是 FALSE 。當使用返回值作為條件時明確地比較變數型別，來確保返回值符合預期，而不是使用在鬆散型別時可能會相等的值。</p>
@@ -342,23 +340,23 @@ function build_string($str = "")
 <code>$str = (string) $str;	// 把 $str 轉型成字串</code>
 
 		</div>
-	
-	
+
+
 		<h2><a name="debugging_code"></a>Debugging Code 偵錯程式碼</h2>
 		<div class="guidelineDetails">
 			<p>除非加上註解，否則不要在已提交的附加程式(add-ons)中留下偵錯程式碼，例如在新增附加程式(add-ons)時呼叫的 var_dump() 、 print_r() 、 die() 以及 exit() ，除非把它們註解掉。</p>
 
 <code>// print_r($foo);</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="whitespace_in_files"></a>檔案中的空格</h2>
 		<div class="guidelineDetails">
 			<p>不要在 PHP 開始標籤之前及 PHP 結束標籤之後加上空格。ExpressionEngine 的輸出有緩衝(buffered)，所以在檔案中的空格或使得在 ExpressionEngine 輸出內容前就開始輸出，這會造成錯誤並使 ExpressionEngine 無法送出適當的 headers 。在下面的例子裡，用滑鼠反白文字就可以看到不正確的空格。</p>
 
 			<p><strong>不正確</strong>:</p>
-<code>     
+<code>
 &lt;?php
 	// ...there is whitespace and a linebreak above the opening PHP tag
 	// as well as whitespace after the closing PHP tag
@@ -370,15 +368,15 @@ function build_string($str = "")
 ?&gt;</code>
 
 		</div>
-	
-	
+
+
 		<h2><a name="compatibility"></a>相容性</h2>
 		<div class="guidelineDetails">
 			<p>除非在你的附加程式文件中特別指出，所有的程式碼必須與 PHP 4.3 以上的版本相容。並且，不要使用非預設安裝的 PHP 程式庫中的函數，除非你的程式中有在無法使用時可以替代的函數，或是在文件中暗示你的附加程式需要某個 PHP 程式庫。</p>
 		</div>
-		
 
-	
+
+
 		<h2><a name="class_and_file_names_using_common_words"></a>使用一般用字命名類別與檔案</h2>
 		<div class="guidelineDetails">
 			<p>當你的類別或檔案名稱是一般用字，或是可能與其他 PHP 程式有雷同的名稱，要提供一個獨一無二的前置字串來協助避免衝突。要知道你的用戶可能會執行其他的附加程式或是第三方的 PHP 程式。選擇一個獨特到可以辨認開發者或是公司的前置字串。</p>
@@ -394,8 +392,8 @@ class Pre_xml		ext.pre_xml.php
 class Pre_import	mod.pre_import.php
 </code>
 		</div>
-	
-	
+
+
 		<h2><a name="database_table_names"></a>Database Table Names 資料表名稱</h2>
 		<div class="guidelineDetails">
 			<p>任何你的附加程式可能使用的資料表，必須加上 'exp_' 前置字串，接著是可以辨識開發者或是公司的獨特前置字串，然後才是一個簡短的敘述性的資料表名稱。你不用考慮使用者安裝時會使用的資料庫前置字串，因為 ExpressionEngine 的資料庫類別會自動將 'exp_' 轉換為真正使用的前置字串。</p>
@@ -412,30 +410,30 @@ exp_pre_email_addresses
 		<p class="important"><strong>注意：</strong>要留意到 MySQL 限制資料表名稱只能有 64 個字元。這應該不成問題，因為資料表名稱超過限制那這個名稱應該也不常理。例如，以下的資料表名稱超過限制一個字元。看起來很蠢吧？
 		<strong>exp_pre_email_addresses_of_registered_users_in_seattle_washington</strong></p>
 		</div>
-	
 
-	
+
+
 		<h2><a name="one_file_per_class"></a>每個類別一個檔案</h2>
 		<div class="guidelineDetails">
 			<p>你的附加程式使用的類別要每個類別存成一個檔案，除非這些類別 <em>緊密相關</em> 。一個例子是在 ExpressionEngine 中，Database類別檔案中包含了幾個類別，包括 DB 類別與 DB_Cache 類別。而在 Magpie plugin 中，它同時包含 Magpie 與 Snoopy 類別。</p>
 		</div>
-	
 
-	
+
+
 		<h2><a name="whitespace"></a>空格</h2>
 		<div class="guidelineDetails">
 			<p>在程式碼中使用 tab 空格而不是 space 空格。這看起來只是件小事，但是卻可以讓開發者看你的程式碼時，依照他們使用的軟體，調整他們喜歡的縮排格式。還有一個好的副作用，就是一個 tab空格跟四個 space空格比起來，檔案比較小。</p>
 		</div>
-	
 
-	
+
+
 		<h2><a name="line_breaks"></a>分行</h2>
 		<div class="guidelineDetails">
 			<p>檔案必須使用 Unix 分行格式來存檔。這對在 Windows 環境下工作的開發者可能會有些問題，但是只要他們的文字編輯器可以把檔案存成 Unix 分行格式就沒問題了。</p>
 		</div>
-	
 
-	
+
+
 		<h2><a name="code_indenting"></a>程式碼縮排</h2>
 		<div class="guidelineDetails">
 			<p>使用 Allman 風格的縮排方式。除了類別宣告之外，大括號總是自己一行，與擁有它們的同一層的控制敘述縮排一致。</p>
@@ -491,12 +489,12 @@ for ($i = 0; $i &lt; 10; $i++)
 	}
 }</code>
 		</div>
-	
+
 
 	<h2><a name="bracket_spacing"></a>中括號與小括號空格</h2>
 		<div class="guidelineDetails">
 			<p>一般來說，小括號與中括號不能有任何空格。此外，接受參數的 PHP 控制結構所使用的小括號必須有空格（宣告、do-while、elseif、for、foreach、if、switch、while 等），以協助分辨它們與函數，並增加可讀性。</p>
-			
+
 <code>不正確:
 $arr[ $foo ] = 'foo';
 
@@ -524,22 +522,22 @@ foreach( $query->result() as $row )
 foreach ($query->result() as $row) // PHP 控制結構之後有一個空格，但不是在括號中
 </code>
 		</div>
-	
-	
-	
-		<h2><a name="localized_text_in_control_panel"></a>控制台中的本地化文字</h2>
+
+
+
+        <h2><a name="localized_text"></a>Localized Text</h2>
 		<div class="guidelineDetails">
-			<p>任何輸出到控制台的文字，必須在它們模組的 lang 檔案裡使用 language 變數，以允許本地化。</p>
+            <p>Any text that is output in the control panel should use language variables in your lang file to allow localization.</p>
 
 <code>不正確:
 return "Invalid Selection";
 
 正確:
-return $LANG->line('invalid_selection');</code>
+return $this->lang->line('invalid_selection');</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="private_methods_and_variables"></a>私有方法與變數</h2>
 		<div class="guidelineDetails">
 			<p>只能在你自己類別內取用的方法與變數，例如用來當作公用以及補助公有方法以進行抽象化的函數，必須使用底線作為前置字元。</p>
@@ -547,9 +545,9 @@ return $LANG->line('invalid_selection');</code>
 <code>convert_text()		// 公有方法
 _convert_text()		// 私有方法</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="php_errors"></a>PHP 錯誤</h2>
 		<div class="guidelineDetails">
 			<p>程式執行必須完全沒有錯誤，且不倚賴隱藏警告或注意訊息來達成這個要求。例如，絕對不能在使用 isset 檢查之前存取一個不是自己賦值的變數（例如 $_POST 的陣列鍵值）。</p>
@@ -567,9 +565,9 @@ _convert_text()		// 私有方法</code>
 
 			<p class="important"><strong>注意：</strong>在執行時期用 ini_set() 來設定 <a href="http://us.php.net/manual/en/ref.errorfunc.php#ini.display-errors">display_errors</a> 並不等於在 PHP 環境中啟動它。換句話說，如果你的程式出現嚴重錯誤，那可能就沒效了。</p>
 		</div>
-	
 
-	
+
+
 		<h2><a name="short_open_tags"></a>簡短的開始標籤</h2>
 		<div class="guidelineDetails">
 			<p>總是使用完整的 PHP 開始標籤，在一些伺服器上， short_open_tag 可能沒有開啟。</p>
@@ -582,9 +580,9 @@ _convert_text()		// 私有方法</code>
 <strong>正確</strong>:
 &lt;?php echo $foo; ?&gt;</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="one_statement_per_line"></a>每行一個敘述</h2>
 		<div class="guidelineDetails">
 			<p>不要在一行裡面使用多個敘述。</p>
@@ -598,9 +596,9 @@ $bar = 'that';
 $bat = str_replace($foo，$bar，$bag);
 </code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="strings"></a>字串</h2>
 		<div class="guidelineDetails">
 			<p>如果你不需要變數剖析，那就使用單引號字串。如果你真的需要變數剖析，那要使用大括號來防止被進行貪婪的(greedy) token 剖析。如果你的字串內容中有單引號，你也可以用雙引號字串，這樣你就不用跳脫(escape)掉這些字元。</p>
@@ -615,9 +613,9 @@ $bat = str_replace($foo，$bar，$bag);
 "My string {$foo}"
 "SELECT foo FROM bar WHERE baz = 'bag'"</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="sql_queries"></a>SQL 查詢</h2>
 		<div class="guidelineDetails">
 			<p>MySQL的關鍵字一律大寫：SELECT、INSERT、UPDATE、WHERE、AS、JOIN、ON、IN 等。</p>
@@ -638,23 +636,18 @@ $query = $this->db->query("SELECT foo，bar，baz，foofoo，foobar AS raboof，
 				ORDER BY foobaz
 				LIMIT 5，100");</code>
 		</div>
-	
 
-	
+
+
 		<h2><a name="default_function_arguments"></a>函數參數預設值</h2>
 		<div class="guidelineDetails">
 			<p>在適當時就給函數參數預設值，這可以幫助避免在不正確呼叫函數時產生 PHP 錯誤，並且提供了備用值以節省幾行程式碼。參考範例：</p>
 
 <code>function foo($bar = ''，$baz = FALSE)</code>
 		</div>
-	
 
-	
-		<h2><a name="overlapping_tag_parameters"></a>重疊的標籤參數</h2>
-		<div class="guidelineDetails">
-			<p>避免使用有同樣效果的數個標籤參數。例如，不要同時用 <strong>include=</strong> 與 <strong>exclude=</strong> ，只要用 <strong>include=</strong> 搭配額外的 "not" 例如 <strong>include="not bar"</strong> 來單獨掌控參數。這樣就可以避免數個參數重疊或是去擔心哪個參數比較優先。</p>
-		</div>
-	
+
+
 
 </div>
 
@@ -668,11 +661,11 @@ $query = $this->db->query("SELECT foo，bar，baz，foofoo，foobar AS raboof，
 <p>
 上個主題:&nbsp;&nbsp;<a href="security.html">安全性</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="../doc_style/index.html">撰寫文件</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

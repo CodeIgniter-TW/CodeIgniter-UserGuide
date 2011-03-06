@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 Array 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -98,7 +98,58 @@ echo element('size', $array，NULL);
 <br />
 echo random_element($quotes);</code>
 
+<h2>elements()</h2>
 
+<p>Lets you fetch a number of items from an array.  The function tests whether each of the array indices is set.  If an index does not exist
+it is set to FALSE, or whatever you've specified as the default value via the third parameter.  Example:</p>
+
+<code>
+$array = array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'color' => 'red',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'shape' => 'round',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'radius' => '10',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'diameter' => '20'<br />
+);<br />
+<br />
+$my_shape = elements(array('color', 'shape', 'height'), $array);<br />
+</code>
+
+<p>The above will return the following array:</p>
+
+<code>
+array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'color' => 'red',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'shape' => 'round',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'height' => FALSE<br />
+);
+</code>
+
+<p>You can set the third parameter to any default value you like:</p>
+
+<code>
+$my_shape = elements(array('color', 'shape', 'height'), $array, NULL);<br />
+</code>
+
+<p>The above will return the following array:</p>
+
+<code>
+array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'color' => 'red',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'shape' => 'round',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'height' => NULL<br />
+);
+</code>
+
+<p>This is useful when sending the <kbd>$_POST</kbd> array to one of your Models.  This prevents users from
+sending additional POST data to be entered into your tables:</p>
+
+<code>
+$this->load->model('post_model');<br />
+<br />
+$this->post_model->update(elements(array('id', 'title', 'content'), $_POST));
+</code>
+
+<p>This ensures that only the id, title and content fields are sent to be updated.</p>
 
 
 </div>
@@ -108,10 +159,10 @@ echo random_element($quotes);</code>
 <div id="footer">
 <p>
 上個主題:&nbsp;&nbsp; <a href="../libraries/zip.html">Zip Encoding Class</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="compatibility_helper.html">Compatibility 輔助函數</a></p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

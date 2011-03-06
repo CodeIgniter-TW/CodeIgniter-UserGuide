@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 File 輔助函數
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -123,9 +123,10 @@ CodeIgniter 所使用的前端控制器都是相對於根目錄的 index 檔案�
 <p>Takes a server path as input and returns an array containing the names of all files contained within it. The file path
 can optionally be added to the file names by setting the second parameter to TRUE.</p>
 
-<h2>get_dir_file_info('<var>path/to/directory/</var>')</h2>
+<h2>get_dir_file_info('<var>path/to/directory/</var>', <kbd>$top_level_only</kbd> = TRUE)</h2>
 
-<p>Reads the specified directory and builds an array containing the filenames，filesize，dates，and permissions.  Any sub-folders contained within the specified path are read as well.</p>
+<p>Reads the specified directory and builds an array containing the filenames, filesize, dates, and permissions.  Sub-folders contained within the specified path are only read if forced
+    by sending the second parameter, <kbd>$top_level_only</kbd> to <samp>FALSE</samp>, as this can be an intensive operation.</p>
 
 <h2>get_file_info('<var>path/to/file</var>'，<kbd>$file_information</kbd>)</h2>
 
@@ -166,10 +167,10 @@ echo $file . ' is has a mime type of ' . get_mime_by_extension($file);</code>
 <p>
 上個主題:&nbsp;&nbsp;<a href="email_helper.html">Email 輔助函數</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="form_helper.html">Form 輔助函數</a></p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

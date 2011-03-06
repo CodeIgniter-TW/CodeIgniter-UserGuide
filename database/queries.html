@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 1.7.3</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://ci.wuboy.twbbs.org/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
 <a href="index.html">Database 類別</a> &nbsp;&#8250;&nbsp;
-查詢
+查詢 (Queries)
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ci.wuboy.twbbs.org/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -59,7 +59,7 @@
 <div id="content">
 
 
-<h1>查詢</h1>
+<h1>查詢 (Queries)</h1>
 
 <h2>$this->db->query();</h2>
 
@@ -79,13 +79,13 @@
 它不會回傳資料庫結果集合，也沒有設置查詢定時器，或編譯綁定數據，或存儲您的查詢診對結果。簡單的說，它只是讓你提交查詢。大多數用戶很少會使用此功能.</p>
 
 
-<h1>自訂資料庫字首名稱(Adding Database prefixes manually)</h1>
+<h1>自訂資料庫字首名稱 (Adding Database prefixes manually)</h1>
 <p>假如您已經設定資料庫表格的字首名稱，並且希望能自己手動增加，可以參考底下作法.</p>
 <p><code>$this-&gt;db-&gt;dbprefix('tablename');<br />
 // 輸出 prefix_tablename</code></p>
 
 
-<h1>保護標識符號</h1>
+<h1>保護標識符號 (Protecting identifiers)</h1>
 <p>在眾多資料庫中最好保護資料表跟欄位名稱 - 例如在 MySQL 使用反引號. <strong>Active Record 查詢都已被自動的保護</strong>，如果您需要手動保護的標識符號可以使用:</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name');</code></p>
 
@@ -104,6 +104,12 @@
 <li><strong>$this->db->escape_str()</strong> 此函數可以跳脫任何資料型態。在大多數的情況底下，都是使用上述的函數多於使用此函數。此函數用法如下:
 
 <code>$sql = "INSERT INTO table (title) VALUES('".$this->db->escape_str($title)."')";</code></li>
+
+<li><strong>$this->db->escape_like_str()</strong>  This method should be used when strings are to be used in LIKE
+conditions so that LIKE wildcards ('%', '_') in the string are also properly escaped.
+
+<code>$search = '20% raise';<br />
+$sql = "SELECT id FROM table WHERE column LIKE '%".$this->db->escape_like_str($search)."%'";</code></li>
 </ol>
 
 
@@ -131,11 +137,11 @@ $this->db->query($sql，array(3，'live'，'Rick'));
 <p>
 上個主題:&nbsp;&nbsp;<a href="connecting.html">連接資料庫</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">頁首</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 下個主題:&nbsp;&nbsp;<a href="results.html">產生查詢結果</a>
 </p>
-<p><a href="http://ci.wuboy.twbbs.org">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
 
 <script type="text/javascript">

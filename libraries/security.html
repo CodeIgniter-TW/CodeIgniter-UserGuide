@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Security 類別 : CodeIgniter 使用手冊</title>
+
+<style type='text/css' media='all'>@import url('../userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+
+<script type="text/javascript" src="../nav/nav.js"></script>
+<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+<script type="text/javascript" src="../nav/moo.fx.js"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+
+<meta http-equiv='expires' content='-1' />
+<meta http-equiv= 'pragma' content='no-cache' />
+<meta name='robots' content='all' />
+<meta name='author' content='ExpressionEngine Dev Team' />
+<meta name='description' content='CodeIgniter 使用手冊' />
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
+Security 類別
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+
+<h1>Security 類別</h1>
+
+<p>Security 類別提供函數幫助您建立安全 application，處理 input 資料，增加網站安全性.</p>
+
+<h2>XSS 過濾</h2>
+
+<p>CodeIgniter 內建一個防止跨站腳本攻擊的過濾器，它可以自動過濾所有 POST 與 COOKIE 的資料，或是你自己一項一項過濾。因為進行處理需要額外的負擔，而且你也不是在所有的狀況下需要使用，所以預設它 <strong>不會</strong> 全域執行。</p>
+
+<p>XSS 過濾器會搜尋常使用來觸發 Javascript 或是其他企圖挾持 cookie 或是進行危險活動的程式碼。如果碰到不允許的東西，它會用安全的方式把它轉成html entities來呈現。</p>
+
+<p>
+注意： 這個函數應該只用在處理提交(submit)的資料。它並不適用在一般執行時處理的狀況下，因為它需要相當大量的負載支出。</p>
+
+
+<p>要用XSS過濾器來過濾資料，要用這個函數：</p>
+
+<h2>$this->security->xss_clean()</h2>
+
+<p>使用參考範例：</p>
+
+<code>$data = $this->security->xss_clean($data);</code>
+
+<p>如果你要每次碰到 POST 或是 COOKIE 時都會自動過濾，你可以編輯 <kbd>application/config/config.php</kbd> 檔案並設定以下項目：</p>
+
+<code>$config['global_xss_filtering'] = TRUE;</code>
+
+<p>注意： 如果你使用表單驗證類別，它也會給你XSS過濾的選項。</p>
+
+<p>可選的第二個參數 <dfn>is_image</dfn> 允許這個函數用來測試影像以預防潛在的 XSS 攻擊，這對於檔案上傳的安全性非常有用。當這個參數設定為 <dfn>TRUE</dfn> 時，這個函數就不是回傳替代字串，而是在影像檔是安全的時回傳 TRUE ，並在影像檔包含可能讓瀏覽器執行的潛在危險資訊時回傳 FALSE。</p>
+
+<code>if ($this->security->xss_clean($file，TRUE) === FALSE)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// file failed the XSS test<br />
+}</code>
+
+
+<h2>$this->security->sanitize_filename()</h2>
+
+<p>When accepting filenames from user input, it is best to sanitize them to prevent directory traversal and other security related issues.  To do so, use the <dfn>sanitize_filename()</dfn> method of the Security class.  Here is an example:</p>
+
+<code>$filename = $this->security->sanitize_filename($this->input->post('filename'));</code>
+
+<p>If it is acceptable for the user input to include relative paths, e.g. <kbd>file/in/some/approved/folder.txt</kbd>, you can set the second optional parameter,
+	<samp>$relative_path</samp> to TRUE.</p>
+
+<code>$filename = $this->security->sanitize_filename($this->input->post('filename'), TRUE);</code>
+
+<!-- @todo write docs for CSRF methods -->
+
+<h2>Cross-site request forgery (CSRF)</h2>
+
+<p>You can enable csrf protection by opening your <kbd>application/config/config.php</kbd> file and setting this:</p>
+<code>$config['csrf_protection'] = TRUE;</code>
+
+<p>If you use the <a href="../helpers/form_helper.html">form helper</a> the <var>form_open()</var> function will automatically insert a hidden csrf field in your forms.</p>
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+上個主題:&nbsp;&nbsp;<a href="pagination.html">Pagination 類別</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="sessions.html">Session 類別</a>
+</p>
+<p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5766319-11");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

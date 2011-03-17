@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.0</h1></td>
+<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -82,13 +82,13 @@ Email 類別
 
 <code>$this->load->library('email');<br />
 <br />
-$this->email->from('your@example.com'，'Your Name');<br />	
+$this->email->from('your@example.com', 'Your Name');<br />
 $this->email->to('someone@example.com'); <br />
 $this->email->cc('another@another-example.com'); <br />
 $this->email->bcc('them@their-example.com'); <br />
 <br />
 $this->email->subject('Email Test');<br />
-$this->email->message('Testing the email class.');	<br />
+$this->email->message('Testing the email class.'); <br />
 <br />
 $this->email->send();<br />
 <br />
@@ -225,7 +225,7 @@ $this->email->to(<var>$list</var>);</code>
 <code>foreach ($list as $name => $address)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->clear();<br /><br />
-	
+
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->to($address);<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->from('your@example.com');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->subject('Here is your info '.$name);<br />

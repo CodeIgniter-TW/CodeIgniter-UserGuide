@@ -58,44 +58,47 @@ Session 類別
 
 <h1>Session 類別</h1>
 
-<p>Session類別允許你在使用者瀏覽你的網頁時，保存使用者的"狀態"及紀錄使用者活動。Session類別將每個使用者的session資訊序列化
-（並可經過加密）後，儲存在cookie中。除此之外，亦可將session資料儲存於資料庫表格中，藉由比對使用者cookie中所儲存的session id
-是否與資料庫中的id符合，來增強其安全性。Session類別預設僅將session儲存於cookie當中，若要使用資料庫來儲存，必須依照下面指示的
+<p>Session類別允許你在使用者瀏覽你的網頁時, 保存使用者的"狀態"及紀錄使用者活動。Session類別將每個使用者的session資訊序列化
+（並可經過加密）後, 儲存在cookie中。除此之外, 亦可將session資料儲存於資料庫表格中, 藉由比對使用者cookie中所儲存的session id
+是否與資料庫中的id符合, 來增強其安全性。Session類別預設僅將session儲存於cookie當中, 若要使用資料庫來儲存, 必須依照下面指示的
 方式來建立session表格。</p>
 
-<p class="important"><strong>注意:</strong> CI的Session類別採用自己建立的session資料，<strong>而非</strong> PHP所提供的
-session，藉此為開發者提供更佳的彈性。</p>
+<p class="important"><strong>注意:</strong> CI的Session類別採用自己建立的session資料, <strong>而非</strong> PHP所提供的
+session, 藉此為開發者提供更佳的彈性。</p>
+
+<p class="important"><strong>Note:</strong> Even if you are not using encrypted sessions, you must set
+an <a href="./encryption.html">encryption key</a> in your config file which is used to aid in preventing session data manipulation.</p>
 
 <h2>初始化Session</h2>
 
-<p>基本上，session會在每個頁面載入後，以全域的方式運行。Session類別可利用<a href="../general/controllers.html">控制器</a>的
-建構子作<a href="../general/libraries.html">初始化</a>，抑或是利用系統的<a href="../general/autoloader.html">自動載入</a>
-機制（譯注：即application/config/autoload.php檔）。大部分的情形下，session載入後便會在背景運行，因此初始化之後，session的資
+<p>基本上, session會在每個頁面載入後, 以全域的方式運行。Session類別可利用<a href="../general/controllers.html">控制器</a>的
+建構子作<a href="../general/libraries.html">初始化</a>, 抑或是利用系統的<a href="../general/autoloader.html">自動載入</a>
+機制（譯注：即application/config/autoload.php檔）。大部分的情形下, session載入後便會在背景運行, 因此初始化之後, session的資
 料便會自動被讀取、建立及更新。</p>
 
 
-<p>若要在控制器的建構子裡手動初始化Session類別，可使用<dfn>$this->load->library</dfn>函數：</p>
+<p>若要在控制器的建構子裡手動初始化Session類別, 可使用<dfn>$this->load->library</dfn>函數：</p>
 
 <code>$this->load->library('session');</code>
-<p>一旦類別被載入，便可透過<dfn>$this->session</dfn>的方式來存取Session物件</p>
+<p>一旦類別被載入, 便可透過<dfn>$this->session</dfn>的方式來存取Session物件</p>
 
 
 <h2>Session如何運作？</h2>
 
-<p>當一頁面被載入時，session類別會檢查使用者的cookie檔是否存在有效的session資料。若是<strong>不</strong>存在（或是已經過期）
-，則會建立一新session並儲存於cookie中；若是存在，則該session的資訊與其cookie皆會同時被更新。而每次更新時，session_id亦會重
+<p>當一頁面被載入時, session類別會檢查使用者的cookie檔是否存在有效的session資料。若是<strong>不</strong>存在（或是已經過期）
+, 則會建立一新session並儲存於cookie中；若是存在, 則該session的資訊與其cookie皆會同時被更新。而每次更新時, session_id亦會重
 新被產生。</p>
 
-<p>對於使用者來說，非常重要且需要了解的一點是，Session類別一旦被初始化後，便會自動運作，使用者無需理會接下來的任何事情。如同
-下面所示，你可任意使用，甚至新增自己的session資料。而在此過程中，讀取、寫入以及更新session等動作都是自動完成的。</p>
+<p>對於使用者來說, 非常重要且需要了解的一點是, Session類別一旦被初始化後, 便會自動運作, 使用者無需理會接下來的任何事情。如同
+下面所示, 你可任意使用, 甚至新增自己的session資料。而在此過程中, 讀取、寫入以及更新session等動作都是自動完成的。</p>
 
 
 <h2>Session資料是什麼？</h2>
 
-<p>就CodeIgniter而言，一個<em>session</em>是由包含下列資訊的陣列所組成。</p>
+<p>就CodeIgniter而言, 一個<em>session</em>是由包含下列資訊的陣列所組成。</p>
 
 <ul>
-<li>單一且不重複的使用者Session ID（此為一統計意義上具極大亂度(entropy)的隨機字串。為具備可移植性，採MD5演算法作雜湊運算，且預設每五分鐘重新產生一次）</li>
+<li>單一且不重複的使用者Session ID（此為一統計意義上具極大亂度(entropy)的隨機字串。為具備可移植性, 採MD5演算法作雜湊運算, 且預設每五分鐘重新產生一次）</li>
 <li>使用者的IP位址</li>
 <li>用戶瀏覽器的User Agent資料（取前50個字元）</li>
 <li>"上次活動"(last activity)時間戳記</li>
@@ -111,37 +114,37 @@ session，藉此為開發者提供更佳的彈性。</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_activity' => timestamp<br />
 )</code>
 
-<p>若將加密選項開啟，則該序列化陣列會在儲存於cookie前先作加密的動作，以避免該資料被他人讀取或是更動，達到更高的安全性。
-事實上，Session類別會自動處理資料初始化及加密的動作，想了解更多關於加密的資訊，可在<a href="encryption.html">這裡</a>找到。</p>
+<p>若將加密選項開啟, 則該序列化陣列會在儲存於cookie前先作加密的動作, 以避免該資料被他人讀取或是更動, 達到更高的安全性。
+事實上, Session類別會自動處理資料初始化及加密的動作, 想了解更多關於加密的資訊, 可在<a href="encryption.html">這裡</a>找到。</p>
 
-<p>注意：為了減少處理器的負擔，Session cookie預設每5分鐘更新一次。若是持續重複載入頁面，則"last activity"的時間值，只有在距上次
-cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更改system/config/config.php檔案中的$config['time_to_update']該行來作設定。</p>
+<p>注意：為了減少處理器的負擔, Session cookie預設每5分鐘更新一次。若是持續重複載入頁面, 則"last activity"的時間值, 只有在距上次
+cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更改system/config/config.php檔案中的$config['sess_time_to_update']該行來作設定。</p>
 
 <h2>取得Session資料</h2>
 
-<p>Session陣列裡的任何資料，可藉由下列函數取得：</p>
+<p>Session陣列裡的任何資料, 可藉由下列函數取得：</p>
 
 <code>$this->session->userdata('<samp>item</samp>');</code>
 
-<p>其中<samp>item</samp>為所要取得的資料其對應的陣列索引。舉例來說，要取得session ID，可使用以下方式：</p>
+<p>其中<samp>item</samp>為所要取得的資料其對應的陣列索引。舉例來說, 要取得session ID, 可使用以下方式：</p>
 
 <code>$session_id = $this->session->userdata('<samp>session_id</samp>');</code>
 
-<p><strong>注意:</strong> 若是所要存取的資料不存在，則該function傳回FALSE（布林值）。</p>
+<p><strong>注意:</strong> 若是所要存取的資料不存在, 則該function傳回FALSE（布林值）。</p>
 
 
 <h2>增加自訂Session資料</h2>
 
-<p>Session陣列一個方便的好處在於，使用者可新增自己的資料，該資料會儲存於該使用者的cookie中。至於這麼做的目的為何？參考以下範例：</p>
+<p>Session陣列一個方便的好處在於, 使用者可新增自己的資料, 該資料會儲存於該使用者的cookie中。至於這麼做的目的為何？參考以下範例：</p>
 
-<p>假設某個特定用戶登入到你的網站，當其通過身份認證之後，便可將使用者名稱及email位址儲存至session cookie中。如此一來，當有需要
-使用這些資料時，便可以全域變數的方式來存取這些資料，而不需另外對資料庫作查詢。</p>
+<p>假設某個特定用戶登入到你的網站, 當其通過身份認證之後, 便可將使用者名稱及email位址儲存至session cookie中。如此一來, 當有需要
+使用這些資料時, 便可以全域變數的方式來存取這些資料, 而不需另外對資料庫作查詢。</p>
 
-<p>利用下列函數，可增加新的資料至session陣列中：</p>
+<p>利用下列函數, 可增加新的資料至session陣列中：</p>
 
 <code>$this->session->set_userdata(<samp>$array</samp>);</code>
 
-<p>其中<samp>$array</samp>為一關聯式陣列，包含所要新增的資料。以下為使用範例：</p>
+<p>其中<samp>$array</samp>為一關聯式陣列, 包含所要新增的資料。以下為使用範例：</p>
 
 
 <p><code>$newdata = array(<br />
@@ -151,40 +154,40 @@ cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更�
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 	<br />
 	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
-<p>若要一次新增一筆資料，set_userdata()亦支援下面的寫法。</p>
-<p><code>$this-&gt;session-&gt;set_userdata('some_name'，'some_value');</code></p>
-<p class="important"><strong>注意:</strong> Cookie只能儲存4KB的資料，因此使用時需注意勿超過此限制。此外若是有對資料作加密的動作，由於
-加密後會產生比原始資料長度還要長的字串，因此更需留意儲存資料的數量。</p>
+<p>若要一次新增一筆資料, set_userdata()亦支援下面的寫法。</p>
+<p><code>$this-&gt;session-&gt;set_userdata('some_name', 'some_value');</code></p>
+<p class="important"><strong>注意:</strong> Cookie只能儲存4KB的資料, 因此使用時需注意勿超過此限制。此外若是有對資料作加密的動作, 由於
+加密後會產生比原始資料長度還要長的字串, 因此更需留意儲存資料的數量。</p>
 
 <h2>刪除Session資料</h2>
-<p>如同set_userdata()可用來新增資料至session中，使用者亦可透過傳遞session的key值給unset_userdata() 函數來刪除該筆資料。舉例來說，若想
+<p>如同set_userdata()可用來新增資料至session中, 使用者亦可透過傳遞session的key值給unset_userdata() 函數來刪除該筆資料。舉例來說, 若想
 從session中刪除'some_name'：</p>
 <p><code>$this-&gt;session-&gt;unset_userdata('some_name');</code></p>
-<p>除此之外，亦可傳遞一包含欲刪項目的關聯陣列給該函數：</p>
-<p><code>$array_items = array('username' => ''，'email' => '');<br />
+<p>除此之外, 亦可傳遞一包含欲刪項目的關聯陣列給該函數：</p>
+<p><code>$array_items = array('username' => '', 'email' => '');<br />
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <h2>快閃資料</h2>
-<p>CodeIgniter支援&quot;快閃資料(Flashdata)&quot;，其為一session資料，並只對下一次的Server請求有效，之後就自動清除。快閃資料在某些情況下
-非常有用，一般是用來提供資訊或狀態訊息等。（例如：&quot;紀錄2已刪除&quot;）</p>
-<p>注意：快閃資料變數名以&quot;flash&quot;開頭，因此需避免在自訂的session名稱中使用此前綴。</p>
+<p>CodeIgniter支援&quot;快閃資料(Flashdata)&quot;, 其為一session資料, 並只對下一次的Server請求有效, 之後就自動清除。快閃資料在某些情況下
+非常有用, 一般是用來提供資訊或狀態訊息等。（例如：&quot;紀錄2已刪除&quot;）</p>
+<p>注意：快閃資料變數名以&quot;flash&quot;開頭, 因此需避免在自訂的session名稱中使用此前綴。</p>
 <p>欲新增快閃資料：</p>
-<p><code>$this-&gt;session-&gt;set_flashdata('item'，'value');</code></p>
-<p>如同set_userdata()的用法，亦可傳遞一陣列給set_flashdata()。</p>
+<p><code>$this-&gt;session-&gt;set_flashdata('item', 'value');</code></p>
+<p>如同set_userdata()的用法, 亦可傳遞一陣列給set_flashdata()。</p>
 <p>讀取快閃資料：</p>
 <p><code>$this-&gt;session-&gt;flashdata('item');</code></p>
-<p>若是需要為其它的伺服器請求保留一快閃資料，可使用keep_flashdata()函數：</p>
+<p>若是需要為其它的伺服器請求保留一快閃資料, 可使用keep_flashdata()函數：</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
 
 <h2>將Session資料存入資料庫</h2>
-<p>基本上，session資料是以包含Session ID的陣列型態儲存在用戶的cookie裡。除非將其保存在資料庫中，否則一般很難驗證其正確性。當然，在一般
-不那麼要求安全性，或是對安全性要求較低的應用中，驗證Session ID或許沒那麼重要。不過針對需較高安全性的應用，Session ID的驗證卻是必需的。
+<p>基本上, session資料是以包含Session ID的陣列型態儲存在用戶的cookie裡。除非將其保存在資料庫中, 否則一般很難驗證其正確性。當然, 在一般
+不那麼要求安全性, 或是對安全性要求較低的應用中, 驗證Session ID或許沒那麼重要。不過針對需較高安全性的應用, Session ID的驗證卻是必需的。Otherwise, an old session could be restored by a user modifying their cookies.
 </p>
 
-<p>當session資料是保存在資料庫時，每當從用戶的cookie中找到一有效的session時，便會執行一次資料庫查詢來比對兩者的session id是否符合。若不
-符合，則該session便會被銷毀。這是因為session id只會在session建立時產生，在這之後永遠不會有更新的動作。</p>
+<p>當session資料是保存在資料庫時, 每當從用戶的cookie中找到一有效的session時, 便會執行一次資料庫查詢來比對兩者的session id是否符合。若不
+符合, 則該session便會被銷毀。這是因為session id只會在session建立時產生, 在這之後永遠不會有更新的動作。</p>
 
-<p>為了將session儲存於資料庫中，必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
+<p>為了將session儲存於資料庫中, 必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="8">
 CREATE TABLE IF NOT EXISTS  `ci_sessions` (
@@ -192,29 +195,29 @@ session_id varchar(40) DEFAULT '0' NOT NULL,
 ip_address varchar(16) DEFAULT '0' NOT NULL,
 user_agent varchar(50) NOT NULL,
 last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-user_data text NOT NULL,
+user_data text DEFAULT '' NOT NULL,
 PRIMARY KEY (session_id)
 );</textarea>
 
-<p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>，但可藉由修改<kbd>application/config/config.php</kbd>來設定你想要的
-表格名稱。建立了資料庫表格之後，便可以在config.php中啟動資料庫選項，如下所示：</p>
+<p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>, 但可藉由修改<kbd>application/config/config.php</kbd>來設定你想要的
+表格名稱。建立了資料庫表格之後, 便可以在config.php中啟動資料庫選項, 如下所示：</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
 
-<p>一旦啟用該選項，Session類別便會將所有的session資料存於資料庫中。</p>
+<p>一旦啟用該選項, Session類別便會將所有的session資料存於資料庫中。</p>
 
 <p>同時也要確認有在config檔中指定儲存session的表格名稱：</p>
 
-<code>$config['sess_table_name'] = 'ci_sessions";</code>
+<code>$config['sess_table_name'] = 'ci_sessions';</code>
 
-<p class="important"><strong>注意：</strong>Session類別內建垃圾回收機制（garbage collection），因此使用者無須自行撰寫程式來處理相關
+<p class="important"><strong>注意:</strong>Session類別內建垃圾回收機制（garbage collection）, 因此使用者無須自行撰寫程式來處理相關
 問題。</p>
 
 
 <h2>銷毀Session</h2>
 <p>欲清除目前的session：</p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
-<p class="important"><strong>注意：</strong>此函式應該最後被呼叫，一旦執行，即使是flash變數也會被刪除。若只是要刪除特定變數，使用<dfn>
+<p class="important"><strong>注意:</strong>此函式應該最後被呼叫, 一旦執行, 即使是flash變數也會被刪除。若只是要刪除特定變數, 使用<dfn>
 unset_userdata()</dfn>函式。</p>
 
 
@@ -240,7 +243,13 @@ unset_userdata()</dfn>函式。</p>
 	<td class="td"><strong>sess_expiration</strong></td>
 	<td class="td">7200</td>
 	<td class="td">無</td>
-	<td class="td">session所要保留的時間（秒），預設為2個小時（7200秒），若希望session永遠有效，將此值設為0。</td>
+	<td class="td">session所要保留的時間（秒）, 預設為2個小時（7200秒）, 若希望session永遠有效, 將此值設為0。</td>
+</tr>
+<tr>
+	<td class="td"><strong>sess_expire_on_close</strong></td>
+	<td class="td">FALSE</td>
+	<td class="td">TRUE/FALSE (boolean)</td>
+	<td class="td">Whether to cause the session to expire automatically when the browser window is closed.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_encrypt_cookie</strong></td>
@@ -252,7 +261,7 @@ unset_userdata()</dfn>函式。</p>
 	<td class="td"><strong>sess_use_database</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (布林值)</td>
-	<td class="td">是否將session資料儲存於資料庫，必須在啟用此選項前先建立一資料庫表格。</td>
+	<td class="td">是否將session資料儲存於資料庫, 必須在啟用此選項前先建立一資料庫表格。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_table_name</strong></td>
@@ -270,8 +279,7 @@ unset_userdata()</dfn>函式。</p>
 	<td class="td"><strong>sess_match_ip</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (布林值)</td>
-	<td class="td">是否根據對應的使用者IP來讀取session資料。需注意某些ISP會動態地改變用戶IP，因此，在此情況下必須將此選項設為FALSE
-	，以得到永久有效的session。</td>
+	<td class="td">是否根據對應的使用者IP來讀取session資料。需注意某些ISP會動態地改變用戶IP, 因此, 在此情況下必須將此選項設為FALSE, 以得到永久有效的session。</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_match_useragent</strong></td>
@@ -288,7 +296,7 @@ unset_userdata()</dfn>函式。</p>
 
 <div id="footer">
 <p>
-上個主題:&nbsp;&nbsp;<a href="pagination.html">Pagination 類別</a>
+上個主題:&nbsp;&nbsp;<a href="security.html">Security 類別</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;

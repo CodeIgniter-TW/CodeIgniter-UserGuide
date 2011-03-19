@@ -80,7 +80,7 @@ $this->load->library('ftp');<br />
 $config['hostname'] = 'ftp.example.com';<br />
 $config['username'] = 'your-username';<br />
 $config['password'] = 'your-password';<br />
-$config['debug'] 	= TRUE;<br />
+$config['debug']	= TRUE;<br />
 <br />
 $this->ftp->connect($config);<br />
 <br />
@@ -99,7 +99,7 @@ $this->load->library('ftp');<br />
 $config['hostname'] = 'ftp.example.com';<br />
 $config['username'] = 'your-username';<br />
 $config['password'] = 'your-password';<br />
-$config['debug'] 	= TRUE;<br />
+$config['debug']	= TRUE;<br />
 <br />
 $this->ftp->connect($config);<br />
 <br />
@@ -119,7 +119,7 @@ $this->load->library('ftp');<br />
 $config['hostname'] = 'ftp.example.com';<br />
 $config['username'] = 'your-username';<br />
 $config['password'] = 'your-password';<br />
-$config['debug'] 	= TRUE;<br />
+$config['debug']	= TRUE;<br />
 <br />
 $this->ftp->connect($config);<br />
 <br />
@@ -182,6 +182,19 @@ $this->ftp->connect($config);<br />
 
 <p>PHP 5 以後的版本，支援檔案權限的設定。可透過傳遞一<kbd>八進制</kbd>的權限值至第四個參數，來設定檔案權限。</p>
 
+<h2>$this->ftp->download()</h2>
+
+<p>Downloads a file from your server.  You must supply the remote path and the local path, and you can optionally set the mode.
+Example:</p>
+
+<code>$this->ftp->download('/public_html/myfile.html', '/local/path/to/myfile.html', 'ascii');</code>
+
+<p><strong>Mode options are:</strong>&nbsp; <kbd>ascii</kbd>, <kbd>binary</kbd>, and <kbd>auto</kbd> (the default). If
+<kbd>auto</kbd> is used it will base the mode on the file extension of the source file.</p>
+
+<p>Returns FALSE if the download does not execute successfully (including if PHP does not have permission to write the local file)</p>
+
+
 <h2>$this->ftp->rename()</h2>
 <p>檔案重新命名，參數為來源檔名/路徑及目的檔名/路徑：</p>
 
@@ -212,7 +225,7 @@ $this->ftp->delete_file('/public_html/joe/blog.html');
 <h2>$this->ftp->delete_dir()</h2>
 <p>刪除某目錄及其包含的所有檔案。需提供欲刪除目錄之路徑作為參數，且最後須加上斜線。</p>
 
-<p class="important"><strong>重要</strong>&nbsp; 請非常謹慎地使用此函數，此函數將會遞迴刪除指定目錄下的 
+<p class="important"><strong>重要</strong>&nbsp; 請非常謹慎地使用此函數，此函數將會遞迴刪除指定目錄下的
 <b>所有東西</b> ，包含子目錄及所有檔案。因此建議在使用此函數前，先利用 <kbd>list_files()</kbd> 函數來確保所提供的路徑正確。</p>
 
 <code>

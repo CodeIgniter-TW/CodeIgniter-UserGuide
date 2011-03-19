@@ -57,26 +57,43 @@
 
 <h1>版本紀錄</h1>
 
-<p>The <img src="images/reactor-bullet.png" width="16" height="16" alt="Reactor Marker" /> indicates items that were contributed to CodeIgniter via CodeIgniter Reactor.</p>
+<p>標示有 <img src="images/reactor-bullet.png" width="16" height="16" alt="Reactor Marker" /> 符號表示透過 CodeIgniter Reactor 貢獻到 CodeIgniter。</p>
 
 <h2>版本 2.0.1</h2>
-<p>發佈日期: n/a<br />
-Hg 標籤: n/a</p>
+<p>發佈日期: 2011年3月15日<br />
+Hg 標籤: v2.0.1</p>
 
 <ul>
-        <li>Libraries
-                <ul>
-                        <li class="reactor">新增<kbd>decimal</kbd>, <kbd>less_than</kbd> and <kbd>greater_than</kbd> rules to the <a href="libraries/form_validation.html">Form validation Class</a>.</li>
-                        <li class="reactor"><a href="libraries/input.html">Input Class</a> methods <kbd>post()</kbd> and <kbd>get()</kbd> will now return a full array if the first argument is not provided.</li>
-                </ul>
-        </li>
+	<li>一般變更 (General changes)
+		<ul>
+			<li>為了 cookie，新增 <kbd>$config['cookie_secure']</kbd> 到 config 設定檔，以便需要用到 HTTPS</li>
+			<li class="reactor">新增 <kbd>CI_CORE</kbd> 變數去區別 Core: TRUE and Reactor: FALSE.</li>
+			<li class="reactor">新增 <kbd>ENVIRONMENT</kbd> 變數到 index.php, 它影響 PHP 回報錯誤訊息狀態和選擇載入設定檔案(參考底下)，參考更多 <a href="general/environments.html">Handling Environments</a> 說明文件</li>
+			<li class="reactor">新增支援 <a href="libraries/config.html#environments">environment-specific</a> 環境變數檔案.</li>
+		</ul>
+	</li>
+	<li>程式庫 (Libraries)
+		<ul>
+			<li class="reactor">新增 <kbd>decimal</kbd>, <kbd>less_than</kbd> 和 <kbd>greater_than</kbd> 規則到 <a href="libraries/form_validation.html">Form validation Class</a>.</li>
+			<li class="reactor">假如沒有提供第一個參數，<a href="libraries/input.html">Input Class</a> methods <kbd>post()</kbd> and <kbd>get()</kbd> 將會回傳陣列 (Full Array)。</li>
+			<li class="reactor">Secure cookies 可以經由 <kbd>set_cookie()</kbd> 補助函式(helper) 和 <a href="libraries/input.html">Input Class</a> method 來產生。</li>
+			<li class="reactor">新增 <kbd>set_content_type()</kbd> 方法到 <a href="libraries/output.html">Output Class</a> 去設定 HTTP 表頭 <kbd>Content-Type</kbd> 根據單一 MIME 類型或 config/mimes.php array key。</li>
+			<li class="reactor"><a href="libraries/output.html">Output Class</a> 支援 method chaining.</li>
+		</ul>
+	</li>
+	<li>補助函式 (Helpers)
+		<ul>
+			<li class="reactor">修改 <a href="helpers/form_helper.html">Form helper</a> 裡 <kbd>form_open()</kbd> 程式，假如沒有傳入任何值，它將會使用目前網址(current URL)送出。</li>
+		</ul>
+	</li>
 </ul>
 
-<h3>Bug fixes for 2.0.1</h3>
+<h3>2.0.1 修正</h3>
 <ul>
-        <li class="reactor">CLI requests can now be run from any folder, not just when CD'ed next to index.php.</li>
-        <li class="reactor">修正issue #41: 新增audio/mp3 mime type to mp3.</li>
-        <li class="reactor">修正a bug (#329) where the file caching driver referenced the incorrect cache directory.</li>
+	<li class="reactor">CLI(Command Line Interface) 可以在任意目錄執行，不需要切換到根目錄 index.php 地方。</li>
+	<li class="reactor">修正 #41: 增加 audio/mp3 mp3 的 mime 類型。</li>
+	<li class="reactor">修正 (Core #329) caching driver 使用不正確的暫存目錄(cache directory)。</li>
+	<li class="reactor">修正 (Reactor #69) SHA1 library 錯誤命名。</li>
 </ul>
 
 <h2>版本 2.0.0</h2>

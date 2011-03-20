@@ -72,6 +72,13 @@
 
 <p>如果移動了以上兩個資料夾，您必須編輯 <kbd>index.php</kbd> 檔案，並且將 <samp>$system_folder</samp> 和 <samp>$application_folder</samp> 變數，替換成絕對路徑，例如: '<dfn>/www/MyUser/system</dfn>'。</p>
 
+<p>
+    One additional measure to take in production environments is to disable
+    PHP error reporting and any other development-only functionality. In CodeIgniter,
+    this can be done by setting the <kbd>ENVIRONMENT</kbd> constant, which is
+    more fully described on the <a href="../general/security.html">security page</a>.
+</p>
+
 <p>大功告成！</p>
 
 <p>如果你是 CodeIgniter 新手，請閱讀使用手冊中的 <a href="../overview/getting_started.html">入門</a> 章節，來開始學習如何建置動態的 PHP 應用程式。開始享受這個 Framework 吧！</p>

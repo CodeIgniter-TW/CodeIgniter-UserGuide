@@ -61,20 +61,20 @@ Input 類別
 <p>Input 類別有兩個目的：</p>
 
 <ol>
-<li>基於安全，它預處理全域輸入資料。</li>
+<li>基於安全, 它預處理全域輸入資料。</li>
 <li>它提提供幾個補助函數用來取得輸入資料並預處理。</li>
 </ol>
 
-<p class="important"><strong>注意：</strong>系統會自動初始這個類別，所以不需要手動載入。</p>
+<p class="important"><strong>注意：</strong>系統會自動初始這個類別, 所以不需要手動載入。</p>
 
 <h2>安全過濾 (Security Filtering)</h2>
 
 <p>安全過濾函數在執行一個新的<a href="../general/controllers.html">controller</a> 時會自動呼叫。它會執行：</p>
 
 <ul>
-<li>破壞全域 GET 陣列。既然 CodeIgniter 不使用 GET 字串，也沒有理由要允許使用它。</li>
-<li>在 register_globals 打開時，破壞所有全域變數。</li>
-<li>過濾 POST/COOKIE 陣列的索引鍵值，只允許英文文數字與少數其他字元。</li>
+<li>破壞全域 GET 陣列。既然 CodeIgniter 不使用 GET 字串, 也沒有理由要允許使用它。</li>
+<li>在 register_globals 打開時, 破壞所有全域變數。</li>
+<li>過濾 POST/COOKIE 陣列的索引鍵值, 只允許英文文數字與少數其他字元。</li>
 <li>提供 XSS (Cross-site Scripting Hacks) 過濾。這可以是全域啟動或根據請求啟動 (request)。</li>
 <li>將換行字元標準化成為 \n 。</li>
 </ul>
@@ -92,7 +92,7 @@ Input 類別
 
 <h2>使用 POST, COOKIE, 或 SERVER 資料</h2>
 
-<p>CodeIgniter 提供三個讓你取出 POST, COOKIE 或 SERVER 中項目的補助函數。使用這些函數的主要便利性在於，它們會確認並檢視是否這些項目已被設定並且在未設定時回傳 false (boolean) ，而不是直接取出 ($_POST['something'])。這讓你可以方便地使用資料而不必預先測試它們是否存在。不然，通常你可能會像這樣做：</p>
+<p>CodeIgniter 提供三個讓你取出 POST, COOKIE 或 SERVER 中項目的補助函數。使用這些函數的主要便利性在於, 它們會確認並檢視是否這些項目已被設定並且在未設定時回傳 false (boolean) , 而不是直接取出 ($_POST['something'])。這讓你可以方便地使用資料而不必預先測試它們是否存在。不然, 通常你可能會像這樣做：</p>
 
 <code>
 if ( ! isset($_POST['something']))<br />
@@ -104,7 +104,7 @@ else<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$something = $_POST['something'];<br />
 }</code>
 
-<p>有了 CodeIgniter 的內建函數，你可以簡單地這樣做：</p>
+<p>有了 CodeIgniter 的內建函數, 你可以簡單地這樣做：</p>
 
 <code>$something = $this->input->post('something');</code>
 
@@ -126,29 +126,49 @@ else<br />
 
 <p>額外的第二個參數讓你用 XSS 過濾器處理資料。把第二個參數設定為 TRUE (boolean) 就可以啟動：</p>
 
-<code>$this->input->post('some_data'，TRUE);</code>
+<code>$this->input->post('some_data', TRUE);</code>
+
+<p>To return an array of all POST items call without any parameters.</p>
+<p>To return all POST items and pass them through the XSS filter leave the first parameter blank while setting the second parameter to boolean;</p>
+<p>The function returns FALSE (boolean) if there are no items in the POST.</p>
+
+<code>
+	$this->input->post(); // returns all POST items with XSS filter
+	<br />
+	$this->input->post(NULL, FALSE); // returns all POST items without XSS
+</code>
 
 <h2>$this->input->get()</h2>
 
-<p>這個函數與 post 函數相同，只是他會取得 get 的資料：</p>
+<p>這個函數與 post 函數相同, 只是他會取得 get 的資料：</p>
 
-<code>$this->input->get('some_data'，TRUE);</code>
+<code>$this->input->get('some_data', TRUE);</code>
+
+<p>To return an array of all GET items call without any parameters.</p>
+<p>To return all GET items and pass them through the XSS filter leave the first parameter blank while setting the second parameter to boolean;</p>
+<p>The function returns FALSE (boolean) if there are no items in the GET.</p>
+
+<code>
+	$this->input->get(); // returns all GET items with XSS filter
+	<br />
+	$this->input->get(NULL, FALSE); // returns all GET items without XSS filtering
+</code>
 
 <h2>$this->input->get_post()</h2>
 
-<p>這個函數會搜尋 post 及 get 串流來取得資料，會先尋找 post 而後尋找 get ：</p>
+<p>這個函數會搜尋 post 及 get 串流來取得資料, 會先尋找 post 而後尋找 get ：</p>
 
-<code>$this->input->get_post('some_data'，TRUE);</code>
+<code>$this->input->get_post('some_data', TRUE);</code>
 
 <h2>$this->input->cookie()</h2>
 
-<p>這個函數與 post 函數相同，只是他會取得 cookie 的資料：</p>
+<p>這個函數與 post 函數相同, 只是他會取得 cookie 的資料：</p>
 
-<code>$this->input->cookie('some_data'，TRUE);</code>
+<code>$this->input->cookie('some_data', TRUE);</code>
 
 <h2>$this->input->server()</h2>
 
-<p>這個函數與以上的函數相同，只是他會取得 server 的資料：</p>
+<p>這個函數與以上的函數相同, 只是他會取得 server 的資料：</p>
 
 <code>$this->input->server('some_data');</code>
 
@@ -206,7 +226,7 @@ zero the cookie will only last as long as the browser is open.</p>
 
 
 <h2>$this->input->ip_address()</h2>
-<p>取得當前使用者的 IP 位址。如果 IP 位址不合法，那函數會回傳 0.0.0.0。</p>
+<p>取得當前使用者的 IP 位址。如果 IP 位址不合法, 那函數會回傳 0.0.0.0。</p>
 <code>echo $this->input->ip_address();</code>
 
 
@@ -225,8 +245,10 @@ else<br />
 
 
 <h2>$this->input->user_agent()</h2>
-<p>返回當前使用者所使用的網頁瀏覽器，如果沒有有效資訊則回傳 FALSE 。</p>
+<p>返回當前使用者所使用的網頁瀏覽器, 如果沒有有效資訊則回傳 FALSE 。</p>
 <code>echo $this->input->user_agent();</code>
+
+<p>See the <a href="user_agent.html">User Agent Class</a> for methods which extract information from the user agent string.</p>
 
 <h2>$this->input->request_headers()</h2> 
 <p>Useful if running in a non-Apache environment where <a href="http://php.net/apache_request_headers">apache_request_headers()</a> will not be supported.  Returns an array of headers.</p> 

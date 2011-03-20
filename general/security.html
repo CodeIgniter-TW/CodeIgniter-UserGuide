@@ -81,6 +81,23 @@
 
 <p>除了在 $_POST 以及 $_COOKIE 陣列中找到的變數，在系統初始化時，所有的整體變數都會 <strong>unset</strong> ，這個 unsetting 常式效用等同於 register_globals = off 選項設定。</p>
 
+<a name="error_reporting"></a>
+<h2>error_reporting</h2>
+
+<p>
+    In production environments, it is typically desirable to disable PHP's
+    error reporting by setting the internal error_reporting flag to a value of 0. This disables native PHP
+    errors from being rendered as output, which may potentially contain
+    sensitive information.
+</p>
+
+<p>
+    Setting CodeIgniter's <kbd>ENVIRONMENT</kbd> constant in index.php to a
+    value of '<kbd>production</kbd>' will turn off these errors. In development
+    mode, it is recommended that a value of '<kbd>development</kbd>' is used.
+    More information about differentiating between environments can be found
+    on the <a href="environments.html">Handling Environments</a> page.
+</p>
 
 <h2>magic_quotes_runtime</h2>
 

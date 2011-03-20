@@ -66,9 +66,9 @@ Hg 標籤: v2.0.1</p>
 <ul>
 	<li>一般變更 (General changes)
 		<ul>
-			<li>為了 cookie，新增 <kbd>$config['cookie_secure']</kbd> 到 config 設定檔，以便需要用到 HTTPS</li>
+            <li>在設定檔增加一個新的設定 $config['cookie_secure'] 允許要求用安全的 (HTTPS) 來設置 cookies</li>
 			<li class="reactor">新增 <kbd>CI_CORE</kbd> 變數去區別 Core: TRUE and Reactor: FALSE.</li>
-			<li class="reactor">新增 <kbd>ENVIRONMENT</kbd> 變數到 index.php, 它影響 PHP 回報錯誤訊息狀態和選擇載入設定檔案(參考底下)，參考更多 <a href="general/environments.html">Handling Environments</a> 說明文件</li>
+			<li class="reactor">新增 <kbd>ENVIRONMENT</kbd> 變數到 index.php, 作用於PHP的錯誤回報設定 (error reporting settings)，且為可選擇性的，會被被設定檔讀取，參考更多 <a href="general/environments.html">Handling Environments</a> 說明文件</li>
 			<li class="reactor">新增支援 <a href="libraries/config.html#environments">environment-specific</a> 環境變數檔案.</li>
 		</ul>
 	</li>
@@ -77,8 +77,8 @@ Hg 標籤: v2.0.1</p>
 			<li class="reactor">新增 <kbd>decimal</kbd>, <kbd>less_than</kbd> 和 <kbd>greater_than</kbd> 規則到 <a href="libraries/form_validation.html">Form validation Class</a>.</li>
 			<li class="reactor">假如沒有提供第一個參數，<a href="libraries/input.html">Input Class</a> methods <kbd>post()</kbd> and <kbd>get()</kbd> 將會回傳陣列 (Full Array)。</li>
 			<li class="reactor">Secure cookies 可以經由 <kbd>set_cookie()</kbd> 補助函式(helper) 和 <a href="libraries/input.html">Input Class</a> method 來產生。</li>
-			<li class="reactor">新增 <kbd>set_content_type()</kbd> 方法到 <a href="libraries/output.html">Output Class</a> 去設定 HTTP 表頭 <kbd>Content-Type</kbd> 根據單一 MIME 類型或 config/mimes.php array key。</li>
-			<li class="reactor"><a href="libraries/output.html">Output Class</a> 支援 method chaining.</li>
+            <li class="reactor">新增函式 set_content_type() 至 <a href="libraries/output.html">Output Class</a> 來設置輸出 Content-Type HTTP header 設置為 MIME Type 或一個 config/mimes.php 陣列鍵值.</li>
+            <li class="reactor"><a href="libraries/output.html">Output Class</a> 現在支援方法鏈結 (-&gt;method-&gt;method).</li>
 		</ul>
 	</li>
 	<li>補助函式 (Helpers)
@@ -95,7 +95,6 @@ Hg 標籤: v2.0.1</p>
 	<li class="reactor">修正 (Core #329) caching driver 使用不正確的暫存目錄(cache directory)。</li>
 	<li class="reactor">修正 (Reactor #69) SHA1 library 錯誤命名。</li>
 </ul>
-
 <h2>版本 2.0.0</h2>
 <p>發佈日期: 2011年1月28日<br />
 Hg 標籤: v2.0.0</p>
@@ -105,7 +104,7 @@ Hg 標籤: v2.0.0</p>
 		<ul>
 			<li> 不再支援PHP 4， CodeIgniter 目前的PHP版本需求是 PHP 5.1.6.</li>
 			<li>Scaffolding, 已在前幾個版本被標為(deprecated)不建議再使用, 在此版本已移除。</li>
-			<li>Plugins 已被移除, 請愛用 Helpers.  CAPTCHA plugin 已被轉換成 Helper (<a href="./helpers/captcha_helper.html">參閱文件)</a>.  JavaScript 的日曆 plugin 已移除, 因為JavaScript的日曆已夠強大, 尤其是 jQuery.</li>
+			<li>外掛(Plugins) 已被移除, 請愛用 輔助函數(Helpers).  CAPTCHA 外掛(plugin) 已被轉換成 輔助函數(Helper) (<a href="./helpers/captcha_helper.html">參閱文件)</a>.  JavaScript 的日曆 plugin 已移除, 因為JavaScript的日曆已夠強大, 尤其是 jQuery.</li>
 			<li>新增新的特別程式庫: <a href="./general/drivers.html">Drivers</a>.</li>
 			<li class="reactor">新增完整的 query-string 支援.  詳細請看設定檔 config.php</li>
 			<li>將application資料夾移出 system資料夾之外</li>
@@ -118,54 +117,54 @@ Hg 標籤: v2.0.0</p>
 			<li>發展中的新版本現在設在 <a href="http://bitbucket.org/ellislab/codeigniter-reactor/">BitBucket</a>. 上</li>
 			<li>移除不建議再使用的 驗證類別(Validation Class).</li>
 			<li>新增 CI_ 前綴詞(Prefix) 至所有核心類別</li>
-			<li class="reactor">Package paths can now be set in application/config/autoload.php.</li>
-			<li class="reactor"><a href="libraries/file_uploading.html">Upload library</a> file_name can now be set without an extension, the extension will be taken from the uploaded file instead of the given name.</li>
-			<li class="reactor">In <a href="database/forge.html">Database Forge</a> the name can be omitted from $this->dbforge->modify_column()'s 2nd param if you aren't changing the name.</li>
+			<li class="reactor">Package 路徑現在可以設置在 application/config/autoload.php 中</li>
+			<li class="reactor"><a href="libraries/file_uploading.html">上傳程式庫(Upload library)</a> 的 file_name 現在可以不用設置副檔名, 副檔名將會由上傳檔案的副檔名取代</li>
+			<li class="reactor">在<a href="database/forge.html">Database Forge</a> 中,  函式 $this->dbforge->modify_column() 的第二個參數名稱可以被忽略, 如果你沒有要更改名稱</li>
 			<li class="reactor"><kbd>$config['base_url']</kbd> 現在預設為空值且會自動猜測應該的設置</li>
 			<li class="reactor">啟用完整的命令列介面(Command Line Interface)相容支援:  <kbd>config['uri_protocol'] = 'CLI';</kbd>.</li>
 		</ul>
 	<li>程式庫 (Libraries)
 		<ul>
-			<li class="reactor">新增a <a href="libraries/caching.html">Cache driver</a> with APC, memcached, and file-based support.</li>
-			<li>新增 <var>$prefix</var>, <var>$suffix</var> and <var>$first_url</var> properties to <a href="./libraries/pagination.html">Pagination library</a>.</li>
-			<li>新增the ability to suppress first, previous, next, last, and page links by setting their values to FALSE in the <a href="./libraries/pagination.html">Pagination library</a>.</li>
-			<li>新增<a href="./libraries/security.html">Security library</a>, which now contains the <dfn>xss_clean</dfn> function, <dfn>filename_security</dfn> function and other security related functions.</li>
-			<li>新增CSRF (Cross-site Reference Forgery) protection to the <a href="./libraries/security.html">Security library</a>.</li>
-			<li>新增 <var>$parse_exec_vars</var> property to Output library.</li>
-			<li>新增ability to enable / disable individual sections of the <a href="general/profiling.html">Profiler</a></li>
-			<li>新增a wildcard option <kbd>$config['allowed_types'] = '*'</kbd> to the <a href="./libraries/file_uploading.html">File Uploading Class</a>.</li>
-			<li>新增an 'object' config variable to the XML-RPC Server library so that one can specify the object to look for requested methods, instead of assuming it is in the $CI superobject.</li>
-			<li>新增 "is_object" into the list of unit tests capable of being run.</li>
-			<li>Table library will generate an empty cell with a blank string, or NULL value.</li>
-			<li>新增ability to set tag attributes for individual cells in the Table library</li>
-			<li>新增a <kbd>parse_string()</kbd> method to the <a href="libraries/parser.html">Parser Class</a>.</li>
-			<li>新增HTTP headers and Config information to the <a href="general/profiling.html">Profiler</a> output.</li>
-			<li>新增Chrome and Flock to the list of detectable browsers by <kbd>browser()</kbd> in the <a href="libraries/user_agent.html">User Agent Class</a>.</li>
-			<li>The <a href="libraries/unit_testing.html">Unit Test Class</a> now has an optional "notes" field available to it, and allows for discrete display of test result items using <kbd>$this->unit->set_test_items()</kbd>.</li>
-			<li>新增a <kbd>$xss_clean</kbd> class variable to the XMLRPC library, enabling control over the use of the Security library's <kbd>xss_clean()</kbd> method.</li>
-			<li>新增a <kbd>download()</kbd> method to the <a href="libraries/ftp.html">FTP library</a></li>
-			<li>Changed <kbd>do_xss_clean()</kbd> to return FALSE if the uploaded file fails XSS checks.</li>
-			<li>新增stripslashes() and trim()ing of double quotes from $_FILES type value to standardize input in Upload library.</li>
-			<li>新增a second parameter (boolean) to <kbd>$this->zip->read_dir('/path/to/directory', FALSE)</kbd> to remove the preceding trail of empty folders when creating a Zip archive. This example would contain a zip with "directory" and all of its contents.</li>
-			<li>新增ability in the Image Library to handle PNG transparency for resize operations when using the GD lib.</li>
-			<li>Modified the Session class to prevent use if no encryption key is set in the config file.</li>
-			<li>新增a new config item to the Session class <kbd>sess_expire_on_close</kbd> to allow sessions to auto-expire when the browser window is closed.</li>
-			<li>Improved performance of the Encryption library on servers where Mcrypt is available.</li>
-			<li>Changed the default encryption mode in the Encryption library to CBC.</li>
-			<li>新增an <kbd>encode_from_legacy()</kbd> method to provide a way to transition encrypted data from CodeIgniter 1.x to CodeIgniter 2.x.
-				Please see the <a href="./installation/upgrade_200.html">upgrade instructions</a> for details.</li>
-			<li>Altered Form_Validation library to allow for method chaining on <kbd>set_rules()</kbd>, <kbd>set_message()</kbd> and <kbd>set_error_delimiters()</kbd> functions.</li>
-			<li>Altered Email Library to allow for method chaining.</li>
-			<li>新增<kbd>request_headers()</kbd>, <kbd>get_request_header()</kbd> and <kbd>is_ajax_request()</kbd> to the input class.</li>
-			<li class="reactor">Altered <a href="libraries/user_agent.html">User agent library</a> so that <kbd>is_browser()</kbd>, <kbd>is_mobile()</kbd> and <kbd>is_robot()</kbd> can optionally check for a specific browser or mobile device.</li>
+			<li class="reactor">新增 <a href="libraries/caching.html">Cache driver</a> 來支援 APC, memcached, 和 file-based.</li>
+			<li>新增 <var>$prefix</var>, <var>$suffix</var> 和 <var>$first_url</var> 屬性至 <a href="./libraries/pagination.html">分頁程式庫(Pagination library)</a>.</li>
+			<li>新增功能 防止設置 first, previous, next, last, 和 page links 為 FALSE 當使用分頁程式庫(<a href="./libraries/pagination.html">Pagination library</a>)時.</li>
+			<li>新增<a href="./libraries/security.html">Security library</a>, 現在包含 <dfn>xss_clean</dfn> 函式, <dfn>filename_security</dfn> 函式和其他安全相關的函式庫.</li>
+			<li>新增   跨站請求偽造  (CSRF : Cross-site Reference Forgery) 的保護至 <a href="./libraries/security.html">Security程式庫(Security library)</a>.</li>
+			<li>新增 <var>$parse_exec_vars</var> 屬性至 輸出程式庫(Output library).</li>
+			<li>新增能開啟TRUE或關閉FALSE的選項至 <a href="general/profiling.html">Profiler</a></li>
+			<li>新增萬用字元選項 <kbd>$config['allowed_types'] = '*'</kbd> 至 <a href="./libraries/file_uploading.html">File Uploading Class</a>.</li>
+			<li>新增一個 '物件(object)' 設置參數至 XML-RPC 伺服器程式庫(XML-RPC Server library), 因此可以設置要求方法的物件, 取代原本要假設它在 $CI 父物件中.</li>
+			<li>新增 "is_object" 到單元測試(unit tests)的列表, 能夠被執行</li>
+			<li>表格程式庫(Table library) 將產生擁有空字串的空儲存格, 或是 NULL 值.</li>
+			<li>新增功能 能設置標籤屬性至個人定義的儲存格 當使用 表格程式庫(Table library)時</li>
+			<li>新增 <kbd>parse_string()</kbd> 方法至 <a href="libraries/parser.html">分析類別(Parser Class</a>).</li>
+			<li>新增HTTP 標頭和設定檔資訊至 <a href="general/profiling.html">Profiler</a> 的輸出.</li>
+			<li>新增Chrome 和 Flock 至可偵測的瀏覽器列表中, 藉由 <kbd>browser()</kbd> 在 <a href="libraries/user_agent.html">User Agent Class</a> 中.</li>
+			<li><a href="libraries/unit_testing.html">單元測試類別(Unit Test Class)</a> 現在擁有一個可選擇的 "notes" 欄位, 使用  <kbd>$this-&gt;unit-&gt;set_test_items()</kbd>來允許分散顯示測試結果.</li>
+			<li>新增a <kbd>$xss_clean</kbd> 類別變數至 XMLRPC 程式庫, 控制開啟使用 安全程式庫(Security library)的 <kbd>xss_clean()</kbd> 方法.</li>
+			<li>新增 <kbd>download()</kbd> 方法至 <a href="libraries/ftp.html">FTP程式庫(FTP library)</a></li>
+		  <li>改變 <kbd>do_xss_clean()</kbd> 回傳 FALSE 如果上傳的檔案未通過跨網站指令碼(XSS) 檢查.</li>
+			<li>新增stripslashes() 和 trim()ing  來去除重複的雙引號和斜線來標準化輸入在 $_FILES 類型中的值 ,至上傳程式庫(Upload library)中.</li>
+			<li>新增第二個參數 (布林boolean) 至 <kbd>$this->zip->read_dir('/path/to/directory', FALSE)</kbd> 來移除前面包含的空的資料夾當產生一個壓縮檔(Zip archive)時. 此範例將壓縮 "目錄directory" 和所有內容至一個zip中.</li>
+			<li>新增功能在 圖像程式庫(Image Library), 當使用 GD lib 來處理 PNG 透明縮圖操作時 </li>
+			<li>修改 Session 類別, 避使用在設定檔中未加密的鍵值</li>
+			<li>新增設置選項至 Session 類別 <kbd>sess_expire_on_close</kbd> , 允許 sessions 自動過期, 當瀏覽器視窗關閉後</li>
+			<li>增強 加密程式庫(Encryption library)使用Mcrypt在伺服器上的效能</li>
+			<li>更改預設的加密模式在 加密程式庫(Encryption library)中, 變更為 CBC.</li>
+			<li>新增一個 <kbd>encode_from_legacy()</kbd> 方法來轉換加密後的資料從 CodeIgniter 1.x 至 CodeIgniter 2.x.
+				詳細請看 <a href="./installation/upgrade_200.html">升級指令(upgrade instructions)</a></li>
+			<li>更改 表單檢查程式庫(Form_Validation library) 來允許使用方法鍊結(method chaining) 當使用 <kbd>set_rules()</kbd>, <kbd>set_message()</kbd> 和 <kbd>set_error_delimiters()</kbd> 函式時.</li>
+			<li>更改 郵件程式庫(Email Library) 來允許使用方法鍊結(method chaining).</li>
+			<li>新增<kbd>request_headers()</kbd>, <kbd>get_request_header()</kbd> 和 <kbd>is_ajax_request()</kbd> 至輸入類別(input class).</li>
+			<li class="reactor">變更 <a href="libraries/user_agent.html">User agent library</a> 因此 <kbd>is_browser()</kbd>, <kbd>is_mobile()</kbd> 和 <kbd>is_robot()</kbd> 可以選擇性地檢查特定的瀏覽器或是手機裝置</li>
 		</ul>
 	</li>
-	<li>Database
+	<li>資料庫(Database)
 		<ul>
-			<li><a href="./database/configuration.html">database configuration</a>.</li>
-			<li>新增<kbd>autoinit</kbd> value to <a href="./database/configuration.html">database configuration</a>.</li>
-			<li>新增<kbd>stricton</kbd> value to <a href="./database/configuration.html">database configuration</a>.</li>
-			<li>新增<kbd>database_exists()</kbd> to the <a href="database/utilities.html">Database Utilities Class</a>.</li>
+			<li><a href="./database/configuration.html">資料庫配置database configuration</a>.</li>
+			<li>新增<kbd>autoinit</kbd> 值至 <a href="./database/configuration.html">database configuration</a>.</li>
+			<li>新增<kbd>stricton</kbd> 值至 <a href="./database/configuration.html">database configuration</a>.</li>
+			<li>新增<kbd>database_exists()</kbd> 至 <a href="database/utilities.html">資料庫工具類別Database Utilities Class</a>.</li>
 			<li>Semantic change to db->version() function to allow a list of exceptions for databases with functions to return version string instead of specially formed SQL queries. Currently this list only includes Oracle and SQLite.</li>
 			<li>修正a bug where driver specific table identifier protection could lead to malformed queries in the <kbd>field_data()</kbd> functions.</li>
 			<li>修正a bug where an undefined class variable was referenced in database drivers.</li>
@@ -177,7 +176,7 @@ Hg 標籤: v2.0.0</p>
 	</li>
 	<li>Helpers
 		<ul>
-			<li>新增<kbd>convert_accented_characters()</kbd> function to <a href="./helpers/text_helper.html">text helper</a>.</li>
+			<li>新增<kbd>convert_accented_characters()</kbd> 函式至 <a href="./helpers/text_helper.html">text helper</a>.</li>
 			<li>新增accept-charset to the list of inserted attributes of <kbd>form_open()</kbd> in the <a href="helpers/form_helper.html">Form Helper</a>.</li>
 			<li>Deprecated the <kbd>dohash()</kbd> function in favour of <kbd>do_hash()</kbd> for naming consistency.</li>
 			<li>Non-backwards compatible change made to <kbd>get_dir_file_info()</kbd> in the <a href="helpers/file_helper.html">File Helper</a>.  No longer recurses
@@ -196,9 +195,9 @@ Hg 標籤: v2.0.0</p>
 			<li>新增<kbd>elements()</kbd> to the <a href="./helpers/array_helper.html">Array Helper</a></li>
 		</ul>
 	</li>
-	<li>Other Changes
+	<li>其他變更
 		<ul>
-			<li>新增an optional second parameter to <kbd>show_404()</kbd> to disable logging.</li>
+			<li>新增一個可選擇的第二參數至 <kbd>show_404()</kbd> 來關閉記錄.</li>
 			<li>Updated loader to automatically apply the sub-class prefix as an option when loading classes.  Class names can be pre修正with the standard "CI_" or the same prefix as the subclass prefix, or no prefix at all.</li>
 			<li>Increased randomness with <kbd>is_really_writable()</kbd> to avoid file collisions when hundreds or thousands of requests occur at once.</li>
 			<li>Switched some DIR_WRITE_MODE constant uses to FILE_WRITE_MODE where files and not directories are being operated on.</li>
@@ -212,14 +211,14 @@ Hg 標籤: v2.0.0</p>
 			<li>Documented db->close().</li>
 			<li>Updated the router to support a default route with any number of segments.</li>
 			<li>Moved _remove_invisible_characters() function from the <a href="libraries/security.html">Security Library</a> to <a href="general/common_functions.html">common functions.</a></li>
-			<li>新增audio/mpeg3 as a valid mime type for MP3.</li>
+			<li>新增audio/mpeg3 為一個有效的媒體格式: MP3.</li>
 		</ul>
 	</li>
 </ul>
 
 <h3>Bug fixes for 2.0.0</h3>
 <ul>
-	<li class="reactor">修正a bug where you could not change the User-Agent when sending email.</li>
+	<li class="reactor">修正一個, 當你寄E-mail時無法改變 User-Agent  的錯誤</li>
 	<li>修正a bug where the Output class would send incorrect cached output for controllers implementing their own <dfn>_output()</dfn> method.</li>
 	<li>修正a bug where a failed query would not have a saved query execution time causing errors in the Profiler</li>
 	<li>修正a bug that was writing log entries when multiple identical helpers and plugins were loaded.</li>
@@ -247,7 +246,7 @@ Hg 標籤: v2.0.0</p>
 	<li>新增a log message in core/output if the cache directory config value was not found.</li>
 	<li>修正a bug where multiple libraries could not be loaded by passing an array to load-&gt;library()</li>
 	<li>修正a bug in the html helper where too much white space was rendered between the src and alt tags in the img() function.</li>
-	<li>修正a bug in the profilers _compile_queries() function.</li>
+	<li>修正一個在 profilers _compile_queries() 函式裡的錯誤.</li>
 	<li>修正a bug in the date helper where the DATE_ISO8601 variable was returning an incorrectly formatted date string.</li>
 </ul>
 

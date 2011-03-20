@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -71,6 +71,13 @@
 <p>最安全的做法是將 <dfn>system</dfn> 和任何 <dfn>application</dfn> 目錄移動到 Web 根目錄上一層，讓 Web 瀏覽器無法直接存取它。在預設狀況，每個目錄底下都包含 .htaccess 檔案，用來保護直接存取檔案，但是最好的方式就是全部移除 .htaccess，因為並非所有 Web 伺服器都支援 .htaccess 或者是 Web 伺服器改變設定。</p>
 
 <p>如果移動了以上兩個資料夾，您必須編輯 <kbd>index.php</kbd> 檔案，並且將 <samp>$system_folder</samp> 和 <samp>$application_folder</samp> 變數，替換成絕對路徑，例如: '<dfn>/www/MyUser/system</dfn>'。</p>
+
+<p>
+    One additional measure to take in production environments is to disable
+    PHP error reporting and any other development-only functionality. In CodeIgniter,
+    this can be done by setting the <kbd>ENVIRONMENT</kbd> constant, which is
+    more fully described on the <a href="../general/security.html">security page</a>.
+</p>
 
 <p>大功告成！</p>
 

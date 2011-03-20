@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -61,9 +61,7 @@ Configuration
 <h1>資料庫設定</h1>
 
 <p>CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳號(username)，使用者密碼(password)，資料庫名稱(database name)等…)。
-設定檔存放位置是：</p>
-
-<p><kbd>application/config/database.php</kbd></p>
+The config file is located at <samp>application/config/database.php</samp>. You can also set database connection values for specific <a href="../libraries/config.html">environments</a> by placing <strong>database.php</strong> it the respective environment config folder.</p>
 
 <p>資料庫設定值存放在一個多維陣列裡面：</p>
 
@@ -133,7 +131,7 @@ $db['test']['stricton'] = FALSE;</code>
 <li><strong>char_set</strong> - The character set used in communicating with the database.</li>
 <li><strong>dbcollat</strong> - The character collation used in communicating with the database.</li>
 <li><strong>swap_pre</strong> - A default table prefix that should be swapped with <var>dbprefix</var>.  This is useful for distributed applications where you might run manually written queries, and need the prefix to still be customizable by the end user.</li>
-<li><strong>autoinit</strong> - Whether or not to automatically initialize the database.</li>
+<li><strong>autoinit</strong> - Whether or not to automatically connect to the database when the library loads. If set to false, the connection will take place prior to executing the first query.</li>
 <li><strong>stricton</strong> - TRUE/FALSE (boolean) - Whether to force "Strict Mode" connections, good for ensuring strict SQL while developing an application.</li>
 <li><strong>port</strong> - 資料庫連接埠。資料庫需要設定此變數，必須增加設定如下.<code>$db['default']['port'] =  5432;</code></li>
 </ul>

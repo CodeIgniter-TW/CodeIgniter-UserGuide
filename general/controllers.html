@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -98,7 +98,7 @@
 &lt;?php
 class Blog extends CI_Controller {
 
-	function index()
+	public function index()
 	{
 		echo 'Hello World!';
 	}
@@ -153,12 +153,12 @@ class <var>blog</var> extends CI_Controller {<br />
 &lt;?php
 class Blog extends CI_Controller {
 
-	function index()
+	public function index()
 	{
 		echo 'Hello World!';
 	}
 
-	function comments()
+	public function comments()
 	{
 		echo 'Look at this!';
 	}
@@ -187,7 +187,7 @@ class Blog extends CI_Controller {
 &lt;?php<br />
 class Products extends CI_Controller {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function shoes($sandals, $id)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public function shoes($sandals, $id)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $sandals;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $id;<br />
@@ -216,7 +216,7 @@ class Products extends CI_Controller {<br />
 <p>如上頭所描述，在第二個URI分段的名稱，通常是決定那個控制器(controller)裡頭那個函數(function)要被呼叫。不過，CodeIgniter 也可以允許你用
 <kbd>_remap()</kbd> 函數來把它來改寫成:</p>
 
-<code>function _remap()<br />
+<code>public function _remap()<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;// Some code here...<br />
 }</code>
@@ -226,7 +226,7 @@ class Products extends CI_Controller {<br />
 
 <p>改寫函數(通常是在URI的第二個區段)將會被當成是參數傳入<kbd>_remap()</kbd>函數:</p>
 
-<code>function _remap(<var>$method</var>)<br />
+<code>public function _remap(<var>$method</var>)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;if ($method == 'some_method')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
@@ -240,10 +240,10 @@ class Products extends CI_Controller {<br />
 
 <p>Any extra segments after the method name are passed into <kbd>_remap()</kbd> as an optional second parameter. This array can be used in combination with PHP's <a href="http://php.net/call_user_func_array">call_user_func_array</a> to emulate CodeIgniter's default behavior.</p>
 
-<code>function _remap($method, $params = array())<br />
+<code>public function _remap($method, $params = array())<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$method = 'process_'.$method;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;if (method_exists($this, $method)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (method_exists($this, $method))<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return call_user_func_array(array($this, $method), $params);<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
@@ -261,7 +261,7 @@ class Products extends CI_Controller {<br />
 <p>這裡有個參考範例:</p>
 
 <code>
-function _output($output)<br />
+public function _output($output)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $output;<br />
 }</code>
@@ -294,7 +294,7 @@ Benchmark 以及 memory 使用量資料會被建立出來，快取檔案被寫�
 <p>有時候，你會想要把某些函數隱藏起來，不讓它可以被公開存取。要把函數隱藏起來的話，只要在函數前加上個底線，然後他就不會被送給 URL 呼叫了。舉例來說，你有個像這個樣的函數:</p>
 
 <code>
-function _utility()<br />
+private function _utility()<br />
 {<br />
 &nbsp;&nbsp;// some code<br />
 }</code>
@@ -340,7 +340,7 @@ function _utility()<br />
 &lt;?php<br />
 class <kbd>Blog</kbd> extends CI_Controller {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function <kbd>__construct()</kbd><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function <kbd>__construct()</kbd><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>parent::__construct();</var><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Your own constructor code<br />

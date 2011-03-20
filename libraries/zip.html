@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -181,6 +181,15 @@ $this->zip->read_dir($path);
 $this->zip->download('my_backup.zip');
 </code>
 
+<p>By default the Zip archive will place all directories listed in the first parameter inside the zip. If you want the tree preceding the target folder to be ignored
+you can pass <kbd>FALSE</kbd> (boolean) in the second parameter.  Example:</p>
+
+<code>
+$path = '/path/to/your/directory/';<br /><br />
+$this->zip->read_dir($path, FALSE);
+</code>
+
+<p>This will create a ZIP with the folder "directory" inside, then all sub-folders stored correctly inside that, but will not include the folders <samp>/path/to/your</samp>.</p>
 
 
 

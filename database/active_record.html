@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -58,12 +58,12 @@ Active Record 類別
 
 <p>CodeIgniter 使用一個 Active Record 資料庫模式的修改版本。
 這個模式允許資訊在你的資料庫中靠最少的程式被接收、新增與更新。
-在一些狀況下，只需要一兩行的程式就足以執行資料庫動作。
-CodeIgniter 不需要每個資料表擁有他自己的類別檔案，它取而代之提供一個更簡單的介面。</p>
+在一些狀況下, 只需要一兩行的程式就足以執行資料庫動作。
+CodeIgniter 不需要每個資料表擁有他自己的類別檔案, 它取而代之提供一個更簡單的介面。</p>
 
-<p>不只是簡單，既然查詢語法是由各個資料庫界面所產生的，一個使用 Active Record 功能的重大的益處是它允許你建立不依賴特定資料庫的應用程式。既然所有的值都會由系統自動跳脫(escape)，它也讓查詢更安全。</p>
+<p>不只是簡單, 既然查詢語法是由各個資料庫界面所產生的, 一個使用 Active Record 功能的重大的益處是它允許你建立不依賴特定資料庫的應用程式。既然所有的值都會由系統自動跳脫(escape), 它也讓查詢更安全。</p>
 
-<p class="important"><strong>注意：</strong> 如果你想寫自己的查詢，你可以在資料庫設定檔裡取消使用這個類別。這樣可以讓核心的資料庫程式庫以及界面耗用更少的資源。<br /></p>
+<p class="important"><strong>注意：</strong> 如果你想寫自己的查詢, 你可以在資料庫設定檔裡取消使用這個類別。這樣可以讓核心的資料庫程式庫以及界面耗用更少的資源。<br /></p>
 
 <ul>
 <li><a href="#select">挑選(Selecting)資料</a></li>
@@ -78,7 +78,7 @@ CodeIgniter 不需要每個資料表擁有他自己的類別檔案，它取而�
 
 <p>以下函數讓你建立 SQL <strong>SELECT</strong> 語句。</p>
 
-<p><strong>注意：如果你使用 PHP 5，那你可以使用方法串接(method chaining)來讓語法更精簡。這在本頁最後會說明。</strong></p>
+<p><strong>注意：如果你使用 PHP 5, 那你可以使用方法串接(method chaining)來讓語法更精簡。這在本頁最後會說明。</strong></p>
 
 
 <h2>$this->db->get();</h2>
@@ -91,11 +91,11 @@ CodeIgniter 不需要每個資料表擁有他自己的類別檔案，它取而�
 
 <p>第二與第三個參數讓你可以設定 limit 與 offset 子句：</p>
 
-<code>$query = $this->db->get('mytable'，10，20);<br />
+<code>$query = $this->db->get('mytable', 10, 20);<br />
 <br />
-// 產生： SELECT * FROM mytable LIMIT 20，10 (使用MySQL。其它資料庫有不太一樣的語法。)</code>
+// 產生： SELECT * FROM mytable LIMIT 20, 10 (使用MySQL。其它資料庫有不太一樣的語法。)</code>
 
-<p>你會注意到，上面的函數賦值給一個叫做 <kbd>$query</kbd> 的變數，它可以用來顯示結果：</p>
+<p>你會注意到, 上面的函數賦值給一個叫做 <kbd>$query</kbd> 的變數, 它可以用來顯示結果：</p>
 
 <code>$query = $this->db->get('mytable');<br />
 <br />
@@ -109,25 +109,25 @@ foreach ($query->result() as $row)<br />
 
 <h2>$this->db->get_where();</h2>
 
-<p>下面可以取代 db->where() 函數，除了可以讓你在第二個參數加上 "where" 子句以外，其餘與上面這個函數相同：</p>
+<p>下面可以取代 db->where() 函數, 除了可以讓你在第二個參數加上 "where" 子句以外, 其餘與上面這個函數相同：</p>
 
-<code>$query = $this->db->get_where('mytable'，array('id' => $id)，$limit，$offset);</code>
+<code>$query = $this->db->get_where('mytable', array('id' => $id), $limit, $offset);</code>
 
 <p>請參閱底下關於 "where" 函數的詳細資訊。</p>
-<p class="important">注意： get_where() 之前叫做 getwhere()，舊的函數名稱已經被移除。</p>
+<p class="important">注意： get_where() 之前叫做 getwhere(), 舊的函數名稱已經被移除。</p>
 
 <h2>$this->db->select();</h2>
 <p>允許你自訂查詢中的 "select" 部份：</p>
 <p><code>
-$this->db->select('title，content，date');<br />
+$this->db->select('title, content, date');<br />
 <br />
 $query = $this->db->get('mytable');<br />
 <br />
-// 產生： SELECT title，content，date FROM mytable</code></p>
-<p class="important"><strong>注意：</strong> 如果你要選擇資料表中所有欄位(*)，那你不需要使用這個函數。當省略時， CodeIgniter 假設你要的是 SELECT * 。</p>
+// 產生： SELECT title, content, date FROM mytable</code></p>
+<p class="important"><strong>注意：</strong> 如果你要選擇資料表中所有欄位(*), 那你不需要使用這個函數。當省略時,  CodeIgniter 假設你要的是 SELECT * 。</p>
 
-<p>$this-&gt;db-&gt;select() 可額外接受第二個參數。如果你傳入 FALSE， CodeIgniter 將不使用反單引號（`，在英文鍵盤左上方）來保護你的欄位或資料表名稱。這在你需要一個合成的 select 敘述時會很有用。</p>
-<p><code>$this-&gt;db-&gt;select('(SELECT SUM(payments.amount) FROM payments WHERE payments.invoice_id=4') AS amount_paid'，FALSE); <br />
+<p>$this-&gt;db-&gt;select() 可額外接受第二個參數。如果你傳入 FALSE,  CodeIgniter 將不使用反單引號（`, 在英文鍵盤左上方）來保護你的欄位或資料表名稱。這在你需要一個合成的 select 敘述時會很有用。</p>
+<p><code>$this-&gt;db-&gt;select('(SELECT SUM(payments.amount) FROM payments WHERE payments.invoice_id=4') AS amount_paid', FALSE); <br />
 $query = $this-&gt;db-&gt;get('mytable');<br />
 </code></p>
 <h2>$this->db->select_max();</h2>
@@ -138,26 +138,26 @@ $query = $this->db->get('members');<br />
 
 // 產生： SELECT MAX(age) as age FROM members<br />
 <br />
-$this-&gt;db-&gt;select_max('age'，'member_age');<br />
+$this-&gt;db-&gt;select_max('age', 'member_age');<br />
 $query = $this-&gt;db-&gt;get('members');<br />
 // 產生： SELECT MAX(age) as member_age FROM members</code></p>
 
 <h2>$this->db->select_min();</h2>
-<p>可以為你的查詢做出 "SELECT MIN(欄位)" 的部份。如同 <dfn>select_max()</dfn> ，你可以額外加入第二個參數來重新命名結果欄位。</p>
+<p>可以為你的查詢做出 "SELECT MIN(欄位)" 的部份。如同 <dfn>select_max()</dfn> , 你可以額外加入第二個參數來重新命名結果欄位。</p>
 <p><code>
 $this->db->select_min('age');<br />
 $query = $this->db->get('members');<br />
 // 產生： SELECT MIN(age) as age FROM members</code></p>
 
 <h2>$this->db->select_avg();</h2>
-<p>可以為你的查詢做出 "SELECT AVG(欄位)" 的部份。如同 <dfn>select_max()</dfn> ，你可以額外加入第二個參數來重新命名結果欄位。</p>
+<p>可以為你的查詢做出 "SELECT AVG(欄位)" 的部份。如同 <dfn>select_max()</dfn> , 你可以額外加入第二個參數來重新命名結果欄位。</p>
 <p><code>
 $this->db->select_avg('age');<br />
 $query = $this->db->get('members');<br />
 // 產生： SELECT AVG(age) as age FROM members</code></p>
 
 <h2>$this->db->select_sum();</h2>
-<p>可以為你的查詢做出 "SELECT SUM(欄位)" 的部份。如同 <dfn>select_max()</dfn> ，你可以額外加入第二個參數來重新命名結果欄位。</p>
+<p>可以為你的查詢做出 "SELECT SUM(欄位)" 的部份。如同 <dfn>select_max()</dfn> , 你可以額外加入第二個參數來重新命名結果欄位。</p>
 <p><code>
 $this->db->select_sum('age');<br />
 $query = $this->db->get('members');<br />
@@ -168,14 +168,14 @@ $query = $this->db->get('members');<br />
 <p>允許你撰寫查詢的 FROM 部份：</p>
 
 <code>
-$this->db->select('title，content，date');<br />
+$this->db->select('title, content, date');<br />
 $this->db->from('mytable');<br />
 <br />
 $query = $this->db->get();<br />
 <br />
-// 產生： SELECT title，content，date FROM mytable</code>
+// 產生： SELECT title, content, date FROM mytable</code>
 
-<p class="important">注意： 如同之前看到的，你的查詢的 FROM 部份可以在 <dfn>$this->db->get()</dfn> 函數中指定，所以喜歡哪個就用哪個。</p>
+<p class="important">注意： 如同之前看到的, 你的查詢的 FROM 部份可以在 <dfn>$this->db->get()</dfn> 函數中指定, 所以喜歡哪個就用哪個。</p>
 
 <h2>$this->db->join();</h2>
 
@@ -184,7 +184,7 @@ $query = $this->db->get();<br />
 <code>
 $this->db->select('*');<br />
 $this->db->from('blogs');<br />
-$this->db->join('comments'，'comments.id = blogs.id');<br />
+$this->db->join('comments', 'comments.id = blogs.id');<br />
 <br />
 $query = $this->db->get();<br />
 <br />
@@ -193,12 +193,12 @@ $query = $this->db->get();<br />
 // JOIN comments ON comments.id = blogs.id<br />
 </code>
 
-<p>如果你需要在一個查詢中使用多個 JOIN ，你可以多次呼叫這個函數。</p>
+<p>如果你需要在一個查詢中使用多個 JOIN , 你可以多次呼叫這個函數。</p>
 
 <p>你可以透過函數的第三個參數來指定 join 的型態。可用的選項有： left、right、outer、inner、left outer 以及 right outer 。</p>
 
 <code>
-$this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>);<br />
+$this->db->join('comments', 'comments.id = blogs.id', <strong>'left'</strong>);<br />
 <br />
 // 產生： LEFT JOIN comments ON comments.id = blogs.id</code>
 
@@ -210,35 +210,35 @@ $this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>)
 <p>This function enables you to set <strong>WHERE</strong> clauses using one of four methods:
 這個函數讓你能用以下四個方法之一來設定 <strong>WHERE</strong> 子句：</p>
 
-<p class="important"><strong>注意：</strong> 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
+<p class="important"><strong>注意：</strong> 所有傳到這個函數的值都會自動跳脫(escape), 以產生更安全的查詢。</p>
 
 <ol>
 	<li><strong>簡單的 鍵/值 方法：</strong>
 
-	<code>$this->db->where('name'，$name);
+	<code>$this->db->where('name', $name);
 	<br /><br />// 產生： WHERE name = 'Joe'	</code>
 
 	<p>注意它會為你加上等於符號。</p>
 
-	<p>如果你多次呼叫這個函數，那它會把這些用 <var>AND</var> 串在一起：</p>
+	<p>如果你多次呼叫這個函數, 那它會把這些用 <var>AND</var> 串在一起：</p>
 
-	<code>$this->db->where('name'，$name);<br />
-	$this->db->where('title'，$title);<br />
-	$this->db->where('status'，$status);
+	<code>$this->db->where('name', $name);<br />
+	$this->db->where('title', $title);<br />
+	$this->db->where('status', $status);
     <br /><br />// WHERE name = 'Joe' AND title = 'boss' AND status = 'active'	</code>	</li>
 
 	<li><strong>自訂的 鍵/值 方法：</strong>
 
 	<p>你可以在第一個參數包含一個運算子來控制比較的方法：</p>
 
-	<code>$this->db->where('name !='，$name);<br />
-	$this->db->where('id <'，$id);
+	<code>$this->db->where('name !=', $name);<br />
+	$this->db->where('id <', $id);
 	<br /><br />// 產生： WHERE name != 'Joe' AND id < 45	</code>	</li>
 	<li><strong>關聯陣列方法：</strong>
 
 
 	<code>
-	$array = array('name' => $name，'title' => $title，'status' => $status);<br /><br />
+	$array = array('name' => $name, 'title' => $title, 'status' => $status);<br /><br />
 
 	$this->db->where($array);
 	<br /><br />// 產生： WHERE name = 'Joe' AND title = 'boss' AND status = 'active'	</code>
@@ -246,7 +246,7 @@ $this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>)
 	<p>你也可以在這個方法包含你要用的運算子：</p>
 
 	<code>
-	$array = array('name !=' => $name，'id <' => $id，'date >' => $date);<br /><br />
+	$array = array('name !=' => $name, 'id <' => $id, 'date >' => $date);<br /><br />
 
 	$this->db->where($array);</code>	</li>
 		<li><strong>自訂字串：</strong>
@@ -259,51 +259,51 @@ $this->db->join('comments'，'comments.id = blogs.id'，<strong>'left'</strong>)
 	</ol>
 
 
-<p>$this-&gt;db-&gt;where() 可接受額外的第三個參數。如果你傳入 FALSE， CodeIgniter 將不會嘗試使用反單引號（`，在英文鍵盤左上方）來保護你的欄位或資料表名稱。</p>
-<p><code>       $this-&gt;db-&gt;where('MATCH (field) AGAINST (&quot;value&quot;)'，NULL，FALSE);<br />
+<p>$this-&gt;db-&gt;where() 可接受額外的第三個參數。如果你傳入 FALSE,  CodeIgniter 將不會嘗試使用反單引號（`, 在英文鍵盤左上方）來保護你的欄位或資料表名稱。</p>
+<p><code>       $this-&gt;db-&gt;where('MATCH (field) AGAINST (&quot;value&quot;)', NULL, FALSE);<br />
 </code></p>
 <h2>$this->db->or_where();</h2>
-<p>除了使用 OR 來串接傳入的查詢條件，這個函數與上面的相同：</p>
+<p>除了使用 OR 來串接傳入的查詢條件, 這個函數與上面的相同：</p>
 
 <code>
-$this->db->where('name !='，$name);<br />
-$this->db->or_where('id >'，$id);
+$this->db->where('name !=', $name);<br />
+$this->db->or_where('id >', $id);
 <br />
 <br />// 產生： WHERE name != 'Joe' OR id > 50</code>
 
-<p class="important">注意： or_where() 之前叫做 orwhere() ，舊的函數名稱已經移除。</p>
+<p class="important">注意： or_where() 之前叫做 orwhere() , 舊的函數名稱已經移除。</p>
 
 
 <h2>$this->db->where_in();</h2>
-<p>產生一個 WHERE field IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 AND 來串接。</p>
+<p>產生一個 WHERE field IN ('item', 'item') 的 SQL 查詢, 如果合適的話就用 AND 來串接。</p>
 <p><code>
-	$names = array('Frank'，'Todd'，'James');<br />
-	$this->db->where_in('username'，$names);<br />
-	// 產生： WHERE username IN ('Frank'，'Todd'，'James')</code></p>
+	$names = array('Frank', 'Todd', 'James');<br />
+	$this->db->where_in('username', $names);<br />
+	// 產生： WHERE username IN ('Frank', 'Todd', 'James')</code></p>
 
 <h2>$this->db->or_where_in();</h2>
-<p>產生一個 WHERE field IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 OR 來串接。</p>
+<p>產生一個 WHERE field IN ('item', 'item') 的 SQL 查詢, 如果合適的話就用 OR 來串接。</p>
 <p><code>
-	$names = array('Frank'，'Todd'，'James');<br />
-	$this->db->or_where_in('username'，$names);<br />
-	// 產生： OR username IN ('Frank'，'Todd'，'James')</code></p>
+	$names = array('Frank', 'Todd', 'James');<br />
+	$this->db->or_where_in('username', $names);<br />
+	// 產生： OR username IN ('Frank', 'Todd', 'James')</code></p>
 
 <h2>$this->db->where_not_in();</h2>
-<p>產生一個 WHERE field NOT IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 AND 來串接。</p>
+<p>產生一個 WHERE field NOT IN ('item', 'item') 的 SQL 查詢, 如果合適的話就用 AND 來串接。</p>
 <p><code>
-	$names = array('Frank'，'Todd'，'James');<br />
-	$this->db->where_not_in('username'，$names);<br />
-	// 產生： WHERE username NOT IN ('Frank'，'Todd'，'James')</code></p>
+	$names = array('Frank', 'Todd', 'James');<br />
+	$this->db->where_not_in('username', $names);<br />
+	// 產生： WHERE username NOT IN ('Frank', 'Todd', 'James')</code></p>
 
 <h2>$this->db->or_where_not_in();</h2>
-<p>產生一個 WHERE field NOT IN ('item'，'item') 的 SQL 查詢，如果合適的話就用 OR 來串接。</p>
+<p>產生一個 WHERE field NOT IN ('item', 'item') 的 SQL 查詢, 如果合適的話就用 OR 來串接。</p>
 <p><code>
-	$names = array('Frank'，'Todd'，'James');<br />
-	$this->db->or_where_not_in('username'，$names);<br />
-	// 產生： OR username NOT IN ('Frank'，'Todd'，'James')</code></p>
+	$names = array('Frank', 'Todd', 'James');<br />
+	$this->db->or_where_not_in('username', $names);<br />
+	// 產生： OR username NOT IN ('Frank', 'Todd', 'James')</code></p>
 
 <h2>$this->db->like();</h2>
-<p>這個函數讓可能產生 <strong>LIKE</strong> 子句，可用來做搜尋。</p>
+<p>這個函數讓可能產生 <strong>LIKE</strong> 子句, 可用來做搜尋。</p>
 
 <p class="important"><strong>注意：</strong> 所有傳到這個函數的值都會自動跳脫(escape)。</p>
 
@@ -311,31 +311,31 @@ $this->db->or_where('id >'，$id);
 <ol>
 	<li><strong>簡單的 鍵/值 方法：</strong>
 
-	<code>$this->db->like('title'，'match');
+	<code>$this->db->like('title', 'match');
 	<br /><br />// 產生： WHERE title LIKE '%match%'	</code>
 		
 	<p>If you use multiple function calls they will be chained together with <var>AND</var> between them:
-		如果你多次呼叫這個函數，它會把這些用 <var>AND</var> 串接在一起：</p>
+		如果你多次呼叫這個函數, 它會把這些用 <var>AND</var> 串接在一起：</p>
 
-	<code>$this->db->like('title'，'match');<br />
-	$this->db->like('body'，'match');
+	<code>$this->db->like('title', 'match');<br />
+	$this->db->like('body', 'match');
 	<br /><br />
 	// 產生： WHERE title LIKE '%match%' AND  body LIKE '%match%</code>
-	如果你想要控制萬用字元 (%)出現的位置，你可以使用額外的第三個參數。可以使用的選項有 'before'、'after' 以及 'both' （這是預設值）。
-	<code>$this->db->like('title'，'match'，'before');
+	如果你想要控制萬用字元 (%)出現的位置, 你可以使用額外的第三個參數。可以使用的選項有 'before'、'after' 以及 'both' （這是預設值）。
+	<code>$this->db->like('title', 'match', 'before');
 	<br />
 		// 產生： WHERE title LIKE '%match'	<br />
 		<br />
-	$this-&gt;db-&gt;like('title'，'match'，'after'); <br />
+	$this-&gt;db-&gt;like('title', 'match', 'after'); <br />
 // 產生： WHERE title LIKE 'match%' <br />
 <br />
-	$this-&gt;db-&gt;like('title'，'match'，'both'); <br />
+	$this-&gt;db-&gt;like('title', 'match', 'both'); <br />
 // 產生： WHERE title LIKE '%match%' </code>	</li>
 
 	<li><strong>關聯陣列方法：</strong>
 
 	<code>
-	$array = array('title' => $match，'page1' => $match，'page2' => $match);<br /><br />
+	$array = array('title' => $match, 'page1' => $match, 'page2' => $match);<br /><br />
 
 	$this->db->like($array);
 	<br /><br />// 產生： WHERE title LIKE '%match%' AND  page1 LIKE '%match%' AND  page2 LIKE '%match%'</code></li>
@@ -343,27 +343,27 @@ $this->db->or_where('id >'，$id);
 
 
 <h2>$this->db->or_like();</h2>
-<p>除了使用 OR 來串接傳入的條件，著個函數與上面的相同：</p>
+<p>除了使用 OR 來串接傳入的條件, 著個函數與上面的相同：</p>
 
 <code>
-$this->db->like('title'，'match');<br />
-$this->db->or_like('body'，$match);
+$this->db->like('title', 'match');<br />
+$this->db->or_like('body', $match);
 <br />
 <br />// 產生： WHERE title LIKE '%match%' OR  body LIKE '%match%'</code>
 
 
 
 
-<p class="important">注意： or_like() 之前叫做 orlike()，舊的函數名稱已經移除。</p>
+<p class="important">注意： or_like() 之前叫做 orlike(), 舊的函數名稱已經移除。</p>
 <h2>$this-&gt;db-&gt;not_like();</h2>
-<p>除了會產生 NOT LIKE 敘述之外，這個函數與 <strong>like()</strong> 相同。</p>
-<code> $this-&gt;db-&gt;not_like('title'，'match');<br />
+<p>除了會產生 NOT LIKE 敘述之外, 這個函數與 <strong>like()</strong> 相同。</p>
+<code> $this-&gt;db-&gt;not_like('title', 'match');<br />
 <br />
 // 產生： WHERE title NOT LIKE '%match%</code>
 <h2>$this-&gt;db-&gt;or_not_like();</h2>
-<p>除了使用 OR 來串接傳入的條件，這個函數與 <strong>not_like()</strong> 相同。</p>
-<code> $this-&gt;db-&gt;like('title'，'match');<br />
-$this-&gt;db-&gt;or_not_like('body'，'match'); <br />
+<p>除了使用 OR 來串接傳入的條件, 這個函數與 <strong>not_like()</strong> 相同。</p>
+<code> $this-&gt;db-&gt;like('title', 'match');<br />
+$this-&gt;db-&gt;or_not_like('body', 'match'); <br />
 <br />
 // 產生： WHERE title  LIKE '%match% OR body NOT LIKE '%match%'</code>
 <h2>$this->db->group_by();</h2>
@@ -376,11 +376,11 @@ $this-&gt;db-&gt;or_not_like('body'，'match'); <br />
 
 <p>你也可以用正列傳給它多個值：</p>
 
-<code>$this->db->group_by(array("title"，"date"));
+<code>$this->db->group_by(array("title", "date"));
 <br />
-<br />// 產生： GROUP BY title，date</code>
+<br />// 產生： GROUP BY title, date</code>
 
-<p class="important">注意： group_by() 之前叫做 groupby()，舊的函數名稱已經移除。</p>
+<p class="important">注意： group_by() 之前叫做 groupby(), 舊的函數名稱已經移除。</p>
 
 <h2> $this-&gt;db-&gt;distinct();<br />
 </h2>
@@ -390,13 +390,13 @@ $this-&gt;db-&gt;or_not_like('body'，'match'); <br />
 		<br />
 	// 產生： SELECT DISTINCT * FROM table</code></p>
 <h2>$this->db->having();</h2>
-<p>允許你撰寫你查詢中的 HAVING 部份。有兩種可用的語法，使用一個或兩個參數：</p>
+<p>允許你撰寫你查詢中的 HAVING 部份。有兩種可用的語法, 使用一個或兩個參數：</p>
 
 <code>$this->db->having('user_id = 45');
 <br />
 // 產生： HAVING user_id = 45<br />
 <br />
-$this-&gt;db-&gt;having('user_id'， 45); <br />
+$this-&gt;db-&gt;having('user_id',  45); <br />
 // 產生： HAVING user_id = 45<br />
 <br />
 </code>
@@ -404,41 +404,41 @@ $this-&gt;db-&gt;having('user_id'， 45); <br />
 <p>你也可以用陣列來傳給它多個值：</p>
 
 
-<p><code>$this->db->having(array('title =' => 'My Title'，'id <' => $id)); <br />
+<p><code>$this->db->having(array('title =' => 'My Title', 'id <' => $id)); <br />
 		<br />
-	// 產生： HAVING title = 'My Title'，id < 45</code></p>
-<p>如果你在使用的資料庫 CodeIgniter 會幫你跳脫(escape)查詢，你可以透過傳給它額外的第三個參數為 FALSE 來避免跳脫內容。</p>
-<p><code>$this-&gt;db-&gt;having('user_id'， 45); <br />
+	// 產生： HAVING title = 'My Title', id < 45</code></p>
+<p>如果你在使用的資料庫 CodeIgniter 會幫你跳脫(escape)查詢, 你可以透過傳給它額外的第三個參數為 FALSE 來避免跳脫內容。</p>
+<p><code>$this-&gt;db-&gt;having('user_id',  45); <br />
 // 產生： HAVING `user_id` = 45 in some databases such as MySQL
 		<br />
-		$this-&gt;db-&gt;having('user_id'， 45，FALSE); <br />
+		$this-&gt;db-&gt;having('user_id',  45, FALSE); <br />
 // 產生： HAVING user_id = 45</code></p>
 <h2>$this-&gt;db-&gt;or_having();</h2>
-<p>與 haveing() 相同，但是使用 &quot;OR&quot; 來分隔多個子句。</p>
+<p>與 haveing() 相同, 但是使用 &quot;OR&quot; 來分隔多個子句。</p>
 <h2>$this->db->order_by();</h2>
-<p>讓你設定 ORDER BY 子句。第一個參數包含你要排序的欄位，第二個參數則讓你指定排序的方向。可用的選項有 <kbd>asc</kbd>、<kbd>desc</kbd> 或 <kbd>random</kbd> 。</p>
+<p>讓你設定 ORDER BY 子句。第一個參數包含你要排序的欄位, 第二個參數則讓你指定排序的方向。可用的選項有 <kbd>asc</kbd>、<kbd>desc</kbd> 或 <kbd>random</kbd> 。</p>
 
-<code>$this->db->order_by("title"，"desc");
+<code>$this->db->order_by("title", "desc");
 <br />
 <br />// 產生： ORDER BY title DESC
 </code>
 
 <p>你也能傳入你自訂的字串當作第一個參數：</p>
 
-<code>$this->db->order_by('title desc，name asc');
+<code>$this->db->order_by('title desc, name asc');
 <br />
-<br />// 產生： ORDER BY title DESC，name ASC
+<br />// 產生： ORDER BY title DESC, name ASC
 </code>
 
-<p>如果你需要對多個欄位排序，也可以多次呼叫這個函數。</p>
+<p>如果你需要對多個欄位排序, 也可以多次呼叫這個函數。</p>
 
-<p><code>$this->db->order_by("title"，"desc");<br />
-	$this->db->order_by("name"，"asc"); <br />
+<p><code>$this->db->order_by("title", "desc");<br />
+	$this->db->order_by("name", "asc"); <br />
 	<br />
-	// 產生： ORDER BY title DESC，name ASC
+	// 產生： ORDER BY title DESC, name ASC
 	</code></p>
-<p class="important">注意： order_by() 之前叫做 orderby()，舊的函數名稱已經移除。</p>
-<p class="important">注意： 亂數排序(radom ordering) 目前在 Oracle 與 MSSQL 上面還沒有支援，它們預設會改用 'ASC' 。</p>
+<p class="important">注意： order_by() 之前叫做 orderby(), 舊的函數名稱已經移除。</p>
+<p class="important">注意： 亂數排序(radom ordering) 目前在 Oracle 與 MSSQL 上面還沒有支援, 它們預設會改用 'ASC' 。</p>
 <h2>$this->db->limit();</h2>
 <p>讓你限制查詢要返回的列數：</p>
 
@@ -451,22 +451,22 @@ $this->db->limit(10);<br />
 <p>第二個參數讓你設定結果的偏移。</p>
 
 <code>
-$this->db->limit(10，20);<br />
+$this->db->limit(10, 20);<br />
 <br />
-// 產生： LIMIT 20，10 (使用 MySQL 。其他資料庫有稍微不同的語法)</code>
+// 產生： LIMIT 20, 10 (使用 MySQL 。其他資料庫有稍微不同的語法)</code>
 
 
 <h2>$this->db->count_all_results();</h2>
 
-<p>讓你可以判斷特定的 Active Record 查詢的結果列數。查詢可接受 Active Record 的限制條件，像是 where()、or_where()、like()、or_like() 等。查詢範例：</p>
+<p>讓你可以判斷特定的 Active Record 查詢的結果列數。查詢可接受 Active Record 的限制條件, 像是 where()、or_where()、like()、or_like() 等。查詢範例：</p>
 <code>echo $this->db->count_all_results('<var>my_table</var>');<br />
 
-// 產生整數結果，像是 25<br />
+// 產生整數結果, 像是 25<br />
 <br />
-$this-&gt;db-&gt;like('title'，'match');<br />
+$this-&gt;db-&gt;like('title', 'match');<br />
 $this-&gt;db-&gt;from('<var>my_table</var>');<br />
 echo $this-&gt;db-&gt;count_all_results();<br />
-// 產生整數結果，像是 17 </code>
+// 產生整數結果, 像是 17 </code>
 
 <h2>$this->db->count_all();</h2>
 
@@ -474,7 +474,7 @@ echo $this-&gt;db-&gt;count_all_results();<br />
 
 <code>echo $this->db->count_all('<var>my_table</var>');<br />
 <br />
-// 產生整數結果，像是 25</code>
+// 產生整數結果, 像是 25</code>
 
 
 
@@ -482,20 +482,20 @@ echo $this-&gt;db-&gt;count_all_results();<br />
 <h1>新增(Inserting)資料</h1>
 
 <h2>$this->db->insert();</h2>
-<p>根據你提供的資料產生一個 insert 字串，然後執行查詢。你可以傳入一個 <strong>陣列</strong> 或是一個 <strong>物件</strong> 給函數。這是一個使用陣列的範例：</p>
+<p>根據你提供的資料產生一個 insert 字串, 然後執行查詢。你可以傳入一個 <strong>陣列</strong> 或是一個 <strong>物件</strong> 給函數。這是一個使用陣列的範例：</p>
 
 <code>
 $data = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'My Name' ,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'My date'<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
+&nbsp;&nbsp;&nbsp;'name' => 'My Name' ,<br />
+&nbsp;&nbsp;&nbsp;'date' => 'My date'<br />
+);<br />
 <br />
-$this->db->insert('mytable'，$data);
+$this->db->insert('mytable', $data);
 <br /><br />
-// 產生： INSERT INTO mytable (title，name，date) VALUES ('My title'，'My name'，'My date')</code>
+// 產生： INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date')</code>
 
-<p>第一個參數要包含資料表的名稱，第二個參數是一個包含要存入值的關聯陣列。</p>
+<p>第一個參數要包含資料表的名稱, 第二個參數是一個包含要存入值的關聯陣列。</p>
 
 <p>這是一個使用物件的範例：</p>
 
@@ -510,14 +510,39 @@ $this->db->insert('mytable'，$data);
 <br />
 $object = new Myclass;<br />
 <br />
-$this->db->insert('mytable'，$object);
+$this->db->insert('mytable', $object);
 <br /><br />
-// 產生： INSERT INTO mytable (title，content，date) VALUES ('My Title'，'My Content'，'My Date')</code>
+// 產生： INSERT INTO mytable (title, content, date) VALUES ('My Title', 'My Content', 'My Date')</code>
 
-<p>第一個參數會包含資料表名稱，第二個參數是包含要存入值的物件。</p>
+<p>第一個參數會包含資料表名稱, 第二個參數是包含要存入值的物件。</p>
 
 <p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的查詢。</p>
 
+<h2>$this->db->insert_batch();</h2>
+<p>Generates an insert string based on the data you supply, and runs the query. You can either pass an
+<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+
+<code>
+$data = array(<br />
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'My Name' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'My date'<br />
+&nbsp;&nbsp;&nbsp;),<br />
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'Another title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'Another Name' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'Another date'<br />
+&nbsp;&nbsp;&nbsp;)<br />
+);<br />
+<br />
+$this->db->insert_batch('mytable', $data);
+<br /><br />
+// Produces: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
+
+<p>The first parameter will contain the table name, the second is an associative array of values.</p>
+
+<p class="important"><strong>Note:</strong> All values are escaped automatically producing safer queries.</p>
 
 
 
@@ -526,29 +551,29 @@ $this->db->insert('mytable'，$object);
 
 <p><strong>你也可以直接傳入一個資料陣列給新增(insert)或是更新(update)的函數：</strong> </p>
 
-<code>$this->db->set('name'，$name);
+<code>$this->db->set('name', $name);
 <br />
 $this->db->insert('mytable');
 <br /><br />
 // 產生： INSERT INTO mytable (name) VALUES ('{$name}')</code>
 
-<p>如果你多次呼叫這個函數，它會在新增或是更新時適當地組合：</p>
+<p>如果你多次呼叫這個函數, 它會在新增或是更新時適當地組合：</p>
 
-<code>$this-&gt;db-&gt;set('name'，$name);<br />
-$this-&gt;db-&gt;set('title'，$title);<br />
-$this-&gt;db-&gt;set('status'，$status);<br />
+<code>$this-&gt;db-&gt;set('name', $name);<br />
+$this-&gt;db-&gt;set('title', $title);<br />
+$this-&gt;db-&gt;set('status', $status);<br />
 $this-&gt;db-&gt;insert('mytable'); </code>
-<p><strong>set()</strong> 也可以接收額外的第三個參數 ($escape) ，如果你傳入 FALSE ，可以防止它跳脫你的資料。為了顯示這樣會有什麼不同，以下是使用與不使用這個參數的例子：</p>
-<p><code>$this-&gt;db-&gt;set('field'，'field+1'，FALSE);<br />
+<p><strong>set()</strong> 也可以接收額外的第三個參數 ($escape) , 如果你傳入 FALSE , 可以防止它跳脫你的資料。為了顯示這樣會有什麼不同, 以下是使用與不使用這個參數的例子：</p>
+<p><code>$this-&gt;db-&gt;set('field', 'field+1', FALSE);<br />
 	$this-&gt;db-&gt;insert('mytable'); <br />
 	// 產生： INSERT INTO mytable (field) VALUES (field+1)<br />
 	<br />
-	$this-&gt;db-&gt;set('field'，'field+1');<br />
+	$this-&gt;db-&gt;set('field', 'field+1');<br />
 	$this-&gt;db-&gt;insert('mytable'); <br />
 	// 產生： INSERT INTO mytable (field) VALUES ('field+1')</code></p>
 <p>你也可以傳入一個關聯陣列給這個函數：</p>
 <code>
-$array = array('name' => $name，'title' => $title，'status' => $status);<br /><br />
+$array = array('name' => $name, 'title' => $title, 'status' => $status);<br /><br />
 
 $this->db->set($array);<br />
 $this->db->insert('mytable');
@@ -578,7 +603,7 @@ $this->db->insert('mytable');
 <h1>更新(Updating)資料</h1>
 
 <h2>$this->db->update();</h2>
-<p>產生一個更新字串，並根據你提供的資料來執行查詢。你可以傳一個 <strong>陣列(array)</strong> 或是一個 <strong>物件(object)</strong>給這個函數。這裡有一個使用陣列的例子：</p>
+<p>產生一個更新字串, 並根據你提供的資料來執行查詢。你可以傳一個 <strong>陣列(array)</strong> 或是一個 <strong>物件(object)</strong>給這個函數。這裡有一個使用陣列的例子：</p>
 
 <code>
 $data = array(<br />
@@ -587,12 +612,12 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => $date<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->db->where('id'，$id);<br />
-$this->db->update('mytable'，$data);
+$this->db->where('id', $id);<br />
+$this->db->update('mytable', $data);
 <br /><br />
 // 產生：<br />
 // UPDATE mytable <br />
-// SET title = '{$title}'，name = '{$name}'，date = '{$date}'<br />
+// SET title = '{$title}', name = '{$name}', date = '{$date}'<br />
 // WHERE id = $id</code>
 
 <p>或是傳給它物件：</p>
@@ -608,26 +633,26 @@ $this->db->update('mytable'，$data);
 <br />
 $object = new Myclass;<br />
 <br />
-$this->db->where('id'，$id);<br />
-$this->db->update('mytable'，$object);
+$this->db->where('id', $id);<br />
+$this->db->update('mytable', $object);
 <br />
 <br />
 // 產生<br />
 // UPDATE mytable <br />
-// SET title = '{$title}'，name = '{$name}'，date = '{$date}'<br />
+// SET title = '{$title}', name = '{$name}', date = '{$date}'<br />
 // WHERE id = $id</code>
 
 
 
 <p class="important"><strong>注意：</strong> 所有的值都會自動跳脫以產生較安全的查詢。</p>
 
-<p>你要注意到 <dfn>$this->db->where()</dfn> 函數的使用，它能讓你設定 WHERE 子句。你也可以直接用字串方式傳遞這個資訊給更新函數：</p>
+<p>你要注意到 <dfn>$this->db->where()</dfn> 函數的使用, 它能讓你設定 WHERE 子句。你也可以直接用字串方式傳遞這個資訊給更新函數：</p>
 
-<code>$this->db->update('mytable'，$data，"id = 4");</code>
+<code>$this->db->update('mytable', $data, "id = 4");</code>
 
 <p>或是用一個陣列：</p>
 
-<code>$this->db->update('mytable'，$data，array('id' => $id));</code>
+<code>$this->db->update('mytable', $data, array('id' => $id));</code>
 
 <p>你也可以用前面介紹過的 <dfn>$this->db->set()</dfn> 函數來進行更新。</p>
 
@@ -641,25 +666,25 @@ $this->db->update('mytable'，$object);
 <p>產生刪除的 SQL 字串並執行查詢。</p>
 
 <code>
-$this->db->delete('mytable'，array('id' => $id));
+$this->db->delete('mytable', array('id' => $id));
 <br /><br />
 // 產生：<br />
 // DELETE FROM mytable <br />
 // WHERE id = $id</code>
 
-<p>第一個參數是資料表名稱。第二個參數是 where 子句。你也可以使用 <dfn>where()</dfn> 或是 <dfn>or_where()</dfn> 函數，而不是用第二個參數傳資料給它：</p>
+<p>第一個參數是資料表名稱。第二個參數是 where 子句。你也可以使用 <dfn>where()</dfn> 或是 <dfn>or_where()</dfn> 函數, 而不是用第二個參數傳資料給它：</p>
 
-<p><code> $this->db->where('id'，$id);<br />
+<p><code> $this->db->where('id', $id);<br />
 	$this->db->delete('mytable'); <br />
 	<br />
 	// 產生：<br />
 	// DELETE FROM mytable <br />
 	// WHERE id = $id</code></p>
-<p>如果你想刪除不只一個資料表的資料，你也可以傳遞資料表名稱的陣列給 delete() 。</p>
-<p><code>$tables = array('table1'，'table2'，'table3');<br />
-$this-&gt;db-&gt;where('id'，'5');<br />
+<p>如果你想刪除不只一個資料表的資料, 你也可以傳遞資料表名稱的陣列給 delete() 。</p>
+<p><code>$tables = array('table1', 'table2', 'table3');<br />
+$this-&gt;db-&gt;where('id', '5');<br />
 $this-&gt;db-&gt;delete($tables);</code></p>
-<p>如果你要刪除一個資料表中的所有資料，你可以使用 <dfn>truncate()</dfn> 函數或是 <dfn>empty_table()</dfn> 。</p>
+<p>如果你要刪除一個資料表中的所有資料, 你可以使用 <dfn>truncate()</dfn> 函數或是 <dfn>empty_table()</dfn> 。</p>
 <h2>$this-&gt;db-&gt;empty_table();</h2>
 <p>產生一個刪除(delete)的 SQL 字串並且執行查詢。<code>	$this-&gt;db-&gt;empty_table('mytable'); <br />
 	<br />
@@ -675,14 +700,14 @@ $this-&gt;db-&gt;truncate('mytable'); <br />
 // 產生：<br />
 // TRUNCATE mytable <br />
 </code>
-<p class="important"><strong>注意：</strong> 如果 TRUNCATE 命令無法使用， truncate() 會執行 &quot;DELETE FROM table&quot; 。</p>
+<p class="important"><strong>注意：</strong> 如果 TRUNCATE 命令無法使用,  truncate() 會執行 &quot;DELETE FROM table&quot; 。</p>
 
 <h1><a name="chaining">&nbsp;</a>方法串接</h1>
 
 <p>方法串接可以利用連接多個函數來讓你你的語法更為簡化。考慮一下這個參考範例：</p>
 
 <code>
-<dfn>$this->db</dfn><kbd>-></kbd><var>select</var>('title')<kbd>-></kbd><var>from</var>('mytable')<kbd>-></kbd><var>where</var>('id'，$id)<kbd>-></kbd><var>limit</var>(10，20);<br />
+<dfn>$this->db</dfn><kbd>-></kbd><var>select</var>('title')<kbd>-></kbd><var>from</var>('mytable')<kbd>-></kbd><var>where</var>('id', $id)<kbd>-></kbd><var>limit</var>(10, 20);<br />
 <br />
 $query = $this->db->get();</code>
 
@@ -692,9 +717,9 @@ $query = $this->db->get();</code>
 
 <h1><a name="caching">&nbsp;</a>Active Record 快取</h1>
 
-<p>雖然不是&quot;真&quot;的快取，Active Record 讓你能儲存（或是&quot;快取&quot;）查詢的特定部份讓接下來的程式可以重複使用。正常狀況下，當 Active Record 呼叫執行完畢時，所有的資訊都會為了下一次呼叫而重置。使用快取，你可以避免這個重置，讓資訊可以簡單地重複使用。</p>
+<p>雖然不是&quot;真&quot;的快取, Active Record 讓你能儲存（或是&quot;快取&quot;）查詢的特定部份讓接下來的程式可以重複使用。正常狀況下, 當 Active Record 呼叫執行完畢時, 所有的資訊都會為了下一次呼叫而重置。使用快取, 你可以避免這個重置, 讓資訊可以簡單地重複使用。</p>
 
-<p>快取的呼叫是會累積的。如果你做了兩次快取的 select() 呼叫然後兩次非快取的 select() 呼叫，結果會是四次 select() 呼叫。</p>
+<p>快取的呼叫是會累積的。如果你做了兩次快取的 select() 呼叫然後兩次非快取的 select() 呼叫, 結果會是四次 select() 呼叫。</p>
 
 <h2>$this-&gt;db-&gt;start_cache()</h2>
 
@@ -720,7 +745,7 @@ $this-&gt;db-&gt;get('tablename');<br />
 $this-&gt;db-&gt;select('field2');<br />
 $this-&gt;db-&gt;get('tablename');<br />
 <br />
-//產生：  SELECT `field1`，`field2` FROM (`tablename`)<br />
+//產生：  SELECT `field1`, `field2` FROM (`tablename`)<br />
 <br />
 $this-&gt;db-&gt;flush_cache();<br />
 <br />

@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -59,29 +59,29 @@
 <h1>單元測試類別</h1>
 
 <p>單元測試是為應用軟體中每一個函數撰寫測試程式的開發方式。
-如果你不熟悉這個概念，你可以稍微google一下這個主題。</p>
+如果你不熟悉這個概念, 你可以稍微google一下這個主題。</p>
 
-<p>CodeIgniter的單元測試類別非常簡單，由一個評估函數以及兩個結果函數構成。
-它並不打算成為一個完整成熟的測試套件，而只提供了簡單的機制讓你評估你的程式碼，來決定它是否產生正確的資料型別與結果。
+<p>CodeIgniter的單元測試類別非常簡單, 由一個評估函數以及兩個結果函數構成。
+它並不打算成為一個完整成熟的測試套件, 而只提供了簡單的機制讓你評估你的程式碼, 來決定它是否產生正確的資料型別與結果。
 </p>
 
 
 <h2>類別初始化</h2>
 
-<p>如同在CodeIgniter中其他大多數的類別，單元測試類別可經由你的控制器(controller)使用<dfn>$this->load->library</dfn>函數來初始化：</p>
+<p>如同在CodeIgniter中其他大多數的類別, 單元測試類別可經由你的控制器(controller)使用<dfn>$this->load->library</dfn>函數來初始化：</p>
 
 <code>$this->load->library('unit_test');</code>
-<p>一旦載入了，單元測試物件可經由：<dfn>$this->unit</dfn>來使用</p>
+<p>一旦載入了, 單元測試物件可經由：<dfn>$this->unit</dfn>來使用</p>
 
 
 <h2>執行測試</h2>
 
 <p>透過提供給下列函數測試與預期的結果來執行測試：</p>
 
-<h2>$this->unit->run( <var>test</var>，<var>expected result</var>，'<var>test name</var>' );</h2>
+<h2>$this->unit->run( <var>test</var>, <var>expected result</var>, '<var>test name</var>' );</h2>
 
-<p>其中<var>test</var>是你想要測試程式碼的產生的結果
-<var>expected result</var>是你預期的資料型別，而<var>test name</var>是你給測試的一個可選的名稱。參考範例：</p>
+<p>Where <var>test</var> is the result of the code you wish to test, <var>expected result</var> is the data type you expect,
+<var>test name</var> is an optional name you can give your test, and <var>notes</var> are optional notes. Example:</p>
 
 <code>$test = 1 + 1;<br />
 <br />
@@ -89,20 +89,21 @@ $expected_result = 2;<br />
 <br />
 $test_name = 'Adds one plus one';<br />
 <br />
-$this->unit->run($test，$expected_result，$test_name);</code>
+$this->unit->run($test, $expected_result, $test_name);</code>
 
 <p>你提供的預期結果可以是資料型別相符或是文字相符。這是文字相符的範例：</p>
 
-<code>$this->unit->run('Foo'，'Foo');</code>
+<code>$this->unit->run('Foo', 'Foo');</code>
 
 <p>這是資料型別相符的範例：</p>
 
-<code>$this->unit->run('Foo'，'is_string');</code>
+<code>$this->unit->run('Foo', 'is_string');</code>
 
 <p>注意到在第二個參數用到"is_string"了嗎？這是要告訴函數評估你的測試結果是否為字串。
 這裡有一份可比較型別的清單：</p>
 
 <ul>
+<li>is_object</li>
 <li>is_string</li>
 <li>is_bool</li>
 <li>is_true</li>
@@ -118,16 +119,16 @@ $this->unit->run($test，$expected_result，$test_name);</code>
 
 <h2>產生報告</h2>
 
-<p>你可以在每個測試後顯示測試結果，或是在數個測試結束後產生一份報告。
-要直接顯示一份報告的話，只要echo或返回<var>run</var>函數：</p>
+<p>你可以在每個測試後顯示測試結果, 或是在數個測試結束後產生一份報告。
+要直接顯示一份報告的話, 只要echo或返回<var>run</var>函數：</p>
 
-<code>echo $this->unit->run($test，$expected_result);</code>
+<code>echo $this->unit->run($test, $expected_result);</code>
 
 <p>用這樣的方式來執行所有測試並產生全部的報告：</p>
 
 <code>echo $this->unit->report();</code>
 
-<p>報告將會格式化成一個HTML表格。如果你偏好原始資料，你可以用下列方式返回一個陣列：</p>
+<p>報告將會格式化成一個HTML表格。如果你偏好原始資料, 你可以用下列方式返回一個陣列：</p>
 
 <code>echo $this->unit->result();</code>
 
@@ -136,13 +137,13 @@ $this->unit->run($test，$expected_result，$test_name);</code>
 
 <p>單元測試預設會用較鬆散的方式比較文字是否符合。考慮這個參考範例：</p>
 
-<code>$this->unit->run(1，TRUE);</code>
+<code>$this->unit->run(1, TRUE);</code>
 
-<p>測試評估的是一個整數(integer)，但是預期結果是一個布林值(boolean)。而由於PHP的型別鬆散特性，以上的程式如果用一般的相等測試結果會是TRUE：</p>
+<p>測試評估的是一個整數(integer), 但是預期結果是一個布林值(boolean)。而由於PHP的型別鬆散特性, 以上的程式如果用一般的相等測試結果會是TRUE：</p>
 
 <code>if (1 == TRUE) echo 'This evaluates as true';</code>
 
-<p>如果你需要，你可以把單元測試類別置於嚴格模式(strict mode)中，這樣它將同時檢查值與資料型別：</p>
+<p>如果你需要, 你可以把單元測試類別置於嚴格模式(strict mode)中, 這樣它將同時檢查值與資料型別：</p>
 
 <code>if (1 === TRUE) echo 'This evaluates as FALSE';</code>
 
@@ -152,15 +153,35 @@ $this->unit->run($test，$expected_result，$test_name);</code>
 
 <h2>啟動/取消單元測試</h2>
 
-<p>如果你想要把一些測試留在程式碼中，但是只想在需要的時候執行，你可以用以下方法取消單元測試：</p>
+<p>如果你想要把一些測試留在程式碼中, 但是只想在需要的時候執行, 你可以用以下方法取消單元測試：</p>
 
 <code>$this->unit->active(FALSE)</code>
 
+<h2>Unit Test Display</h2>
 
+<p>When your unit test results display, the following items show by default:</p>
+
+<ul>
+	<li>Test Name (test_name)</li>
+	<li>Test Datatype (test_datatype)</li>
+	<li>Expected Datatype (res_datatype)</li>
+	<li>Result (result)</li>
+	<li>File Name (file)</li>
+	<li>Line Number (line)</li>
+	<li>Any notes you entered for the test (notes)</li>
+</ul>
+
+You can customize which of these items get displayed by using <kbd>$this->unit->set_items()</kbd>. For example, if you only wanted the test name and the result displayed:</p>
+
+<h3>Customizing displayed tests</h3>
+
+<code>
+	$this->unit->set_test_items(array('test_name', 'result'));
+</code>
 
 <h2>建立模板</h2>
 
-<p>如果你不想用預設的測試結果格式，你可以設定自己的模板。
+<p>如果你不想用預設的測試結果格式, 你可以設定自己的模板。
 這是一個簡單的模板範例。請注意需要的虛擬變數：</p>
 
 <code>

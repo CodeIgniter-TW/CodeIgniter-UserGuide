@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -111,8 +111,33 @@ echo $this->agent->platform(); // Platform info (Windows，Linux，Mac，etc.)
 <h2>$this->agent->is_browser()</h2>
 <p>Returns TRUE/FALSE (boolean) if the user agent is a known web browser.</p>
 
+<code> if ($this->agent->is_browser('Safari'))<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'You are using Safari.';<br />
+}<br />
+else if ($this->agent->is_browser())<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'You are using a browser.';<br />
+}</code>
+
+<p class="important"><strong>Note:</strong>&nbsp; The string "Safari" in this example is an array key in the list of browser definitions.
+You can find this list in <dfn>application/config/user_agents.php</dfn> if you want to add new browsers or change the stings.</p>
+
 <h2>$this->agent->is_mobile()</h2>
 <p>Returns TRUE/FALSE (boolean) if the user agent is a known mobile device.</p>
+
+<code> if ($this->agent->is_mobile('iphone'))<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('iphone/home');<br />
+}<br />
+else if ($this->agent->is_mobile())<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('mobile/home');<br />
+}<br />
+else<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('web/home');<br />
+}</code>
 
 <h2>$this->agent->is_robot()</h2>
 <p>Returns TRUE/FALSE (boolean) if the user agent is a known robot.</p>

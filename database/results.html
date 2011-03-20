@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -98,6 +98,18 @@
 	}
 	</code>
 
+	<p>You can also pass a string to result() which represents a class to instantiate for each result object (note: this class must be loaded)</p>
+
+	<code>
+	$query = $this->db->query("SELECT * FROM users;");<br />
+	<br />
+	foreach ($query->result('User') as $user)<br />
+	{<br />
+	&nbsp;&nbsp;&nbsp;echo $row->name; // call attributes<br />
+	&nbsp;&nbsp;&nbsp;echo $row->reverse_name(); // or methods defined on the 'User' class<br />
+	}
+	</code>
+
 	<h2>result_array()</h2>
 
 	<p>此函數會回傳查詢的陣列資料，或者當查無資料會回傳空陣列。一般狀況可以使用 foreach 迴圈，就像底下:</p>
@@ -133,6 +145,15 @@
 
 	<code>$row = $query->row(<dfn>5</dfn>);</code>
 
+	<p>You can also add a second String parameter, which is the name of a class to instantiate the row with:</p>
+
+	<code>
+	$query = $this->db->query("SELECT * FROM users LIMIT 1;");<br />
+	<br />
+	$query->row(0, 'User')<br />
+	echo $row->name; // call attributes<br />
+	echo $row->reverse_name(); // or methods defined on the 'User' class<br />
+	</code>
 
 	<h2>row_array()</h2>
 

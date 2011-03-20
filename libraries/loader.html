@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -76,7 +76,7 @@ Loader 類別
 
 <code>$this->load->library('email');</code>
 
-<p>讀取後, 即可使用此郵件類別(mail class), 使用 <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.
+<p>讀取後, 即可使用此郵件類別(mail class), 使用 <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.</p>
 
 <p>程式庫(Library)檔案可以被存在主要的&quot;程式庫libraries&quot;子目錄中, 或是你自己的 <dfn>application/libraries</dfn> 目錄.  
 讀取位於子目錄中的程式庫(library)檔案, 簡單的加入相對路徑至程式庫(libraries)資料夾中.  
@@ -154,7 +154,6 @@ $this-&gt;<kbd>fubar</kbd>-&gt;function();</code>
 <p>This function lets you load the database class.  The two parameters are <strong>optional</strong>.  Please see the
 <a href="../database/index.html">database</a> section for more info.</p>
 
-
 <h2>$this->load->vars(<samp>$array</samp>)</h2>
 
 <p>This function takes an associative array as input and generates variables using the PHP <a href="http://www.php.net/extract">extract</a> function.
@@ -168,70 +167,67 @@ and merged into one array for conversion to variables.
 <h2>$this->load->helper('<var>file_name</var>')</h2>
 <p>此函數載入 helper 檔案,<var>file_name</var> 檔名後面請不要加上 <kbd>_helper.php</kbd>。</p>
 
-
 <h2>$this->load->file('<var>filepath/filename</var>',<kbd>true/false</kbd>)</h2>
 <p>這是一般的載入函數。簡單的設定第一個參數路徑及檔案名稱,系統將會打開此檔案。就像是瀏覽檔案一樣,預設值會直接呈現在瀏覽器畫面,
 如果設定第二個參數為<kbd>true</kbd> (boolean),它將會把檔案內容存放在變數裡面。</p>
 
 
-<h2>$this->load->language('<var>file_name</var>')</h2> 
-<p>This function is an alias of the <a href="language.html">language loading function</a>: $this->lang->load()</p> 
- 
-<h2>$this->load->config('<var>file_name</var>')</h2> 
-<p>This function is an alias of the <a href="config.html">config file loading function</a>: $this->config->load()</p> 
- 
- 
-<h2>Application "Packages"</h2> 
- 
-<p>An application package allows for the easy distribution of complete sets of resources in a single directory, complete with its own libraries, models, helpers, config, and language files.  It is recommended that these packages be placed in the <dfn>application/third_party</dfn> folder.  Below is a sample map of an package directory</p> 
- 
- 
-<h2>Sample Package "Foo Bar" Directory Map</h2> 
- 
-<p>The following is an example of a directory for an application package named "Foo Bar".</p> 
- 
-<code>/application/third_party/foo_bar<br /> 
-<br /> 
-config/<br /> 
-helpers/<br /> 
-language/<br /> 
-libraries/<br /> 
-models/<br /> 
-</code> 
- 
-<p>Whatever the purpose of the "Foo Bar" application package, it has its own config files, helpers, language files, libraries, and models.  To use these resources in your controllers, you first need to tell the Loader that you are going to be loading resources from a package, by adding the package path.</p> 
- 
-<h3>$this->load->add_package_path()</h3> 
- 
-<p>Adding a package path instructs the Loader class to prepend a given path for subsequent requests for resources.  As an example, the "Foo Bar" application package above has a library named <dfn>Foo_bar.php</dfn>. In our controller, we'd do the following:</p> 
- 
-<code>$this->load->add_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');<br /> 
-$this->load->library('foo_bar');</code> 
- 
-<h3>$this->load->remove_package_path()</h3> 
- 
-<p>When your controller is finished using resources from an application package, and particularly if you have other application packages you want to work with, you may wish to remove the package path so the Loader no longer looks in that folder for resources.  To remove the last path added, simply call the method with no parameters.</p> 
- 
-<h3>$this->load->remove_package_path()</h3> 
- 
-<p>Or to remove a specific package path, specify the same path previously given to <kbd>add_package_path() for a package.</kbd>:</p> 
- 
-<code>$this->load->remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code> 
- 
-<h3>Package view files</h3> 
- 
-<p>@todo - package view file interface is not complete.  It can be experimentally used by first saving the Loader's original view path, setting the view path to the package's view path, and when finished, setting back to the original view path.</p> 
- 
-<code>// ... save the original view path, and set to our Foo Bar package view folder<br /> 
-$orig_view_path = $this->load->_ci_view_path;<br /> 
-$this->load->_ci_view_path = <var>APPPATH</var>.'third_party/<var>foo_bar</var>/views/';<br /> 
-<br /> 
-// ... code using the package's view files<br /> 
-<br /> 
-// ... then return the view path to the application's original view path<br /> 
-$this->load->_ci_view_path = $orig_view_path;</code> 
+
+<h2>$this->load->language('<var>file_name</var>')</h2>
+<p>此函數同等於 <a href="language.html">語言(language) 載入函數</a>: $this->lang->load()</p>
+
+<h2>$this->load->config('<var>file_name</var>')</h2>
+<p>此函數同等於 <a href="config.html">config 檔案載入函數</a>: $this->config->load()</p>
+
+<h2>Application "Packages"</h2>
+
+<p>An application package allows for the easy distribution of complete sets of resources in a single directory, complete with its own libraries, models, helpers, config, and language files.  It is recommended that these packages be placed in the <dfn>application/third_party</dfn> folder.  Below is a sample map of an package directory</p>
 
 
+<h2>Sample Package "Foo Bar" Directory Map</h2>
+
+<p>The following is an example of a directory for an application package named "Foo Bar".</p>
+
+<code>/application/third_party/foo_bar<br />
+<br />
+config/<br />
+helpers/<br />
+language/<br />
+libraries/<br />
+models/<br />
+</code>
+
+<p>Whatever the purpose of the "Foo Bar" application package, it has its own config files, helpers, language files, libraries, and models.  To use these resources in your controllers, you first need to tell the Loader that you are going to be loading resources from a package, by adding the package path.</p>
+
+<h3>$this->load->add_package_path()</h3>
+
+<p>Adding a package path instructs the Loader class to prepend a given path for subsequent requests for resources.  As an example, the "Foo Bar" application package above has a library named <dfn>Foo_bar.php</dfn>. In our controller, we'd do the following:</p>
+
+<code>$this->load->add_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');<br />
+$this->load->library('foo_bar');</code>
+
+<h3>$this->load->remove_package_path()</h3>
+
+<p>When your controller is finished using resources from an application package, and particularly if you have other application packages you want to work with, you may wish to remove the package path so the Loader no longer looks in that folder for resources.  To remove the last path added, simply call the method with no parameters.</p>
+
+<h3>$this->load->remove_package_path()</h3>
+
+<p>Or to remove a specific package path, specify the same path previously given to <kbd>add_package_path() for a package.</kbd>:</p>
+
+<code>$this->load->remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code>
+
+<h3>Package view files</h3>
+
+<p>@todo - package view file interface is not complete.  It can be experimentally used by first saving the Loader's original view path, setting the view path to the package's view path, and when finished, setting back to the original view path.</p>
+
+<code>// ... save the original view path, and set to our Foo Bar package view folder<br />
+$orig_view_path = $this->load->_ci_view_path;<br />
+$this->load->_ci_view_path = <var>APPPATH</var>.'third_party/<var>foo_bar</var>/views/';<br />
+<br />
+// ... code using the package's view files<br />
+<br />
+// ... then return the view path to the application's original view path<br />
+$this->load->_ci_view_path = $orig_view_path;</code>
 
 
 </div>

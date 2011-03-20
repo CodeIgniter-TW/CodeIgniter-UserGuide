@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -69,7 +69,7 @@
 <p>底下是一個簡單的例子，教您如何在 <a href="../general/controllers.html">控制器(Controller)</a> 函數裡面建立基本分頁</p>
 
 <code>
-$this->load->library('pagination');<br /><br />	
+$this->load->library('pagination');<br /><br />
 $config['base_url'] = 'http://example.com/index.php/test/page/';<br />
 $config['total_rows'] = '200';<br />
 $config['per_page']  = '20';
@@ -130,7 +130,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂起始分頁連結名稱</h2>
 
 <h4>$config['first_link'] = 'First';</h4>
-<p>您希望在分頁左邊顯示"第一頁"的名稱。</p>
+<p>您希望在分頁左邊顯示"第一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
 
 <h4>$config['first_tag_open'] = '&lt;div>';</h4>
 <p>第一頁連結左邊標籤。</p>
@@ -141,7 +141,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂結束分頁連結名稱</h2>
 
 <h4>$config['last_link'] = 'Last';</h4>
-<p>您希望在分頁右邊顯示"最後一頁"的名稱。</p>
+<p>您希望在分頁右邊顯示"最後一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
 
 <h4>$config['last_tag_open'] = '&lt;div>';</h4>
 <p>最後一頁連結左邊標籤。</p>
@@ -152,7 +152,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"下一頁"連結名稱</h2>
 
 <h4>$config['next_link'] = '&amp;gt;';</h4>
-<p>您希望在分頁中顯示"下一頁"的名稱。</p>
+<p>您希望在分頁中顯示"下一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
 
 <h4>$config['next_tag_open'] = '&lt;div>';</h4>
 <p>下一頁連結左邊標籤。</p>
@@ -163,7 +163,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"上一頁"連結名稱</h2>
 
 <h4>$config['prev_link'] = '&amp;lt;';</h4>
-<p>您希望在分頁中顯示"上一頁"的名稱。</p>
+<p>您希望在分頁中顯示"上一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
 
 <h4>$config['prev_tag_open'] = '&lt;div>';</h4>
 <p>上一頁連結的左邊標籤。</p>
@@ -188,7 +188,18 @@ echo  $this->pagination->create_links();</code>
 <h4>$config['num_tag_close'] = '&lt;/div>';</h4>
 <p>分頁數字連結右邊標籤。</p>
 
+<h2>Hiding the Pages</h2>
 
+<p>If you wanted to not list the specific pages (for example, you only want "next" and "previous" links), you can suppress their rendering by adding:</p>
+
+<code>
+$config['display_pages'] = FALSE;
+</code>
+
+
+<h2>Adding a class to every anchor</h2>
+
+<p>If you want to add a class attribute to every link rendered by the pagination class, you can set the config "anchor_class" equal to the classname you want.</p>
 </div>
 <!-- END CONTENT -->
 

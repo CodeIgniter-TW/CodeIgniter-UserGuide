@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊 Version 2.0.1</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -111,6 +111,7 @@ $this->image_lib->resize();</code>
 <p class="important"><strong>注意:</strong> In order for the image class to be allowed to do any processing，the
 folder containing the image files must have write permissions.</p>
 
+<p class="important"><strong>Note:</strong> Image processing can require a considerable amount of server memory for some operations. If you are experiencing out of memory errors while processing images you may need to limit their maximum size, and/or adjust PHP memory limits.</p>
 
 <h2>Processing 處理函數</h2>
 
@@ -442,7 +443,7 @@ calling the watermark function.  Here is an 參考範例:</p>
 
 <code>
 $config['source_image']	= '/path/to/image/mypic.jpg';<br />
-$config['wm_text'] = 'Copyright 2006 - John Doe';<br />	
+$config['wm_text'] = 'Copyright 2006 - John Doe';<br />
 $config['wm_type'] = 'text';<br />
 $config['wm_font_path'] = './system/fonts/texb.ttf';<br />
 $config['wm_font_size']	= '16';<br />

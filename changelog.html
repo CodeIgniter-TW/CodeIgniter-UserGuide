@@ -95,6 +95,7 @@ Hg 標籤: v2.0.1</p>
 	<li class="reactor">修正 (Core #329) caching driver 使用不正確的暫存目錄(cache directory)。</li>
 	<li class="reactor">修正 (Reactor #69) SHA1 library 錯誤命名。</li>
 </ul>
+
 <h2>版本 2.0.0</h2>
 <p>發佈日期: 2011年1月28日<br />
 Hg 標籤: v2.0.0</p>
@@ -109,8 +110,7 @@ Hg 標籤: v2.0.0</p>
 			<li class="reactor">新增完整的 query-string 支援.  詳細請看設定檔 config.php</li>
 			<li>將application資料夾移出 system資料夾之外</li>
 			<li>移動 system/cache 和 system/logs 資料夾至 application資料夾中.</li>
-			<li>新增 路由覆蓋(routing overrides) 至主要的 index.php 檔案, 啟用路由(routing) 來覆蓋 (overridding)
-每個 "index" 檔案.</li>
+			<li>新增 路由覆蓋(routing overrides) 至主要的 index.php 檔案, 啟用路由(routing) 來覆蓋 (overridding) 每個 "index" 檔案.</li>
 			<li>新增 可以直接在主要的index.php 檔案中定義新的 設定值(或覆寫設定值)的功能.  這允許單一的應用程式(application) 可使用多個前端控制器(front controllers), 並擁有各自的設定值.</li>
 			<li>新增設定<kbd> $config['directory_trigger']</kbd> 到設定檔中讓控制器(controller)的子目錄可以指定執行 _GET 字串來取代 URI片段 (URI segments).</li>
 			<li>新增設置 "Package" 路徑的功能 - 定義Loader和Config類別要由哪個路徑嘗試尋找要求的檔案.  這允許在一個 &quot;package&quot; 資料夾中, 佈署子應用程式擁有自己的程式庫(libraries), 模型(models), 設定檔(config files)...等等... .  詳閱 <a href="libraries/loader.html">Loader class</a> 文件.</li>
@@ -129,7 +129,7 @@ Hg 標籤: v2.0.0</p>
 			<li>新增 <var>$prefix</var>, <var>$suffix</var> 和 <var>$first_url</var> 屬性至 <a href="./libraries/pagination.html">分頁程式庫(Pagination library)</a>.</li>
 			<li>新增功能 防止設置 first, previous, next, last, 和 page links 為 FALSE 當使用分頁程式庫(<a href="./libraries/pagination.html">Pagination library</a>)時.</li>
 			<li>新增<a href="./libraries/security.html">Security library</a>, 現在包含 <dfn>xss_clean</dfn> 函式, <dfn>filename_security</dfn> 函式和其他安全相關的函式庫.</li>
-			<li>新增   跨站請求偽造  (CSRF : Cross-site Reference Forgery) 的保護至 <a href="./libraries/security.html">Security程式庫(Security library)</a>.</li>
+			<li>新增跨站請求偽造  (CSRF : Cross-site Reference Forgery) 的保護至 <a href="./libraries/security.html">Security程式庫(Security library)</a>.</li>
 			<li>新增 <var>$parse_exec_vars</var> 屬性至 輸出程式庫(Output library).</li>
 			<li>新增能開啟TRUE或關閉FALSE的選項至 <a href="general/profiling.html">Profiler</a></li>
 			<li>新增萬用字元選項 <kbd>$config['allowed_types'] = '*'</kbd> 至 <a href="./libraries/file_uploading.html">File Uploading Class</a>.</li>
@@ -143,7 +143,7 @@ Hg 標籤: v2.0.0</p>
 			<li><a href="libraries/unit_testing.html">單元測試類別(Unit Test Class)</a> 現在擁有一個可選擇的 "notes" 欄位, 使用  <kbd>$this-&gt;unit-&gt;set_test_items()</kbd>來允許分散顯示測試結果.</li>
 			<li>新增a <kbd>$xss_clean</kbd> 類別變數至 XMLRPC 程式庫, 控制開啟使用 安全程式庫(Security library)的 <kbd>xss_clean()</kbd> 方法.</li>
 			<li>新增 <kbd>download()</kbd> 方法至 <a href="libraries/ftp.html">FTP程式庫(FTP library)</a></li>
-		  <li>改變 <kbd>do_xss_clean()</kbd> 回傳 FALSE 如果上傳的檔案未通過跨網站指令碼(XSS) 檢查.</li>
+            <li>改變 <kbd>do_xss_clean()</kbd> 回傳 FALSE 如果上傳的檔案未通過跨網站指令碼(XSS) 檢查.</li>
 			<li>新增stripslashes() 和 trim()ing  來去除重複的雙引號和斜線來標準化輸入在 $_FILES 類型中的值 ,至上傳程式庫(Upload library)中.</li>
 			<li>新增第二個參數 (布林boolean) 至 <kbd>$this->zip->read_dir('/path/to/directory', FALSE)</kbd> 來移除前面包含的空的資料夾當產生一個壓縮檔(Zip archive)時. 此範例將壓縮 "目錄directory" 和所有內容至一個zip中.</li>
 			<li>新增功能在 圖像程式庫(Image Library), 當使用 GD lib 來處理 PNG 透明縮圖操作時 </li>
@@ -151,8 +151,7 @@ Hg 標籤: v2.0.0</p>
 			<li>新增設置選項至 Session 類別 <kbd>sess_expire_on_close</kbd> , 允許 sessions 自動過期, 當瀏覽器視窗關閉後</li>
 			<li>增強 加密程式庫(Encryption library)使用Mcrypt在伺服器上的效能</li>
 			<li>更改預設的加密模式在 加密程式庫(Encryption library)中, 變更為 CBC.</li>
-			<li>新增一個 <kbd>encode_from_legacy()</kbd> 方法來轉換加密後的資料從 CodeIgniter 1.x 至 CodeIgniter 2.x.
-				詳細請看 <a href="./installation/upgrade_200.html">升級指令(upgrade instructions)</a></li>
+			<li>新增一個 <kbd>encode_from_legacy()</kbd> 方法來轉換加密後的資料從 CodeIgniter 1.x 至 CodeIgniter 2.x. 詳細請看 <a href="./installation/upgrade_200.html">升級指令(upgrade instructions)</a></li>
 			<li>更改 表單檢查程式庫(Form_Validation library) 來允許使用方法鍊結(method chaining) 當使用 <kbd>set_rules()</kbd>, <kbd>set_message()</kbd> 和 <kbd>set_error_delimiters()</kbd> 函式時.</li>
 			<li>更改 郵件程式庫(Email Library) 來允許使用方法鍊結(method chaining).</li>
 			<li>新增<kbd>request_headers()</kbd>, <kbd>get_request_header()</kbd> 和 <kbd>is_ajax_request()</kbd> 至輸入類別(input class).</li>
@@ -805,7 +804,7 @@ Hg 標籤: 1.6.2</p>
 			<li>新增<a href="./doc_style/index.html">Writing Documentation</a> section for the community to use in writing their own documentation.</li>
 			<li>新增titles to all user manual pages.</li>
 			<li>新增attributes into &lt;html&gt; of userguide for valid html.</li>
-			<li>新增<a href="http://codeigniter.com/user_guide/libraries/zip.html">Zip Encoding Class</a> to the table of contents of the userguide.</li>
+			<li>新增<a href="./libraries/zip.html">Zip Encoding Class</a> to the table of contents of the userguide.</li>
 			<li>Moved part of the userguide menu javascript to an external file.</li>
 			<li>Documented <kbd>distinct()</kbd> in <a href="./database/active_record.html">Active Record</a>. </li>
 			<li>Documented the <kbd>timezones()</kbd> function in the <a href="./helpers/date_helper.html">Date Helper</a>.</li>

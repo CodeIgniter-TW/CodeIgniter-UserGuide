@@ -90,6 +90,10 @@ Loader 類別
 
 <p>你可以自行建立任何的子目錄來放置程式庫</p>
 
+<p>Additionally, multiple libraries can be loaded at the same time by passing an array of libraries to the load function.</p>
+
+<code>$this->load->library(array('<var>email</var>', '<var>table</var>'));</code>
+
 <h3>設置選項 Setting options</h3>
 
 <p>第二個參數 (可選擇的) 允許你設置設定值.  你可以經由一個陣列(array)來傳遞設定值:</p>
@@ -105,6 +109,8 @@ $this->load->library('email',$config);</code>
 
 <p>設定選項(Setting options)可以經由單一的設定檔(config file)來設定. 每個程式庫(library)的詳細功能說明在各自的說明文件中, 所以請閱讀你想使用的程式庫的相關資訊.</p>
 
+<p>Please take note, when multiple libraries are supplied in an array for the first parameter, each will receive the same parameter information.</p>
+
 <h3>指定程式庫(Library)為不同的物件名稱</h3>
 
 <p>如果第三個參數 (可選擇的) 為空值, 程式庫(library)通常被分配到一個與程式庫(library)擁有相同名稱的物件.  舉例來說, 如果程式庫(library)被命名為<dfn>Session</dfn>, 參數名將為 <dfn>$this->session</dfn>.</p>
@@ -119,7 +125,7 @@ $this->my_session
 
 </code>
 
-
+<p>Please take note, when multiple libraries are supplied in an array for the first parameter, this parameter is discarded.</p>
 
 <h2>$this->load->view('<var>file_name</var>', <samp>$data</samp>, <kbd>true/false</kbd>)</h2>
 

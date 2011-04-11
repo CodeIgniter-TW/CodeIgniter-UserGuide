@@ -59,6 +59,7 @@
 
 <p>標示有 <img src="images/reactor-bullet.png" width="16" height="16" alt="Reactor Marker" /> 符號表示透過 CodeIgniter Reactor 貢獻到 CodeIgniter。</p>
 
+<a name="2.0.2"></a>
 <h2>版本 2.0.2</h2>
 <p>發佈日期: 2011年4月7日<br />
 Hg 標籤: v2.0.2</p>
@@ -66,27 +67,27 @@ Hg 標籤: v2.0.2</p>
 <ul>
 	<li>一般變更 (General changes)
 		<ul>
-			<li>The <a href="./libraries/security.html">Security library</a> was moved to the core and is now loaded automatically. Please remove your loading calls.</li>
-			<li>The CI_SHA class is now deprecated. All supported versions of PHP provide a <kbd>sha1()</kbd> function.</li>
+			<li>CodeIgniter 將 <a href="./libraries/security.html">Security library</a> 納入核心的一部分，網頁執行時候自動載入，請移除原來載入的程式碼Please remove your loading calls.</li>
+			<li>CI_SHA 類別已經被移除，所有 PHP 版本提供了 <kbd>sha1()</kbd> 函式給大家使用</li>
 
-			<li class="reactor"><kbd>constants.php</kbd> will now be loaded from the environment folder if available.</li>
-			<li class="reactor">Added language key error logging</li>
-			<li class="reactor">Made Environment Support optional. Comment out or delete the constant to stop environment checks.</li>
-			<li class="reactor">Added Environment Support for Hooks.</li>
-			<li class="reactor">Added CI_ Prefix to the <a href="libraries/caching.html">Cache driver</a>.</li>
+			<li class="reactor">假如 environment 目錄存在 <kbd>constants.php</kbd> 檔案，<kbd>constants.php</kbd> 會依照 environment 目錄自動載入。</li>
+			<li class="reactor">增加 language key 錯誤回報紀錄 (log)</li>
+			<li class="reactor">可以選擇性的使用 Environment 設定，可以註解或者是刪除來取消 environment 偵測 (check)</li>
+			<li class="reactor">針對 Hooks，增加 Environment 支援</li>
+			<li class="reactor">增加 <a href="libraries/caching.html">Cache driver</a> 前置符號 CI_ Prefix</li>
 
 		</ul>
 	</li>
 	<li>補助函式 (Helpers)
 		<ul>
-			<li>Removed the previously deprecated <kbd>dohash()</kbd> from the <a href="./helpers/security_helper.html">Security helper</a>; use <kbd>do_hash()</kbd> instead.</li>
+			<li>從 <a href="./helpers/security_helper.html">Security helper</a> 移除之前棄用的 <kbd>dohash()</kbd> 函式，用 <kbd>do_hash()</kbd> 函式取代</li>
 
-			<li class="reactor">Changed the 'plural' function so that it doesn't ruin the captalization of your string. It also take into consideration acronyms which are all caps.</li>
+			<li class="reactor">改寫了 'plural' 功能，以便它不會破壞字串 capitalization。它也考慮到這是全部大寫字母縮寫</li>
 		</ul>
 	</li>
 	<li>資料庫 (Database)
 		<ul>
-			<li class="reactor"><kbd>$this->db->count_all_results()</kbd> will now return an integer instead of a string.</li>
+			<li class="reactor">將 <kbd>$this->db->count_all_results()</kbd> 回傳值從原本的字串(string)取代成整數(integer)</li>
 		</ul>
 
 	</li>
@@ -94,14 +95,14 @@ Hg 標籤: v2.0.2</p>
 
 <h3>2.0.2 修正</h3>
 <ul>
-	<li class="reactor">Fixed a bug (Reactor #145) where the Output Library had parse_exec_vars set to protected.</li>
-	<li class="reactor">Fixed a bug (Reactor #80) where is_really_writable would create an empty file when on Windows or with safe_mode enabled.</li>
-	<li class="reactor">Fixed various bugs with User Guide.</li>
-	<li class="reactor">Added is_cli_request() method to documentation for <a href="libraries/input.html">Input class</a>.</li>
+	<li class="reactor">修正 (<a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/145/output-lib-parse_exec_vars-scope">Reactor #145</a>) 將 Output Library 的 parse_exec_vars scope 從原本 protected 轉換為 public</li>
+	<li class="reactor">修正 (<a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/80/is_really_writable-bug-on-windows-servers">Reactor #80</a>) 當啟動 safe_mode 或者是在 Windows 環境，is_really_writable 將會新增一個空白檔案</li>
+	<li class="reactor">修正一些錯誤線上文件</li>
+	<li class="reactor">增加 <a href="libraries/input.html">Input class</a> 函式 is_cli_request() method 線上文件</li>
 
-	<li class="reactor">Added form_validation_lang entries for <kbd>decimal</kbd>, <kbd>less_than</kbd> and <kbd>greater_than</kbd>.</li>
-	<li class="reactor"><a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/153/escape-str-bug-in-mssql-driver">Fixed issue #153</a> Escape Str Bug in MSSQL driver.</li>
-	<li class="reactor"><a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/172/bug-in-chrome-and-form_open-in-201">Fixed issue #172</a> Google Chrome 11 posts incorrectly when action is empty.</li>
+	<li class="reactor">針對 <kbd>decimal</kbd>, <kbd>less_than</kbd> 和 <kbd>greater_than</kbd> 增加 form_validation_lang 語系</li>
+	<li class="reactor"><a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/153/escape-str-bug-in-mssql-driver">修正 issue #153</a> 針對 MSSQL driver 跳脫字串 (Escape Str)</li>
+	<li class="reactor"><a href="https://bitbucket.org/ellislab/codeigniter-reactor/issue/172/bug-in-chrome-and-form_open-in-201">修正 issue #172</a> 當 action 是空值時，會造成 Google Chrome 11 瀏覽器 posts 資料錯誤</li>
 
 </ul>
 

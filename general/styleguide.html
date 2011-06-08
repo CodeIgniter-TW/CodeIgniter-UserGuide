@@ -123,8 +123,8 @@
 			<ol>
 				<li>開啟 "Application Preferences"</li>
 				<li>選擇左側的 "Text Encodings"</li>
-				<li>在 "Default text encoding for new documents" 中，選擇 "Unicode (UTF-8，no BOM)"</li>
-				<li><em>可選：</em> 在 "If file's encoding can't be guessed，use" 中，選擇 "Unicode (UTF-8，no BOM)"</li>
+				<li>在 "Default text encoding for new documents" 中，選擇 "Unicode (UTF-8, no BOM)"</li>
+				<li><em>可選：</em> 在 "If file's encoding can't be guessed, use" 中，選擇 "Unicode (UTF-8, no BOM)"</li>
 				<li>在左側選擇 "Text Files"</li>
 				<li>在 "Default line breaks" 中，選擇 "Mac OS X and Unix (LF)"</li>
 			</ol>
@@ -235,11 +235,11 @@ function xml_encode($str)</code>
 			<p>在程式碼間使用單行註解，在大型的區塊註解與程式碼之間空出一行。</p>
 
 <code>// break up the string by newlines
-$parts = explode("\n"，$str);
+$parts = explode("\n", $str);
 
 // A longer comment that needs to give greater detail on what is
 // occurring and why can use multiple single-line comments.  Try to
-// keep the width reasonable，around 70 characters is the easiest to
+// keep the width reasonable, around 70 characters is the easiest to
 // read.  Don't hesitate to link to permanent external resources
 // that may provide greater detail:
 //
@@ -252,18 +252,18 @@ $parts = $this->foo($parts);
 
 		<h2><a name="constants"></a>常數</h2>
 		<div class="guidelineDetails">
-			<p>常數遵循與變數類似的指引，只是常數必須全部使用大寫字母命名。 <em>適當時一律使用 ExpressionEngine 常數，例如 SLASH，LD，RD，PATH_CACHE 等。</em></p>
+			<p>常數遵循與變數類似的指引，只是常數必須全部使用大寫字母命名。 <em>適當時一律使用 ExpressionEngine 常數，例如 SLASH, LD, RD, PATH_CACHE 等。</em></p>
 <code><strong>不正確</strong>:
 myConstant	// 少了底線分隔且不是全部大寫
 N		// 不可以用單一字母常數名稱
 S_C_VER		// 非敘述性
-$str = str_replace('{foo}'，'bar'，$str);	// 應該使用 LD 與 RD 常數
+$str = str_replace('{foo}', 'bar', $str);	// 應該使用 LD 與 RD 常數
 
 <strong>正確</strong>:
 MY_CONSTANT
 NEWLINE
 SUPER_CLASS_VERSION
-$str = str_replace(LD.'foo'.RD，'bar'，$str);
+$str = str_replace(LD.'foo'.RD, 'bar', $str);
 </code>
 		</div>
 
@@ -311,10 +311,10 @@ if ( ! is_array($foo))
 <code><strong>不正確</strong>:
 // 如果 'foo' 在字串開頭， strpos 會返回 0 ，
 // 這樣會使條件中求值的結果變成 TRUE
-if (strpos($str，'foo') == FALSE)
+if (strpos($str, 'foo') == FALSE)
 
 <strong>正確</strong>:
-if (strpos($str，'foo') === FALSE)
+if (strpos($str, 'foo') === FALSE)
 </code>
 
 <code><strong>不正確</strong>:
@@ -588,12 +588,12 @@ _convert_text()		// 私有方法</code>
 			<p>不要在一行裡面使用多個敘述。</p>
 
 <code><strong>不正確</strong>:
-$foo = 'this'; $bar = 'that'; $bat = str_replace($foo，$bar，$bag);
+$foo = 'this'; $bar = 'that'; $bat = str_replace($foo, $bar, $bag);
 
 <strong>正確</strong>:
 $foo = 'this';
 $bar = 'that';
-$bat = str_replace($foo，$bar，$bag);
+$bat = str_replace($foo, $bar, $bag);
 </code>
 		</div>
 
@@ -625,16 +625,16 @@ $bat = str_replace($foo，$bar，$bag);
 <code><strong>不正確</strong>:
 // keywords are lowercase and query is too long for
 // a single line (... indicates continuation of line)
-$query = $this->db->query("select foo，bar，baz，foofoo，foobar as raboof，foobaz from exp_pre_email_addresses
-...where foo != 'oof' and baz != 'zab' order by foobaz limit 5，100");
+$query = $this->db->query("select foo, bar, baz, foofoo, foobar as raboof, foobaz from exp_pre_email_addresses
+...where foo != 'oof' and baz != 'zab' order by foobaz limit 5, 100");
 
 <strong>正確</strong>:
-$query = $this->db->query("SELECT foo，bar，baz，foofoo，foobar AS raboof，foobaz
+$query = $this->db->query("SELECT foo, bar, baz, foofoo, foobar AS raboof, foobaz
 				FROM exp_pre_email_addresses
 				WHERE foo != 'oof'
 				AND baz != 'zab'
 				ORDER BY foobaz
-				LIMIT 5，100");</code>
+				LIMIT 5, 100");</code>
 		</div>
 
 
@@ -643,7 +643,7 @@ $query = $this->db->query("SELECT foo，bar，baz，foofoo，foobar AS raboof，
 		<div class="guidelineDetails">
 			<p>在適當時就給函數參數預設值，這可以幫助避免在不正確呼叫函數時產生 PHP 錯誤，並且提供了備用值以節省幾行程式碼。參考範例：</p>
 
-<code>function foo($bar = ''，$baz = FALSE)</code>
+<code>function foo($bar = '', $baz = FALSE)</code>
 		</div>
 
 

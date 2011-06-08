@@ -121,7 +121,7 @@ class Page extends Controller {<br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['page_title'] =  'Your title';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('header');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('menu');<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('content'，$data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('content', $data);<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('footer');<br />
 &nbsp;&nbsp;&nbsp;}<br />
 <br />
@@ -144,12 +144,12 @@ class Page extends Controller {<br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'message' => 'My Message'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->load->view('blogview'，<var>$data</var>);</code>
+$this->load->view('blogview', <var>$data</var>);</code>
 
 <p>這裡有個使用 object 的範例:</p>
 
 <code>$data = new Someclass();<br />
-$this->load->view('blogview'，<var>$data</var>);</code>
+$this->load->view('blogview', <var>$data</var>);</code>
 
 <p>注意: 如果你使用 object 的話，類別變數(class variables)會轉成 array elements。</p>
 
@@ -165,7 +165,7 @@ class Blog extends CI_Controller {
 		$data['title'] = "My Real Title";
 		$data['heading'] = "My Real Heading";
 
-		$this->load->view('blogview'，$data);
+		$this->load->view('blogview', $data);
 	}
 }
 ?&gt;
@@ -206,7 +206,7 @@ class Blog extends CI_Controller {
 		$data['title'] = "My Real Title";
 		$data['heading'] = "My Real Heading";
 
-		$this->load->view('blogview'，$data);
+		$this->load->view('blogview', $data);
 	}
 }
 ?&gt;
@@ -245,7 +245,7 @@ class Blog extends CI_Controller {
 <p>其中第三個 <strong>選擇性</strong> 參數，可以讓你改變函數的行為，所以你可以把資送如字串般傳回，然後將它送至你的瀏覽器。假如有時你要以某些方式來處理資料的話，這還蠻好用的。譬如你可以把參數設定成<kbd>true</kbd> 布林值(boolean)，他就會傳回資料。預設的函數行為是 <kbd>false</kbd>，為送至你的瀏覽器。記得你若要資料回傳的話，記得給予它正確的變數值:</p>
 
 
-<code>$string = $this->load->view('<var>myfile</var>'，''，<kbd>true</kbd>);</code>
+<code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
 
 </div>
 <!-- END CONTENT -->

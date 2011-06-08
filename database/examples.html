@@ -77,7 +77,7 @@ Database 快速入門
 
 <h2>標準的多結果查詢（物件版）</h2>
 
-<code>$query = $this->db->query('SELECT name，title，email FROM my_table');<br />
+<code>$query = $this->db->query('SELECT name, title, email FROM my_table');<br />
 <br />
 foreach ($query->result() as $row)<br />
 {<br />
@@ -95,7 +95,7 @@ echo 'Total Results: ' . $query->num_rows();
 
 <h2>標準的多結果查詢（陣列版）</h2>
 
-<code>$query = $this->db->query('SELECT name，title，email FROM my_table');<br />
+<code>$query = $this->db->query('SELECT name, title, email FROM my_table');<br />
 <br />
 foreach ($query->result_array() as $row)<br />
 {<br />

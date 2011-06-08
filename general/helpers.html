@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>補助函數(Helper Functions) : CodeIgniter 使用手冊</title>
+<title>補助函數 (Helper Functions) : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-補助函數(Helper Functions)
+補助函數 (Helper Functions)
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -87,7 +87,7 @@
 
 <p>如果你需要載入多個補助函數，只要在一個陣列中指定，像這樣：</p>
 
-<code>$this->load->helper( <samp>array(</samp>'<var>helper1</var>'，'<var>helper2</var>'，'<var>helper3</var>'<samp>)</samp> );</code>
+<code>$this->load->helper( <samp>array(</samp>'<var>helper1</var>', '<var>helper2</var>', '<var>helper3</var>'<samp>)</samp> );</code>
 
 <h2>自動載入補助函數</h2>
 
@@ -101,7 +101,7 @@
 
 <p>例如，要使用 <dfn>anchor()</dfn> 函數在你的檢視(view)檔案中產生連結，你可以這樣做：</p>
 
-<code>&lt;?php echo anchor('blog/comments'，'Click Here');?&gt;</code>
+<code>&lt;?php echo anchor('blog/comments', 'Click Here');?&gt;</code>
 
 <p>其中 "Click Here" 是連結的名稱，而 "blog/comments" 是你要連結到的控制器(controller)/函數的URI。</p>
 
@@ -123,7 +123,7 @@ function any_in_array($needle，$haystack)<br />
 	<br />
 &nbsp;&nbsp;&nbsp;&nbsp;foreach ($needle as $item)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (in_array($item，$haystack))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (in_array($item, $haystack))<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return TRUE;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />

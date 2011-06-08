@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>處理多個環境 : CodeIgniter 使用手冊</title>
+<title>環境變數處理 : CodeIgniter 使用手冊</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -42,9 +42,9 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.tw/">CodeIgniter 首頁</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">使用手冊首頁</a> &nbsp;&#8250;&nbsp;
-處理多個環境
+環境變數處理
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.tw/user_guide/" />搜尋使用手冊&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,20 +55,16 @@
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>處理多個環境</h1>
+<h1>環境變數處理</h1>
 
 <p>
-    Developers often desire different system behavior depending on whether
-    an application is running in a development or production
-    environment. For example, verbose error output is something that would
-    be useful while developing an application, but it may also pose a security issue when "live".
+    程式開發者常常根據目前是開發階段或者是產品階段來調整系統狀況。舉例來說錯誤輸出對於開發階段是非常有用的，但是如果產品"上線"了，這錯誤訊息就是代表著系統漏洞甚至安全訊息的疑慮。
 </p>
 
-<h2>The ENVIRONMENT Constant</h2>
+<h2>ENVIRONMENT 常數</h2>
 
 <p>
-    By default, CodeIgniter comes with the environment constant set to
-    '<kbd>development</kbd>'. At the top of index.php, you will see:
+    CodeIgniter 預設將環境變數設定為 '<kbd>development</kbd>'. 在 index.php 頂端你會發現底下程式碼:
 </p>
 
 <code>
@@ -76,35 +72,25 @@ define('<var>ENVIRONMENT</var>', '<var>development</var>');
 </code>
 
 <p>
-    In addition to affecting some basic framework behavior (see the next section),
-    you may use this constant in your own development to differentiate
-    between which environment you are running in.
+    除了會影響一些框架行為之外(參考下一節)，您可以使用此變數來區分目前開發環境.
 </p>
 
-<h2>Effects On Default Framework Behavior</h2>
+<h2>預設框架行為的影響</h2>
 
 <p>
-    There are some places in the CodeIgniter system where the <kbd>ENVIRONMENT</kbd>
-    constant is used. This section describes how default framework behavior is
-    affected.
+    在原始 CodeIgniter 系統裡面，此變數備用在某些地方，此章節會描述環境變數 <kbd>ENVIRONMENT</kbd> 所帶來的影響。
 </p>
 
-<h3>Error Reporting</h3>
+<h3>錯誤回報 (Error Reporting)</h3>
 
 <p>
-    Setting the <kbd>ENVIRONMENT</kbd> constant to a value of '<kbd>development</kbd>' will
-    cause all PHP errors to be rendered to the browser when they occur. Conversely,
-    setting the constant to '<kbd>production</kbd>' will disable all error output. Disabling
-    error reporting in production is a <a href="security.html">good security practice</a>.
+    設定 <kbd>ENVIRONMENT</kbd> 值為 '<kbd>development</kbd>' 將會打開所有錯誤訊息，遇到 PHP 錯誤，瀏覽器將會顯示其訊息，相反地，如果設定為 '<kbd>production</kbd>'，系統將會關閉錯誤訊息。關閉錯誤訊息是最好的<a href="security.html">安全顧慮</a>。
 </p>
 
-<h3>Configuration Files</h3>
+<h3>設定檔 (Configuration Files)</h3>
 
 <p>
-    Optionally, you can have CodeIgniter load environment-specific
-    configuration files. This may be useful for managing things like differing API keys
-    across multiple environments. This is described in more detail in the
-    environment section of the <a href="../libraries/config.html#environments">Config Class</a> documentation.
+    此功能可以選擇性的使用，您可以讀取特定的 environment 設定檔，對於需要多種環境的開發者來說相當方便，使用方式可以參考 <a href="../libraries/config.html#environments">Config Class</a> 線上文件。
 </p>
 
 </div>
@@ -113,11 +99,11 @@ define('<var>ENVIRONMENT</var>', '<var>development</var>');
 
 <div id="footer">
 <p>
-Previous Topic:&nbsp;&nbsp;<a href="managing_apps.html">Managing Applications</a>
+上個主題:&nbsp;&nbsp;<a href="managing_apps.html">管理 Applications<</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="alternative_php.html">Alternative PHP Syntax</a>
+<a href="#top">回到頂端</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">使用手冊首頁</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+下個主題:&nbsp;&nbsp;<a href="alternative_php.html">變換 PHP 句法</a>
 </p>
 <p><a href="http://www.codeigniter.org.tw">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>

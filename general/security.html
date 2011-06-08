@@ -85,18 +85,11 @@
 <h2>error_reporting</h2>
 
 <p>
-    In production environments, it is typically desirable to disable PHP's
-    error reporting by setting the internal error_reporting flag to a value of 0. This disables native PHP
-    errors from being rendered as output, which may potentially contain
-    sensitive information.
+    在上線產品網站環境中，只要將 error_reporting 設定為 0 就可以停止所有錯誤輸出。關閉錯誤輸出將會隱藏掉淺在的錯誤資訊。
 </p>
 
 <p>
-    Setting CodeIgniter's <kbd>ENVIRONMENT</kbd> constant in index.php to a
-    value of '<kbd>production</kbd>' will turn off these errors. In development
-    mode, it is recommended that a value of '<kbd>development</kbd>' is used.
-    More information about differentiating between environments can be found
-    on the <a href="environments.html">Handling Environments</a> page.
+    在 index.php 檔案 設定 CodeIgniter 的 <kbd>ENVIRONMENT</kbd> 變數值為 '<kbd>production</kbd>'，系統環境將會關閉錯誤輸出。如果在開發環境之下，建議將 <kbd>ENVIRONMENT</kbd> 設定為 '<kbd>development</kbd>'，如果想要瞭解更多不同的環境變數值，請參考 <a href="environments.html">處理多個環境</a> 線上文件。
 </p>
 
 <h2>magic_quotes_runtime</h2>

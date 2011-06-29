@@ -90,9 +90,12 @@ URLS
 
 <p>你可以輕鬆的把 index.php 用 .htaccess 移除，只消對 index.php 設定些簡單的規則。請參考底下的範例。使用 negative 方式把全部都導向，除了某些制定的項目:</p>
 
-<code>RewriteEngine on<br />
-RewriteCond $1 !^(index\.php|images|robots\.txt)<br />
-RewriteRule ^(.*)$ /index.php/$1 [L]</code>
+<code>
+RewriteEngine on<br />
+RewriteBase /<br />
+RewriteCond $1 !^(index\.php|images|robots\.txt|$)<br />
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]<br />
+</code>
 
 <p>在上述的範例中，像是 index.php、images、robots.txt 的全部 HTTP request 都會被當成是 request index.php 檔案。</p>
 

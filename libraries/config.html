@@ -89,13 +89,13 @@ Config 類別
 
 <code>
 // 用像這樣的原型存放在一個陣列中： $this->config['blog_settings'] = $config<br />
-$this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);</code>
+$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);</code>
 
 <p>請參見底下的 <dfn>取得設定項目</dfn> 這一節來學習如何用這個方式取得設定項目。</p>
 
 <p>第三個參數讓你抑制當設定檔不存在時會產生的錯誤訊息。</p>
 
-<code>$this->config->load('<var>blog_settings</var>'，<dfn>FALSE</dfn>，<kbd>TRUE</kbd>);</code>
+<code>$this->config->load('<var>blog_settings</var>', <dfn>FALSE</dfn>, <kbd>TRUE</kbd>);</code>
 
 </li>
 <li><strong>自動載入</strong>
@@ -121,10 +121,10 @@ $this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);</code>
 
 <code>
 // 載入一個叫做 blog_settings.php 的設定檔，並指派一個叫做 "blog_settings" 的索引<br />
-$this->config->load('<var>blog_settings</var>'，<kbd>TRUE</kbd>);<br /><br />
+$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);<br /><br />
 
 // 從 blog_settings 陣列中取得一個叫做 site_name 的設定項目<br />
-$site_name = $this->config->item('<dfn>site_name</dfn>'，'<var>blog_settings</var>');<br /><br />
+$site_name = $this->config->item('<dfn>site_name</dfn>', '<var>blog_settings</var>');<br /><br />
 
 // 另一個指定相同項目的方法：<br />
 $blog_config = $this->config->item('<var>blog_settings</var>');<br />
@@ -134,46 +134,41 @@ $site_name = $blog_config['site_name'];</code>
 
 <p>如果你要動態設定一個設定項目或是修改一個現存的項目，你可以用：</p>
 
-<code>$this->config->set_item('<var>item_name</var>'，'<var>item_value</var>');</code>
+<code>$this->config->set_item('<var>item_name</var>', '<var>item_value</var>');</code>
 
 <p>其中 <var>item_name</var> 是你要修改 $config 陣列索引，而 <var>item_value</var> 是它的值。</p>
 
 <a name="environments"></a>
-<h2>Environments</h2>
+<h2>環境變數 (Environments)</h2>
 
 <p>
-    You may load different configuration files depending on the current environment.
-    The <kbd>ENVIRONMENT</kbd> constant is defined in index.php, and is described
-    in detail in the <a href="../general/environments.html">Handling Environments</a>
-    section.
+    您可以根據目前環境來載入不同的設定檔。<kbd>ENVIRONMENT</kbd> 常數值被定義在 index.php，詳細描述可以參考 <a href="../general/environments.html">Handling Environments</a> 章節。
 </p>
 
 <p>
-    To create an environment-specific configuration file,
-    create or copy a configuration file in application/config/{ENVIRONMENT}/{FILENAME}.php
+    新增一個 environment-specific 設定檔，新增或複製 application/config/{ENVIRONMENT}/{FILENAME}.php
 </p>
 
-<p>For example, to create a production-only config.php, you would:</p>
+<p>舉例來說，建立 production-only config.php，步驟如下:</p>
 
 <ol>
-    <li>Create the directory application/config/production/</li>
-    <li>Copy your existing config.php into the above directory</li>
-    <li>Edit application/config/production/config.php so it contains your production settings</li>
+    <li>建立目錄 application/config/production/</li>
+    <li>複製您的 config.php 到到上面目錄</li>
+    <li>編輯 application/config/production/config.php，此檔案包含產品各項設定值</li>
 </ol>
 
 <p>
-    When you set the <kbd>ENVIRONMENT</kbd> constant to 'production', the settings
-    for your new production-only config.php will be loaded.
+    當您設定 <kbd>ENVIRONMENT</kbd> 常數值為 'production'，就可以載入新的 production-only config.php 設定值。
 </p>
 
-<p>You can place the following configuration files in environment-specific folders:</p>
+<p>您可以放置底下檔案到特定 environment-specific 目錄裡:</p>
 
 <ul>
-<li>Default CodeIgniter configuration files</li>
-<li>Your own custom configuration files</li>
+<li>預設 CodeIgniter 設定檔案</li>
+<li>您自己定義的設定檔</li>
 </ul>
 
-<p><strong>Note:</strong> CodeIgniter always tries to load the configuration files for the current environment first. If the file does not exist, the global config file (i.e., the one in <samp>application/config/</samp>) is loaded. This means you are not obligated to place <strong>all</strong> of your configuration files in an environment folder &minus; only the files that change per environment.</p>
+<p><strong>注意:</strong> CodeIgniter 會先嘗試載入目前環境的設定檔，如果找不到就會載入全域設定檔案(例如: 檔案在 <samp>application/config/</samp> 目錄)。這意思是說您不需要將<strong>所有</strong>設定檔都放在 environment 目錄，只要將每個環境所需要改變的資料放入即可。</p>
 
 <h2>補助函數(Helper Functions)</h2>
 

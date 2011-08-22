@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊版本 2.0.2</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.0.3</h1></td>
 <td id="breadcrumb_right"><a href="./toc.html">目錄</a></td>
 </tr>
 </table>
@@ -58,6 +58,59 @@
 <h1>版本紀錄</h1>
 
 <p>標示有 <img src="images/reactor-bullet.png" width="16" height="16" alt="Reactor Marker" /> 符號表示透過 CodeIgniter Reactor 貢獻到 CodeIgniter。</p>
+
+<a name="2.0.3"></a>
+<h2>版本 2.0.3</h2>
+<p>發佈日期: August 20, 2011</p>
+
+<ul>
+	<li>安全性 (Security)
+		<ul>
+			<li>An improvement was made to the MySQL and MySQLi drivers to prevent exposing a potential vector for SQL injection on sites using multi-byte character sets in the database client connection.  <p>An incompatibility in PHP versions &lt; 5.2.3 and MySQL &lt; 5.0.7 with <em>mysql_set_charset()</em> creates a situation where using multi-byte  character sets on these environments may potentially expose a SQL injection attack vector.  Latin-1, UTF-8, and other "low ASCII" character sets are unaffected on all environments.</p>  <p class="critical">If you are running or considering running a multi-byte character set for your database connection, please pay close attention to the server environment you are deploying on to ensure you are not vulnerable.</p></li>
+		</ul>
+	<li>一般變更 (General changes)
+		<ul>
+			<li>Fixed a bug where there was a misspelling within a code comment in the index.php file.</li>
+			<li>Added Session Class userdata to the output profiler.  Additionally, added a show/hide toggle on HTTP Headers, Session Data and Config Variables.</li>
+			<li>Removed internal usage of the <samp>EXT</samp> constant.</li>
+			<li>Visual updates to the welcome_message view file and default error templates. Thanks to <a href="https://bitbucket.org/danijelb">danijelb</a> for the pull request.</li>
+			<li class="reactor">Added <samp>insert_batch()</samp> function to the PostgreSQL database driver.  Thanks to epallerols for the patch.</li>
+			<li class="reactor">Added "application/x-csv" to mimes.php.</li>
+			<li>Fixed a bug where <a href="libraries/email.html">Email library</a> attachments with a "." in the name would using invalid MIME-types.</li>
+		</ul>
+	</li>
+	<li>補助函式 (Helpers)
+		<ul>
+			<li>Added an optional third parameter to <samp>heading()</samp> which allows adding html attributes to the rendered heading tag.</li>
+		</ul>
+	</li>
+	<li>函式庫 (Libraries)
+		<ul>
+			<li>Altered Session to use a longer match against the user_agent string. See upgrade notes if using database sessions.</li>
+			<li class="reactor">Added <kbd>is_unique</kbd> to the <a href="libraries/form_validation.html">Form Validation library</a>.</li>
+			<li class="reactor">Added <kbd>$this->db->set_dbprefix()</kbd> to the <a href="database/queries.html">Database Driver</a>.</li>
+			<li class="reactor">Changed <kbd>$this->cart->insert()</kbd> in the <a href="libraries/cart.html">Cart Library</a> to return the Row ID if a single item was inserted successfully.</li>
+			<li class="reactor">Added <kbd>$this->load->get_var()</kbd> to the <a href="libraries/loader.html">Loader library</a> to retrieve global vars set with <kbd>$this->load->view()</kbd> and <kbd>$this->load->vars()</kbd>.</li>
+			<li>Changed <kbd>$this->db->having()</kbd> to insert quotes using escape() rather than escape_str().</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>2.0.3 修正</h3>
+<ul>
+	<li class="reactor">Added ENVIRONMENT to reserved constants. (Reactor #196)</li>
+	<li class="reactor">Changed server check to ensure SCRIPT_NAME is defined. (Reactor #57)</li>
+	<li class="reactor">Removed <samp>APPPATH.'third_party'</samp> from the packages autoloader to negate needless file stats if no packages exist or if the developer does not load any other packages by default.</li>
+	<li>Fixed a bug (Reactor #231) where Sessions Library database table example SQL did not contain an index on last_activity. See <a href="installation/upgrade_203.html">Upgrade Notes</a>.</li>
+	<li>Fixed a bug (Reactor #229) where the Sessions Library example SQL in the documentation contained incorrect SQL.</li>
+	<li>Fixed a bug (Core #340) where when passing in the second parameter to $this->db->select(), column names in subsequent queries would not be properly escaped.</li>
+	<li class="reactor">Fixed issue #199 - Attributes passed as string does not include a space between it and the opening tag.</li>
+	<li class="reactor">Fixed a bug where the method <kbd>$this->cart->total_items()</kbd> from <a href="libraries/cart.html">Cart Library</a> now returns the sum of the quantity of all items in the cart instead of your total count.</li>
+	<li class="reactor">Fixed a bug where not setting 'null' when adding fields in db_forge for mysql and mysqli drivers would default to NULL instead of NOT NULL as the docs suggest.</li>
+	<li class="reactor">Fixed a bug where using <kbd>$this->db->select_max()</kdb>, <kbd>$this->db->select_min()</kdb>, etc could throw notices. Thanks to w43l for the patch.</li>
+	<li class="reactor">Replace checks for STDIN with php_sapi_name() == 'cli' which on the whole is more reliable. This should get parameters in crontab working.</li>
+</ul>
+
 
 <a name="2.0.2"></a>
 <h2>版本 2.0.2</h2>

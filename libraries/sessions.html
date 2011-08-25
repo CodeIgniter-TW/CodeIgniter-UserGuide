@@ -100,7 +100,7 @@ an <a href="./encryption.html">encryption key</a> in your config file which is u
 <ul>
 <li>單一且不重複的使用者Session ID（此為一統計意義上具極大亂度(entropy)的隨機字串。為具備可移植性, 採MD5演算法作雜湊運算, 且預設每五分鐘重新產生一次）</li>
 <li>使用者的IP位址</li>
-<li>用戶瀏覽器的User Agent資料（取前50個字元）</li>
+<li>用戶瀏覽器的User Agent資料（取前120個字元）</li>
 <li>"上次活動"(last activity)時間戳記</li>
 </ul>
 
@@ -159,6 +159,24 @@ cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更�
 <p class="important"><strong>注意:</strong> Cookie只能儲存4KB的資料, 因此使用時需注意勿超過此限制。此外若是有對資料作加密的動作, 由於
 加密後會產生比原始資料長度還要長的字串, 因此更需留意儲存資料的數量。</p>
 
+<h2>取得所有 Session 資料</h2>
+<p>透過底下方式可以取得所有 userdata 的陣列資料:</p>
+<code>$this-&gt;session-&gt;all_userdata()</code>
+
+<p>回傳的陣列就如同底下資料:</p>
+
+<pre>
+Array
+(
+    [session_id] => 4a5a5dca22728fb0a84364eeb405b601
+    [ip_address] => 127.0.0.1
+    [user_agent] => Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7;
+    [last_activity] => 1303142623
+)
+</pre>
+
+
+
 <h2>刪除Session資料</h2>
 <p>如同set_userdata()可用來新增資料至session中, 使用者亦可透過傳遞session的key值給unset_userdata() 函數來刪除該筆資料。舉例來說, 若想
 從session中刪除'some_name'：</p>
@@ -189,15 +207,16 @@ $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 
 <p>為了將session儲存於資料庫中, 必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
 
-<textarea class="textarea" style="width:100%" cols="50" rows="8">
-CREATE TABLE IF NOT EXISTS  `ci_sessions` (
-session_id varchar(40) DEFAULT '0' NOT NULL,
-ip_address varchar(16) DEFAULT '0' NOT NULL,
-user_agent varchar(50) NOT NULL,
-last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-user_data text DEFAULT '' NOT NULL,
-PRIMARY KEY (session_id)
-);</textarea>
+<textarea class="textarea" style="width:100%" cols="50" rows="10">
+	session_id varchar(40) DEFAULT '0' NOT NULL,
+	ip_address varchar(16) DEFAULT '0' NOT NULL,
+	user_agent varchar(120) NOT NULL,
+	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+	user_data text NOT NULL,
+	PRIMARY KEY (session_id),
+	KEY `last_activity_idx` (`last_activity`)
+);
+</textarea>
 
 <p><strong>注意：</strong>該表格預設名稱為<dfn>ci_sessions</dfn>, 但可藉由修改<kbd>application/config/config.php</kbd>來設定你想要的
 表格名稱。建立了資料庫表格之後, 便可以在config.php中啟動資料庫選項, 如下所示：</p>

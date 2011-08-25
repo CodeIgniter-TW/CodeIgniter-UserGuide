@@ -51,7 +51,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/libraries.html">使用 CodeIgniter 程式庫</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">新增程式庫(Library)</a></li>' +
 			'<li><a href="'+base+'general/drivers.html">使用 CodeIgniter Drivers</a></li>' +
-			'<li><a href="'+base+'general/creating_drivers.html">新增 Drivers</a></li>' +
+			'<li><a href="'+base+'general/creating_drivers.html">新增個人 Drivers</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">新增核心類別</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - 擴充核心</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">自動載入資源</a></li>' +

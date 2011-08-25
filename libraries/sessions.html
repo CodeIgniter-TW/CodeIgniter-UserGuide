@@ -148,12 +148,12 @@ cookie被寫入時間超過5分鐘以上才會更新。此間隔亦可藉由更�
 
 
 <p><code>$newdata = array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'username'&nbsp; => 'johndoe',<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'email'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'johndoe@some-site.com',<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'logged_in' => TRUE<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
-	<br />
-	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'username'&nbsp; => 'johndoe',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'email'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'johndoe@some-site.com',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'logged_in' => TRUE<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+    <br />
+    $this->session->set_userdata(<samp>$newdata</samp>);</code></p>
 <p>若要一次新增一筆資料, set_userdata()亦支援下面的寫法。</p>
 <p><code>$this-&gt;session-&gt;set_userdata('some_name', 'some_value');</code></p>
 <p class="important"><strong>注意:</strong> Cookie只能儲存4KB的資料, 因此使用時需注意勿超過此限制。此外若是有對資料作加密的動作, 由於
@@ -208,13 +208,13 @@ $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <p>為了將session儲存於資料庫中, 必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
-	session_id varchar(40) DEFAULT '0' NOT NULL,
-	ip_address varchar(16) DEFAULT '0' NOT NULL,
-	user_agent varchar(120) NOT NULL,
-	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-	user_data text NOT NULL,
-	PRIMARY KEY (session_id),
-	KEY `last_activity_idx` (`last_activity`)
+    session_id varchar(40) DEFAULT '0' NOT NULL,
+    ip_address varchar(16) DEFAULT '0' NOT NULL,
+    user_agent varchar(120) NOT NULL,
+    last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+    user_data text NOT NULL,
+    PRIMARY KEY (session_id),
+    KEY `last_activity_idx` (`last_activity`)
 );
 </textarea>
 
@@ -247,64 +247,64 @@ unset_userdata()</dfn>函式。</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-	<th>參數</th>
-	<th>預設值</th>
-	<th>選項</th>
-	<th>說明</th>
+    <th>參數</th>
+    <th>預設值</th>
+    <th>選項</th>
+    <th>說明</th>
 </tr>
 <tr>
-	<td class="td"><strong>sess_cookie_name</strong></td>
-	<td class="td">ci_session</td>
-	<td class="td">無</td>
-	<td class="td">儲存session cookie所要使用的名稱。</td>
+    <td class="td"><strong>sess_cookie_name</strong></td>
+    <td class="td">ci_session</td>
+    <td class="td">無</td>
+    <td class="td">儲存session cookie所要使用的名稱。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_expiration</strong></td>
-	<td class="td">7200</td>
-	<td class="td">無</td>
-	<td class="td">session所要保留的時間（秒）, 預設為2個小時（7200秒）, 若希望session永遠有效, 將此值設為0。</td>
+    <td class="td"><strong>sess_expiration</strong></td>
+    <td class="td">7200</td>
+    <td class="td">無</td>
+    <td class="td">session所要保留的時間（秒）, 預設為2個小時（7200秒）, 若希望session永遠有效, 將此值設為0。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_expire_on_close</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to cause the session to expire automatically when the browser window is closed.</td>
+    <td class="td"><strong>sess_expire_on_close</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (boolean)</td>
+    <td class="td">Whether to cause the session to expire automatically when the browser window is closed.</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_encrypt_cookie</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (布林值)</td>
-	<td class="td">是否加密session資料。</td>
+    <td class="td"><strong>sess_encrypt_cookie</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布林值)</td>
+    <td class="td">是否加密session資料。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_use_database</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (布林值)</td>
-	<td class="td">是否將session資料儲存於資料庫, 必須在啟用此選項前先建立一資料庫表格。</td>
+    <td class="td"><strong>sess_use_database</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布林值)</td>
+    <td class="td">是否將session資料儲存於資料庫, 必須在啟用此選項前先建立一資料庫表格。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_table_name</strong></td>
-	<td class="td">ci_sessions</td>
-	<td class="td">任何有效的SQL表格名稱</td>
-	<td class="td">session的資料庫表格名稱。</td>
+    <td class="td"><strong>sess_table_name</strong></td>
+    <td class="td">ci_sessions</td>
+    <td class="td">任何有效的SQL表格名稱</td>
+    <td class="td">session的資料庫表格名稱。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_time_to_update</strong></td>
-	<td class="td">300</td>
-	<td class="td">以秒計時</td>
-	<td class="td">此選項控制session類別多久重新產生一session以及新的session id。</td>
+    <td class="td"><strong>sess_time_to_update</strong></td>
+    <td class="td">300</td>
+    <td class="td">以秒計時</td>
+    <td class="td">此選項控制session類別多久重新產生一session以及新的session id。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_match_ip</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (布林值)</td>
-	<td class="td">是否根據對應的使用者IP來讀取session資料。需注意某些ISP會動態地改變用戶IP, 因此, 在此情況下必須將此選項設為FALSE, 以得到永久有效的session。</td>
+    <td class="td"><strong>sess_match_ip</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布林值)</td>
+    <td class="td">是否根據對應的使用者IP來讀取session資料。需注意某些ISP會動態地改變用戶IP, 因此, 在此情況下必須將此選項設為FALSE, 以得到永久有效的session。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_match_useragent</strong></td>
-	<td class="td">TRUE</td>
-	<td class="td">TRUE/FALSE (布林值）</td>
-	<td class="td">是否根據對應的User Agent來讀取session資料。</td>
+    <td class="td"><strong>sess_match_useragent</strong></td>
+    <td class="td">TRUE</td>
+    <td class="td">TRUE/FALSE (布林值）</td>
+    <td class="td">是否根據對應的User Agent來讀取session資料。</td>
 </tr>
 </table>
 

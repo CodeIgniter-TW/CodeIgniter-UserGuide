@@ -69,7 +69,7 @@ HTML Table 類別
 
 <h2>範例</h2>
 
-<p>這個範例將告訴你如何以一個多維的陣列來建出一個表格內的欄位。陣列的第一個索引將會成為表格的標題(或是你可以在之後使用 <dfn>set_heading()</dfn> 函數來設定你想要的表格標題)</p>
+<p>這個範例將告訴你如何以一個多維的陣列來建出一個表格內的欄位，陣列的第一個索引將會成為表格的標題(或是你可以在之後使用 <dfn>set_heading()</dfn> 函數來設定你想要的表格標題)</p>
 
 <code>
 $this->load->library('table');<br />
@@ -202,7 +202,7 @@ $this->table->add_row($cell, 'Red', 'Green');<br />
 
 <h2>$this->table->make_columns()</h2>
 
-<p>這個函式藉由輸入一個一維陣列與你想要欄位個數來產生一個多維陣列，以此多維陣列來產生表格:</p>
+<p>這個函式藉由輸入一個一維陣列與你想要欄位個數來產生一個多維陣列，並以此多維陣列來產生表格:</p>
 
 <code>
 $list = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve');<br />
@@ -248,7 +248,7 @@ $this->table->set_empty("&amp;nbsp;");
 
 <h2>$this->table->clear()</h2>
 
-<p>清除表格，當你想要顯示多個表格時你應該先清除先前所建立的資料:</p>
+<p>清除表格，當你想要顯示多個表格時你應該先清除先前所建立的表格資料:</p>
 
 <code>
 $this->load->library('table');<br />
@@ -272,7 +272,7 @@ echo $this->table->generate();
 
 <h2>$this->table->function</h2>
 
-<p>指定一個PHP的原生函數或是一個有效的函數陣列物件給表格中的各個欄位</p>
+<p>指定一個 PHP 的原生函數或是一個有效的函數物件給表格中的各個欄位</p>
 
 <code>$this->load->library('table');<br />
 <br />
@@ -283,7 +283,7 @@ $this->table->function = 'htmlspecialchars';<br />
 echo $this->table->generate();<br />
 </code>
 
-<p>在上述的範例中，各個欄位的內容都經過 <dfn>htmlspecialchars()</dfn> 函數</p>
+<p>在上述的範例中，各個欄位的內容都經過 <dfn>htmlspecialchars()</dfn> 函數的轉換:</p>
 
 <code>&lt;td&gt;Fred&lt;/td&gt;&lt;td&gt;&amp;lt;strong&amp;gt;Blue&amp;lt;/strong&amp;gt;&lt;/td&gt;&lt;td&gt;Small&lt;/td&gt;</code>
 </div>

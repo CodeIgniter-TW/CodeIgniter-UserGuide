@@ -81,7 +81,7 @@ URI 類別
 
 <code>$product_id = $this->uri->segment(3，0);</code>
 
-<p>It helps avoid having to write code like this:</p>
+<p>它可以有效的避免出現以下的程式碼:</p>
 
 <code>if ($this->uri->segment(3) === FALSE)<br />
 {<br />
@@ -95,20 +95,18 @@ else<br />
 
 <h2>$this->uri->rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one，except that it lets you retrieve a specific segment from your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 的事件時，你還可以透過此函數取得你所指定的 re-routed 區段</p>
 
 
 <h2>$this->uri->slash_segment(<var>n</var>)</h2>
 
-<p>This function is almost identical to <dfn>$this->uri->segment()</dfn>，except it adds a trailing and/or leading slash based on the second
-parameter.  If the parameter is not used，a trailing slash added.  Examples:</p>
+<p>這個函數幾乎與 <dfn>$this->uri->segment()</dfn> 函數相同，除此之外它還有第二個參數來讓你決定加入斜線的地方，如以下範例所示:</p>
 
 <code>$this->uri->slash_segment(<var>3</var>);<br />
 $this->uri->slash_segment(<var>3</var>，'leading');<br />
 $this->uri->slash_segment(<var>3</var>，'both');</code>
 
-<p>Returns:</p>
+<p>回傳:</p>
 
 <ol>
 <li>segment/</li>
@@ -119,18 +117,17 @@ $this->uri->slash_segment(<var>3</var>，'both');</code>
 
 <h2>$this->uri->slash_rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one，except that it lets you add slashes a specific segment from your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 時，可以讓你從 re-routed URI 中指定區段來增加斜線</p>
 
 
 
 <h2>$this->uri->uri_to_assoc(<var>n</var>)</h2>
 
-<p>This function lets you turn URI segments into and associative array of key/value pairs.  Consider this URI:</p>
+<p>這個函數讓你將 URI 區段轉換成關聯式陣列，範例如下:</p>
 
 <code>index.php/user/search/name/joe/location/UK/gender/male</code>
 
-<p>Using this function you can turn the URI into an associative array with this prototype:</p>
+<p>使用這個函數可以讓你將 URI 轉換成如下方的關聯式陣列:</p>
 
 <code>[array]<br />
 (<br />
@@ -139,8 +136,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 &nbsp;&nbsp;&nbsp;&nbsp;'gender'	=> 'male'<br />
 )</code>
 
-<p>The first parameter of the function lets you set an offset.  By default it is set to <kbd>3</kbd> since your
-URI will normally contain a controller/function in the first and second segments. 參考範例:</p>
+<p>第一個參數可以讓你決定位移量，預設位移量是 <kbd>3</kbd> ，因為以一般來說第 1 參數與第 2 參數通常都是控制器與函數:</p>
 
 <code>
 $array = $this->uri->uri_to_assoc(3);<br />
@@ -149,27 +145,24 @@ echo $array['name'];
 </code>
 
 
-<p>The second parameter lets you set default key names，so that the array returned by the function will always contain expected indexes，even if missing from the URI. 參考範例:</p>
+<p>第二個參數可以讓你設定預設的陣列索引值，因此即使 URI 沒有包含到個索引，還是有索引值可以回傳:</p>
 
 <code>
 $default = array('name'，'gender'，'location'，'type'，'sort');<br />
 <br />
 $array = $this->uri->uri_to_assoc(3，$default);</code>
 
-<p>If the URI does not contain a value in your default，an array index will be set to that name，with a value of FALSE.</p>
-
-<p>Lastly，if a corresponding value is not found for a given key (if there is an odd number of URI segments) the value will be set to FALSE (boolean).</p>
+<p>假如 URI 的內容中沒有包含你所設定的索引預設值，陣列依舊會把這個索引加入，並且設定值為 FALSE</p>
 
 
 <h2>$this->uri->ruri_to_assoc(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one，except that it creates an associative array using the
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 時，它可以讓你從 re-routed URI 中建立一個關聯式陣列</p>
 
 
 <h2>$this->uri->assoc_to_uri()</h2>
 
-<p>Takes an associative array as input and generates a URI string from it.  The array keys will be included in the string.  參考範例:</p>
+<p>建立一個關連式陣列來作為輸端並且產生 URI 字串的格式</p>
 
 <code>$array = array('product' => 'shoes'，'size' => 'large'，'color' => 'red');<br />
 <br />
@@ -181,37 +174,35 @@ $str = $this->uri->assoc_to_uri($array);<br />
 
 <h2>$this->uri->uri_string()</h2>
 
-<p>Returns a string with the complete URI.  For example，if this is your full URL:</p>
+<p>回傳完整的 URI 字串，假設你的網址字串為:</p>
 
 <code>http://example.com/index.php/news/local/345</code>
 
-<p>The function would return this:</p>
+<p>此函數將回傳:</p>
 
 <code>/news/local/345</code>
 
 
 <h2>$this->uri->ruri_string()</h2>
 
-<p>This function is identical to the previous one，except that it returns the
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 時，它將回傳 re-routed URI</p>
 
 
 
 <h2>$this->uri->total_segments()</h2>
 
-<p>Returns the total number of segments.</p>
+<p>回傳區段個數</p>
 
 
 <h2>$this->uri->total_rsegments()</h2>
 
-<p>This function is identical to the previous one，except that it returns the total number of segments in your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 時，它將從 re-routed URI 回傳區段個數</p>
 
 
 
 <h2>$this->uri->segment_array()</h2>
 
-<p>Returns an array containing the URI segments.  For 參考範例:</p>
+<p>回傳一個陣列並且包含 URI 區段:</p>
 
 <code>
 $segs = $this->uri->segment_array();<br />
@@ -224,8 +215,7 @@ foreach ($segs as $segment)<br />
 
 <h2>$this->uri->rsegment_array()</h2>
 
-<p>This function is identical to the previous one，except that it returns the array of segments in your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>這個函數與上個函數相同，除此之外當你使用 <a href="../general/routing.html">URI Routing</a> 時，它將從 re-routed URI 回傳一個陣列並且包含 URI 區段</p>
 
 
 

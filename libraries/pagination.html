@@ -130,7 +130,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂起始分頁連結名稱</h2>
 
 <h4>$config['first_link'] = 'First';</h4>
-<p>您希望在分頁左邊顯示"第一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁左邊顯示"第一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['first_tag_open'] = '&lt;div>';</h4>
 <p>第一頁連結左邊標籤。</p>
@@ -141,7 +141,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂結束分頁連結名稱</h2>
 
 <h4>$config['last_link'] = 'Last';</h4>
-<p>您希望在分頁右邊顯示"最後一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁右邊顯示"最後一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['last_tag_open'] = '&lt;div>';</h4>
 <p>最後一頁連結左邊標籤。</p>
@@ -152,7 +152,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"下一頁"連結名稱</h2>
 
 <h4>$config['next_link'] = '&amp;gt;';</h4>
-<p>您希望在分頁中顯示"下一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁中顯示"下一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['next_tag_open'] = '&lt;div>';</h4>
 <p>下一頁連結左邊標籤。</p>
@@ -163,7 +163,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"上一頁"連結名稱</h2>
 
 <h4>$config['prev_link'] = '&amp;lt;';</h4>
-<p>您希望在分頁中顯示"上一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁中顯示"上一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['prev_tag_open'] = '&lt;div>';</h4>
 <p>上一頁連結的左邊標籤。</p>
@@ -188,18 +188,18 @@ echo  $this->pagination->create_links();</code>
 <h4>$config['num_tag_close'] = '&lt;/div>';</h4>
 <p>分頁數字連結右邊標籤。</p>
 
-<h2>Hiding the Pages</h2>
+<h2>隱藏頁數</h2>
 
-<p>If you wanted to not list the specific pages (for example, you only want "next" and "previous" links), you can suppress their rendering by adding:</p>
+<p>如果你不想顯示頁數，例如你只想顯示上一頁與下一頁，你可以加入:</p>
 
 <code>
 $config['display_pages'] = FALSE;
 </code>
 
 
-<h2>Adding a class to every anchor</h2>
+<h2>加入 class 屬性</h2>
 
-<p>If you want to add a class attribute to every link rendered by the pagination class, you can set the config "anchor_class" equal to the classname you want.</p>
+<p>如果你想要為每個分頁類別的連結加入 class，你可以設定 "anchor_class" 為你要的 class</p>
 </div>
 <!-- END CONTENT -->
 

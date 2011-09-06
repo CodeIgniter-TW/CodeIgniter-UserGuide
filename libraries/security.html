@@ -94,12 +94,11 @@ Security 類別
 
 <h2>$this->security->sanitize_filename()</h2>
 
-<p>When accepting filenames from user input, it is best to sanitize them to prevent directory traversal and other security related issues.  To do so, use the <dfn>sanitize_filename()</dfn> method of the Security class.  Here is an example:</p>
+<p>當允許使用者輸入檔名時，最好的方式是針對輸入值做消毒的動作，以防出現路徑遍訪 (directory traversal) 的漏洞:</p>
 
 <code>$filename = $this->security->sanitize_filename($this->input->post('filename'));</code>
 
-<p>If it is acceptable for the user input to include relative paths, e.g. <kbd>file/in/some/approved/folder.txt</kbd>, you can set the second optional parameter,
-	<samp>$relative_path</samp> to TRUE.</p>
+<p>當接受使用者輸入路徑時，例如: <kbd>file/in/some/approved/folder.txt</kbd> 你可以將第二個參數 <samp>$relative_path</samp> 設定為 TRUE</p>
 
 <code>$filename = $this->security->sanitize_filename($this->input->post('filename'), TRUE);</code>
 
@@ -107,10 +106,10 @@ Security 類別
 
 <h2>Cross-site request forgery (CSRF)</h2>
 
-<p>You can enable csrf protection by opening your <kbd>application/config/config.php</kbd> file and setting this:</p>
+<p>你可以啟動 (CSRF) 的預防，透過 <kbd>application/config/config.php</kbd>，並且設定如下:</p>
 <code>$config['csrf_protection'] = TRUE;</code>
 
-<p>If you use the <a href="../helpers/form_helper.html">form helper</a> the <var>form_open()</var> function will automatically insert a hidden csrf field in your forms.</p>
+<p>如果你使用 <a href="../helpers/form_helper.html">form helper</a> 中的 <var>form_open()</var> 函數時，隱藏的 csrf 欄位就會自動的藏在表單中</p>
 
 </div>
 <!-- END CONTENT -->

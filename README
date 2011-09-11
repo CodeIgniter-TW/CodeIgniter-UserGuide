@@ -27,4 +27,5 @@ CodeIgniter 為你而存在，假如 ..
 如果想要最新的中文翻譯文件，請利用 git 方式取得：
 git clone git://github.com/appleboy/PHP-CodeIgniter-Framework-Taiwan.git 
 
-中文官方文件翻譯：appleboy, jiz, fillano, spin 
+非常感謝底下貢獻者 (Many thanks to our contributors)：
+https://github.com/appleboy/PHP-CodeIgniter-Framework-Taiwan/contributors

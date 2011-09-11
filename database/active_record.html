@@ -516,11 +516,10 @@ $this->db->insert('mytable', $object);
 
 <p>第一個參數會包含資料表名稱, 第二個參數是包含要存入值的物件。</p>
 
-<p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的查詢。</p>
+<p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的語法。</p>
 
 <h2>$this->db->insert_batch();</h2>
-<p>Generates an insert string based on the data you supply, and runs the query. You can either pass an
-<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+<p>根據你提供的資料產生一個 insert 字串, 然後執行新增。你可以傳入一個 <strong>陣列</strong> 或是一個 <strong>物件</strong> 給函數。這是一個使用陣列的範例：</p>
 
 <code>
 $data = array(<br />
@@ -536,13 +535,13 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;)<br />
 );<br />
 <br />
-$this->db->insert_batch('mytable', $data);
+$this->db->update_batch('mytable', $data);
 <br /><br />
-// Produces: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
+// 產生: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
 
-<p>The first parameter will contain the table name, the second is an associative array of values.</p>
+<p>第一個參數會包含資料表名稱，第二個參數是一個包含要存入值的關聯陣列。</p>
 
-<p class="important"><strong>Note:</strong> All values are escaped automatically producing safer queries.</p>
+<p class="important"><strong>注意:</strong> 所有的值都會自動跳脫(escape)以產生較安全的語法。</p>
 
 
 

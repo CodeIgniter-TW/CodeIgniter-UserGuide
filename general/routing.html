@@ -161,6 +161,11 @@ example.com/product/4/
 <p>這個路由指定在URI裡沒有任何資料時要載入哪個控制器(controller)類別，人們載入根URL時就是這個情況。在上例中，"welcome"類別將被載入。你要儘量有一個預設路由，否則預設會出現一個404頁面。
 </p>
 
+<code>$route['404_override'] = '';</code>
+
+<p>This route indicates which controller class should be loaded if the requested controller is not found. It will override the default 404
+error page. It won't affect to the <samp>show_404()</samp> function, which will continue loading the default <dfn>error_404.php</dfn> file at <var>application/errors/error_404.php</var>.</p>
+
 <p class="important"><strong>非常重要：</strong>保留的路由必須在任何萬用字元或正規式路由之前。
 </p>
 

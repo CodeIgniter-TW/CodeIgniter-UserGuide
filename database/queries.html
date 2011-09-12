@@ -84,6 +84,11 @@
 <p><code>$this-&gt;db-&gt;dbprefix('tablename');<br />
 // 輸出 prefix_tablename</code></p>
 
+<p>If for any reason you would like to change the prefix programatically without needing to create a new connection, you can use this method:</p>
+<p><code>$this-&gt;db-&gt;set_dbprefix('newprefix');<br /><br />
+$this-&gt;db-&gt;dbprefix('tablename');<br />
+// outputs newprefix_tablename</code></p>
+
 
 <h1>保護標識符號 (Protecting identifiers)</h1>
 <p>在眾多資料庫中最好保護資料表跟欄位名稱 - 例如在 MySQL 使用反引號. <strong>Active Record 查詢都已被自動的保護</strong>，如果您需要手動保護的標識符號可以使用:</p>

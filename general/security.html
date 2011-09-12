@@ -73,13 +73,9 @@
 <li>減號 Dash: -</li>
 </ul>
 
-<h2>GET，POST，以及COOKIE資料</h2>
-
-<p>既然 CodeIgniter 使用 URI 片段而不是傳統的 URL 查詢字串，GET 資料是不允許使用的（除非你在設定檔中啟動使用查詢字串(query string)）。整體的 GET 陣列會在系統初始化時被 input 類別 <strong>unset</strong>。</p>
-
 <h2>Register_globals</h2>
 
-<p>除了在 $_POST 以及 $_COOKIE 陣列中找到的變數，在系統初始化時，所有的整體變數都會 <strong>unset</strong> ，這個 unsetting 常式效用等同於 register_globals = off 選項設定。</p>
+<p>除了在 $_GET, $_POST, 以及 $_COOKIE 陣列中找到的變數，在系統初始化時，所有的整體變數都會 <strong>unset</strong> ，這個 unsetting 常式效用等同於 register_globals = off 選項設定。</p>
 
 <a name="error_reporting"></a>
 <h2>error_reporting</h2>

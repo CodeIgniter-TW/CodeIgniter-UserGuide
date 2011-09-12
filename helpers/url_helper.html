@@ -69,7 +69,7 @@ URL 輔助函數
 
 <h2>site_url()</h2>
 
-<p>傳回您在config.php設定檔中指定的的網站 URL。index.php 檔 （或在您的設定檔config.php中作為您的網站 <dfn>index_page</dfn> 的任何設置） 將加到該 URL，將任何 URI 段參數傳遞給該函數。</p>
+<p>回傳您在 config.php 檔案中所定義的網站 URL。當你傳入任何 URI segments 到函數，index.php (或是 config.php 設定檔案裡定義的 <dfn>index_page</dfn>) 將會自動將 URI segments 及 <dfn>url_suffix</dfn> 增加到 URL 後面。</p>
 
 <p>任何時候要建立一個本地的 URL時，建議你使用本函數，以方便在URL改變事件中，您的頁面變得更可擕性。</p>
 
@@ -90,6 +90,20 @@ echo site_url($segments);</code>
 <h2>base_url()</h2>
 <p>傳回在 config.php 中設定的 base_url。 例如:</p>
 <code>echo base_url();</code>
+
+<p>This function returns the same thing as site_url, without the <dfn>index_page</dfn> or <dfn>url_suffix</dfn> being appended.</p>
+
+<p>Also like site_url, you can supply segments as a string or an array.  Here is a string example:</p>
+
+<code>echo base_url("blog/post/123");</code>
+
+<p>The above example would return something like: http://example.com/blog/post/123</p>
+
+<p>This is useful because unlike site_url(), you can supply a string to a file, such as an image or stylesheet.  For example:</p>
+
+<code>echo base_url("images/icons/edit.png");</code>
+
+<p>This would give you something like: http://example.com/images/icons/edit.png</p>
 
 
 <h2>current_url()</h2>

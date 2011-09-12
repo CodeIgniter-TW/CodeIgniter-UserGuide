@@ -77,6 +77,12 @@ HTML 輔助函數
 <p>讓您產生 &lt;h1> 相關標籤.  第一個參數請輸入顯示字串，第二個參數來代表您所要顯示的 heading 大小. 參考範例:</p>
 <code>echo heading('Welcome!'，3);</code>
 <p>上述程式碼將產生:  &lt;h3>Welcome!&lt;/h3></p>
+ 
+<p>Additionally, in order to add attributes to the heading tag such as HTML classes, ids or inline styles, a third parameter is available.</p>
+<code>echo heading('Welcome!', 3, 'class="pink"')</code>
+<p>The above code produces: &lt;h3 class="pink">Welcome!<&lt;h3></p>
+
+
 <h2>img()</h2>
 <p>讓您產生 &lt;img /&gt; 相關標籤。第一個參數包含圖片相關原始碼. 參考範例:</p>
 <code>echo img('images/picture.jpg');<br />

@@ -61,7 +61,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/caching.html">快取</a></li>' +
 			'<li><a href="'+base+'general/profiling.html">Application 效能分析</a></li>' +
             '<li><a href="'+base+'general/cli.html">透過指令(CLI)執行</a></li>' +
-			'<li><a href="'+base+'general/managing_apps.html">管理 Applications</a></li>' +
+			'<li><a href="'+base+'general/managing_apps.html">Application 管理</a></li>' +
 			'<li><a href="'+base+'general/environments.html">環境變數處理</a></li>' +
 			'<li><a href="'+base+'general/alternative_php.html">變換 PHP 句法</a></li>' +
 			'<li><a href="'+base+'general/security.html">安全性</a></li>' +

@@ -90,13 +90,13 @@ Loader 類別
 
 <p>你可以自行建立任何的子目錄來放置程式庫</p>
 
-<p>Additionally, multiple libraries can be loaded at the same time by passing an array of libraries to the load function.</p>
+<p>此外，您可以同時間透過陣列傳遞來達到載入多個 library。</p>
 
 <code>$this->load->library(array('<var>email</var>', '<var>table</var>'));</code>
 
-<h3>設置選項 Setting options</h3>
+<h3>設定選擇 Setting options</h3>
 
-<p>第二個參數 (可選擇的) 允許你設置設定值.  你可以經由一個陣列(array)來傳遞設定值:</p>
+<p>透過第二個參數來傳遞設定值(可選擇的)。典型的方式就透是過陣列 (array) 傳遞：</p>
 
 <code>
 $config = array (<br />
@@ -109,7 +109,7 @@ $this->load->library('email',$config);</code>
 
 <p>設定選項(Setting options)可以經由單一的設定檔(config file)來設定. 每個程式庫(library)的詳細功能說明在各自的說明文件中, 所以請閱讀你想使用的程式庫的相關資訊.</p>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, each will receive the same parameter information.</p>
+<p>請注意, 當您設定第一個參數，用陣列來載入多個 library，每個 Library 將會接受相同的參數設定資料。</p>
 
 <h3>指定程式庫(Library)為不同的物件名稱</h3>
 
@@ -125,53 +125,40 @@ $this->my_session
 
 </code>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, this parameter is discarded.</p>
+<p>請注意, 當您設定第一個參數，用陣列來載入多個 library，那麼第三個自訂參數將會失去作用。</p>
 
 <h2>$this->load->view('<var>file_name</var>', <samp>$data</samp>, <kbd>true/false</kbd>)</h2>
 
-<p>This function is used to load your View files.  If you haven't read the <a href="../general/views.html">Views</a> section of the
-user guide it is recommended that you do since it shows you how this function is typically used.</p>
+<p>此函式用來載入您的 View 檔案。假如您尚未閱讀使用手冊中 <a href="../general/views.html">Views</a> 章節，那非常建議您先閱讀此章節，它會告訴您如何使用此函式。</p>
 
-<p>The first parameter is required.  It is the name of the view file you would like to load. &nbsp;注意: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
+<p>第一個參數是必填的，請填入您要載入的 view 檔案。&nbsp;注意: .php 副檔名並不需要被包含在第一個參數裏面，除非您使用的檔案名稱並非是 <kbd>.php</kbd> 結尾。</p>
 
-<p>The second <strong>optional</strong> parameter can take
-an associative array or an object as input,which it runs through the PHP <a href="http://www.php.net/extract">extract</a> function to
-convert to variables that can be used in your view files.  Again,read the <a href="../general/views.html">Views</a> page to learn
-how this might be useful.</p>
+<p>第二個<strong>選擇性</strong>參數可以是一個關聯式陣列或者是物件，並且透過 PHP <a href="http://www.php.net/extract">extract</a> 函式將物件或陣列轉換成變數使用在 View 檔案裡。再次透過閱讀 <a href="../general/views.html">Views</a> 章節了解更多使用方法。</p>
 
-<p>The third <strong>optional</strong> parameter lets you change the behavior of the function so that it returns data as a string
-rather than sending it to your browser.  This can be useful if you want to process the data in some way.  If you
-set the parameter to <kbd>true</kbd> (boolean) it will return data.  The default behavior is <kbd>false</kbd>,which sends it
-to your browser.  Remember to assign it to a variable if you want the data returned:</p>
+<p>第三個<strong>選擇性</strong>參數讓您改變函數的行為，它會將資料當作字串回傳，而不是直接輸出到瀏覽器。這作法非常有用，您可以透過設定參數為 <kbd>true</kbd> (boolean)，函式將會回傳資料字串。函式預設行為是 <kbd>false</kbd>，將資料輸出到瀏覽器。假如您設定為 <kbd>true</kbd>，請記住將回傳資料分配給變數：</p>
 
-<code>$string = $this->load->view('<var>myfile</var>','',<kbd>true</kbd>);</code>
+<code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
 
 
 <h2>$this-&gt;load-&gt;model('<var>Model_name</var>');</h2>
 <p><code>$this-&gt;load-&gt;model('<var>Model_name</var>');</code></p>
-<p>If your model is located in a sub-folder,include the relative path from your models folder. For example,if you have a model located at application/models/blog/queries.php you'll load it using:</p>
+<p>假如您的 model 存放在 model 目錄底下的子目錄，那麼請把相對目錄也必須包含進來。舉例來說，假如您有一個 model 存放在 application/models/blog/queries.php，你應該使用底下的語句來載入它：</p>
 <p><code>$this-&gt;load-&gt;model('<var>blog/queries</var>');</code></p>
-<p>If you would like your model assigned to a different object name you can specify it via the second parameter of the loading
-	function:</p>
+<p>假如您想要自訂 model 名稱，請在函數的第二個參數中給出你自行定義的名稱：</p>
 <code> $this-&gt;load-&gt;model('<var>Model_name</var>', '<kbd>fubar</kbd>');<br />
 <br />
 $this-&gt;<kbd>fubar</kbd>-&gt;function();</code>
 <h2>$this->load->database('<var>options</var>',<kbd>true/false</kbd>)</h2>
-<p>This function lets you load the database class.  The two parameters are <strong>optional</strong>.  Please see the
-<a href="../database/index.html">database</a> section for more info.</p>
+<p>這個函數的作用是載入 database 類別，其中兩個參數都可以<strong>選擇性</strong>設定。更多詳細資訊請參考 <a href="../database/index.html">database</a> 章節。</p>
 
 <h2>$this->load->vars(<samp>$array</samp>)</h2>
 
-<p>This function takes an associative array as input and generates variables using the PHP <a href="http://www.php.net/extract">extract</a> function.
-This function produces the same result as using the second parameter of the <dfn>$this->load->view()</dfn> function above.  The reason you might
-want to use this function independently is if you would like to set some global variables in the constructor of your controller
-and have them become available in any view file loaded from any function.  You can have multiple calls to this function.  The data get cached
-and merged into one array for conversion to variables.
+<p>此函式接受一個關聯式陣列，使用 PHP <a href="http://www.php.net/extract">extract</a> 函數將陣列轉換成變數。此函數處理結果就如同上面 <dfn>$this->load->view()</dfn> 函數處理第二個參數是一樣的。假如您想要設定全域變數控制器內的建構子 (constructor of your controller)，並且使這些變數可以任意用在控制器的 view 檔案，這些 view 檔案可以讓控制器內的任意函數所呼叫。你也可以重複呼叫 $this->load->vars(<samp>$array</samp>) 函數，資料將會被快取且合併成單一陣列，並且透過 <a href="http://www.php.net/extract">extract</a> 轉換成多個變數。
 </p>
 
 <h2>$this->load->get_var(<samp>$key</samp>)</h2>
 
-<p>This function checks the associative array of variables available to your views. This is useful if for any reason a var is set in a library or another controller method using $this->load->vars().
+<p>此函數將會檢查目前您的 View 檔案關聯式陣列變數裡是否存在此變數。這不管對於您的變數是在 library 或者是其他 controller 裏面透過 $this->load->vars() 設定都非常有用。
 </p>
 
 

@@ -79,7 +79,7 @@ URI 類別
 
 <p>假如指定區段不存在，此函數將會回傳 FALSE (boolean)。如果該區段不存在，您也可以設定第二個參數來代表。底下例子代表說，當發生區段不存在時，就會回傳預設值 0：</p>
 
-<code>$product_id = $this->uri->segment(3，0);</code>
+<code>$product_id = $this->uri->segment(3, 0);</code>
 
 <p>它可以有效的避免出現以下的程式碼:</p>
 
@@ -103,8 +103,8 @@ else<br />
 <p>這個函數幾乎與 <dfn>$this->uri->segment()</dfn> 函數相同，除此之外它還有第二個參數來讓你決定加入斜線的地方，如以下範例所示:</p>
 
 <code>$this->uri->slash_segment(<var>3</var>);<br />
-$this->uri->slash_segment(<var>3</var>，'leading');<br />
-$this->uri->slash_segment(<var>3</var>，'both');</code>
+$this->uri->slash_segment(<var>3</var>, 'leading');<br />
+$this->uri->slash_segment(<var>3</var>, 'both');</code>
 
 <p>回傳:</p>
 
@@ -148,9 +148,9 @@ echo $array['name'];
 <p>第二個參數可以讓你設定預設的陣列索引值，因此即使 URI 沒有包含到個索引，還是有索引值可以回傳:</p>
 
 <code>
-$default = array('name'，'gender'，'location'，'type'，'sort');<br />
+$default = array('name', 'gender', 'location', 'type', 'sort');<br />
 <br />
-$array = $this->uri->uri_to_assoc(3，$default);</code>
+$array = $this->uri->uri_to_assoc(3, $default);</code>
 
 <p>假如 URI 的內容中沒有包含你所設定的索引預設值，陣列依舊會把這個索引加入，並且設定值為 FALSE</p>
 
@@ -164,7 +164,7 @@ $array = $this->uri->uri_to_assoc(3，$default);</code>
 
 <p>建立一個關連式陣列來作為輸端並且產生 URI 字串的格式</p>
 
-<code>$array = array('product' => 'shoes'，'size' => 'large'，'color' => 'red');<br />
+<code>$array = array('product' => 'shoes', 'size' => 'large', 'color' => 'red');<br />
 <br />
 $str = $this->uri->assoc_to_uri($array);<br />
 <br />

@@ -88,22 +88,22 @@ echo site_url($segments);</code>
 
 
 <h2>base_url()</h2>
-<p>傳回在 config.php 中設定的 base_url。 例如:</p>
+<p>取得在 config.php 中設定的 base_url 值，範例:</p>
 <code>echo base_url();</code>
 
-<p>This function returns the same thing as site_url, without the <dfn>index_page</dfn> or <dfn>url_suffix</dfn> being appended.</p>
+<p>此函數回傳值就像 site_url 函式，但是不包含後面 <dfn>index_page</dfn> 或 <dfn>url_suffix</dfn> 字串。</p>
 
-<p>Also like site_url, you can supply segments as a string or an array.  Here is a string example:</p>
+<p>就如同 site_url 函數，您可以提供字串或者是陣列。底下是字串範例：</p>
 
 <code>echo base_url("blog/post/123");</code>
 
-<p>The above example would return something like: http://example.com/blog/post/123</p>
+<p>上述例子將會回傳字串：http://example.com/blog/post/123</p>
 
-<p>This is useful because unlike site_url(), you can supply a string to a file, such as an image or stylesheet.  For example:</p>
+<p>這函數非常有用，並非像是 site_url()，您可以提供檔案路徑，像是 image 路徑或者是 CSS 路徑，範例：</p>
 
 <code>echo base_url("images/icons/edit.png");</code>
 
-<p>This would give you something like: http://example.com/images/icons/edit.png</p>
+<p>上述例子將會回傳字串：http://example.com/images/icons/edit.png</p>
 
 
 <h2>current_url()</h2>

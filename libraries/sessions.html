@@ -208,6 +208,7 @@ $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <p>為了將session儲存於資料庫中, 必須先建立一表格。以下是session類別所需的基本表格結構（適用於MySQL）：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
+CREATE TABLE IF NOT EXISTS  `ci_sessions` (
     session_id varchar(40) DEFAULT '0' NOT NULL,
     ip_address varchar(16) DEFAULT '0' NOT NULL,
     user_agent varchar(120) NOT NULL,

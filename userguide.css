@@ -413,3 +413,43 @@ form {
  margin: 0;
  padding: 1px 5px 2px 5px;
 }
+
+.label {
+  padding: 1px 3px 2px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: #bfbfbf;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.label.important {
+  background-color: #c43c35;
+}
+
+.label.warning {
+  background-color: #f89406;
+}
+
+.label.success {
+  background-color: #46a546;
+}
+
+.label.notice {
+  background-color: #62cffc;
+}
+
+.label.github {
+    font-size: 1.3em;
+}
+
+#chinese {
+    margin: 0 auto;
+    text-align: center;
+}

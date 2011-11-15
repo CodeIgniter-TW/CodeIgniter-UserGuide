@@ -38,6 +38,15 @@ function create_menu(basepath)
 			'<li><a href="'+base+'overview/goals.html">架構目標</a></li>' +
 		'</ul>' +
 
+		'<h3>基礎教學 <span class="label warning">入門必看</span></h3>' +
+		'<ul>' +
+			'<li><a href="'+base+'tutorial/index.html">基本簡介</a></li>' +
+			'<li><a href="'+base+'tutorial/static_pages.html">靜態頁面</a></li>' +
+			'<li><a href="'+base+'tutorial/news_section.html">新聞模組介紹</a></li>' +
+			'<li><a href="'+base+'tutorial/create_news_items.html">動態新增新聞</a></li>' +
+			'<li><a href="'+base+'tutorial/conclusion.html">結論</a></li>' +
+		'</ul>' +
+
 		'</td><td class="td_sep" valign="top">' +
 
 		'<h3>一般主題</h3>' +
@@ -95,6 +104,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/javascript.html">Javascript 類別</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Loader 類別</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Language 類別</a></li>' +
+		'<li><a href="'+base+'libraries/migration.html">Migration 類別</a></li>' +
 		'<li><a href="'+base+'libraries/output.html">Output 類別</a></li>' +
 		'<li><a href="'+base+'libraries/pagination.html">Pagination 類別</a></li>' +
 		'<li><a href="'+base+'libraries/security.html">Security 類別</a></li>' +

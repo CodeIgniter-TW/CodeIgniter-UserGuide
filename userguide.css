@@ -417,6 +417,7 @@ form {
 .label {
   padding: 1px 3px 2px;
   font-weight: bold;
+  font-size: 9.75px;
   color: #ffffff;
   text-transform: uppercase;
   white-space: nowrap;

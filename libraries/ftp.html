@@ -72,7 +72,7 @@ FTP 類別
 
 <h2>使用範例</h2>
 
-<p>以下範例中，首先建立對FTP伺服器的連線，接著讀取本地端檔案並以ASCII模式上傳，最後將檔案權限設為755。注意：欲設定檔案權限，需PHP 5以上版本。</p>
+<p>以下範例中，首先建立對FTP伺服器的連線，接著讀取本地端檔案並以ASCII模式上傳，最後將檔案權限設為755。</p>
 
 <code>
 $this->load->library('ftp');<br />
@@ -180,7 +180,7 @@ $this->ftp->connect($config);<br />
 <p><strong>傳輸模式包含:</strong>&nbsp; <kbd>ascii</kbd>，<kbd>binary</kbd>，及<kbd>auto</kbd> (預設值)。若是選擇
 <kbd>auto</kbd> 模式，則會根據來源檔的副檔名來決定所要使用的傳輸模式。</p>
 
-<p>PHP 5 以後的版本，支援檔案權限的設定。可透過傳遞一<kbd>八進制</kbd>的權限值至第四個參數，來設定檔案權限。</p>
+<p>Permissions can be passed as an <kbd>octal</kbd> value in the fourth parameter.</p>
 
 <h2>$this->ftp->download()</h2>
 
@@ -256,7 +256,7 @@ $this->ftp->mirror('/path/to/myfolder/'，'/public_html/myfolder/');
 
 <h2>$this->ftp->mkdir()</h2>
 
-<p>在伺服器上建立一目錄。需給定欲建立目錄之完整路徑（包含結尾斜線）以作為參數。並可透過傳遞一<kbd>八進制</kbd>權限值至第二個參數以設定檔案權限（僅限PHP 5以上版本）。</p>
+<p>在伺服器上建立一目錄。需給定欲建立目錄之完整路徑（包含結尾斜線）以作為參數。並可透過傳遞一<kbd>八進制</kbd>權限值至第二個參數以設定檔案權限。</p>
 
 <code>
 // 建立一名為"bar" 的目錄<br />

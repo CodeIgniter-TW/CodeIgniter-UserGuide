@@ -72,11 +72,11 @@ Input 類別
 <p>安全過濾函數在執行一個新的<a href="../general/controllers.html">controller</a> 時會自動呼叫。它會執行：</p>
 
 <ul>
-<li>破壞全域 GET 陣列。既然 CodeIgniter 不使用 GET 字串, 也沒有理由要允許使用它。</li>
+<li>If $config['allow_get_array'] is FALSE(default is TRUE), destroys the global GET array.</li>
 <li>在 register_globals 打開時, 破壞所有全域變數。</li>
-<li>過濾 POST/COOKIE 陣列的索引鍵值, 只允許英文文數字與少數其他字元。</li>
++<li>Filters the GET/POST/COOKIE array keys, permitting only alpha-numeric (and a few other) characters.</li>
 <li>提供 XSS (Cross-site Scripting Hacks) 過濾。這可以是全域啟動或根據請求啟動 (request)。</li>
-<li>將換行字元標準化成為 \n 。</li>
++<li>Standardizes newline characters to \n(In Windows \r\n)</li>
 </ul>
 
 <h2>跨網站 XSS 過濾</h2> 
@@ -127,14 +127,14 @@ else<br />
 
 <code>$this->input->post('some_data', TRUE);</code>
 
-<p>回傳 POST 陣列而不帶任何參數</p>
-<p>將第二個參數設為 TURE ，就可以回傳 POST 項目，並且經過 xss 的過濾</p>
-<p>假如 POST 沒有任何項目，則回傳 FALSE</p>
+<p>如果不帶入任何參數，則回傳單一陣列，該陣列包含 POST 所有資料</p>
+<p>如果想利用 XSS 過濾全部 POST 陣列值，請將第一個參數帶入 NULL，第二個參數帶入布林函數 TRUE</p>
+<p>在 GET 陣列沒有找到任何資料，則回傳 FALSE</p>
 
 <code>
-	$this->input->post(); // returns all POST items with XSS filter
+	$this->input->post(NULL, TRUE); // returns all POST items with XSS filter
 	<br />
-	$this->input->post(NULL, FALSE); // returns all POST items without XSS
+	$this->input->post(); // returns all POST items without XSS filter
 </code>
 
 <h2>$this->input->get()</h2>
@@ -143,14 +143,14 @@ else<br />
 
 <code>$this->input->get('some_data', TRUE);</code>
 
-<p>回傳 GET 陣列而不帶任何參數</p>
-<p>將第二個參數設為 TURE ，就可以回傳 GET 項目，並且經過 xss 的過濾</p>
-<p>假如 GET 沒有任何項目，則回傳 FALSE</p>
+<p>如果不帶入任何參數，則回傳單一陣列，該陣列包含 GET 所有資料</p>
+<p>如果想利用 XSS 過濾全部 GET 陣列值，請將第一個參數帶入 NULL，第二個參數帶入布林函數 TRUE</p>
+<p>在 GET 陣列沒有找到任何資料，則回傳 FALSE</p>
 
 <code>
-	$this->input->get(); // returns all GET items with XSS filter
+ 	$this->input->get(NULL, TRUE); // returns all GET items with XSS filter
 	<br />
-	$this->input->get(NULL, FALSE); // returns all GET items without XSS filtering
+	$this->input->get(); // returns all GET items without XSS filtering
 </code>
 
 <h2>$this->input->get_post()</h2>

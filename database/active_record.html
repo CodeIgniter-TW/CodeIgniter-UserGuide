@@ -332,6 +332,14 @@ $this->db->or_where('id >', $id);
 	$this-&gt;db-&gt;like('title', 'match', 'both'); <br />
 // 產生： WHERE title LIKE '%match%' </code>	</li>
 
+If you do not want to use the wildcard (%) you can pass to the optional third argument the option 'none'.
+
+<code>
+	$this-&gt;db-&gt;like('title', 'match', 'none'); <br />
+// Produces: WHERE title LIKE 'match'
+</code>
+
+
 	<li><strong>關聯陣列方法：</strong>
 
 	<code>
@@ -535,7 +543,7 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;)<br />
 );<br />
 <br />
-$this->db->update_batch('mytable', $data);
+$this->db->insert_batch('mytable', $data);
 <br /><br />
 // 產生: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
 
@@ -654,6 +662,41 @@ $this->db->update('mytable', $object);
 <code>$this->db->update('mytable', $data, array('id' => $id));</code>
 
 <p>你也可以用前面介紹過的 <dfn>$this->db->set()</dfn> 函數來進行更新。</p>
+
+<h2>$this->db->update_batch();</h2>
+<p>Generates an update string based on the data you supply, and runs the query. You can either pass an
+<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+
+<code>
+$data = array(<br/>
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'My Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'My date 2'<br />
+&nbsp;&nbsp;&nbsp;),<br />
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'Another title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'Another Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'Another date 2'<br />
+&nbsp;&nbsp;&nbsp;)<br/>
+);<br />
+<br />
+$this->db->update_batch('mytable', $data, 'title');
+<br /><br />
+// Produces: <br />
+// UPDATE `mytable` SET `name` = CASE<br />
+// WHEN `title` = 'My title' THEN 'My Name 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another Name 2'<br />
+// ELSE `name` END,<br />
+// `date` = CASE <br />
+// WHEN `title` = 'My title' THEN 'My date 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another date 2'<br />
+// ELSE `date` END<br />
+// WHERE `title` IN ('My title','Another title')</code>
+
+<p>The first parameter will contain the table name, the second is an associative array of values, the third parameter is the where key.</p>
+
+<p class="important"><strong>Note:</strong> All values are escaped automatically producing safer queries.</p>
 
 
 <a name="delete">&nbsp;</a>

@@ -90,6 +90,17 @@ alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
 <code>echo random_string('alnum'，16);</code>
 
 
+<h2>increment_string()</h2>
+
+<p>Increments a string by appending a number to it or increasing the number. Useful for creating "copies" or a file or duplicating database content which has unique titles or slugs.</p>
+
+<p>Usage example:</p>
+
+<code>echo increment_string('file', '_'); // "file_1"<br/>
+echo increment_string('file', '-', 2); // "file-2"<br/>
+echo increment_string('file-4'); // "file-5"<br/></code>
+
+
 <h2>alternator()</h2>
 
 <p>當執行一個迴圈時，讓兩個或兩個以上的項目交替使用。參考範例:</p>

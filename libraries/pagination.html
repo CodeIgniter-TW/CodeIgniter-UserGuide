@@ -110,7 +110,11 @@ echo  $this->pagination->create_links();</code>
 <h4>$config['num_links'] = 2;</h4>
 
 <p>放在您目前所在頁數前面跟後面所顯示的分頁數量。舉例來說，參數設定2，就會在前面跟後面兩邊多加兩個頁數，如同此頁最頂端的例子所顯示</p>
-<h4>$config['page_query_string'] = TRUE</h4>
+
+<h4>$config['use_page_numbers'] = TRUE;</h4>
+<p>By default, the URI segment will use the starting index for the items you are paginating. If you prefer to show the the actual page number, set this to TRUE.</p>
+
+<h4>$config['page_query_string'] = TRUE;</h4>
 <p>在預設情況下，分頁類會假設您預設使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的連結就如同底下</p>
 <p><code>http://example.com/index.php/test/page/20</code></p>
 <p>假如您把 $config['enable_query_strings'] 參數設定為 TRUE，您的連結將會自動地被查詢字串所改寫。這個選項可以明確的被設置。把 $config['page_query_string'] 設定為 TRUE，分頁連結將會變成：</p>

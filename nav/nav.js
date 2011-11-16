@@ -38,7 +38,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'overview/goals.html">架構目標</a></li>' +
 		'</ul>' +
 
-		'<h3>基礎教學 <span class="label warning">入門必看</span></h3>' +
+		'<h3>指導手冊 <span class="label warning">入門必看</span></h3>' +
 		'<ul>' +
 			'<li><a href="'+base+'tutorial/index.html">基本簡介</a></li>' +
 			'<li><a href="'+base+'tutorial/static_pages.html">靜態頁面</a></li>' +

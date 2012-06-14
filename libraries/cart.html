@@ -29,8 +29,8 @@
 <div id="masthead"> 
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%"> 
 <tr> 
-<td><h1>CodeIgniter 使用手冊版本 2.0.2</h1></td> 
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td> 
+<td><h1>CodeIgniter 使用手冊版本 2.1.1</h1></td> 
+<td id="breadcrumb_right"><a href="../toc.html">目錄</a></td> 
 </tr> 
 </table> 
 </div> 
@@ -58,29 +58,26 @@ Shopping Cart 類別
  
  
 <h1>Shopping Cart 類別</h1> 
+
+<p>當使用者造訪你的購物網站時，Cart 類別允許讓購物項目新增在 session 中，這些項目可以被檢視並且顯示在標準的 "shopping cart" 格式中，並且可以讓使用者去更新購物項目的數量或是移除這些項目</p> 
+
+<p>請注意，Cart 類別只提供了核心的 "cart" 函數，並不提供如:運輸、信用卡認証或是其它項目的處理</p> 
  
-<p>The Cart Class permits items to be added to a session that stays active while a user is browsing your site.
-These items can be retrieved and displayed in a standard "shopping cart" format, allowing the user to update the quantity or remove items from the cart.</p> 
  
-<p>Please note that the Cart Class ONLY provides the core "cart" functionality.  It does not provide shipping, credit card authorization, or other processing components.</p> 
+<h2>初始化 Shopping Cart 類別</h2> 
  
+<p><strong>重要:</strong> Shopping Cart 類別使用了 CodeIgniter 的 <a href="sessions.html">Session Class</a> 將購物資訊儲存在資料庫中，因此在使用 Shopping Cart 類別前必須先設定好資料庫(詳細請見  <a href="sessions.html">Session Documentation</a> )，並在 <kbd>application/config/config.php</kbd> 設定好 session 的相關設定</p> 
  
-<h2>Initializing the Shopping Cart Class</h2> 
- 
-<p><strong>Important:</strong> The Cart class utilizes CodeIgniter's
-<a href="sessions.html">Session Class</a>  to save the cart information to a database, so before using the Cart class you must set up a database table
-as indicated in the <a href="sessions.html">Session Documentation</a> , and set the session preferences in your <kbd>application/config/config.php</kbd> file to utilize a database.</p> 
- 
-<p>To initialize the Shopping Cart Class in your controller constructor, use the <dfn>$this->load->library</dfn> function:</p> 
+<p>在控制器中初始化 Shopping Cart 類別使用: <dfn>$this->load->library</dfn> 函數:</p> 
  
 <code>$this->load->library('cart');</code> 
-<p>Once loaded, the Cart object will be available using: <dfn>$this->cart</dfn></p> 
+<p>載入之後可以這樣使用: <dfn>$this->cart</dfn></p> 
+
+<p class="important"><strong>注意:</strong> Shopping Cart 類別將會自動載入並且初始化 Session Class，除非你在程式中的別的地方有使用 session，否則你並不需要載入 Session Class</p> 
  
-<p class="important"><strong>Note:</strong> The Cart Class will load and initialize the Session Class automatically, so unless you are using sessions elsewhere in your application, you do not need to load the Session class.</p> 
- 
-<h2>Adding an Item to The Cart</h2> 
- 
-<p>To add an item to the shopping cart, simply pass an array with the product information to the <dfn>$this->cart->insert()</dfn> function, as shown below:</p> 
+<h2>在購物車中新增購物商品</h2> 
+
+<p>透過 <dfn>$this->cart->insert()</dfn> 將一個商品資訊的陣列載入即可:</p> 
  
 <code> 
 $data = array(<br /> 
@@ -95,32 +92,28 @@ $data = array(<br />
 $this->cart->insert($data);
  
 </code> 
+
+<p class="important"><strong>重要:</strong> 前四個索引 (<dfn>id</dfn>、<dfn>qty</dfn>、<dfn>price</dfn> 與 <dfn>name</dfn>) 都是必要的，如果少了其中一項，則資料將不會被儲存，第五個索引 (<dfn>options</dfn>) 是選擇性的，它是使用在當你的商品具有其它資訊需要被記錄時，將其它資訊以陣列的方式儲存</p> 
  
-<p class="important"><strong>Important:</strong> The first four array indexes above (<dfn>id</dfn>, <dfn>qty</dfn>, <dfn>price</dfn>, and <dfn>name</dfn>) are <strong>required</strong>.
-If you omit any of them the data will not be saved to the cart. The fifth index (<dfn>options</dfn>) is optional.
-It is intended to be used in cases where your product has options associated with it. Use an array for options, as shown above.</p> 
- 
-<p>The five reserved indexes are:</p> 
- 
+<p>各保留索引的含意:</p> 
+
 <ul> 
-<li><strong>id</strong> - Each product in your store must have a unique identifier. Typically this will be an "sku" or other such identifier.</li> 
-<li><strong>qty</strong> - The quantity being purchased.
-<li><strong>price</strong> - The price of the item.
-<li><strong>name</strong> - The name of the item.
-<li><strong>options</strong> - Any additional attributes that are needed to identify the product.  These must be passed via an array.
+<li><strong>id</strong> - 每項商品都必須要有一個唯一值來做為辨識</li> 
+<li><strong>qty</strong> - 購買的數量
+<li><strong>price</strong> - 價格
+<li><strong>name</strong> - 商品名稱
+<li><strong>options</strong> - 商品額外資訊，必須使用陣列來作為記錄
 </ul> 
+
+<p>除了以上五個保留索外，另外還有二個保留字: <dfn>rowid</dfn> 與 <dfn>subtotal</dfn>，這二個保留字是用在 Shopping Cart 類別的內部，因此請不要用這二個保留字作為索引</p> 
  
-<p>In addition to the five indexes above, there are two reserved words: <dfn>rowid</dfn> and <dfn>subtotal</dfn>.  These are used internally by the Cart class, so
-please do NOT use those words as index names when inserting data into the cart.</p> 
+<p>針對商品額外資訊，建議你可以在所有商品中訂出一套規則，來讓你更容易的顯示商品資訊</p> 
  
-<p>Your array may contain additional data.  Anything you include in your array will be stored in the session.  However, it is best to standardize your data among
-all your products in order to make displaying the information in a table easier.</p> 
+<p>The insert() method will return the $rowid if you successfully insert a single item.</p>
  
+<h2>在購物車中新增多項購物商品</h2> 
  
-<h2>Adding Multiple Items to The Cart</h2> 
- 
-<p>By using a multi-dimensional array, as shown below, it is possible to add multiple products to the cart in one action.  This is useful in cases where you wish to allow
-people to select from among several items on the same page.</p> 
+<p>如以下所示，透過多維陣列的方式來達成讓使用者在同一時間內選取多項商品</p> 
  
  
 <code> 
@@ -158,11 +151,11 @@ $this->cart->insert($data);
  
  
  
-<h2>Displaying the Cart</h2> 
+<h2>顯示購物車內的商品</h2> 
  
-<p>To display the cart you will create a <a href="../general/views.html">view file</a> with code similar to the one shown below.</p> 
+<p>為了顯示購物車內的商品，你必須建立一個 <a href="../general/views.html">view file</a> 如同以下的範例</p> 
  
-<p>Please note that this example uses the <a href="../helpers/form_helper.html">form helper</a>.</p> 
+<p>請注意，這個範例使用了 <a href="../helpers/form_helper.html">form helper</a></p> 
  
  
 <textarea class="textarea" style="width:100%" cols="50" rows="55"> 
@@ -223,11 +216,11 @@ $this->cart->insert($data);
  
  
  
-<h2>Updating The Cart</h2> 
+<h2>更新購物車內的商品數量</h2> 
+
+<p>透過 <dfn>$this->cart->update()</dfn> 函式載入一個陣列，陣列內容包含 <kbd>Row ID</kbd> 與數量:</p> 
  
-<p>To update the information in your cart, you must pass an array containing the <kbd>Row ID</kbd> and quantity to the <dfn>$this->cart->update()</dfn> function:</p> 
- 
-<p class="important"><strong>Note:</strong> If the quantity is set to zero, the item will be removed from the cart.</p> 
+<p class="important"><strong>注意:</strong> 如果數量為0則商品將會被移出購物車</p> 
  
 <code> 
 $data = array(<br /> 
@@ -238,7 +231,7 @@ $data = array(<br />
  
 $this->cart->update($data);
 <br /><br /> 
-// Or a multi-dimensional array<br /><br /> 
+// 或是一個多維陣列<br /><br /> 
 $data = array(<br /> 
  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br /> 
@@ -265,65 +258,60 @@ $this->cart->update($data);
  
  
 </code> 
- 
-<p><strong>What is a Row ID?</strong>&nbsp; The <kbd>row ID</kbd> is a unique identifier that is generated by the cart code when an item is added to the cart.  The reason a
-unique ID is created is so that identical products with different options can be managed by the cart.</p> 
- 
-<p>For example, let's say someone buys two identical t-shirts (same product ID), but in different sizes.  The product ID (and other attributes) will be
-identical for both sizes because it's the same shirt. The only difference will be the size.  The cart must therefore have a means of identifying this
-difference so that the two sizes of shirts can be managed independently. It does so by creating a unique "row ID" based on the product ID and any options associated with it.</p> 
- 
-<p>In nearly all cases, updating the cart will be something the user does via the "view cart" page, so as a developer, it is unlikely that you will ever have to concern yourself
-with the "row ID", other then making sure your "view cart" page contains this information in a hidden form field, and making sure it gets passed to the update
-function when the update form is submitted. Please examine the construction of the "view cart" page above for more information.</p> 
+
+<p><strong>什麼是 Row ID?</strong>&nbsp; <kbd>row ID</kbd> 是你將商品放物購物車時所產生的一個唯一值，用來標記購物車中的各項商品</p> 
+
+<p>舉例來說，有個人買了二件相同的 t-shirt 但不同尺寸，因此在購物車中會出現二個相同的商品編號，所以購物必須要給各個商品一個唯一的 "row ID" 來作為區別</p> 
+
+<p>一般來說，使用者會透過檢視購物車的頁面來改變商品的數量，所以在此頁面中你必須確定 "row ID" 的資訊有隱藏在表單中。</p> 
  
  
  
 <p>&nbsp;<br /></p> 
  
  
-<h1>Function Reference</h1> 
+<h1>函數參考</h1> 
  
 <h2>$this->cart->insert();</h2> 
  
-<p>Permits you to add items to the shopping cart, as outlined above.</p> 
+<p>允許你新增一樣商品進購物車</p> 
  
  
 <h2>$this->cart->update();</h2> 
  
-<p>Permits you to update items in the shopping cart, as outlined above.</p> 
+<p>允許你更新購物車內的商品</p> 
  
  
 <h2>$this->cart->total();</h2> 
  
-<p>Displays the total amount in the cart.</p> 
+<p>顯示購物車內的商品總金額</p> 
  
  
 <h2>$this->cart->total_items();</h2> 
  
-<p>Displays the total number of items in the cart.</p> 
+<p>顯示購物車內的商品數量</p> 
  
  
 <h2>$this->cart->contents();</h2> 
  
-<p>Returns an array containing everything in the cart.</p> 
+<p>將購物車內的所有商品建立成陣列並且回傳</p> 
  
  
  
 <h2>$this->cart->has_options(rowid);</h2> 
- 
-<p>Returns TRUE (boolean) if a particular row in the cart contains options.  This function is designed to be used in a loop with <dfn>$this->cart->contents()</dfn>, since you must pass the <kbd>rowid</kbd> to this function, as shown in the <dfn>Displaying the Cart</dfn> example above.</p> 
+
+<p>回傳購物車中的特定資料是否有選項，此函數使用在含有 <dfn>$this->cart->contents()</dfn> 的迴圈中並且你必須指定 <kbd>rowid</kbd>，回傳值為布林值</p> 
  
  
 <h2>$this->cart->product_options(rowid);</h2> 
- 
-<p>Returns an array of options for a particular product. This function is designed to be used in a loop with <dfn>$this->cart->contents()</dfn>, since you must pass the <kbd>rowid</kbd> to this function, as shown in the <dfn>Displaying the Cart</dfn> example above.</p> 
+
+<p>回傳購物車中的特定商品是否有選項，此函數使用在含有 <dfn>$this->cart->contents()</dfn> 的迴圈中並且你必須指定 <kbd>rowid</kbd>，回傳值為布林值</p> 
  
  
  
 <h2>$this->cart->destroy();</h2> 
- 
-<p>Permits you to destroy the cart.  This function will likely be called when you are finished processing the customer's order.</p> 
+
+<p>允許你刪除一台購物車，當使用者購物完畢時</p> 
  
  
  

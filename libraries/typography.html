@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊版本 2.0.2</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.1.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -58,84 +58,79 @@ Typography 類別
 
 <h1>Typography 類別</h1>
 
-<p>The Typography 類別 provides functions that help you format text.</p>
+<p>Typography 類別可以幫忙做文字的格式化</p>
 
 
-<h2>Initializing the 類別</h2>
+<h2>初始化類別</h2>
 
-<p>Like most other classes in CodeIgniter，the Typography class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>就像大多數在 CI 中的類別一樣，在控制器中初始化 Typography 類別使用 <dfn>$this->load->library</dfn> 函數:</p>
 
 <code>$this->load->library('typography');</code>
-<p>Once loaded，the Typography library object will be available using: <dfn>$this->typography</dfn></p>
+<p>載入之後，Typography 類別可以這樣使用: <dfn>$this->typography</dfn></p>
 
 
 <h2>auto_typography()</h2>
 
-<p>Formats text so that it is semantically and typographically correct HTML.  Takes a string as input and returns it with
-the following formatting:</p>
+<p>為了語義上的表達與 HTML 排版上的正確性，因此需要做格式化文字的動作，在輸入一個字串後它將回傳以下的格式:</p>
 
 <ul>
-<li>Surrounds paragraphs within &lt;p&gt;&lt;/p&gt; (looks for double line breaks to identify paragraphs).</li>
-<li>Single line breaks are converted to &lt;br /&gt;，except those that appear within &lt;pre&gt; tags.</li>
-<li>Block level elements，like &lt;div&gt; tags，are not wrapped within paragraphs，but their contained text is if it contains paragraphs.</li>
-<li>Quotes are converted to correctly facing curly quote entities，except those that appear within tags.</li>
-<li>Apostrophes are converted to curly apostrophe entities.</li>
-<li>Double dashes (either like -- this or like--this) are converted to em&#8212;dashes.</li>
-<li>Three consecutive periods either preceding or following a word are converted to ellipsis&#8230;</li>
-<li>Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.</li>
+<li>將斷落文字以 &lt;p&gt;&lt;/p&gt; 圍繞(以雙直線來作為段落的區隔)</li>
+<li>將換行轉換成 &lt;br /&gt; 的標籤，除非在換行前面有出現 &lt;pre&gt; 的標籤</li>
+<li>區塊層級的元素，例如像是 &lt;div&gt; 標籤，wrap 屬性在段落中不會生效，但如果其中的文字又包含段落，則不受影響</li>
+<li>在標籤內的雙引號則不會被轉換</li>
+<li>單引號將原封不動</li>
+<li>雙破折號(例如: -- )將被轉成 &#8212;</li>
+<li>在文字前後三個連續的點(...)將被轉作省略符號(&#8230;)</li>
+<li>句子後的空白將被轉換成: &amp;nbsp;</li>
 </ul>
 
-<p>使用範例:</p>
+<p>範例:</p>
 
 <code>$string = $this->typography->auto_typography($string);</code>
 
-<h3>Parameters</h3>
+<h3>參數</h3>
 
-<p>There is one optional parameters that determines whether the parser should reduce more then two consecutive line breaks down to two. Use boolean <kbd>TRUE</kbd> or <kbd>FALSE</kbd>.</p>
+<p>有一個參數可以決定是否將超過二個以上的換行轉換成只有二個，參數值為: <kbd>TRUE</kbd> 或 <kbd>FALSE</kbd></p>
 
-<p>By default the parser does not reduce line breaks. In other words，if no parameters are submitted，it is the same as doing this:</p>
+<p>預設值為: FALSE</p>
 
 <code>$string = $this->typography->auto_typography($string，<kbd>FALSE</kbd>);</code>
 
 
-<p class="important"><strong>注意:</strong> Typographic formatting can be processor intensive，particularly if you have a lot of content being formatted.
-If you choose to use this function you may want to consider
-<a href="../general/caching.html">caching</a> your pages.</p>
+<p class="important"><strong>注意:</strong> 當有大量的內容要格式化時，你可以考慮將網頁做 <a href="../general/caching.html">caching</a></p>
 
 
 
 <h2>format_characters()</h2>
 
-<p>This function is similar to the <dfn>auto_typography</dfn> function above，except that it only does character conversion:</p>
+<p>這個函數與 <dfn>auto_typography</dfn> 非常相似，但它只做:</p>
 
 <ul>
-<li>Quotes are converted to correctly facing curly quote entities，except those that appear within tags.</li>
-<li>Apostrophes are converted to curly apostrophe entities.</li>
-<li>Double dashes (either like -- this or like--this) are converted to em&#8212;dashes.</li>
-<li>Three consecutive periods either preceding or following a word are converted to ellipsis&#8230;</li>
-<li>Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.</li>
+<li>在標籤內的雙引號則不會被轉換</li>
+<li>單引號將原封不動</li>
+<li>雙破折號(例如: -- )將被轉成 &#8212;</li>
+<li>在文字前後三個連續的點(...)將被轉作省略符號(&#8230;)</li>
+<li>句子後的空白將被轉換成: &amp;nbsp;</li>
 </ul>
 
-<p>使用範例:</p>
+<p>範例:</p>
 
 <code>$string = $this->typography->format_characters($string);</code>
 
 
 <h2>nl2br_except_pre()</h2>
 
-<p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
-This function is identical to the native PHP <dfn>nl2br()</dfn> function，except that it ignores &lt;pre&gt; tags.</p>
+<p>將換行加上 &lt;br /&gt; 標籤，除非它出現在 &lt;pre&gt; 標籤的裡面，這個函數與 PHP 原生函數 <dfn>nl2br()</dfn> 相同，差別在對於 &lt;pre&gt; 的忽略與否</p>
 
-<p>使用範例:</p>
+<p>範例:</p>
 
 <code>$string = $this->typography->nl2br_except_pre($string);</code>
 
 <h2>protect_braced_quotes</h2>
 
-<p>When using the Typography library in conjunction with the Template Parser library it can often be desirable to protect single
-	and double quotes within curly braces.  To enable this, set the <kbd>protect_braced_quotes</kbd> class property to <samp>TRUE</samp>.</p>
+<p>當你在 Template Parser 這個類別中使用 Typography 做格式化時，將 <kbd>protect_braced_quotes</kbd> 設定為 <samp>TRUE</samp>，可防止引號被轉換</p>
 
-<p>使用範例:</p>
+<p>範例:</p>
 
 <code>$this->load->library('typography');<br />
 $this->typography->protect_braced_quotes = TRUE;

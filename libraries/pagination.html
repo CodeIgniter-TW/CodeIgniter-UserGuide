@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊版本 2.0.2</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.1.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -71,8 +71,8 @@
 <code>
 $this->load->library('pagination');<br /><br />
 $config['base_url'] = 'http://example.com/index.php/test/page/';<br />
-$config['total_rows'] = '200';<br />
-$config['per_page']  = '20';
+$config['total_rows'] = 200;<br />
+$config['per_page']  = 20;
 <br /><br />
 $this->pagination->initialize($config);
 
@@ -110,7 +110,11 @@ echo  $this->pagination->create_links();</code>
 <h4>$config['num_links'] = 2;</h4>
 
 <p>放在您目前所在頁數前面跟後面所顯示的分頁數量。舉例來說，參數設定2，就會在前面跟後面兩邊多加兩個頁數，如同此頁最頂端的例子所顯示</p>
-<h4>$config['page_query_string'] = TRUE</h4>
+
+<h4>$config['use_page_numbers'] = TRUE;</h4>
+<p>By default, the URI segment will use the starting index for the items you are paginating. If you prefer to show the the actual page number, set this to TRUE.</p>
+
+<h4>$config['page_query_string'] = TRUE;</h4>
 <p>在預設情況下，分頁類會假設您預設使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的連結就如同底下</p>
 <p><code>http://example.com/index.php/test/page/20</code></p>
 <p>假如您把 $config['enable_query_strings'] 參數設定為 TRUE，您的連結將會自動地被查詢字串所改寫。這個選項可以明確的被設置。把 $config['page_query_string'] 設定為 TRUE，分頁連結將會變成：</p>
@@ -130,7 +134,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂起始分頁連結名稱</h2>
 
 <h4>$config['first_link'] = 'First';</h4>
-<p>您希望在分頁左邊顯示"第一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁左邊顯示"第一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['first_tag_open'] = '&lt;div>';</h4>
 <p>第一頁連結左邊標籤。</p>
@@ -141,7 +145,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂結束分頁連結名稱</h2>
 
 <h4>$config['last_link'] = 'Last';</h4>
-<p>您希望在分頁右邊顯示"最後一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁右邊顯示"最後一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['last_tag_open'] = '&lt;div>';</h4>
 <p>最後一頁連結左邊標籤。</p>
@@ -152,7 +156,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"下一頁"連結名稱</h2>
 
 <h4>$config['next_link'] = '&amp;gt;';</h4>
-<p>您希望在分頁中顯示"下一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁中顯示"下一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['next_tag_open'] = '&lt;div>';</h4>
 <p>下一頁連結左邊標籤。</p>
@@ -163,7 +167,7 @@ echo  $this->pagination->create_links();</code>
 <h2>自訂"上一頁"連結名稱</h2>
 
 <h4>$config['prev_link'] = '&amp;lt;';</h4>
-<p>您希望在分頁中顯示"上一頁"的名稱。If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>您希望在分頁中顯示"上一頁"的名稱。如果你不想讓連結呈現，你可以將值設為 FALSE</p>
 
 <h4>$config['prev_tag_open'] = '&lt;div>';</h4>
 <p>上一頁連結的左邊標籤。</p>
@@ -188,18 +192,18 @@ echo  $this->pagination->create_links();</code>
 <h4>$config['num_tag_close'] = '&lt;/div>';</h4>
 <p>分頁數字連結右邊標籤。</p>
 
-<h2>Hiding the Pages</h2>
+<h2>隱藏頁數</h2>
 
-<p>If you wanted to not list the specific pages (for example, you only want "next" and "previous" links), you can suppress their rendering by adding:</p>
+<p>如果你不想顯示頁數，例如你只想顯示上一頁與下一頁，你可以加入:</p>
 
 <code>
 $config['display_pages'] = FALSE;
 </code>
 
 
-<h2>Adding a class to every anchor</h2>
+<h2>加入 class 屬性</h2>
 
-<p>If you want to add a class attribute to every link rendered by the pagination class, you can set the config "anchor_class" equal to the classname you want.</p>
+<p>如果你想要為每個分頁類別的連結加入 class，你可以設定 "anchor_class" 為你要的 class</p>
 </div>
 <!-- END CONTENT -->
 

@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter 使用手冊版本 2.0.2</h1></td>
+<td><h1>CodeIgniter 使用手冊版本 2.1.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">目錄</a></td>
 </tr>
 </table>
@@ -332,6 +332,14 @@ $this->db->or_where('id >', $id);
 	$this-&gt;db-&gt;like('title', 'match', 'both'); <br />
 // 產生： WHERE title LIKE '%match%' </code>	</li>
 
+If you do not want to use the wildcard (%) you can pass to the optional third argument the option 'none'.
+
+<code>
+	$this-&gt;db-&gt;like('title', 'match', 'none'); <br />
+// Produces: WHERE title LIKE 'match'
+</code>
+
+
 	<li><strong>關聯陣列方法：</strong>
 
 	<code>
@@ -516,11 +524,10 @@ $this->db->insert('mytable', $object);
 
 <p>第一個參數會包含資料表名稱, 第二個參數是包含要存入值的物件。</p>
 
-<p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的查詢。</p>
+<p class="important"><strong>注意：</strong>所有的值都會自動跳脫(escape)以產生較安全的語法。</p>
 
 <h2>$this->db->insert_batch();</h2>
-<p>Generates an insert string based on the data you supply, and runs the query. You can either pass an
-<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+<p>根據你提供的資料產生一個 insert 字串, 然後執行新增。你可以傳入一個 <strong>陣列</strong> 或是一個 <strong>物件</strong> 給函數。這是一個使用陣列的範例：</p>
 
 <code>
 $data = array(<br />
@@ -538,11 +545,11 @@ $data = array(<br />
 <br />
 $this->db->insert_batch('mytable', $data);
 <br /><br />
-// Produces: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
+// 產生: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
 
-<p>The first parameter will contain the table name, the second is an associative array of values.</p>
+<p>第一個參數會包含資料表名稱，第二個參數是一個包含要存入值的關聯陣列。</p>
 
-<p class="important"><strong>Note:</strong> All values are escaped automatically producing safer queries.</p>
+<p class="important"><strong>注意:</strong> 所有的值都會自動跳脫(escape)以產生較安全的語法。</p>
 
 
 
@@ -655,6 +662,41 @@ $this->db->update('mytable', $object);
 <code>$this->db->update('mytable', $data, array('id' => $id));</code>
 
 <p>你也可以用前面介紹過的 <dfn>$this->db->set()</dfn> 函數來進行更新。</p>
+
+<h2>$this->db->update_batch();</h2>
+<p>Generates an update string based on the data you supply, and runs the query. You can either pass an
+<strong>array</strong> or an <strong>object</strong> to the function.  Here is an example using an array:</p>
+
+<code>
+$data = array(<br/>
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'My Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'My date 2'<br />
+&nbsp;&nbsp;&nbsp;),<br />
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'Another title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'Another Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'Another date 2'<br />
+&nbsp;&nbsp;&nbsp;)<br/>
+);<br />
+<br />
+$this->db->update_batch('mytable', $data, 'title');
+<br /><br />
+// Produces: <br />
+// UPDATE `mytable` SET `name` = CASE<br />
+// WHEN `title` = 'My title' THEN 'My Name 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another Name 2'<br />
+// ELSE `name` END,<br />
+// `date` = CASE <br />
+// WHEN `title` = 'My title' THEN 'My date 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another date 2'<br />
+// ELSE `date` END<br />
+// WHERE `title` IN ('My title','Another title')</code>
+
+<p>The first parameter will contain the table name, the second is an associative array of values, the third parameter is the where key.</p>
+
+<p class="important"><strong>Note:</strong> All values are escaped automatically producing safer queries.</p>
 
 
 <a name="delete">&nbsp;</a>

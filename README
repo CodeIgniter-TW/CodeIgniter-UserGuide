@@ -25,7 +25,7 @@ CodeIgniter 為你而存在，假如 ..
 英文官方文件: http://codeigniter.com/user_guide/
 
 如果想要最新的中文翻譯文件，請利用 git 方式取得：
-git clone git://github.com/appleboy/PHP-CodeIgniter-Framework-Taiwan.git 
+git clone git@github.com:CodeIgniter-TW/CodeIgniter-UserGuide.git
 
 非常感謝底下貢獻者 (Many thanks to our contributors)：
 https://github.com/CodeIgniter-TW/CodeIgniter-UserGuide/contributors

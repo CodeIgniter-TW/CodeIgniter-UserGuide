@@ -100,8 +100,8 @@ echo random_element($quotes);</code>
 
 <h2>elements()</h2>
 
-<p>Lets you fetch a number of items from an array.  The function tests whether each of the array indices is set.  If an index does not exist
-it is set to FALSE, or whatever you've specified as the default value via the third parameter.  Example:</p>
+<p>讓你從陣列中取回多個指定的元素。給定一個陣列，其中存放欲取得的陣列索引，此函式將檢查是否每個陣列索引都存在。
+回傳值是一個含有你指定索引的陣列及其值，若有不存在的索引，則其值將設定為預設值FALSE。亦可透過第三個參數來指定其預設值。範例如下：</p>
 
 <code>
 $array = array(<br />
@@ -114,7 +114,7 @@ $array = array(<br />
 $my_shape = elements(array('color', 'shape', 'height'), $array);<br />
 </code>
 
-<p>The above will return the following array:</p>
+<p>以上程式將回傳下面的陣列：</p>
 
 <code>
 array(<br />
@@ -124,13 +124,13 @@ array(<br />
 );
 </code>
 
-<p>You can set the third parameter to any default value you like:</p>
+<p>你可以由第三個參數設定預設值，當索引不存在時會套用預設值：</p>
 
 <code>
 $my_shape = elements(array('color', 'shape', 'height'), $array, NULL);<br />
 </code>
 
-<p>The above will return the following array:</p>
+<p>以上程式將回傳下面的陣列：</p>
 
 <code>
 array(<br />
@@ -140,8 +140,7 @@ array(<br />
 );
 </code>
 
-<p>This is useful when sending the <kbd>$_POST</kbd> array to one of your Models.  This prevents users from
-sending additional POST data to be entered into your tables:</p>
+<p>當你想要將<kbd>$_POST</kbd>陣列傳送給Model時，這將會很有用。它可以避免傳送多餘的資料給你的Model：</p>
 
 <code>
 $this->load->model('post_model');<br />
@@ -149,7 +148,7 @@ $this->load->model('post_model');<br />
 $this->post_model->update(elements(array('id', 'title', 'content'), $_POST));
 </code>
 
-<p>This ensures that only the id, title and content fields are sent to be updated.</p>
+<p>這可以確保僅有id，title及content的值會被送出及更新。</p>
 
 
 </div>

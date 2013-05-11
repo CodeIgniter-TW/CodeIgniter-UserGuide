@@ -112,7 +112,17 @@ echo  $this->pagination->create_links();</code>
 <p>放在您目前所在頁數前面跟後面所顯示的分頁數量。舉例來說，參數設定2，就會在前面跟後面兩邊多加兩個頁數，如同此頁最頂端的例子所顯示</p>
 
 <h4>$config['use_page_numbers'] = TRUE;</h4>
+<!--
 <p>By default, the URI segment will use the starting index for the items you are paginating. If you prefer to show the the actual page number, set this to TRUE.</p>
+-->
+<p>預設會在 URI 顯示你要分頁項目的索引編號，而不是頁數。如果你比較喜歡使用頁數，將這個值設定為 TRUE 。</p>
+<p><code>
+// 若每頁顯示二十個項目，則預設的第三頁 URI：<br />
+http://example.com/index.php/test/page/40<br />
+<br />
+// 設定 $config['use_page_numbers'] = TRUE 後, URI:<br />
+http://example.com/index.php/test/page/3<br />
+</code></p>
 
 <h4>$config['page_query_string'] = TRUE;</h4>
 <p>在預設情況下，分頁類會假設您預設使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的連結就如同底下</p>

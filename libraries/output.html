@@ -58,53 +58,82 @@ Output 類別
 
 <h1>Output 類別</h1>
 
+<!--
 <p>The Output class is a small class with one main function:  To send the finalized web page to the requesting browser.  It is
 also responsible for <a href="../general/caching.html">caching</a> your web pages，if you use that feature.</p>
+-->
+<p>Output 類別是一個小類別，其主要的功能是：將最終產生的網頁送交給客戶端瀏覽器。
+若你使用了<a href="../general/caching.html">快取</a>的功能，它也負責快取你的網頁。</p>
 
-<p class="important"><strong>注意:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>注意:</strong>系統會自動初始這個類別, 所以不需要手動載入。</p>
 
+<!--
 <p>Under normal circumstances you won't even notice the Output class since it works transparently without your intervention.
 For example，when you use the <a href="../libraries/loader.html">Loader</a> class to load a view file，it's automatically
 passed to the Output class，which will be called automatically by CodeIgniter at the end of system execution.
 It is possible，however，for you to manually intervene with the output if you need to，using either of the two following functions:</p>
+-->
+<p>在一般的情況下你不會發現 Output 類別，因為它不需要你的介入便默默的在工作。
+例如，當你使用 <a href="../libraries/loader.html">Loader</a> 類別去讀取一個 view 檔案，這個 view 檔案會被自動的傳給 Output 類別，
+然後在系統執行的最後階段 CodeIgniter 會自動處理這些輸出步驟。當然，必要的話你也可以手動的去處理，只要使用下列兩個函式：</p>
 
 <h2>$this->output->set_output();</h2>
 
+<!--
 <p>Permits you to manually set the final output string.  使用範例:</p>
+-->
+<p>允許你手動設定最後輸出的字串。使用範例:</p>
 
 <code>$this->output->set_output($data);</code>
 
+<!--
 <p><strong>非常重要:</strong> If you do set your output manually，it must be the last thing done in the function you call it from.
 For example，if you build a page in one of your controller functions，don't set the output until the end.</p>
+-->
+<p><strong>非常重要:</strong>如果你要自己操作輸出的功能，則必須放在最後一個步驟才做。
+例如，如果你正在你的一個 controller 函式中建立頁面，你只能在函式最後結束前才能使用output。</p>
 
 <h2>$this->output->set_content_type();</h2>
 
+<!--
 <p>Permits you to set the mime-type of your page so you can serve JSON data, JPEG's, XML, etc easily.</p>
+-->
+<p>允許你設定頁面的 mime-type，如此一來你可以更輕鬆的提供 JSON、JPEG 及 XML 等等資料。</p>
 
 <code>$this->output<br />
 &nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('application/json')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;->set_output(json_encode(array('foo' => 'bar')));<br />
 <br />
 $this->output<br />
-&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('jpeg') // You could also use ".jpeg" which will have the full stop removed before looking in config/mimes.php<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('jpeg') // 你也可以使用 ".jpeg"，"點號"會先被移掉才去查找 config/mimes.php<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;->set_output(file_get_contents('files/something.jpg'));</code>
 
+<!--
 <p><strong>Important:</strong> Make sure any non-mime string you pass to this method exists in config/mimes.php or it will have no effect.</p>
-
+-->
+<p><strong>非常重要:</strong>確認你傳入的所有非mine的字串都有在 config/mimes.php 中設定好，否則不會運作。</p>
 
 
 <h2>$this->output->get_output();</h2>
 
+<!--
 <p>Permits you to manually retrieve any output that has been sent for storage in the output class.  使用範例:</p>
+-->
+<p>允許你手動取回 Output 類別所存放的輸出資料。使用範例:</p>
 <code>$string = $this->output->get_output();</code>
 
+<!--
 <p>Note that data will only be retrievable from this function if it has been previously sent to the output class by one of the
 CodeIgniter functions like <var>$this->load->view()</var>.</p>
-
+-->
+<p>注意，只有在使用了像是 <var>$this->load->view()</var> 這樣的函式來將資料傳送給 Output 類別以後，你才能夠從 Output 類別取得輸出資料。</p>
 
 <h2>$this->output->append_output();</h2>
 
+<!--
 <p>Appends data onto the output string.  Usage example:</p>
+-->
+<p>增加資料到輸出字串中。使用範例:</p>
 
 <code>$this->output->append_output($data);</code>
 
@@ -112,7 +141,10 @@ CodeIgniter functions like <var>$this->load->view()</var>.</p>
 
 <h2>$this->output->set_header();</h2>
 
+<!--
 <p>Permits you to manually set server headers，which the output class will send for you when outputting the final rendered display.  參考範例:</p>
+-->
+<p>允許你手動設定 HTTP header，這將在 Output 類別準備好頁面要輸出時一併送出。參考範例:</p>
 
 <code>
 $this->output->set_header("HTTP/1.0 200 OK");<br />
@@ -125,37 +157,61 @@ $this->output->set_header("Pragma: no-cache");	</code>
 
 <h2>$this->output->set_status_header();</h2>
 
+<!--
 <p>Permits you to manually set a server status header.  參考範例:</p>
+-->
+<p>允許你手動設定 HTTP status。參考範例:</p>
 
 <code>$this->output->set_status_header('401');<br />
-// Sets the header as:  Unauthorized</code>
+// 設定 header:  Unauthorized</code>
 
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">See here</a> for a full list of headers.</p>
+<p>請參考：<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">完整的 header 列表</a>。</p>
 
 <h2>$this->output->enable_profiler();</h2>
 
+<!--
 <p>Permits you to enable/disable the <a href="../general/profiling.html">Profiler</a>，which will display benchmark and other data
 at the bottom of your pages for debugging and optimization purposes.</p>
 
 <p>To enable the profiler place the following function anywhere within your <a href="../general/controllers.html">Controller</a> functions:</p>
+-->
+<p>允許你啟用或停用 <a href="../general/profiling.html">Profiler</a>，這會在你的頁面底部顯示一些資料與數據，可以用來除錯或是最佳化。</p>
+
+<p>若要啟用 Profiler，將下面的函式放在你的 <a href="../general/controllers.html">Controller</a> 當中任意地方。</p>
 <code>$this->output->enable_profiler(TRUE);</code>
 
+<!--
 <p>When enabled a report will be generated and inserted at the bottom of your pages.</p>
 
 <p>To disable the profiler you will use:</p>
+-->
+<p>當啟用之後，在你的網頁底部將會插入一些報表。</p>
+
+<p>若要停用 Profiler 你可以這樣做：</p>
 <code>$this->output->enable_profiler(FALSE);</code>
 
 <h2>$this->output->set_profiler_sections();</h2>
 
+<!--
 <p>Permits you to enable/disable specific sections of the Profiler when enabled.  Please refer to the <a href="../general/profiling.html">Profiler</a> documentation for further information.</p>
+-->
+<p>允許你啟用或停用 Profiler 特定的部份，請參考 <a href="../general/profiling.html">Profiler 的文件</a> 以取得更多資訊。</p>
 
 <h2>$this->output->cache();</h2>
+<!--
 <p>The CodeIgniter output library also controls caching.  For more information，please see the <a href="../general/caching.html">caching documentation</a>.</p>
+-->
+<p>CodeIgniter 輸出函式庫也可以控制快取，請參考<a href="../general/caching.html">caching 的文件</a>。</p>
 
+<!--
 <h2>Parsing Execution Variables</h2>
 
 <p>CodeIgniter will parse the pseudo-variables <var>{elapsed_time}</var> and <var>{memory_usage}</var> in your output by default.  To disable this, set the <var>$parse_exec_vars</var> class property to <var>FALSE</var> in your controller.
+-->
+<h2>解析變數</h2>
 
+<p>CodeIgniter 預設會在輸出中解析這些虛擬變數：<var>{elapsed_time}</var> 及 <var>{memory_usage}</var>。
+要停用這項功能，將 controller 的類別屬性<var>$parse_exec_vars</var> 設定為 <var>FALSE</var>。</p>
 <code>$this->output->parse_exec_vars = FALSE;</code>
 
 </div>

@@ -115,7 +115,7 @@ echo  $this->pagination->create_links();</code>
 <p>預設會在 URI 顯示你要分頁項目的索引編號，而不是頁數。如果你比較喜歡使用頁數，將這個值設定為 TRUE 。</p>
 
 <h4>$config['page_query_string'] = TRUE;</h4>
-<p>在預設情況下，分頁類會假設您預設使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的就如同底下</p>
+<p>在預設情況下，分頁類會假設您預設使用 <a href="../general/urls.html">URI Segments</a>，並且建構您的連結就如同底下</p>
 <p><code>http://example.com/index.php/test/page/20</code></p>
 <p>假如您把 $config['enable_query_strings'] 參數設定為 TRUE，您的連結將會自動地被查詢字串所改寫。這個選項可以明確的被設置。把 $config['page_query_string'] 設定為 TRUE，分頁連結將會變成：</p>
 <p><code>http://example.com/index.php?c=test&amp;m=page&amp;per_page=20</code></p>

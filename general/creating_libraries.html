@@ -140,54 +140,7 @@ class Someclass {<br />
 }<br /><br />
 ?&gt;</code>
 <p class="important">你也可以使用設定檔來存放設定值，只要在 <dfn>application/config/</dfn> 資料夾裡，建立一個與類別 <kbd>小寫檔案名稱</kbd> 相同的檔案即可。
-但若是你使用上面所述的方式，由參數來傳入設定值，則設定檔就不會被使用。請參考下面的範例。</p>
-
-<p>我們修改Someclass，對參數做些動作：</p>
-<code>&lt;?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');<br />
-<br />
-class Someclass {<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;private $params_str;
-&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($params)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Do something with $params<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->params_str .= "foo={$params['foo']}";<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->params_str .= ",and bar={$params['bar']}";<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;public function get_params_str()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $this->params_str;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}<br /><br />
-?&gt;</code>
-
-<p>然後給 Someclass 建立一個設定檔，放在 <dfn>application/config/someclass.php</dfn> ：</p>
-<code>&lt;?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-<br /><br />
-$config['foo'] = 'foo_from_config';<br />
-$config['bar'] = 'bar_from_config';<br />
-<br />
-/* End of file someclass.php */</code>
-
-<p>你可以比較兩種方式不同的結果：</p>
-<code>
-$params = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;'foo' => 'foo_from_param',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;'bar' => 'bar_from_param'<br />
-);<br />
-<br />
-// 由參數傳入設定值<br />
-$this->load->library('Someclass', $params);<br />
-$this->someclass->get_params_str();<br />
-<br />
-// 或是自動讀取設定檔之設定值<br />
-$this->load->library('Someclass');<br />
-$this->someclass->get_params_str();<br />
-<br />
-</code>
-
-
-
+但若是你使用上面所述的方式，由參數來傳入設定值，則設定檔就不會被使用。</p>
 
 <h2>在您的程式裡面使用 CodeIgniter 資源</h2>
 

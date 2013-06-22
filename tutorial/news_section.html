@@ -214,7 +214,7 @@ echo $news_item['text'];
 <h2>路由</h2>
 <p>因為我們之前在路由規則中使用了萬用字串，你必須增加額外的路由規則才能檢視你剛剛建立的控制器。
 打開你的路由檔案 (<dfn>application/config/routes.php</dfn>) 並修改成像下面的代碼那樣。
-這將確保請求可以到達 news 控制器而不是直接送給 pages 控制器。第一行的規則將含有參數的 URI 導向 news 控制器的 view 方法。</p>
+這將確保請求可以到達 news 控制器而不是直接送給 pages 控制器。第一行的規則將含有 slug 的 URI 導向 news 控制器的 view 方法。</p>
 
 <pre>
 $route['news/(:any)'] = 'news/view/$1';

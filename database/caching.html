@@ -181,7 +181,7 @@ $query = $this->db->query("SELECT * FROM another_table");
 a page at <dfn>example.com/index.php/blog/comments</dfn>，the caching system will put all cache files associated with it in a folder
 called <dfn>blog+comments</dfn>.  To delete those particular cache files you will use:</p>
 
-<code>$this->db->cache_delete('blog'，'comments');</code>
+<code>$this->db->cache_delete('blog', 'comments');</code>
 
 <p>If you do not use any parameters the current URI will be used when determining what should be cleared.</p>
 

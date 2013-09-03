@@ -180,20 +180,20 @@ $this->email->initialize($config);</code>
 
 <h3>$this->email->from()</h3>
 <p>設定寄件者 E-mail 跟名稱:</p>
-<code>$this->email->from('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
+<code>$this->email->from('<var>you@example.com</var>', '<var>Your Name</var>');</code>
 
 <h3>$this->email->reply_to()</h3>
 <p>設定郵件回覆地址。如果沒有提供這個信息，將會使用 "from()" 函數中的值. 參考範例：</p>
-<code>$this->email->reply_to('<var>you@example.com</var>'，'<var>Your Name</var>');</code>
+<code>$this->email->reply_to('<var>you@example.com</var>', '<var>Your Name</var>');</code>
 
 
 <h3>$this->email->to()</h3>
 <p>設定接受者 E-mail 位址. 可以是單一郵件，或是以逗號分隔名單，或者是陣列資料.:</p>
 
 <code>$this->email->to('<var>someone@example.com</var>');</code>
-<code>$this->email->to('<var>one@example.com</var>，<var>two@example.com</var>，<var>three@example.com</var>');</code>
+<code>$this->email->to('<var>one@example.com</var>, <var>two@example.com</var>, <var>three@example.com</var>');</code>
 
-<code>$list = array('<var>one@example.com</var>'，'<var>two@example.com</var>'，'<var>three@example.com</var>');<br />
+<code>$list = array('<var>one@example.com</var>', '<var>two@example.com</var>',' <var>three@example.com</var>');<br />
 <br />
 $this->email->to(<var>$list</var>);</code>
 

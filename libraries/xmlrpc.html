@@ -99,11 +99,11 @@ $this->load->library('xmlrpcs');
 
 <code>$this->load->library('xmlrpc');<br />
 <br />
-$this->xmlrpc->server('http://rpc.pingomatic.com/'，80);<br />
+$this->xmlrpc->server('http://rpc.pingomatic.com/', 80);<br />
 $this->xmlrpc->method('weblogUpdates.ping');<br />
 
 <br />
-$request = array('My Photoblog'，'http://www.my-site.com/photoblog/');<br />
+$request = array('My Photoblog', 'http://www.my-site.com/photoblog/');<br />
 $this->xmlrpc->request($request);<br />
 <br />
 if ( ! $this->xmlrpc->send_request())<br />
@@ -123,17 +123,17 @@ if ( ! $this->xmlrpc->send_request())<br />
 
 <p>底下的範例是一個簡單的參數陣列:</p>
 
-<code>$request = array('John'，'Doe'，'www.some-site.com');<br />
+<code>$request = array('John', 'Doe', 'www.some-site.com');<br />
 $this->xmlrpc->request($request);</code>
 
 <p>如果你的參數型態不是字串或是你有好幾種不同的參數型態，你必須指明它們的型態並且放置在各自的陣列中，範例如下:</p>
 
 <code>
 $request = array (<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('John'，'string'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Doe'，'string'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(FALSE，'boolean'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(12345，'int')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('John', 'string'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('Doe', 'string'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(FALSE, 'boolean'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(12345, 'int')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
 <br />
 $this->xmlrpc->request($request);</code>
@@ -232,17 +232,17 @@ $this->xmlrpcs->serve();</code>
 
 <p>與請求相同，回應必須為陣列，但差別在於回應的陣列只容納單一項目，這個項目可以是一個多維陣列，但是只能有一個主要的索引，底下為一個基本的模型:</p>
 
-<code>$response = array('Response data'， 'array');</code>
+<code>$response = array('Response data',  'array');</code>
 
 <p>然而，一般來說回應通常都是包含多樣的資訊，為了達成這樣的目的，我們必須把回應資訊放在陣列中:</p>
 
 <code>
 $response = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'first_name' => array('John'，'string'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_name' => array('Doe'，'string'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'member_id' => array(123435，'int'),<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'todo_list' => array(array('clean house'，'call mom'，'water plants')，'array'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'first_name' => array('John', 'string'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_name' => array('Doe', 'string'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'member_id' => array(123435, 'int'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'todo_list' => array(array('clean house', 'call mom', 'water plants'), 'array'),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
@@ -257,7 +257,7 @@ $response = array (<br />
 
 <p>如果你需要在回應中含有錯誤訊息，可以參考以下範例:</p>
 
-<code>return $this->xmlrpc->send_error_message('123'，'Requested data not available');</code>
+<code>return $this->xmlrpc->send_error_message('123', 'Requested data not available');</code>
 
 <p>第一個參數為錯誤代碼，第二個參數為錯誤訊息</p>
 
@@ -285,7 +285,7 @@ class Xmlrpc_client extends CI_Controller {
 
 		$this->load->library('xmlrpc');
 
-		$this->xmlrpc->server($server_url，80);
+		$this->xmlrpc->server($server_url, 80);
 		$this->xmlrpc->method('Greetings');
 
 		$request = array('How is it going?');
@@ -385,7 +385,7 @@ class Xmlrpc_server extends CI_Controller {
 
 <h2>$this->xmlrpc->server()</h2>
 <p>設定 server 的位址與 port number:</p>
-<code>$this->xmlrpc->server('http://www.sometimes.com/pings.php'，80);</code>
+<code>$this->xmlrpc->server('http://www.sometimes.com/pings.php', 80);</code>
 
 <h2>$this->xmlrpc->timeout()</h2>
 <p>設定請求的逾時時間(秒):</p>
@@ -399,7 +399,7 @@ class Xmlrpc_server extends CI_Controller {
 
 <h2>$this->xmlrpc->request()</h2>
 <p>將帶有資料的陣列建立成請求:</p>
-<code>$request = array(array('My Photoblog'，'string')，'http://www.yoursite.com/photoblog/');<br />
+<code>$request = array(array('My Photoblog', 'string'), 'http://www.yoursite.com/photoblog/');<br />
 $this->xmlrpc->request($request);</code>
 
 <h2>$this->xmlrpc->send_request()</h2>
@@ -419,13 +419,13 @@ $this->xmlrpc->request($request);</code>
 
 <h2>$this->xmlrpc->send_error_message()</h2>
 <p>從 server 發送錯誤訊息到 client ，第一個參數是錯誤代碼，第二個參數為錯誤訊息</p>
-<code>return $this->xmlrpc->send_error_message('123'，'Requested data not available');</code>
+<code>return $this->xmlrpc->send_error_message('123', 'Requested data not available');</code>
 
 <h2>$this->xmlrpc->send_response()</h2>
 <p>server 發送回應給 client。陣列的資料必須透過這個方法來傳送</p>
 <code>$response = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'flerror' => array(FALSE，'boolean'),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'flerror' => array(FALSE, 'boolean'),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'message' => "Thanks for the ping!"<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct');<br />

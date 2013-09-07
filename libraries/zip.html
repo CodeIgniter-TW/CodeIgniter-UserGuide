@@ -75,7 +75,7 @@ Zip Encoding 類別
 $name = 'mydata1.txt';<br />
 $data = 'A Data String!';<br />
 <br />
-$this->zip->add_data($name，$data);<br />
+$this->zip->add_data($name, $data);<br />
 <br />
 // 將檔案壓縮到您的伺服器，指定名稱為 "my_backup.zip"<br />
 $this->zip->archive('/path/to/directory/my_backup.zip');
@@ -94,7 +94,7 @@ $this->zip->download('my_backup.zip');
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name，$data);
+$this->zip->add_data($name, $data);
 </code>
 
 <p>允許您多次呼叫此函數來增加多個檔案。參考範例：</p>
@@ -102,11 +102,11 @@ $this->zip->add_data($name，$data);
 <code>
 $name = 'mydata1.txt';<br />
 $data = 'A Data String!';<br />
-$this->zip->add_data($name，$data);<br />
+$this->zip->add_data($name, $data);<br />
 <br />
 $name = 'mydata2.txt';<br />
 $data = 'Another Data String!';<br />
-$this->zip->add_data($name，$data);<br />
+$this->zip->add_data($name, $data);<br />
 </code>
 
 <p>或者是您可以利用陣列方式來新增多個檔案：</p>
@@ -128,7 +128,7 @@ $this->zip->download('my_backup.zip');
 $name = '<kbd>personal/</kbd>my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name，$data);
+$this->zip->add_data($name, $data);
 </code>
 
 <p>上面的例子是將 <dfn>my_bio.txt</dfn> 檔案放到一個叫做 <kbd>personal</kbd> 的子目錄。</p>
@@ -217,7 +217,7 @@ $this->zip->read_dir($path, FALSE);
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name，$data);<br /><br />
+$this->zip->add_data($name, $data);<br /><br />
 
 $zip_file = $this->zip->get_zip();
 </code>
@@ -231,7 +231,7 @@ $zip_file = $this->zip->get_zip();
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name，$data);<br />
+$this->zip->add_data($name, $data);<br />
 $zip_file = $this->zip->get_zip();<br />
 <br />
 <kbd>$this->zip->clear_data();</kbd>

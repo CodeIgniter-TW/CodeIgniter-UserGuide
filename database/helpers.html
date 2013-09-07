@@ -103,13 +103,13 @@ Query 補助函數
 <h2>$this->db->insert_string(); </h2>
 <p>此函數簡化了新增資料SQL語法。它將會回傳正確格式的 Insert SQL 語法。參考範例:</p>
 
-<code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
+<code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
-$str = $this->db->insert_string('table_name'，$data);
+$str = $this->db->insert_string('table_name', $data);
 </code>
 
 <p>第一個參數請填入表格名稱，第二個參數填入要新增的資料陣列. 上述例子會產生如下:</p>
-<code>INSERT INTO table_name (name，email，url) VALUES ('Rick'，'rick@example.com'，'example.com')</code>
+<code>INSERT INTO table_name (name, email, url) VALUES ('Rick', 'rick@example.com', 'example.com')</code>
 
 <p class="important">注意: 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
 
@@ -118,15 +118,15 @@ $str = $this->db->insert_string('table_name'，$data);
 <h2>$this->db->update_string(); </h2>
 <p>此函數簡化了修改資料的SQL語法。它會回傳正確格式的 Update SQL 語法。參考範例:</p>
 
-<code>$data = array('name' => $name，'email' => $email，'url' => $url);<br />
+<code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
 $where = "author_id = 1 AND status = 'active'";
 <br /><br />
-$str = $this->db->update_string('table_name'，$data，$where);
+$str = $this->db->update_string('table_name', $data, $where);
 </code>
 
 <p>第一個參數為表格名稱，第二個參數填入修改的資料陣列，第三個參數填入 where 條件語法。上述例子會產生如下:</p>
-<code> UPDATE table_name SET name = 'Rick'，email = 'rick@example.com'，url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
+<code> UPDATE table_name SET name = 'Rick', email = 'rick@example.com', url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
 
 <p class="important">注意: 所有傳到這個函數的值都會自動跳脫(escape)，以產生更安全的查詢。</p>
 

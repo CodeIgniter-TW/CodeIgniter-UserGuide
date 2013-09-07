@@ -113,11 +113,11 @@ class Smileys extends CI_Controller {
 
 		$image_array = get_clickable_smileys('http://example.com/images/smileys/');
 
-		$col_array = $this->table->make_columns($image_array，8);		
+		$col_array = $this->table->make_columns($image_array, 8);		
 
 		$data['smiley_table'] = $this->table->generate($col_array);
 
-		$this->load->view('smiley_view'，$data);
+		$this->load->view('smiley_view', $data);
 	}
 
 }
@@ -132,7 +132,7 @@ class Smileys extends CI_Controller {
 &lt;head>
 &lt;title>Smileys&lt;/title>
 
-&lt;?php echo js_insert_smiley('blog'，'comments'); ?>
+&lt;?php echo js_insert_smiley('blog', 'comments'); ?>
 
 &lt;/head>
 &lt;body>
@@ -169,7 +169,7 @@ via the first parameter:</p>
 The first parameter must contain the name of your form，the second parameter must contain the name of the
 form field. This function is designed to be placed into the &lt;head&gt; area of your web page.</p>
 
-<code>&lt;?php echo js_insert_smiley('blog'，'comments'); ?&gt;</code>
+<code>&lt;?php echo js_insert_smiley('blog', 'comments'); ?&gt;</code>
 
 
 <h2>parse_smileys()</h2>
@@ -181,7 +181,7 @@ equivalent.  The first parameter must contain your string，the second must cont
 
 $str = 'Here are some simileys: :-)  ;-)';
 
-$str = parse_smileys($str，"http://example.com/images/smileys/");
+$str = parse_smileys($str, "http://example.com/images/smileys/");
 
 echo $str;
 </code>

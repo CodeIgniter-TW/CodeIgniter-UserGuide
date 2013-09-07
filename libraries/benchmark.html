@@ -96,7 +96,7 @@ Benchmarking 類別
 <br />
 $this->benchmark->mark('code_end');<br />
 <br />
-echo $this->benchmark->elapsed_time('code_start'，'code_end');</code>
+echo $this->benchmark->elapsed_time('code_start', 'code_end');</code>
 
 <p class="important"><strong>注意:</strong> 裡頭 "code_start" 和 "code_end" 的值沒有限制。就只是簡單的用來標記的兩個字而已。你可以使用任何想用的字，以及你也可設定多組標記點。請看看這個參考範例:</p>
 
@@ -110,9 +110,9 @@ $this->benchmark->mark('cat');<br />
 <br />
 $this->benchmark->mark('bird');<br />
 <br />
-echo $this->benchmark->elapsed_time('dog'，'cat');<br />
-echo $this->benchmark->elapsed_time('cat'，'bird');<br />
-echo $this->benchmark->elapsed_time('dog'，'bird');</code>
+echo $this->benchmark->elapsed_time('dog', 'cat');<br />
+echo $this->benchmark->elapsed_time('cat', 'bird');<br />
+echo $this->benchmark->elapsed_time('dog', 'bird');</code>
 
 
 <a name="profiler"></a>

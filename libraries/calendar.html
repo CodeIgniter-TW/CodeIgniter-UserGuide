@@ -82,7 +82,7 @@ echo $this->calendar->generate();</code>
 
 <code>$this->load->library('calendar');<br />
 <br />
-echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>);</code>
+echo $this->calendar->generate(<kbd>2006</kbd>, <kbd>6</kbd>);</code>
 
 <p>上面的程式碼將建立一個顯示2006年6月的日曆。第一個參數指定了年，第二個參數指定了月。</p>
 
@@ -99,7 +99,7 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 => 'http://example.com/news/article/2006/26/'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-echo $this->calendar->generate(<kbd>2006</kbd>，<kbd>6</kbd>，<var>$data</var>);</code>
+echo $this->calendar->generate(<kbd>2006</kbd>, <kbd>6</kbd>, <var>$data</var>);</code>
 
 <p>使用上面的例子，天數3,7,13和26將變成連接指向您提供的 URLs。</p>
 
@@ -118,7 +118,7 @@ $prefs = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'day_type'&nbsp;&nbsp;&nbsp;&nbsp; => 'short'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->load->library('calendar'，$prefs);<br />
+$this->load->library('calendar', $prefs);<br />
 <br />
 echo $this->calendar->generate();</code>
 
@@ -162,7 +162,7 @@ echo $this->calendar->generate();</code>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'next_prev_url'&nbsp;&nbsp; => 'http://example.com/index.php/calendar/show/'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this-&gt;load-&gt;library('calendar'，$prefs);<br />
+$this-&gt;load-&gt;library('calendar', $prefs);<br />
 <br />
 echo $this->calendar->generate(<var>$this->uri->segment(3)</var>，<var>$this->uri->segment(4)</var>);</code>
 
@@ -214,7 +214,7 @@ $prefs['template'] = '<br /><br />
 &nbsp;&nbsp;&nbsp;<dfn>{table_close}</dfn><var>&lt;/table></var><dfn>{/table_close}</dfn><br />
 ';<br />
 <br />
-$this->load->library('calendar'，$prefs);<br />
+$this->load->library('calendar', $prefs);<br />
 <br />
 echo $this->calendar->generate();</code>
 

@@ -150,7 +150,7 @@ folder:</p>
 
 &lt;h3>Your form was successfully submitted!&lt;/h3>
 
-&lt;p>&lt;?php echo anchor('form'，'Try it again!'); ?>&lt;/p>
+&lt;p>&lt;?php echo anchor('form', 'Try it again!'); ?>&lt;/p>
 
 &lt;/body>
 &lt;/html>
@@ -169,7 +169,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form'，'url'));
+		$this->load->helper(array('form', 'url'));
 		
 		$this->load->library('validation');
 				
@@ -246,7 +246,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form'，'url'));
+		$this->load->helper(array('form', 'url'));
 		
 		$this->load->library('validation');
 			
@@ -281,7 +281,7 @@ there is an error.  We'll get to that shortly，once we're through explaining th
 <p>By default，the system adds a paragraph tag (&lt;p&gt;) around each error message shown. You can easily change these delimiters with
 this code，placed in your controller:</p>
 
-<code>$this->validation->set_error_delimiters('<kbd>&lt;div class="error"></kbd>'，'<kbd>&lt;/div></kbd>');</code>
+<code>$this->validation->set_error_delimiters('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>');</code>
 
 <p>In this example，we've switched to using div tags.</p>
 
@@ -346,7 +346,7 @@ class Form extends Controller {
 	
 	function index()
 	{
-		$this->load->helper(array('form'，'url'));
+		$this->load->helper(array('form', 'url'));
 		
 		$this->load->library('validation');
 			
@@ -371,7 +371,7 @@ class Form extends Controller {
 	{
 		if ($str == 'test')
 		{
-			$this->validation->set_message('username_check'，'The %s field can not be the word "test"');
+			$this->validation->set_message('username_check', 'The %s field can not be the word "test"');
 			return FALSE;
 		}
 		else
@@ -394,7 +394,7 @@ Just remember that the message key (the first parameter) must match your functio
 <p class="important"><strong>注意:</strong> You can apply your own custom error messages to any rule，just by setting the
 message similarly. For example，to change the message for the "required" rule you will do this:</p>
 
-<code>$this->validation->set_message('required'，'Your custom message here');</code>
+<code>$this->validation->set_message('required', 'Your custom message here');</code>
 
 <h2>Re-populating the form</h2>
 
@@ -416,7 +416,7 @@ error message.</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="30">function index()
 {
-	$this->load->helper(array('form'，'url'));
+	$this->load->helper(array('form', 'url'));
 	
 	$this->load->library('validation');
 		
@@ -673,7 +673,7 @@ like <kbd>trim</kbd>，<kbd>htmlspecialchars</kbd>，<kbd>urldecode</kbd>，etc.
 
 <p>To set your own custom message you can either edit that file，or use the following function:</p>
 
-<code>$this->validation->set_message('<var>rule</var>'，'<var>Error Message</var>');</code>
+<code>$this->validation->set_message('<var>rule</var>', '<var>Error Message</var>');</code>
 
 <p>Where <var>rule</var> corresponds to the name of a particular rule，and <var>Error Message</var> is the text you would like displayed.</p>
 
@@ -691,9 +691,9 @@ each item. 參考範例:</p>
 
 <code>
 &lt;select name="myselect"><br />
-&lt;option value="one" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'one'); ?></dfn> >One&lt;/option><br />
-&lt;option value="two" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'two'); ?></dfn> >Two&lt;/option><br />
-&lt;option value="three" <dfn>&lt;?php echo  $this->validation->set_select('myselect'，'three'); ?></dfn> >Three&lt;/option><br />
+&lt;option value="one" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'one'); ?></dfn> >One&lt;/option><br />
+&lt;option value="two" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'two'); ?></dfn> >Two&lt;/option><br />
+&lt;option value="three" <dfn>&lt;?php echo  $this->validation->set_select('myselect', 'three'); ?></dfn> >Three&lt;/option><br />
 &lt;/select>
 </code>
 
@@ -703,7 +703,7 @@ each item. 參考範例:</p>
 <p>Permits you to display a checkbox in the state it was submitted.  The first parameter
 must contain the name of the checkbox，the second parameter must contain its value. 參考範例:</p>
 
-<code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo  $this->validation->set_checkbox('mycheck'，'1'); ?></dfn> /></code>
+<code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo  $this->validation->set_checkbox('mycheck', '1'); ?></dfn> /></code>
 
 
 <h2>set_radio()</h2>
@@ -711,7 +711,7 @@ must contain the name of the checkbox，the second parameter must contain its va
 <p>Permits you to display radio buttons in the state they were submitted.  The first parameter
 must contain the name of the radio button，the second parameter must contain its value. 參考範例:</p>
 
-<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  $this->validation->set_radio('myradio'，'1'); ?></dfn> /></code>
+<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  $this->validation->set_radio('myradio', '1'); ?></dfn> /></code>
 
 
 

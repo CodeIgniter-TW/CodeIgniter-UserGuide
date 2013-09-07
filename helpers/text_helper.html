@@ -76,7 +76,7 @@ Text 輔助函數
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
 <br />
-$string = word_limiter($string，4);<br /><br />
+$string = word_limiter($string, 4);<br /><br />
 
 // 回傳的是:  Here is a nice&#8230;
 </code>
@@ -90,7 +90,7 @@ $string = word_limiter($string，4);<br /><br />
 <code>
 $string = "Here is a nice text string consisting of eleven words.";<br />
 <br />
-$string = character_limiter($string，20);<br /><br />
+$string = character_limiter($string, 20);<br /><br />
 
 // 回傳的是:  Here is a nice text string&#8230;
 </code>
@@ -122,9 +122,9 @@ $string = character_limiter($string，20);<br /><br />
 <p>允許你去檢查字串中的單字。第一個參數將會包含原始的字串。第二個字串則包含你所不允許的單字陣列。第三個字串的是選擇性的參數，包含用來取代單字的值。如果未提供取代的值的話，那麼就會用 #### 來取代。參考範例:</p>
 
 <code>
-$disallowed = array('darn'，'shucks'，'golly'，'phooey');<br />
+$disallowed = array('darn', 'shucks', 'golly', 'phooey');<br />
 <br />
-$string = word_censor($string，$disallowed，'Beep!');</code>
+$string = word_censor($string, $disallowed, 'Beep!');</code>
 
 
 <h2>highlight_code()</h2>
@@ -142,7 +142,7 @@ $string = word_censor($string，$disallowed，'Beep!');</code>
 <code>
 $string = "Here is a nice text string about nothing in particular.";<br />
 <br />
-$string = highlight_phrase($string，"nice text"，'&lt;span style="color:#990000">'，'&lt;/span>');
+$string = highlight_phrase($string, "nice text", '&lt;span style="color:#990000">', '&lt;/span>');
 </code>
 
 <p>傳回下述的文字:</p>
@@ -157,7 +157,7 @@ $string = highlight_phrase($string，"nice text"，'&lt;span style="color:#99000
 
 <code>$string = "Here is a simple string of text that will help us demonstrate this function.";<br />
 <br />
-echo word_wrap($string，25);<br />
+echo word_wrap($string, 25);<br />
 <br />
 // Would produce:<br />
 <br />

@@ -153,8 +153,8 @@ echo $row['name'];<br />
 <h2>標準新增</h2>
 
 <code>
-$sql = "INSERT INTO mytable (title，name) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES (".$this->db->escape($title)."，".$this->db->escape($name).")";<br />
+$sql = "INSERT INTO mytable (title, name) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES (".$this->db->escape($title).", ".$this->db->escape($name).")";<br />
 <br />
 $this->db->query($sql);<br />
 <br />
@@ -188,9 +188,9 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => $date<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->db->insert('mytable'，$data);
+$this->db->insert('mytable', $data);
 <br /><br />
-// 產生： INSERT INTO mytable (title，name，date) VALUES ('{$title}'，'{$name}'，'{$date}')</code>
+// 產生： INSERT INTO mytable (title, name, date) VALUES ('{$title}', '{$name}', '{$date}')</code>
 
 
 

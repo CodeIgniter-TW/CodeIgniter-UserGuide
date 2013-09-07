@@ -125,7 +125,7 @@ File Uploading 類別
 &lt;?php endforeach; ?>
 &lt;/ul>
 
-&lt;p>&lt;?php echo anchor('upload'，'Upload Another File!'); ?>&lt;/p>
+&lt;p>&lt;?php echo anchor('upload', 'Upload Another File!'); ?>&lt;/p>
 
 &lt;/body>
 &lt;/html></textarea>
@@ -143,12 +143,12 @@ class Upload extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('form'，'url'));
+		$this->load->helper(array('form', 'url'));
 	}
 
 	function index()
 	{
-		$this->load->view('upload_form'，array('error' => ' ' ));
+		$this->load->view('upload_form', array('error' => ' ' ));
 	}
 
 	function do_upload()
@@ -159,19 +159,19 @@ class Upload extends CI_Controller {
 		$config['max_width']  = '1024';
 		$config['max_height']  = '768';
 
-		$this->load->library('upload'，$config);
+		$this->load->library('upload', $config);
 
 		if ( ! $this->upload->do_upload())
 		{
 			$error = array('error' => $this->upload->display_errors());
 
-			$this->load->view('upload_form'，$error);
+			$this->load->view('upload_form', $error);
 		}
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
 
-			$this->load->view('upload_success'，$data);
+			$this->load->view('upload_success', $data);
 		}
 	}
 }
@@ -215,7 +215,7 @@ $config['max_size']	= '100';<br />
 $config['max_width']  = '1024';<br />
 $config['max_height']  = '768';<br />
 <br />
-$this->load->library('upload'，$config);<br /><br />
+$this->load->library('upload', $config);<br /><br />
 
 // Alternately you can set preferences by calling the initialize function.  Useful if you auto-load the class:<br />
 $this->upload->initialize($config);</code>
@@ -332,7 +332,7 @@ $this->upload->do_upload($field_name)</code>
 <h3>格式化錯誤</h3>
 <p>上面的函式默認使用 &lt;p> 標記錯誤訊息。你可以像這樣設定自己的分隔符號：</p>
 
-<code>$this->upload->display_errors('<var>&lt;p></var>'，'<var>&lt;/p></var>');</code>
+<code>$this->upload->display_errors('<var>&lt;p></var>', '<var>&lt;/p></var>');</code>
 
 <h2>$this->upload->data()</h2>
 

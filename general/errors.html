@@ -82,7 +82,7 @@
 <p>呼叫使用 show_404() 函式，CodeIgniter 會自動幫忙寫入 log 檔案，可以設定第二個參數為 False 來略過紀錄。</p>
 
 
-<h2>log_message('<var>level</var>'，'<samp>message</samp>')</h2>
+<h2>log_message('<var>level</var>', '<samp>message</samp>')</h2>
 
 <p>這個函數讓你把訊息寫入你的log檔。你必須提供三個層級(levels)之一作為第一個參數，以指示這是哪一種訊息（除錯 debug、錯誤 error、通知 info），然後將訊息本身當作第二個參數。參考範例：
 </p>
@@ -90,14 +90,14 @@
 <code>
 if ($some_var == "")<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;log_message('error'，'Some variable did not contain a value.');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;log_message('error', 'Some variable did not contain a value.');<br />
 }<br />
 else<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;log_message('debug'，'Some variable was correctly set');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;log_message('debug', 'Some variable was correctly set');<br />
 }<br />
 <br />
-log_message('info'，'The purpose of some variable is to provide some value.');<br />
+log_message('info', 'The purpose of some variable is to provide some value.');<br />
 </code>
 
 <p>三種訊息類型：

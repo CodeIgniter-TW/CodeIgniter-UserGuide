@@ -189,7 +189,7 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ip_address' => $this->input->ip_address()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$sql = $this->db->insert_string('trackbacks'，$data);<br />
+$sql = $this->db->insert_string('trackbacks', $data);<br />
 $this->db->query($sql);<br />
 <br />
 $this->trackback->send_success();</code>

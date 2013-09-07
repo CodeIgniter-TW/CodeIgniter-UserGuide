@@ -98,7 +98,7 @@ else<br />
 
 <p>您可以選擇性的指定第三個參數來決定寫入的模式:</p>
 
-<code>write_file('./path/to/file.php', $data，<var>'r+'</var>);</code>
+<code>write_file('./path/to/file.php', $data, <var>'r+'</var>);</code>
 
 <p>檔案預設模式為 <kbd>wb</kbd>。針對檔案模式請參考官方網站使用手冊 <a href="http://php.net/fopen">PHP user guide</a></p>
 
@@ -128,7 +128,7 @@ can optionally be added to the file names by setting the second parameter to TRU
 <p>Reads the specified directory and builds an array containing the filenames, filesize, dates, and permissions.  Sub-folders contained within the specified path are only read if forced
     by sending the second parameter, <kbd>$top_level_only</kbd> to <samp>FALSE</samp>, as this can be an intensive operation.</p>
 
-<h2>get_file_info('<var>path/to/file</var>'，<kbd>$file_information</kbd>)</h2>
+<h2>get_file_info('<var>path/to/file</var>', <kbd>$file_information</kbd>)</h2>
 
 <p>Given a file and path，returns the name，path，size，date modified. Second parameter allows you to explicitly declare what information you want returned; options are: name，server_path，size，date，readable，writable，executable，fileperms.  Returns FALSE if the file cannot be found.</p>
 

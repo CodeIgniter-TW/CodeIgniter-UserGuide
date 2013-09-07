@@ -190,7 +190,7 @@ set the delimiter and newline character.  By default tabs are used as the delimi
 $delimiter = ",";<br />
 $newline = "\r\n";<br />
 <br />
-echo $this->dbutil->csv_from_result($query，$delimiter，$newline);
+echo $this->dbutil->csv_from_result($query, $delimiter, $newline);
 </code>
 
 <p><strong>非常重要:</strong>&nbsp; This function will NOT write the CSV file for you.  It simply creates the CSV layout.
@@ -208,13 +208,13 @@ $this->load->dbutil();<br />
 $query = $this->db->query("SELECT * FROM mytable");<br />
 <br />
 $config = array (<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'root'&nbsp;&nbsp;&nbsp; => 'root',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'element' => 'element'，<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'newline' => "\n"，<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'root'&nbsp;&nbsp;&nbsp; => 'root', <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'element' => 'element', <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'newline' => "\n", <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tab'&nbsp;&nbsp;&nbsp;&nbsp;=> "\t"<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-echo $this->dbutil->xml_from_result($query，$config);
+echo $this->dbutil->xml_from_result($query, $config);
 </code>
 
 <p><strong>非常重要:</strong>&nbsp; This function will NOT write the XML file for you.  It simply creates the XML layout.
@@ -243,12 +243,12 @@ $backup =& $this->dbutil->backup();
 <br /><br />
 <dfn>// Load the file helper and write the file to your server</dfn><br />
 $this->load->helper('file');<br />
-write_file('/path/to/mybackup.gz'，$backup);
+write_file('/path/to/mybackup.gz', $backup);
 
 <br /><br />
 <dfn>// Load the download helper and send the file to your desktop</dfn><br />
 $this->load->helper('download');<br />
-force_download('mybackup.gz'，$backup);
+force_download('mybackup.gz', $backup);
 </code>
 
 <h3>Setting Backup Preferences</h3>
@@ -256,7 +256,7 @@ force_download('mybackup.gz'，$backup);
 <p>Backup preferences are set by submitting an array of values to the first parameter of the backup function. 參考範例:</p>
 
 <code>$prefs = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tables'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array('table1'，'table2'),&nbsp;&nbsp;// Array of tables to backup.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tables'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array('table1', 'table2'),&nbsp;&nbsp;// Array of tables to backup.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ignore'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array(),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// List of tables to omit from the backup<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'format'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'txt',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// gzip，zip，txt<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'filename'&nbsp;&nbsp;&nbsp;&nbsp;=> 'mybackup.sql',&nbsp;&nbsp;&nbsp;&nbsp;// File name - NEEDED ONLY WITH ZIP FILES<br />

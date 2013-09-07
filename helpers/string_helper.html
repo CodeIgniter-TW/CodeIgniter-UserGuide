@@ -87,7 +87,7 @@ alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
 
 <p>使用範例:</p>
 
-<code>echo random_string('alnum'，16);</code>
+<code>echo random_string('alnum', 16);</code>
 
 
 <h2>increment_string()</h2>
@@ -107,7 +107,7 @@ echo increment_string('file-4'); // "file-5"<br/></code>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('string one'，'string two');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('string one', 'string two');<br />
 }<br />
 </code>
 
@@ -115,7 +115,7 @@ echo increment_string('file-4'); // "file-5"<br/></code>
 
 <code>for ($i = 0; $i < 10; $i++)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('one'，'two'，'three'，'four'，'five');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo alternator('one', 'two', 'three', 'four', 'five');<br />
 }<br />
 </code>
 
@@ -126,7 +126,7 @@ echo increment_string('file-4'); // "file-5"<br/></code>
 <h2>repeater()</h2>
 <p>重複產生你所指定次數的資料。參考範例：</p>
 <code>$string = "\n";<br />
-echo repeater($string，30);</code>
+echo repeater($string, 30);</code>
 
 <p>上面的例子將會產生30列空白列。</p>
 <h2>reduce_double_slashes()</h2>
@@ -143,17 +143,17 @@ echo trim_slashes($string); // results in this/that/theother</code></p>
 <h2>reduce_multiples()</h2>
 <p>去除多餘的重複出現特殊字元。參考範例：</p>
 <code>
-$string="Fred，Bill,，Joe，Jimmy";<br />
-$string=reduce_multiples($string,","); //results in "Fred，Bill，Joe，Jimmy"
+$string="Fred,Bill,,Joe,Jimmy";<br />
+$string=reduce_multiples($string, ","); //results in "Fred,Bill,Joe,Jimmy"
 </code>
 <p>本函數接受以下參數：
-<code>reduce_multiples(string: text to search in，string: character to reduce，boolean: whether to remove the character from the front and end of the string)</code>
+<code>reduce_multiples(string: text to search in, string: character to reduce, boolean: whether to remove the character from the front and end of the string)</code>
 
 第一個參數用於傳送你所要去除重複的字串。第二個參數用於傳送你所要去除的字元。第三個參數預設為 False。如果為True將會去除出現在字串開頭或結尾的字元(即使字元不重複也會去除)。參考範例：
 
 <code>
-$string=",Fred，Bill,，Joe，Jimmy,";<br />
-$string=reduce_multiples($string，"，"，TRUE); //results in "Fred，Bill，Joe，Jimmy"
+$string=",Fred,Bill,,Joe,Jimmy,";<br />
+$string=reduce_multiples($string, ",". TRUE); //results in "Fred,Bill,Joe,Jimmy"
 </code>
 </p>
 

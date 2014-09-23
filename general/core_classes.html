@@ -127,7 +127,7 @@ class MY_Input extends CI_Input {<br /><br />
 <code>
 class MY_Input extends CI_Input {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public function __construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
@@ -140,12 +140,12 @@ class MY_Input extends CI_Input {<br />
 
 <code>class Welcome extends MY_Controller {<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public function __construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function index()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public function index()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('welcome_message');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />

@@ -104,7 +104,7 @@ RewriteRule ^(.*)$ index.php/$1 [L,QSA]<br />
 <code>
 location / {<br />
 &nbsp;&nbsp;try_files $uri $uri/ /index.php;<br />
-}<br />
+}<br /><br />
 location ~ \.php$ {<br />
 &nbsp;&nbsp;fastcgi_pass unix:/var/run/php5-fpm.sock;<br />
 &nbsp;&nbsp;fastcgi_index index.php;<br />

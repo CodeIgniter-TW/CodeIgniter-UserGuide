@@ -99,6 +99,22 @@ RewriteRule ^(.*)$ index.php/$1 [L,QSA]<br />
 
 <p>在上述的範例中，像是 index.php、images、robots.txt 的全部 HTTP request 都會被當成是 request index.php 檔案。</p>
 
+<p>假設是使用 Nginx 伺服器，請參考底下設定</p>
+
+<code>
+location / {<br />
+&nbsp;&nbsp;try_files $uri $uri/ /index.php;<br />
+}<br />
+location ~ \.php$ {<br />
+&nbsp;&nbsp;fastcgi_pass unix:/var/run/php5-fpm.sock;<br />
+&nbsp;&nbsp;fastcgi_index index.php;<br />
+&nbsp;&nbsp;fastcgi_split_path_info ^(.+\.php)(.*)$;<br />
+&nbsp;&nbsp;include fastcgi_params;<br />
+&nbsp;&nbsp;fastcgi_param HTTPS off;<br />
+&nbsp;&nbsp;fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br />
+}
+</code>
+
 <h2>加入 URL 後置字串</h2>
 
 <p><dfn>config/config.php</dfn> 檔案可以設定後置字串，讓所有的由 CodeIgniter 產生的 URLs 都附戴上去。舉例來說，假如某個 URL 如下:</p>

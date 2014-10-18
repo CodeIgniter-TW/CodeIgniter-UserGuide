@@ -87,7 +87,7 @@
 <p>裡面只有兩個東西你可能不熟悉：<dfn>form_open()</dfn> 函數以及 <dfn>validation_errors()</dfn> 函數。</p>
 
 <p>第一個函數是由 <a href="../helpers/form_helper.html">Form 輔助函數</a> 所提供的，它將會顯示表單元素並增加一些額外功能。
-例如增加一個隱藏的 <a href="../libraries/security.html">CSFR 預防欄位</a>。第二個函數則是當表單驗證錯誤時，用來顯示錯誤訊息。</p>
+例如增加一個隱藏的 <a href="../libraries/security.html">CSRF 預防欄位</a>。第二個函數則是當表單驗證錯誤時，用來顯示錯誤訊息。</p>
 
 <p>回到你的 news 控制器。在這邊你將要做兩件事情，檢查是否有表單被送出，以及送出的資料是否通過驗證規則。我們將使用 <a href="../libraries/form_validation.html">Form Validation</a> 程式庫來做這件事。</p>
 
@@ -161,7 +161,7 @@ public function set_news()
 	
 <pre>
 $route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
+$route['news/view/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

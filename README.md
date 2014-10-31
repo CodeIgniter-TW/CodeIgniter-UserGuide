@@ -1,6 +1,6 @@
 # 關於 CodeIgniter:
 
-CodeIgniter 是一套小巧但功能强大的 PHP 框架，做為一個簡單而“優雅”的工具包，它是
+CodeIgniter 是一套小巧但功能强大的 PHP 框架，做為一個簡單而`優雅`的工具包，它是
 一套專為 PHP 開發者建立功能完善的 Web 應用程序。如果你是一個使用虛擬主機，並且為
 客戶所要求的期限而煩惱的開發人員，如果你已經厭倦那些難而且效率不高的框架，那麼
 CodeIgniter 就是你所需要的
@@ -31,7 +31,7 @@ CodeIgniter 為你而存在，假如 ..
 如果想要最新的中文翻譯文件，請利用 git 方式取得：
 
 ```
-$ git clone git@github.com:CodeIgniter-TW/CodeIgniter-UserGuide.git
+$ git clone https://github.com/CodeIgniter-TW/CodeIgniter-UserGuide.git
 ```
 
 非常感謝底下貢獻者 (Many thanks to our contributors)：

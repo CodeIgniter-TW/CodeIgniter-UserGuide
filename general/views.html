@@ -61,7 +61,7 @@ Views
 
 <p>檢視(Views)無法直接被呼叫，它必須被<a href="controllers.html">控制器(controller)</a>所呼叫。還記得在 MVC framework 裡頭，控制器(Controller)扮演的是交通警察的角色，所以它是負責取得一部分的 view。如果你還沒讀到<a href="controllers.html">控制器(Controllers)</a> 的章節的話，你應該在繼續下去之前，先把那章節讀完。</p>
 
-<p>使用你在 <a href="controllers.html">控制器(controller)</a> 章節中，所建立的範例控制器。然後替他加入 view。</p>
+<p>使用你在 <a href="controllers.html">控制器(controller)</a> 章節中，所建立的範例控制器。然後替它加入 view。</p>
 
 <h2>新增 View</h2>
 
@@ -129,7 +129,7 @@ class Page extends Controller {<br /><br />
 	?&gt;</code></p>
 <p>&quot;動態新增資料&quot; 的方式，你可以在底下看到範例。</p>
 <h2>把 view 收納進子目錄裡頭</h2>
-<p>假如你喜歡這樣的組織方式的話，你也可以把檢視檔(view file)分散儲存到子目錄之中。當這麼做的話，你需要把這個目錄的名稱 include 近來到 view 裡頭。參考範例:</p>
+<p>假如你喜歡這樣的組織方式的話，你也可以把檢視檔(view file)分散儲存到子目錄之中。當這麼做的話，你需要把這個目錄的名稱 include 進來到 view 裡頭。參考範例:</p>
 
 <code>$this->load->view('<kbd>folder_name</kbd>/<var>file_name</var>');</code>
 
@@ -172,7 +172,7 @@ class Blog extends CI_Controller {
 </textarea>
 
 
-<p>現在打開檢視檔(view file)，然後把底下的文字改成跟你的資料相關的陣列變數名稱:</p>
+<p>現在打開檢視檔(view file)，然後把原本的文字改成跟你的資料相關的陣列鍵值(array keys)名稱(如下所示):</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -191,7 +191,7 @@ class Blog extends CI_Controller {
 <h2>新增迴圈(Creating Loops)</h2>
 
 <p>送給檢視檔(view file)的資料陣列不限為單變數。可以送出多維陣列，用來重複產生多欄資料。
-舉例來說，你從資料庫將資料拉出來，它基本上是多為度陣列的型式。</p>
+舉例來說，你從資料庫將資料拉出來，它基本上是多維度陣列的型式。</p>
 
 <p>這裡舉了簡單的例子。新增至你的控制器(controller)裡頭:</p>
 
@@ -242,7 +242,7 @@ class Blog extends CI_Controller {
 
 <h2>Returning views as data</h2>
 
-<p>其中第三個 <strong>選擇性</strong> 參數，可以讓你改變函數的行為，所以你可以把資送如字串般傳回，然後將它送至你的瀏覽器。假如有時你要以某些方式來處理資料的話，這還蠻好用的。譬如你可以把參數設定成<kbd>true</kbd> 布林值(boolean)，他就會傳回資料。預設的函數行為是 <kbd>false</kbd>，為送至你的瀏覽器。記得你若要資料回傳的話，記得給予它正確的變數值:</p>
+<p>其中第三個 <strong>選擇性</strong> 參數，可以讓你改變函數的行為，你可以由函數直接輸出給瀏覽器改成回傳字串資料給你。這對你要以某些方式來處理資料時還蠻好用的。譬如你可以把參數設定成<kbd>true</kbd> 布林值(boolean)，他就會傳回資料。預設的函數行為是 <kbd>false</kbd>，為送至你的瀏覽器。記得你若要資料回傳的話，記得給予它正確的變數值:</p>
 
 
 <code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>

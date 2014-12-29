@@ -10,7 +10,6 @@ Who is CodeIgniter For?
 
 如果你是以下陳述，那麼 CodeIgniter 適合你：
 
--  You want a framework with a small footprint.
 -  你想要一個佔用空間小的 Framework。
 -  你需要卓越的性能。
 -  你需要一個能夠在大部分主機上執行PHP變數以及設定的 Framework。

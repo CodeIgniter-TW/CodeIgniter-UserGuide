@@ -2,31 +2,22 @@
 Welcome to CodeIgniter
 ######################
 
-CodeIgniter is an Application Development Framework - a toolkit - for
-people who build web sites using PHP. Its goal is to enable you to
-develop projects much faster than you could if you were writing code
-from scratch, by providing a rich set of libraries for commonly needed
-tasks, as well as a simple interface and logical structure to access
-these libraries. CodeIgniter lets you creatively focus on your project
-by minimizing the amount of code needed for a given task.
+CodeIgniter 網站應用程式框架 - 給運用PHP開發網站工程師的一個工具。它的目標是使你在開發專案時在一般需求功能時，提供一群豐富的Library以及Library介面和存取Library的邏輯結構，使你在開發一般功能時比從頭造輪子還快許多。 CodeIgniter 讓你專注於專案之上，使你寫出最小化的程式碼達到需要的功能。
 
 ***********************
 Who is CodeIgniter For?
 ***********************
 
-CodeIgniter is right for you if:
+如果你是以下陳述，那麼 CodeIgniter 適合你：
 
 -  You want a framework with a small footprint.
--  You need exceptional performance.
--  You need broad compatibility with standard hosting accounts that run
-   a variety of PHP versions and configurations.
--  You want a framework that requires nearly zero configuration.
--  You want a framework that does not require you to use the command
-   line.
--  You want a framework that does not require you to adhere to
-   restrictive coding rules.
--  You are not interested in large-scale monolithic libraries like PEAR.
--  You do not want to be forced to learn a templating language (although
-   a template parser is optionally available if you desire one).
--  You eschew complexity, favoring simple solutions.
--  You need clear, thorough documentation.
+-  你想要一個佔用空間小的 Framework。
+-  你需要卓越的性能。
+-  你需要一個能夠在大部分主機上執行PHP變數以及設定的 Framework。
+-  你想要一個幾乎不用額外設定的 Framework。
+-  你想要一個不必下command的 Framework。
+-  你想要一個不要求嚴格規範編碼規則的 Framework。
+-  你沒有興趣在 large-scale monolithic libraries 像是 PEAR。
+-  你不想去強迫學習一種模板語言 (如果你需要一個，模板解析器還是可選使用的).
+-  你喜歡簡單、討厭複雜的解決方法。
+-  你需要一份簡單且透徹的使用文件。

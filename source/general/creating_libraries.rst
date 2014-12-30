@@ -1,14 +1,22 @@
 ##################
-建立自己的函式庫
+Creating Libraries
 ##################
 
-當我們使用 "函式庫(Libraries)" 這個名稱的時候，我們通常指的是位在 libraries 目錄底下的類別，詳細可參考使用手冊中的類別參考的說明。 而在這邊，我們要教你的是如何在 application/libraries 建立你自己的程式庫。這是為了將你的程式庫與 CodeIgniter 內建的區分開來。
+When we use the term "Libraries" we are normally referring to the
+classes that are located in the libraries directory and described in the
+Class Reference of this user guide. In this case, however, we will
+instead describe how you can create your own libraries within your
+application/libraries directory in order to maintain separation between
+your local resources and the global framework resources.
 
-CodeIgniter允許你擴展(extend)原有的類別以擴充新功能。你也可以直接取代掉原本的類別，只要你使用與原有類別相同的名稱並放進 *application/libraries 資料夾裡即可。
+As an added bonus, CodeIgniter permits your libraries to extend native
+classes if you simply need to add some functionality to an existing
+library. Or you can even replace native libraries just by placing
+identically named versions in your *application/libraries* directory.
 
-總結:
+In summary:
 
--  你可以建立(create)全新的程式庫。
+-  You can create entirely new libraries.
 -  You can extend native libraries.
 -  You can replace native libraries.
 

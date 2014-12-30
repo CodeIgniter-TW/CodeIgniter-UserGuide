@@ -2,25 +2,17 @@
 Views
 #####
 
-A view is simply a web page, or a page fragment, like a header, footer,
-sidebar, etc. In fact, views can flexibly be embedded within other views
-(within other views, etc., etc.) if you need this type of hierarchy.
+View 只是簡單的網站頁面，或者片段頁面，像是 header， footer，sidebar，等等。事實上，Views 可以很彈性的嵌入到其他 Views (within other views, etc., etc.) 如果你需要這樣的層次結構。
 
-Views are never called directly, they must be loaded by a
-:doc:`controller <controllers>`. Remember that in an MVC framework, the
-Controller acts as the traffic cop, so it is responsible for fetching a
-particular view. If you have not read the
-:doc:`Controllers <controllers>` page you should do so before
-continuing.
 
-Using the example controller you created in the
-:doc:`controller <controllers>` page, let's add a view to it.
+Views 無法直接呼叫，他們一定要通過 :doc:`Controller <controllers>` 來呼叫。 記得在 MVC framework 時， :doc:`Controllers <controllers>` 像是交通警察一樣工作，所以他負責去抓取指定的 View。如果你還沒看過 Controllers 頁面，你應該要先看過唷。
 
-Creating a View
+使用範例 :doc:`Controller <controllers>` 你會建立一個 controller頁面，讓你增加 View 到裡面。
+
+建立一個 View
 ===============
 
-Using your text editor, create a file called blogview.php, and put this
-in it::
+用你的文字編輯器，建立一個檔案叫做 blogview.php ，然後把下面程式碼放進來::
 
 	<html>
 	<head>
@@ -31,22 +23,20 @@ in it::
 	</body>
 	</html>
 	
-Then save the file in your *application/views/* directory.
+然後儲存檔案到 *application/views/* 目錄。
 
-Loading a View
+載入 View
 ==============
 
-To load a particular view file you will use the following method::
+為了載入指定的 View 你可以跟隨下面操作放到 Controller 裡的方法裡::
 
 	$this->load->view('name');
 
-Where name is the name of your view file.
+它的名字就是你 View 檔案的名字。
 
-.. note:: The .php file extension does not need to be specified
-	unless you use something other than .php.
+.. note:: 後綴 .php 是不需要的唷，除非你有其它或連續的 .php 。
 
-Now, open the controller file you made earlier called Blog.php, and
-replace the echo statement with the view loading method::
+現在，打開你的 Controller 目錄，你新增一個簡單的名稱叫做 Blog.php，用頁面讀取方法取道掉 echo 語句::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -57,19 +47,14 @@ replace the echo statement with the view loading method::
 		}
 	}
 
-If you visit your site using the URL you did earlier you should see your
-new view. The URL was similar to this::
+你通過 URL 來拜訪你的網站，你將會看到你的頁面。這個 URL 大概長這樣::
 
 	example.com/index.php/blog/
 
-Loading multiple views
+載入多個 Views
 ======================
 
-CodeIgniter will intelligently handle multiple calls to
-``$this->load->view()`` from within a controller. If more than one call
-happens they will be appended together. For example, you may wish to
-have a header view, a menu view, a content view, and a footer view. That
-might look something like this::
+CodeIgniter 將會聰明地處理多個呼叫 ``$this->load->view()`` 從 controller裡面。如果呼叫超過一個，那麼它們會被連續附加在一起。例如，你可能有 header view，menu view，content view，以及 footer view。然後像這樣::
 
 	<?php
 
@@ -86,24 +71,19 @@ might look something like this::
 
 	}
 
-In the example above, we are using "dynamically added data", which you
-will see below.
+從上述例子來看，我們運用了 "動態附加資料"，您將會在下面看到。
 
-Storing Views within Sub-directories
+儲存 Views 到子目錄
 ====================================
 
-Your view files can also be stored within sub-directories if you prefer
-that type of organization. When doing so you will need to include the
-directory name loading the view. Example::
+你的 View 檔案可以被儲存到子目錄內，如果你喜歡分類組織了話。如果你這樣做你將需要去引入子目錄名稱來讀取 View。 例如::
 
 	$this->load->view('directory_name/file_name');
 
-Adding Dynamic Data to the View
+增加動態資料到 View
 ===============================
 
-Data is passed from the controller to the view by way of an **array** or
-an **object** in the second parameter of the view loading method. Here
-is an example using an array::
+資料是使用 **陣列** 或 **物件** 從 Controller 傳送到 View 裡面，透過 View 讀取的方法傳入第二個參數內。這裡是運用陣列的方法::
 
 	$data = array(
 		'title' => 'My Title',
@@ -113,15 +93,14 @@ is an example using an array::
 
 	$this->load->view('blogview', $data);
 
-And here's an example using an object::
+然後這裡是運用物件的方法傳入::
 
 	$data = new Someclass();
 	$this->load->view('blogview', $data);
 
-.. note:: If you use an object, the class variables will be turned
-	into array elements.
+.. note:: 如果你是用物件，類別變數將會被轉成陣列元素。
 
-Let's try it with your controller file. Open it add this code::
+讓我們試試看 增加到你的 Controller 檔案裡。 新增以下程式碼::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -135,8 +114,7 @@ Let's try it with your controller file. Open it add this code::
 		}
 	}
 
-Now open your view file and change the text to variables that correspond
-to the array keys in your data::
+現在打開你的 View 檔案然後改變字串替換成陣列的鍵值::
 
 	<html>
 	<head>
@@ -147,18 +125,14 @@ to the array keys in your data::
 	</body>
 	</html>
 
-Then load the page at the URL you've been using and you should see the
-variables replaced.
+然後通過 URL 來讀取頁面， 你已經使用變數代替原本的字串了。
 
-Creating Loops
+建立迴圈
 ==============
 
-The data array you pass to your view files is not limited to simple
-variables. You can pass multi dimensional arrays, which can be looped to
-generate multiple rows. For example, if you pull data from your database
-it will typically be in the form of a multi-dimensional array.
+傳遞給你的 View 文件中的資料陣列並不局限於簡單的變量。你可以通過多維陣列，可以循環產生多個欄位資料。例如，如果你從資料庫中撈取資料，這時它通常是在一個多維陣列的形式。
 
-Here's a simple example. Add this to your controller::
+這裡有一個簡單的例子。添加到您的 Controller::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -174,7 +148,7 @@ Here's a simple example. Add this to your controller::
 		}
 	}
 
-Now open your view file and create a loop::
+現在打開你的 View 文件，建立一個迴圈::
 
 	<html>
 	<head>
@@ -196,18 +170,11 @@ Now open your view file and create a loop::
 	</body>
 	</html>
 
-.. note:: You'll notice that in the example above we are using PHP's
-	alternative syntax. If you are not familiar with it you can read about
-	it :doc:`here <alternative_php>`.
+.. note:: 你會注意到，在上面我們使用PHP的替代語法的例子。如果你不熟悉它，你可以閱讀一下 :doc:`here <alternative_php>`.
 
-Returning views as data
+資料回傳到 views
 =======================
 
-There is a third **optional** parameter lets you change the behavior of
-the method so that it returns data as a string rather than sending it
-to your browser. This can be useful if you want to process the data in
-some way. If you set the parameter to TRUE (boolean) it will return
-data. The default behavior is false, which sends it to your browser.
-Remember to assign it to a variable if you want the data returned::
+這裡是第三個 **可選的** 參數，它返回讀取那個頁面的整個HTML，而不是將其發送到瀏覽器。如果你在處理資料的狀況下，這個方法是很有用的。如果你設定成 TRUE (boolean) 它就會回傳資料。預設是 false，那麼他就會將 View 發送到瀏覽器了。 如果你要有資料回傳，記得塞入這個變數:
 
 	$string = $this->load->view('myfile', '', TRUE);

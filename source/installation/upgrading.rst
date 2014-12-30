@@ -1,9 +1,8 @@
 #################################
-Upgrading From a Previous Version
+從先前的版本來更新
 #################################
 
-Please read the upgrade notes corresponding to the version you are
-upgrading from.
+請仔細閱讀與您從各個相對應的版本升級說明。
 
 .. toctree::
 	:titlesonly:

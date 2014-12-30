@@ -2,19 +2,14 @@
 Models
 ######
 
-Models are **optionally** available for those who want to use a more
-traditional MVC approach.
+Models 是給傳統 MVC 架構更多 **可選地** 提供使用。
 
-.. contents:: Page Contents
+.. contents:: 頁面內容
 
-What is a Model?
+什麼是 Model?
 ================
 
-Models are PHP classes that are designed to work with information in
-your database. For example, let's say you use CodeIgniter to manage a
-blog. You might have a model class that contains functions to insert,
-update, and retrieve your blog data. Here is an example of what such a
-model class might look like::
+Models 是 PHP 類別，它是被設計來存取資料庫用的。比如說，使用 CodeIgniter 去管理部落格。你可以有一個 Model 類別它包含函式去 insert，update，還有 retrieve 你的部落格資料。這裡有個例子，來看看 Model 類別是怎麼樣的::
 
 	class Blog_model extends CI_Model {
 
@@ -54,22 +49,16 @@ model class might look like::
 
 	}
 
-.. note:: The methods in the above example use the :doc:`Query Builder
-	<../database/query_builder>` database methods.
+.. note:: 在上述例子我們使用 :doc:`Query Builder	<../database/query_builder>` 方法去存取資料庫。
 
-.. note:: For the sake of simplicity in this example we're using ``$_POST``
-	directly. This is generally bad practice, and a more common approach
-	would be to use the :doc:`Input Library <../libraries/input>`
-	``$this->input->post('title')``.
+.. note:: 為簡單起見，在本實施例中，我們直接地使用 ``$_POST`` 。這通常是不好的做法，更好的方法將是使用 :doc:`Input Library <../libraries/input>` ``$this->input->post('title')``.
 
-Anatomy of a Model
+剖析 Model
 ==================
 
-Model classes are stored in your **application/models/** directory.
-They can be nested within sub-directories if you want this type of
-organization.
+Model 類別是儲存在 **application/models/** 目錄。 它們可以巢狀的包含在子目錄中，如果你想要分類組織了話，這是個好方法。
 
-The basic prototype for a model class is this::
+基本的 Model 類別原型長這樣::
 
 	class Model_name extends CI_Model {
 
@@ -80,11 +69,9 @@ The basic prototype for a model class is this::
 
 	}
 
-Where **Model_name** is the name of your class. Class names **must** have
-the first letter capitalized with the rest of the name lowercase. Make
-sure your class extends the base Model class.
+這個 **Model_name** 是你的類別名稱。 類別名稱 **一定要** 第一個字母大寫的，其餘部分小寫的。請確認你的類別擴展基本的 Model 類別。
 
-The file name must match the class name. For example, if this is your class::
+檔案名稱要跟類別名稱一樣。例如::
 
 	class User_model extends CI_Model {
 
@@ -95,41 +82,34 @@ The file name must match the class name. For example, if this is your class::
 
 	}
 
-Your file will be this::
+你的檔案目錄會長這樣::
 
 	application/models/User_model.php
 
-Loading a Model
+載入 Model
 ===============
 
-Your models will typically be loaded and called from within your
-:doc:`controller <controllers>` methods. To load a model you will use
-the following method::
+你的 models 會被呼叫，通過 :doc:`controller <controllers>` 呼叫方法。 用以下方法載入 models::
 
 	$this->load->model('model_name');
 
-If your model is located in a sub-directory, include the relative path
-from your models directory. For example, if you have a model located at
-*application/models/blog/Queries.php* you'll load it using::
+如果你的 Model 位於子目錄，引入相關的路徑經由 Models 目錄。位於 *application/models/blog/Queries.php* 你將要讀取它，用法::
 
 	$this->load->model('blog/queries');
 
-Once loaded, you will access your model methods using an object with the
-same name as your class::
+一旦載入，你會使用一個物件是具有相同於 Model 名稱的物件，它可以執行你 Model 的方法::
 
 	$this->load->model('model_name');
 
 	$this->model_name->method();
 
-If you would like your model assigned to a different object name you can
-specify it via the second parameter of the loading method::
+如果你想分配給 Model 不同的名稱，你可以通過傳入的第二個參數指定它::
 
 	$this->load->model('model_name', 'foobar');
 
 	$this->foobar->method();
 
-Here is an example of a controller, that loads a model, then serves a
-view::
+這裡是一個 Controller，載入一個 Model 的例子，然後提供給一個 View::
 
 	class Blog_controller extends CI_Controller {
 
@@ -144,32 +124,25 @@ view::
 	}
 	
 
-Auto-loading Models
+自動載入 Models
 ===================
 
-If you find that you need a particular model globally throughout your
-application, you can tell CodeIgniter to auto-load it during system
-initialization. This is done by opening the
-**application/config/autoload.php** file and adding the model to the
-autoload array.
+如果你想要在整個應用程式中全域加載，並使用某些 model 你可以打開 **application/config/autoload.php** 檔案，然後增加這些 model 到 $autoload['model'] 陣列裡。
 
-Connecting to your Database
+連接資料庫
 ===========================
 
-When a model is loaded it does **NOT** connect automatically to your
-database. The following options for connecting are available to you:
+當 Model 被載入近來，但是 **還沒** 自動地連接到資料庫。 提供給您連接資料庫的選項在下面:
 
--  You can connect using the standard database methods :doc:`described
-   here <../database/connecting>`, either from within your
-   Controller class or your Model class.
--  You can tell the model loading method to auto-connect by passing
-   TRUE (boolean) via the third parameter, and connectivity settings,
-   as defined in your database config file will be used::
+-  您可以連接使用標準資料庫的方法 :doc:`described
+   here <../database/connecting>` 無論你從 Controller 類別 或 Model 類別連接都可以。
+-  你可以告訴 Model 加載時自動連接資料庫，
+	 透過第三個參數傳遞TRUE（Boolean）自動連接和連接設置，
+	 在你的資料庫設定文件中定義將被使用::
 
 	$this->load->model('model_name', '', TRUE);
 
--  You can manually pass database connectivity settings via the third
-   parameter::
+-  您可以通過第三個參數通過手動資料庫連接設置::
 
 	$config['hostname'] = 'localhost';
 	$config['username'] = 'myusername';

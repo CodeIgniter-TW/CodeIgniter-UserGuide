@@ -1,12 +1,12 @@
 ###################
-Server Requirements
+Server 需求
 ###################
 
-- `PHP <http://www.php.net/>`_ version 5.2.4 or newer.
-- A Database is required for most web application programming.
+- `PHP <http://www.php.net/>`_ 版本 5.2.4 或者更高版本。
+- 大多網站數應用程式是需要資料庫的。
 
- Currently supported databases are:
-  - MySQL (5.1+) via the *mysql* (deprecated), *mysqli* and *pdo* drivers
+ 現在支持的資料庫:
+  - MySQL (5.1+) via the *mysql* (棄用), *mysqli* and *pdo* drivers
   - Oracle via the *oci8* and *pdo* drivers
   - PostgreSQL via the *postgre* and *pdo* drivers
   - MS SQL via the *mssql*, *sqlsrv* (version 2005 and above only) and *pdo* drivers

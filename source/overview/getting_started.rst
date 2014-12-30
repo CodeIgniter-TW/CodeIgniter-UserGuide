@@ -11,4 +11,4 @@
 一旦你了解基礎的主題，就可以進到下一步來探索 **Class Reference** 以及 **Helper Reference** 頁面去學習利用原生 函式庫 以及 輔助函式 檔案。
 
 隨時利用我們的論壇 `Community
-Forums <http://forum.codeigniter.com/>`_ 如果你有任何問題，以及我們的 `Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_ 去看其他工程是發布出來的程式碼解釋。 
+Forums <http://forum.codeigniter.com/>`_ 如果你有任何問題，以及我們的 `Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_ 去看其他工程是發布出來的程式碼解釋。

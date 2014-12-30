@@ -75,5 +75,5 @@ CodeIgniter 是完全文件化的
 CodeIgniter 有很友善的社群使用者
 =============================================
 
-我們正在成長的社群有積極參與的夥伴們 
+我們正在成長的社群有積極參與的夥伴們
 `Community Forums <http://forum.codeigniter.com/>`_.

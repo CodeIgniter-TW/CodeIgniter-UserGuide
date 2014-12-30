@@ -2,7 +2,7 @@
 CodeIgniter 概觀
 ####################
 
-我們會根據以下頁面廣泛的描述 CodeIgniter: 
+我們會根據以下頁面廣泛的描述 CodeIgniter:
 
 .. toctree::
 	:titlesonly:

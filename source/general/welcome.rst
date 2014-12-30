@@ -1,11 +1,11 @@
 ######################
-Welcome to CodeIgniter
+歡迎加入 CodeIgniter
 ######################
 
 CodeIgniter 網站應用程式框架 - 給運用PHP開發網站工程師的一個工具。它的目標是使你在開發專案時在一般需求功能時，提供一群豐富的Library以及Library介面和存取Library的邏輯結構，使你在開發一般功能時比從頭造輪子還快許多。 CodeIgniter 讓你專注於專案之上，使你寫出最小化的程式碼達到需要的功能。
 
 ***********************
-Who is CodeIgniter For?
+CodeIgniter 適合誰?
 ***********************
 
 如果你是以下陳述，那麼 CodeIgniter 適合你：

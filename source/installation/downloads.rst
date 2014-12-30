@@ -45,4 +45,4 @@ GitHub
 
 公開的 Git 來存取在 `GitHub <https://github.com/bcit-ci/CodeIgniter>`_。 請注意，雖然盡一切努力來保持這個代碼庫的功能，我們不能保證從開發分支所取得的代碼是有功能的。
 
-版本 2.0.3 開始，穩定版可以通過 `GitHub Releases <https://github.com/bcit-ci/CodeIgniter/releases>`_下載。
+版本 2.0.3 開始，穩定版可以通過 `GitHub Releases <https://github.com/bcit-ci/CodeIgniter/releases>`_ 下載。

@@ -136,9 +136,7 @@ Model 類別是儲存在 **application/models/** 目錄。 它們可以巢狀的
 
 -  您可以連接使用標準資料庫的方法 :doc:`described
    here <../database/connecting>` 無論你從 Controller 類別 或 Model 類別連接都可以。
--  你可以告訴 Model 加載時自動連接資料庫，
-	 透過第三個參數傳遞TRUE（Boolean）自動連接和連接設置，
-	 在你的資料庫設定文件中定義將被使用::
+-  你可以告訴 Model 加載時自動連接資料庫，透過第三個參數傳遞TRUE（Boolean）自動連接和連接設置，在你的資料庫設定文件中定義將被使用::
 
 	$this->load->model('model_name', '', TRUE);
 

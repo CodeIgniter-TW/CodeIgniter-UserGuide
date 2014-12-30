@@ -220,7 +220,7 @@ CodeIgniter 有一個 output 類別會自動地處理你最後傳送給瀏覽器
 
 		application/controllers/products/Shoes.php
 
-	為了呼叫上述的 controller 你的 URI 將會看起來像是如此:
+	為了呼叫上述的 controller 你的 URI 將會看起來像是如此::
 
 		example.com/index.php/products/shoes/show/123
 
@@ -257,7 +257,7 @@ Routing <routing>` 功能，來達成它。
 
 因為你的 controller 類別是擴展主要的應用程式 controller ，所以你必須小心命名你的方法名稱，除了你要複寫這些本來的方法。 查看 :doc:`Reserved Names <reserved_names>` 所有清單。
 
-.. important:: .. important:: 你也不應該將方法命名為它的類別名稱。如果你這樣做，並沒有 ``__construct()`` 方法在同一個類別內，然後你的例子 ``Index::index()`` 方法將會被執行當作建構子! 這是 PHP4 向後兼容的功能。
+.. important:: 你也不應該將方法命名為它的類別名稱。如果你這樣做，並沒有 ``__construct()`` 方法在同一個類別內，然後你的例子 ``Index::index()`` 方法將會被執行當作建構子! 這是 PHP4 向後兼容的功能。
 
 就這樣！
 ==========

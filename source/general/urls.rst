@@ -3,7 +3,7 @@ CodeIgniter URLs
 ################
 
 在預設情況下，URLs 在 CodeIgniter 是被設計對搜尋引擎以及人類閱讀友善的方式。而不是用標準的 "query string" 的 URLs 同義動態系統，CodeIgniter 使用
-(分段式)**segment-based** 像是::
+(分段式) **segment-based** 像是::
 
 	example.com/news/article/my_article
 

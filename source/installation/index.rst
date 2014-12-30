@@ -1,5 +1,5 @@
 #########################
-Installation Instructions
+安裝指引
 #########################
 
 CodeIgniter 安裝分4個部份：

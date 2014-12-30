@@ -1,5 +1,5 @@
 #######################
-Downloading CodeIgniter
+下載 CodeIgniter
 #######################
 
 -  `CodeIgniter v3.0.0 (Current version) <http://ellislab.com/codeigniter/download>`_
@@ -41,11 +41,8 @@ Downloading CodeIgniter
 GitHub
 ******
 
-`Git <http://git-scm.com/about>`_ is a distributed version control system.
+`Git <http://git-scm.com/about>`_ 分散式版本控制系統。
 
-Public Git access is available at `GitHub <https://github.com/bcit-ci/CodeIgniter>`_.
-Please note that while every effort is made to keep this code base
-functional, we cannot guarantee the functionality of code taken from
-the develop branch.
+公開的 Git 來存取在 `GitHub <https://github.com/bcit-ci/CodeIgniter>`_。 請注意，雖然盡一切努力來保持這個代碼庫的功能，我們不能保證從開發分支所取得的代碼是有功能的。
 
-Beginning with version 2.0.3, stable versions are also available via `GitHub Releases <https://github.com/bcit-ci/CodeIgniter/releases>`_.
+版本 2.0.3 開始，穩定版可以通過 `GitHub Releases <https://github.com/bcit-ci/CodeIgniter/releases>`_下載。

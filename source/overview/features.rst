@@ -2,15 +2,8 @@
 CodeIgniter Features
 ####################
 
-Features in and of themselves are a very poor way to judge an
-application since they tell you nothing about the user experience, or
-how intuitively or intelligently it is designed. Features don't reveal
-anything about the quality of the code, or the performance, or the
-attention to detail, or security practices. The only way to really judge
-an app is to try it and get to know the code.
-`Installing <../installation/>`_ CodeIgniter is child's play so we
-encourage you to do just that. In the mean time here's a list of
-CodeIgniter's main features.
+僅僅觀看特色功能是無法得知使用者體驗好壞，應用在設計上直覺跟聰明的地方。同時你也不會知道程式碼的品質，效能，細膩度以及安全性。 判斷一個程式好壞的不二法門就是親身去體驗跟了解當中的乾坤。 因此我們鼓勵你去 
+`Installing <../installation/>`_ 它。 同時，以下為CodeIgniter 一些主要特色。
 
 -  Model-View-Controller Based System
 -  Extremely Light Weight

@@ -2,26 +2,10 @@
 Model-View-Controller
 #####################
 
-CodeIgniter is based on the Model-View-Controller development pattern.
-MVC is a software approach that separates application logic from
-presentation. In practice, it permits your web pages to contain minimal
-scripting since the presentation is separate from the PHP scripting.
+CodeIgniter 是基於 Model-View-Controller 開發的設計模式。 MVC 是軟體開發的方向，它把應用程式的邏輯從presentation中分離出來。 實際上，它允許你在網頁上包含最下化的程式碼，因為presentation是從PHP腳本中分離出來的。
 
--  The **Model** represents your data structures. Typically your model
-   classes will contain functions that help you retrieve, insert, and
-   update information in your database.
--  The **View** is the information that is being presented to a user. A
-   View will normally be a web page, but in CodeIgniter, a view can also
-   be a page fragment like a header or footer. It can also be an RSS
-   page, or any other type of "page".
--  The **Controller** serves as an *intermediary* between the Model, the
-   View, and any other resources needed to process the HTTP request and
-   generate a web page.
+-  The **Model** 代表你的資料結構。 簡單來說你的 model classes 將會包含很多方法，可以幫助你 retrieve、insert、update 資料到你的資料庫。
+-  The **View** 是網站資訊，它是主要呈現給使用者看的結果。 一個 View 一般可以只是 web page，但是在 CodeIgniter，View 也可以當成 page fragment 像是 header 或是 footer。 它也可以做成RSS page，或者所有其他形式的 "page"。
+-  The **Controller** 視為 *中介* 在 Model 和 View 之間，所有 HTTP 請求的資源需求以及處理，或是產出一個網頁都是通過它。
 
-CodeIgniter has a fairly loose approach to MVC since Models are not
-required. If you don't need the added separation, or find that
-maintaining models requires more complexity than you want, you can
-ignore them and build your application minimally using Controllers and
-Views. CodeIgniter also enables you to incorporate your own existing
-scripts, or even develop core libraries for the system, enabling you to
-work in a way that makes the most sense to you.
+CodeIgniter 有一個相當寬鬆的途徑在 MVC 在架構上，因為 Models 不是必要的。如果你不需要增加分離，或者在維護模式底下你不需要更多複雜的操作，你可以忽略 Model 然後最小化地建置出你的 application 只用到 Controllers 以及 Views。 CodeIgniter 使你能夠去改善你現存的程式，甚至開發系統核心 libraries，使你在工作上對你自己更有sense。

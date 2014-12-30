@@ -1,8 +1,8 @@
 ####################
-CodeIgniter Overview
+CodeIgniter 概觀
 ####################
 
-The following pages describe the broad concepts behind CodeIgniter:
+我們會根據以下頁面廣泛的描述 CodeIgniter:
 
 .. toctree::
 	:titlesonly:

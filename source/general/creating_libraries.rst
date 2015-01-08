@@ -19,7 +19,7 @@ CodeIgniter 允許你繼承（extend）原有的類別以擴充新功能。你�
 存檔位置
 =======
 
-自己建立的類別函數可以存放在 *application/libraries* 資料夾，當 CodeIgniter 必須初始化建立類別函數，系統就會來此資料夾查詢並且載入。
+自己建立的類別函式可以存放在 *application/libraries* 資料夾，當 CodeIgniter 必須初始化建立類別函式，系統就會來此資料夾查詢並且載入。
 
 命名規則
 ==================
@@ -50,7 +50,7 @@ CodeIgniter 允許你繼承（extend）原有的類別以擴充新功能。你�
 使用自建類別（Using Your Class）
 =============================
 
-由 :doc:`Controller <controllers>` 內的函數載入任何類別，可使用下列的標準語法::
+由 :doc:`Controller <controllers>` 內的函式載入任何類別，可使用下列的標準語法::
 
 	$this->load->library('someclass');
 

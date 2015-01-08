@@ -1,5 +1,5 @@
 ###########################
-使用 CodeIgniter 函式庫（Library）
+使用 CodeIgniter 函式庫
 ###########################
 
 所有可用的函式庫置於 system/libraries 目錄之下。大部份情況，其中的類別可透過 :doc:`controller <controllers>` 使用下列函式來啟用::

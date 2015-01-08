@@ -8,7 +8,7 @@
 
 下一步，有順序的閱讀所有的 **General Topics** 每一個主題都是由前一個主題而來，以及包含程式碼的解釋，這些都是鼓勵你去嘗試的唷。
 
-一旦你了解基礎的主題，就可以進到下一步來探索 **Class Reference** 以及 **Helper Reference** 頁面去學習利用原生函式庫以及輔助函式的檔案。
+一旦你了解基礎的主題，就可以進到下一步來探索 **類別參考文件** 以及 **輔助函式參考文件** 頁面去學習利用原生函式庫以及輔助函式的檔案。
 
 隨時利用我們的論壇 `Community
 Forums <http://forum.codeigniter.com/>`_ 如果你有任何問題，以及我們的 `Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_ 去看其他工程是發布出來的程式碼解釋。

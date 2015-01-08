@@ -26,4 +26,4 @@
 新增屬於自己的 Drivers
 =========================
 
-請先仔細閱讀手冊 :doc:`新增屬於自己的 drivers <creating_drivers>`章節。
+請先仔細閱讀手冊 :doc:`自建驅動器 <creating_drivers>` 章節。

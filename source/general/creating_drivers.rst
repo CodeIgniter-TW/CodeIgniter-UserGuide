@@ -5,7 +5,7 @@
 Driver 目錄和檔案架構
 ===================================
 
-Sample driver directory and file structure layout:
+底下是簡單 driver 目錄和檔案架構設計:
 
 -  /application/libraries/Driver_name
 
@@ -16,10 +16,6 @@ Sample driver directory and file structure layout:
       -  Driver_name_subclass_2.php
       -  Driver_name_subclass_3.php
 
-.. note:: In order to maintain compatibility on case-sensitive
-	file systems, the Driver_name directory must be
-	named in the format returned by ``ucfirst()``.
+.. note:: 為了維護相容於具有大小寫相依的檔案系統，Driver_name 目錄名稱第一個字母必須為大寫 ``ucfirst()``。
 
-.. note:: The Driver library's architecture is such that
-	the subclasses don't extend and therefore don't inherit
-	properties or methods of the main driver.
+.. note:: 驅動器類別的架構是無法 extends 的，所以它不會繼承主驅動器類別的變數以及方法。

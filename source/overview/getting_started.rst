@@ -4,7 +4,7 @@
 
 所有的軟體應用程式開發都需要努力的學習。我們已經在學習的路徑在，最小化的降低了學習門檻。
 
-第一步是 :doc:`安裝 <../installation/index>` CodeIgniter，然後從 **Introduction** 章節開始，閱讀所有的主題。
+第一步是 :doc:`安裝 <../installation/index>`  CodeIgniter，然後從 **Introduction** 章節開始，閱讀所有的主題。
 
 下一步，有順序的閱讀所有的 **General Topics** 每一個主題都是由前一個主題而來，以及包含程式碼的解釋，這些都是鼓勵你去嘗試的唷。
 

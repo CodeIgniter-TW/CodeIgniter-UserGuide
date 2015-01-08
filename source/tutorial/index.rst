@@ -28,7 +28,7 @@
 	:hidden:
 	:titlesonly:
 	
-	靜態頁面
-	新聞模組
-	新增新聞項目
-	結論
+	static_pages
+	news_section
+	create_news_items
+	conclusion

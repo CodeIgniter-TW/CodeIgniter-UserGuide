@@ -1,8 +1,8 @@
 ################
-Creating Drivers
+自建驅動器
 ################
 
-Driver Directory and File Structure
+Driver 目錄和檔案架構
 ===================================
 
 Sample driver directory and file structure layout:

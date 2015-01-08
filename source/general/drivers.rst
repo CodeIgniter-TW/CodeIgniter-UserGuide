@@ -1,40 +1,29 @@
 #########################
-Using CodeIgniter Drivers
+使用 CodeIgniter 驅動器
 #########################
 
-Drivers are a special type of Library that has a parent class and any
-number of potential child classes. Child classes have access to the
-parent class, but not their siblings. Drivers provide an elegant syntax
-in your :doc:`controllers <controllers>` for libraries that benefit
-from or require being broken down into discrete classes.
+驅動器是集合了一個父類別和複數個有關係子類別的特殊程式庫。子類別會使用到父類別的一些功能，但是他們不是父子關係(繼承)。驅動器在各種類別庫得益於或需要分拆成不同類別的情況下，提供在 :doc:`控制器（Controllers） <controllers>` 中能夠以優雅的方式撰寫。
 
-Drivers are found in the *system/libraries/* directory, in their own
-sub-directory which is identically named to the parent library class.
-Also inside that directory is a subdirectory named drivers, which
-contains all of the possible child class files.
+驅動器位於 *system/libraries* 的檔案裡面, 它們會被歸類在與父類別相同名稱的目錄底下，同時所有相關的子類別會存放在一個名為 drivers 附屬檔案中。
 
-To use a driver you will initialize it within a controller using the
-following initialization method::
+當你需要使用驅動器時, 你必須使用以下的函數來進行初式化的動作::
 
 	$this->load->driver('class_name');
 
-Where class name is the name of the driver class you want to invoke. For
-example, to load a driver named "Some_parent" you would do this::
+上面的 class\_name 是你要調用驅動器的名稱。例如，加載一個名為 "Some Parent" 驅動器的範例如下::
 
 	$this->load->driver('some_parent');
 
-Methods of that class can then be invoked with::
+下面示範調用該類別的方法::
 
 	$this->some_parent->some_method();
 
-The child classes, the drivers themselves, can then be called directly
-through the parent class, without initializing them::
+此外，我們還能夠透過父類別呼叫隸屬於該驅動器的子類別，而無須額外進行初始化::
 
 	$this->some_parent->child_one->some_method();
 	$this->some_parent->child_two->another_method();
 
-Creating Your Own Drivers
+新增屬於自己的 Drivers
 =========================
 
-Please read the section of the user guide that discusses how to :doc:`create
-your own drivers <creating_drivers>`.
+請先仔細閱讀手冊 :doc:`新增屬於自己的 drivers <creating_drivers>`章節。

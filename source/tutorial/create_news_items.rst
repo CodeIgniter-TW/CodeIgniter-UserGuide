@@ -1,20 +1,13 @@
 #################
-Create news items
+動態新增新聞
 #################
 
-You now know how you can read data from a database using CodeIgniter, but
-you haven't written any information to the database yet. In this section
-you'll expand your news controller and model created earlier to include
-this functionality.
+你現在知道如何使用 CodeIgniter 從資料庫中讀取資料，但資料庫中尚未寫入任何資訊。在這一章節你將會擴充你先前做的 news 控制器及模型來增加這個功能。
 
-Create a form
+建立一個表單
 -------------
 
-To input data into the database you need to create a form where you can
-input the information to be stored. This means you'll be needing a form
-with two fields, one for the title and one for the text. You'll derive
-the slug from our title in the model. Create the new view at
-application/views/news/create.php.
+為了要輸入資料到資料庫當中，你需要建立一個表單讓你可以輸入要儲存的資訊。這代表你需要一個有兩個欄位的表單，一個用來輸入標題，另一個輸入內文。 你將會在模型中將標題製成 slug，現在到 application/views/news/create.php 建立新的檢視。
 
 ::
 
@@ -34,19 +27,13 @@ application/views/news/create.php.
 
     </form>
 
-There are only two things here that probably look unfamiliar to you: the
-form_open() function and the validation_errors() function.
+裡面只有兩個東西你可能不熟悉：form_open() 函數以及 validation_errors() 函數。
 
-The first function is provided by the `form
-helper <../helpers/form_helper.html>`_ and renders the form element and
-adds extra functionality, like adding a hidden `CSRF prevention
-field <../libraries/security.html>`_. The latter is used to report
-errors related to form validation.
+第一個函數是由 `Form
+輔助函式 <../helpers/form_helper.html>`_  所提供的，它將會顯示表單元素並增加一些額外功能。 例如增加一個隱藏的 `CSRF 預防欄位 <../libraries/security.html>`_ 。第二個函數則是當表單驗證錯誤時，用來顯示錯誤訊息。
 
-Go back to your news controller. You're going to do two things here,
-check whether the form was submitted and whether the submitted data
-passed the validation rules. You'll use the `form
-validation <../libraries/form_validation.html>`_ library to do this.
+回到你的 news 控制器。在這邊你將要做兩件事情，檢查是否有表單被送出，以及送出的資料是否通過驗證規則。我們將使用 `Form
+驗證 <../libraries/form_validation.html>`_ 程式庫來做這件事。
 
 ::
 
@@ -74,29 +61,16 @@ validation <../libraries/form_validation.html>`_ library to do this.
         }
     }
 
-The code above adds a lot of functionality. The first few lines load the
-form helper and the form validation library. After that, rules for the
-form validation are set. The set\_rules() method takes three arguments;
-the name of the input field, the name to be used in error messages, and
-the rule. In this case the title and text fields are required.
+上面這段程式增加了許多功能。開頭前幾行用來載入 Form 輔助函數以及 Form Validation 程式庫。接著是設定表單驗證的規則。 set\_rules() 方法需要三個參數，輸入欄位的名稱，用來顯示在錯誤訊息中的名稱，以及規則。在這個例子中使用的規則，用來表示標題及內文都是必要的欄位。
 
-CodeIgniter has a powerful form validation library as demonstrated
-above. You can read `more about this library
-here <../libraries/form_validation.html>`_.
+如上面的範例， CodeIgniter 有一個強力的表單驗證程式庫。你可以在這邊閱讀 `更多關於表單驗證的資訊 <../libraries/form_validation.html>`_ 。
 
-Continuing down, you can see a condition that checks whether the form
-validation ran successfully. If it did not, the form is displayed, if it
-was submitted **and** passed all the rules, the model is called. After
-this, a view is loaded to display a success message. Create a view at
-application/view/news/success.php and write a success message.
+繼續往下看，你可以看到一個條件式用來檢查表單驗證是否成功。若是沒有，就會顯示表單，若是表單已被送出 並且 通過了驗證，模型就會被呼叫。 接著一個檢視會被載入並顯示成功訊息。請在 application/view/news/success.php 建立一個檢視並寫入成功訊息。
 
-Model
------
+模型（Model）
+-----------
 
-The only thing that remains is writing a method that writes the data to
-the database. You'll use the Query Builder class to insert the
-information and use the input library to get the posted data. Open up
-the model created earlier and add the following:
+最後一件事就是寫一個方法來將資料存進資料庫。你將會使用 Active Record 類別來新增這資訊，並使用 Input 程式庫來取得表單送出的資料。 打開之前建立的模型，並加入下列程式碼:
 
 ::
 
@@ -115,29 +89,14 @@ the model created earlier and add the following:
         return $this->db->insert('news', $data);
     }
 
-This new method takes care of inserting the news item into the database.
-The third line contains a new function, url\_title(). This function -
-provided by the `URL helper <../helpers/url_helper.html>`_ - strips down
-the string you pass it, replacing all spaces by dashes (-) and makes
-sure everything is in lowercase characters. This leaves you with a nice
-slug, perfect for creating URIs.
+這個新方法用來新增資料到資料庫中。在第三行有個新的 url_title() 函數。這個函數 - 由 `URL 輔助函式 <../helpers/url_helper.html>`_ 提供 - 會讀取你傳入的字串，使用破折號 (-) 來替換掉空白，並將所有字串轉為小寫。最後會產生一個很好的 slug ，非常適合用來建立 URI 。
 
-Let's continue with preparing the record that is going to be inserted
-later, inside the $data array. Each element corresponds with a column in
-the database table created earlier. You might notice a new method here,
-namely the post() method from the `input
-library <../libraries/input.html>`_. This method makes sure the data is
-sanitized, protecting you from nasty attacks from others. The input
-library is loaded by default. At last, you insert our $data array into
-our database.
+我們繼續處理待會要存入的資料，將其放進 $data 陣列中。陣列中的每個元素都對應到我們建立的資料庫中的欄位。 你可能注意到這邊有個新的函數叫做 post() ，它來自 `Input 函式庫 <../libraries/input.html>`_ 。 這個方法用來確保資料已經被消毒，可以避免你受到令人討厭的攻擊。而這個程式庫預設就會被自動載入。最後，我們將 $data 存入資料庫當中。
 
-Routing
--------
+路由（Routing）
+-------------
 
-Before you can start adding news items into your CodeIgniter application
-you have to add an extra rule to config/routes.php file. Make sure your
-file contains the following. This makes sure CodeIgniter sees 'create'
-as a method instead of a news item's slug.
+在你開始新增項目進去你的 CodeIgniter 應用程式之前，你需要在 config/routes.php 中增加額外的規則。 確認你的檔案中含有下列項目。這讓 CodeIgniter 看到 'create' 時，當作是一個方法，而不是一個新聞的 slug 。
 
 ::
 
@@ -147,7 +106,4 @@ as a method instead of a news item's slug.
     $route['(:any)'] = 'pages/view/$1';
     $route['default_controller'] = 'pages/view';
 
-Now point your browser to your local development environment where you
-installed CodeIgniter and add index.php/news/create to the URL.
-Congratulations, you just created your first CodeIgniter application!
-Add some news and check out the different pages you made.
+現在打開你的瀏覽器並輸入你的 CodeIgniter 根目錄網址，並在後面加上 index.php/news/create 。 恭喜你，你剛剛建立了你的第一個 CodeIgniter 應用程式！增加一些新聞並逛一逛你所建立的其它頁面。

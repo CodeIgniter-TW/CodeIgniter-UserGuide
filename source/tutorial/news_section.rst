@@ -38,8 +38,7 @@
 		KEY slug (slug)
 	);
 
-現在資料庫與模型已經設定好了，你需要一個方法來取得資料庫中的所有文章。我們使用 CodeIgniter 內建的資料庫抽象層 — `Active
-Record <../database/query_builder.html>`_ — 來做這件事。 這使你可以只寫一次查詢，就能夠在 `所有支援的資料庫執行 <../general/requirements.html>`_ 。請將以下程式碼加進你的模型。
+現在資料庫與模型已經設定好了，你需要一個方法來取得資料庫中的所有文章。我們使用 CodeIgniter 內建的資料庫抽象層 — `Query Builder <../database/query_builder.html>`_ — 來做這件事。 這使你可以只寫一次查詢，就能夠在 `所有支援的資料庫執行 <../general/requirements.html>`_ 。請將以下程式碼加進你的模型。
 
 ::
 

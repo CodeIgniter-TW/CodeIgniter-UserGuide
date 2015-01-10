@@ -1,16 +1,14 @@
-######################
-Database Configuration
-######################
+##########
+資料庫設定
+##########
 
-CodeIgniter has a config file that lets you store your database
-connection values (username, password, database name, etc.). The config
-file is located at application/config/database.php. You can also set
-database connection values for specific
-:doc:`environments <../libraries/config>` by placing **database.php**
-it the respective environment config folder.
+CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳號、使用者密碼、資料庫名稱 等…)。
+這一個設定檔位於 application/config/database.php。
+你也可以藉由位於各別的環境設定目錄當中的 **database.php** 來為該 :doc:`環境 <../libraries/config>` 設定資料庫連線資料。
 
-The config settings are stored in a multi-dimensional array with this
-prototype::
+資料庫設定值是存放在一個遵照以下規範的多維陣列裡面：
+
+::
 
 	$db['default'] = array(
 		'dsn'	=> '',
@@ -34,10 +32,10 @@ prototype::
 		'failover' => array()
 	);
 
-Some database drivers (such as PDO, PostgreSQL, Oracle, ODBC) might
-require a full DSN string to be provided. If that is the case, you
-should use the 'dsn' configuration setting, as if you're using the
-driver's underlying native PHP extension, like this::
+某些 資料庫drivers (例如 PDO、PostgreSQL、Oracle、ODBC) 可能需要提供完整的 DSN 字串。
+在這些案例當中中，你需要使用 'dsn' 設定參數，因為你使用的 driver's 是基於 php 原生 extension，例如：
+
+::
 
 	// PDO
 	$db['default']['dsn'] = 'pgsql:host=localhost;port=5432;dbname=database_name';
@@ -45,15 +43,14 @@ driver's underlying native PHP extension, like this::
 	// Oracle
 	$db['default']['dsn'] = '//localhost/XE';
 
-.. note:: If you do not specify a DSN string for a driver that requires it, CodeIgniter
-	will try to build it with the rest of the provided settings.
+.. 注意:: 如果你不為這些 driver 指定必須的 DSN 字串，CodeIgniter 將根據所提供的設定來生成他。
 
-.. note:: If you provide a DSN string and it is missing some valid settings (e.g. the
-	database character set), which are present in the rest of the configuration
-	fields, CodeIgniter will append them.
+.. 注意:: 如果你提供的 DSN 字串缺少了某些必須的設定值(例如：資料庫字符值 等)，這些將造成問題的設定值，CodeIgniter 將會自動添加。
 
-You can also specify failovers for the situation when the main connection cannot connect for some reason.
-These failovers can be specified by setting the failover for a connection like this::
+你也可以指定當主要連線因為某些原因不能連現的時候進行失敗接管。
+這些失敗接管可以藉由設定 failover 在一個連線上，例如：
+
+::
 
 	$db['default']['failover'] = array(
 			array(
@@ -96,14 +93,13 @@ These failovers can be specified by setting the failover for a connection like t
 			)
 		);
 
-You can specify as many failovers as you like.
+你可以指定數個你需要的失敗接管。
 
-The reason we use a multi-dimensional array rather than a more simple
-one is to permit you to optionally store multiple sets of connection
-values. If, for example, you run multiple environments (development,
-production, test, etc.) under a single installation, you can set up a
-connection group for each, then switch between groups as needed. For
-example, to set up a "test" environment you would do this::
+我們使用多為陣列儲存的原因是為了讓您可以選擇性設定多組資料庫連接值。
+在一個系統底下執行多重環境（開發、正式、測試等），您可以為了每一個開發環境建立獨立的資料庫設定，並且可以任意時候切換資料庫。
+舉例，可以設定 "test" 資料庫環境如下：
+
+::
 
 	$db['test'] = array(
 		'dsn'	=> '',
@@ -127,75 +123,66 @@ example, to set up a "test" environment you would do this::
 		'failover' => array()
 	);
 
-Then, to globally tell the system to use that group you would set this
-variable located in the config file::
+然後，可以告訴系統現在要使用 "test" 連線資料庫，藉由修改設定檔：
+
+::
 
 	$active_group = 'test';
 
-.. note:: The name 'test' is arbitrary. It can be anything you want. By
-	default we've used the word "default" for the primary connection,
-	but it too can be renamed to something more relevant to your project.
+.. 注意:: "test" 這名稱是可以任意修改的。
+	他可以是任何你想要的。
+	我們預設是使用 "default" 來進行主要連線，但可以根據你的專案來變更這個設定。
 
-Query Builder
--------------
+查詢生成器
+----------
 
-The :doc:`Query Builder Class <query_builder>` is globally enabled or
-disabled by setting the $query_builder variable in the database
-configuration file to TRUE/FALSE (boolean). The default setting is TRUE.
-If you are not using the
-query builder class, setting it to FALSE will utilize fewer resources
-when the database classes are initialized.
+ :doc:`查詢生成器類別 <query_builder>` 是根據資料庫設定檔內 $query_builder 參數來進行全域設定（允許/禁止 TRUE/FALSE (boolean)）。
+預設值為 TRUE。
+如果你不想使用查詢生成器類別，請將此設定為 FALSE 以便讓系統降低初始化資料庫類別時所需要的資源。
 
 ::
 
 	$query_builder = TRUE;
 
-.. note:: that some CodeIgniter classes such as Sessions require Query
-	Builder to be enabled to access certain functionality.
+.. 注意:: 一些 CodeIgniter 類別需要啟用查詢生成器來完成一些功能，例如 Sessions
 
-Explanation of Values:
-----------------------
+設定值說明：
+------------
 
-======================  ==================================================================================================
- Name Config             Description
-======================  ==================================================================================================
-**dsn**			The DSN connect string (an all-in-one configuration sequence).
-**hostname** 		The hostname of your database server. Often this is 'localhost'.
-**username**		The username used to connect to the database.
-**password**		The password used to connect to the database.
-**database**		The name of the database you want to connect to.
-**dbdriver**		The database type. ie: mysqli, postgre, odbc, etc. Must be specified in lower case.
-**dbprefix**		An optional table prefix which will added to the table name when running :doc:
-			`Query Builder <query_builder>` queries. This permits multiple CodeIgniter installations
-			to share one database.
-**pconnect**		TRUE/FALSE (boolean) - Whether to use a persistent connection.
-**db_debug**		TRUE/FALSE (boolean) - Whether database errors should be displayed.
-**cache_on**		TRUE/FALSE (boolean) - Whether database query caching is enabled,
-			see also :doc:`Database Caching Class <caching>`.
-**cachedir**		The absolute server path to your database query cache directory.
-**char_set**		The character set used in communicating with the database.
-**dbcollat**		The character collation used in communicating with the database
+==============  ==================================================================================================
+ 設定名稱       說明
+==============  ==================================================================================================
+**dsn**			DSN 連線字串（所有設定一次完成的設定方式）
+**hostname**	您的資料庫伺服器 hostname。通常是本地端 "localhost"。
+**username**	用以連線資料庫的使用者名稱。
+**password**	用以連線資料庫的使用者密碼。
+**database**	你所要連線的資料庫名稱。
+**dbdriver**	資料庫類型。例如：mysqli, postgre, odbc 等。 必須使用小寫字母。
+**dbprefix**	當使用 :doc: `查詢生成器 <query_builder>` 查詢資料時，將這選用的資料表前綴名稱加入到資料表名稱之前。
+				這樣允許讓多個 CodeIgniter 專案共用同一個資料庫。
+**pconnect**	TRUE/FALSE (boolean) - 使用保持的連線功能。
+**db_debug**	TRUE/FALSE (boolean) - 是否顯示資料庫的錯誤訊息。
+**cache_on**	TRUE/FALSE (boolean) - 是否使用資料庫快取功能，詳見 :doc:`資料庫快取類別 <caching>`.
+**cachedir**	使用絕對目錄來設定資料庫快取目錄。
+**char_set**	與資料庫溝通使用的字符集。
+**dbcollat**	與資料庫溝通使用的字符排序。
 
-			.. note:: Only used in the 'mysql' and 'mysqli' drivers.
+				.. 注意:: 這只有使用在 "mysql" 和 "mysqli" 類型。
 
-**swap_pre**		A default table prefix that should be swapped with dbprefix. This is useful for distributed
-			applications where you might run manually written queries, and need the prefix to still be
-			customizable by the end user.
-**autoinit**		Whether or not to automatically connect to the database when the library loads. If set to false,
-			the connection will take place prior to executing the first query.
-**schema**		The database schema, defaults to 'public'. Used by PostgreSQL and ODBC drivers.
-**encrypt**		Whether or not to use an encrypted connection.
-**compress**		Whether or not to use client compression (MySQL only).
-**stricton**		TRUE/FALSE (boolean) - Whether to force "Strict Mode" connections, good for ensuring strict SQL
-			while developing an application.
-**port**		The database port number. To use this value you have to add a line to the database config array.
-			::
+**swap_pre**	用來被 dbprefix 交換的預設的資料表前綴。
+				當你可能需要使用手寫的查詢在一個分散式程式設計中是十分有用的，所需要使用的前綴依然可以由終端用戶來決定。
+**autoinit**	是否需要在類別被載入的時候自動的進行資料庫連線。
+				如果設為 false，連線將會在執行第一個查詢之前進行。
+**schema**		資料庫的 schema，預設為 "public"。被 PostgreSQL 和 ODBC 類型使用。
+**encrypt**		是否進行加密的連線。
+**compress**	是否進行壓縮的客戶端（MySQL 專用）。
+**stricton**	TRUE/FALSE (boolean) - 是否使用 "Strict Mode" 連線，使用嚴格的 SQL 對開發中的應用程式是件好事。
+**port**		資料庫 port 編號。為了使用本設定你需要於資料庫設定參數陣列當中加入。
+				::
 
 				$db['default']['port'] = 5432;
-======================  ==================================================================================================
+==============  ==================================================================================================
 
-.. note:: Depending on what database platform you are using (MySQL, PostgreSQL,
-	etc.) not all values will be needed. For example, when using SQLite you
-	will not need to supply a username or password, and the database name
-	will be the path to your database file. The information above assumes
-	you are using MySQL.
+.. 注意:: 並非所有的設定都是需要的，必須根據使用的資料庫 (MySQL，Postgres，etc.) 來決定。
+	舉例來說，使用 SQLite 資料庫的時候，就不需要設定使用者帳號跟使用者密碼，只需要設定資料庫所在的路徑位置即可。
+	本範例是假設使用 MySQL 資料庫。

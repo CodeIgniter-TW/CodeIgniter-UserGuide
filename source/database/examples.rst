@@ -1,26 +1,22 @@
-##################################
-Database Quick Start: Example Code
-##################################
+#########################
+資料庫 快速入門：範例程式
+#########################
 
-The following page contains example code showing how the database class
-is used. For complete details please read the individual pages
-describing each function.
+以下的頁面包含了示範如何使用資料庫類別的範例程式。請閱讀各個函數的說明頁面來了解完整的細節。
 
-Initializing the Database Class
-===============================
+起始化資料庫類別
+================
 
-The following code loads and initializes the database class based on
-your :doc:`configuration <configuration>` settings::
+以下的程式根據你 :doc:`設定檔 <configuration>` 中的設定載入並初始化資料類別：
 
 	$this->load->database();
 
-Once loaded the class is ready to be used as described below.
+類別一旦載入，就可以像下面說明這樣使用：
 
-Note: If all your pages require database access you can connect
-automatically. See the :doc:`connecting <connecting>` page for details.
+注意：如果你的所有的頁面都需要存取你可以自動連接的資料庫，參閱 :doc:`連接資料庫 <connecting>` 來了解細節。
 
-Standard Query With Multiple Results (Object Version)
-=====================================================
+標準的多結果查詢（物件版）
+==========================
 
 ::
 
@@ -35,11 +31,10 @@ Standard Query With Multiple Results (Object Version)
 	
 	echo 'Total Results: ' . $query->num_rows();
 
-The above result() function returns an array of **objects**. Example:
-$row->title
+以上的 result() 函數返回一個 **物件** 陣列。範例：$row->title 。 
 
-Standard Query With Multiple Results (Array Version)
-====================================================
+標準的多結果查詢（陣列版）
+==========================
 
 ::
 
@@ -52,14 +47,12 @@ Standard Query With Multiple Results (Array Version)
 		echo $row['email'];
 	}
 
-The above result_array() function returns an array of standard array
-indexes. Example: $row['title']
+以上 result_array() 函數返回一個標準的索引陣列。範例：$row['title'] 。
 
-Testing for Results
-===================
+結果測試
+========
 
-If you run queries that might **not** produce a result, you are
-encouraged to test for a result first using the num_rows() function::
+如果你執行的查詢可能 **不會** 產生結果，那你最好在取得結果之前先用 num_rows() 函數做一下測試：
 
 	$query = $this->db->query("YOUR QUERY");
 	if ($query->num_rows() > 0)
@@ -72,8 +65,8 @@ encouraged to test for a result first using the num_rows() function::
 		}
 	}
 
-Standard Query With Single Result
-=================================
+標準的單一結果查詢（物件版）
+============================
 
 ::
 
@@ -81,10 +74,10 @@ Standard Query With Single Result
 	$row = $query->row();
 	echo $row->name;
 
-The above row() function returns an **object**. Example: $row->name
+上例中 row() 函數返回一個 **物件**。範例：$row->name 。
 
-Standard Query With Single Result (Array version)
-=================================================
+標準的單一結果查詢（陣列版）
+============================
 
 ::
 
@@ -92,11 +85,10 @@ Standard Query With Single Result (Array version)
 	$row = $query->row_array();
 	echo $row['name'];
 
-The above row_array() function returns an **array**. Example:
-$row['name']
+上例中 row_array() 函數傳回一個 **陣列** 。範例：$row['name'] 。
 
-Standard Insert
-===============
+標準新增
+========
 
 ::
 
@@ -104,11 +96,10 @@ Standard Insert
 	$this->db->query($sql);
 	echo $this->db->affected_rows();
 
-Query Builder Query
-===================
+查詢生成器 查詢
+===============
 
-The :doc:`Query Builder Pattern <query_builder>` gives you a simplified
-means of retrieving data::
+:doc:`查詢生成器 <query_builder>` 給你一個取得資料的簡單方法：
 
 	$query = $this->db->get('table_name');
 	
@@ -117,12 +108,10 @@ means of retrieving data::
 		echo $row->title;
 	}
 
-The above get() function retrieves all the results from the supplied
-table. The :doc:`Query Builder <query_builder>` class contains a full
-compliment of functions for working with data.
+上例中 get() 函數傳回指定的資料表中所有的結果。 :doc:`查詢生成器 <query_builder>` 類別包含完整的資料操作方法。
 
-Query Builder Insert
-====================
+查詢生成器 新增
+===============
 
 ::
 

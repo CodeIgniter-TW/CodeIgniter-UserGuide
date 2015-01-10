@@ -2,6 +2,11 @@
 CodeIgniter User Guide
 ######################
 
+翻譯準則
+=============
+
+繁體中文翻譯請遵守 `Chinese Copywriting Guidelines <https://github.com/sparanoid/chinese-copywriting-guidelines>`_
+
 ******************
 Setup Instructions
 ******************

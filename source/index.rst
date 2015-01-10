@@ -1,33 +1,33 @@
-######################
-CodeIgniter User Guide
-######################
+####################
+CodeIgniter 使用手冊
+####################
 
-- :doc:`License Agreement <license>`
-- :doc:`Change Log <changelog>`
+- :doc:`許可協議 <license>`
+- :doc:`版本紀錄 <changelog>`
 
 .. contents::
    :local:
    :depth: 2
 
-*******
-Welcome
-*******
+****
+歡迎
+****
 
 .. toctree::
 	:titlesonly:
 
 	general/welcome
 
-**********
-Basic Info
-**********
+********
+基本資訊
+********
 
 - :doc:`general/requirements`
 - :doc:`general/credits`
 
-************
-Installation
-************
+****
+安裝
+****
 .. toctree::
 	:includehidden:
 	:maxdepth: 2
@@ -35,9 +35,9 @@ Installation
 
 	installation/index
 
-************
-Introduction
-************
+****
+簡介
+****
 
 .. toctree::
 	:titlesonly:
@@ -45,7 +45,7 @@ Introduction
 	overview/index
 
 ********
-Tutorial
+指導手冊
 ********
 
 .. toctree::
@@ -54,9 +54,9 @@ Tutorial
 
 	tutorial/index
 
-**************
-General Topics
-**************
+********
+一般主題
+********
 
 .. toctree::
 	:glob:
@@ -64,9 +64,9 @@ General Topics
 
 	general/index
 
-*****************
-Library Reference
-*****************
+********
+類別參考
+********
 
 .. toctree::
 	:glob:
@@ -74,9 +74,9 @@ Library Reference
 
 	libraries/index
 
-******************
-Database Reference
-******************
+**********
+資料庫參考
+**********
 
 .. toctree::
 	:glob:
@@ -84,9 +84,9 @@ Database Reference
 
 	database/index
 
-****************
-Helper Reference
-****************
+************
+補助函式參考
+************
 
 .. toctree::
 	:glob:
@@ -94,9 +94,9 @@ Helper Reference
 
 	helpers/index
 
-***************************
-Contributing to CodeIgniter
-***************************
+****************
+貢獻 CodeIgniter
+****************
 
 .. toctree::
 	:glob:

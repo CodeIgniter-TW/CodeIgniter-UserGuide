@@ -23,16 +23,15 @@
   <noscript>
   <div id="fallback" class="admonition warning">
     <p class="last">
-      {% trans %}Please activate JavaScript to enable the search
-      functionality.{% endtrans %}
+      {% trans %}請啟用 JavaScript 功能以使搜尋的功能正常運作。{% endtrans %}
     </p>
   </div>
   </noscript>
 
   {% if search_performed %}
-    <h2>{{ _('Search Results') }}</h2>
+    <h2>搜尋結果</h2>
     {% if not search_results %}
-      <p>{{ _('Your search did not match any documents. Please make sure that all words are spelled correctly and that you\'ve selected enough categories.') }}</p>
+      <p>您的搜尋沒有符合使用手冊當中的資料。請確定您沒有輸入錯別字，並且已經選擇了足夠的類別。</p>
     {% endif %}
   {% endif %}
   <div id="search-results">

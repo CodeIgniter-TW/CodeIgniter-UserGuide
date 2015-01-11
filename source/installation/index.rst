@@ -2,11 +2,11 @@
 安裝指引
 #########################
 
-CodeIgniter 安裝分4個部份：
+CodeIgniter 安裝分 4 個部份：
 
 #. 解壓縮下載個安裝包。
 #. 上傳 Codeigniter 的目錄以及檔案到你的 Server，一般來說 index.php 會在 Server 的根目錄。
-#. 用文字編輯器或開發工具打開 application/config/config.php 然後設定你的 base URL. 如果你想要設定 encryption 或 sessions，那就設定 encryption key。
+#. 用文字編輯器或開發工具打開 application/config/config.php 然後設定你的 base URL。如果你想要設定 encryption 或 sessions，那就設定 encryption key。
 #. 如果你想要用 database，請打開 application/config/database.php 檔案，然後設定你的 database 設定。
 
 如果你想要增加安全性以及隱藏 Codeigniter 的目錄位置，你可以重新命名 system 目錄以及 application 目錄。如果你重新命名它們，你必須打開根目錄的 index.php 檔案然後設定 $system_path 以及 $application_folder 變數，改成你所改變目錄的名稱。
@@ -23,7 +23,7 @@ page <../general/security>`.
 就這樣!
 
 如果你是初學 CodeIgniter，請閱讀 :doc:`Getting
-Started <../overview/getting_started>` 章節，來開始學習如何建立一個動態的 PHP 應用程式。 享受它吧 XD !
+Started <../overview/getting_started>` 章節，來開始學習如何建立一個動態的 PHP 應用程式。享受它吧！
 
 .. toctree::
 	:hidden:

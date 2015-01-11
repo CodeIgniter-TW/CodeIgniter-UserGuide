@@ -1,5 +1,5 @@
 ###########
-控制器Controllers
+控制器 Controllers
 ###########
 
 Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應該被如何處理。
@@ -15,7 +15,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 
 	example.com/index.php/blog/
 
-在以上例子， CodeIgniter 會嘗試去找出被命名為 Blog.php 的檔案 controller 並且載入它。
+在以上例子， CodeIgniter 會嘗試去找出被命名為 Blog.php 的檔案 Controller 並且載入它。
 
 **當 controller 的名字找到符合第一個 URI 區段，那麼它就會被載入。**
 
@@ -61,8 +61,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 
 	}
 
-Also, always make sure your controller extends the parent controller
-class so that it can inherit all its methods.
+總是要記得你的 Controller 要 extends 父 Controller 類別，這樣才能繼承父類別的所有方法。
 
 方法
 =======
@@ -73,7 +72,7 @@ class so that it can inherit all its methods.
 
 **URI 中的第二個參數定義了 controller 中的方法要執行哪一個。**
 
-我們來試試看。新增一個新的方法到你的 controller::
+我們來試試看。新增一個新的方法到你的 Controller::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -118,7 +117,7 @@ class so that it can inherit all its methods.
 
 .. important:: 如果你使用 :doc:`URI Routing <routing>` 功能，通過你傳入的方法區段，將會重新路由一次。
 
-定義預設 (控制器)Controller
+定義預設 控制器（Controller）
 =============================
 
 CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被請求時，可以被設定預設載入的 controller。 去指定預設得 controller，打開你的 **application/config/routes.php** 檔案然後設定這個變數::

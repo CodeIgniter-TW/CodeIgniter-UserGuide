@@ -1,39 +1,27 @@
 ########
-Tutorial
+教學
 ########
 
-This tutorial is intended to introduce you to the CodeIgniter framework
-and the basic principles of MVC architecture. It will show you how a
-basic CodeIgniter application is constructed in step-by-step fashion.
+這篇教學旨在向你介紹 CodeIgniter 框架以及 MVC 架構的基本原則。它將一步步的告訴你一個基本的 CodeIgniter 程式是如何建構的。
 
-In this tutorial, you will be creating a **basic news application**. You
-will begin by writing the code that can load static pages. Next, you
-will create a news section that reads news items from a database.
-Finally, you'll add a form to create news items in the database.
+在這篇教學裡，你將會製作一個 **簡單的新聞程式** 。你將從使用程式來讀取靜態頁面開始。接著，你會製作一個新聞模組，可以從資料庫讀取新聞項目。最後你會增加一個表單，用來在資料庫中增加新聞項目。
 
-This tutorial will primarily focus on:
+這篇教學主要會專注在:
 
--  Model-View-Controller basics
--  Routing basics
--  Form validation
--  Performing basic database queries using "Query Builder"
+-  Model-View-Controller 基礎知識
+-  路由（Routing）基礎知識
+-  表單驗證
+-  使用 "Active Record" 來做簡單的資料庫查詢
 
-The entire tutorial is split up over several pages, each explaining a
-small part of the functionality of the CodeIgniter framework. You'll go
-through the following pages:
+整篇教學被分為數個部份進行，每一部份解釋 CodeIgniter 框架的一小部份功能。詳列如下:
 
--  Introduction, this page, which gives you an overview of what to
-   expect.
--  `Static pages <static_pages.html>`_, which will teach you the basics
-   of controllers, views and routing.
--  `News section <news_section.html>`_, where you'll start using models
-   and will be doing some basic database operations.
--  `Create news items <create_news_items.html>`_, which will introduce
-   more advanced database operations and form validation.
--  `Conclusion <conclusion.html>`_, which will give you some pointers on
-   further reading and other resources.
+-  簡介，也就是目前這一頁，給你一些概念讓你知道接下來會做些什麼。
+-  `靜態頁面 <static_pages.html>`_ ，將會教你關於控制器（Controller），檢視（View）與路由的基礎知識。
+-  `新聞模組 <news_section.html>`_ ，這邊你將開始使用模型（Model），並且進行一些簡單的資料庫操作。
+-  `新增新聞項目 <create_news_items.html>`_ ，將會進行更進階的資料庫操作以及表單驗證。
+-  `結論 <conclusion.html>`_ ，將會指引你一些未來的學習方向以及其它資源。
 
-Enjoy your exploration of the CodeIgniter framework.
+祝你在 CodeIgniter 框架的探索中旅途愉快。
 
 .. toctree::
 	:glob:

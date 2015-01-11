@@ -1,10 +1,9 @@
 ##########################
-Creating Ancillary Classes
+新增配套類別
 ##########################
 
-In some cases you may want to develop classes that exist apart from your
-controllers but have the ability to utilize all of CodeIgniter's
-resources. This is easily possible as you'll see.
+在某些情況下，你可能需要開發一個類別，這個類別能使用 Codeigniter 一部分在控制器（Controller）已經現有的功能。
+這是很簡單做到的，請看下面。
 
 get_instance()
 ==============
@@ -13,29 +12,22 @@ get_instance()
 
 	:returns:	object of class CI_Controller
 
-**Any class that you instantiate within your controller methods can
-access CodeIgniter's native resources** simply by using the
-``get_instance()`` function. This function returns the main
-CodeIgniter object.
+**所有在你的控制器（Controller）方法裡已經實力化的類別即可存取 Codeigniter 本地的資源** 簡單地通過使用 ``get_instance()`` 函數。這個函數回傳 Codeigniter 主物件。
 
-Normally, to call any of the available CodeIgniter methods requires
-you to use the ``$this`` construct::
+一般來說，要呼叫 Codeigniter 的方法，你會使用 ``$this``： ::
 
 	$this->load->helper('url');
 	$this->load->library('session');
 	$this->config->item('base_url');
 	// etc.
 
-``$this``, however, only works within your controllers, your models,
-or your views. If you would like to use CodeIgniter's classes from
-within your own custom classes you can do so as follows:
+``$this`` ，只能在你的 Controllers、Models、Views 裡面執行，如果你想要在你的類別裡面使用 Codeigniter 類別，你可以參考下面作法： :
 
-First, assign the CodeIgniter object to a variable::
+第一步，賦值給 CodeIgniter 物件到一個變數裡： ::
 
 	$CI =& get_instance();
 
-Once you've assigned the object to a variable, you'll use that variable
-*instead* of ``$this``::
+一旦你已經賦值一個物件到變數上，你將會使用這個變數 *取代* 掉 ``$this`` ： ::
 
 	$CI =& get_instance();
 
@@ -44,19 +36,16 @@ Once you've assigned the object to a variable, you'll use that variable
 	$CI->config->item('base_url');
 	// etc.
 
-.. note:: You'll notice that the above get_instance() ``function`` is being
-	passed by reference::
+.. note:: 在上面這個例子，你會注意到 get_instance() ``函數`` 是傳入參考： ::
 
 		$CI =& get_instance();
 
-	This is very important. Assigning by reference allows you to use the
-	original CodeIgniter object rather than creating a copy of it.
+	這是非常重要的。賦予參考值允許你使用最原始 CodeIgniter 物件，而不是建立一個副本。
 
-Furthermore, if you'll be using ``get_intance()`` inside anoter class,
-then it would be better if you assign it to a property. This way, you
-won't need to call ``get_instance()`` in every single method.
+此外，如果你會使用 ``get_instance()`` 到其它類別上，賦予參考到變數上，是較好的行為。
+這個方法你將不需要在每個方法裡面呼叫一次 ``get_instance()`` 。
 
-Example::
+例如： ::
 
 	class Example {
 
@@ -83,6 +72,4 @@ Example::
 
 	}
 
-In the above example, both methods ``foo()`` and ``bar()`` will work
-after you instantiate the Example class, without the need to call
-``get_instance()`` in each of them.
+在上面的例子，在你實例化 Example 類別的時候，方法 ``foo()`` 以及 ``bar()`` 即可使用，不需要在其它地方再去呼叫 ``get_instance()`` 函數。

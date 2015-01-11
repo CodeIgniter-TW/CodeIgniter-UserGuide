@@ -7,9 +7,9 @@ CodeIgniter 概觀
 .. toctree::
 	:titlesonly:
 	
-	Getting Started <getting_started>
-	CodeIgniter at a Glance <at_a_glance>
-	Supported Features <features>
-	Application Flow Chart <appflow>
+	開始 CodeIgniter <getting_started>
+	CodeIgniter 一目了然 <at_a_glance>
+	CodeIgniter 特色 <features>
+	應用程式溝通流程 <appflow>
 	Model-View-Controller <mvc>
-	Architectural Goals <goals>
+	設計以及架構目標 <goals>

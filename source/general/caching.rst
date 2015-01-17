@@ -1,71 +1,47 @@
 ################
-Web Page Caching
+網頁快取
 ################
 
-CodeIgniter lets you cache your pages in order to achieve maximum
-performance.
+CodeIgniter 讓你快取自己的網頁，為了要達到最大效能。
 
-Although CodeIgniter is quite fast, the amount of dynamic information
-you display in your pages will correlate directly to the server
-resources, memory, and processing cycles utilized, which affect your
-page load speeds. By caching your pages, since they are saved in their
-fully rendered state, you can achieve performance that nears that of
-static web pages.
+雖然 CodeIgniter 相當快，呈現在網頁中的動態資訊取決於於伺服器所擁有的資源、記憶體、處理器的使用率、都會影響到你的網頁處理速度。藉由快取（Caching）你的網頁的方式，只需快取下來就可以發揮功用，可說是達到近乎是靜態網頁的效能。
 
-How Does Caching Work?
+快取是如何運作的呢？
 ======================
 
-Caching can be enabled on a per-page basis, and you can set the length
-of time that a page should remain cached before being refreshed. When a
-page is loaded for the first time, the cache file will be written to
-your application/cache folder. On subsequent page loads the cache file
-will be retrieved and sent to the requesting user's browser. If it has
-expired, it will be deleted and refreshed before being sent to the
-browser.
+快取可以把單頁為最小單位，你可以設定頁面的保留時間、何時該被重新更新（Refresh）。當頁面首次載入時，快取檔案則會寫 applocation/cache 目錄之中。下個頁面則由快取檔案取出，接者把這個頁面傳送給對伺服器送出請求（Request）的瀏覽器。假如請求的檔案已經過期（Expired），那麼舊的快取頁面則會被刪除，然後伺服器更新快取後，才會把頁面傳送給瀏覽器。
 
-.. note: The Benchmark tag is not cached so you can still view your page
-	load speed when caching is enabled.
+.. note: Benchmark 標籤並沒有被快取下來，所以當快取功能啟動的時候，你還是可以看到頁面載入的速度。
 
-Enabling Caching
+啟動快取
 ================
 
-To enable caching, put the following tag in any of your controller
-methods::
+啟動快取功能的方式，把下列的語句放到你的控制器（Controller）裡的任何方法（function）位置： ::
 
 	$this->output->cache($n);
 
-Where ``$n`` is the number of **minutes** you wish the page to remain
-cached between refreshes.
+``n`` 代表的是你的頁面預期要保留到更新（remain cached between refreshes）的 **分鐘（minutes）** 。
 
-The above tag can go anywhere within a method. It is not affected by
-the order that it appears, so place it wherever it seems most logical to
-you. Once the tag is in place, your pages will begin being cached.
+上面的快取語句可以隨意放在（Controller）的方法（function）裡頭，不會影響到呈現的順序，所以放在你覺得最合理的地方即可。
 
-.. important:: Because of the way CodeIgniter stores content for output,
-	caching will only work if you are generating display for your
-	controller with a :doc:`view <./views>`.
+.. important:: CodeIgniter 採用的是輸出後，才會儲存內容的設計方式，也就是快取（Caching）只會在你的控制器（Controller）要求 :doc:`View <./views>` 的時候，它才會被建立出來。
 
 .. important:: If you change configuration options that might affect
 	your output, you have to manually delete your cache files.
 
-.. note:: Before the cache files can be written you must set the file
-	permissions on your *application/cache/* directory such that
-	it is writable.
+.. note:: 為了讓快取檔案可以被寫入到 *application/cache* 目錄，請務必將該目錄開啟為可以被寫入的權限。
 
-Deleting Caches
+刪除快取
 ===============
 
-If you no longer wish to cache a file you can remove the caching tag and
-it will no longer be refreshed when it expires.
+如果不再需要某些快取檔案，你可以移除快取語句，這樣在快取檔過期之後就不會再被更新了。
 
-.. note:: Removing the tag will not delete the cache immediately. It will
-	have to expire normally.
+.. note:: 移除語句之後，快取不會被直接移除，還是會被保留下來到原先設定的時間到逾期為止。
 
-If you need to manually delete the cache, you can use the ``delete_cache()``
-method::
+如果要提前刪除快取資料，你可以使用 ``delete_cache()`` 函數： ::
 
-	// Deletes cache for the currently requested URI
+	// 對現在請求的 URI 刪除快取
 	$this->output->delete_cache();
 
-	// Deletes cache for /foo/bar
+	// 刪除快取 /foo/bar
 	$this->output->delete_cache('/foo/bar');

@@ -1,22 +1,23 @@
-########################
-Generating Query Results
-########################
+############
+產生查詢結果
+############
 
-There are several ways to generate query results:
+有幾總方法可以產生查詢結果：
 
 .. contents::
     :local:
     :depth: 2
 
-*************
-Result Arrays
-*************
+********
+結果陣列
+********
 
 **result()**
 
-This method returns the query result as an array of **objects**, or
-**an empty array** on failure. Typically you'll use this in a foreach
-loop, like this::
+這方法會回傳一個查詢結果的陣列**物件**，或者失敗時會回傳 **空陣列**。
+一般狀況可以使用 foreach 迴圈，就像底下：
+
+::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -27,10 +28,11 @@ loop, like this::
 		echo $row->body;
 	}
 
-The above method is an alias of ``result_object()``.
+上述方法的別名是 ``result_object()``。
 
-If you run queries that might **not** produce a result, you are
-encouraged to test the result first::
+假如您的查詢可能 **不會** 產生結果，我們建議您先用下面方式進行判斷：
+
+::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -44,8 +46,7 @@ encouraged to test the result first::
 		}
 	}
 
-You can also pass a string to result() which represents a class to
-instantiate for each result object (note: this class must be loaded)
+你也可以傳入一個字串給 result()，每一個結果物件將實體化為該類別（注意：該類別必須為可讀取的）。
 
 ::
 
@@ -59,9 +60,10 @@ instantiate for each result object (note: this class must be loaded)
 
 **result_array()**
 
-This method returns the query result as a pure array, or an empty
-array when no result is produced. Typically you'll use this in a foreach
-loop, like this::
+這方法會回傳一個查詢結果的陣列資料，或者當查無資料時會回傳 **空陣列**。
+一般狀況可以使用 foreach 迴圈，就像底下：
+
+::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -72,15 +74,15 @@ loop, like this::
 		echo $row['body'];
 	}
 
-***********
-Result Rows
-***********
+******
+結果列
+******
 
 **row()**
 
-This method returns a single result row. If your query has more than
-one row, it returns only the first row. The result is returned as an
-**object**. Here's a usage example::
+此方法會回傳單筆查詢資料。假如您查詢的資料超過一筆，它只會回傳第一筆資料。 結果會以一個 **物件** 回傳。參考範例：
+
+::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -93,13 +95,15 @@ one row, it returns only the first row. The result is returned as an
 		echo $row->body;
 	}
 
-If you want a specific row returned you can submit the row number as a
-digit in the first parameter::
+如果您想要回傳特定的第幾筆資料，可以設定第一個參數為您想要的該筆資料：
+
+::
 
 	$row = $query->row(5);
 
-You can also add a second String parameter, which is the name of a class
-to instantiate the row with::
+你也可以傳入第二個字串參數，這是結果物件將被實體化為的類別名稱
+
+::
 
 	$query = $this->db->query("SELECT * FROM users LIMIT 1;");
 	$query->row(0, 'User');
@@ -109,8 +113,9 @@ to instantiate the row with::
 
 **row_array()**
 
-Identical to the above ``row()`` method, except it returns an array.
-Example::
+同等於上述 ``row()`` 方法，不同的是它回傳是陣列。參考範例：
+
+::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -123,36 +128,32 @@ Example::
 		echo $row['body'];
 	}
 
-If you want a specific row returned you can submit the row number as a
-digit in the first parameter::
+如果您想要回傳特定的第幾筆資料，可以設定第一個參數為您想要的該筆資料：
+
+::
 
 	$row = $query->row_array(5);
 
-In addition, you can walk forward/backwards/first/last through your
-results using these variations:
+除此之外，您可以利用底下方式查詢到 前一筆/下一筆/第一筆/最後一筆 資料：
 
 	| **$row = $query->first_row()**
 	| **$row = $query->last_row()**
 	| **$row = $query->next_row()**
 	| **$row = $query->previous_row()**
 
-By default they return an object unless you put the word "array" in the
-parameter:
+預設回傳值為物件，除非設定第一個參數為 "array"：
 
 	| **$row = $query->first_row('array')**
 	| **$row = $query->last_row('array')**
 	| **$row = $query->next_row('array')**
 	| **$row = $query->previous_row('array')**
 
-.. note:: All the methods above will load the whole result into memory
-	(prefetching). Use ``unbuffered_row()`` for processing large
-	result sets.
+.. 注意:: 上述所有的方法都會將所有的查詢結果載入到記憶體當中（預載）。使用 ``unbuffered_row()`` 來處理大型的查詢結果集合。
 
 **unbuffered_row()**
 
-This method returns a single result row without prefetching the whole
-result in memory as ``row()`` does. If your query has more than one row,
-it returns the current row and moves the internal data pointer ahead. 
+此方法會回傳單筆查詢資料，但並不會像 ``row()`` 將所有查詢結果預載到記憶體中。
+如果你的查詢結果超過一筆，他將回傳該筆資料並將內部資料指標移動到下一筆資料。
 
 ::
 
@@ -165,16 +166,16 @@ it returns the current row and moves the internal data pointer ahead.
 		echo $row->body;
 	}
 
-You can optionally pass 'object' (default) or 'array' in order to specify
-the returned value's type::
+你可以選擇傳入 'object' （預設）或 'array' 來指定回傳的資料型態：
+::
 
 	$query->unbuffered_row();		// object
 	$query->unbuffered_row('object');	// object
 	$query->unbuffered_row('array');	// associative array
 
-*********************
-Result Helper Methods
-*********************
+************
+結果輔助方法
+************
 
 **num_rows()**
 
@@ -241,9 +242,9 @@ TRUE on success or FALSE on failure.
 .. note:: Not all database drivers support this feature and will return FALSE.
 	Most notably - you won't be able to use it with PDO.
 
-***************
-Class Reference
-***************
+********
+物件參考
+********
 
 .. class:: CI_DB_result
 

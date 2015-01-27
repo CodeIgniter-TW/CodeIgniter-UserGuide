@@ -9,9 +9,9 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 什麼是 Controller?
 =====================
 
-**Controller 是簡單來說就是類別檔案，它命名是關聯在 URI之上。**
+**Controller 是簡單來說就是類別檔案，它命名是關聯在 URI 之上。**
 
-像是這樣的 URI::
+像是這樣的 URI： ::
 
 	example.com/index.php/blog/
 
@@ -22,7 +22,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 讓我們嘗試: Hello World!
 ==========================
 
-讓我們創立一個簡單的 controller 你可以看到它是怎樣啟動的。使用你的文字編輯器。創造一個檔案名稱為 Blog.php ，將下列程式碼貼入進去::
+讓我們創立一個簡單的 Controller 你可以看到它是怎樣啟動的。使用你的文字編輯器。創造一個檔案名稱為 Blog.php ，將下列程式碼貼入進去： ::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -37,24 +37,24 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 
 .. important:: 檔案一定要被命名為 'Blog.php'，第一個字母必須大寫 'B'。
 
-現在來用 URL 拜訪你的網站像是這樣::
+現在來用 URL 拜訪你的網站像是這樣： ::
 
 	example.com/index.php/blog/
 
-如果你做的沒錯，那就會出現:
+如果你做的沒錯，那就會出現：
 
 	Hello World!
 
 .. important:: 類別名稱必須以大寫字母開頭。
 
-以下是正確的方式::
+以下是正確的方式： ::
 
 	<?php
 	class Blog extends CI_Controller {
 
 	}
 	
-以下是 **不** 正確::
+以下是 **不** 正確： ::
 
 	<?php
 	class blog extends CI_Controller {
@@ -66,13 +66,13 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 方法
 =======
 
-在上上述中方法名稱被命名為 ``index()``. 如果 URI 中的 第二個區段 是空的話，這個 "index" 是預設被載入。除此之外還有一個方法顯示出 "Hello World" 像是::
+在上上述中方法名稱被命名為 ``index()``. 如果 URI 中的 第二個區段 是空的話，這個 "index" 是預設被載入。除此之外還有一個方法顯示出 "Hello World" 像是： ::
 
 	example.com/index.php/blog/index/
 
 **URI 中的第二個參數定義了 controller 中的方法要執行哪一個。**
 
-我們來試試看。新增一個新的方法到你的 Controller::
+我們來試試看。新增一個新的方法到你的 Controller： ::
 
 	<?php
 	class Blog extends CI_Controller {
@@ -88,7 +88,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 		}
 	}
 
-現在讀取上例 URL 去看 comments 方法::
+現在讀取上例 URL 去看 comments 方法： ::
 
 	example.com/index.php/blog/comments/
 
@@ -99,11 +99,11 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 
 如果你的 URI 包含超過兩一個以上的區段，它們會經由你的 method 傳入作為參數。
 
-例如，如果說你有一個 URI 像這樣::
+例如，如果說你有一個 URI 像這樣： ::
 
 	example.com/index.php/products/shoes/sandals/123
 
-你會傳送 URI 第 3 以及 4 區段進入方法裡 ("sandals" 和 "123")::
+你會傳送 URI 第 3 以及 4 區段進入方法裡（“sandals” 和 “123”）： ::
 
 	<?php
 	class Products extends CI_Controller {
@@ -115,12 +115,12 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 		}
 	}
 
-.. important:: 如果你使用 :doc:`URI Routing <routing>` 功能，通過你傳入的方法區段，將會重新路由一次。
+.. important:: 如果你使用 :doc:`URI 路由 <routing>` 功能，通過你傳入的方法區段，將會重新路由一次。
 
 定義預設 控制器（Controller）
 =============================
 
-CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被請求時，可以被設定預設載入的 controller。 去指定預設得 controller，打開你的 **application/config/routes.php** 檔案然後設定這個變數::
+CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被請求時，可以被設定預設載入的 Controller。 去指定預設得 Controller，打開你的 **application/config/routes.php** 檔案然後設定這個變數： ::
 
 	$route['default_controller'] = 'Blog';
 
@@ -129,16 +129,16 @@ CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被�
 重映射方法呼叫
 ======================
 
-如上所述，第二個 URI 區段簡單定義了要 get controller 的哪個方法。 CodeIgniter 允許你複寫這個行為，通過使用 ``_remap()`` 方法::
+如上所述，第二個 URI 區段簡單定義了要請求 Controller 的哪個方法。 CodeIgniter 允許你複寫這個行為，通過使用 ``_remap()`` 方法： ::
 
 	public function _remap()
 	{
 		// Some code here...
 	}
 
-.. important:: 如果你的 Controller 包含了命名為 _remap() 方法，不管你的 URI 包含什麼，它將會 總是 get 呼叫。 它覆蓋了原本定義在URI中的行為，允許你自己定義方法路由規則。
+.. important:: 如果你的 Controller 包含了命名為 _remap() 方法，不管你的 URI 包含什麼，它將會 總是請求呼叫。 它覆蓋了原本定義在 URI 中的行為，允許你自己定義方法路由規則。
 
-複寫的方法呼叫將作為參數傳遞給 ``_remap()`` 方法 (典型的第二個 URI 區段)::
+複寫的方法呼叫將作為參數傳遞給 ``_remap()`` 方法（典型的第二個 URI 區段）： ::
 
 	public function _remap($method)
 	{
@@ -169,8 +169,8 @@ CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被�
 輸出處理
 =================
 
-CodeIgniter 有一個 output 類別會自動地處理你最後傳送給瀏覽器的呈現資料。更多的資訊可以從這裡找到 :doc:`Views <views>` 和 :doc:`Output Class
-<../libraries/output>` 頁面。在某些情況下，你可能想要以某種方式將最後處理的資料傳送到瀏覽器。CodeIgniter 允許你新增一個命名為 ``_output()`` 的方法到你的 Controller ，它將會接收最後輸出的資料。
+CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器的呈現資料。更多的資訊可以從這裡找到 :doc:`視圖 Views <views>` 和 :doc:`Output 類別
+<../libraries/output>` 頁面。在某些情況下，你可能想要以某種方式將最後處理的資料傳送到瀏覽器。CodeIgniter 允許你新增一個命名為 ``_output()`` 的方法到你的控制器（Controller），它將會接收最後輸出的資料。
 
 .. important:: 如果你的 Controller 包含一個方法命名為 ``_output()`` 它將會 總是被 output 類別呼叫來取代直接輸出最終的結果資料。方法的第一個參數將包含最終的輸出。
 
@@ -183,7 +183,7 @@ CodeIgniter 有一個 output 類別會自動地處理你最後傳送給瀏覽器
 
 .. note::
 
-	請注意你的 ``_output()`` 方法將會接收資料在最後的狀態。 在它轉交給 ``_output()`` 方法之前，評測和記憶體使用資料將被呈現出來，快取檔案會被寫入 (如果你把快取設定打開)，以及標頭檔會被傳送出去 (如果你用了這個 :doc:`功能 <../libraries/output>`) 。 為了要你的 Controller 適當地輸出快取，它的 ``_output()`` 方法可以用::
+	請注意你的 ``_output()`` 方法將會接收資料在最後的狀態。 在它轉交給 ``_output()`` 方法之前，評測和記憶體使用資料將被呈現出來，快取檔案會被寫入（如果你把快取設定打開），以及標頭檔會被傳送出去（如果你用了這個 :doc:`功能 <../libraries/output>` ）。 為了要你的 Controller 適當地輸出快取，它的 ``_output()`` 方法可以用： ::
 
 		if ($this->output->cache_expiration > 0)
 		{
@@ -195,14 +195,14 @@ CodeIgniter 有一個 output 類別會自動地處理你最後傳送給瀏覽器
 私有方法
 ===============
 
-在某些情況下，你可能想要從外部隱藏起來一些方法。為了達到這個目的， 簡單的利用 private 或者用 protected 定義方法，它們不會經由 URL 請求而回傳結果。例如，如果你有個方法像是這樣::
+在某些情況下，你可能想要從外部隱藏起來一些方法。為了達到這個目的， 簡單的利用 private 或者用 protected 定義方法，它們不會經由 URL 請求而回傳結果。例如，如果你有個方法像是這樣： ::
 
 	private function _utility()
 	{
 		// some code
 	}
 
-試著通過這個 URL 存取它，像是這樣，就不會執行了::
+試著通過這個 URL 存取它，像是這樣，就不會執行了： ::
 
 	example.com/index.php/blog/_utility/
 
@@ -213,13 +213,13 @@ CodeIgniter 有一個 output 類別會自動地處理你最後傳送給瀏覽器
 
 如果你建立一個龐大的應用程式，你可能找到一個方便的方法組織你的 Contollers 到子目錄中。CodeIgniter 允許你去做這件事。
 
-簡單地新增一個資料夾在你的 *application/controllers/* 目錄底下 然後把你地 controller 類別放進去。
+簡單地新增一個資料夾在你的 *application/controllers/* 目錄底下 然後把你地 Controller 類別放進去。
 
-.. note:: 當你用了這個功能，第一個 URI 區段一定要指定到那個資料夾。例如，如果說你有一個 Controller 位於這裡::
+.. note:: 當你用了這個功能，第一個 URI 區段一定要指定到那個資料夾。例如，如果說你有一個 Controller 位於這裡： ::
 
 		application/controllers/products/Shoes.php
 
-	為了呼叫上述的 controller 你的 URI 將會看起來像是如此::
+	為了呼叫上述的 controller 你的 URI 將會看起來像是如此： ::
 
 		example.com/index.php/products/shoes/show/123
 
@@ -231,7 +231,7 @@ Routing <routing>` 功能，來達成它。
 類別建構子
 ==================
 
-如果你打算用建構子在所有個 Controller 裡面，你 **一定要** 貼入下面這段程式碼到你的建構子裡::
+如果你打算用建構子在所有個 Controller 裡面，你 **一定要** 貼入下面這段程式碼到你的建構子裡： ::
 
 	parent::__construct();
 

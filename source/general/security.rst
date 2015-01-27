@@ -1,110 +1,80 @@
 ########
-Security
+安全性
 ########
 
-This page describes some "best practices" regarding web security, and
-details CodeIgniter's internal security features.
+本頁描述一些有關網站安全的”最佳實踐“，同時包含了 CodeIgniter 的內部安全機制細節。
 
-URI Security
+URI 安全性
 ============
 
-CodeIgniter is fairly restrictive regarding which characters it allows
-in your URI strings in order to help minimize the possibility that
-malicious data can be passed to your application. URIs may only contain
-the following:
+CodeIgniter 對於哪些字元允許當作 URI 字串有相當嚴格的考量，以盡量減少惡意資料進入應用程式的可能性。URIs 只能包含下列字元：
 
--  Alpha-numeric text (latin characters only)
--  Tilde: ~
--  Percent sign: %
--  Period: .
--  Colon: :
--  Underscore: \_
--  Dash: -
--  Space
+-  英文大小寫字母與數字（只有拉丁語）
+-  波浪號: ~
+-  百分比號: %
+-  點: .
+-  冒號: :
+-  底線: \_
+-  減號: -
+-  空白
 
 Register_globals
 =================
 
-During system initialization all global variables are unset, except
-those found in the ``$_GET``, ``$_POST``, and ``$_COOKIE`` arrays.
-The unsetting routine is effectively the same as
-*register_globals = off*.
+除了在 ``$_GET`` ， ``$_POST`` ， 以及 ``$_COOKIE`` 陣列中找到的變數，在系統初始化時，所有的整體變數都會 unset ，這個 unsetting 常式效用等同於 *register_globals = off* 選項設定。
 
 display_errors
 ==============
 
-In production environments, it is typically desirable to "disable" PHP's
-error reporting by setting the internal *display_errors* flag to a value
-of 0. This disables native PHP errors from being rendered as output,
-which may potentially contain sensitive information.
+在上線產品網站環境中，只要將 *display_errors* 設定為 0 就可以停止所有錯誤輸出。關閉錯誤輸出將會隱藏掉淺在的錯誤資訊。
 
-Setting CodeIgniter's **ENVIRONMENT** constant in index.php to a value of
-**\'production\'** will turn off these errors. In development mode, it is
-recommended that a value of 'development' is used. More information
-about differentiating between environments can be found on the
-:doc:`Handling Environments <environments>` page.
+在 index.php 檔案 設定 CodeIgniter 的 **ENVIRONMENT** 變數值為 **\'production\'** ，系統環境將會關閉錯誤輸出。如果在開發環境之下，建議將 ENVIRONMENT 設定為 'development'，如果想要瞭解更多不同的環境變數值，請參考 :doc:`Handling Environments <environments>` 線上文件。
 
 magic_quotes_runtime
 ====================
 
-The *magic_quotes_runtime* directive is turned off during system
-initialization so that you don't have to remove slashes when retrieving
-data from your database.
+*magic_quotes_runtime* 設定指引會在系統初始化時關閉，所以當你從資料庫取得資料時不必移除反斜線。
 
 **************
-Best Practices
+最佳實踐
 **************
 
-Before accepting any data into your application, whether it be POST data
-from a form submission, COOKIE data, URI data, XML-RPC data, or even
-data from the SERVER array, you are encouraged to practice this three
-step approach:
+在接受任何資料進入應用程式前，無論是表單提交來的 POST資料、COOKIE資料、URI資料、XML-RPC資料甚至是從SERVER陣列來的資料，我們都鼓勵你盡量實踐以下三步驟的進程：
 
-#. Filter the data as if it were tainted.
-#. Validate the data to ensure it conforms to the correct type, length,
-   size, etc. (sometimes this step can replace step one)
-#. Escape the data before submitting it into your database.
+#. 把資料當作已被污染來過濾。
+#. 做好資料驗證以保證它符合正確的型別、長度、大小等。（有時這個步驟可以取代步驟一）
+#. 在把資料送進你的資料庫前跳脫（Escape）資料。
 
-CodeIgniter provides the following functions to assist in this process:
+CodeIgniter 提供下列的函數來協助你進行這個過程：
 
-XSS Filtering
+跨站腳本（XSS）過濾
 =============
 
-CodeIgniter comes with a Cross Site Scripting filter. This filter
-looks for commonly used techniques to embed malicious JavaScript into
-your data, or other types of code that attempt to hijack cookies or
-do other malicious things. The XSS Filter is described
-:doc:`here <../libraries/security>`.
+CodeIgniter 隨附了一個跨站腳本過濾器。這個過濾器會檢視一些在你資料中嵌入惡意 Javascript 的常見技術，還有企圖盜取 Cookie 或是進行其他惡意行為的各種程式碼。跨站腳本（XSS）過濾器在 :doc:`這裡 <../libraries/security>` 有一些說明。
 
-Validate the data
+資料驗證
 =================
 
-CodeIgniter has a :doc:`Form Validation Library
-<../libraries/form_validation>` that assists you in
-validating, filtering, and prepping your data.
+CodeIgniter 有一個 :doc:`Form Validation Library
+<../libraries/form_validation>` 來協助你驗證、過濾及準備你的資料。
 
-Escape all data before database insertion
+在資料存入資料庫前跳脫（Escape）所有資料
 =========================================
 
-Never insert information into your database without escaping it.
-Please see the section that discusses :doc:`database queries
-<../database/queries>` for more information.
+千萬不要不跳脫(escape)任何資訊就把它存入資料庫。請看一下討論 :doc:`database queries
+<../database/queries>` 的章節來獲得更詳細的資訊。
 
-Hide your files
+隱藏你的檔案
 ===============
 
-Another good security practice is to only leave your *index.php*
-and "assets" (e.g. .js, css and image files) under your server's
-*webroot* directory (most commonly named "htdocs/"). These are
-the only files that you would need to be accessible from the web.
+其它更好的安全實踐只讓你的 *index.php*
+以及”assets“（像是 .js，css 以及圖片檔案）放在你的伺服器底下
+*webroot* 網站根目錄（大部份一般叫做 "htdocs/"）。
+這裡只有想要讓使用者存取的檔案放在這，其餘都不要直接放在網站根目錄底下。
 
-Allowing your visitors to see anything else would potentially
-allow them to access sensitive data, execute scripts, etc.
+避免你的使用者去看到任何淺在允許他們存取敏感檔案，甚至執行代碼，等等。
 
-If you're not allowed to do that, you can try using a .htaccess
-file to restrict access to those resources.
+如果你不想要這樣做，請試著使用 .htaccess 去限制存取這些資源。
 
-CodeIgniter will have an index.html file in all of its
-directories in an attempt to hide some of this data, but have
-it in mind that this is not enough to prevent a serious
-attacker.
+CodeIgniter 在所有的資料夾裡面有一個 index.html 檔案去隱藏一些資料，但有它記住，這是不夠的，以防止嚴重的
+攻擊者。

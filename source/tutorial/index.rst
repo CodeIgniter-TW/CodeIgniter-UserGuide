@@ -11,12 +11,12 @@
 -  Model-View-Controller 基礎知識
 -  路由（Routing）基礎知識
 -  表單驗證
--  使用 "Active Record" 來做簡單的資料庫查詢
+-  使用”Query Builder“來做簡單的資料庫查詢
 
 整篇教學被分為數個部份進行，每一部份解釋 CodeIgniter 框架的一小部份功能。詳列如下:
 
 -  簡介，也就是目前這一頁，給你一些概念讓你知道接下來會做些什麼。
--  `靜態頁面 <static_pages.html>`_ ，將會教你關於控制器（Controller），檢視（View）與路由的基礎知識。
+-  `靜態頁面 <static_pages.html>`_ ，將會教你關於控制器（Controller），視圖（View）與路由的基礎知識。
 -  `新聞模組 <news_section.html>`_ ，這邊你將開始使用模型（Model），並且進行一些簡單的資料庫操作。
 -  `新增新聞項目 <create_news_items.html>`_ ，將會進行更進階的資料庫操作以及表單驗證。
 -  `結論 <conclusion.html>`_ ，將會指引你一些未來的學習方向以及其它資源。

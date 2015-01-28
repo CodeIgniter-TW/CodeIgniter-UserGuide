@@ -7,7 +7,7 @@
 Controller 名稱
 ----------------
 
-因為你的 controller 類別將擴展主要的應用程式 controller 所以你一定要小心不要將方法命名成這些，否則你的原生方法會覆蓋它們。 下面是保留的名稱的列表。不要任何這些命名您的 Controller:
+因為你的 Controller 類別將擴展主要的應用程式 Controller 所以你一定要小心不要將方法命名成這些，否則你的原生方法會覆蓋它們。 下面是保留的名稱的列表。不要任何這些命名您的 Controller：
 
 -  Controller
 -  CI_Base

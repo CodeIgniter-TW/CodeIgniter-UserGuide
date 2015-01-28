@@ -15,12 +15,12 @@ CodeIgniter 安裝分 4 個部份：
 
 如果你想要保持你的 views 資料夾公開的，那麼也可能地請把它從 application 資料夾移出。
 
-移開它們之後，請到根目錄修改 index.php 檔案以及設定 $system_path、$application_folder、$view_folder 變數，最好是完整的路徑，像是 '/www/MyUser/system'。
+移開它們之後，請到根目錄修改 index.php 檔案以及設定 $system_path、$application_folder、$view_folder 變數，最好是完整的路徑，像是‘/www/MyUser/system’。
 
-除此之外一個額外的 production environments (在根目錄的index.php) 預設是取消 PHP 錯誤訊息以及取消所有只允許開發者使用的功能。在 CodeIgniter，這些可以通過設定 ENVIRONMENT 變數，這裡有完整的描述 :doc:`security
+除此之外一個額外的 production environments（在根目錄的index.php）預設是取消 PHP 錯誤訊息以及取消所有只允許開發者使用的功能。可以在 CodeIgniter 中，通過設定 ENVIRONMENT 變數來達成，這裡有完整的描述 :doc:`security
 page <../general/security>`.
 
-就這樣!
+就這樣！
 
 如果你是初學 CodeIgniter，請閱讀 :doc:`Getting
 Started <../overview/getting_started>` 章節，來開始學習如何建立一個動態的 PHP 應用程式。享受它吧！

@@ -2,7 +2,7 @@
 
 ## 翻譯準則
 
-繁體中文翻譯請遵守 `Chinese Copywriting Guidelines <https://github.com/sparanoid/chinese-copywriting-guidelines>`_
+繁體中文翻譯請遵守 [Chinese Copywriting Guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines)。
 
 * [線上翻譯手冊 2](http://codeigniter.org.tw/user_guide/)
 * [線上翻譯手冊 3](http://codeigniter.org.tw/userguide3/)

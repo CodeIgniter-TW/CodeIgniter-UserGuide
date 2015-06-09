@@ -4,7 +4,7 @@
 
 請仔細閱讀與您從各個相對應的版本升級說明。
 
-.. 升級到ctree::
+.. toctree::
 	:titlesonly:
 
 	從 2.2.x 升級到 3.0.0 <upgrade_330>

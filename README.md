@@ -11,79 +11,79 @@
 
 一般主題
 
-* [PHP Style Guide](http://codeigniter.org.tw/userguide3/general/styleguide.html)
+* [x] <del>PHP Style Guide</del>
 
 函示庫
 
-* Benchmarking Class
-* Caching Driver
-* Calendaring Class
-* Shopping Cart Class
-* Config Class
-* Email Class
-* Encrypt Class
-* Encryption Library
-* File Uploading Class
-* Form Validation
-* FTP Class
-* Image Manipulation Class
-* Input Class
-* Javascript Class
-* Language Class
-* Loader Class
-* Migrations Class
-* Output Class
-* Pagination Class
-* Template Parser Class
-* Security Class
-* Session Driver
-* HTML Table Class
-* Trackback Class
-* Typography Class
-* Unit Testing Class
-* URI Class
-* User Agent Class
-* XML-RPC and XML-RPC Server Classes
-* Zip Encoding Class
+* [ ] Benchmarking Class
+* [ ] Caching Driver
+* [ ] Calendaring Class
+* [ ] Shopping Cart Class
+* [ ] Config Class
+* [ ] Email Class
+* [ ] Encrypt Class
+* [ ] Encryption Library
+* [ ] File Uploading Class
+* [ ] Form Validation
+* [ ] FTP Class
+* [ ] Image Manipulation Class
+* [ ] Input Class
+* [ ] Javascript Class
+* [ ] Language Class
+* [ ] Loader Class
+* [ ] Migrations Class
+* [ ] Output Class
+* [ ] Pagination Class
+* [ ] Template Parser Class
+* [ ] Security Class
+* [ ] Session Driver
+* [ ] HTML Table Class
+* [ ] Trackback Class
+* [ ] Typography Class
+* [ ] Unit Testing Class
+* [ ] URI Class
+* [ ] User Agent Class
+* [ ] XML-RPC and XML-RPC Server Classes
+* [ ] Zip Encoding Class
 
 資料庫
 
-* 查詢補助函數
-* 查詢生成器類別
-* 交易
-* 取得資料表資訊
-* 自訂函數
-* 查詢快取
-* 使用 Database Forge 管理資料庫
-* Database Utilities 類別
-* Database Driver 參考
+* [ ] 查詢補助函數
+* [ ] 查詢生成器類別
+* [ ] 交易
+* [ ] 取得資料表資訊
+* [ ] 自訂函數
+* [ ] 查詢快取
+* [ ] 使用 Database Forge 管理資料庫
+* [ ] Database Utilities 類別
+* [ ] Database Driver 參考
 
 補助函式
 
-* Array Helper
-* CAPTCHA Helper
-* Cookie Helper
-* Date Helper
-* Directory Helper
-* Download Helper
-* Email Helper
-* File Helper
-* Form Helper
-* HTML Helper
-* Inflector Helper
-* Language Helper
-* Number Helper
-* Path Helper
-* Security Helper
-* Smiley Helper
-* String Helper
-* Text Helper
-* Typography Helper
-* URL Helper
-* XML Helper
+* [ ] Array Helper
+* [ ] CAPTCHA Helper
+* [ ] Cookie Helper
+* [ ] Date Helper
+* [ ] Directory Helper
+* [ ] Download Helper
+* [ ] Email Helper
+* [ ] File Helper
+* [ ] Form Helper
+* [ ] HTML Helper
+* [ ] Inflector Helper
+* [ ] Language Helper
+* [ ] Number Helper
+* [ ] Path Helper
+* [ ] Security Helper
+* [ ] Smiley Helper
+* [ ] String Helper
+* [ ] Text Helper
+* [ ] Typography Helper
+* [ ] URL Helper
+* [ ] XML Helper
 
 貢獻翻譯
 
-* Writing CodeIgniter Documentation
-* Developer’s Certificate of Origin 1.1
+* [ ] Writing CodeIgniter Documentation
+* [ ] Developer’s Certificate of Origin 1.1
 

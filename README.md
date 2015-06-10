@@ -11,7 +11,7 @@
 
 一般主題
 
-* [x] PHP Style Guide
+* [x] <del>PHP Style Guide</del>
 
 函示庫
 

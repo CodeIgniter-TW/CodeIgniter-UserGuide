@@ -2,17 +2,17 @@
 下載 CodeIgniter
 #######################
 
--  `CodeIgniter v3.0.0 (Current version) <http://ellislab.com/codeigniter/download>`_
--  `CodeIgniter v2.2.0 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.2.0.zip>`_ (MD5 Checksum: dbfddde4ec0b12027aee5156fbdd634b)
--  `CodeIgniter v2.1.4 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.1.4.zip>`_ (MD5 Checksum: e74a296c1d412a855c025b9cd468a513)
--  `CodeIgniter v2.1.3 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.1.3.zip>`_ (MD5 Checksum: 781d06be06eaa36f10759ef82c8594d5)
--  `CodeIgniter v2.1.2 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.1.2.zip>`_ (MD5 Checksum: c7a2980dff2774c97bd38bfbf450d8d5)
--  `CodeIgniter v2.1.1 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.1.1.zip>`_ (MD5 Checksum: c4aa5f188f4ff16f919607b46a16c76c)
--  `CodeIgniter v2.1.0 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.1.0.zip>`_ (MD5 Checksum: 8cb676b0f831114935d7dd1ae2e0d490)
--  `CodeIgniter v2.0.3 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.0.3.zip>`_ (MD5 Checksum: 910475d50daf088bdd949c3d35b444d9)
--  `CodeIgniter v2.0.2 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.0.2.zip>`_ (MD5 Checksum: e75bab8cf27d2fb2483c5bb61b85a524)
--  `CodeIgniter v2.0.1 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.0.1.zip>`_ (MD5 Checksum: 675aa95896bfb16467436c0484f15f1f)
--  `CodeIgniter v2.0.0 <http://ellislab.com/asset/ci_download_files/CodeIgniter_2.0.0.zip>`_ (MD5 Checksum: bd657863de45dbb397f3b3dbc4f13abb)
+-  `CodeIgniter v3.0.0 (目前版本) <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.0.0>`_
+-  `CodeIgniter v2.2.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.0>`_ (MD5 Checksum: dbfddde4ec0b12027aee5156fbdd634b)
+-  `CodeIgniter v2.1.4 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.4>`_ (MD5 Checksum: e74a296c1d412a855c025b9cd468a513)
+-  `CodeIgniter v2.1.3 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.3>`_ (MD5 Checksum: 781d06be06eaa36f10759ef82c8594d5)
+-  `CodeIgniter v2.1.2 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.2>`_ (MD5 Checksum: c7a2980dff2774c97bd38bfbf450d8d5)
+-  `CodeIgniter v2.1.1 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.1>`_ (MD5 Checksum: c4aa5f188f4ff16f919607b46a16c76c)
+-  `CodeIgniter v2.1.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.0>`_ (MD5 Checksum: 8cb676b0f831114935d7dd1ae2e0d490)
+-  `CodeIgniter v2.0.3 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.0.3>`_ (MD5 Checksum: 910475d50daf088bdd949c3d35b444d9)
+-  `CodeIgniter v2.0.2 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.0.2>`_ (MD5 Checksum: e75bab8cf27d2fb2483c5bb61b85a524)
+-  `CodeIgniter v2.0.1 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.0.1>`_ (MD5 Checksum: 675aa95896bfb16467436c0484f15f1f)
+-  `CodeIgniter v2.0.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.0.0>`_ (MD5 Checksum: bd657863de45dbb397f3b3dbc4f13abb)
 -  `CodeIgniter v1.7.3 <http://ellislab.com/asset/ci_download_files/CodeIgniter_1.7.3.zip>`_ (MD5 Checksum: 16f50e7df4f44c1defe18355131049e9)
 -  `CodeIgniter v1.7.2 <http://ellislab.com/asset/ci_download_files/CodeIgniter_1.7.2.zip>`_ (MD5 Checksum: ff2f4d1b3ab921f91e006f38b3ae6540)
 -  `CodeIgniter v1.7.1 <http://ellislab.com/asset/ci_download_files/CodeIgniter_1.7.1.zip>`_ (MD5 Checksum: deca9709cf21b26dc0e4ec040b37e866)

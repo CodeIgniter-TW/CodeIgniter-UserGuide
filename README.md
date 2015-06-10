@@ -60,7 +60,7 @@
 
 補助函式
 
-* [ ] Array Helper
+* [x] <del>Array Helper</del>
 * [ ] CAPTCHA Helper
 * [ ] Cookie Helper
 * [ ] Date Helper

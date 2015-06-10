@@ -11,7 +11,7 @@
 
 一般主題
 
-* [ ] [PHP Style Guide](http://codeigniter.org.tw/userguide3/general/styleguide.html)
+* [x] PHP Style Guide
 
 函示庫
 

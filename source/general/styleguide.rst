@@ -11,7 +11,7 @@ PHP 風格指南
 檔案格式
 ===========
 
-檔案應該以 unicode (UTF-8) 編碼儲存。*不應該*使用 BOM。
+檔案應該以 unicode (UTF-8) 編碼儲存。*不應該* 使用 BOM。
 UTF-8 並不像 UTF-16 及 UTF-32， UTF-8 編碼的檔案不需要標示位元組順序(Byte Order)，
 而且 BOM 在 PHP 送出結果時會造成一些不好的副作用，使程式無法設置標頭(headers)。
 應該使用 Unix 風格的換行字元(LF)。
@@ -47,7 +47,7 @@ PHP 結束標籤
 雖然 PHP 的結束標籤 **?>** 是選擇性的。但如果用到結束標籤的話，
 任何在結束標籤之後的空白字元，不論是由開發者、使用者、或 FTP 軟體造成的，
 都可能造成非預期的輸出，產生 PHP 錯誤，或是當錯誤被忽略時造成空白頁面。
-因此，所有的 PHP 檔案應該要**省略**結束標籤，並改用一段註解來標示檔案的結尾，
+因此，所有的 PHP 檔案應該要 **省略** 結束標籤，並改用一段註解來標示檔案的結尾，
 以及檔案相對於程式根目錄的位置。這樣做讓你依然能夠檢查檔案是否完整，確認內容是否被截斷。
 
 **錯誤的**::
@@ -317,8 +317,7 @@ TRUE, FALSE, 以及 NULL
 	}
 
 
-可以參考`typecasting
-<http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting>`_,
+可以參考 `typecasting <http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting>`_，
 來獲得更多資訊。
 型別轉換有許多用途，例如當轉換一個變數為字串時，NULL 以及布林 FALSE 會變成空字串，0（以及其它數字）會變成數字字串，
 還有布林 TRUE 會變成 "1"::
@@ -349,7 +348,7 @@ CodeIgniter 的最低需求是 PHP 5.2.4。你的程式碼也必須相容這個�
 一個檔案一個類別
 ==================
 
-將每個類別放在各自的檔案中，除非這些類別是*極度相關的*。
+將每個類別放在各自的檔案中，除非這些類別是 *極度相關的* 。
 CodeIgniter 裡一個檔案含有多個類別的例子是 Xmlrpc 函式庫檔案。
 
 縮排的空白

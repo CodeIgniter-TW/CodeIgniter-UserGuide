@@ -61,7 +61,7 @@
 補助函式
 
 * [x] <del>Array Helper</del>
-* [ ] CAPTCHA Helper
+* [x] <del>CAPTCHA Helper</del>
 * [ ] Cookie Helper
 * [ ] Date Helper
 * [ ] Directory Helper

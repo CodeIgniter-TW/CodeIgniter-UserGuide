@@ -43,8 +43,8 @@
 * [ ] Unit Testing Class
 * [ ] URI Class
 * [ ] User Agent Class
-* [ ] XML-RPC and XML-RPC Server Classes
-* [ ] Zip Encoding Class
+* [x] <del>XML-RPC and XML-RPC Server Classes</del>
+* [x] <del>Zip Encoding Class</del>
 
 資料庫
 
@@ -61,7 +61,7 @@
 補助函式
 
 * [x] <del>Array Helper</del>
-* [ ] CAPTCHA Helper
+* [x] <del>CAPTCHA Helper</del>
 * [ ] Cookie Helper
 * [ ] Date Helper
 * [ ] Directory Helper
@@ -86,4 +86,3 @@
 
 * [ ] Writing CodeIgniter Documentation
 * [ ] Developer’s Certificate of Origin 1.1
-

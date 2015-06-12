@@ -43,7 +43,7 @@
 * [ ] Unit Testing Class
 * [ ] URI Class
 * [ ] User Agent Class
-* [ ] XML-RPC and XML-RPC Server Classes
+* [x] <del>XML-RPC and XML-RPC Server Classes</del>
 * [x] <del>Zip Encoding Class</del>
 
 資料庫

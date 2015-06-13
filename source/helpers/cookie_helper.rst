@@ -27,7 +27,7 @@ Cookie 輔助函式的載入語法如下：
 
 .. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]]])
 
-	:param	mixed	$name: Cookie 名稱*或*包含函式中所有有效參數的陣列
+	:param	mixed	$name: Cookie 名稱或包含函式中所有有效參數的陣列
 	:param	string	$value: Cookie 值
 	:param	int	$expire: 有效期限秒數
 	:param	string	$domain: Cookie 網域名稱（通常是：.yourdomain.com）
@@ -56,7 +56,7 @@ Cookie 輔助函式的載入語法如下：
 	:param	string	$prefix: Cookie 名稱前綴
 	:rtype:	void
 
-	刪除 CookieLets 時，除非你指定了路徑或其他值，否則只有具有 **name** 的 Cookie 會被刪除。
+	刪除 Cookie 時，除非你指定了路徑或其他值，否則只有具有 **name** 的 Cookie 會被刪除。
 	::
 
 		delete_cookie('name');

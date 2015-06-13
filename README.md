@@ -62,7 +62,7 @@
 
 * [x] <del>Array Helper</del>
 * [x] <del>CAPTCHA Helper</del>
-* [ ] Cookie Helper
+* [x] <del>Cookie Helper</del>
 * [ ] Date Helper
 * [ ] Directory Helper
 * [ ] Download Helper

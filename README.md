@@ -39,10 +39,10 @@
 * [ ] Session Driver
 * [ ] HTML Table Class
 * [ ] Trackback Class
-* [ ] Typography Class
-* [ ] Unit Testing Class
-* [ ] URI Class
-* [ ] User Agent Class
+* [x] <del>Typography Class</del>
+* [x] <del>Unit Testing Class</del>
+* [x] <del>URI Class</del>
+* [x] <del>User Agent Class</del>
 * [x] <del>XML-RPC and XML-RPC Server Classes</del>
 * [x] <del>Zip Encoding Class</del>
 

@@ -39,17 +39,17 @@
 * [ ] Session Driver
 * [ ] HTML Table Class
 * [ ] Trackback Class
-* [ ] Typography Class
-* [ ] Unit Testing Class
-* [ ] URI Class
-* [ ] User Agent Class
+* [x] <del>Typography Class</del>
+* [x] <del>Unit Testing Class</del>
+* [x] <del>URI Class</del>
+* [x] <del>User Agent Class</del>
 * [x] <del>XML-RPC and XML-RPC Server Classes</del>
 * [x] <del>Zip Encoding Class</del>
 
 資料庫
 
 * [ ] 查詢補助函數
-* [ ] 查詢生成器類別
+* [x] <del>查詢生成器類別</del>
 * [ ] 交易
 * [ ] 取得資料表資訊
 * [ ] 自訂函數
@@ -62,7 +62,7 @@
 
 * [x] <del>Array Helper</del>
 * [x] <del>CAPTCHA Helper</del>
-* [ ] Cookie Helper
+* [x] <del>Cookie Helper</del>
 * [ ] Date Helper
 * [ ] Directory Helper
 * [ ] Download Helper

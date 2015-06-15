@@ -29,7 +29,7 @@
 	// 產生： SELECT * FROM sometable....
 
 
-.. note:: 在資料庫設定中取消 **save_queries** 設定會使這個函式失效
+.. note:: 在資料庫設定中取消 **save_queries** 設定，會使這個函數失效
 
 取得資料庫的資訊
 ================

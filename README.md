@@ -15,7 +15,7 @@
 
 函示庫
 
-* [ ] Benchmarking Class
+* [x] <del>Benchmarking Class</del>
 * [ ] Caching Driver
 * [ ] Calendaring Class
 * [ ] Shopping Cart Class
@@ -48,7 +48,7 @@
 
 資料庫
 
-* [ ] 查詢補助函數
+* [x] <del>查詢補助函式</del>
 * [x] <del>查詢生成器類別</del>
 * [ ] 交易
 * [ ] 取得資料表資訊

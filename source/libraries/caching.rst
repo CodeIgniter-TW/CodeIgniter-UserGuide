@@ -27,7 +27,7 @@ CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
 		echo 'Saving to the cache!<br />';
 		$foo = 'foobarbaz!';
 
-		// Save into the cache for 5 minutes
+		// 過 5 分鐘後會存到快取
 		$this->cache->save('foo', $foo, 300);
 	}
 
@@ -43,7 +43,7 @@ CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
 		array('adapter' => 'apc', 'backup' => 'file', 'key_prefix' => 'my_')
 	);
 	
-	$this->cache->get('foo'); // Will get the cache entry named 'my_foo'
+	$this->cache->get('foo'); // 將會取得輸入的快取名稱 'my_foo'
 
 ********
 類別參考
@@ -116,11 +116,11 @@ CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
 		在原始的快取空間值中增量
 		::
 
-			// 'iterator' has a value of 2
+			// 'iterator' 有值是 2
 
-			$this->cache->increment('iterator'); // 'iterator' is now 3
+			$this->cache->increment('iterator'); // 'iterator' 現在是 3
 
-			$this->cache->increment('iterator', 3); // 'iterator' is now 6
+			$this->cache->increment('iterator', 3); // 'iterator' 現在是 6
 
 	.. php:method:: decrement($id[, $offset = 1])
 
@@ -132,11 +132,11 @@ CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
 		在原始的快取空間值中減量
 		::
 
-			// 'iterator' has a value of 6
+			// 'iterator' 有值是 6
 
-			$this->cache->decrement('iterator'); // 'iterator' is now 5
+			$this->cache->decrement('iterator'); // 'iterator' 現在是 5
 
-			$this->cache->decrement('iterator', 2); // 'iterator' is now 3
+			$this->cache->decrement('iterator', 2); // 'iterator' 現在是 3
 
 	.. php:method:: clean()
 
@@ -178,9 +178,9 @@ CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
 ********
 
 Alternative PHP Cache (APC) 快取
-===================================
+================================
 
-上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
+上述所列都可以用以下方法，不透過轉換器 (adapter) 而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->apc->save('foo', 'bar', 10);
@@ -194,7 +194,7 @@ Alternative PHP Cache (APC) 快取
 不像其他輸出類別的快取，檔案快取允許緩存少量的顯示檔案。
 但使用此方式請留意，確保已評估你的應用程式，由於硬碟 I/O 的緣故，可能會降低快取的效益。
 
-上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
+上述所列都可以用以下方法，不透過轉換器 (adapter) 而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->file->save('foo', 'bar', 10);
@@ -205,7 +205,7 @@ Memcached 快取
 要啟動多個 Memcached 服務，可以在 memcached.php 組態檔案中指定，
 檔案位於 application/config/* directory。
 
-上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
+上述所列都可以用以下方法，不透過轉換器 (adapter) 而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->memcached->save('foo', 'bar', 10);
@@ -218,7 +218,7 @@ WinCache 快取
 
 在 Windows 平台下，你可以使用 WinCache 驅動程式。
 
-上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
+上述所列都可以用以下方法，不透過轉換器 (adapter) 而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->wincache->save('foo', 'bar', 10);
@@ -229,7 +229,6 @@ WinCache 快取
 Redis 快取
 ==========
 
-Redis is an in-memory key-value store which can operate in LRU cache mode. 
 Redis 是一種內存的鍵-值對應的儲存空間 (key-value store)，它可以在 LRU 快取模式中執行。
 要使用它, 你須要 `Redis 伺服器與 phpredis PHP 擴展 (extension) <https://github.com/phpredis/phpredis>`_.
 
@@ -243,7 +242,7 @@ Config 選用連結到 redis 伺服器，必須儲存在 application/config/redi
 	$config['port'] = 6379;
 	$config['timeout'] = 0;
 
-上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
+上述所列都可以用以下方法，不透過轉換器 (adapter) 而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->redis->save('foo', 'bar', 10);

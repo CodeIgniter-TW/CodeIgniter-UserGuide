@@ -1,11 +1,9 @@
-##############
-Caching Driver
-##############
+############
+快取驅動類別
+############
 
-CodeIgniter features wrappers around some of the most popular forms of
-fast and dynamic caching. All but file-based caching require specific
-server requirements, and a Fatal Exception will be thrown if server
-requirements are not met.
+CodeIgniter 以最普及的方式，展現一種快速又動態的快取。
+除了使用檔案之外的快取，都需要特定的伺服器設備需求，若沒有則會產生嚴重的錯誤。
 
 .. contents::
   :local:
@@ -14,13 +12,11 @@ requirements are not met.
 
   <div class="custom-index container"></div>
 
-*************
-Example Usage
-*************
+********
+使用範例
+********
 
-The following example will load the cache driver, specify `APC <#alternative-php-cache-apc-caching>`_
-as the driver to use, and fall back to file-based caching if APC is not
-available in the hosting environment.
+接下來的範例會讀取快取驅動類別，並指定使用 APC 驅動。如果 APC 無法在主機環境下使用，那就會退回使用檔案的快取方式。
 
 ::
 
@@ -37,8 +33,9 @@ available in the hosting environment.
 
 	echo $foo;
 
-You can also prefix cache item names via the **key_prefix** setting, which is useful
-to avoid collisions when you're running multiple applications on the same environment.
+
+當你在同樣的環境中執行多種程式，你也可以在快取名稱前加入前綴字元，在 "key_prefix" 的地方做設定，這將會有效地避免衝突。
+
 
 ::
 
@@ -48,22 +45,19 @@ to avoid collisions when you're running multiple applications on the same enviro
 
 	$this->cache->get('foo'); // Will get the cache entry named 'my_foo'
 
-***************
-Class Reference
-***************
+********
+類別參考
+********
 
 .. php:class:: CI_Cache
 
 	.. php:method:: is_supported($driver)
 
-		:param	string	$driver: the name of the caching driver
-		:returns:	TRUE if supported, FALSE if not
-		:rtype:	bool
+		:param	string	$driver: 驅動的名稱
+		:returns:	若支援為 TRUE，不支援則為 FALSE
+		:rtype:	布林值
 
-		This method is automatically called when accessing drivers via
-		``$this->cache->get()``. However, if the individual drivers are used,
-		make sure to call this method to ensure the driver is supported in the
-		hosting environment.
+		這個方法是當你透過 "$this->cache->get()" 存取驅動時會自動呼叫。為了確保主機環境支援驅動程式，當個別驅動(individual drivers)正在運作時，請務必使用此方法。
 		::
 
 			if ($this->cache->apc->is_supported())
@@ -76,54 +70,50 @@ Class Reference
 
 	.. php:method:: get($id)
 
-		:param	string	$id: Cache item name
-		:returns:	Item value or FALSE if not found
+		:param	string	$id: 快取項目名稱
+		:returns:	項目值，或是當找不到時則會使用 FALSE
 		:rtype:	mixed
 
-		This method will attempt to fetch an item from the cache store. If the
-		item does not exist, the method will return FALSE.
+		此方式將會從快取中取得一個項目。若項目不存在，則會回傳 FALSE。
 		::
 
 			$foo = $this->cache->get('my_cached_item');
 
 	.. php:method:: save($id, $data[, $ttl = 60[, $raw = FALSE]])
 
-		:param	string	$id: Cache item name
-		:param	mixed	$data: the data to save
-		:param	int	$ttl: Time To Live, in seconds (default 60)
-		:param	bool	$raw: Whether to store the raw value
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$id: 快取項目名稱
+		:param	mixed	$data: 存取的資料
+		:param	int	$ttl: 存活時間，以秒計(預設值60)
+		:param	bool	$raw: 是否儲存原本的值
+		:returns:	成功為 TRUE，失敗則為 FALSE
 		:rtype:	string
 
-		This method will save an item to the cache store. If saving fails, the
-		method will return FALSE.
+		此方法將會儲存項目至快取空間。若儲存失敗，則回傳 FALSE。
 		::
 
 			$this->cache->save('cache_item_id', 'data_to_cache');
 
-		.. note:: The ``$raw`` parameter is only utilized by APC and Memcache,
-			in order to allow usage of ``increment()`` and ``decrement()``.
+		.. note:: ``$raw`` 參數是為了讓 ``increment()`` 及 ``decrement()`` 運作，而被 APC 及 Memcache 所用。
 
 	.. php:method:: delete($id)
 
-		:param	string	$id: name of cached item
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$id: 快取項目名稱
+		:returns:	成功為 TRUE，失敗則為 FALSE
 		:rtype:	bool
 
-		This method will delete a specific item from the cache store. If item
-		deletion fails, the method will return FALSE.
+		此方法將會從快取空間中刪除一個特定的項目。若項目刪除失敗，則會回傳 FALSE。
 		::
 
 			$this->cache->delete('cache_item_id');
 
 	.. php:method:: increment($id[, $offset = 1])
 
-		:param	string	$id: Cache ID
-		:param	int	$offset: Step/value to add
-		:returns:	New value on success, FALSE on failure
+		:param	string	$id: 快取 ID
+		:param	int	$offset: 加入的 Step/value 
+		:returns:	成功則為新的值，失敗則為 FALSE
 		:rtype:	mixed
 
-		Performs atomic incrementation of a raw stored value.
+		在原始的快取空間值中增量
 		::
 
 			// 'iterator' has a value of 2
@@ -134,12 +124,12 @@ Class Reference
 
 	.. php:method:: decrement($id[, $offset = 1])
 
-		:param	string	$id: Cache ID
-		:param	int	$offset: Step/value to reduce by
-		:returns:	New value on success, FALSE on failure
+		:param	string	$id: 快取 ID
+		:param	int	$offset: 減少的 Step/value
+		:returns:	成功則為新的值，失敗則為 FALSE
 		:rtype:	mixed
 
-		Performs atomic decrementation of a raw stored value.
+		在原始的快取空間值中減量
 		::
 
 			// 'iterator' has a value of 6
@@ -150,110 +140,101 @@ Class Reference
 
 	.. php:method:: clean()
 
-		:returns:	TRUE on success, FALSE on failure
+		:returns:	成功為 TRUE，失敗為 FALSE
 		:rtype:	bool
 
-		This method will 'clean' the entire cache. If the deletion of the
-		cache files fails, the method will return FALSE.
+		此方法將會「清除」所有快取。若快取檔清除失敗，則會回傳 FALSE。
 		::
 
 			$this->cache->clean();
 
 	.. php:method:: cache_info()
 
-		:returns:	Information on the entire cache database
+		:returns:	整個快取資料庫的資訊
 		:rtype:	mixed
 
-		This method will return information on the entire cache.
+		此方法將會回傳整個快取的資訊。
 		::
 
 			var_dump($this->cache->cache_info());
 
-		.. note:: The information returned and the structure of the data is dependent
-			on which adapter is being used.
+		.. note:: 回傳的資訊和其結構是根據轉換器 (adaper) 的使用。
 
 	.. php:method:: get_metadata($id)
 
-		:param	string	$id: Cache item name
-		:returns:	Metadata for the cached item
+		:param	string	$id: 快取項目名稱
+		:returns:	快取項目的元數據 (Metadata)
 		:rtype:	mixed
 
-		This method will return detailed information on a specific item in the
-		cache.
+		此方法將會回傳快取裡特定項目的細部資訊。
 		::
 
 			var_dump($this->cache->get_metadata('my_cached_item'));
 
-		.. note:: The information returned and the structure of the data is dependent
-			on which adapter is being used.
+		.. note:: 回傳的資訊和其結構是根據轉換器 (adaper) 的使用。
 
-*******
-Drivers
-*******
+********
+驅動程式
+********
 
-Alternative PHP Cache (APC) Caching
+Alternative PHP Cache (APC) 快取
 ===================================
 
-All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows::
+上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器:
 
 	$this->load->driver('cache');
 	$this->cache->apc->save('foo', 'bar', 10);
 
-For more information on APC, please see
+更多關於 APC 的資訊，請見
 `http://php.net/apc <http://php.net/apc>`_.
 
-File-based Caching
-==================
+檔案快取
+========
 
-Unlike caching from the Output Class, the driver file-based caching
-allows for pieces of view files to be cached. Use this with care, and
-make sure to benchmark your application, as a point can come where disk
-I/O will negate positive gains by caching.
+不像其他輸出類別的快取，檔案快取允許緩存少量的顯示檔案。
+但使用此方式請留意，確保已評估你的應用程式，由於硬碟 I/O 的緣故，可能會降低快取的效益。
 
-All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows::
+上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器。
 
 	$this->load->driver('cache');
 	$this->cache->file->save('foo', 'bar', 10);
 
-Memcached Caching
-=================
+Memcached 快取
+==============
 
-Multiple Memcached servers can be specified in the memcached.php
-configuration file, located in the _application/config/* directory.
+要啟動多個 Memcached 服務，可以在 memcached.php 組態檔案中指定，
+檔案位於 application/config/* directory。
 
-All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows::
+上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->memcached->save('foo', 'bar', 10);
 
-For more information on Memcached, please see
+更多關於 Memcached 的資訊，請見
 `http://php.net/memcached <http://php.net/memcached>`_.
 
-WinCache Caching
-================
+WinCache 快取
+=============
 
-Under Windows, you can also utilize the WinCache driver.
+在 Windows 平台下，你可以使用 WinCache 驅動程式。
 
-All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows::
+上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器::
 
 	$this->load->driver('cache');
 	$this->cache->wincache->save('foo', 'bar', 10);
 
-For more information on WinCache, please see
+更多關於 WinCache 的資訊，請見
 `http://php.net/wincache <http://php.net/wincache>`_.
 
-Redis Caching
-=============
+Redis 快取
+==========
 
 Redis is an in-memory key-value store which can operate in LRU cache mode. 
-To use it, you need `Redis server and phpredis PHP extension <https://github.com/phpredis/phpredis>`_.
+Redis 是一種內存的鍵-值對應的儲存空間 (key-value store)，它可以在 LRU 快取模式中執行。
+要使用它, 你須要 `Redis 伺服器與 phpredis PHP 擴展 (extension) <https://github.com/phpredis/phpredis>`_.
 
-Config options to connect to redis server must be stored in the application/config/redis.php file.
-Available options are::
+Config 選用連結到 redis 伺服器，必須儲存在 application/config/redis.php 檔案.
+可用的選項為：
 	
 	$config['socket_type'] = 'tcp'; //`tcp` or `unix`
 	$config['socket'] = '/var/run/redis.sock'; // in case of `unix` socket type
@@ -262,18 +243,15 @@ Available options are::
 	$config['port'] = 6379;
 	$config['timeout'] = 0;
 
-All of the methods listed above can be accessed without passing a
-specific adapter to the driver loader as follows::
+上述所列都可以用以下方法，不透過轉換器(adapter)而存取驅動程式載入器：
 
 	$this->load->driver('cache');
 	$this->cache->redis->save('foo', 'bar', 10);
 
-For more information on Redis, please see
+更多關於　Redis 的資訊，請見
 `http://redis.io <http://redis.io>`_.
 
-Dummy Cache
+Dummy 快取
 ===========
 
-This is a caching backend that will always 'miss.' It stores no data,
-but lets you keep your caching code in place in environments that don't
-support your chosen cache.
+這是快取的後端，它並不儲存資料，而是在驅動程式不支援的時候，在系統環境中保有你的快取程式碼。

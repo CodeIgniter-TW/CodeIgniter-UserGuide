@@ -16,7 +16,7 @@
 函示庫
 
 * [x] <del>Benchmarking Class</del>
-* [x] Caching Driver
+* [x] <del>Caching Driver</del>
 * [ ] Calendaring Class ( fdjkgh580 翻譯中 ) 
 * [ ] Shopping Cart Class ( fdjkgh580 翻譯中 ) 
 * [ ] Config Class ( fdjkgh580 翻譯中 ) 

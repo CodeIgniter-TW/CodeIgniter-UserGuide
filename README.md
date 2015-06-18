@@ -18,7 +18,7 @@
 * [x] <del>Benchmarking Class</del>
 * [x] <del>Caching Driver</del>
 * [x] <del>Calendaring Class</del>
-* [ ] Shopping Cart Class (fdjkgh580 翻譯中) 
+* [x] <del>Shopping Cart Class</del> 
 * [ ] Config Class (fdjkgh580 翻譯中) 
 * [ ] Email Class (fdjkgh580 翻譯中) 
 * [ ] Encrypt Class

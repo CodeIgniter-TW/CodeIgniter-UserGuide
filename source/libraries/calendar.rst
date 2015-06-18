@@ -172,7 +172,7 @@
 
 	echo $this->calendar->generate();
 
-使用陣列的方式，你將會傳送 "key => value" 的配對。你可以依照你的意願，傳送更多或更少的值。
+使用陣列的方式，你將會傳送 ``key => value`` 的配對。你可以依照你的意願，傳送更多或更少的值。
 省略鍵 (omitted key) 的時候，將會使用預設值取代。
 
 Example::

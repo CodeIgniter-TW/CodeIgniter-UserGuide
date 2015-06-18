@@ -19,7 +19,7 @@
 * [x] <del>Caching Driver</del>
 * [x] <del>Calendaring Class</del>
 * [x] <del>Shopping Cart Class</del> 
-* [ ] Config Class (fdjkgh580 翻譯中) 
+* [x] <del>Config Class</del> 
 * [ ] Email Class (fdjkgh580 翻譯中) 
 * [ ] Encrypt Class
 * [ ] Encryption Library

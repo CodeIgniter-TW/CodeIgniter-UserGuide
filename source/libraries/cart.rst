@@ -304,49 +304,46 @@ Row ID 當你將商品加入購物車時產生的一個唯一值。
 
 	.. php:method:: contents([$newest_first = FALSE])
 
-		:param	bool	$newest_first: Whether to order the array with newest items first
-		:returns:	An array of cart contents
+		:param	bool	$newest_first: 是否將最新商品排在前面
+		:returns:	購物車的陣列
 		:rtype:	array
-
-		Returns an array containing everything in the cart. You can sort the
-		order by which the array is returned by passing it TRUE where the contents
-		will be sorted from newest to oldest, otherwise it is sorted from oldest
-		to newest.
+		
+		回傳購物車內所有東西的陣列。你可以從最新到最舊分類訂單，否則他將會從最舊到最新排序。
 
 	.. php:method:: get_item($row_id)
 
-		:param	int	$row_id: Row ID to retrieve
-		:returns:	Array of item data
+		:param	int	$row_id: 欲取得的 Row ID
+		:returns:	商品資訊的陣列
 		:rtype:	array
 
-		Returns an array containing data for the item matching the specified row
-		ID, or FALSE if no such item exists.
+		回傳吻合特定 Row ID 的商品陣列，若顯示 FALSE 則此商品不存在。
 
 	.. php:method:: has_options($row_id = '')
 
-		:param	int	$row_id: Row ID to inspect
-		:returns:	TRUE if options exist, FALSE otherwise
+		:param	int	$row_id: 欲檢查的 Row ID
+		:returns:	存在返回 TRUE，不存在為 FALSE
 		:rtype:	bool
 
-		Returns TRUE (boolean) if a particular row in the cart contains options.
-		This method is designed to be used in a loop with ``contents()``, since
-		you must pass the rowid to this method, as shown in the Displaying
-		the Cart example above.
-
+		若是購物車內的特定資料含有選項，則顯示 TRUE(布林值)
+		。此方法使用於含有 ``contents()``的函數中，你必須傳送 Rowid，
+		可參考上述 "顯示購物車" 中的範例。
+		
+		如果該項目有設定附加資訊 (options) 的選項，則返回 TRUE (布林值)。
+		這個方式的設計，你必須傳送 rowid 到這個方法，同時也可與 ``contents()`` 做循環 (loop) 使用，
+		可參考上述 "顯示購物車" 中的範例。
+		
 	.. php:method:: product_options([$row_id = ''])
 
 		:param	int	$row_id: Row ID
 		:returns:	Array of product options
 		:rtype:	array
 
-		Returns an array of options for a particular product. This method is
-		designed to be used in a loop with ``contents()``, since you
-		must pass the rowid to this method, as shown in the Displaying the
-		Cart example above.
+		回傳購物車內的特定商品的附加資訊 (options) 陣列。
+		這個方式的設計，你必須傳送 rowid 到這個方法，同時也可與 ``contents()`` 做循環 (loop) 使用，
+		可參考上述 "顯示購物車" 中的範例。
 
 	.. php:method:: destroy()
 
 		:rtype: void
 
-		Permits you to destroy the cart. This method will likely be called
-		when you are finished processing the customer's order.
+		當消費者購物完畢時，允許你清空購物車。

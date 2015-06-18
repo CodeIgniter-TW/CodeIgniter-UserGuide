@@ -9,7 +9,7 @@
 
 進行資料庫插入時的插入ID數字。
 
-.. note:: 如果使用 PostgreSQL 或是 Interbase 的 PDO 驅動程式，這個函式會需要一個 $name 參數，用來指定適當的序列來檢查插入的 id 。
+.. note:: 如果使用了 PDO 驅動連接 PostgreSQL 或是使用 InterBase 驅動程式，這個函式會需要一個 $name 參數，用來指定適當的序列來檢查插入的 id 。
 
 **$this->db->affected_rows()**
 

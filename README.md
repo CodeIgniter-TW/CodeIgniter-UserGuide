@@ -20,7 +20,7 @@
 * [x] <del>Calendaring Class</del>
 * [x] <del>Shopping Cart Class</del> 
 * [x] <del>Config Class</del> 
-* [ ] Email Class (fdjkgh580 翻譯中) 
+* [x] <del>Email Class</del> 
 * [ ] Encrypt Class
 * [ ] Encryption Library
 * [ ] File Uploading Class

@@ -15,12 +15,12 @@
 
 函示庫
 
-* [ ] Benchmarking Class
-* [ ] Caching Driver
-* [ ] Calendaring Class
-* [ ] Shopping Cart Class
-* [ ] Config Class
-* [ ] Email Class
+* [x] <del>Benchmarking Class</del>
+* [x] <del>Caching Driver</del>
+* [x] <del>Calendaring Class</del>
+* [x] <del>Shopping Cart Class</del> 
+* [x] <del>Config Class</del> 
+* [x] <del>Email Class</del> 
 * [ ] Encrypt Class
 * [ ] Encryption Library
 * [ ] File Uploading Class
@@ -48,7 +48,7 @@
 
 資料庫
 
-* [ ] 查詢補助函數
+* [x] <del>查詢補助函式</del>
 * [x] <del>查詢生成器類別</del>
 * [ ] 交易
 * [ ] 取得資料表資訊

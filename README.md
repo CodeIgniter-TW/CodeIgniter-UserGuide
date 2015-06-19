@@ -38,7 +38,7 @@
 * [ ] Security Class
 * [ ] Session Driver
 * [ ] HTML Table Class
-* [ ] Trackback Class
+* [x] <del>Trackback Class</del>
 * [x] <del>Typography Class</del>
 * [x] <del>Unit Testing Class</del>
 * [x] <del>URI Class</del>

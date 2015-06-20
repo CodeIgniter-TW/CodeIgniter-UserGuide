@@ -37,7 +37,7 @@
 * [ ] Template Parser Class
 * [ ] Security Class
 * [ ] Session Driver
-* [ ] HTML Table Class
+* [x] <del>HTML Table Class</del>
 * [x] <del>Trackback Class</del>
 * [x] <del>Typography Class</del>
 * [x] <del>Unit Testing Class</del>

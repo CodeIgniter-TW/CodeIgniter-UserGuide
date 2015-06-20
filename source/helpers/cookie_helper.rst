@@ -2,7 +2,7 @@
 Cookie 輔助函式
 #############
 
-Cookie 輔助函式包含了各種輔助使用 Cookie 的相關函數。
+Cookie 輔助函式包含了各種輔助使用 Cookie 的相關函式。
 
 .. contents::
   :local:
@@ -19,10 +19,10 @@ Cookie 輔助函式的載入語法如下：
 
 	$this->load->helper('cookie');
 
-可用函數格式
+可用函式格式
 ===================
 
-允許使用的函數格式如下：
+允許使用的函式格式如下：
 
 
 .. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]]])

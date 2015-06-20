@@ -2,7 +2,7 @@
 Language 輔助函式
 ###############
 
-Language 輔助函式包含了各種輔助多國語言操作的相關函數。
+Language 輔助函式包含了各種輔助多國語言操作的相關函式。
 
 .. contents::
   :local:

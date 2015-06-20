@@ -2,7 +2,7 @@
 Array 輔助函式
 ############
 
-Array 輔助函式包含了各種輔助陣列操作的相關函數。
+Array 輔助函式包含了各種輔助陣列操作的相關函式。
 
 .. contents::
   :local:
@@ -19,10 +19,10 @@ Array 輔助函式的載入語法如下：
 	$this->load->helper('array');
 
 
-可用函數格式
+可用函式格式
 ===================
 
-允許使用的函數格式如下：
+允許使用的函式格式如下：
 
 
 .. php:function:: element($item, $array[, $default = NULL])
@@ -93,7 +93,7 @@ Array 輔助函式的載入語法如下：
 			'height'	=> 'foobar'
 		);
 
-	此函數在傳送 ``$_POST`` 陣列至 Model 時相當有用，可以避免使用者混入額外的 POST data 進你的資料表。
+	此函式在傳送 ``$_POST`` 陣列至 Model 時相當有用，可以避免使用者混入額外的 POST data 進你的資料表。
 
 	::
 

@@ -2,7 +2,7 @@
 CAPTCHA 輔助函式
 ##############
 
-CAPTCHA 輔助函式包含了各種輔助產生驗證圖片的相關函數。
+CAPTCHA 輔助函式包含了各種輔助產生驗證圖片的相關函式。
 
 .. contents::
   :local:
@@ -120,10 +120,10 @@ CAPTCHA 輔助函式的載入語法如下：
 		echo 'You must submit the word that appears in the image.';
 	}
 
-可用函數格式
+可用函式格式
 ===================
 
-允許使用的函數格式如下：
+允許使用的函式格式如下：
 
 .. php:function:: create_captcha([$data = ''[, $img_path = ''[, $img_url = ''[, $font_path = '']]]])
 

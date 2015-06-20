@@ -18,9 +18,9 @@
 * [x] <del>Benchmarking Class</del>
 * [x] <del>Caching Driver</del>
 * [x] <del>Calendaring Class</del>
-* [x] <del>Shopping Cart Class</del> 
-* [x] <del>Config Class</del> 
-* [x] <del>Email Class</del> 
+* [x] <del>Shopping Cart Class</del>
+* [x] <del>Config Class</del>
+* [x] <del>Email Class</del>
 * [ ] Encrypt Class
 * [ ] Encryption Library
 * [ ] File Uploading Class

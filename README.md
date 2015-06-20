@@ -71,7 +71,7 @@
 * [ ] Form Helper
 * [ ] HTML Helper
 * [ ] Inflector Helper
-* [ ] Language Helper
+* [x] <del>Language Helper</del>
 * [ ] Number Helper
 * [ ] Path Helper
 * [ ] Security Helper

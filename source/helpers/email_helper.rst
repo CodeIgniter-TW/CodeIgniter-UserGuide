@@ -1,5 +1,5 @@
 ############
-Email Helper
+Email 輔助函式
 ############
 
 The Email Helper provides some assistive functions for working with

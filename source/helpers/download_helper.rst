@@ -1,5 +1,5 @@
 ###############
-Download Helper
+Download 輔助函式
 ###############
 
 The Download Helper lets you download data to your desktop.

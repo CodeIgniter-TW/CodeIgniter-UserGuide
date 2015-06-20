@@ -34,7 +34,7 @@ Language 輔助函式包含了各種輔助多國語言操作的相關函式。
 
 	此函示回傳顯示格式會比 ``CI_Lang::line()`` 更清楚易懂。
 
-	Example::
+	範例::
 
 		echo lang('language_key', 'form_item_id', array('class' => 'myClass'));
 		// 顯示: <label for="form_item_id" class="myClass">Language line</label>

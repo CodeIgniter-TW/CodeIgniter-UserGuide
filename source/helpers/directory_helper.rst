@@ -2,8 +2,7 @@
 Directory 輔助函式
 ################
 
-The Directory Helper file contains functions that assist in working with
-directories.
+Directory 輔助函式包含了各種處理目錄的相關函式。
 
 .. contents::
   :local:

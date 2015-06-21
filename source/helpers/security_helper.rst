@@ -1,5 +1,5 @@
 ###############
-Security Helper
+Security 輔助函式
 ###############
 
 The Security Helper file contains security related functions.

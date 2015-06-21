@@ -2,7 +2,7 @@
 Download 輔助函式
 ###############
 
-The Download Helper lets you download data to your desktop.
+Download 輔助函式讓您可以下載資料到桌面。
 
 .. contents::
   :local:

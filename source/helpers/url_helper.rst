@@ -1,8 +1,8 @@
 ##########
-URL Helper
+URL 輔助函式
 ##########
 
-The URL Helper file contains functions that assist in working with URLs.
+URL 輔助函式包含了各種處理 URL 網址的相關函式。
 
 .. contents::
   :local:

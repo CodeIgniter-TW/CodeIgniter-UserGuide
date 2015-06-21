@@ -1,5 +1,5 @@
 ###########
-Path Helper
+Path 輔助函式
 ###########
 
 The Path Helper file contains functions that permits you to work with

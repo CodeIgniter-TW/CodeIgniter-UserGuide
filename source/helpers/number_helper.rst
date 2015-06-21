@@ -1,5 +1,5 @@
 #############
-Number Helper
+Number 輔助函式
 #############
 
 The Number Helper file contains functions that help you work with

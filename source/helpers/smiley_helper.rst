@@ -1,5 +1,5 @@
 #############
-Smiley Helper
+Smiley 輔助函式
 #############
 
 The Smiley Helper file contains functions that let you manage smileys

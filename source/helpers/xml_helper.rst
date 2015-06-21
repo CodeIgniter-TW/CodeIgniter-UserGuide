@@ -1,9 +1,8 @@
 ##########
-XML Helper
+XML 輔助函式
 ##########
 
-The XML Helper file contains functions that assist in working with XML
-data.
+XML 輔助函式包含了各種處理 XML 的相關函式。
 
 .. contents::
   :local:

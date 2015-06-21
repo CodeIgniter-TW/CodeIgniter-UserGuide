@@ -1,5 +1,5 @@
 #################
-Typography Helper
+Typography 輔助函式
 #################
 
 The Typography Helper file contains functions that help your format text

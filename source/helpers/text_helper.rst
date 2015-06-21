@@ -1,9 +1,8 @@
 ###########
-Text Helper
+Text 輔助函式
 ###########
 
-The Text Helper file contains functions that assist in working with
-text.
+Text 輔助函式包含了各種處理字串的相關函式。
 
 .. contents::
   :local:

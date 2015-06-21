@@ -1,8 +1,8 @@
 ###########
-File Helper
+File 輔助函式
 ###########
 
-The File Helper file contains functions that assist in working with files.
+File 輔助函式包含了各種處理檔案的相關函式。
 
 .. contents::
   :local:

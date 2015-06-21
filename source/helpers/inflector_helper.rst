@@ -1,5 +1,5 @@
 ################
-Inflector Helper
+Inflector 輔助函式
 ################
 
 The Inflector Helper file contains functions that permits you to change

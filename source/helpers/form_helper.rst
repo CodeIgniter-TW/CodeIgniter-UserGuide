@@ -1,9 +1,8 @@
 ###########
-Form Helper
+Form 輔助函式
 ###########
 
-The Form Helper file contains functions that assist in working with
-forms.
+Form 輔助函式包含了各種處理表單的相關函式。
 
 .. contents::
   :local:
@@ -399,7 +398,7 @@ The following functions are available:
 	:param	string	$extra: Anything to append after the closing tag, *as is*
 	:returns:	An HTML fieldset closing tag
 	:rtype:	string
-	
+
 
 	Produces a closing </fieldset> tag. The only advantage to using this
 	function is it permits you to pass data to it which will be added below

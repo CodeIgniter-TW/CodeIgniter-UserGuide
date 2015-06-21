@@ -1,9 +1,8 @@
 ###########
-HTML Helper
+HTML 輔助函式
 ###########
 
-The HTML Helper file contains functions that assist in working with
-HTML.
+HTML 輔助函式包含了各種處理 HTML 的相關函式。
 
 .. contents::
 	:local:

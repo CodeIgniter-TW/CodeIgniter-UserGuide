@@ -85,7 +85,7 @@ CodeIgniter 使用手冊
 	database/index
 
 ************
-補助函式參考
+輔助函式
 ************
 
 .. toctree::

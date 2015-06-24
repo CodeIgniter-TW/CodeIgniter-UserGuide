@@ -1,13 +1,11 @@
 #########
-URI Class
+URI 類別
 #########
 
-The URI Class provides methods that help you retrieve information from
-your URI strings. If you use URI routing, you can also retrieve
-information about the re-routed segments.
+URI 類別提供方法來幫助你解析 URI 字串資訊。
+假如你使用了 URI 導向，也可以解析路由重導後的區段。
 
-.. note:: This class is initialized automatically by the system so there
-	is no need to do it manually.
+.. note:: 這個類別會被系統自動初始化，所以不必手動處理。
 
 .. contents::
   :local:
@@ -17,38 +15,37 @@ information about the re-routed segments.
   <div class="custom-index container"></div>
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_URI
+.. php:class:: CI_URI
 
-	.. method:: segment($n[, $no_result = NULL])
+	.. php:method:: segment($n[, $no_result = NULL])
 
-		:param	int	$n: Segment index number
-		:param	mixed	$no_result: What to return if the searched segment is not found
-		:returns:	Segment value or $no_result value if not found
+		:param	int	$n: 區段號碼
+		:param	mixed	$no_result: 如果區段沒找到時，要回傳的值
+		:returns:	區段的值，若不存在則回傳 $no_result 的值
 		:rtype:	mixed
 
-		Permits you to retrieve a specific segment. Where n is the segment
-		number you wish to retrieve. Segments are numbered from left to right.
-		For example, if your full URL is this::
+		用來取得特定的區段。n 是你想取得的區段號碼。
+		區段是按由左到右的順序排列。
+		例如，假設你的 URL 網址如下::
 
 			http://example.com/index.php/news/local/metro/crime_is_up
 
-		The segment numbers would be this:
+		區段號碼會是：
 
 		#. news
 		#. local
 		#. metro
 		#. crime_is_up
 
-		The optional second parameter defaults to NULL and allows you to set the return value
-		of this method when the requested URI segment is missing.
-		For example, this would tell the method to return the number zero in the event of failure::
+		第二個參數是可省略的，允許你設定區段不存在時要回傳的值，預設是 NULL。
+		例如，這樣做會在找不到區段時回傳數字 0::
 
 			$product_id = $this->uri->segment(3, 0);
 
-		It helps avoid having to write code like this::
+		因此你可以避免這樣寫::
 
 			if ($this->uri->segment(3) === FALSE)
 			{
@@ -59,64 +56,62 @@ Class Reference
 				$product_id = $this->uri->segment(3);
 			}
 
-	.. method:: rsegment($n[, $no_result = NULL])
+	.. php:method:: rsegment($n[, $no_result = NULL])
 
-		:param	int	$n: Segment index number
-		:param	mixed	$no_result: What to return if the searched segment is not found
-		:returns:	Routed segment value or $no_result value if not found
+		:param	int	$n: 區段號碼
+		:param	mixed	$no_result: 如果區段沒找到時，要回傳的值
+		:returns:	路由重導後的區段的值，若不存在則回傳 $no_result 的值
 		:rtype:	mixed
 
-		This method is identical to ``segment()``, except that it lets you retrieve
-		a specific segment from your re-routed URI in the event you are
-		using CodeIgniter's :doc:`URI Routing <../general/routing>` feature.
+		這個方法與 ``segment()`` 相同，
+		但是取得的區段是經由路由重導後的區段，
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>`  提供的功能。
 
-	.. method:: slash_segment($n[, $where = 'trailing'])
+	.. php:method:: slash_segment($n[, $where = 'trailing'])
 
-		:param	int	$n: Segment index number
-		:param	string	$where: Where to add the slash ('trailing' or 'leading')
-		:returns:	Segment value, prepended/suffixed with a forward slash, or a slash if not found
+		:param	int	$n: 區段號碼
+		:param	string	$where: 加入斜線的地方('trailing' 或 'leading')
+		:returns:	區段存在時回傳區段的值，並在前/後方加上了斜線，當區段不存在時回傳斜線
 		:rtype:	string
 
-		This method is almost identical to ``segment()``, except it
-		adds a trailing and/or leading slash based on the second parameter.
-		If the parameter is not used, a trailing slash added. Examples::
+		這個方法幾乎與 ``segment()`` 相同，
+		除此之外還會根據第二個參數來加上斜線，
+		若沒有指定第二個參數，預設會將斜線加在後方。範例::
 
 			$this->uri->slash_segment(3);
 			$this->uri->slash_segment(3, 'leading');
 			$this->uri->slash_segment(3, 'both');
 
-		Returns:
+		回傳值:
 
 		#. segment/
 		#. /segment
 		#. /segment/
 
-	.. method:: slash_rsegment($n[, $where = 'trailing'])
+	.. php:method:: slash_rsegment($n[, $where = 'trailing'])
 
-		:param	int	$n: Segment index number
-		:param	string	$where: Where to add the slash ('trailing' or 'leading')
-		:returns:	Routed segment value, prepended/suffixed with a forward slash, or a slash if not found
+		:param	int	$n: 區段號碼
+		:param	string	$where: 加入斜線的地方('trailing' 或 'leading')
+		:returns:	路由重導後的區段的值，並在前/後方加上了斜線，當區段不存在時回傳斜線
 		:rtype:	string
 
-		This method is identical to ``slash_segment()``, except that it lets you
-		add slashes a specific segment from your re-routed URI in the event you
-		are using CodeIgniter's :doc:`URI Routing <../general/routing>`
-		feature.
+		這個方法與 ``slash_segment()`` 相同，
+		但是取得的區段是經由路由重導後的區段，
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>`  提供的功能。
 
-	.. method:: uri_to_assoc([$n = 3[, $default = array()]])
+	.. php:method:: uri_to_assoc([$n = 3[, $default = array()]])
 
-		:param	int	$n: Segment index number
-		:param	array	$default: Default values
-		:returns:	Associative URI segments array
+		:param	int	$n: 區段號碼
+		:param	array	$default: 預設值
+		:returns:	URI 區段關聯式陣列
 		:rtype:	array
 
-		This method lets you turn URI segments into and associative array of
-		key/value pairs. Consider this URI::
+		這個方法讓你將 URI 區段轉換成關聯式陣列。
+		例如下方的 URI::
 
 			index.php/user/search/name/joe/location/UK/gender/male
 
-		Using this method you can turn the URI into an associative array with
-		this prototype::
+		使用這個方法會將 URI 轉換為如下的關聯式陣列::
 
 			[array]
 			(
@@ -125,95 +120,95 @@ Class Reference
 				'gender'	=> 'male'
 			)
 
-		The first parameter lets you set an offset, which defaults to 3 since your
-		URI will normally contain a controller/method pair in the first and second segments.
-		Example::
+		第一個參數可以讓你決定位移量，預設位移量是 3 ，
+		因為前兩個區段通常是 controller 與方法。
+		範例::
 
 			$array = $this->uri->uri_to_assoc(3);
 			echo $array['name'];
 
-		The second parameter lets you set default key names, so that the array
-		returned will always contain expected indexes, even if missing from the URI.
-		Example::
+		第二個參數可以讓你設定預設的陣列鍵值名稱，
+		因此即使 URI 沒有包含到此鍵值，
+		回傳的陣列內還是會將其包含在內。範例::
 
 			$default = array('name', 'gender', 'location', 'type', 'sort');
 			$array = $this->uri->uri_to_assoc(3, $default);
 
-		If the URI does not contain a value in your default, an array index will
-		be set to that name, with a value of NULL.
+		假如 URI 中沒有包含你所設定的預設鍵值，
+		陣列依舊會把這個鍵值加入，並且設定值為 NULL。
 
-		Lastly, if a corresponding value is not found for a given key (if there
-		is an odd number of URI segments) the value will be set to NULL.
+		最後，如果某個鍵對應的值沒有被找到（例如區段數量為單數個時），
+		其值將被設定為 NULL.
 
-	.. method:: ruri_to_assoc([$n = 3[, $default = array()]])
+	.. php:method:: ruri_to_assoc([$n = 3[, $default = array()]])
 
-		:param	int	$n: Segment index number
-		:param	array	$default: Default values
-		:returns:	Associative routed URI segments array
+		:param	int	$n: 區段號碼
+		:param	array	$default: 預設值
+		:returns:	路由重導後的 URI 區段關聯式陣列
 		:rtype:	array
 
-		This method is identical to ``uri_to_assoc()``, except that it creates
-		an associative array using the re-routed URI in the event you are using
-		CodeIgniter's :doc:`URI Routing <../general/routing>` feature.
+		這個方法與  ``uri_to_assoc()`` 相等，
+		但是回傳的關聯式陣列是基於路由重導後的 URI。
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>` 所提供的功能。
 
-	.. method:: assoc_to_uri($array)
+	.. php:method:: assoc_to_uri($array)
 
-		:param	array	$array: Input array of key/value pairs
-		:returns:	URI string
+		:param	array	$array: 輸入的關聯式陣列
+		:returns:	URI 字串
 		:rtype:	string
 
-		Takes an associative array as input and generates a URI string from it.
-		The array keys will be included in the string. Example::
+		使用輸入的關聯式陣列來產生 URI 字串。
+		陣列鍵值將會被包含在字串內，範例::
 
 			$array = array('product' => 'shoes', 'size' => 'large', 'color' => 'red');
 			$str = $this->uri->assoc_to_uri($array);
 
-			// Produces: product/shoes/size/large/color/red
+			// 產生: product/shoes/size/large/color/red
 
-	.. method:: uri_string()
+	.. php:method:: uri_string()
 
-		:returns:	URI string
+		:returns:	URI 字串
 		:rtype:	string
 
-		Returns a string with the complete URI. For example, if this is your full URL::
+		回傳完整的 URI 字串，例如當這是你的完整網址時::
 
 			http://example.com/index.php/news/local/345
 
-		The method would return this::
+		這個方法將會回傳::
 
 			news/local/345
 
-	.. method:: ruri_string()
+	.. php:method:: ruri_string()
 
-		:returns:	Routed URI string
+		:returns:	路由重導後的 URI 字串
 		:rtype:	string
 
-		This method is identical to ``uri_string()``, except that it returns
-		the re-routed URI in the event you are using CodeIgniter's :doc:`URI
-		Routing <../general/routing>` feature.
+		這個方法與 ``uri_string()`` 相同。
+		但是回傳的是路由重導後的 URI 字串。
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>` 所提供的功能。
 
-	.. method:: total_segments()
+	.. php:method:: total_segments()
 
-		:returns:	Count of URI segments
+		:returns:	URI 區段的數量
 		:rtype:	int
 
-		Returns the total number of segments.
+		回傳區段的總數量。
 
-	.. method:: total_rsegments()
+	.. php:method:: total_rsegments()
 
-		:returns:	Count of routed URI segments
+		:returns:	路由重導後的 URI 區段數量
 		:rtype:	int
 
-		This method is identical to ``total_segments()``, except that it returns
-		the total number of segments in your re-routed URI in the event you are
-		using CodeIgniter's :doc:`URI Routing <../general/routing>` feature.
+		這個方法與 ``total_segments()`` 相同。
+		但是回傳的是路由重導後的 URI 區段數量。
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>` 所提供的功能。
 
-	.. method:: segment_array()
+	.. php:method:: segment_array()
 
-		:returns:	URI segments array
+		:returns:	URI 區段陣列
 		:rtype:	array
 
-		Returns an array containing the URI segments. For example::
+		回傳一個包含了 URI 區段的陣列，範例::
 
 			$segs = $this->uri->segment_array();
 
@@ -223,11 +218,11 @@ Class Reference
 				echo '<br />';
 			}
 
-	.. method:: rsegment_array()
+	.. php:method:: rsegment_array()
 
-		:returns:	Routed URI segments array
+		:returns:	路由重導後的 URI 區段陣列
 		:rtype:	array
 
-		This method is identical to ``segment_array()``, except that it returns
-		the array of segments in your re-routed URI in the event you are using
-		CodeIgniter's :doc:`URI Routing <../general/routing>` feature.
+		這個方法與 ``segment_array()`` 相同。
+		但是回傳的是路由重導後的 URI 區段陣列。
+		路由重導是 CodeIgniter 的  :doc:`URI Routing <../general/routing>` 所提供的功能。

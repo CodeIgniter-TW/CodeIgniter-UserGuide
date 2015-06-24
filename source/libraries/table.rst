@@ -1,9 +1,9 @@
 ################
-HTML Table Class
+HTML Table 類別
 ################
 
-The Table Class provides functions that enable you to auto-generate HTML
-tables from arrays or database result sets.
+Table 類別提供函式讓你能夠自動產生 HTML 表格，
+可以使用陣列，或是從資料庫的查詢結果。
 
 .. contents::
   :local:
@@ -13,28 +13,27 @@ tables from arrays or database result sets.
   <div class="custom-index container"></div>
 
 *********************
-Using the Table Class
+使用 Table 類別
 *********************
 
-Initializing the Class
+初始化類別
 ======================
 
-Like most other classes in CodeIgniter, the Table class is initialized
-in your controller using the ``$this->load->library()`` method::
+就像 CodeIgniter 其它多數類別一樣，
+Table 類別可以在你的 controller 內透過 ``$this->load->library()`` 函式來初始化::
 
 	$this->load->library('table');
 
-Once loaded, the Table library object will be available using::
+載入之後，就可以這樣取得 Table 物件::
 
 	$this->table
 
-Examples
+範例
 ========
 
-Here is an example showing how you can create a table from a
-multi-dimensional array. Note that the first array index will become the
-table heading (or you can set your own headings using the ``set_heading()``
-method described in the function reference below).
+這個範例示範如何從一個多維陣列來產生一個表格。
+陣列的第一個索引將會成為表頭
+（或是你可以使用之後會提到的 ``set_heading()`` 函式來設定你想要的表頭）
 
 ::
 
@@ -49,10 +48,9 @@ method described in the function reference below).
 
 	echo $this->table->generate($data);
 
-Here is an example of a table created from a database query result. The
-table class will automatically generate the headings based on the table
-names (or you can set your own headings using the ``set_heading()``
-method described in the class reference below).
+這個範例示範以資料庫的查詢結果來產生表格，
+並且自動的以資料表的名稱來作為表頭
+（或是你可以使用之後會提到的 ``set_heading()`` 函式來設定你想要的表頭）
 
 ::
 
@@ -62,8 +60,7 @@ method described in the class reference below).
 
 	echo $this->table->generate($query);
 
-Here is an example showing how you might create a table using discrete
-parameters::
+這邊示範以陸續加入參數的方式產生表格::
 
 	$this->load->library('table');
 
@@ -75,8 +72,7 @@ parameters::
 
 	echo $this->table->generate();
 
-Here is the same example, except instead of individual parameters,
-arrays are used::
+與上例相同，但是使用的參數是陣列::
 
 	$this->load->library('table');
 
@@ -88,11 +84,11 @@ arrays are used::
 
 	echo $this->table->generate();
 
-Changing the Look of Your Table
+改變表格的外觀
 ===============================
 
-The Table Class permits you to set a table template with which you can
-specify the design of your layout. Here is the template prototype::
+Table 類別允許你使用樣版，以便設計表格的外觀。
+底下是一個樣版的雛型::
 
 	$template = array(
 		'table_open'		=> '<table border="0" cellpadding="4" cellspacing="0">',
@@ -123,13 +119,13 @@ specify the design of your layout. Here is the template prototype::
 
 	$this->table->set_template($template);
 
-.. note:: You'll notice there are two sets of "row" blocks in the
-	template. These permit you to create alternating row colors or design
-	elements that alternate with each iteration of the row data.
+.. note:: 你可以看到這個樣版擁有二組 "row" 的設定，
+	可以讓你在陳列資料時交替使用不同顏色或設計元素。
 
-You are NOT required to submit a complete template. If you only need to
-change parts of the layout you can simply submit those elements. In this
-example, only the table opening tag is being changed::
+如果你只是要改變部份樣式時，
+你可以只提供要修改的部份，
+而不需要提供整個樣版。
+在這個範例中，只有改變表格的起始標籤::
 
 	$template = array(
 		'table_open' => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">'
@@ -137,17 +133,17 @@ example, only the table opening tag is being changed::
 
 	$this->table->set_template($template);
 	
-You can also set defaults for these in a config file.
+你也可以在設定檔中設置預設值。
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_Table
+.. php:class:: CI_Table
 
 	.. attribute:: $function = NULL
 
-		Allows you to specify a native PHP function or a valid function array object to be applied to all cell data.
+		允許你設置一個 PHP 的原生函式或是一個有效的函式來套用在所有的表格資料。
 		::
 
 			$this->load->library('table');
@@ -158,71 +154,74 @@ Class Reference
 			$this->table->function = 'htmlspecialchars';
 			echo $this->table->generate();
 
-		In the above example, all cell data would be ran through PHP's :php:func:`htmlspecialchars()` function, resulting in::
+		在上面的範例中，所有的資料都會經過 PHP 的 :php:func:`htmlspecialchars()` 函式處理，產生結果如下::
 
 			<td>Fred</td><td>&lt;strong&gt;Blue&lt;/strong&gt;</td><td>Small</td>
 
-	.. method:: generate([$table_data = NULL])
+	.. php:method:: generate([$table_data = NULL])
 
-		:param	mixed	$table_data: Data to populate the table rows with
-		:returns:	HTML table
+		:param	mixed	$table_data: 用來產生表格的資料
+		:returns:	HTML 表格
 		:rtype:	string
 
-		Returns a string containing the generated table. Accepts an optional parameter which can be an array or a database result object.
+		回傳一個字串，裡面包含了所產生的表格。
+		接受一個可省略的參數，可以是陣列或是資料庫查詢結果。
 
-	.. method:: set_caption($caption)
+	.. php:method:: set_caption($caption)
 
-		:param	string	$caption: Table caption
-		:returns:	CI_Table instance (method chaining)
+		:param	string	$caption: 表格標題
+		:returns:	CI_Table 實例 (方法鏈)
 		:rtype:	CI_Table
 
-		Permits you to add a caption to the table.
+		讓你能為表格加入標題。
 		::
 
 			$this->table->set_caption('Colors');
 
-	.. method:: set_heading([$args = array()[, ...]])
+	.. php:method:: set_heading([$args = array()[, ...]])
 
-		:param	mixed	$args: An array or multiple strings containing the table column titles
-		:returns:	CI_Table instance (method chaining)
+		:param	mixed	$args: 表頭，可以用一個陣列或是多個字串來設定
+		:returns:	CI_Table 實例 (方法鏈)
 		:rtype:	CI_Table
 
-		Permits you to set the table heading. You can submit an array or discrete params::
+		允許你設定表頭。你可以提供一個陣列或是個別的參數::
 
 			$this->table->set_heading('Name', 'Color', 'Size');
 
 			$this->table->set_heading(array('Name', 'Color', 'Size'));
 
-	.. method:: add_row([$args = array()[, ...]])
+	.. php:method:: add_row([$args = array()[, ...]])
 
-		:param	mixed	$args: An array or multiple strings containing the row values
-		:returns:	CI_Table instance (method chaining)
+		:param	mixed	$args: 一列的資料，可以用一個陣列或是多個字串來設定
+		:returns:	CI_Table 實例 (方法鏈)
 		:rtype:	CI_Table
 
-		Permits you to add a row to your table. You can submit an array or discrete params::
+		讓你可以在表格增加一列。你可以提供一個陣列或是個別的參數::
 
 			$this->table->add_row('Blue', 'Red', 'Green');
 
 			$this->table->add_row(array('Blue', 'Red', 'Green'));
 
-		If you would like to set an individual cell's tag attributes, you can use an associative array for that cell.
-		The associative key **data** defines the cell's data. Any other key => val pairs are added as key='val' attributes to the tag::
+		如果你想要設定個別格子的標籤屬性，你可以使用關聯式陣列。
+		鍵值 **data** 的資料是表格的內容。
+		其它所有的 鍵 => 值 對都會以 鍵='值' 的格式加進標籤屬性中。::
 
 			$cell = array('data' => 'Blue', 'class' => 'highlight', 'colspan' => 2);
 			$this->table->add_row($cell, 'Red', 'Green');
 
-			// generates
+			// 將會產生
 			// <td class='highlight' colspan='2'>Blue</td><td>Red</td><td>Green</td>
 
-	.. method:: make_columns([$array = array()[, $col_limit = 0]])
+	.. php:method:: make_columns([$array = array()[, $col_limit = 0]])
 
-		:param	array	$array: An array containing multiple rows' data
-		:param	int	$col_limit: Count of columns in the table
-		:returns:	An array of HTML table columns
+		:param	array	$array: 一個含有多列資料的陣列
+		:param	int	$col_limit: 表格的欄位數
+		:returns:	可用來產生 HTML 表格的陣列
 		:rtype:	array
 
-		This method takes a one-dimensional array as input and creates a multi-dimensional array with a depth equal to the number of columns desired.
-		This allows a single array with many elements to be displayed in a table that has a fixed column count. Consider this example::
+		這個函式藉由輸入一個一維陣列與欄位個數來產生一個多維陣列，
+		並以此多維陣列來產生表格。
+		範例::
 
 			$list = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve');
 
@@ -230,7 +229,7 @@ Class Reference
 
 			$this->table->generate($new_list);
 
-			// Generates a table with this prototype
+			// 產生類似這樣的表格
 
 			<table border="0" cellpadding="4" cellspacing="0">
 			<tr>
@@ -244,13 +243,13 @@ Class Reference
 			</table>
 
 
-	.. method:: set_template($template)
+	.. php:method:: set_template($template)
 
-		:param	array	$template: An associative array containing template values
-		:returns:	TRUE on success, FALSE on failure
+		:param	array	$template: 一個含有樣板資料的關聯式陣列
+		:returns:	成功回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Permits you to set your template. You can submit a full or partial template.
+		讓你設定樣板。你可以提供完整樣板，也可以只提供部份樣板。
 		::
 
 			$template = array(
@@ -259,24 +258,24 @@ Class Reference
 		
 			$this->table->set_template($template);
 
-	.. method:: set_empty($value)
+	.. php:method:: set_empty($value)
 
-		:param	mixed	$value: Value to put in empty cells
-		:returns:	CI_Table instance (method chaining)
+		:param	mixed	$value: 要放在空白欄位的值
+		:returns:	CI_Table 實例 (方法鏈)
 		:rtype:	CI_Table
 
-		Lets you set a default value for use in any table cells that are empty.
-		You might, for example, set a non-breaking space::
+		為空白的欄位設定預設值。
+		你可能會想設定一個非換行空白::
 
 			$this->table->set_empty("&nbsp;");
 
-	.. method:: clear()
+	.. php:method:: clear()
 
-		:returns:	CI_Table instance (method chaining)
+		:returns:	CI_Table 實例 (方法鏈)
 		:rtype:	CI_Table
 
-		Lets you clear the table heading and row data. If you need to show multiple tables with different data you should to call this method
-		after each table has been generated to clear the previous table information. Example::
+		清除表格。當你想要顯示不同資料的多個表格時，
+		你應該清除先前所建立的表格資料。例如::
 
 			$this->load->library('table');
 

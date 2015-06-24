@@ -1,10 +1,9 @@
 ##################
-Zip Encoding Class
+Zip 類別
 ##################
 
-CodeIgniter's Zip Encoding Class classes permit you to create Zip
-archives. Archives can be downloaded to your desktop or saved to a
-directory.
+CodeIgniter 的 Zip 類別可以讓你產生 Zip 壓縮檔。
+壓縮檔可以下載到你的電腦或是存放在目錄內。
 
 .. contents::
   :local:
@@ -14,26 +13,25 @@ directory.
   <div class="custom-index container"></div>
 
 ****************************
-Using the Zip Encoding Class
+使用 Zip 類別
 ****************************
 
-Initializing the Class
+初始化類別
 ======================
 
-Like most other classes in CodeIgniter, the Zip class is initialized in
-your controller using the $this->load->library function::
+就像 CodeIgniter 其它多數類別一樣，Zip 類別可以在你的 controller 內透過
+$this->load->library 函式來初始化::
 
 	$this->load->library('zip');
 
-Once loaded, the Zip library object will be available using:
+載入之後，就可以這樣取得 Zip 物件：
 
 	$this->zip
 
-Usage Example
+使用範例
 =============
 
-This example demonstrates how to compress a file, save it to a folder on
-your server, and download it to your desktop.
+這個範例示範了如何壓縮一個檔案，並將其儲存在伺服器的目錄內，再下載到你的電腦。
 
 ::
 
@@ -42,36 +40,35 @@ your server, and download it to your desktop.
 
 	$this->zip->add_data($name, $data);
 
-	// Write the zip file to a folder on your server. Name it "my_backup.zip"
+	// 將 zip 檔案寫入到伺服器的目錄內，命名為 "my_backup.zip"
 	$this->zip->archive('/path/to/directory/my_backup.zip');
 
-	// Download the file to your desktop. Name it "my_backup.zip"
+	// 將檔案下載到你的電腦，命名為 "my_backup.zip"
 	$this->zip->download('my_backup.zip');
 
 ***************
-Class Reference
+類別參考資料
 ***************
 
-.. class:: CI_Zip
+.. php:class:: CI_Zip
 
 	.. attribute:: $compression_level = 2
 
-		The compression level to use.
+		要使用的壓縮等級。
 
-		It can range from 0 to 9, with 9 being the highest and 0 effectively disabling compression::
+		範圍為 0 到 9，9 是最高壓縮等級，而 0 是不壓縮::
 
 			$this->zip->compression_level = 0;
 
-	.. method:: add_data($filepath[, $data = NULL])
+	.. php:method:: add_data($filepath[, $data = NULL])
 
-		:param	mixed	$filepath: A single file path or an array of file => data pairs
-		:param	array	$data: File contents (ignored if $filepath is an array)
+		:param	mixed	$filepath: 單一檔案路徑，或是一個陣列，裡面包含了 檔案 => 內容 資料對
+		:param	array	$data: 檔案內容（若 $filepath 是陣列則忽略）
 		:rtype:	void
 
-		Adds data to the Zip archive. Can work both in single and multiple files mode.
+		將資料加進 Zip 壓縮檔。可以運作在單一檔案或多檔案模式。
 
-		When adding a single file, the first parameter must contain the name you would
-		like given to the file and the second must contain the file contents::
+		當加入單一檔案時，第一個參數必須包含你想使用的檔案名稱，而第二個參數必須包含檔案內容::
 
 			$name = 'mydata1.txt';
 			$data = 'A Data String!';
@@ -81,8 +78,7 @@ Class Reference
 			$data = 'Another Data String!';
 			$this->zip->add_data($name, $data);
 
-		When adding multiple files, the first parameter must contain *file => contents* pairs
-		and the second parameter is ignored::
+		當加入多個檔案時，第一個參數必須含有 *檔案 => 內容* 資料對，而且第二個參數將被忽略::
 
 			$data = array(
 				'mydata1.txt' => 'A Data String!',
@@ -91,129 +87,126 @@ Class Reference
 
 			$this->zip->add_data($data);
 
-		If you would like your compressed data organized into sub-directories, simply include
-		the path as part of the filename(s)::
+		如果你希望將壓縮檔內的資料放在子目錄內，只要將路徑加到檔案名稱內即可::
 
 			$name = 'personal/my_bio.txt';
 			$data = 'I was born in an elevator...';
 
 			$this->zip->add_data($name, $data);
 
-		The above example will place my_bio.txt inside a folder called personal.
+		上面的範例會將 my_bio.txt 放進名為 personal 的子目錄內。
 
-	.. method:: add_dir($directory)
+	.. php:method:: add_dir($directory)
 
-		:param	mixed	$directory: Directory name string or an array of multiple directories
+		:param	mixed	$directory: 目錄名稱，或是一個陣列，裡面包含多個目錄
 		:rtype:	void
 
-		Permits you to add a directory. Usually this method is unnecessary since you can place
-		your data into directories when using ``$this->zip->add_data()``, but if you would like
-		to create an empty directory you can do so::
+		讓你能夠加入目錄。
+		通常這個方法是不必要的，因為你可以在使用 ``$this->zip->add_data()`` 時將資料放進目錄中，
+		但如果你想創建一個空目錄時可以這樣做::
 
-			$this->zip->add_dir('myfolder'); // Creates a directory called "myfolder"
+			$this->zip->add_dir('myfolder'); // 建立一個空目錄 "myfolder"
 
-	.. method:: read_file($path[, $archive_filepath = FALSE])
+	.. php:method:: read_file($path[, $archive_filepath = FALSE])
 
-		:param	string	$path: Path to file
-		:param	mixed	$archive_filepath: New file name/path (string) or (boolean) whether to maintain the original filepath
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$path: 檔案路徑
+		:param	mixed	$archive_filepath: 新的檔案名稱/路徑字串，或是布林值決定是否維持原來路徑
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		Permits you to compress a file that already exists somewhere on your server.
-		Supply a file path and the zip class will read it and add it to the archive::
+		讓你能夠壓縮伺服器上現有的檔案。
+		提供一個檔案路徑，然後 zip 類別就可以讀取並加入壓縮檔::
 
 			$path = '/path/to/photo.jpg';
 
 			$this->zip->read_file($path);
 
-			// Download the file to your desktop. Name it "my_backup.zip"
+			// 下載壓縮檔到你的電腦，命名為 "my_backup.zip"
 			$this->zip->download('my_backup.zip');
 
-		If you would like the Zip archive to maintain the directory structure of
-		the file in it, pass TRUE (boolean) in the second parameter. Example::
+		如果你希望 Zip 壓縮檔能維持檔案原本的目錄結構，
+		就在第二個參數傳入 TRUE (boolean)::
 
 			$path = '/path/to/photo.jpg';
 
 			$this->zip->read_file($path, TRUE);
 
-			// Download the file to your desktop. Name it "my_backup.zip"
+			// 下載壓縮檔到你的電腦，命名為 "my_backup.zip"
 			$this->zip->download('my_backup.zip');
 
-		In the above example, photo.jpg will be placed into the *path/to/* directory.
+		在上面的例子，photo.jpg 將會被放進 *path/to/* 目錄中。
 
-		You can also specify a new name (path included) for the added file on the fly::
+		你也可以為新加入的檔案指定一個新路徑::
 
 			$path = '/path/to/photo.jpg';
 			$new_path = '/new/path/some_photo.jpg';
 
 			$this->zip->read_file($path, $new_path);
 
-			// Download ZIP archive containing /new/path/some_photo.jpg
+			// 下載壓縮檔，裡面含有 /new/path/some_photo.jpg
 			$this->zip->download('my_archive.zip');
 
-	.. method:: read_dir($path[, $preserve_filepath = TRUE[, $root_path = NULL]])
+	.. php:method:: read_dir($path[, $preserve_filepath = TRUE[, $root_path = NULL]])
 
-		:param	string	$path: Path to directory
-		:param	bool	$preserve_filepath: Whether to maintain the original path
-		:param	string	$root_path: Part of the path to exclude from the archive directory
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$path: 檔案路徑
+		:param	bool	$preserve_filepath: 是否維持原本路徑
+		:param	string	$root_path: 在壓縮檔內要排除掉的部份路徑
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		Permits you to compress a directory (and its contents) that already exists somewhere on your server.
-		Supply a path to the directory and the zip class will recursively read and recreate it as a Zip archive.
-		All files contained within the supplied path will be encoded, as will any sub-directories contained within it. Example::
+		讓你能夠壓縮伺服器上現有的目錄。
+		給予目錄的路徑，zip 類別就會讀取目錄內所有子目錄及檔案並加入壓縮檔。::
 
 			$path = '/path/to/your/directory/';
 
 			$this->zip->read_dir($path);
 
-			// Download the file to your desktop. Name it "my_backup.zip"
+			// 下載壓縮檔到你的電腦，命名為 "my_backup.zip"
 			$this->zip->download('my_backup.zip');
 
-		By default the Zip archive will place all directories listed in the first parameter
-		inside the zip. If you want the tree preceding the target directory to be ignored,
-		you can pass FALSE (boolean) in the second parameter. Example::
+		預設情況下 Zip 壓縮檔會放進第一個參數路徑上的所有目錄。
+		如果你希望忽略目標目錄上層的路徑，
+		可以在第二個參數使用 FALSE (boolean)。例如::
 
 			$path = '/path/to/your/directory/';
 
 			$this->zip->read_dir($path, FALSE);
 
-		This will create a ZIP with a directory named "directory" inside, then all sub-directories
-		stored correctly inside that, but will not include the */path/to/your* part of the path.
+		這將會產生含有一個目錄 "directory" 的壓縮檔，內含相對應的所有子目錄，
+		但不會含有 */path/to/your* 這部份的路徑。
 
-	.. method:: archive($filepath)
+	.. php:method:: archive($filepath)
 
-		:param	string	$filepath: Path to target zip archive
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$filepath: 目標壓縮檔的路徑
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		Writes the Zip-encoded file to a directory on your server. Submit a valid server path
-		ending in the file name. Make sure the directory is writable (755 is usually OK).
-		Example::
+		將壓縮檔寫到伺服器上的目錄中。
+		請提供一個有效的伺服器路徑做為檔案名稱。
+		並確保目錄是可寫的（通常使用755即可）。範例::
 
-			$this->zip->archive('/path/to/folder/myarchive.zip'); // Creates a file named myarchive.zip
+			$this->zip->archive('/path/to/folder/myarchive.zip'); // 建立一個叫做 myarchive.zip 的檔案
 
-	.. method:: download($filename = 'backup.zip')
+	.. php:method:: download($filename = 'backup.zip')
 
-		:param	string	$filename: Archive file name
+		:param	string	$filename: 壓縮檔名稱
 		:rtype:	void
 
-		Causes the Zip file to be downloaded from your server.
-		You must pass the name you would like the zip file called. Example::
+		讓壓縮檔開始從伺服器下載。
+		你必須提供這個壓縮檔下載時的名稱。例如::
 
-			$this->zip->download('latest_stuff.zip'); // File will be named "latest_stuff.zip"
+			$this->zip->download('latest_stuff.zip'); // 檔案將下載為 "latest_stuff.zip"
 
-		.. note:: Do not display any data in the controller in which you call
-			this method since it sends various server headers that cause the
-			download to happen and the file to be treated as binary.
+		.. note:: 在你呼叫這個方法時，不要在 controller 裡面顯示任何資料。
+			因為它會送出數個標頭(headers)，並讓資料被當成二進位檔案。
 
-	.. method:: get_zip()
+	.. php:method:: get_zip()
 
-		:returns:	Zip file content
+		:returns:	壓縮檔內容
 		:rtype:	string
 
-		Returns the Zip-compressed file data. Generally you will not need this method unless you
-		want to do something unique with the data. Example::
+		回傳壓縮後的檔案資料。
+		一般而言你不會需要這個方法，除非你想對資料做些特別的事情::
 
 			$name = 'my_bio.txt';
 			$data = 'I was born in an elevator...';
@@ -222,13 +215,13 @@ Class Reference
 
 			$zip_file = $this->zip->get_zip();
 
-	.. method:: clear_data()
+	.. php:method:: clear_data()
 
 		:rtype:	void
 
-		The Zip class caches your zip data so that it doesn't need to recompile the Zip archive
-		for each method you use above. If, however, you need to create multiple Zip archives,
-		each with different data, you can clear the cache between calls. Example::
+		Zip 類別將會快取你的壓縮檔資料，以避免每次呼叫上列方法時都要重新壓縮。
+		然而，若你需要建立數個壓縮檔，每個包含不同的資料時，
+		你可以在每個步驟之間清除這些快取資料。例如::
 
 			$name = 'my_bio.txt';
 			$data = 'I was born in an elevator...';
@@ -239,6 +232,6 @@ Class Reference
 			$this->zip->clear_data();
 
 			$name = 'photo.jpg';
-			$this->zip->read_file("/path/to/photo.jpg"); // Read the file's contents
+			$this->zip->read_file("/path/to/photo.jpg"); // 讀取檔案內容
 
 			$this->zip->download('myphotos.zip');

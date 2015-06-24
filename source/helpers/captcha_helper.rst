@@ -1,9 +1,8 @@
 ##############
-CAPTCHA Helper
+CAPTCHA 輔助函式
 ##############
 
-The CAPTCHA Helper file contains functions that assist in creating
-CAPTCHA images.
+CAPTCHA 輔助函式包含了各種輔助產生驗證圖片的相關函式。
 
 .. contents::
   :local:
@@ -12,17 +11,19 @@ CAPTCHA images.
 
   <div class="custom-index container"></div>
 
-Loading this Helper
+導入輔助函式
 ===================
 
-This helper is loaded using the following code::
+CAPTCHA 輔助函式的載入語法如下：
+::
 
 	$this->load->helper('captcha');
 
-Using the CAPTCHA helper
+使用 CAPTCHA 輔助函式
 ========================
 
-Once loaded you can generate a CAPTCHA like this::
+準備好如下所示的語法後，就可以產生驗證碼：
+::
 
 	$vals = array(
 		'word'		=> 'Random word',
@@ -49,32 +50,24 @@ Once loaded you can generate a CAPTCHA like this::
 	$cap = create_captcha($vals);
 	echo $cap['image'];
 
--  The captcha function requires the GD image library.
--  Only the **img_path** and **img_url** are required.
--  If a **word** is not supplied, the function will generate a random
-   ASCII string. You might put together your own word library that you
-   can draw randomly from.
--  If you do not specify a path to a TRUE TYPE font, the native ugly GD
-   font will be used.
--  The "captcha" directory must be writable
--  The **expiration** (in seconds) signifies how long an image will remain
-   in the captcha folder before it will be deleted. The default is two
-   hours.
--  **word_length** defaults to 8, **pool** defaults to '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
--  **font_size** defaults to 16, the native GD font has a size limit. Specify a "true type" font for bigger sizes.
--  The **img_id** will be set as the "id" of the captcha image.
--  If any of the **colors** values is missing, it will be replaced by the default.
+-  驗證碼函式需要 GD 圖像函式庫。
+-  只有 **img_path** 與 **img_url** 是必填的。
+-  假設沒有填 **word**，函式會自動生成一個隨機的 ASCII 字串，當然你也可以從你自己準備的文字庫當中隨機挑選。
+-  如果你沒有標明字型檔的路徑，將會使用醜醜的預設字型。
+-  “captcha” 資料夾必須是可以寫入的。
+-  **expiration** (以秒數計) 標明出驗證碼圖示過多久之後會被刪除，預設是兩小時。
+-  **word_length** 預設為 8，**pool** 預設為 ‘0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ’。
+-  **font_size** 預設為 16，GD 字型有大小限制。如果要使用更大的字體請選用其他字型。
+-  **img_id** 將是驗證碼圖示的 id。
+-  如果任一 **colors** 內的值不見了，將會以預設值代替。
 
-Adding a Database
+建立驗證碼資料庫
 -----------------
 
-In order for the captcha function to prevent someone from submitting,
-you will need to add the information returned from ``create_captcha()``
-to your database. Then, when the data from the form is submitted by
-the user you will need to verify that the data exists in the database
-and has not expired.
+為了避免驗證碼被有心人士利用，你可以將 ``create_captcha()`` 所回傳的資訊加入到資料庫中。如此一來，當資料從使用者端送來的時候只需要驗證此筆資料是否存在且未過期即可。
 
-Here is a table prototype::
+資料表建置範例
+::
 
 	CREATE TABLE captcha (  
 		captcha_id bigint(13) unsigned NOT NULL auto_increment,  
@@ -85,8 +78,8 @@ Here is a table prototype::
 		KEY `word` (`word`)
 	);
 
-Here is an example of usage with a database. On the page where the
-CAPTCHA will be shown you'll have something like this::
+這是搭配資料庫使用的範例語法。在頁面中驗證碼顯示的地方，你可以填入如下的語法：
+::
 
 	$this->load->helper('captcha');
 	$vals = array(     
@@ -108,15 +101,15 @@ CAPTCHA will be shown you'll have something like this::
 	echo $cap['image'];
 	echo '<input type="text" name="captcha" value="" />';
 
-Then, on the page that accepts the submission you'll have something like
-this::
+然後，資料接收端頁面則填入如下語法：
+::
 
-	// First, delete old captchas
+	// 首先，刪除舊的驗證碼
 	$expiration = time() - 7200; // Two hour limit
 	$this->db->where('captcha_time < ', $expiration)
 		->delete('captcha');
 
-	// Then see if a captcha exists:
+	// 確認驗證碼是否存在
 	$sql = 'SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?';
 	$binds = array($_POST['captcha'], $this->input->ip_address(), $expiration);
 	$query = $this->db->query($sql, $binds);
@@ -127,23 +120,21 @@ this::
 		echo 'You must submit the word that appears in the image.';
 	}
 
-Available Functions
+可用函式格式
 ===================
 
-The following functions are available:
+允許使用的函式格式如下：
 
-.. function:: create_captcha([$data = ''[, $img_path = ''[, $img_url = ''[, $font_path = '']]]])
+.. php:function:: create_captcha([$data = ''[, $img_path = ''[, $img_url = ''[, $font_path = '']]]])
 
-	:param	array	$data: Array of data for the CAPTCHA
-	:param	string	$img_path: Path to create the image in
-	:param	string	$img_url: URL to the CAPTCHA image folder
-	:param	string	$font_path: Server path to font
+	:param	array	$data: 存有驗證碼資訊的陣列
+	:param	string	$img_path: 建立驗證碼圖示的路徑
+	:param	string	$img_url: 驗證碼圖示資料夾的 URL
+	:param	string	$font_path: 字型檔的伺服器路徑
 	:returns:	array('word' => $word, 'time' => $now, 'image' => $img)
-	:rtype:	array
+	:rtype:	陣列
 
-	Takes an array of information to generate the CAPTCHA as input and
-	creates the image to your specifications, returning an array of
-	associative data about the image.
+	取得輸入在陣列中的資訊生成驗證碼，且根據你的需求產生驗證碼圖示，並將圖示的相關資訊回傳。
 
 	::
 
@@ -153,12 +144,11 @@ The following functions are available:
 			'word'	=> CAPTCHA WORD
 		)
 
-	The **image** is the actual image tag::
+	回傳的 **image** 是 HTML 圖示標籤：
+	::
 
 		<img src="http://example.com/captcha/12345.jpg" width="140" height="50" />
 
-	The **time** is the micro timestamp used as the image name without the
-	file extension. It will be a number like this: 1139612155.3422
+	回傳的 **time** 是被用來當作圖片檔名（沒有副檔名）的時間戳記，就像是這樣的數字：1139612155.3422
 
-	The **word** is the word that appears in the captcha image, which if not
-	supplied to the function, will be a random string.
+	回傳的 **word** 是出現在驗證碼圖示中的文字，如果沒有指定特定字串給函式的話將會隨機挑選一個字串。

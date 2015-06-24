@@ -326,17 +326,16 @@ In addition to the validation method like the ones we used above, you
 can also prep your data in various ways. For example, you can set up
 rules like this::
 
-	$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|xss_clean');
-	$this->form_validation->set_rules('password', 'Password', 'trim|required|md5');
+	$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
+	$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
 	$this->form_validation->set_rules('passconf', 'Password Confirmation', 'trim|required|matches[password]');
 	$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
-In the above example, we are "trimming" the fields, converting the
-password to MD5, and running the username through the `xss_clean()`
-method, which removes malicious data.
+In the above example, we are "trimming" the fields, checking for length
+where necessary and making sure that both password fields match.
 
 **Any native PHP function that accepts one parameter can be used as a
-rule, like htmlspecialchars, trim, md5, etc.**
+rule, like ``htmlspecialchars()``, ``trim()``, etc.**
 
 .. note:: You will generally want to use the prepping functions
 	**after** the validation rules so if there is an error, the
@@ -353,9 +352,9 @@ commonly is::
 	set_value('field name')
 
 Open your myform.php view file and update the **value** in each field
-using the :func:`set_value()` function:
+using the :php:func:`set_value()` function:
 
-**Don't forget to include each field name in the :func:`set_value()`
+**Don't forget to include each field name in the :php:func:`set_value()`
 function calls!**
 
 ::
@@ -644,7 +643,7 @@ Showing Errors Individually
 ===========================
 
 If you prefer to show an error message next to each form field, rather
-than as a list, you can use the :func:`form_error()` function.
+than as a list, you can use the :php:func:`form_error()` function.
 
 Try it! Change your form so that it looks like this::
 
@@ -947,6 +946,7 @@ Rule                      Parameter  Description                                
 ========================= ========== ============================================================================================= =======================
 **required**              No         Returns FALSE if the form element is empty.
 **matches**               Yes        Returns FALSE if the form element does not match the one in the parameter.                    matches[form_item]
+**regex_match**           Yes        Returns FALSE if the form element does not match the regular expression.                      regex_match[/regex/]
 **differs**               Yes        Returns FALSE if the form element does not differ from the one in the parameter.              differs[form_item]
 **is_unique**             Yes        Returns FALSE if the form element is not unique to the table and field name in the            is_unique[table.field]
                                      parameter. Note: This rule requires :doc:`Query Builder <../database/query_builder>` to be
@@ -962,6 +962,7 @@ Rule                      Parameter  Description                                
                                      not numeric.
 **less_than_equal_to**    Yes        Returns FALSE if the form element is greater than the parameter value,                        less_than_equal_to[8]
                                      or not numeric.
+**in_list**               Yes        Returns FALSE if the form element is not within a predetermined list.                         in_list[red,blue,green]
 **alpha**                 No         Returns FALSE if the form element contains anything other than alphabetical characters.
 **alpha_numeric**         No         Returns FALSE if the form element contains anything other than alpha-numeric characters.
 **alpha_numeric_spaces**  No         Returns FALSE if the form element contains anything other than alpha-numeric characters
@@ -1002,7 +1003,6 @@ to use:
 ==================== ========= =======================================================================================================
 Name                 Parameter Description
 ==================== ========= =======================================================================================================
-**xss_clean**        No        Runs the data through the XSS filtering method, described in the :doc:`Security Class <security>` page.
 **prep_for_form**    No        Converts special characters so that HTML data can be shown in a form field without breaking it.
 **prep_url**         No        Adds "\http://" to URLs if missing.
 **strip_image_tags** No        Strips the HTML from image tags leaving the raw URL.
@@ -1019,9 +1019,9 @@ Name                 Parameter Description
 Class Reference
 ***************
 
-.. class:: CI_Form_validation
+.. php:class:: CI_Form_validation
 
-	.. method:: set_rules($field[, $label = ''[, $rules = '']])
+	.. php:method:: set_rules($field[, $label = ''[, $rules = '']])
 
 		:param	string	$field: Field name
 		:param	string	$label: Field label
@@ -1035,7 +1035,7 @@ Class Reference
 		-  :ref:`setting-validation-rules`
 		-  :ref:`saving-groups`
 
-	.. method:: run([$group = ''])
+	.. php:method:: run([$group = ''])
 
 		:param	string	$group: The name of the validation group to run
 		:returns:	TRUE on success, FALSE if validation failed
@@ -1045,7 +1045,7 @@ Class Reference
 		on failure. You can optionally pass the name of the validation group via
 		the method, as described in: :ref:`saving-groups`
 
-	.. method:: set_message($lang[, $val = ''])
+	.. php:method:: set_message($lang[, $val = ''])
 
 		:param	string	$lang: The rule the message is for
 		:param	string	$val: The message
@@ -1054,7 +1054,7 @@ Class Reference
 
 		Permits you to set custom error messages. See :ref:`setting-error-messages`
 
-	.. method:: set_error_delimiters([$prefix = '<p>'[, $suffix = '</p>']])
+	.. php:method:: set_error_delimiters([$prefix = '<p>'[, $suffix = '</p>']])
 
 		:param	string	$prefix: Error message prefix
 		:param	string	$suffix: Error message suffix
@@ -1063,7 +1063,7 @@ Class Reference
 
 		Sets the default prefix and suffix for error messages.
 
-	.. method:: set_data($data)
+	.. php:method:: set_data($data)
 
 		:param	array	$data: Array of data validate
 		:returns:	CI_Form_validation instance (method chaining)
@@ -1072,7 +1072,7 @@ Class Reference
 		Permits you to set an array for validation, instead of using the default
 		``$_POST`` array.
 
-	.. method:: reset_validation()
+	.. php:method:: reset_validation()
 
 		:returns:	CI_Form_validation instance (method chaining)
 		:rtype:	CI_Form_validation
@@ -1080,14 +1080,14 @@ Class Reference
 		Permits you to reset the validation when you validate more than one array.
 		This method should be called before validating each new array.
 
-	.. method:: error_array()
+	.. php:method:: error_array()
 
 		:returns:	Array of error messages
 		:rtype:	array
 
 		Returns the error messages as an array.
 
-	.. method:: error_string([$prefix = ''[, $suffix = '']])
+	.. php:method:: error_string([$prefix = ''[, $suffix = '']])
 
 		:param	string	$prefix: Error message prefix
 		:param	string	$suffix: Error message suffix
@@ -1097,7 +1097,7 @@ Class Reference
 		Returns all error messages (as returned from error_array()) formatted as a
 		string and separated by a newline character.
 
-	.. method:: error($field[, $prefix = ''[, $suffix = '']])
+	.. php:method:: error($field[, $prefix = ''[, $suffix = '']])
 
 		:param	string $field: Field name
 		:param	string $prefix: Optional prefix
@@ -1108,7 +1108,7 @@ Class Reference
 		Returns the error message for a specific field, optionally adding a
 		prefix and/or suffix to it (usually HTML tags).
 
-	.. method:: has_rule($field)
+	.. php:method:: has_rule($field)
 
 		:param	string	$field: Field name
 		:returns:	TRUE if the field has rules set, FALSE if not
@@ -1125,12 +1125,12 @@ Helper Reference
 Please refer to the :doc:`Form Helper <../helpers/form_helper>` manual for
 the following functions:
 
--  :func:`form_error()`
--  :func:`validation_errors()`
--  :func:`set_value()`
--  :func:`set_select()`
--  :func:`set_checkbox()`
--  :func:`set_radio()`
+-  :php:func:`form_error()`
+-  :php:func:`validation_errors()`
+-  :php:func:`set_value()`
+-  :php:func:`set_select()`
+-  :php:func:`set_checkbox()`
+-  :php:func:`set_radio()`
 
 Note that these are procedural functions, so they **do not** require you
 to prepend them with ``$this->form_validation``.

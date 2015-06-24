@@ -1,8 +1,8 @@
 ################
-Typography Class
+Typography 類別
 ################
 
-The Typography Class provides methods that help you format text.
+Typography 類別可以幫忙你處理文字的格式。
 
 .. contents::
   :local:
@@ -12,96 +12,96 @@ The Typography Class provides methods that help you format text.
   <div class="custom-index container"></div>
 
 **************************
-Using the Typography Class
+使用 Typography 類別
 **************************
 
-Initializing the Class
+初始化類別
 ======================
 
-Like most other classes in CodeIgniter, the Typography class is
-initialized in your controller using the ``$this->load->library()`` method::
+就像 CodeIgniter 其它多數類別一樣，
+Typography 類別可以在你的 controller 內透過 ``$this->load->library()`` 函式來初始化::
 
 	$this->load->library('typography');
 
-Once loaded, the Typography library object will be available using::
+載入之後，就可以這樣取得 Typography 物件::
 
 	$this->typography
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_Typography
+.. php:class:: CI_Typography
 
 	.. attribute:: $protect_braced_quotes = FALSE
 
-		When using the Typography library in conjunction with the :doc:`Template Parser library <parser>`
-		it can often be desirable to protect single and double quotes within curly braces.
-		To enable this, set the ``protect_braced_quotes`` class property to TRUE.
+		當 Typography 與  :doc:`Template Parser library <parser>` 搭配使用時，
+		通常會需要保護大括號內的單引號與雙引號不被改變。
+		要啟用這個功能，將 ``protect_braced_quotes`` 屬性設定為 TRUE。
 
-		Usage example::
+		使用範例::
 
 			$this->load->library('typography');
 			$this->typography->protect_braced_quotes = TRUE;
 
-	.. method auto_typography($str[, $reduce_linebreaks = FALSE])
+	.. php:method:: auto_typography($str[, $reduce_linebreaks = FALSE])
 
-		:param	string	$str: Input string
-		:param	bool	$reduce_linebreaks: Whether to reduce consequitive linebreaks
-		:returns:	HTML typography-safe string
+		:param	string	$str: 輸入字串
+		:param	bool	$reduce_linebreaks: 是否縮減連續的換行
+		:returns:	可安全用在 HTML 排版的字串
 		:rtype:	string
 
-		Formats text so that it is semantically and typographically correct HTML.
-		Takes a string as input and returns it with the following formatting:
+		將文字格式化成語意與排版正確的 HTML。
+		輸入一個字串，並套用下列的規則處理後回傳:
 
-		 -  Surrounds paragraphs within <p></p> (looks for double line breaks to identify paragraphs).
-		 -  Single line breaks are converted to <br />, except those that appear within <pre> tags.
-		 -  Block level elements, like <div> tags, are not wrapped within paragraphs, but their contained text is if it contains paragraphs.
-		 -  Quotes are converted to correctly facing curly quote entities, except those that appear within tags.
-		 -  Apostrophes are converted to curly apostrophe entities.
-		 -  Double dashes (either like -- this or like--this) are converted to em—dashes.
-		 -  Three consecutive periods either preceding or following a word are converted to ellipsis (…).
-		 -  Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.
+		 -  在段落前後加上 <p></p> （使用兩個換行來標示段落）。
+		 -  換行被轉換為 <br />，除了出現在 <pre> 標籤內的以外。
+		 -  區塊元素，像是 <div> 標籤，不會被放進段落中，但是若其內容文字含有段落，則內容文字會被放進段落裡。
+		 -  引號會被轉換成對應的印刷體(curly)引號，除了出現在 HTML 標籤中的以外。
+		 -  撇號被轉換為印刷體撇號。
+		 -  兩個連字號（不管是 這 -- 樣 或 這--樣）會被轉換為破折號。
+		 -  單字前面或後面的三個連續句號被轉換為省略號。
+		 -  跟在句子後的兩個空白字元會被轉換為不斷行空白(non-breaking spaces)來模擬兩個空白。
 
-		Usage example::
+		使用範例::
 
 			$string = $this->typography->auto_typography($string);
 
-		There is one optional parameter that determines whether the parser should reduce more than two consecutive line breaks down to two.
-		Pass boolean TRUE to enable reducing line breaks::
+		這邊有一個選擇性的參數，可以決定是否要將兩個以上的連續換行縮減為兩個。
+		傳入布林值 TRUE 來啟用這個功能::
 
 			$string = $this->typography->auto_typography($string, TRUE);
 
-		.. note:: Typographic formatting can be processor intensive, particularly if you have a lot of content being formatted.
-			If you choose to use this method you may want to consider :doc:`caching <../general/caching>` your pages.
+		.. note:: 文字排版可以用掉很多處理器資源，尤其是要處理的內容很多的時候。
+			如果你決定要這麼做，你可能也會考慮 :doc:`快取 <../general/caching>` 你的頁面。
 
-	.. method:: format_characters($str)
+	.. php:method:: format_characters($str)
 
-		:param	string	$str: Input string
-		:returns:	Formatted string
+		:param	string	$str: 輸入字串
+		:returns:	格式化的字串
 		:rtype:	string
 
-		This method is similar to ``auto_typography()`` above, except that it only does character conversion:
+		這個方法類似上面的 ``auto_typography()`` ，差別是只做字元轉換：
 
-		 -  Quotes are converted to correctly facing curly quote entities, except those that appear within tags.
-		 -  Apostrophes are converted to curly apostrophe entities.
-		 -  Double dashes (either like -- this or like--this) are converted to em—dashes.
-		 -  Three consecutive periods either preceding or following a word are converted to ellipsis (…).
-		 -  Double spaces following sentences are converted to non-breaking spaces to mimic double spacing.
+		 -  引號會被轉換成對應的印刷體(curly)引號，除了出現在 HTML 標籤中的以外。
+		 -  撇號被轉換為印刷體撇號。
+		 -  兩個連字號（不管是 這 -- 樣 或 這--樣）會被轉換為破折號。
+		 -  單字前面或後面的三個連續句號被轉換為省略號。
+		 -  跟在句子後的兩個空白字元會被轉換為不斷行空白(non-breaking spaces)來模擬兩個空白。
 
-		Usage example::
+		使用範例::
 
 			$string = $this->typography->format_characters($string);
 
-	.. method:: nl2br_except_pre($str)
+	.. php:method:: nl2br_except_pre($str)
 
-		:param	string	$str: Input string
-		:returns:	Formatted string
+		:param	string	$str: 輸入字串
+		:returns:	格式化的字串
 		:rtype:	string
 
-		Converts newlines to <br /> tags unless they appear within <pre> tags.
-		This method is identical to the native PHP :php:func:`nl2br()` function, except that it ignores <pre> tags.
+		將換行轉換為 <br /> 標籤，除非其位於 <pre> 標籤內。
+		這個方法與 PHP 原生的 :php:func:`nl2br()` 函式相等，但是 nl2br() 會忽略 <pre> 標籤。
 
-		Usage example::
+		使用範例::
 
 			$string = $this->typography->nl2br_except_pre($string);

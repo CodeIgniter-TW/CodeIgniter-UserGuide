@@ -1,9 +1,8 @@
 ############
-Array Helper
+Array 輔助函式
 ############
 
-The Array Helper file contains functions that assist in working with
-arrays.
+Array 輔助函式包含了各種輔助陣列操作的相關函式。
 
 .. contents::
   :local:
@@ -12,34 +11,32 @@ arrays.
 
   <div class="custom-index container"></div>
 
-Loading this Helper
+導入輔助函式
 ===================
 
-This helper is loaded using the following code::
+Array 輔助函式的載入語法如下：
 
 	$this->load->helper('array');
 
 
-Available Functions
+可用函式格式
 ===================
 
-The following functions are available:
+允許使用的函式格式如下：
 
 
-.. function:: element($item, $array[, $default = NULL])
+.. php:function:: element($item, $array[, $default = NULL])
 
-	:param	string	$item: Item to fetch from the array
-	:param	array	$array: Input array
-	:param	bool	$default: What to return if the array isn't valid
-	:returns:	NULL on failure or the array item.
-	:rtype:	mixed
+	:param	string	$item: 欲從來源陣列中取出的元素
+	:param	array	$array: 來源陣列
+	:param	bool	$default: 如果非有效來源陣列要回傳的值
+	:returns:	失敗時回傳 NULL 成功時回傳陣列元素
+	:rtype:	各種型態皆有
 
-	Lets you fetch an item from an array. The function tests whether the
-	array index is set and whether it has a value. If a value exists it is
-	returned. If a value does not exist it returns NULL, or whatever you've
-	specified as the default value via the third parameter.
+	此輔助函式可讓你從來源陣列中提取元素，也可測試出陣列中是否具有索引和值，如果存在將會回傳該值，反之則回傳 NULL 或任何你標明在第三個參數當中的預設值。
 
-	Example::
+	範例
+	::
 
 		$array = array(
 			'color'	=> 'red',
@@ -51,20 +48,18 @@ The following functions are available:
 		echo element('size', $array, 'foobar'); // returns "foobar"
 
 
-.. function:: elements($items, $array[, $default = NULL])
+.. php:function:: elements($items, $array[, $default = NULL])
 
-	:param	string	$item: Item to fetch from the array
-	:param	array	$array: Input array
-	:param	bool	$default: What to return if the array isn't valid
-	:returns:	NULL on failure or the array item.
-	:rtype:	mixed
+	:param	string	$item: 欲從來源陣列中取出的元素組
+	:param	array	$array: 來源陣列
+	:param	bool	$default: 如果非有效來源陣列要賦予的值
+	:returns:	失敗時回傳 NULL 成功時回傳陣列元素組
+	:rtype:	各種型態皆有
 
-	Lets you fetch a number of items from an array. The function tests
-	whether each of the array indices is set. If an index does not exist it
-	is set to NULL, or whatever you've specified as the default value via
-	the third parameter.
+	此輔助函式可讓你從來源陣列中提取元素組，也可測試出其在陣列是否有被定義，如果元素未定義會把值設定為 NULL 或者你在第三個參數中所定義的任何值。
 
-	Example::
+	範例
+	::
 
 		$array = array(
 			'color' => 'red',
@@ -75,7 +70,8 @@ The following functions are available:
 
 		$my_shape = elements(array('color', 'shape', 'height'), $array);
 
-	The above will return the following array::
+	上方程式碼執行後將會回傳此陣列：
+	::
 
 		array(
 			'color' => 'red',
@@ -83,12 +79,13 @@ The following functions are available:
 			'height' => NULL
 		);
 
-	You can set the third parameter to any default value you like.
+	第三個參數的預設賦予值可以依你喜好方式設置。
 	::
 
 		 $my_shape = elements(array('color', 'shape', 'height'), $array, 'foobar');
 
-	The above will return the following array::
+	上方程式碼執行後將會回傳此陣列：
+	::
 
 		array(     
 			'color' 	=> 'red',
@@ -96,9 +93,7 @@ The following functions are available:
 			'height'	=> 'foobar'
 		);
 
-	This is useful when sending the ``$_POST`` array to one of your Models.
-	This prevents users from sending additional POST data to be entered into
-	your tables.
+	此函式在傳送 ``$_POST`` 陣列至 Model 時相當有用，可以避免使用者混入額外的 POST data 進你的資料表。
 
 	::
 
@@ -107,19 +102,19 @@ The following functions are available:
 			elements(array('id', 'title', 'content'), $_POST)
 		);
 
-	This ensures that only the id, title and content fields are sent to be
-	updated.
+	可以保證只有 id、title、content 這三個欄位會被送出更新。
 
 
-.. function:: random_element($array)
+.. php:function:: random_element($array)
 
-	:param	array	$array: Input array
-	:returns:	A random element from the array
-	:rtype:	mixed
+	:param	array	$array: 來源陣列
+	:returns:	來源陣列中的隨機元素
+	:rtype:	各種型態皆有
 
-	Takes an array as input and returns a random element from it.
+	在來源陣列中隨機挑選一個元素回傳。
 
-	Usage example::
+	範例
+	::
 
 		$quotes = array(
 			"I find that the harder I work, the more luck I seem to have. - Thomas Jefferson",

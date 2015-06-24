@@ -1,12 +1,10 @@
 ###############
-Trackback Class
+Trackback 類別
 ###############
 
-The Trackback Class provides functions that enable you to send and
-receive Trackback data.
+Trackback 類別提供函式讓你可以傳送與接收 Trackback 資料。
 
-If you are not familiar with Trackbacks you'll find more information
-`here <http://en.wikipedia.org/wiki/Trackback>`_.
+如果你對 Trackback 不熟悉，可以參考 `這邊 <http://en.wikipedia.org/wiki/Trackback>`_ 的資料。
 
 .. contents::
   :local:
@@ -16,26 +14,25 @@ If you are not familiar with Trackbacks you'll find more information
   <div class="custom-index container"></div>
 
 *************************
-Using the Trackback Class
+使用 Trackback 類別
 *************************
 
-Initializing the Class
+初始化類別
 ======================
 
-Like most other classes in CodeIgniter, the Trackback class is
-initialized in your controller using the ``$this->load->library()`` method::
+就像 CodeIgniter 其它多數類別一樣，
+Trackback 類別可以在你的 controller 內透過 ``$this->load->library()`` 函式來初始化::
 
 	$this->load->library('trackback');
 
-Once loaded, the Trackback library object will be available using::
+載入之後，就可以這樣取得 Trackback 物件::
 
 	$this->trackback
 
-Sending Trackbacks
+送出 Trackbacks
 ==================
 
-A Trackback can be sent from any of your controller functions using code
-similar to this example::
+Trackback 可以從你的 controller 的任何一個函式送出，類似這樣::
 
 	$this->load->library('trackback');
 
@@ -57,65 +54,55 @@ similar to this example::
 		echo 'Trackback was sent!';
 	}
 
-Description of array data:
+陣列資料說明：
 
--  **ping_url** - The URL of the site you are sending the Trackback to.
-   You can send Trackbacks to multiple URLs by separating each URL with a comma.
--  **url** - The URL to YOUR site where the weblog entry can be seen.
--  **title** - The title of your weblog entry.
--  **excerpt** - The content of your weblog entry.
--  **blog_name** - The name of your weblog.
--  **charset** - The character encoding your weblog is written in. If omitted, UTF-8 will be used.
+-  **ping_url** - 你要送出 Trackback 的目標網站 URL。
+   只要使用逗號來分隔，你就可以一次送給多個 URL。
+-  **url** - 在你網站出現此參照內容的網誌 URL。
+-  **title** - 你的網誌標題。
+-  **excerpt** - 你的網誌內容。
+-  **blog_name** - 你的網站名稱。
+-  **charset** - 你的網站所使用的編碼，如果省略的話將會使用 UTF-8。
 
-.. note:: the Trackback class will automatically send only the first 500 characters of your 
-	entry. It will also strip all HTML.
+.. note:: Trackback 類別會從內容中自動擷取前五百個字元，且清除所有的 HTML。
 
-The Trackback sending method returns TRUE/FALSE (boolean) on success
-or failure. If it fails, you can retrieve the error message using::
+Trackback 的 send 方法將回傳布林值來代表成功或失敗。
+如果失敗了，你可以這樣取得錯誤訊息::
 
 	$this->trackback->display_errors();
 
-Receiving Trackbacks
+接收 Trackbacks
 ====================
 
-Before you can receive Trackbacks you must create a weblog. If you don't
-have a blog yet there's no point in continuing.
+在你可以接收 Trackback 之前你必須有一篇網誌文章。
+如果你沒有網誌，那就不用繼續了。
 
-Receiving Trackbacks is a little more complex than sending them, only
-because you will need a database table in which to store them, and you
-will need to validate the incoming trackback data. You are encouraged to
-implement a thorough validation process to guard against spam and
-duplicate data. You may also want to limit the number of Trackbacks you
-allow from a particular IP within a given span of time to further
-curtail spam. The process of receiving a Trackback is quite simple; the
-validation is what takes most of the effort.
+接收 Trackback 比送出要複雜一些，因為你需要資料庫來儲存，而且你還需要檢查送來的資料。
+我們鼓勵你做徹底的檢查，以避免廣告或是重複的資料。
+你可能也想要限制同一個 IP 在一段時間內能送出的 Trackback 數量，來進一步減少廣告。
+接收 Trackback 的步驟非常簡單。大部分的精力都是花費在檢查上。
 
-Your Ping URL
+你的 Ping URL
 =============
 
-In order to accept Trackbacks you must display a Trackback URL next to
-each one of your weblog entries. This will be the URL that people will
-use to send you Trackbacks (we will refer to this as your "Ping URL").
+為了能夠接收 Trackback，你必須在每個網誌文章後面加上 Trackback URL。
+人們將透過這個 URL 來發送 Trackback 給你（我們將這個稱為 "Ping URL"）。
 
-Your Ping URL must point to a controller function where your Trackback
-receiving code is located, and the URL must contain the ID number for
-each particular entry, so that when the Trackback is received you'll be
-able to associate it with a particular entry.
+你的 Ping URL 必須指到 Trackback 接收程式所在的 controller 方法，
+且這個 URL 必須含有文章的編號，這樣你才能找到實際對應的文章。
 
-For example, if your controller class is called Trackback, and the
-receiving function is called receive, your Ping URLs will look something
-like this::
+例如，若是你的 controller 命名為 Trackback，
+而且用來接收的函式稱為 receive，那麼你的 Ping URL 應該看起來像這樣::
 
 	http://example.com/index.php/trackback/receive/entry_id
 
-Where entry_id represents the individual ID number for each of your
-entries.
+entry_id 就對應到你文章的編號。
 
-Creating a Trackback Table
+建立 Trackback 資料表
 ==========================
 
-Before you can receive Trackbacks you must create a table in which to
-store them. Here is a basic prototype for such a table::
+在你可以接收 Trackback 之前你必須要建立一個資料表來儲存。
+這是一個基本的雛型::
 
 	CREATE TABLE trackbacks (
 		tb_id int(10) unsigned NOT NULL auto_increment,
@@ -130,17 +117,14 @@ store them. Here is a basic prototype for such a table::
 		KEY `entry_id` (`entry_id`)
 	);
 
-The Trackback specification only requires four pieces of information to
-be sent in a Trackback (url, title, excerpt, blog_name), but to make
-the data more useful we've added a few more fields in the above table
-schema (date, IP address, etc.).
+Trackback 規格書內只要求 Trackback 送出四種資訊（網址，標題，內容，網站名稱），
+但為了提供更多有用的資料，我們在資料表中增加了一些欄位（日期、IP 位址、等等）。
 
-Processing a Trackback
+處理 Trackback
 ======================
 
-Here is an example showing how you will receive and process a Trackback.
-The following code is intended for use within the controller function
-where you expect to receive Trackbacks.::
+這邊示範如何接收並處理 Trackback。
+底下的程式碼應該放在你要用來接收 Trackback 的 controller 函式內::
 
 	$this->load->library('trackback');
 	$this->load->database();
@@ -171,169 +155,163 @@ where you expect to receive Trackbacks.::
 
 	$this->trackback->send_success();
 
-Notes:
+備註：
 ^^^^^^
 
-The entry ID number is expected in the third segment of your URL. This
-is based on the URI example we gave earlier::
+文章編號應該放在 URL 第三個區段。
+這是基於我們前面給的 URI 範例::
 
 	http://example.com/index.php/trackback/receive/entry_id
 
-Notice the entry_id is in the third URI segment, which you can retrieve
-using::
+注意文章編號是放在第三個區段，你可以這樣取得::
 
 	$this->uri->segment(3);
 
-In our Trackback receiving code above, if the third segment is missing,
-we will issue an error. Without a valid entry ID, there's no reason to
-continue.
+在上面的接收程式碼中，如果遺漏了第三個區段將會造成錯誤。
+如果沒有一個正確的文章編號，就沒有理由繼續處理下去。
 
-The $this->trackback->receive() function is simply a validation function
-that looks at the incoming data and makes sure it contains the four
-pieces of data that are required (url, title, excerpt, blog_name). It
-returns TRUE on success and FALSE on failure. If it fails you will issue
-an error message.
+$this->trackback->receive() 是一個簡單的驗證函式。
+用來檢查接收的資料並確認包含了四種必要的資料（網址，標題，內容，網站名稱）。
+回傳值是布林值，用來代表成功或失敗。
+若是失敗，你可以送出錯誤訊息。
 
-The incoming Trackback data can be retrieved using this function::
+送來的 Trackback 資料可以這樣取得::
 
 	$this->trackback->data('item')
 
-Where item represents one of these four pieces of info: url, title,
-excerpt, or blog_name
+'item' 代表四種資料的一種：網址，標題，內容，網站名稱
 
-If the Trackback data is successfully received, you will issue a success
-message using::
+如果資料成功的接收了，你可以送出一個成功訊息::
 
 	$this->trackback->send_success();
 
-.. note:: The above code contains no data validation, which you are
-	encouraged to add.
+.. note:: 以上的程式碼不包含資料驗證，但你應該加上它。
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_Trackback
+.. php:class:: CI_Trackback
 
 	.. attribute:: $data = array('url' => '', 'title' => '', 'excerpt' => '', 'blog_name' => '', 'charset' => '')
 
-		Trackback data array.
+		Trackback 資料陣列。
 
 	.. attribute:: $convert_ascii = TRUE
 
-		Whether to convert high ASCII and MS Word characters to HTML entities.
+		是否將特殊字元轉換為 HTML entities。
 
-	.. method:: send($tb_data)
+	.. php:method:: send($tb_data)
 
-		:param	array	$tb_data: Trackback data
-		:returns:	TRUE on success, FALSE on failure
+		:param	array	$tb_data: Trackback 資料
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		Send trackback.
+		送出 Trackback。
 
-	.. method:: receive()
+	.. php:method:: receive()
 
-		:returns:	TRUE on success, FALSE on failure
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		This method simply validates the incoming TB data, returning TRUE on success and FALSE on failure.
-		If the data is valid it is set to the ``$this->data`` array so that it can be inserted into a database.
+		這個方法簡單的驗證了接收到的資料，成功時回傳 TRUE，失敗時回傳 FALSE。
+		如果資料是正確的，會被存放在 ``$this->data`` 陣列中，以便放進資料庫。
 
-	.. method:: send_error([$message = 'Incomplete information')
+	.. php:method:: send_error([$message = 'Incomplete information')
 
-		:param	string	$message: Error message
+		:param	string	$message: 錯誤訊息
 		:rtype: void
 
-		Responses to a trackback request with an error message.
+		回應一個錯誤訊息。
 
-		.. note:: This method will terminate script execution.
+		.. note:: 這個方法將會中止程式的執行。
 
-	.. method:: send_success()
+	.. php:method:: send_success()
 
 		:rtype:	void
 
-		Responses to a trackback request with a success message.
+		回應一個成功訊息。
 
-		.. note:: This method will terminate script execution.
+		.. note:: 這個方法將會中止程式的執行。
 
-	.. method:: data($item)
+	.. php:method:: data($item)
 
-		:param	string	$item: Data key
-		:returns:	Data value or empty string if not found
+		:param	string	$item: 資料鍵值
+		:returns:	存在時回傳資料內容，否則回傳空字串
 		:rtype:	string
 
-		Returns a single item from the reponse data array.
+		回傳資料陣列中的單個項目。
 
-	.. method:: process($url, $data)
+	.. php:method:: process($url, $data)
 
-		:param	string	$url: Target url
-		:param	string	$data: Raw POST data
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$url: 目標網址
+		:param	string	$data: POST 原始資料
+		:returns:	成功時回傳 TRUE，失敗時回傳 FALSE
 		:rtype:	bool
 
-		Opens a socket connection and passes the data to the server, returning TRUE on success and FALSE on failure.
+		建立一個網路連線並送出資料給伺服器，成功時回傳 TRUE，失敗時回傳 FALSE。
 
-	.. method:: extract_urls($urls)
+	.. php:method:: extract_urls($urls)
 
-		:param	string	$urls: Comma-separated URL list
-		:returns:	Array of URLs
+		:param	string	$urls: 以逗號分隔的 URL 列表
+		:returns:	包含 URL 的陣列
 		:rtype:	array
 
-		This method lets multiple trackbacks to be sent. It takes a string of URLs (separated by comma or space) and puts each URL into an array.
+		這個方法可以同時送出數個 Trackback。傳入一個字串，包含了所有 URL （以逗號或空白分隔）並將每個 URL 放進一個陣列。
 
-	.. method:: validate_url(&$url)
+	.. php:method:: validate_url(&$url)
 
 		:param	string	$url: Trackback URL
 		:rtype:	void
 
-		Simply adds the *http://* prefix it it's not already present in the URL.
+		單純給 URL 加上 *http://* ，若已有則不變。
 
-	.. method:: get_id($url)
+	.. php:method:: get_id($url)
 
 		:param	string	$url: Trackback URL
-		:returns:	URL ID or FALSE on failure
+		:returns:	回傳 URL ID，若失敗則回傳 FALSE
 		:rtype:	string
 
-		Find and return a trackback URL's ID or FALSE on failure.
+		搜尋並傳回 URL ID，若失敗則回傳 FALSE
 
-	.. method:: convert_xml($str)
+	.. php:method:: convert_xml($str)
 
-		:param	string	$str: Input string
-		:returns:	Converted string
+		:param	string	$str: 輸入字串
+		:returns:	轉換後的字串
 		:rtype:	string
 
-		Converts reserved XML characters to entities.
+		將 XML 保留字轉換為 entities。
 
-	.. method:: limit_characters($str[, $n = 500[, $end_char = '&#8230;']])
+	.. php:method:: limit_characters($str[, $n = 500[, $end_char = '&#8230;']])
 
-		:param	string	$str: Input string
-		:param	int	$n: Max characters number
-		:param	string	$end_char: Character to put at end of string
-		:returns:	Shortened string
+		:param	string	$str: 輸入字串
+		:param	int	$n: 字串長度上限
+		:param	string	$end_char: 要放在字串結尾的字元
+		:returns:	縮短的字串
 		:rtype:	string
 
-		Limits the string based on the character count. Will preserve complete words.
+		限制字串的字元數量。會保留完整的單字。
 
-	.. method:: convert_ascii($str)
+	.. php:method:: convert_ascii($str)
 
-		:param	string	$str: Input string
-		:returns:	Converted string
+		:param	string	$str: 輸入字串
+		:returns:	轉換後的字串
 		:rtype:	string
 
-		Converts high ASCII text and MS Word special characterss to HTML entities.
+		將特殊字元轉換為 HTML entities。
 
-	.. method:: set_error($msg)
+	.. php:method:: set_error($msg)
 
-		:param	string	$msg: Error message
+		:param	string	$msg: 錯誤訊息
 		:rtype:	void
 
-		Set an log an error message.
+		紀錄錯誤訊息。
 
-	.. method:: display_errors([$open = '<p>'[, $close = '</p>']])
+	.. php:method:: display_errors([$open = '<p>'[, $close = '</p>']])
 
-		:param	string	$open: Open tag
-		:param	string	$close: Close tag
-		:returns:	HTML formatted error messages
+		:param	string	$open: 開啟標籤
+		:param	string	$close: 結束標籤
+		:returns:	HTML 格式的錯誤訊息
 		:rtype:	string
 
-		Returns error messages formatted in HTML or an empty string if there are no errors.
+		回傳 HTML 格式的錯誤訊息，若沒有錯誤則回傳空字串。

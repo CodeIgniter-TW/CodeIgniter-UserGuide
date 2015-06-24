@@ -1,15 +1,13 @@
 ##################
-Unit Testing Class
+單元測試類別
 ##################
 
-Unit testing is an approach to software development in which tests are
-written for each function in your application. If you are not familiar
-with the concept you might do a little googling on the subject.
+單元測試是為應用軟體中每一個函數撰寫測試程式的開發方式。
+如果你不熟悉這個概念，可以稍微 google 一下這個主題。
 
-CodeIgniter's Unit Test class is quite simple, consisting of an
-evaluation function and two result functions. It's not intended to be a
-full-blown test suite but rather a simple mechanism to evaluate your
-code to determine if it is producing the correct data type and result.
+CodeIgniter 的單元測試類別非常簡單，由一個評估函式以及兩個結果函式構成。
+它並不打算成為一個完整成熟的測試套件，而只提供了簡單的機制讓你評估你的程式碼，
+來確認它是否產生正確的資料型別與結果。
 
 .. contents::
   :local:
@@ -19,30 +17,30 @@ code to determine if it is producing the correct data type and result.
   <div class="custom-index container"></div>
 
 ******************************
-Using the Unit Testing Library
+使用單元測試函式庫
 ******************************
 
-Initializing the Class
+類別初始化
 ======================
 
-Like most other classes in CodeIgniter, the Unit Test class is
-initialized in your controller using the $this->load->library function::
+就像 CodeIgniter 其它多數類別一樣，
+Unit Test 類別可以在你的 controller 內透過 $this->load->library 函式來初始化::
 
 	$this->load->library('unit_test');
 
-Once loaded, the Unit Test object will be available using ``$this->unit``
+載入之後，就可以這樣取得 Unit Test 物件 ``$this->unit``
 
-Running Tests
+執行測試
 =============
 
-Running a test involves supplying a test and an expected result in the
-following way:
+提供待測程式與預期的結果來執行測試，如下所示:
 
 	$this->unit->run('test', 'expected result', 'test name', 'notes');
 
-Where test is the result of the code you wish to test, expected result
-is the data type you expect, test name is an optional name you can give
-your test, and notes are optional notes. Example::
+其中 'test' 是待測程式實際回傳的值，
+'expected result' 是你預期的結果，
+'test name' 用來命名這個測試，可省略，
+'notes' 是備註，也可省略。範例::
 
 	$test = 1 + 1;
 
@@ -52,18 +50,18 @@ your test, and notes are optional notes. Example::
 
 	$this->unit->run($test, $expected_result, $test_name);
 
-The expected result you supply can either be a literal match, or a data
-type match. Here's an example of a literal::
+預期的結果可以是值相符，或是型別相符兩者之一。
+這是值相符的範例::
 
 	$this->unit->run('Foo', 'Foo');
 
-Here is an example of a data type match::
+這是型別相符的範例::
 
 	$this->unit->run('Foo', 'is_string');
 
-Notice the use of "is_string" in the second parameter? This tells the
-function to evaluate whether your test is producing a string as the
-result. Here is a list of allowed comparison types:
+注意到第二個參數 "is_string" 了嗎？
+這告訴函式要檢查你的待測程式回傳值是否為字串型別。
+這裡有一份清單列出了可以用來比對的型別：
 
 -  is_object
 -  is_string
@@ -77,60 +75,58 @@ result. Here is a list of allowed comparison types:
 -  is_array
 -  is_null
 
-Generating Reports
+產生報告
 ==================
 
-You can either display results after each test, or your can run several
-tests and generate a report at the end. To show a report directly simply
-echo or return the run function::
+你可以在每個測試執行後就顯示結果，或是執行完數個測試後才產生報告。
+直接 echo 或是 return 就可以顯示報告::
 
 	echo $this->unit->run($test, $expected_result);
 
-To run a full report of all tests, use this::
+或是這樣子取得所有測試的報告::
 
 	echo $this->unit->report();
 
-The report will be formatted in an HTML table for viewing. If you prefer
-the raw data you can retrieve an array using::
+報告將會以表格呈現。
+如果你偏好原始資料，也可以這樣做來取得原始資料陣列::
 
 	echo $this->unit->result();
 
-Strict Mode
+嚴格模式
 ===========
 
-By default the unit test class evaluates literal matches loosely.
-Consider this example::
+單元測試類別預設使用鬆散比對來檢查值是否相符。
+例如下面的範例::
 
 	$this->unit->run(1, TRUE);
 
-The test is evaluating an integer, but the expected result is a boolean.
-PHP, however, due to it's loose data-typing will evaluate the above code
-as TRUE using a normal equality test::
+測試評估的是一個整數，但預期的結果是一個布林值。
+而由於 PHP 的型別鬆散特性，上面的程式使用一般的相等來檢查時，
+結果會是 TRUE::
 
 	if (1 == TRUE) echo 'This evaluates as true';
 
-If you prefer, you can put the unit test class in to strict mode, which
-will compare the data type as well as the value::
+若有需要的話，你可以將單元測試類別設置為嚴格模式，
+這樣在比對結果時，除了比對值以外，還會比對資料型態::
 
 	if (1 === TRUE) echo 'This evaluates as FALSE';
 
-To enable strict mode use this::
+你可以這樣子啟動嚴格模式::
 
 	$this->unit->use_strict(TRUE);
 
-Enabling/Disabling Unit Testing
+啟用/停用單元測試
 ===============================
 
-If you would like to leave some testing in place in your scripts, but
-not have it run unless you need it, you can disable unit testing using::
+如果你想要把一些測試留在程式碼中，但只想在需要的時候才執行，
+你可以用下面的方法來停用單元測試::
 
 	$this->unit->active(FALSE);
 
-Unit Test Display
+單元測試的陳列
 =================
 
-When your unit test results display, the following items show by
-default:
+當你顯示單元測試結果時，預設包含下列的項目：
 
 -  Test Name (test_name)
 -  Test Datatype (test_datatype)
@@ -140,23 +136,21 @@ default:
 -  Line Number (line)
 -  Any notes you entered for the test (notes)
 
-You can customize which of these items get displayed by using
-$this->unit->set_test_items(). For example, if you only wanted the test name
-and the result displayed:
+使用 $this->unit->set_test_items()，你可以決定項目是否要顯示。
+例如，如果你只想要顯示測試名稱與結果：
 
-Customizing displayed tests
+客製要顯示的測試
 ---------------------------
 
 ::
 
 	$this->unit->set_test_items(array('test_name', 'result'));
 
-Creating a Template
+建立模板
 -------------------
 
-If you would like your test results formatted differently then the
-default you can set your own template. Here is an example of a simple
-template. Note the required pseudo-variables::
+如果你想要用非預設的格式來顯示測試結果，你可以定義自己的模板。
+這是一個簡單的模板範例。請注意必要的虛擬變數::
 
 	$str = '
 	<table border="0" cellpadding="4" cellspacing="1">
@@ -170,22 +164,20 @@ template. Note the required pseudo-variables::
 
 	$this->unit->set_template($str);
 
-.. note:: Your template must be declared **before** running the unit
-	test process.
+.. note:: 你的模板必須在測試執行 **之前** 定義。
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_Unit_test
+.. php:class:: CI_Unit_test
 
-	.. method:: set_test_items($items)
+	.. php:method:: set_test_items($items)
 
-		:param array $items: List of visible test items
+		:param array $items: 要顯示的項目列表
 		:returns: void
 
-		Sets a list of items that should be visible in tests.
-		Valid options are:
+		設置要顯示的項目列表。可用的選項有：
 
 		  - test_name
 		  - test_datatype
@@ -195,50 +187,50 @@ Class Reference
 		  - line
 		  - notes
 
-	.. method:: run($test[, $expected = TRUE[, $test_name = 'undefined'[, $notes = '']]])
+	.. php:method:: run($test[, $expected = TRUE[, $test_name = 'undefined'[, $notes = '']]])
 
-		:param	mixed	$test: Test data
-		:param	mixed	$expected: Expected result
-		:param	string	$test_name: Test name
-		:param	string	$notes: Any notes to be attached to the test
-		:returns:	Test report
+		:param	mixed	$test: 測試資料
+		:param	mixed	$expected: 預期的結果
+		:param	string	$test_name: 測試名稱
+		:param	string	$notes: 附加在此測試的任何備註
+		:returns:	測試報告
 		:rtype:	string
 
-		Runs unit tests.
+		執行單元測試。
 
-	.. method:: report([$result = array()])
+	.. php:method:: report([$result = array()])
 
-		:param	array	$result: Array containing tests results
-		:returns:	Test report
+		:param	array	$result: 一個包含了測試結果的陣列
+		:returns:	測試報告
 		:rtype:	string
 
-		Generates a report about already complete tests.
+		為已經執行完的測試產生報告。
 
-	.. method:: use_strict([$state = TRUE])
+	.. php:method:: use_strict([$state = TRUE])
 
-		:param	bool	$state: Strict state flag
+		:param	bool	$state: 嚴格模式旗標
 		:rtype:	void
 
-		Enables/disables strict type comparison in tests.
+		啟用/停用嚴格模式。
 
-	.. method:: active([$state = TRUE])
+	.. php:method:: active([$state = TRUE])
 
-		:param	bool	$state: Whether to enable testing
+		:param	bool	$state: 是否啟用單元測試
 		:rtype:	void
 
-		Enables/disables unit testing.
+		啟用/停用單元測試。
 
-	.. method:: result([$results = array()])
+	.. php:method:: result([$results = array()])
 
-		:param	array	$results: Tests results list
-		:returns:	Array of raw result data
+		:param	array	$results: 測試結果列表
+		:returns:	包含測試結果原始資料的陣列
 		:rtype:	array
 
-		Returns raw tests results data.
+		回傳測試結果的原始資料。
 
-	.. method:: set_template($template)
+	.. php:method:: set_template($template)
 
-		:param	string	$template: Test result template
+		:param	string	$template: 測試結果模板
 		:rtype:	void
 
-		Sets the template for displaying tests results.
+		設置要用來顯示測試結果的模板。

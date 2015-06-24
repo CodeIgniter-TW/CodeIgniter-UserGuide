@@ -1,9 +1,8 @@
 ###############
-Language Helper
+Language 輔助函式
 ###############
 
-The Language Helper file contains functions that assist in working with
-language files.
+Language 輔助函式包含了各種輔助多國語言操作的相關函式。
 
 .. contents::
   :local:
@@ -12,32 +11,30 @@ language files.
 
   <div class="custom-index container"></div>
 
-Loading this Helper
+導入輔助函式
 ===================
 
-This helper is loaded using the following code::
+輔助函式的載入語法如下：
 
 	$this->load->helper('language');
 
-Available Functions
+可用函示格式
 ===================
 
-The following functions are available:
+允許使用的函示格式如下：
 
 
-.. function:: lang($line[, $for = ''[, $attributes = array()]])
+.. php:function:: lang($line[, $for = ''[, $attributes = array()]])
 
  	:param	string	$line: Language line key
  	:param	string	$for: HTML "for" attribute (ID of the element we're creating a label for)
- 	:param	array	$attributes: Any additional HTML attributes
- 	:returns:	HTML-formatted language line label
+ 	:param	array	$attributes: 額外的 HTML 元素
+ 	:returns:	HTML-formatted 語言標籤
 	:rtype:	string
 
-	This function returns a line of text from a loaded language file with
-	simplified syntax that may be more desirable for view files than
-	``CI_Lang::line()``.
+	此函示回傳顯示格式會比 ``CI_Lang::line()`` 更清楚易懂。
 
-	Example::
+	範例::
 
 		echo lang('language_key', 'form_item_id', array('class' => 'myClass'));
-		// Outputs: <label for="form_item_id" class="myClass">Language line</label>
+		// 顯示: <label for="form_item_id" class="myClass">Language line</label>

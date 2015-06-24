@@ -1,5 +1,5 @@
 ###########
-Path Helper
+Path 輔助函式
 ###########
 
 The Path Helper file contains functions that permits you to work with
@@ -25,7 +25,7 @@ Available Functions
 The following functions are available:
 
 
-.. function:: set_realpath($path[, $check_existance = FALSE])
+.. php:function:: set_realpath($path[, $check_existance = FALSE])
 
 	:param	string	$path: Path
 	:param	bool	$check_existance: Whether to check if the path actually exists

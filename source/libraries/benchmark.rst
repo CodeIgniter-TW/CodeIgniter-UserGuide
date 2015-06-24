@@ -1,17 +1,13 @@
 ##################
-Benchmarking Class
+效能測試類別
 ##################
 
-CodeIgniter has a Benchmarking class that is always active, enabling the
-time difference between any two marked points to be calculated.
+CodeIgniter擁有一個常駐的效能測試類別，能夠計算出兩個標記位置間的執行時間。
 
-.. note:: This class is initialized automatically by the system so there
-	is no need to do it manually.
+.. note:: 這個類別會由系統建立，所以不需要使用者自行建立
 
-In addition, the benchmark is always started the moment the framework is
-invoked, and ended by the output class right before sending the final
-view to the browser, enabling a very accurate timing of the entire
-system execution to be shown.
+除此之外，效能測試總是會於框架觸發時開始執行，並且於輸出頁面前結束，能夠取
+得一個非常準確的系統執行時間。
 
 .. contents::
   :local:
@@ -21,39 +17,39 @@ system execution to be shown.
   <div class="custom-index container"></div>
 
 *************************
-Using the Benchmark Class
+使用效能測試類別
 *************************
 
-The Benchmark class can be used within your
+效能測試類別可用於
 :doc:`controllers </general/controllers>`,
-:doc:`views </general/views>`, or your :doc:`models </general/models>`.
-The process for usage is this:
+:doc:`views </general/views>`, 或是你的 :doc:`models </general/models>`.
+使用的順序為：
 
-#. Mark a start point
-#. Mark an end point
-#. Run the "elapsed time" function to view the results
+#. 標記一個起始點 
+#. 標記一個結束點
+#. 執行 "elapsed time" 函數取得執行時間
 
-Here's an example using real code::
+範例：
 
 	$this->benchmark->mark('code_start');
 
-	// Some code happens here
+	// 程式碼於這裡執行 
 
 	$this->benchmark->mark('code_end');
 
 	echo $this->benchmark->elapsed_time('code_start', 'code_end');
 
-.. note:: The words "code_start" and "code_end" are arbitrary. They
-	are simply words used to set two markers. You can use any words you
-	want, and you can set multiple sets of markers. Consider this example::
+.. note:: "code_start" 和 "code_end" 是可以任意命名的. 他們只是兩個作為
+    標記識別的名稱。你可以使用所有你想使用的單字，並建立多組標記點。
+    範例::
 
 		$this->benchmark->mark('dog');
 
-		// Some code happens here
+		// 程式碼於這裡執行
 
 		$this->benchmark->mark('cat');
 
-		// More code happens here
+		// 更多程式碼於這裡執行
 
 		$this->benchmark->mark('bird');
 
@@ -62,13 +58,12 @@ Here's an example using real code::
 		echo $this->benchmark->elapsed_time('dog', 'bird');
 
 
-Profiling Your Benchmark Points
+分析效能測試結果
 ===============================
 
-If you want your benchmark data to be available to the
-:doc:`Profiler </general/profiling>` all of your marked points must
-be set up in pairs, and each mark point name must end with _start and
-_end. Each pair of points must otherwise be named identically. Example::
+如果你希望將你的效能測試數據用於 :doc:`Profiler </general/profiling>` 
+所有的標記點都必須成對設置，而且標記點的名稱必須相同，並以 _start 和 _end 結尾。
+範例::
 
 	$this->benchmark->mark('my_mark_start');
 
@@ -82,86 +77,71 @@ _end. Each pair of points must otherwise be named identically. Example::
 
 	$this->benchmark->mark('another_mark_end');
 
-Please read the :doc:`Profiler page </general/profiling>` for more
-information.
+請參考 :doc:`Profiler page </general/profiling>` 獲得更多資訊
 
-Displaying Total Execution Time
+顯示總執行時間
 ===============================
 
-If you would like to display the total elapsed time from the moment
-CodeIgniter starts to the moment the final output is sent to the
-browser, simply place this in one of your view templates::
+如果你希望顯示Codeigniter從開始執行到顯示頁面的時間，只要在樣板中放入以下程式碼::
 
 	<?php echo $this->benchmark->elapsed_time();?>
 
-You'll notice that it's the same function used in the examples above to
-calculate the time between two point, except you are **not** using any
-parameters. When the parameters are absent, CodeIgniter does not stop
-the benchmark until right before the final output is sent to the
-browser. It doesn't matter where you use the function call, the timer
-will continue to run until the very end.
+你會注意到這是和上一個範例中相同的函數，除了 **沒有** 使用任何參數。
+當參數為空時，不管你在哪裡執行這個函數，直到顯示頁面前Codeigniter不會停止效能測試
 
-An alternate way to show your elapsed time in your view files is to use
-this pseudo-variable, if you prefer not to use the pure PHP::
+如果你不喜歡使用純PHP，另一個顯示執行時間的方法為使用虛擬變數::
 
 	{elapsed_time}
 
-.. note:: If you want to benchmark anything within your controller
-	functions you must set your own start/end points.
+.. note:: 如果你想要測試controller中的效能，你就必須設置自己的起始/結束標記點
 
-Displaying Memory Consumption
+顯示記憶體用量
 =============================
 
-If your PHP installation is configured with --enable-memory-limit, you
-can display the amount of memory consumed by the entire system using the
-following code in one of your view file::
+如果你的PHP在安裝時有開啟--enable-memory-limit，你就可以使用下面的程式碼顯示記憶體用量::
 
 	<?php echo $this->benchmark->memory_usage();?>
 
-.. note:: This function can only be used in your view files. The consumption
-	will reflect the total memory used by the entire app.
+.. note:: 這個函數只能在view files中使用。記憶體用量會反應整個應用程式的使用量。
 
-An alternate way to show your memory usage in your view files is to use
-this pseudo-variable, if you prefer not to use the pure PHP::
+如果你不喜歡使用純PHP，另一個顯示記憶體用量的方法為使用虛擬變數::
 
 	{memory_usage}
 
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_Benchmark
+.. php:class:: CI_Benchmark
 
-	.. method:: mark($name)
+	.. php:method:: mark($name)
 
-		:param	string	$name: the name you wish to assign to your marker
+		:param	string	$name: 標記名稱
 		:rtype:	void
 
-		Sets a benchmark marker.
+        設置標記
 
-	.. method:: elapsed_time([$point1 = ''[, $point2 = ''[, $decimals = 4]]])
+	.. php:method:: elapsed_time([$point1 = ''[, $point2 = ''[, $decimals = 4]]])
 
-		:param	string	$point1: a particular marked point
-		:param	string	$point2: a particular marked point
-		:param	int	$decimals: number of decimal places for precision
-		:returns:	Elapsed time
+		:param	string	$point1: 起始標記名稱
+		:param	string	$point2: 結束標記名稱
+		:param	int	$decimals: 小數點位數
+        :returns:	經過的時間
 		:rtype:	string
 
-		Calculates and returns the time difference between two marked points.
+        計算並回傳兩個標記點間的執行時間。
 
-		If the first parameter is empty this function instead returns the
-		``{elapsed_time}`` pseudo-variable. This permits the full system
-		execution time to be shown in a template. The output class will
-		swap the real value for this variable.
+        如果第一個參數為空，這個函數會回傳 ``{elapsed_time}`` 虛擬函數。這讓完整的系統執行時間能在樣板中顯示。
+        The output class will swap the real value for this variable.
 
 
-	.. method:: memory_usage()
+	.. php:method:: memory_usage()
 
-		:returns:	Memory usage info
+		:returns:	記憶體用量資訊
 		:rtype:	string
 
-		Simply returns the ``{memory_usage}`` marker.
+        回傳 ``{memory_usage}``
 
 		This permits it to be put it anywhere in a template without the memory
 		being calculated until the end. The :doc:`Output Class <output>` will

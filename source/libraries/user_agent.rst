@@ -1,11 +1,10 @@
 ################
-User Agent Class
+User Agent 類別
 ################
 
-The User Agent Class provides functions that help identify information
-about the browser, mobile device, or robot visiting your site. In
-addition you can get referrer information as well as language and
-supported character-set information.
+User Agent 類別提供函數來幫助你辨別瀏覽器、
+行動裝置或是機器人(Robot)的資訊，
+此外你也可以取得參照位址(referrer)、語系與編碼資訊。
 
 .. contents::
   :local:
@@ -15,33 +14,30 @@ supported character-set information.
   <div class="custom-index container"></div>
 
 **************************
-Using the User Agent Class
+使用 User Agent 類別
 **************************
 
-Initializing the Class
+初始化類別
 ======================
 
-Like most other classes in CodeIgniter, the User Agent class is
-initialized in your controller using the $this->load->library function::
+就像 CodeIgniter 其它多數類別一樣，
+User Agent 類別可以在你的 controller 內透過 $this->load->library 函式來初始化::
 
 	$this->load->library('user_agent');
 
-Once loaded, the object will be available using: ``$this->agent``
+載入之後，就可以這樣取得 Zip 物件： ``$this->agent``
 
-User Agent Definitions
+User Agent 定義
 ======================
 
-The user agent name definitions are located in a config file located at:
-application/config/user_agents.php. You may add items to the various
-user agent arrays if needed.
+User Agent 的定義檔放置在 application/config/user_agents.php，如有必要你可以額外增加項目。
 
-Example
+範例
 =======
 
-When the User Agent class is initialized it will attempt to determine
-whether the user agent browsing your site is a web browser, a mobile
-device, or a robot. It will also gather the platform information if it
-is available.
+當 User Agent 初始化後，
+它將開始判斷是瀏覽器、行動裝置或機器人來造訪你的網頁，
+如果可以它也會取得平台資訊。
 
 ::
 
@@ -69,18 +65,18 @@ is available.
 	echo $this->agent->platform(); // Platform info (Windows, Linux, Mac, etc.)
 
 ***************
-Class Reference
+類別參考
 ***************
 
-.. class:: CI_User_agent
+.. php:class:: CI_User_agent
 
-	.. method:: is_browser([$key = NULL])
+	.. php:method:: is_browser([$key = NULL])
 
-		:param	string	$key: Optional browser name
-		:returns:	TRUE if the user agent is a (specified) browser, FALSE if not
+		:param	string	$key: 瀏覽器的名稱，可省略
+		:returns:	如果是（指定的）瀏覽器，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Returns TRUE/FALSE (boolean) if the user agent is a known web browser.
+		判別是否為已知的瀏覽器，回傳 TRUE 或 FALSE。
 		::
 
 			if ($this->agent->is_browser('Safari'))
@@ -92,17 +88,17 @@ Class Reference
 				echo 'You are using a browser.';
 			}
 
-		.. note:: The string "Safari" in this example is an array key in the list of browser definitions.
-			You can find this list in **application/config/user_agents.php** if you want to add new
-			browsers or change the stings.
+		.. note:: 在這個範例中 "Safari" 這個字串是瀏覽器清單裡面陣列的鍵值。
+			你可以在 **application/config/user_agents.php**
+			找到瀏覽器清單來新增或修改設定。
 
-	.. method:: is_mobile([$key = NULL])
+	.. php:method:: is_mobile([$key = NULL])
 
-		:param	string	$key: Optional mobile device name
-		:returns:	TRUE if the user agent is a (specified) mobile device, FALSE if not
+		:param	string	$key: 行動裝置的名稱，可省略
+		:returns:	如果是（指定的）行動裝置，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Returns TRUE/FALSE (boolean) if the user agent is a known mobile device.
+		判別是否為已知的行動裝置，回傳 TRUE 或 FALSE。
 		::
 
 			if ($this->agent->is_mobile('iphone'))
@@ -118,131 +114,131 @@ Class Reference
 				$this->load->view('web/home');
 			}
 
-	.. method:: is_robot([$key = NULL])
+	.. php:method:: is_robot([$key = NULL])
 
-		:param	string	$key: Optional robot name
-		:returns:	TRUE if the user agent is a (specified) robot, FALSE if not
+		:param	string	$key: 機器人名稱，可省略
+		:returns:	如果是（指定的）機器人，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Returns TRUE/FALSE (boolean) if the user agent is a known robot.
+		判別是否為已知的機器人，回傳 TRUE 或 FALSE。
 
-		.. note:: The user agent library only contains the most common robot definitions. It is not a complete list of bots.
-			There are hundreds of them so searching for each one would not be very efficient. If you find that some bots
-			that commonly visit your site are missing from the list you can add them to your
-			**application/config/user_agents.php** file.
+		.. note:: 機器人清單中只包含了幾種最常見的機器人，而不是完整的清單。
+			由於機器人種類有數百種，因此想要把每一種都找出來是沒有效率的。
+			如果你發現常常造訪網站的機器人不在清單內，你可以將其加入
+			**application/config/user_agents.php** 。
 
-	.. method:: is_referral()
+	.. php:method:: is_referral()
 
-		:returns:	TRUE if the user agent is a referral, FALSE if not
+		:returns:	若使用者是否從其它網站過來的，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Returns TRUE/FALSE (boolean) if the user agent was referred from another site.
+		判斷使用者是否從其它網站過來，回傳 TRUE 或 FALSE。
 
-	.. method:: browser()
+	.. php:method:: browser()
 
-		:returns:	Detected browser or an empty string
+		:returns:	偵測到的瀏覽器名稱或是空字串
 		:rtype:	string
 
-		Returns a string containing the name of the web browser viewing your site.
+		回傳正在造訪你的網站的瀏覽器名稱。
 
-	.. method:: version()
+	.. php:method:: version()
 
-		:returns:	Detected browser version or an empty string
+		:returns:	偵測到的瀏覽器版本或是空字串
 		:rtype:	string
 
-		Returns a string containing the version number of the web browser viewing your site.
+		回傳正在造訪你的網站的瀏覽器版本。
 
-	.. method:: mobile()
+	.. php:method:: mobile()
 
-		:returns:	Detected mobile device brand or an empty string
+		:returns:	偵測到的行動裝置品牌或是空字串
 		:rtype:	string
 
-		Returns a string containing the name of the mobile device viewing your site.
+		回傳正在造訪你的網站的行動裝置名稱。
 
-	.. method:: robot()
+	.. php:method:: robot()
 
-		:returns:	Detected robot name or an empty string
+		:returns:	偵測到的機器人名稱或是空字串
 		:rtype:	string
 
-		Returns a string containing the name of the robot viewing your site.
+		回傳正在造訪你的網站的機器人名稱。
 
-	.. method:: platform()
+	.. php:method:: platform()
 
-		:returns:	Detected operating system or an empty string
+		:returns:	偵測到的作業系統或是空字串
 		:rtype:	string
 
-		Returns a string containing the platform viewing your site (Linux, Windows, OS X, etc.).
+		回傳正在造訪你的網站的平台名稱 (Linux，Windows，OS X，等等)。
 
-	.. method:: referrer()
+	.. php:method:: referrer()
 
-		:returns:	Detected referrer or an empty string
+		:returns:	偵測到的來源網址或是空字串
 		:rtype:	string
 
-		The referrer, if the user agent was referred from another site. Typically you'll test for this as follows::
+		假如使用者是從其它網站造訪，通常你可以這樣子來檢查::
 
 			if ($this->agent->is_referral())
 			{
 				echo $this->agent->referrer();
 			}
 
-	.. method:: agent_string()
+	.. php:method:: agent_string()
 
-		:returns:	Full user agent string or an empty string
+		:returns:	完整的使用者代理(user agent)字串或是空字串
 		:rtype:	string
 
-		Returns a string containing the full user agent string. Typically it will be something like this::
+		回傳完整的使用者代理(user agent)資訊。通常會是類似這樣的字串::
 
 			Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.0.4) Gecko/20060613 Camino/1.0.2
 
-	.. method:: accept_lang([$lang = 'en'])
+	.. php:method:: accept_lang([$lang = 'en'])
 
-		:param	string	$lang: Language key
-		:returns:	TRUE if provided language is accepted, FALSE if not
+		:param	string	$lang: 語系代碼
+		:returns:	如果語系是被接受的，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Lets you determine if the user agent accepts a particular language. Example::
+		讓你檢查使用者代理(user agent)是否接受某個語系，例如::
 
 			if ($this->agent->accept_lang('en'))
 			{
 				echo 'You accept English!';
 			}
 
-		.. note:: This method is not typically very reliable since some	browsers do not provide language info,
-			and even among those that do, it is not always accurate.
+		.. note:: 這個方法並不是非常可靠，因為某些瀏覽器並沒有提供語系資訊，
+			即使有提供，也不一定是精確的。
 
-	.. method:: languages()
+	.. php:method:: languages()
 
-		:returns:	An array list of accepted languages
+		:returns:	包含可接受的語系的陣列
 		:rtype:	array
 
-		Returns an array of languages supported by the user agent.
+		回傳一個陣列，包含了使用者代理(user agent)支援的語系。
 
-	.. method:: accept_charset([$charset = 'utf-8'])
+	.. php:method:: accept_charset([$charset = 'utf-8'])
 
-		:param	string	$charset: Character set
-		:returns:	TRUE if the character set is accepted, FALSE if not
+		:param	string	$charset: 編碼名稱
+		:returns:	如果編碼是可接受的，回傳 TRUE，否則回傳 FALSE
 		:rtype:	bool
 
-		Lets you determine if the user agent accepts a particular character set. Example::
+		讓你檢查使用者代理(user agent)是否接受特定的編碼，例如::
 
 			if ($this->agent->accept_charset('utf-8'))
 			{
 				echo 'You browser supports UTF-8!';
 			}
 
-		.. note:: This method is not typically very reliable since some browsers do not provide character-set info,
-			and even among those that do, it is not always accurate.
+		.. note:: 這個方法並不是非常可靠，因為某些瀏覽器並沒有提供編碼資訊，
+			即使有提供，也不一定是精確的。
 
-	.. method:: charsets()
+	.. php:method:: charsets()
 
-		:returns:	An array list of accepted character sets
+		:returns:	包含可接受的編碼的陣列
 		:rtype:	array
 
-		Returns an array of character sets accepted by the user agent.
+		回傳一個陣列，包含了使用者代理(user agent)支援的編碼。
 
-	.. method:: parse($string)
+	.. php:method:: parse($string)
 
-		:param	string	$string: A custom user-agent string
+		:param	string	$string: 一個客製的使用者代理(user agent)字串
 		:rtype:	void
 
-		Parses a custom user-agent string, different from the one reported by the current visitor.
+		分析一個客製的使用者代理(user agent)字串，而不是目前訪客使用的那一個。

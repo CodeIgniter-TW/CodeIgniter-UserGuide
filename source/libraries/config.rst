@@ -1,13 +1,10 @@
-############
-Config Class
-############
+########
+設定類別
+########
 
-The Config class provides a means to retrieve configuration preferences.
-These preferences can come from the default config file
-(application/config/config.php) or from your own custom config files.
+設定類別提供一個取得偏好設定的方法。這些偏好可以從預設的設定檔 (application/config/config.php) 或是你自訂的設定檔中取得。
 
-.. note:: This class is initialized automatically by the system so there
-	is no need to do it manually.
+.. 註記:: 此類別會由系統自動執行初始化，因此無須手動執行。
 
 .. contents::
   :local:
@@ -16,237 +13,205 @@ These preferences can come from the default config file
 
   <div class="custom-index container"></div>
 
-*****************************
-Working with the Config Class
-*****************************
+****************
+開始作業設定類別
+****************
 
-Anatomy of a Config File
-========================
+剖析設定類別
+============
 
-By default, CodeIgniter has one primary config file, located at
-application/config/config.php. If you open the file using your text
-editor you'll see that config items are stored in an array called
-$config.
+在預設裡，CodeIgniter 在 application/config/config.php 中有一個主要設定檔。
+若你用文字編輯器打開檔案，將會看到設定的項目存放在一個叫做 $config 的陣列中。
 
-You can add your own config items to this file, or if you prefer to keep
-your configuration items separate (assuming you even need config items),
-simply create your own file and save it in config folder.
+你可以在此檔案中加入你自己的設定項目，或是如果你喜歡將設定項目分開 (假設你還是需要設定項目)，
+只需建立你自己的檔案並且存放在設定資料夾中。
 
-.. note:: If you do create your own config files use the same format as
-	the primary one, storing your items in an array called $config.
-	CodeIgniter will intelligently manage these files so there will be no
-	conflict even though the array has the same name (assuming an array
-	index is not named the same as another).
+.. 註記:: 若是你使用與預設的設定檔相同的格式，建立了你自己的設定檔並存放在 $config 陣列中，即使這些陣列有著相同名稱，CodeIgniter 還是會聰明地管理這些檔案，避免造成衝突。(前提是這些陣列索引的名稱是不同的。)
 
-Loading a Config File
+載入設定檔
 =====================
 
-.. note::
-	CodeIgniter automatically loads the primary config file
-	(application/config/config.php), so you will only need to load a config
-	file if you have created your own.
+.. 註記::
+	CodeIgniter 將會自動載入主要預設檔 (application/config/config.php)，
+	所以如果你有建立自己的，只需要載入你自己的設定檔。
+	
+載入設定檔有兩個方法:
 
-There are two ways to load a config file:
-
-Manual Loading
-**************
-
-To load one of your custom config files you will use the following
-function within the :doc:`controller </general/controllers>` that
-needs it::
+手動載入
+********
+要載入你自訂的設定檔，你會需要使用在 :doc:`controller </general/controllers>` 中的函數：
 
 	$this->config->load('filename');
 
-Where filename is the name of your config file, without the .php file
-extension.
+其中 filename 是指你的設定檔檔名，不包含 .php 副檔名。
 
-If you need to load multiple config files normally they will be
-merged into one master config array. Name collisions can occur,
-however, if you have identically named array indexes in different
-config files. To avoid collisions you can set the second parameter to
-TRUE and each config file will be stored in an array index
-corresponding to the name of the config file. Example::
+若你需要載入多個設定檔，通常你需要將它合併到一個主要的設定陣列。
+但是，如果你在不同的設定檔中有相同的陣列索引名稱，會發生名稱衝突。
+為了避免此狀況，你可以設定第二個參數為 TRUE，這樣不同的設定會存放在以檔名為索引的陣列中。
+範例::
 
-	// Stored in an array with this prototype: $this->config['blog_settings'] = $config
+	// 儲放在陣列中的原型: $this->config['blog_settings'] = $config
 	$this->config->load('blog_settings', TRUE);
 
-Please see the section entitled Fetching Config Items below to learn
-how to retrieve config items set this way.
+請見以下 "取得設定項目" 章節，來學習如何使用此方式取得設定項目。
 
-The third parameter allows you to suppress errors in the event that a
-config file does not exist::
+第三個參數讓你抑制當設定檔不存在時會產生的錯誤::
 
 	$this->config->load('blog_settings', FALSE, TRUE);
 
-Auto-loading
-************
+自動載入
+********
 
-If you find that you need a particular config file globally, you can
-have it loaded automatically by the system. To do this, open the
-**autoload.php** file, located at application/config/autoload.php,
-and add your config file as indicated in the file.
+若你發現你需要特定全域的設定檔，你可以讓系統自動載入。
+開啟位於 application/config/autoload.php 的 **autoload.php** 檔案，
+然後按照指示加入你的設定檔。
 
+取得設定項目
+============
 
-Fetching Config Items
-=====================
+要從你的設定檔中取得項目，使用以下函數::
 
-To retrieve an item from your config file, use the following function::
+	$this->config->item('item_name');
 
-	$this->config->item('item name');
-
-Where item name is the $config array index you want to retrieve. For
-example, to fetch your language choice you'll do this::
+其中 item_name 是你要取得的 $config 陣列索引。舉例來說，要取得你選擇的語言::
 
 	$lang = $this->config->item('language');
 
-The function returns NULL if the item you are trying to fetch
-does not exist.
+若你嘗試要取得的項目不存在，這個方法則會回傳 NULL。
 
-If you are using the second parameter of the $this->config->load
-function in order to assign your config items to a specific index you
-can retrieve it by specifying the index name in the second parameter of
-the $this->config->item() function. Example::
+若你使用 ``$this->config->load`` 的第二個參數來指派設定項目給指定的索引，
+你可以在 ``$this->config->item`` 的第二個參數，使用指定的索引名稱來取得它。
+範例::
 
-	// Loads a config file named blog_settings.php and assigns it to an index named "blog_settings"
+	// 讀取叫做 blog_settings.php 的設定檔，並指派給索引叫做 "blog_settings"
 	$this->config->load('blog_settings', TRUE);
 
-	// Retrieve a config item named site_name contained within the blog_settings array
+	// 從叫做 "blog_settings" 的陣列中，取出設定項目名稱叫做 site_name 的值
 	$site_name = $this->config->item('site_name', 'blog_settings');
 
-	// An alternate way to specify the same item:
+	// 這是另一種方式，一樣可取出相同的項目
 	$blog_config = $this->config->item('blog_settings');
 	$site_name = $blog_config['site_name'];
 
-Setting a Config Item
-=====================
+建立設定項目
+============
 
-If you would like to dynamically set a config item or change an existing
-one, you can do so using::
+若你想要建立一個設定項目，或是修改一個現存的項目，你可以這麼做::
 
 	$this->config->set_item('item_name', 'item_value');
 
-Where item_name is the $config array index you want to change, and
-item_value is its value.
+其中 item_name 是你要修改的 $config 陣列索引，而 item_value 是它的值。
 
 .. _config-environments:
 
-Environments
-============
+環境變數
+========
 
-You may load different configuration files depending on the current
-environment. The ENVIRONMENT constant is defined in index.php, and is
-described in detail in the :doc:`Handling
-Environments </general/environments>` section.
+你可以依目前的環境來載入不同的設定檔。
+ENVIRONMENT 常數被定義在 index.php，詳細描述請見 :doc:`Handling Environments </general/environments>` 章節。
 
-To create an environment-specific configuration file, create or copy a
-configuration file in application/config/{ENVIRONMENT}/{FILENAME}.php
+建立一個特定環境 (environment-specific) 的設定檔，
+你需要新增或複製在 application/config/{ENVIRONMENT}/{FILENAME}.php 裡的設定檔。
 
-For example, to create a production-only config.php, you would:
+舉例來說，建立一個只有在產品上線使用的設定檔 (production-only config.php)，你需要這麼做：
 
-#. Create the directory application/config/production/
-#. Copy your existing config.php into the above directory
-#. Edit application/config/production/config.php so it contains your
-   production settings
+#. 建立一個目錄 application/config/production/
+#. 在目錄中複製你現存的 config.php
+#. 編輯 application/config/production/config.php 讓它包含你的產品上線設定值。
 
-When you set the ENVIRONMENT constant to 'production', the settings for
-your new production-only config.php will be loaded.
+當你設定 ENVIRONMENT 常數為 'production'，將會載入新的只有在產品上線 (production-only config.php) 可使用的設定值。
 
-You can place the following configuration files in environment-specific
-folders:
+你可以將以下檔案放在特定環境 (environment-specific) 目錄中：
 
--  Default CodeIgniter configuration files
--  Your own custom configuration files
+-  預設的 CodeIgniter 設定檔
+-  你自訂的設定檔
 
-.. note::
-	CodeIgniter always loads the global config file first (i.e., the one in application/config/),
-	then tries to load the configuration files for the current environment.
-	This means you are not obligated to place **all** of your configuration files in an
-	environment folder. Only the files that change per environment. Additionally you don't
-	have to copy **all** the config items in the environment config file. Only the config items
-	that you wish to change for your environment. The config items declared in your environment
-	folders always overwrite those in your global config files.
+.. 註記::
+	CodeIgniter 總是優先載入全域設定檔案 (例如：在 application/config/ 中的檔案)，
+	接著再嘗試載入目前的環境設定檔。
+	這代表你不需要將「所有」設定檔放置在環境目錄中。
+	只需要將想要改變的環境設定檔案放入即可。
+	在環境目錄中的設定檔通常會覆蓋住全域設定檔。
+	
 
+********
+類別參考
+********
 
-***************
-Class Reference
-***************
-
-.. class:: CI_Config
+.. php:class:: CI_Config
 
 	.. attribute:: $config
 
-		Array of all loaded config values
+		所有載入設定值的陣列
 
 	.. attribute:: $is_loaded
 
-		Array of all loaded config files
+		所有載入設定檔的陣列
 
 
-	.. method:: item($item[, $index=''])
+	.. php:method:: item($item[, $index=''])
 
-		:param	string	$item: Config item name
-		:param	string	$index: Index name
-		:returns:	Config item value or NULL if not found
+		:param	string	$item: 設定項目名稱
+		:param	string	$index: 索引名稱
+		:returns:	回傳設定項目值，若沒有則顯示 NULL
 		:rtype:	mixed
 
-		Fetch a config file item.
+		取得一個設定項目。
 
-	.. method:: set_item($item, $value)
+	.. php:method:: set_item($item, $value)
 
-		:param	string	$item: Config item name
-		:param	string	$value: Config item value
+		:param	string	$item: 設定項目名稱
+		:param	string	$value: 設定項目值
 		:rtype:	void
 
-		Sets a config file item to the specified value.
+		設置一個設定檔中指定的值
 
-	.. method:: slash_item($item)
+	.. php:method:: slash_item($item)
 
-		:param	string	$item: config item name
-		:returns:	Config item value with a trailing forward slash or NULL if not found
+		:param	string	$item: 設定項目名稱
+		:returns:	回傳包含 slash 的設定項目，若沒有則顯示 NULL
 		:rtype:	mixed
 
-		This method is identical to ``item()``, except it appends a forward
-		slash to the end of the item, if it exists.
+		``item()`` 也是使用相同的方法，不同之處在於在項目的尾端加入一個 slash。
 
-	.. method:: load([$file = ''[, $use_sections = FALSE[, $fail_gracefully = FALSE]]])
+	.. php:method:: load([$file = ''[, $use_sections = FALSE[, $fail_gracefully = FALSE]]])
 
-		:param	string	$file: Configuration file name
-		:param	bool	$use_sections: Whether config values shoud be loaded into their own section (index of the main config array)
-		:param	bool	$fail_gracefully: Whether to return FALSE or to display an error message
-		:returns:	TRUE on success, FALSE on failure
+		:param	string	$file: 設定檔案名稱
+		:param	bool	$use_sections: 是否讓設定值載入到它的章節 (主要陣列的索引)
+		:param	bool	$fail_gracefully: 回傳 FALSE 或是顯示錯誤訊息
+		:returns:	成功則回傳 TRUE，錯誤則為 FALSE
 		:rtype:	bool
 
-		Loads a configuration file.
+		載入設定檔案。
 
-	.. method:: site_url()
+	.. php:method:: site_url()
 
 		:returns:	Site URL
 		:rtype:	string
 
-		This method retrieves the URL to your site, along with the "index" value
-		you've specified in the config file.
+		此方法根據你在設定檔中指定的索引取得 URL。
 
-		This method is normally accessed via the corresponding functions in the
-		:doc:`URL Helper </helpers/url_helper>`.
+		此方法通常透過 :doc:`URL Helper </helpers/url_helper>` 中對應的功能。
 
-	.. method:: base_url()
+	.. php:method:: base_url()
 
-		:returns:	Base URL
+		:returns:	網址(URL)的基本位置
 		:rtype:	string
 
+		此方法透過加入一個選擇性的路徑，來取得你的網站 URL，像是CSS樣式檔或是圖片。
 		This method retrieves the URL to your site, plus an optional path such
 		as to a stylesheet or image.
 
-		This method is normally accessed via the corresponding functions in the
-		:doc:`URL Helper </helpers/url_helper>`.
+		此方法通常透過 :doc:`URL Helper </helpers/url_helper>` 中對應的功能。
+		
 
-	.. method:: system_url()
+	.. php:method:: system_url()
 
-		:returns:	URL pointing at your CI system/ directory
+		:returns:	你的 CI system/ directory 網址定位點
 		:rtype:	string
 
-		This method retrieves the URL to your CodeIgniter system/ directory.
+		此方法可以在你的 CodeIgniter system/directory 取得 URL
 
-		.. note:: This method is DEPRECATED because it encourages usage of
-			insecure coding practices. Your *system/* directory shouldn't
-			be publicly accessible.
+		.. 註記:: 此方法是有爭議性的 (This method is DEPRECATED)，因為它鼓勵不安全的編碼。
+			  你的 *system/* 目錄不該是公開的。
+			

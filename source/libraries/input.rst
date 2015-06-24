@@ -53,6 +53,10 @@ this::
 Please refer to the :doc:`Security class <security>` documentation for
 information on using XSS Filtering in your application.
 
+.. important:: The 'global_xss_filtering' setting is DEPRECATED and kept
+	solely for backwards-compatibility purposes. XSS escaping should
+	be performed on *output*, not *input*!
+
 *******************
 Accessing form data
 *******************
@@ -91,8 +95,14 @@ the ``$_POST`` array, because it will always exist and you can try
 and access multiple variables without caring that you might only have
 one shot at all of the POST data.
 
-CodeIgniter will take care of that for you, and you can access data
-from the **php://input** stream at any time, just by calling the
+CodeIgniter will take care of that for you, and you can read the data
+from the **php://input** stream at any time, just by using the
+``$raw_input_stream`` property::
+
+	$this->input->raw_input_stream;
+
+Additionally if the input stream is form-encoded like $_POST you can 
+access its values by calling the
 ``input_stream()`` method::
 
 	$this->input->input_stream('key');
@@ -112,9 +122,15 @@ a boolean value as the second parameter::
 Class Reference
 ***************
 
-.. class:: CI_Input
+.. php:class:: CI_Input
 
-	.. method:: post([$index = NULL[, $xss_clean = NULL]])
+	.. attribute:: $raw_input_stream
+		
+		Read only property that will return php://input data as is.
+		
+		The property can be read multiple times.
+
+	.. php:method:: post([$index = NULL[, $xss_clean = NULL]])
 
 		:param	mixed	$index: POST parameter name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -157,7 +173,7 @@ Class Reference
 
 			$this->input->post(array('field1', 'field2'), TRUE);
 
-	.. method:: get([$index = NULL[, $xss_clean = NULL]])
+	.. php:method:: get([$index = NULL[, $xss_clean = NULL]])
 
 		:param	mixed	$index: GET parameter name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -190,7 +206,7 @@ Class Reference
 
 			$this->input->get(array('field1', 'field2'), TRUE);
 
-	.. method:: post_get($index[, $xss_clean = NULL])
+	.. php:method:: post_get($index[, $xss_clean = NULL])
 
 		:param	string	$index: POST/GET parameter name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -203,7 +219,7 @@ Class Reference
 
 			$this->input->post_get('some_data', TRUE);
 
-	.. method:: get_post($index[, $xss_clean = NULL])
+	.. php:method:: get_post($index[, $xss_clean = NULL])
 
 		:param	string	$index: GET/POST parameter name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -218,7 +234,7 @@ Class Reference
 		.. note:: This method used to act EXACTLY like ``post_get()``, but it's
 			behavior has changed in CodeIgniter 3.0.
 
-	.. method:: cookie([$index = NULL[, $xss_clean = NULL]])
+	.. php:method:: cookie([$index = NULL[, $xss_clean = NULL]])
 
 		:param	mixed	$index: COOKIE name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -237,7 +253,11 @@ Class Reference
 
 			$this->input->cookie(array('some_cookie', 'some_cookie2'));
 
-	.. method:: server($index[, $xss_clean = NULL])
+		.. note:: Unlike the :doc:`Cookie Helper <../helpers/cookie_helper>`
+			function :php:func:`get_cookie()`, this method does NOT prepend
+			your configured ``$config['cookie_prefix']`` value.
+
+	.. php:method:: server($index[, $xss_clean = NULL])
 
 		:param	mixed	$index: Value name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -255,7 +275,7 @@ Class Reference
 
 			$this->input->server(array('SERVER_PROTOCOL', 'REQUEST_URI'));
 
-	.. method:: input_stream([$index = NULL[, $xss_clean = NULL]])
+	.. php:method:: input_stream([$index = NULL[, $xss_clean = NULL]])
 
 		:param	mixed	$index: Key name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -265,7 +285,7 @@ Class Reference
 		This method is identical to ``get()``, ``post()`` and ``cookie()``,
 		only it fetches the *php://input* stream data.
 
-	.. method:: set_cookie($name = ''[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]])
+	.. php:method:: set_cookie($name = ''[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]])
 
 		:param	mixed	$name: Cookie name or an array of parameters
 		:param	string	$value: Cookie value
@@ -328,7 +348,7 @@ Class Reference
 
 			$this->input->set_cookie($name, $value, $expire, $domain, $path, $prefix, $secure);
 
-	.. method:: ip_address()
+	.. php:method:: ip_address()
 
 		:returns:	Visitor's IP address or '0.0.0.0' if not valid
 		:rtype:	string
@@ -343,7 +363,7 @@ Class Reference
 			HTTP_CLIENT_IP, HTTP_X_CLIENT_IP or HTTP_X_CLUSTER_CLIENT_IP
 			address for the allowed IP addresses.
 
-	.. method:: valid_ip($ip[, $which = ''])
+	.. php:method:: valid_ip($ip[, $which = ''])
 
 		:param	string	$ip: IP address
 		:param	string	$which: IP protocol ('ipv4' or 'ipv6')
@@ -370,7 +390,7 @@ Class Reference
 		Accepts an optional second string parameter of 'ipv4' or 'ipv6' to specify
 		an IP format. The default checks for both formats.
 
-	.. method:: user_agent([$xss_clean = NULL])
+	.. php:method:: user_agent([$xss_clean = NULL])
 
 		:returns:	User agent string or NULL if not set
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -385,7 +405,7 @@ Class Reference
 		See the :doc:`User Agent Class <user_agent>` for methods which extract
 		information from the user agent string.
 
-	.. method:: request_headers([$xss_clean = FALSE])
+	.. php:method:: request_headers([$xss_clean = FALSE])
 
 		:param	bool	$xss_clean: Whether to apply XSS filtering
 		:returns:	An array of HTTP request headers
@@ -399,7 +419,7 @@ Class Reference
 
 			$headers = $this->input->request_headers();
 
-	.. method:: get_request_header($index[, $xss_clean = FALSE])
+	.. php:method:: get_request_header($index[, $xss_clean = FALSE])
 
 		:param	string	$index: HTTP request header name
 		:param	bool	$xss_clean: Whether to apply XSS filtering
@@ -412,7 +432,7 @@ Class Reference
 
 			$this->input->get_request_header('some-header', TRUE);
 
-	.. method:: is_ajax_request()
+	.. php:method:: is_ajax_request()
 
 		:returns:	TRUE if it is an Ajax request, FALSE if not
 		:rtype:	bool
@@ -420,7 +440,7 @@ Class Reference
 		Checks to see if the HTTP_X_REQUESTED_WITH server header has been
 		set, and returns boolean TRUE if it is or FALSE if not.
 
-	.. method:: is_cli_request()
+	.. php:method:: is_cli_request()
 
 		:returns:	TRUE if it is a CLI request, FALSE if not
 		:rtype:	bool
@@ -439,7 +459,7 @@ Class Reference
 		.. note:: This method is DEPRECATED and is now just an alias for the
 			:func:`is_cli()` function.
 
-	.. method:: method([$upper = FALSE])
+	.. php:method:: method([$upper = FALSE])
 
 		:param	bool	$upper: Whether to return the request method name in upper or lower case
 		:returns:	HTTP request method

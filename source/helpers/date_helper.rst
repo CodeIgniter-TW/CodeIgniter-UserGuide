@@ -1,8 +1,8 @@
 ###########
-Date Helper
+Date 輔助函式
 ###########
 
-The Date Helper file contains functions that help you work with dates.
+Date 輔助函式包含了各種處理日期的相關函式。
 
 .. contents::
   :local:
@@ -11,88 +11,79 @@ The Date Helper file contains functions that help you work with dates.
 
   <div class="custom-index container"></div>
 
-Loading this Helper
+導入輔助函式
 ===================
 
-This helper is loaded using the following code::
+Date 輔助函式的載入語法如下
+::
 
 	$this->load->helper('date');
 
-Available Functions
+可用函式格式
 ===================
 
-The following functions are available:
+允許使用的函式格式如下：
 
 
-.. function:: now([$timezone = NULL])
+.. php:function:: now([$timezone = NULL])
 
-	:param	string	$timezone: Timezone
-	:returns:	UNIX timestamp
-	:rtype:	int
+	:param	string	$timezone: 時區
+	:returns:	UNIX 時間戳記
+	:rtype:	整數
 
-	Returns the current time as a UNIX timestamp, referenced either to your server's
-	local time or any PHP suported timezone, based on the "time reference" setting
-	in your config file. If you do not intend to set your master time reference to
-	any other PHP supported timezone (which you'll typically do if you run a site
-	that lets each user set their own timezone settings) there is no benefit to using
-	this function over PHP's ``time()`` function.
+	根據你在 config 檔案中 “time reference“ 的設定，同時參考你伺服器的本地時間或任一 PHP 所支援的時區，並以 UNIX 時間戳記的格式回傳現在的時間，如果你沒有試圖將設定改為 PHP 所支援的任一時區（不過當你在經營一個網站且讓各個使用者可以各別設置時區的話你通常就會做），就沒有必要使用此函式來取代原本 PHP 的 ``time ()`` 了。
 	::
 
 		echo now('Australia/Victoria');
 
-	If a timezone is not provided, it will return ``time()`` based on the
-	**time_reference** setting.
+	如果沒有提供時區，將會回傳基於 **time_reference** 設定的 ``time ()``。
 
-.. function:: mdate([$datestr = ''[, $time = '']])
+.. php:function:: mdate([$datestr = ''[, $time = '']])
 
-	:param	string	$datestr: Date string
-	:param	int	$time: UNIX timestamp
-	:returns:	MySQL-formatted date
-	:rtype:	string
+	:param	string	$datestr: 日期字串
+	:param	int	$time: UNIX 時間戳記
+	:returns:	MySQL 格式的日期
+	:rtype:	字串
 
-	This function is identical to PHP's `date() <http://www.php.net/date>`_
-	function, except that it lets you use MySQL style date codes, where each
-	code letter is preceded with a percent sign, e.g. `%Y %m %d`
+	此函式除了可以讓你使用 MySQL 的日期格式（字串中每個字母前方要加上百分比符號，如：`%Y %m %d`）之外，其實跟 PHP 的 `date() <http://php.net/manual/en/function.date.php>`_ 相當雷同。
 
-	The benefit of doing dates this way is that you don't have to worry
-	about escaping any characters that are not date codes, as you would
-	normally have to do with the ``date()`` function.
+	使用此函式的好處是你沒必要去過濾任何非日期的字符，其他動作就像你平常使用 ``date()`` 函式一樣。
 
-	Example::
+	範例
+	::
 
 		$datestring = 'Year: %Y Month: %m Day: %d - %h:%i %a';
 		$time = time();
 		echo mdate($datestring, $time);
 
-	If a timestamp is not included in the second parameter the current time
-	will be used.
+	如果第二個參數沒有指定時間戳記，將會使用現在的時間。
 
-.. function:: standard_date([$fmt = 'DATE_RFC822'[, $time = NULL]])
+.. php:function:: standard_date([$fmt = 'DATE_RFC822'[, $time = NULL]])
 
-	:param	string	$fmt: Date format
-	:param	int	$time: UNIX timestamp
-	:returns:	Formatted date or FALSE on invalid format
-	:rtype:	string
+	:param	string	$fmt: 日期格式
+	:param	int	$time: UNIX 時間戳記
+	:returns:	已格式化的日期或當格式錯誤時回傳 FALSE
+	:rtype:	字串
 
-	Lets you generate a date string in one of several standardized formats.
+	回傳你所指定的日期標準格式所產生的日期字串。
 
-	Example::
+	範例
+	::
 
 		$format = 'DATE_RFC822';
 		$time = time();
 		echo standard_date($format, $time);
 
-	.. note:: This function is DEPRECATED. Use the native ``date()`` combined with
-		`DateTime's format constants
-		<http://www.php.net/manual/en/class.datetime.php#datetime.constants.types>`_
-		instead::
+	.. 提醒:: 此函式將被停用，建議使用內建的 ``date()`` 並搭配 `DateTime's format constants
+		<http://php.net/manual/en/class.datetime.php#datetime.constants.types>`_ 來取代之
+		::
 
 			echo date(DATE_RFC822, time());
 
-	**Supported formats:**
+	**支援格式：**
 
 	===============	=======================	======================================
-	Constant        Description             Example
+	常量        描述             範例
 	===============	=======================	======================================
 	DATE_ATOM       Atom                    2005-08-15T16:13:03+0000
 	DATE_COOKIE     HTTP Cookies            Sun, 14 Aug 2005 16:13:03 UTC
@@ -106,31 +97,31 @@ The following functions are available:
 	DATE_W3C        W3C                     2005-08-14T16:13:03+0000
 	===============	=======================	======================================
 
-.. function:: local_to_gmt([$time = ''])
+.. php:function:: local_to_gmt([$time = ''])
 
-	:param	int	$time: UNIX timestamp
-	:returns:	UNIX timestamp
+	:param	int	$time: UNIX 時間戳記
+	:returns:	UNIX 時間戳記
 	:rtype:	int
 
-	Takes a UNIX timestamp as input and returns it as GMT.
+	輸入 UNIX 時間戳記後將回傳以 GMT 表示的時間。
 
-	Example::
+	範例
+	::
 
 		$gmt = local_to_gmt(time());
 
-.. function:: gmt_to_local([$time = ''[, $timezone = 'UTC'[, $dst = FALSE]]])
+.. php:function:: gmt_to_local([$time = ''[, $timezone = 'UTC'[, $dst = FALSE]]])
 
-	:param	int	$time: UNIX timestamp
-	:param	string	$timezone: Timezone
-	:param	bool	$dst: Whether DST is active
-	:returns:	UNIX timestamp
-	:rtype:	int
+	:param	int	$time: UNIX 時間戳記
+	:param	string	$timezone: 時區
+	:param	bool	$dst: 是否有啟用 DST
+	:returns:	UNIX 時間戳記
+	:rtype:	整數
 
-	Takes a UNIX timestamp (referenced to GMT) as input, and converts it to
-	a localized timestamp based on the timezone and Daylight Saving Time
-	submitted.
+	輸入 UNIX 時間戳記（參考自 GMT）後將其轉化為符合當地時區的時間戳記，並且可選擇計入日光節約時間。 
 
-	Example::
+	範例
+	::
 
 		$timestamp = 1140153693;
 		$timezone  = 'UM8';
@@ -138,79 +129,74 @@ The following functions are available:
 		echo gmt_to_local($timestamp, $timezone, $daylight_saving);
 
 
-	.. note:: For a list of timezones see the reference at the bottom of this page.
+	.. 提醒:: 時區的填寫可參照本頁最下方的表格。
 
-.. function:: mysql_to_unix([$time = ''])
+.. php:function:: mysql_to_unix([$time = ''])
 
-	:param	string	$time: MySQL timestamp
-	:returns:	UNIX timestamp
+	:param	string	$time: MySQL 時間戳記
+	:returns:	UNIX 時間戳記
 	:rtype:	int
 
-	Takes a MySQL Timestamp as input and returns it as a UNIX timestamp.
+	輸入 MySQL 時間戳記後將回傳 UNIX 時間戳記。
 
-	Example::
+	範例
+	::
 
 		$unix = mysql_to_unix('20061124092345');
 
-.. function:: unix_to_human([$time = ''[, $seconds = FALSE[, $fmt = 'us']]])
+.. php:function:: unix_to_human([$time = ''[, $seconds = FALSE[, $fmt = 'us']]])
 
-	:param	int	$time: UNIX timestamp
-	:param	bool	$seconds: Whether to show seconds
-	:param	string	$fmt: format (us or euro)
-	:returns:	Formatted date
-	:rtype:	string
+	:param	int	$time: UNIX 時間戳記
+	:param	bool	$seconds: 是否顯示秒數
+	:param	string	$fmt: 格式（美規或歐規）
+	:returns:	已格式化的日期
+	:rtype:	字串
 
-	Takes a UNIX timestamp as input and returns it in a human readable
-	format with this prototype::
+	輸入 UNIX 時間戳記後將回傳可清楚識別的時間字串，格式如下：
+	::
 
 		YYYY-MM-DD HH:MM:SS AM/PM
 
-	This can be useful if you need to display a date in a form field for
-	submission.
+	如果你需要在表單欄位中顯示日期的話，這個函式將會相當有用。
 
-	The time can be formatted with or without seconds, and it can be set to
-	European or US format. If only the timestamp is submitted it will return
-	the time without seconds formatted for the U.S.
+	你可以選擇顯示或隱藏秒數，同時可以被設定成歐規或美規，如果只送出時間戳記，預設將會回傳秒數隱藏而且是美規的時間。
 
-	Examples::
+	範例
+	::
 
 		$now = time();
-		echo unix_to_human($now); // U.S. time, no seconds
-		echo unix_to_human($now, TRUE, 'us'); // U.S. time with seconds
-		echo unix_to_human($now, TRUE, 'eu'); // Euro time with seconds
+		echo unix_to_human($now); // 美規時間秒數隱藏
+		echo unix_to_human($now, TRUE, 'us'); // 美規時間秒數顯示
+		echo unix_to_human($now, TRUE, 'eu'); // 歐規時間秒數顯示
 
-.. function:: human_to_unix([$datestr = ''])
+.. php:function:: human_to_unix([$datestr = ''])
 
-	:param	int	$datestr: Date string
-	:returns:	UNIX timestamp or FALSE on failure
-	:rtype:	int
+	:param	int	$datestr: 日期字串
+	:returns:	UNIX 時間戳記或失敗時回傳 FALSE
+	:rtype:	整數
 
-	The opposite of the :func:`unix_to_time()` function. Takes a "human"
-	time as input and returns it as a UNIX timestamp. This is useful if you
-	accept "human" formatted dates submitted via a form. Returns boolean FALSE
-	date string passed to it is not formatted as indicated above.
+	跟 :php:func:`unix_to_time()` 完全相反的函式，輸入人類可識別的時間格式後將回傳 UNIX 時間戳記，假設你需要透過表單讓使用者填寫日期的話，這個函式將會相當有用。 如果使用者輸入的日期格式並非如上一函式所述的話，將會回傳 FALSE。
 
-	Example::
+	範例
+	::
 
 		$now = time();
 		$human = unix_to_human($now);
 		$unix = human_to_unix($human);
 
-.. function:: nice_date([$bad_date = ''[, $format = FALSE]])
+.. php:function:: nice_date([$bad_date = ''[, $format = FALSE]])
 
-	:param	int	$bad_date: The terribly formatted date-like string
-	:param	string	$format: Date format to return (same as PHP's ``date()`` function)
-	:returns:	Formatted date
-	:rtype:	string
+	:param	int	$bad_date: 格式紊亂的類日期字串
+	:param	string	$format: 回傳的日期格式（就像使用 ``date()`` 函式一樣）
+	:returns:	已格式化的日期
+	:rtype:	字串
 
-	This function can take a number poorly-formed date formats and convert
-	them into something useful. It also accepts well-formed dates.
+	此函式可將一格式紊亂的日期字串轉成至少可以用的格式，當然它也還是接受符合標準格式的啦。
 
-	The function will return a UNIX timestamp by default. You can, optionally,
-	pass a format string (the same type as the PHP ``date()`` function accepts)
-	as the second parameter.
+	此函式預設將會回傳 UNIX 時間戳記，並且你可以選擇性地丟出時間格式（就像使用 ``date()`` 函式一樣）當作第二個參數。
 
-	Example::
+	範例
+	::
 
 		$bad_date = '199605';
 		// Should Produce: 1996-05-01
@@ -220,69 +206,66 @@ The following functions are available:
 		// Should Produce: 2001-09-11
 		$better_date = nice_date($bad_date, 'Y-m-d');
 
-.. function:: timespan([$seconds = 1[, $time = ''[, $units = '']]])
+.. php:function:: timespan([$seconds = 1[, $time = ''[, $units = '']]])
 
-	:param	int	$seconds: Number of seconds
-	:param	string	$time: UNIX timestamp
-	:param	int	$units: Number of time units to display
-	:returns:	Formatted time difference
-	:rtype:	string
+	:param	int	$seconds: 秒數
+	:param	string	$time: UNIX 時間戳記
+	:param	int	$units: 顯示的時間單位數量
+	:returns:	已格式化的不同時間
+	:rtype:	字串
 
-	Formats a UNIX timestamp so that is appears similar to this::
+	將 UNIX 時間戳記格式化後回傳的值如下
+	::
 
 		1 Year, 10 Months, 2 Weeks, 5 Days, 10 Hours, 16 Minutes
 
-	The first parameter must contain a UNIX timestamp.
-	The second parameter must contain a timestamp that is greater that the
-	first timestamp.
-	The thirdparameter is optional and limits the number of time units to display.
+	第一個參數必須包含 UNIX 時間戳記，第二個參數包含的時間戳記必須比第一個參數大，第三個參數選填且可以限制顯示的時間單位數量。
 
-	If the second parameter empty, the current time will be used.
+	如果第二個參數是空的，將會顯示現在時間。
 
-	The most common purpose for this function is to show how much time has
-	elapsed from some point in time in the past to now.
+	最常被用來顯示從過去某個時間點到現在總共經過多久時間。
 
-	Example::
+	範例
+	::
 
 		$post_date = '1079621429';
 		$now = time();
 		$units = 2;
 		echo timespan($post_date, $now, $units);
 
-	.. note:: The text generated by this function is found in the following language
-		file: `language/<your_lang>/date_lang.php`
+	.. 提醒:: 本函式所回傳的文字可以在此路徑的語言檔案中找到 `language/<your_lang>/date_lang.php`
 
-.. function:: days_in_month([$month = 0[, $year = '']])
+.. php:function:: days_in_month([$month = 0[, $year = '']])
 
-	:param	int	$month: a numeric month
-	:param	int	$year: a numeric year
-	:returns:	Count of days in the specified month
-	:rtype:	int
+	:param	int	$month: 數字化的月份
+	:param	int	$year: 數字化的年份
+	:returns:	在特定月份中的天數
+	:rtype:	整數
 
-	Returns the number of days in a given month/year. Takes leap years into
-	account.
+	輸入年月後回傳該月有幾天，含閏年計算。
 
-	Example::
+	範例
+	::
 
 		echo days_in_month(06, 2005);
 
-	If the second parameter is empty, the current year will be used.
+	如果第二個參數為空，則預設使用今年。
 
-	.. note:: This function will alias the native ``cal_days_in_month()``, if
-		it is available.
+	.. 提醒:: 這個函式是原生的 ``cal_days_in_month()`` 函式的別名，如果它可以使用的話啦。
 
-.. function:: date_range([$unix_start = ''[, $mixed = ''[, $is_unix = TRUE[, $format = 'Y-m-d']]]])
+.. php:function:: date_range([$unix_start = ''[, $mixed = ''[, $is_unix = TRUE[, $format = 'Y-m-d']]]])
 
-	:param	int	$unix_start: UNIX timestamp of the range start date
-	:param	int	$mixed: UNIX timestamp of the range end date or interval in days
-	:param	bool	$is_unix: set to FALSE if $mixed is not a timestamp
-	:param	string	$format: Output date format, same as in ``date()``
-	:returns:	An array of dates
-	:rtype:	array
+	:param	int	$unix_start: 範圍內起始的 UNIX 時間戳記
+	:param	int	$mixed: 範圍內結束 UNIX 時間戳記或日期間隔
+	:param	bool	$is_unix: 如果 $mixed 不是時間戳記就設為 FALSE
+	:param	string	$format: 日期格式就如同在 ``date()`` 用的那樣
+	:returns:	日期陣列
+	:rtype:	陣列
 
-	Returns a list of dates within a specified period.
+	回傳在自訂時間內的日期陣列。
 
-	Example::
+	範例
+	::
 
 		$range = date_range('2012-01-01', '2012-01-15');
 		echo "First 15 days of 2012:";
@@ -291,33 +274,32 @@ The following functions are available:
 			echo $date."\n";
 		}
 
-.. function:: timezones([$tz = ''])
+.. php:function:: timezones([$tz = ''])
 
-	:param	string	$tz: A numeric timezone
-	:returns:	Hour difference from UTC
-	:rtype:	int
+	:param	string	$tz: 時區代號
+	:returns:	與 UTC 差距多少小時
+	:rtype:	整數
 
-	Takes a timezone reference (for a list of valid timezones, see the
-	"Timezone Reference" below) and returns the number of hours offset from
-	UTC.
+	輸入時區代號（參考最下方列表）後將回傳與 UTC 差距多少小時。
 
-	Example::
+	範例
+	::
 
 		echo timezones('UM5');
 
 
-	This function is useful when used with :func:`timezone_menu()`.
+	很適用於會用到 :php:func:`timezone_menu()` 的時機。
 
-.. function:: timezone_menu([$default = 'UTC'[, $class = ''[, $name = 'timezones'[, $attributes = '']]]])
+.. php:function:: timezone_menu([$default = 'UTC'[, $class = ''[, $name = 'timezones'[, $attributes = '']]]])
 
-	:param	string	$default: Timezone
-	:param	string	$class: Class name
-	:param	string	$name: Menu name
-	:param	mixed	$attributes: HTML attributes
-	:returns:	HTML drop down menu with time zones
-	:rtype:	string
+	:param	string	$default: 時區
+	:param	string	$class: 下拉選單的 CSS Class name
+	:param	string	$name: 下拉選單的 Name
+	:param	mixed	$attributes: HTML 屬性
+	:returns:	包含時區訊息的 HTML 下拉選單
+	:rtype:	字串
 
-	Generates a pull-down menu of timezones, like this one:
+	產生一個可以選時區的下拉選單，結果如下：
 
 	.. raw:: html
 
@@ -357,7 +339,7 @@ The following functions are available:
 				<option value='UP95'>(UTC +9:30) Australian Central Standard Time</option>
 				<option value='UP10'>(UTC +10:00) Australian Eastern Standard Time, Vladivostok Time</option>
 				<option value='UP105'>(UTC +10:30) Lord Howe Island</option>
-				<option value='UP11'>(UTC +11:00) Magadan Time, Solomon Islands, Vanuatu</option>
+				<option value='UP11'>(UTC +11:00) Srednekolymsk Time, Solomon Islands, Vanuatu</option>
 				<option value='UP115'>(UTC +11:30) Norfolk Island</option>
 				<option value='UP12'>(UTC +12:00) Fiji, Gilbert Islands, Kamchatka Time, New Zealand Standard Time</option>
 				<option value='UP1275'>(UTC +12:45) Chatham Islands Standard Time</option>
@@ -367,32 +349,30 @@ The following functions are available:
 		</form>
 
 
-	This menu is useful if you run a membership site in which your users are
-	allowed to set their local timezone value.
+	如果你有個具備會員系統的網站，且允許使用者設置各自的時區，這個下拉選單將會非常好用。
 
-	The first parameter lets you set the "selected" state of the menu. For
-	example, to set Pacific time as the default you will do this::
+	第一個參數讓你設定預設時區，舉例來說你要設定太平洋時間為預設值的話可以這麼寫：
+	::
 
 		echo timezone_menu('UM8');
 
-	Please see the timezone reference below to see the values of this menu.
+	當然也請參考下方的時區列表。
 
-	The second parameter lets you set a CSS class name for the menu.
+	第二個參數讓你設定選單的 CSS Class name。
 
-	The fourth parameter lets you set one or more attributes on the generated select tag.
+	第四個參數讓你可以在下拉選單的標籤中額外添加屬性。
 
-	.. note:: The text contained in the menu is found in the following
-		language file: `language/<your_lang>/date_lang.php`
+	.. 提醒:: 選單中顯示的文字可以在此路徑的語言檔案中找到：`language/<your_lang>/date_lang.php`
 
-Timezone Reference
+Timezone 參考列表
 ==================
 
-The following table indicates each timezone and its location.
+下方的表格包含所有時區以及其相關地點。
 
-Note some of the location lists have been abridged for clarity and formatting.
+提醒一下，列表有些地點為了格式化有稍作修減。
 
 ===========     =====================================================================
-Time Zone       Location
+時區       地點
 ===========     =====================================================================
 UM12            (UTC - 12:00) Baker/Howland Island
 UM11            (UTC - 11:00) Samoa Time Zone, Niue
@@ -400,7 +380,7 @@ UM10            (UTC - 10:00) Hawaii-Aleutian Standard Time, Cook Islands
 UM95            (UTC - 09:30) Marquesas Islands
 UM9             (UTC - 09:00) Alaska Standard Time, Gambier Islands
 UM8             (UTC - 08:00) Pacific Standard Time, Clipperton Island
-UM7             (UTC - 11:00) Mountain Standard Time
+UM7             (UTC - 07:00) Mountain Standard Time
 UM6             (UTC - 06:00) Central Standard Time
 UM5             (UTC - 05:00) Eastern Standard Time, Western Caribbean
 UM45            (UTC - 04:30) Venezuelan Standard Time
@@ -428,7 +408,7 @@ UP9             (UTC +9:00) Japan Standard Time, Korea Standard Time, Yakutsk
 UP95            (UTC +9:30) Australian Central Standard Time
 UP10            (UTC +10:00) Australian Eastern Standard Time, Vladivostok Time
 UP105           (UTC +10:30) Lord Howe Island
-UP11            (UTC +11:00) Magadan Time, Solomon Islands, Vanuatu
+UP11            (UTC +11:00) Srednekolymsk Time, Solomon Islands, Vanuatu
 UP115           (UTC +11:30) Norfolk Island
 UP12            (UTC +12:00) Fiji, Gilbert Islands, Kamchatka, New Zealand
 UP1275          (UTC +12:45) Chatham Islands Standard Time

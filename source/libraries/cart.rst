@@ -1,18 +1,14 @@
-###################
-Shopping Cart Class
-###################
+##########
+購物車類別
+##########
 
-The Cart Class permits items to be added to a session that stays active
-while a user is browsing your site. These items can be retrieved and
-displayed in a standard "shopping cart" format, allowing the user to
-update the quantity or remove items from the cart.
+當消費者在瀏覽你的網頁時，購物車類別讓商品可以加入購物車中。
+這些項目被檢視並顯示在標準的購物車模式中，允許消費者更新數量或移除商品。
 
-.. important:: The Card library is DEPRECATED and should not be used. 
-	It is currently only kept for backwards compatibility.
+.. 重要:: 購物車函式庫 (Cart library) 是不適用的。
+   現在只用於回溯相容 (backwards compatibility)。
 
-Please note that the Cart Class ONLY provides the core "cart"
-functionality. It does not provide shipping, credit card authorization,
-or other processing components.
+請注意，購物車僅提供購物車的函數功能。並沒有提供運送、信用卡授權或其他項目處理。
 
 .. contents::
   :local:
@@ -21,39 +17,32 @@ or other processing components.
 
   <div class="custom-index container"></div>
 
-********************
-Using the Cart Class
-********************
+**************
+使用購物車類別
+**************
 
-Initializing the Shopping Cart Class
-====================================
+初始化購物車類別
+================
 
-.. important:: The Cart class utilizes CodeIgniter's :doc:`Session
-	Class <sessions>` to save the cart information to a database, so
-	before using the Cart class you must set up a database table as
-	indicated in the :doc:`Session Documentation <sessions>`, and set the
-	session preferences in your application/config/config.php file to
-	utilize a database.
+.. 重要:: 購物車類別使用了 CodeIgniter 的 :doc:`Session Class <sessions>`，將購物資訊儲存於資料庫中，
+	  因此在使用購物車類別前你必須設定好資料庫，請參考 :doc:`Session Documentation <sessions>`，
+	  並且於 application/config/config.php 設定好相關內容。
 
-To initialize the Shopping Cart Class in your controller constructor,
-use the ``$this->load->library()`` method::
+使用 ``$this->load->library`` 函式，在控制器中初始化購物車類別::
 
 	$this->load->library('cart');
 
-Once loaded, the Cart object will be available using::
+載入一次後，購物車的物件使用如下::
 
 	$this->cart
 
-.. note:: The Cart Class will load and initialize the Session Class
-	automatically, so unless you are using sessions elsewhere in your
-	application, you do not need to load the Session class.
+.. 註記:: 購物車類別會自動下載並初始化 Session 類別，因此除非你在程式的其他地方有使用 Session，
+          否則並不需要讀取 Session 類別。
 
-Adding an Item to The Cart
-==========================
+在購物車中新增一個商品
+======================
 
-To add an item to the shopping cart, simply pass an array with the
-product information to the ``$this->cart->insert()`` method, as shown
-below::
+使用 ``$this->cart->insert`` 的方式，可以將商品資訊透過陣列放入，這樣就可以在購物車中新增商品。如下範例::
 
 	$data = array(
 		'id'      => 'sku_123ABC',
@@ -65,31 +54,23 @@ below::
 
 	$this->cart->insert($data);
 
-.. important:: The first four array indexes above (id, qty, price, and
-	name) are **required**. If you omit any of them the data will not be
-	saved to the cart. The fifth index (options) is optional. It is intended
-	to be used in cases where your product has options associated with it.
-	Use an array for options, as shown above.
+.. 重要:: 上面的前四組陣列索引都是必要的 (id, qty, price, and name)。
+ 	  少了其中一個則資料將不會被儲存在購物車中。
+ 	  第五個索引 (選用) 則非必要。當你商品有其他資訊需要被記錄，將其以陣列的方式儲存。
 
-The five reserved indexes are:
+五個索引的意思如下：
 
--  **id** - Each product in your store must have a unique identifier.
-   Typically this will be an "sku" or other such identifier.
--  **qty** - The quantity being purchased.
--  **price** - The price of the item.
--  **name** - The name of the item.
--  **options** - Any additional attributes that are needed to identify
-   the product. These must be passed via an array.
+-  **id** - 每個商品都必須要有一個唯一的辨識值。通常會指一個 sku，或是其他辨識值。
+-  **qty** - 購買數量。
+-  **price** - 商品價格。
+-  **name** - 商品名稱。
+-  **options** - 商品的其他附加資訊。必須使用陣列傳入。
 
-In addition to the five indexes above, there are two reserved words:
-rowid and subtotal. These are used internally by the Cart class, so
-please do NOT use those words as index names when inserting data into
-the cart.
+除了上述五個索引外，還有兩個保留字 (reserved words)：rowid 和 subtotal。
+這兩個適用於購物車類別的內部，因此請不要將這兩字做為索引名稱。
 
-Your array may contain additional data. Anything you include in your
-array will be stored in the session. However, it is best to standardize
-your data among all your products in order to make displaying the
-information in a table easier.
+你的陣列會包含附加的資訊。你陣列內的任何資訊都會被儲存於 session 中。
+最好的做法是在你的商品資訊中建立一套規則，如此一來將會更容易顯示你的商品資訊。
 
 ::
 
@@ -103,18 +84,13 @@ information in a table easier.
 
 	$this->cart->insert($data);
 
-The ``insert()`` method will return the $rowid if you successfully insert a
-single item.
+若你成功插入單一商品，``insert()`` 方法將會回傳 $rowid，也就是這項編號。
 
-Adding Multiple Items to The Cart
-=================================
+在購物車中新增多個商品
+======================
 
-By using a multi-dimensional array, as shown below, it is possible to
-add multiple products to the cart in one action. This is useful in cases
-where you wish to allow people to select from among several items on the
-same page.
-
-::
+透過使用多維陣列的方式，可以依次將多樣商品放置在購物車中。
+當你想讓消費者可以在同一頁中選擇多樣商品，此方式會相當實用。請參考以下::
 
 	$data = array(
 		array(
@@ -140,14 +116,11 @@ same page.
 
 	$this->cart->insert($data);
 
-Displaying the Cart
-===================
+顯示購物車
+==========
 
-To display the cart you will create a :doc:`view
-file </general/views>` with code similar to the one shown below.
-
-Please note that this example uses the :doc:`form
-helper </helpers/form_helper>`.
+為了顯示購物車，你會建立一個視圖檔 :doc:`view file </general/views>`，如同以下範例：
+請注意，此範例使用了表單輔助函數 :doc:`form helper </helpers/form_helper>`。
 
 ::
 
@@ -204,15 +177,12 @@ helper </helpers/form_helper>`.
 
 	<p><?php echo form_submit('', 'Update your Cart'); ?></p>
 
-Updating The Cart
-=================
+更新購物車
+==========
 
-To update the information in your cart, you must pass an array
-containing the Row ID and one or more pre-defined properties to the 
-``$this->cart->update()`` method.
+為了更新購物車內的商品資訊，你必須透過 ``$this->cart->update()`` 的方式，傳送一個包含 Row ID 以及數量的陣列。
 
-.. note:: If the quantity is set to zero, the item will be removed from
-	the cart.
+.. 註記:: 若數量是設定為 0，則商品將會從購物車中移除。
 
 ::
 
@@ -223,7 +193,7 @@ containing the Row ID and one or more pre-defined properties to the
 
 	$this->cart->update($data);
 
-	// Or a multi-dimensional array
+	// 或是使用多維陣列來新增多筆
 
 	$data = array(
 		array(
@@ -242,8 +212,7 @@ containing the Row ID and one or more pre-defined properties to the
 
 	$this->cart->update($data);
 
-You may also update any property you have previously defined when
-inserting the item such as options, price or other custom fields.
+當插入一個商品時，你也可以更新之前定義的特性，例如選項、價格或是其他自定義範圍 (custom fields)。
 
 ::
 
@@ -256,143 +225,124 @@ inserting the item such as options, price or other custom fields.
 
 	$this->cart->update($data);
 
-What is a Row ID?
-*****************
-
-The row ID is a unique identifier that is generated by the cart code
-when an item is added to the cart. The reason a unique ID is created
-is so that identical products with different options can be managed
-by the cart.
-
-For example, let's say someone buys two identical t-shirts (same product
-ID), but in different sizes. The product ID (and other attributes) will
-be identical for both sizes because it's the same shirt. The only
-difference will be the size. The cart must therefore have a means of
-identifying this difference so that the two sizes of shirts can be
-managed independently. It does so by creating a unique "row ID" based on
-the product ID and any options associated with it.
-
-In nearly all cases, updating the cart will be something the user does
-via the "view cart" page, so as a developer, it is unlikely that you
-will ever have to concern yourself with the "row ID", other than making
-sure your "view cart" page contains this information in a hidden form
-field, and making sure it gets passed to the ``update()`` method when
-the update form is submitted. Please examine the construction of the
-"view cart" page above for more information.
-
-
-***************
-Class Reference
+什麼是 Row ID？
 ***************
 
-.. class:: CI_Cart
+Row ID 當你將商品加入購物車時產生的一個唯一值。
+這樣一來，同樣商品但不同選項的物品就能在購物車中被管理。
+
+舉例來說，若有人買了兩件不同尺寸但款式一樣的 T-shirts (相同商品 ID)。
+因為是同樣的商品，所以商品 ID 將會判定成相同的商品編號。
+因此，購物車必須根據商品 ID 以及其他相關選項，提供每個商品唯一的 Row ID 來作區別。
+
+一般而言，消費者會透過 "檢視購物車" 頁面，來更新購物車資訊。
+因此身為開發人員，你必須確定 Row ID 有隱藏在你的 "檢視購物車" 頁面中，
+並且確保當更新表單被提交時，它會通過 ``update()`` 方法來更新購物車。
+更多資訊請參考以上的"檢視購物車"頁面。
+
+
+********
+類別參考
+********
+
+.. php:class:: CI_Cart
 
 	.. attribute:: $product_id_rules = '\.a-z0-9_-'
-
-		These are the regular expression rules that we use to validate the product
-		ID - alpha-numeric, dashes, underscores, or periods by default
+		
+		這些是我們用來驗證商品 ID 的固定表達規則－－預設為字母數字、破折號、底線及句號。
 
 	.. attribute:: $product_name_rules	= '\w \-\.\:'
-
-		These are the regular expression rules that we use to validate the product ID and product name - alpha-numeric, dashes, underscores, colons or periods by
-		default
-
+		
+		這些是我們用來驗種商品 ID 及商品名稱的固定表達規則－－預設為字母數字、破折號、底線、分號及句號。
+		
 	.. attribute:: $product_name_safe = TRUE
 
-		Whether or not to only allow safe product names. Default TRUE.
+		是否只允許安全商品名稱，預設為 TRUE。
 
+	.. php:method:: insert([$items = array()])
 
-	.. method:: insert([$items = array()])
-
-		:param	array	$items: Items to insert into the cart
-		:returns:	TRUE on success, FALSE on failure
+		:param	array	$items: 加入購物車的商品
+		:returns:	成功則為　TRUE，失敗則為 FALSE
 		:rtype:	bool
 
-		Insert items into the cart and save it to the session table. Returns TRUE
-		on success and FALSE on failure.
+		在購物車中加入商品，並存入 Session 表格。成功則為 TRUE，失敗則為 FALSE。
 
+	.. php:method:: update([$items = array()])
 
-	.. method:: update([$items = array()])
-
-		:param	array	$items: Items to update in the cart
-		:returns:	TRUE on success, FALSE on failure
+		:param	array	$items: 購物車中更新的商品
+		:returns:	成功則為 TRUE，失敗則為 FALSE。
 		:rtype:	bool
 
-		This method permits changing the properties of a given item.
-		Typically it is called from the "view cart" page if a user makes changes
-		to the quantity before checkout. That array must contain the rowid
-		for each item.
+		此方法允許更改商品的特性。
+		一般來說若消費者在確認前修改商品數量，會從 "檢視購物車頁面" 中叫出。
+		此陣列中的每個商品必須包含 rowid。
 
-	.. method:: remove($rowid)
+	.. php:method:: remove($rowid)
 
-		:param	int	$rowid: ID of the item to remove from the cart
-		:returns:	TRUE on success, FALSE on failure
+		:param	int	$rowid: 移除購物車中的商品 rowid
+		:returns:	成功則為 TRUE，失敗則為 FALSE。
 		:rtype:	bool
 
-		Allows you to remove an item from the shopping cart by passing it the
-		``$rowid``.
+		允許你透過傳送 ``$rowid`` 移除購物車中的商品。
 
-	.. method:: total()
+	.. php:method:: total()
 
-		:returns:	Total amount
+		:returns:	總金額
 		:rtype:	int
 
-		Displays the total amount in the cart.
+		在購物車中顯示總金額。
 
 
-	.. method:: total_items()
+	.. php:method:: total_items()
 
-		:returns:	Total amount of items in the cart
+		:returns:	購物車中項目的總數量
 		:rtype:	int
 
-		Displays the total number of items in the cart.
+		在購物車中顯示總數量。
 
 
-	.. method:: contents([$newest_first = FALSE])
+	.. php:method:: contents([$newest_first = FALSE])
 
-		:param	bool	$newest_first: Whether to order the array with newest items first
-		:returns:	An array of cart contents
+		:param	bool	$newest_first: 是否將最新商品排在前面
+		:returns:	購物車的陣列
+		:rtype:	array
+		
+		回傳購物車內所有東西的陣列。你可以從最新到最舊分類訂單，否則他將會從最舊到最新排序。
+
+	.. php:method:: get_item($row_id)
+
+		:param	int	$row_id: 欲取得的 Row ID
+		:returns:	商品資訊的陣列
 		:rtype:	array
 
-		Returns an array containing everything in the cart. You can sort the
-		order by which the array is returned by passing it TRUE where the contents
-		will be sorted from newest to oldest, otherwise it is sorted from oldest
-		to newest.
+		回傳吻合特定 Row ID 的商品陣列，若顯示 FALSE 則此商品不存在。
 
-	.. method:: get_item($row_id)
+	.. php:method:: has_options($row_id = '')
 
-		:param	int	$row_id: Row ID to retrieve
-		:returns:	Array of item data
-		:rtype:	array
-
-		Returns an array containing data for the item matching the specified row
-		ID, or FALSE if no such item exists.
-
-	.. method:: has_options($row_id = '')
-
-		:param	int	$row_id: Row ID to inspect
-		:returns:	TRUE if options exist, FALSE otherwise
+		:param	int	$row_id: 欲檢查的 Row ID
+		:returns:	存在返回 TRUE，不存在為 FALSE
 		:rtype:	bool
 
-		Returns TRUE (boolean) if a particular row in the cart contains options.
-		This method is designed to be used in a loop with ``contents()``, since
-		you must pass the rowid to this method, as shown in the Displaying
-		the Cart example above.
-
-	.. method:: product_options([$row_id = ''])
+		若是購物車內的特定資料含有選項，則顯示 TRUE(布林值)
+		。此方法使用於含有 ``contents()``的函數中，你必須傳送 Rowid，
+		可參考上述 "顯示購物車" 中的範例。
+		
+		如果該項目有設定附加資訊 (options) 的選項，則返回 TRUE (布林值)。
+		這個方式的設計，你必須傳送 rowid 到這個方法，同時也可與 ``contents()`` 做循環 (loop) 使用，
+		可參考上述 "顯示購物車" 中的範例。
+		
+	.. php:method:: product_options([$row_id = ''])
 
 		:param	int	$row_id: Row ID
-		:returns:	Array of product options
+		:returns:	附加資訊的陣列
 		:rtype:	array
 
-		Returns an array of options for a particular product. This method is
-		designed to be used in a loop with ``contents()``, since you
-		must pass the rowid to this method, as shown in the Displaying the
-		Cart example above.
+		回傳購物車內的特定商品的附加資訊 (options) 陣列。
+		這個方式的設計，你必須傳送 rowid 到這個方法，同時也可與 ``contents()`` 做循環 (loop) 使用，
+		可參考上述 "顯示購物車" 中的範例。
 
-	.. method:: destroy()
+	.. php:method:: destroy()
 
 		:rtype: void
 
-		Permits you to destroy the cart. This method will likely be called
-		when you are finished processing the customer's order.
+		當消費者購物完畢時，允許你清空購物車。

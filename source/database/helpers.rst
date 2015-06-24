@@ -1,89 +1,91 @@
-####################
-Query Helper Methods
-####################
+############
+查詢補助函式
+############
 
-Information From Executing a Query
-==================================
+獲取查詢執行的資訊
+==================
 
 **$this->db->insert_id()**
 
-The insert ID number when performing database inserts.
+進行資料庫插入時的插入ID數字。
 
-.. note:: If using the PDO driver with PostgreSQL, or using the Interbase
-	driver, this function requires a $name parameter, which specifies the 
-	appropriate sequence to check for the insert id.
+.. note:: 如果使用了 PDO 驅動連接 PostgreSQL 或是使用 InterBase 驅動程式，這個函式會需要一個 $name 參數，用來指定適當的序列來檢查插入的 id 。
 
 **$this->db->affected_rows()**
 
-Displays the number of affected rows, when doing "write" type queries
-(insert, update, etc.).
+顯示會執行 "寫入" 類型的查詢所影響的列數（ insert, update 等）。
 
-.. note:: In MySQL "DELETE FROM TABLE" returns 0 affected rows. The database
-	class has a small hack that allows it to return the correct number of
-	affected rows. By default this hack is enabled but it can be turned off
-	in the database driver file.
+.. note:: 在 MySQL ， "DELETE FROM TABLE" 回傳受影響的列數會是 0 。資料庫類別做了一點小 hack ，讓他可以傳回正確的數字。預設這個 hack 是開啟的，不過也可以從資料庫驅動程式檔案中將它關閉。
 
 **$this->db->last_query()**
 
-Returns the last query that was run (the query string, not the result).
-Example::
+回傳最近一次執行的查詢（查詢字串，不是查詢結果）。
+例如：
+
+::
 
 	$str = $this->db->last_query();
 	
-	// Produces:  SELECT * FROM sometable....
+	// 產生： SELECT * FROM sometable....
 
 
-.. note:: Disabling the **save_queries** setting in your database
-	configuration will render this function useless.
+.. note:: 在資料庫設定中取消 **save_queries** 設定，會使這個函式失效
 
-Information About Your Database
-===============================
+取得資料庫的資訊
+================
 
 **$this->db->count_all()**
 
-Permits you to determine the number of rows in a particular table.
-Submit the table name in the first parameter. Example::
+讓你可以確知一個資料表中資料的列數。使用資料表名稱作為第一個參數。例如：
+
+::
 
 	echo $this->db->count_all('my_table');
 	
-	// Produces an integer, like 25
+	// 產生一個整數，像是 25
 
 **$this->db->platform()**
 
-Outputs the database platform you are running (MySQL, MS SQL, Postgres,
-etc...)::
+輸出目前在運行的資料庫平台（ MySQL, MS SQL, Postgres 等）：
+
+::
 
 	echo $this->db->platform();
 
 **$this->db->version()**
 
-Outputs the database version you are running::
+輸出目前在運行的資料庫版本：
+
+::
 
 	echo $this->db->version();
 
-Making Your Queries Easier
-==========================
+讓查詢更容易
+============
 
 **$this->db->insert_string()**
 
-This function simplifies the process of writing database inserts. It
-returns a correctly formatted SQL insert string. Example::
+這個函式簡化了插入資料到資料庫的過程。它會回傳一個正確格式的 SQL 插入字串。例如：
+
+::
 
 	$data = array('name' => $name, 'email' => $email, 'url' => $url);
 	
 	$str = $this->db->insert_string('table_name', $data);
 
-The first parameter is the table name, the second is an associative
-array with the data to be inserted. The above example produces::
+第一個參數是資料表名稱，第二個參數是要插入資料的關聯陣列。上面的例子會產生：
+
+::
 
 	INSERT INTO table_name (name, email, url) VALUES ('Rick', 'rick@example.com', 'example.com')
 
-.. note:: Values are automatically escaped, producing safer queries.
+.. note:: 值會被自動跳脫，以產生較安全的查詢。
 
 **$this->db->update_string()**
 
-This function simplifies the process of writing database updates. It
-returns a correctly formatted SQL update string. Example::
+這個函式簡化了撰寫資料庫更新的過程。它會回傳一個正確格式的 SQL 更新字串。例如：
+
+::
 
 	$data = array('name' => $name, 'email' => $email, 'url' => $url);
 	
@@ -91,10 +93,10 @@ returns a correctly formatted SQL update string. Example::
 	
 	$str = $this->db->update_string('table_name', $data, $where);
 
-The first parameter is the table name, the second is an associative
-array with the data to be updated, and the third parameter is the
-"where" clause. The above example produces::
+第一個參數是資料表名稱，第二個參數是要更新資料的關連陣列，第三個則是 "where" 子句。上面的例子會產生：
+
+::
 
 	 UPDATE table_name SET name = 'Rick', email = 'rick@example.com', url = 'example.com' WHERE author_id = 1 AND status = 'active'
 
-.. note:: Values are automatically escaped, producing safer queries.
+.. note:: 值會被自動跳脫，以產生較安全的查詢。

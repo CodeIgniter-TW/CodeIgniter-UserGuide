@@ -12,7 +12,7 @@ get_instance()
 
 	:returns:	object of class CI_Controller
 
-**所有在你的控制器（Controller）方法裡已經實力化的類別即可存取 Codeigniter 本地的資源** 簡單地通過使用 ``get_instance()`` 函數。這個函數回傳 Codeigniter 主物件。
+**所有在你的控制器（Controller）方法裡已經實例化的類別即可存取 Codeigniter 本地的資源** 簡單地通過使用 ``get_instance()`` 函數。這個函數回傳 Codeigniter 主物件。
 
 一般來說，要呼叫 Codeigniter 的方法，你會使用 ``$this``： ::
 

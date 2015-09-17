@@ -2,8 +2,13 @@
 下載 CodeIgniter
 #######################
 
--  `CodeIgniter v3.0.0 (目前版本) <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.0.0>`_
--  `CodeIgniter v2.2.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.0>`_ (MD5 Checksum: dbfddde4ec0b12027aee5156fbdd634b)
+-  `CodeIgniter v3.0.1 (目前版本) <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.0.1>`_
+-  `CodeIgniter v3.0.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.0.0>`_
+-  `CodeIgniter v2.2.4 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.4>`_
+-  `CodeIgniter v2.2.3 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.3>`_
+-  `CodeIgniter v2.2.2 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.2>`_
+-  `CodeIgniter v2.2.1 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.1>`_
+-  `CodeIgniter v2.2.0 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.2.0>`_
 -  `CodeIgniter v2.1.4 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.4>`_ (MD5 Checksum: e74a296c1d412a855c025b9cd468a513)
 -  `CodeIgniter v2.1.3 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.3>`_ (MD5 Checksum: 781d06be06eaa36f10759ef82c8594d5)
 -  `CodeIgniter v2.1.2 <http://codeigniter.org.tw/downloads/file/CodeIgniter_2.1.2>`_ (MD5 Checksum: c7a2980dff2774c97bd38bfbf450d8d5)

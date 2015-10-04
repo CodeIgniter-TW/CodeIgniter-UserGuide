@@ -105,7 +105,7 @@
 ::
 
 	<h2><?php echo $title ?></h2>
-	
+
 	<?php foreach ($news as $news_item): ?>
 
 		<h3><?php echo $news_item['title'] ?></h3>
@@ -116,7 +116,7 @@
 
 	<?php endforeach ?>
 
-這邊我們輪詢每個新聞項目並顯示給使用者。你可以看到我們用 PHP 混合了 HTML 做成模板。 如果你喜歡使用模板語言，你可以使用 CodeIgniter 的 `模板解析器 <../libraries/parser>`_ 或其它第三方解析器。
+這邊我們輪詢每個新聞項目並顯示給使用者。你可以看到我們用 PHP 混合了 HTML 做成模板。 如果你喜歡使用模板語言，你可以使用 CodeIgniter 的 `模板解析器 <../libraries/parser.html>`_ 或其它第三方解析器。
 
 新聞總覽頁面現在已經完成了，但是還缺了一個頁面用來顯示個別的新聞。剛剛建立的模型設計成可以輕易的達成這個功能。 你只需要在控制器增加一些程式並新增一個檢視。回到 news 控制器並更新方法 ``view()`` 加入下列程式碼。
 

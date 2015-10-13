@@ -18,8 +18,6 @@
 
 在 application/controllers/Pages.php 創建一個檔案，填入下面的程式。
 
-::
-
 	<?php 
 	class Pages extends CI_Controller { 
 
@@ -36,8 +34,6 @@
 
 在 application/views/templates/header.php 建立 header 並且加入以下的程式碼::
 
-::
-
 	<html>
 		<head>
 			<title>CodeIgniter Tutorial</title>
@@ -48,7 +44,6 @@
 
 這個 header 放的是你想要在主畫面之前顯示的基本 HTML 代碼，裡面包含了 HTML head。 它也顯示了 $title 變數，我們待會會在控制器中定義它。 現在在 application/views/templates/footer.php 建立 footer 檔案，裡面包含下列代碼:
 
-::
 
 			<em>&copy; 2015</em>
 		</body>
@@ -62,8 +57,6 @@
 在那個資料夾裡，建立兩個檔案並命名為 home.php 以及 about.php 。在這兩個檔案裡打一些字−隨便你想打什麼−然後存檔。如果你喜歡老套的，就放"Hello World!"。
 
 在讀取這些頁面之前，你必須去確認所要求的頁面是存在的:
-
-::
 
 	public function view($page = 'home')
 	{

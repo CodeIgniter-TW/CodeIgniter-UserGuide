@@ -11,7 +11,7 @@
 ``http://example.com/[controller-class]/[controller-method]/[arguments]`` 
 當 URL 變得更複雜時這可能會改變。但目前來說這就是我們所需要知道的全部了。
 
-在 application/controllers/pages.php 創建一個檔案，填入下面的程式::
+在 application/controllers/Pages.php 創建一個檔案，填入下面的程式::
 
     <?php 
     class Pages extends CI_Controller { 

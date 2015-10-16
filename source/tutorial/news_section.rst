@@ -9,7 +9,7 @@
 
 我們將資料庫操作放在模型裡面，而不是控制器當中，這樣子方便我們之後重用這些程式。 模型是你用來讀取、新增以及更新資訊的地方，不論是從資料庫或其它存放資料處。它們代表著你的資料。
 
-打開 application/models 資料夾，新增一個檔案名為 news_model.php 並加上下列程式碼。 確認你正確的設定了你的資料庫，就像 `這份文件 <../database/configuration.html>`_. 裡所描述的那樣。
+打開 application/models 資料夾，新增一個檔案名為 News_model.php 並加上下列程式碼。 確認你正確的設定了你的資料庫，就像 `這份文件 <../database/configuration.html>`_. 裡所描述的那樣。
 
 
 ::

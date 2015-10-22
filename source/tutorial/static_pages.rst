@@ -7,23 +7,28 @@
 你要做的第一件事情是設置一個 **控制器（Controller）** 來處理靜態頁面。控制器是一個簡單的類別來幫助委派工作。它是你的網頁應用程式中的膠水。
 
 例如，當瀏覽器發出一個請求給:
-``http://example.com/news/latest/10`` 我們可以想像那邊有個控制器名為 "news" 。而 news 控制器將會被呼叫的方法(method)為 "latest" 。 這個 latest 方法的工作可能是抓取十個新聞項目，並顯示在頁面上。這在 MVC 中很常見，你看到的 URL 格式將會是這樣:
-``http://example.com/[controller-class]/[controller-method]/[arguments]`` 
+
+	http://example.com/news/latest/10
+
+我們可以想像那邊有個控制器名為 "news" 。而 news 控制器將會被呼叫的方法(method)為 "latest" 。 這個 latest 方法的工作可能是抓取十個新聞項目，並顯示在頁面上。這在 MVC 中很常見，你看到的 URL 格式將會是這樣:
+
+	http://example.com/[controller-class]/[controller-method]/[arguments]
+
 當 URL 變得更複雜時這可能會改變。但目前來說這就是我們所需要知道的全部了。
 
-在 application/controllers/pages.php 創建一個檔案，填入下面的程式::
+在 application/controllers/Pages.php 創建一個檔案，填入下面的程式。
 
-    <?php 
-    class Pages extends CI_Controller { 
+::
 
-        public function view($page = 'home') 
-        {
-	
-        }
-		 
-    }
+	<?php 
+	class Pages extends CI_Controller { 
 
-你創建了一個類別名為 "pages" ，並且有一個view方法，接受一個參數名為 $page 。這個 pages 類別繼承了 CI_Controller 類別。 代表這個新的 pages 類別可以存取在 CI_Controller 類別（system/core/Controller.php）中定義的方法以及變數。
+		public function view($page = 'home') 
+		{
+	        }
+	}
+
+你創建了一個類別名為 ``pages``，並且有一個view方法，接受一個參數名為 $page 。這個 pages 類別繼承了 CI_Controller 類別。 代表這個新的 pages 類別可以存取在 CI_Controller 類別（system/core/Controller.php）中定義的方法以及變數。
 
 對你的網頁應用程式而言， **控制器將會成為所有請求的中心** 。用 CodeIgniter 的術語來說，它可以做為超級物件來使用。 就像所有的 php 類別，你在你的控制器中可以使用 $this 來存取它。並且，當你要載入程式庫，載入檢視以及控制 CodeIgniter 時，也是使用 $this 來做。
 
@@ -31,21 +36,21 @@
 
 在 application/views/templates/header.php 建立 header 並且加入以下的程式碼::
 
-    <html>
-        <head>
-            <title>CodeIgniter Tutorial</title>
-        </head>
-        <body>
+	<html>
+		<head>
+			<title>CodeIgniter Tutorial</title>
+		</head>
+		<body>
 
-            <h1>CodeIgniter Tutorial</h1>
+			<h1><?php echo $title; ?></h1>
 
 這個 header 放的是你想要在主畫面之前顯示的基本 HTML 代碼，裡面包含了 HTML head。 它也顯示了 $title 變數，我們待會會在控制器中定義它。 現在在 application/views/templates/footer.php 建立 footer 檔案，裡面包含下列代碼:
 
 ::
 
-            <em>&copy; 2014</em>
-        </body>
-    <html>
+			<em>&copy; 2015</em>
+		</body>
+	</html>
 
 在控制器（Controller）中增加邏輯
 ------------------------------
@@ -58,23 +63,20 @@
 
 ::
 
-    <?php 
-    public function view($page = 'home')
-    {
-                
-        if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
-        {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-        
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        
-        $this->load->view('templates/header', $data);
-        $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer', $data);
+	public function view($page = 'home')
+	{
+	        if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
+		{
+			// Whoops, we don't have a page for that!
+			show_404();
+		}
 
-    }
+		$data['title'] = ucfirst($page); // Capitalize the first letter
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('pages/'.$page, $data);
+		$this->load->view('templates/footer', $data);
+	}
 
 現在，當頁面存在時，它將會被讀取然後顯示給使用者，包含了 header 與 footer 。如果頁面不存在，將會顯示錯誤訊息"404 Page not found"。
 

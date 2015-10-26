@@ -1,12 +1,12 @@
-#############################
-Upgrading from 2.2.x to 3.0.x
-#############################
+#####################
+從 2.2.x 升級到 3.0.0
+#####################
 
-Before performing an update you should take your site offline by replacing the index.php file with a static one.
+在執行升級之前，你應該更換 index.php 為靜態檔案，將網站導向此靜態網頁。
 
-*************************************
-Step 1: Update your CodeIgniter files
-*************************************
+*********************************
+步驟 1: 更新網站 CodeIgniter 檔案
+*********************************
 
 **Replace** all files and directories in your *system/* directory and
 replace your index.php file. If any modifications were made to your
@@ -20,7 +20,7 @@ index.php they will need to be made fresh in this new one.
 	make copies of them first.
 
 **************************************
-Step 2: Update your classes file names
+步驟 2: Update your classes file names
 **************************************
 
 Starting with CodeIgniter 3.0, all class filenames (libraries, drivers, controllers
@@ -61,21 +61,21 @@ You must now follow just one simple rule - class names in Ucfirst and everything
 in lowercase.
 
 ********************************
-Step 3: Replace config/mimes.php
+步驟 3: Replace config/mimes.php
 ********************************
 
 This config file has been updated to contain more user mime-types, please copy
 it to _application/config/mimes.php*.
 
 **************************************************************
-Step 4: Remove $autoload['core'] from your config/autoload.php
+步驟 4: Remove $autoload['core'] from your config/autoload.php
 **************************************************************
 
 Use of the ``$autoload['core']`` config array has been deprecated as of CodeIgniter 1.4.1 and is now removed.
 Move any entries that you might have listed there to ``$autoload['libraries']`` instead.
 
 ***************************************************
-Step 5: Move your Log class overrides or extensions
+步驟 5: Move your Log class overrides or extensions
 ***************************************************
 
 The Log Class is considered as a "core" class and is now located in the
@@ -86,7 +86,7 @@ or extensions to work, you need to move them to **application/core/**:
 	application/libraries/MY_Log.php -> application/core/MY_Log.php
 
 *****************************************
-Step 6: Update your Session library usage
+步驟 6: Update your Session library usage
 *****************************************
 
 The :doc:`Session Library </libraries/sessions>` has been completely
@@ -190,7 +190,7 @@ the *application/libraries/Session/* directory, although chances are that
 it will now also have to be re-factored.
 
 ***************************************
-Step 7: Update your config/database.php
+步驟 7: Update your config/database.php
 ***************************************
 
 Due to 3.0.0's renaming of Active Record to Query Builder, inside your
@@ -202,7 +202,7 @@ variable to ``$query_builder``::
 	$query_builder = TRUE;
 
 ************************************
-Step 8: Replace your error templates
+步驟 8: Replace your error templates
 ************************************
 
 In CodeIgniter 3.0, the error templates are now considered as views and have been moved to the
@@ -215,7 +215,7 @@ It is safe to move your old templates from _application/errors* to _application/
 but you'll have to copy the new _application/views/errors/cli* directory from the CodeIgniter archive.
 
 ******************************************
-Step 9: Update your config/routes.php file
+步驟 9: Update your config/routes.php file
 ******************************************
 
 Routes containing :any
@@ -272,7 +272,7 @@ admin/ directory as well. If not found, it will fallback to the parent
 The same rule applies to the '404_override' setting.
 
 *************************************************************************
-Step 10: Many functions now return NULL instead of FALSE on missing items
+步驟 10: Many functions now return NULL instead of FALSE on missing items
 *************************************************************************
 
 Many methods and functions now return NULL instead of FALSE when the required items don't exist:
@@ -312,7 +312,7 @@ Many methods and functions now return NULL instead of FALSE when the required it
    - elements()
 
 *******************************
-Step 11: Usage of XSS filtering
+步驟 11: Usage of XSS filtering
 *******************************
 
 Many functions in CodeIgniter allow you to use its XSS filtering feature
@@ -343,7 +343,7 @@ Otherwise however, please review your usage of the following functions:
 	automatically overwritten when global XSS filtering is turned on.
 
 *************************************************
-Step 12: Check for potential XSS issues with URIs
+步驟 12: Check for potential XSS issues with URIs
 *************************************************
 
 The :doc:`URI Library <../libraries/uri>` used to automatically convert
@@ -359,7 +359,7 @@ filter URI segments through ``$this->security->xss_clean()`` whenever you
 output them.
 
 ****************************************************************
-Step 13: Check for usage of the 'xss_clean' Form validation rule
+步驟 13: Check for usage of the 'xss_clean' Form validation rule
 ****************************************************************
 
 A largely unknown rule about XSS cleaning is that it should *only be
@@ -380,7 +380,7 @@ If you really, really need to apply that rule, you should now also load the
 a validation rule.
 
 ********************************************************
-Step 14: Update usage of Input Class's get_post() method
+步驟 14: Update usage of Input Class's get_post() method
 ********************************************************
 
 Previously, the :doc:`Input Class <../libraries/input>` method ``get_post()``
@@ -391,14 +391,14 @@ A method has been added, ``post_get()``, which searches in POST then in GET, as
 ``get_post()`` was doing before.
 
 ********************************************************************
-Step 15: Update usage of Directory Helper's directory_map() function
+步驟 15: Update usage of Directory Helper's directory_map() function
 ********************************************************************
 
 In the resulting array, directories now end with a trailing directory
 separator (i.e. a slash, usually).
 
 *************************************************************
-Step 16: Update usage of Database Forge's drop_table() method
+步驟 16: Update usage of Database Forge's drop_table() method
 *************************************************************
 
 Up until now, ``drop_table()`` added an IF EXISTS clause by default or it didn't work
@@ -420,7 +420,7 @@ If your application relies on IF EXISTS, you'll have to change its usage.
 	all drivers with the exception of ODBC.
 
 ***********************************************************
-Step 17: Change usage of Email library with multiple emails
+步驟 17: Change usage of Email library with multiple emails
 ***********************************************************
 
 The :doc:`Email Library <../libraries/email>` will automatically clear the
@@ -435,7 +435,7 @@ pass FALSE as the first parameter in the ``send()`` method:
  	}
 
 ***************************************************
-Step 18: Update your Form_validation language lines
+步驟 18: Update your Form_validation language lines
 ***************************************************
 
 Two improvements have been made to the :doc:`Form Validation Library
@@ -466,7 +466,7 @@ files and error messages format:
 	later.
 
 ****************************************************************
-Step 19: Remove usage of (previously) deprecated functionalities
+步驟 19: Remove usage of (previously) deprecated functionalities
 ****************************************************************
 
 In addition to the ``$autoload['core']`` configuration setting, there's a
@@ -813,7 +813,7 @@ It is now deprecated and scheduled for removal in CodeIgniter 3.1+.
 	sooner rather than later.
 
 ***********************************************************
-Step 20: Check your usage of Text helper highlight_phrase()
+步驟 20: Check your usage of Text helper highlight_phrase()
 ***********************************************************
 
 The default HTML tag used by :doc:`Text Helper <../helpers/text_helper>` function

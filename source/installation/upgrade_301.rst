@@ -1,19 +1,17 @@
-#############################
-Upgrading from 3.0.0 to 3.0.1
-#############################
+#####################
+從 3.0.0 升級到 3.0.1
+#####################
 
-Before performing an update you should take your site offline by
-replacing the index.php file with a static one.
+在執行升級之前，你應該更換 index.php 為靜態檔案，將網站導向此靜態網頁。
 
-Step 1: Update your CodeIgniter files
-=====================================
+步驟 1: 更新網站 CodeIgniter 檔案
+=================================
 
-Replace all files and directories in your *system/* directory.
+取代 *system/* 目錄打下的所有目錄與檔案。
 
-.. note:: If you have any custom developed files in these directories,
-	please make copies of them first.
+.. 注意:: 假如您有修改此目錄底下的檔案，麻煩請先複製備份。
 
-Step 2: Update your CLI error templates
-=======================================
+步驟 2: 更新你的 CLI 錯誤訊息樣板
+=================================
 
-Replace all files under your *application/views/errors/cli/* directory.
+取代所有 *application/views/errors/cli/* 目錄底下的所有檔案。

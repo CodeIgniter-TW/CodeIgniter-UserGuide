@@ -988,7 +988,7 @@ Or as an array
 	$this->db->get('tablename');
 	// 生成：  SELECT `field2` FROM (`tablename`)
 
-.. note:: 下列語句可以被快取： select, from, join, where, like, group_by, having, order_by, set
+.. note:: 下列語句可以被快取： select, from, join, where, like, group_by, having, order_by
 
 **************
 重置查詢生成器

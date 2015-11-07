@@ -156,7 +156,7 @@
 
 		{cal_cell_blank}&nbsp;{/cal_cell_blank}
 
-		{cal_cell_other}{day}{cal_cel_other}
+		{cal_cell_other}{day}{/cal_cel_other}
 
 		{cal_cell_end}</td>{/cal_cell_end}
 		{cal_cell_end_today}</td>{/cal_cell_end_today}
@@ -237,6 +237,7 @@
 		:rtype:	array
 
 		此方法確保你會得到有效的年份/月份。舉例來說，若你提交 13 個月，則年份會往上加，而月份會回到一月::
+
 
 			print_r($this->calendar->adjust_date(13, 2014));
 

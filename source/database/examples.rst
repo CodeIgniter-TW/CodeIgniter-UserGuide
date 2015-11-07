@@ -51,24 +51,6 @@
 
 以上 result_array() 函數返回一個標準的索引陣列。範例：$row['title'] 。
 
-結果測試
-========
-
-如果你執行的查詢可能 **不會** 產生結果，那你最好在取得結果之前先用 num_rows() 函數做一下測試：
-
-::
-
-	$query = $this->db->query("YOUR QUERY");
-	if ($query->num_rows() > 0)
-	{
-		foreach ($query->result() as $row)
-		{
-			echo $row->title;
-			echo $row->name;
-			echo $row->body;
-		}
-	}
-
 標準的單一結果查詢（物件版）
 ============================
 

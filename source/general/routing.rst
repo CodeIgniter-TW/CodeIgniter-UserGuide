@@ -144,8 +144,9 @@ DELETE 請求到 URL“products”第一個片段，數字在第二個片段將�
 	$route['404_override'] = '';
 
 這個路由指定控制器類別應該被載入，如果請求控制器找不到的時候。
-它將會複寫 404 錯誤頁面。它將不會影響 ``show_404()`` 函數，這個將會
-連續載入預設 *error_404.php* 檔案在
+它將會複寫預設的 404 錯誤頁面。
+Same per-directory rules as with 'default_controller' apply here as well.
+這不會影響 ``show_404()`` 函數，將依舊載入預設 *error_404.php* 檔案在
 *application/views/errors/error_404.php* 。
 
 

@@ -1,38 +1,89 @@
-##########
-Change Log
-##########
+########
+更新紀錄
+########
 
-Version 3.1.0
-=============
+版本 3.1.0
+==========
 
-Release Date: Not Released
+發布日期：Not Released
 
 
-Version 3.0.2
-=============
+版本 3.0.3
+==========
 
-Release Date: Not Released
+發布日期：October 31, 2015
+
+-  **安全性**
+
+   -  Fixed an XSS attack vector in :doc:`Security Library <libraries/security>` method ``xss_clean()``.
+   -  Changed :doc:`Config Library <libraries/config>` method ``base_url()`` to fallback to ``$_SERVER['SERVER_ADDR']`` when ``$config['base_url']`` is empty in order to avoid *Host* header injections.
+   -  Changed :doc:`CAPTCHA Helper <helpers/captcha_helper>` to use the operating system's PRNG when possible.
+
+- 資料庫
+
+   -  Optimized :doc:`Database Utility <database/utilities>` method ``csv_from_result()`` for speed with larger result sets.
+   -  Added proper return values to :doc:`Database Transactions <database/transactions>` method ``trans_start()``.
+
+3.0.3 錯誤修正
+--------------
+
+-  錯誤修正（編號 4170） - :doc:`Database <database/index>` method ``insert_id()`` could return an identity from the wrong scope with the 'sqlsrv' driver.
+-  錯誤修正（編號 4179） - :doc:`Session Library <libraries/sessions>` doesn't properly maintain its state after ID regeneration with the 'database' driver on PHP7.
+-  錯誤修正（編號 4173） - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't allow creation of non-PRIMARY composite keys after the "bugfix" for #3968.
+-  錯誤修正（編號 4171） - :doc:`Database Transactions <database/transactions>` didn't work with nesting in methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()``.
+-  Fixed a bug where :doc:`Database Transaction <database/transactions>` methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()`` ignored failures.
+-  Fixed a bug where all :doc:`Database Transaction <database/transactions>` methods returned TRUE while transactions are actually disabled.
+-  Fixed a bug where :doc:`common function <general/common_functions>` :php:func:`html_escape()` modified keys of its array inputs.
+-  錯誤修正（編號 4192） - :doc:`Email Library <libraries/email>` wouldn't always have proper Quoted-printable encoding due to a bug in PHP's own ``mb_mime_encodeheader()`` function.
+
+版本 3.0.2
+==========
+
+發布日期：October 8, 2015
+
+-  **安全性**
+
+   -  Fixed a number of XSS attack vectors in :doc:`Security Library <libraries/security>` method ``xss_clean()``  (thanks to Frans Rosen from `Detectify <https://detectify.com/>`_).
 
 -  General Changes
 
    -  Updated the *application/config/constants.php* file to check if constants aren't already defined before doing that.
+   -  Changed :doc:`Loader Library <libraries/loader>` method ``model()`` to only apply ``ucfirst()`` and not ``strtolower()`` to the requested class name.
+   -  Changed :doc:`Config Library <libraries/config>` methods ``base_url()``, ``site_url()`` to allow protocol-relative URLs by passing an empty string as the protocol.
 
-Bug fixes for 3.0.2
--------------------
+3.0.2 錯誤修正
+--------------
 
--  Fixed a bug (#2284) - :doc:`Database <database/index>` method ``protect_identifiers()`` breaks when :doc:`Query Builder <database/query_builder>` isn't enabled.
--  Fixed a bug (#4052) - :doc:`Routing <general/routing>` with anonymous functions didn't work for routes that don't use regular expressions.
+-  錯誤修正（編號 2284） - :doc:`Database <database/index>` method ``protect_identifiers()`` breaks when :doc:`Query Builder <database/query_builder>` isn't enabled.
+-  錯誤修正（編號 4052） - :doc:`Routing <general/routing>` with anonymous functions didn't work for routes that don't use regular expressions.
+-  錯誤修正（編號 4056） - :doc:`Input Library <libraries/input>` method ``get_request_header()`` could not return a value unless ``request_headers()`` was called beforehand.
+-  Fixed a bug where the :doc:`Database Class <database/index>` entered an endless loop if it fails to connect with the 'sqlsrv' driver.
+-  錯誤修正（編號 4065） - :doc:`Database <database/index>` method ``protect_identifiers()`` treats a traling space as an alias separator if the input doesn't contain ' AS '.
+-  錯誤修正（編號 4066） - :doc:`Cache Library <libraries/caching>` couldn't fallback to a backup driver if the primary one is Memcache(d) or Redis.
+-  錯誤修正（編號 4073） - :doc:`Email Library <libraries/email>` method ``send()`` could return TRUE in case of an actual failure when an SMTP command fails.
+-  錯誤修正（編號 4086） - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* to LIKE conditions if the pattern included spaces.
+-  錯誤修正（編號 4091） - :doc:`Cache Library <libraries/caching>` 'file' driver could be tricked into accepting empty cache item IDs.
+-  錯誤修正（編號 4093） - :doc:`Query Builder <database/query_builder>` modified string values containing 'AND', 'OR' while compiling WHERE conditions.
+-  錯誤修正（編號 4096） - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* when compiling BETWEEN conditions.
+-  錯誤修正（編號 4105） - :doc:`Form Validation Library <libraries/form_validation>` didn't allow pipe characters inside "bracket parameters" when using a string ruleset.
+-  錯誤修正（編號 4109） - :doc:`Routing <general/routing>` to *default_controller* didn't work when *enable_query_strings* is set to TRUE.
+-  錯誤修正（編號 4044） - :doc:`Cache Library <libraries/caching>` 'redis' driver didn't catch ``RedisException`` that could be thrown during authentication.
+-  錯誤修正（編號 4120） - :doc:`Database <database/index>` method ``error()`` didn't return error info when called after ``query()`` with the 'mssql' driver.
+-  錯誤修正（編號 4116） - :doc:`Pagination Library <libraries/pagination>` set the wrong page number on the "data-ci-pagination-page" attribute in generated links.
+-  Fixed a bug where :doc:`Pagination Library <libraries/pagination>` added the 'rel="start"' attribute to the first displayed link even if it's not actually linking the first page.
+-  錯誤修正（編號 4137） - :doc:`Error Handling <general/errors>` breaks for the new ``Error`` exceptions under PHP 7.
+-  錯誤修正（編號 4126） - :doc:`Form Validation Library <libraries/form_validation>` method ``reset_validation()`` discarded validation rules from config files.
 
-Version 3.0.1
-=============
+版本 3.0.1
+==========
 
-Release Date: August 7, 2015
+發布日期：August 7, 2015
 
 -  Core
 
    -  Added DoS mitigation to :php:func:`hash_pbkdf2()` :doc:`compatibility function <general/compatibility_functions>`.
 
--  Database
+- 資料庫
 
    -  Added ``list_fields()`` support for SQLite ('sqlite3' and 'pdo_sqlite' drivers).
    -  Added SSL connection support for the 'mysqli' and 'pdo_mysql' drivers.
@@ -57,54 +108,54 @@ Release Date: August 7, 2015
    -  Added support for defining a list of specific query parameters in ``$config['cache_query_string']`` for the :doc:`Output Library <libraries/output>`.
    -  Added class existence and inheritance checks to ``CI_Loader::model()`` in order to ease debugging in case of name collisions.
 
-Bug fixes for 3.0.1
--------------------
+3.0.1 錯誤修正
+--------------
 
--  Fixed a bug (#3733) - Autoloading of libraries with aliases didn't work, although it was advertised to.
--  Fixed a bug (#3744) - Redis :doc:`Caching <libraries/caching>` driver didn't handle authentication failures properly.
--  Fixed a bug (#3761) - :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor()` didn't work with array inputs.
--  Fixed a bug (#3773) - ``db_select()`` didn't work for MySQL with the PDO :doc:`Database <database/index>` driver.
--  Fixed a bug (#3771) - :doc:`Form Validation Library <libraries/form_validation>` was looking for a 'form_validation\_' prefix when trying to translate field name labels.
--  Fixed a bug (#3787) - :doc:`FTP Library <libraries/ftp>` method ``delete_dir()`` failed when the target has subdirectories.
--  Fixed a bug (#3801) - :doc:`Output Library <libraries/output>` method ``_display_cache()`` incorrectly looked for the last modified time of a directory instead of the cache file.
--  Fixed a bug (#3816) - :doc:`Form Validation Library <libraries/form_validation>` treated empty string values as non-existing ones.
--  Fixed a bug (#3823) - :doc:`Session Library <libraries/sessions>` drivers Redis and Memcached didn't properly handle locks that are blocking the request for more than 30 seconds.
--  Fixed a bug (#3846) - :doc:`Image Manipulation Library <libraries/image_lib>` method `image_mirror_gd()` didn't properly initialize its variables.
--  Fixed a bug (#3854) - `field_data()` didn't work properly with the Oracle (OCI8) database driver.
+-  錯誤修正（編號 3733） - Autoloading of libraries with aliases didn't work, although it was advertised to.
+-  錯誤修正（編號 3744） - Redis :doc:`Caching <libraries/caching>` driver didn't handle authentication failures properly.
+-  錯誤修正（編號 3761） - :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor()` didn't work with array inputs.
+-  錯誤修正（編號 3773） - ``db_select()`` didn't work for MySQL with the PDO :doc:`Database <database/index>` driver.
+-  錯誤修正（編號 3771） - :doc:`Form Validation Library <libraries/form_validation>` was looking for a 'form_validation\_' prefix when trying to translate field name labels.
+-  錯誤修正（編號 3787） - :doc:`FTP Library <libraries/ftp>` method ``delete_dir()`` failed when the target has subdirectories.
+-  錯誤修正（編號 3801） - :doc:`Output Library <libraries/output>` method ``_display_cache()`` incorrectly looked for the last modified time of a directory instead of the cache file.
+-  錯誤修正（編號 3816） - :doc:`Form Validation Library <libraries/form_validation>` treated empty string values as non-existing ones.
+-  錯誤修正（編號 3823） - :doc:`Session Library <libraries/sessions>` drivers Redis and Memcached didn't properly handle locks that are blocking the request for more than 30 seconds.
+-  錯誤修正（編號 3846） - :doc:`Image Manipulation Library <libraries/image_lib>` method `image_mirror_gd()` didn't properly initialize its variables.
+-  錯誤修正（編號 3854） - `field_data()` didn't work properly with the Oracle (OCI8) database driver.
 -  Fixed a bug in the :doc:`Database Utility Class <database/utilities>` method ``csv_from_result()`` didn't work with a whitespace CSV delimiter.
--  Fixed a bug (#3890) - :doc:`Input Library <libraries/input>` method ``get_request_header()`` treated header names as case-sensitive.
--  Fixed a bug (#3903) - :doc:`Form Validation Library <libraries/form_validation>` ignored "unnamed" closure validation rules.
--  Fixed a bug (#3904) - :doc:`Form Validation Library <libraries/form_validation>` ignored "named" callback rules when the field is empty and there's no 'required' rule.
--  Fixed a bug (#3922) - :doc:`Email <libraries/email>` and :doc:`XML-RPC <libraries/xmlrpc>` libraries could enter an infinite loop due to `PHP bug #39598 <https://bugs.php.net/bug.php?id=39598>`_.
--  Fixed a bug (#3913) - :doc:`Cache Library <libraries/caching>` didn't work with the direct ``$this->cache->$driver_name->method()`` syntax with Redis and Memcache(d).
--  Fixed a bug (#3932) - :doc:`Query Builder <database/query_builder>` didn't properly compile WHERE and HAVING conditions for field names that end with "and", "or".
+-  錯誤修正（編號 3890） - :doc:`Input Library <libraries/input>` method ``get_request_header()`` treated header names as case-sensitive.
+-  錯誤修正（編號 3903） - :doc:`Form Validation Library <libraries/form_validation>` ignored "unnamed" closure validation rules.
+-  錯誤修正（編號 3904） - :doc:`Form Validation Library <libraries/form_validation>` ignored "named" callback rules when the field is empty and there's no 'required' rule.
+-  錯誤修正（編號 3922） - :doc:`Email <libraries/email>` and :doc:`XML-RPC <libraries/xmlrpc>` libraries could enter an infinite loop due to `PHP bug #39598 <https://bugs.php.net/bug.php?id=39598>`_.
+-  錯誤修正（編號 3913） - :doc:`Cache Library <libraries/caching>` didn't work with the direct ``$this->cache->$driver_name->method()`` syntax with Redis and Memcache(d).
+-  錯誤修正（編號 3932） - :doc:`Query Builder <database/query_builder>` didn't properly compile WHERE and HAVING conditions for field names that end with "and", "or".
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` where ``delete()`` didn't properly work on multiple tables with a WHERE condition previously set via ``where()``.
--  Fixed a bug (#3952) - :doc:`Database <database/index>` method ``list_fields()`` didn't work with SQLite3.
--  Fixed a bug (#3955) - :doc:`Cache Library <libraries/caching>` methods ``increment()`` and ``decrement()`` ignored the 'key_prefix' setting.
--  Fixed a bug (#3963) - :doc:`Unit Testing Library <libraries/unit_testing>` wrongly tried to translate filenames, line numbers and notes values in test results.
--  Fixed a bug (#3965) - :doc:`File Uploading Library <libraries/file_uploading>` ignored the "encrypt_name" setting when "overwrite" is enabled.
--  Fixed a bug (#3968) - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't treat array inputs as composite keys unless it's a PRIMARY KEY.
--  Fixed a bug (#3715) - :doc:`Pagination Library <libraries/pagination>` could generate broken link when a protocol-relative base URL is used.
--  Fixed a bug (#3828) - :doc:`Output Library <libraries/output>` method ``delete_cache()`` couldn't delete index page caches.
--  Fixed a bug (#3704) - :doc:`Database <database/index>` method ``stored_procedure()`` in the 'oci8' driver didn't properly bind parameters.
--  Fixed a bug (#3778) - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent a *Pragma* response header.
--  Fixed a bug (#3752) - ``$routing['directory']`` overrides were not properly handled and always resulted in a 404 "Not Found" error.
--  Fixed a bug (#3279) - :doc:`Query Builder <database/query_builder>` methods ``update()`` and ``get_compiled_update()`` did double escaping on the table name if it was provided via ``from()``.
--  Fixed a bug (#3991) - ``$config['rewrite_short_tags']`` never worked due to ``function_exists('eval')`` always returning FALSE.
+-  錯誤修正（編號 3952） - :doc:`Database <database/index>` method ``list_fields()`` didn't work with SQLite3.
+-  錯誤修正（編號 3955） - :doc:`Cache Library <libraries/caching>` methods ``increment()`` and ``decrement()`` ignored the 'key_prefix' setting.
+-  錯誤修正（編號 3963） - :doc:`Unit Testing Library <libraries/unit_testing>` wrongly tried to translate filenames, line numbers and notes values in test results.
+-  錯誤修正（編號 3965） - :doc:`File Uploading Library <libraries/file_uploading>` ignored the "encrypt_name" setting when "overwrite" is enabled.
+-  錯誤修正（編號 3968） - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't treat array inputs as composite keys unless it's a PRIMARY KEY.
+-  錯誤修正（編號 3715） - :doc:`Pagination Library <libraries/pagination>` could generate broken link when a protocol-relative base URL is used.
+-  錯誤修正（編號 3828） - :doc:`Output Library <libraries/output>` method ``delete_cache()`` couldn't delete index page caches.
+-  錯誤修正（編號 3704） - :doc:`Database <database/index>` method ``stored_procedure()`` in the 'oci8' driver didn't properly bind parameters.
+-  錯誤修正（編號 3778） - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent a *Pragma* response header.
+-  錯誤修正（編號 3752） - ``$routing['directory']`` overrides were not properly handled and always resulted in a 404 "Not Found" error.
+-  錯誤修正（編號 3279） - :doc:`Query Builder <database/query_builder>` methods ``update()`` and ``get_compiled_update()`` did double escaping on the table name if it was provided via ``from()``.
+-  錯誤修正（編號 3991） - ``$config['rewrite_short_tags']`` never worked due to ``function_exists('eval')`` always returning FALSE.
 -  Fixed a bug where the :doc:`File Uploading Library <libraries/file_uploading>` library will not properly configure its maximum file size unless the input value is of type integer.
--  Fixed a bug (#4000) - :doc:`Pagination Library <libraries/pagination>` didn't enable "rel" attributes by default if no attributes-related config options were used.
--  Fixed a bug (#4004) - :doc:`URI Class <libraries/uri>` didn't properly parse the request URI if it contains a colon followed by a digit.
+-  錯誤修正（編號 4000） - :doc:`Pagination Library <libraries/pagination>` didn't enable "rel" attributes by default if no attributes-related config options were used.
+-  錯誤修正（編號 4004） - :doc:`URI Class <libraries/uri>` didn't properly parse the request URI if it contains a colon followed by a digit.
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` where the ``$escape`` parameter for some methods only affected field names.
--  Fixed a bug (#4012) - :doc:`Query Builder <database/query_builder>` methods ``where_in()``, ``or_where_in()``, ``where_not_in()``, ``or_where_not_in()`` didn't take into account previously cached WHERE conditions when query cache is in use.
--  Fixed a bug (#4015) - :doc:`Email Library <libraries/email>` method ``set_header()`` didn't support method chaining, although it was advertised.
--  Fixed a bug (#4027) - :doc:`Routing <general/routing>` with HTTP verbs only worked if the route request method was declared in all-lowercase letters.
--  Fixed a bug (#4026) - :doc:`Database Transactions <database/transactions>` always rollback if any previous ``query()`` call fails.
--  Fixed a bug (#4023) - :doc:`String Helper <helpers/string_helper>` function ``increment_string()`` didn't escape its ``$separator`` parameter.
+-  錯誤修正（編號 4012） - :doc:`Query Builder <database/query_builder>` methods ``where_in()``, ``or_where_in()``, ``where_not_in()``, ``or_where_not_in()`` didn't take into account previously cached WHERE conditions when query cache is in use.
+-  錯誤修正（編號 4015） - :doc:`Email Library <libraries/email>` method ``set_header()`` didn't support method chaining, although it was advertised.
+-  錯誤修正（編號 4027） - :doc:`Routing <general/routing>` with HTTP verbs only worked if the route request method was declared in all-lowercase letters.
+-  錯誤修正（編號 4026） - :doc:`Database Transactions <database/transactions>` always rollback if any previous ``query()`` call fails.
+-  錯誤修正（編號 4023） - :doc:`String Helper <helpers/string_helper>` function ``increment_string()`` didn't escape its ``$separator`` parameter.
 
-Version 3.0.0
-=============
+版本 3.0.0
+==========
 
-Release Date: March 30, 2015
+發布日期：March 30, 2015
 
 -  License
 
@@ -249,7 +300,7 @@ Release Date: March 30, 2015
    -  :doc:`Language Helper <helpers/language_helper>` :php:func:`lang()` now accepts an optional list of additional HTML attributes.
    -  Deprecated the :doc:`Email Helper <helpers/email_helper>` as its ``valid_email()``, ``send_email()`` functions are now only aliases for PHP native functions ``filter_var()`` and ``mail()`` respectively.
 
--  Database
+- 資料庫
 
    -  DEPRECATED the 'mysql', 'sqlite', 'mssql' and 'pdo/dblib' (also known as 'pdo/mssql' or 'pdo/sybase') drivers.
    -  Added **dsn** configuration setting for drivers that support DSN strings (PDO, PostgreSQL, Oracle, ODBC, CUBRID).
@@ -430,7 +481,7 @@ Release Date: March 30, 2015
       -  Added unicode support for product names.
       -  Added support for disabling product name strictness via the ``$product_name_safe`` property.
       -  Changed ``insert()`` method to auto-increment quantity for an item when inserted twice instead of resetting it.
-      -  Changed ``update()`` method to support updating all properties attached to an item and not to require 'qty'.
+      -	 Changed ``update()`` method to support updating all properties attached to an item and not to require 'qty'.
 
    -  :doc:`Image Manipulation Library <libraries/image_lib>` changes include:
 
@@ -677,300 +728,324 @@ Release Date: March 30, 2015
    -  Fatal PHP errors are now also passed to ``_error_handler()``, so they can be logged.
 
 
-Bug fixes for 3.0
------------------
+3.0 錯誤修正
+------------
 
 -  Fixed a bug where ``unlink()`` raised an error if cache file did not exist when you try to delete it.
--  Fixed a bug (#181) - a typo in the form validation language file.
--  Fixed a bug (#159, #163) - :doc:`Query Builder <database/query_builder>` nested transactions didn't work properly due to ``$_trans_depth`` not being incremented.
--  Fixed a bug (#737, #75) - :doc:`Pagination <libraries/pagination>` anchor class was not set properly when using initialize method.
--  Fixed a bug (#419) - :doc:`URL Helper <helpers/url_helper>` :php:func:`auto_link()` didn't recognize URLs that come after a word boundary.
--  Fixed a bug (#724) - :doc:`Form Validation Library <libraries/form_validation>` rule **is_unique** didn't check if a database connection exists.
--  Fixed a bug (#647) - :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` didn't suppress possible "stat failed" errors generated by ``filemtime()``.
--  Fixed a bug (#157, #174) - :doc:`Image Manipulation Library <libraries/image_lib>` method ``clear()`` didn't completely clear properties.
+-  錯誤修正（編號 181） - a typo in the form validation language file.
+-  錯誤修正（編號 159、編號 163） - :doc:`Query Builder <database/query_builder>` nested transactions didn't work properly due to ``$_trans_depth`` not being incremented.
+-  錯誤修正（編號 737、編號 75） - :doc:`Pagination <libraries/pagination>` anchor class was not set properly when using initialize method.
+-  錯誤修正（編號 419） - :doc:`URL Helper <helpers/url_helper>` :php:func:`auto_link()` didn't recognize URLs that come after a word boundary.
+-  錯誤修正（編號 724） - :doc:`Form Validation Library <libraries/form_validation>` rule **is_unique** didn't check if a database connection exists.
+-  錯誤修正（編號 647） - :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` didn't suppress possible "stat failed" errors generated by ``filemtime()``.
+-  錯誤修正（編號 157、編號 174） - :doc:`Image Manipulation Library <libraries/image_lib>` method ``clear()`` didn't completely clear properties.
 -  Fixed a bug where :doc:`Database Forge <database/forge>` method ``create_table()`` with PostgreSQL database could lead to fetching the whole table.
--  Fixed a bug (#795) - :doc:`Form Helper <helpers/form_helper>` :php:func:`form_open()` didn't add the default form *method* and *accept-charset* when an empty array is passed to it.
--  Fixed a bug (#797) - :doc:`Date Helper <helpers/date_helper>` :php:func:`timespan()` was using incorrect seconds for year and month.
+-  錯誤修正（編號 795） - :doc:`Form Helper <helpers/form_helper>` :php:func:`form_open()` didn't add the default form *method* and *accept-charset* when an empty array is passed to it.
+-  錯誤修正（編號 797） - :doc:`Date Helper <helpers/date_helper>` :php:func:`timespan()` was using incorrect seconds for year and month.
 -  Fixed a bug in :doc:`Cart Library <libraries/cart>` method ``contents()`` where if called without a TRUE (or equal) parameter, it would fail due to a typo.
--  Fixed a bug (#406) - SQLSRV DB driver not returning resource on ``db_pconnect()``.
+-  錯誤修正（編號 406） - SQLSRV DB driver not returning resource on ``db_pconnect()``.
 -  Fixed a bug in :doc:`Image Manipulation Library <libraries/image_lib>` method ``gd_loaded()`` where it was possible for the script execution to end or a PHP E_WARNING message to be emitted.
 -  Fixed a bug in the :doc:`Pagination library <libraries/pagination>` where when use_page_numbers=TRUE previous link and page 1 link did not have the same url.
--  Fixed a bug (#561) - errors in :doc:`XML-RPC Library <libraries/xmlrpc>` were not properly escaped.
--  Fixed a bug (#904) - :doc:`Loader Library <libraries/loader>` method ``initialize()`` caused a PHP Fatal error to be triggered if error level E_STRICT is used.
+-  錯誤修正（編號 561） - errors in :doc:`XML-RPC Library <libraries/xmlrpc>` were not properly escaped.
+-  錯誤修正（編號 904） - :doc:`Loader Library <libraries/loader>` method ``initialize()`` caused a PHP Fatal error to be triggered if error level E_STRICT is used.
 -  Fixed a hosting edge case where an empty ``$_SERVER['HTTPS']`` variable would evaluate to 'on'.
--  Fixed a bug (#154) - :doc:`Session Library <libraries/sessions>` method ``sess_update()`` caused the session to be destroyed on pages where multiple AJAX requests were executed at once.
+-  錯誤修正（編號 154） - :doc:`Session Library <libraries/sessions>` method ``sess_update()`` caused the session to be destroyed on pages where multiple AJAX requests were executed at once.
 -  Fixed a possible bug in :doc:`Input Libary <libraries/input>` method ``is_ajax_request()`` where some clients might not send the X-Requested-With HTTP header value exactly as 'XmlHttpRequest'.
--  Fixed a bug (#1039) - :doc:`Database Utilities <database/utilities>` internal method ``_backup()`` method failed for the 'mysql' driver due to a table name not being escaped.
--  Fixed a bug (#1070) - ``CI_DB_driver::initialize()`` didn't set a character set if a database is not selected.
--  Fixed a bug (#177) - :doc:`Form Validation Library <libraries/form_validation>` method ``set_value()`` didn't set the default value if POST data is NULL.
--  Fixed a bug (#68, #414) - :Oracle's ``escape_str()`` didn't properly escape LIKE wild characters.
--  Fixed a bug (#81) - ODBC's ``list_fields()`` and ``field_data()`` methods skipped the first column due to ``odbc_field_*()`` functions' index starting at 1 instead of 0.
--  Fixed a bug (#129) - ODBC's ``num_rows()`` method returned -1 in some cases, due to not all subdrivers supporting the ``odbc_num_rows()`` function.
--  Fixed a bug (#153) - E_NOTICE being generated by ``getimagesize()`` in the :doc:`File Uploading Library <libraries/file_uploading>`.
--  Fixed a bug (#611) - SQLSRV's error handling methods used to issue warnings when there's no actual error.
--  Fixed a bug (#1036) - ``is_write_type()`` method in the :doc:`Database Library <database/index>` didn't return TRUE for RENAME queries.
+-  錯誤修正（編號 1039） - :doc:`Database Utilities <database/utilities>` internal method ``_backup()`` method failed for the 'mysql' driver due to a table name not being escaped.
+-  錯誤修正（編號 1070） - ``CI_DB_driver::initialize()`` didn't set a character set if a database is not selected.
+-  錯誤修正（編號 177） - :doc:`Form Validation Library <libraries/form_validation>` method ``set_value()`` didn't set the default value if POST data is NULL.
+-  錯誤修正（編號 68、編號 414） - :Oracle's ``escape_str()`` didn't properly escape LIKE wild characters.
+-  錯誤修正（編號 81） - ODBC's ``list_fields()`` and ``field_data()`` methods skipped the first column due to ``odbc_field_*()`` functions' index starting at 1 instead of 0.
+-  錯誤修正（編號 129） - ODBC's ``num_rows()`` method returned -1 in some cases, due to not all subdrivers supporting the ``odbc_num_rows()`` function.
+-  錯誤修正（編號 153） - E_NOTICE being generated by ``getimagesize()`` in the :doc:`File Uploading Library <libraries/file_uploading>`.
+-  錯誤修正（編號 611） - SQLSRV's error handling methods used to issue warnings when there's no actual error.
+-  錯誤修正（編號 1036） - ``is_write_type()`` method in the :doc:`Database Library <database/index>` didn't return TRUE for RENAME queries.
 -  Fixed a bug in PDO's ``_version()`` method where it used to return the client version as opposed to the server one.
 -  Fixed a bug in PDO's ``insert_id()`` method where it could've failed if it's used with Postgre versions prior to 8.1.
 -  Fixed a bug in CUBRID's ``affected_rows()`` method where a connection resource was passed to ``cubrid_affected_rows()`` instead of a result.
--  Fixed a bug (#638) - ``db_set_charset()`` ignored its arguments and always used the configured charset instead.
--  Fixed a bug (#413) - Oracle's error handling methods used to only return connection-related errors.
--  Fixed a bug (#1101) - :doc:`Database Result <database/results>` method ``field_data()`` for 'mysql', 'mysqli' drivers was implemented as if it was handling a DESCRIBE result instead of the actual result set.
+-  錯誤修正（編號 638） - ``db_set_charset()`` ignored its arguments and always used the configured charset instead.
+-  錯誤修正（編號 413） - Oracle's error handling methods used to only return connection-related errors.
+-  錯誤修正（編號 1101） - :doc:`Database Result <database/results>` method ``field_data()`` for 'mysql', 'mysqli' drivers was implemented as if it was handling a DESCRIBE result instead of the actual result set.
 -  Fixed a bug in Oracle's :doc:`Database Forge <database/forge>` method ``_create_table()`` where it failed with AUTO_INCREMENT as it's not supported.
--  Fixed a bug (#1080) - when using the SMTP protocol, :doc:`Email Library <libraries/email>` method ``send()`` was returning TRUE even if the connection/authentication against the server failed.
--  Fixed a bug (#306) - ODBC's ``insert_id()`` method was calling non-existent function ``odbc_insert_id()``, which resulted in a fatal error.
+-  錯誤修正（編號 1080） - when using the SMTP protocol, :doc:`Email Library <libraries/email>` method ``send()`` was returning TRUE even if the connection/authentication against the server failed.
+-  錯誤修正（編號 306） - ODBC's ``insert_id()`` method was calling non-existent function ``odbc_insert_id()``, which resulted in a fatal error.
 -  Fixed a bug in Oracle's :doc:`Database Result <database/results>` implementation where the cursor ID passed to it was always NULL.
--  Fixed a bug (#64) - Regular expression in *DB_query_builder.php* failed to handle queries containing SQL bracket delimiters in the JOIN condition.
+-  錯誤修正（編號 64） - Regular expression in *DB_query_builder.php* failed to handle queries containing SQL bracket delimiters in the JOIN condition.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where a PHP E_NOTICE error was triggered by ``_unserialize()`` due to results from databases such as MSSQL and Oracle being space-padded on the right.
--  Fixed a bug (#501) - :doc:`Form Validation Library <libraries/form_validation>` method ``set_rules()`` depended on ``count($_POST)`` instead of actually checking if the request method 'POST' before aborting.
--  Fixed a bug (#136) - PostgreSQL and MySQL's ``escape_str()`` method didn't properly escape LIKE wild characters.
+-  錯誤修正（編號 501） - :doc:`Form Validation Library <libraries/form_validation>` method ``set_rules()`` depended on ``count($_POST)`` instead of actually checking if the request method 'POST' before aborting.
+-  錯誤修正（編號 136） - PostgreSQL and MySQL's ``escape_str()`` method didn't properly escape LIKE wild characters.
 -  Fixed a bug in :doc:`Loader Library <libraries/loader>` method ``library()`` where some PHP versions wouldn't execute the class constructor.
--  Fixed a bug (#88) - An unexisting property was used for configuration of the Memcache cache driver.
--  Fixed a bug (#14) - :doc:`Database Forge <database/forge>` method ``create_database()`` didn't utilize the configured database character set.
--  Fixed a bug (#23, #1238) - :doc:`Database Caching <database/caching>` method ``delete_all()`` used to delete .htaccess and index.html files, which is a potential security risk.
+-  錯誤修正（編號 88） - An unexisting property was used for configuration of the Memcache cache driver.
+-  錯誤修正（編號 14） - :doc:`Database Forge <database/forge>` method ``create_database()`` didn't utilize the configured database character set.
+-  錯誤修正（編號 23、編號 1238） - :doc:`Database Caching <database/caching>` method ``delete_all()`` used to delete .htaccess and index.html files, which is a potential security risk.
 -  Fixed a bug in :doc:`Trackback Library <libraries/trackback>` method ``validate_url()`` where it didn't actually do anything, due to input not being passed by reference.
--  Fixed a bug (#11, #183, #863) - :doc:`Form Validation Library <libraries/form_validation>` method ``_execute()`` silently continued to the next rule, if a rule method/function is not found.
--  Fixed a bug (#122) - routed URI string was being reported incorrectly in sub-directories.
--  Fixed a bug (#1241) - :doc:`Zip Library <libraries/zip>` method ``read_dir()`` wasn't compatible with Windows.
--  Fixed a bug (#306) - ODBC driver didn't have an ``_insert_batch()`` method, which resulted in fatal error being triggered when ``insert_batch()`` is used with it.
+-  錯誤修正（編號 11、編號 183、編號 863） - :doc:`Form Validation Library <libraries/form_validation>` method ``_execute()`` silently continued to the next rule, if a rule method/function is not found.
+-  錯誤修正（編號 122） - routed URI string was being reported incorrectly in sub-directories.
+-  錯誤修正（編號 1241） - :doc:`Zip Library <libraries/zip>` method ``read_dir()`` wasn't compatible with Windows.
+-  錯誤修正（編號 306） - ODBC driver didn't have an ``_insert_batch()`` method, which resulted in fatal error being triggered when ``insert_batch()`` is used with it.
 -  Fixed a bug in MSSQL and SQLSrv's ``_truncate()`` where the TABLE keyword was missing.
 -  Fixed a bug in PDO's ``trans_commit()`` method where it failed due to an erroneous property name.
--  Fixed a bug (#798) - :doc:`Query Builder <database/query_builder>` method ``update()`` used to ignore LIKE conditions that were set with ``like()``.
+-  錯誤修正（編號 798） - :doc:`Query Builder <database/query_builder>` method ``update()`` used to ignore LIKE conditions that were set with ``like()``.
 -  Fixed a bug in Oracle's and MSSQL's ``delete()`` methods where an erroneous SQL statement was generated when used with ``limit()``.
 -  Fixed a bug in SQLSRV's ``delete()`` method where ``like()`` and ``limit()`` conditions were ignored.
--  Fixed a bug (#1265) - Database connections were always closed, regardless of the 'pconnect' option value.
--  Fixed a bug (#128) - :doc:`Language Library <libraries/language>` did not correctly keep track of loaded language files.
--  Fixed a bug (#1349) - :doc:`File Uploading Library <libraries/file_uploading>` method ``get_extension()`` returned the original filename when it didn't have an actual extension.
--  Fixed a bug (#1273) - :doc:`Query Builder <database/query_builder>` method ``set_update_batch()`` generated an E_NOTICE message.
--  Fixed a bug (#44, #110) - :doc:`File Uploading Library <libraries/file_uploading>` method ``clean_file_name()`` didn't clear '!' and '#' characters.
--  Fixed a bug (#121) - :doc:`Database Results <database/results>` method ``row()`` returned an array when there's no actual result to be returned.
--  Fixed a bug (#319) - SQLSRV's ``affected_rows()`` method failed due to a scrollable cursor being created for write-type queries.
--  Fixed a bug (#356) - :doc:`Database <database/index>` driver 'postgre' didn't have an ``_update_batch()`` method, which resulted in fatal error being triggered when ``update_batch()`` is used with it.
--  Fixed a bug (#784, #862) - :doc:`Database Forge <database/forge>` method ``create_table()`` failed on SQLSRV/MSSQL when used with 'IF NOT EXISTS'.
--  Fixed a bug (#1419) - :doc:`Driver Library <general/creating_drivers>` had a static variable that was causing an error.
--  Fixed a bug (#1411) - the :doc:`Email Library <libraries/email>` used its own short list of MIMEs instead the one from *config/mimes.php*.
+-  錯誤修正（編號 1265） - Database connections were always closed, regardless of the 'pconnect' option value.
+-  錯誤修正（編號 128） - :doc:`Language Library <libraries/language>` did not correctly keep track of loaded language files.
+-  錯誤修正（編號 1349） - :doc:`File Uploading Library <libraries/file_uploading>` method ``get_extension()`` returned the original filename when it didn't have an actual extension.
+-  錯誤修正（編號 1273） - :doc:`Query Builder <database/query_builder>` method ``set_update_batch()`` generated an E_NOTICE message.
+-  錯誤修正（編號 44、編號 110） - :doc:`File Uploading Library <libraries/file_uploading>` method ``clean_file_name()`` didn't clear '!' and '#' characters.
+-  錯誤修正（編號 121） - :doc:`Database Results <database/results>` method ``row()`` returned an array when there's no actual result to be returned.
+-  錯誤修正（編號 319） - SQLSRV's ``affected_rows()`` method failed due to a scrollable cursor being created for write-type queries.
+-  錯誤修正（編號 356） - :doc:`Database <database/index>` driver 'postgre' didn't have an ``_update_batch()`` method, which resulted in fatal error being triggered when ``update_batch()`` is used with it.
+-  錯誤修正（編號 784、編號 862） - :doc:`Database Forge <database/forge>` method ``create_table()`` failed on SQLSRV/MSSQL when used with 'IF NOT EXISTS'.
+-  錯誤修正（編號 1419） - :doc:`Driver Library <general/creating_drivers>` had a static variable that was causing an error.
+-  錯誤修正（編號 1411） - the :doc:`Email Library <libraries/email>` used its own short list of MIMEs instead the one from *config/mimes.php*.
 -  Fixed a bug where php.ini setting *magic_quotes_runtime* wasn't turned off for PHP 5.3 (where it is indeed deprecated, but not non-existent).
--  Fixed a bug (#666) - :doc:`Output Library <libraries/output>` method ``set_content_type()`` didn't set the document charset.
--  Fixed a bug (#784, #861) - :doc:`Database Forge <database/forge>` method ``create_table()`` used to accept constraints for MSSQL/SQLSRV integer-type columns.
--  Fixed a bug (#706) - SQLSRV/MSSSQL :doc:`Database <database/index>` drivers didn't escape field names.
--  Fixed a bug (#1452) - :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` didn't properly detect identifiers with spaces in their names.
+-  錯誤修正（編號 666） - :doc:`Output Library <libraries/output>` method ``set_content_type()`` didn't set the document charset.
+-  錯誤修正（編號 784、編號 861） - :doc:`Database Forge <database/forge>` method ``create_table()`` used to accept constraints for MSSQL/SQLSRV integer-type columns.
+-  錯誤修正（編號 706） - SQLSRV/MSSSQL :doc:`Database <database/index>` drivers didn't escape field names.
+-  錯誤修正（編號 1452） - :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` didn't properly detect identifiers with spaces in their names.
 -  Fixed a bug where :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` ignored its extra arguments when the value passed to it is an array.
 -  Fixed a bug where :doc:`Query Builder <database/query_builder>` internal method ``_has_operator()`` didn't detect BETWEEN.
 -  Fixed a bug where :doc:`Query Builder <database/query_builder>` method ``join()`` failed with identifiers containing dashes.
--  Fixed a bug (#1264) - :doc:`Database Forge <database/forge>` and :doc:`Database Utilities <database/utilities>` didn't update/reset the databases and tables list cache when a table or a database is created, dropped or renamed.
--  Fixed a bug (#7) - :doc:`Query Builder <database/query_builder>` method ``join()`` only escaped one set of conditions.
--  Fixed a bug (#1321) - ``CI_Exceptions`` couldn't find the *errors/* directory in some cases.
--  Fixed a bug (#1202) - :doc:`Encrypt Library <libraries/encrypt>` ``encode_from_legacy()`` didn't set back the encrypt mode on failure.
--  Fixed a bug (#145) - :doc:`Database Class <database/index>` method ``compile_binds()`` failed when the bind marker was present in a literal string within the query.
+-  錯誤修正（編號 1264） - :doc:`Database Forge <database/forge>` and :doc:`Database Utilities <database/utilities>` didn't update/reset the databases and tables list cache when a table or a database is created, dropped or renamed.
+-  錯誤修正（編號 7） - :doc:`Query Builder <database/query_builder>` method ``join()`` only escaped one set of conditions.
+-  錯誤修正（編號 1321） - ``CI_Exceptions`` couldn't find the *errors/* directory in some cases.
+-  錯誤修正（編號 1202） - :doc:`Encrypt Library <libraries/encrypt>` ``encode_from_legacy()`` didn't set back the encrypt mode on failure.
+-  錯誤修正（編號 145） - :doc:`Database Class <database/index>` method ``compile_binds()`` failed when the bind marker was present in a literal string within the query.
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` where if passed along with the field names, operators got escaped as well.
--  Fixed a bug (#10) - :doc:`URI Library <libraries/uri>` internal method ``_detect_uri()`` failed with paths containing a colon.
--  Fixed a bug (#1387) - :doc:`Query Builder <database/query_builder>` method ``from()`` didn't escape table aliases.
--  Fixed a bug (#520) - :doc:`Date Helper <helpers/date_helper>` function :php:func:``nice_date()`` failed when the optional second parameter is not passed.
--  Fixed a bug (#318) - :doc:`Profiling Library <general/profiling>` setting *query_toggle_count* was not settable as described in the manual.
--  Fixed a bug (#938) - :doc:`Config Library <libraries/config>` method ``site_url()`` added a question mark to the URL string when query strings are enabled even if it already existed.
--  Fixed a bug (#999) - :doc:`Config Library <libraries/config>` method ``site_url()`` always appended ``$config['url_suffix']`` to the end of the URL string, regardless of whether a query string exists in it.
+-  錯誤修正（編號 10） - :doc:`URI Library <libraries/uri>` internal method ``_detect_uri()`` failed with paths containing a colon.
+-  錯誤修正（編號 1387） - :doc:`Query Builder <database/query_builder>` method ``from()`` didn't escape table aliases.
+-  錯誤修正（編號 520） - :doc:`Date Helper <helpers/date_helper>` function :php:func:``nice_date()`` failed when the optional second parameter is not passed.
+-  錯誤修正（編號 318） - :doc:`Profiling Library <general/profiling>` setting *query_toggle_count* was not settable as described in the manual.
+-  錯誤修正（編號 938） - :doc:`Config Library <libraries/config>` method ``site_url()`` added a question mark to the URL string when query strings are enabled even if it already existed.
+-  錯誤修正（編號 999） - :doc:`Config Library <libraries/config>` method ``site_url()`` always appended ``$config['url_suffix']`` to the end of the URL string, regardless of whether a query string exists in it.
 -  Fixed a bug where :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor_popup()` ignored the attributes argument if it is not an array.
--  Fixed a bug (#1328) - :doc:`Form Validation Library <libraries/form_validation>` didn't properly check the type of the form fields before processing them.
--  Fixed a bug (#79) - :doc:`Form Validation Library <libraries/form_validation>` didn't properly validate array fields that use associative keys or have custom indexes.
--  Fixed a bug (#427) - :doc:`Form Validation Library <libraries/form_validation>` method ``strip_image_tags()`` was an alias to a non-existent method.
--  Fixed a bug (#1545) - :doc:`Query Builder <database/query_builder>` method ``limit()`` wasn't executed properly under Oracle.
--  Fixed a bug (#1551) - :doc:`Date Helper <helpers/date_helper>` function :php:func:`standard_date()` didn't properly format *W3C* and *ATOM* standard dates.
+-  錯誤修正（編號 1328） - :doc:`Form Validation Library <libraries/form_validation>` didn't properly check the type of the form fields before processing them.
+-  錯誤修正（編號 79） - :doc:`Form Validation Library <libraries/form_validation>` didn't properly validate array fields that use associative keys or have custom indexes.
+-  錯誤修正（編號 427） - :doc:`Form Validation Library <libraries/form_validation>` method ``strip_image_tags()`` was an alias to a non-existent method.
+-  錯誤修正（編號 1545） - :doc:`Query Builder <database/query_builder>` method ``limit()`` wasn't executed properly under Oracle.
+-  錯誤修正（編號 1551） - :doc:`Date Helper <helpers/date_helper>` function :php:func:`standard_date()` didn't properly format *W3C* and *ATOM* standard dates.
 -  Fixed a bug where :doc:`Query Builder <database/query_builder>` method ``join()`` escaped literal values as if they were fields.
--  Fixed a bug (#135) - PHP Error logging was impossible without the errors being displayed.
--  Fixed a bug (#1613) - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`form_multiselect()`, :php:func:`form_dropdown()` didn't properly handle empty array option groups.
--  Fixed a bug (#1605) - :doc:`Pagination Library <libraries/pagination>` produced incorrect *previous* and *next* link values.
+-  錯誤修正（編號 135） - PHP Error logging was impossible without the errors being displayed.
+-  錯誤修正（編號 1613） - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`form_multiselect()`, :php:func:`form_dropdown()` didn't properly handle empty array option groups.
+-  錯誤修正（編號 1605） - :doc:`Pagination Library <libraries/pagination>` produced incorrect *previous* and *next* link values.
 -  Fixed a bug in SQLSRV's ``affected_rows()`` method where an erroneous function name was used.
--  Fixed a bug (#1000) - Change syntax of ``$view_file`` to ``$_ci_view_file`` to prevent being overwritten by application.
--  Fixed a bug (#1757) - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()` was skipping files and directories named '0'.
--  Fixed a bug (#1789) - :doc:`Database Library <database/index>` method ``escape_str()`` escaped quote characters in LIKE conditions twice under MySQL.
--  Fixed a bug (#395) - :doc:`Unit Testing Library <libraries/unit_testing>` method ``result()`` didn't properly check array result columns when called from ``report()``.
--  Fixed a bug (#1692) - :doc:`Database Class <database/index>` method ``display_error()`` didn't properly trace the possible error source on Windows systems.
--  Fixed a bug (#1745) - :doc:`Database Class <database/index>` method ``is_write_type()`` didn't return TRUE for LOAD queries.
--  Fixed a bug (#1765) - :doc:`Database Class <database/index>` didn't properly detect connection errors for the 'mysqli' driver.
--  Fixed a bug (#1257) - :doc:`Query Builder <database/query_builder>` used to (unnecessarily) group FROM clause contents, which breaks certain queries and is invalid for some databases.
--  Fixed a bug (#1709) - :doc:`Email <libraries/email>` headers were broken when using long email subjects and \r\n as CRLF.
+-  錯誤修正（編號 1000） - Change syntax of ``$view_file`` to ``$_ci_view_file`` to prevent being overwritten by application.
+-  錯誤修正（編號 1757） - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()` was skipping files and directories named '0'.
+-  錯誤修正（編號 1789） - :doc:`Database Library <database/index>` method ``escape_str()`` escaped quote characters in LIKE conditions twice under MySQL.
+-  錯誤修正（編號 395） - :doc:`Unit Testing Library <libraries/unit_testing>` method ``result()`` didn't properly check array result columns when called from ``report()``.
+-  錯誤修正（編號 1692） - :doc:`Database Class <database/index>` method ``display_error()`` didn't properly trace the possible error source on Windows systems.
+-  錯誤修正（編號 1745） - :doc:`Database Class <database/index>` method ``is_write_type()`` didn't return TRUE for LOAD queries.
+-  錯誤修正（編號 1765） - :doc:`Database Class <database/index>` didn't properly detect connection errors for the 'mysqli' driver.
+-  錯誤修正（編號 1257） - :doc:`Query Builder <database/query_builder>` used to (unnecessarily) group FROM clause contents, which breaks certain queries and is invalid for some databases.
+-  錯誤修正（編號 1709） - :doc:`Email <libraries/email>` headers were broken when using long email subjects and \r\n as CRLF.
 -  Fixed a bug where ``MB_ENABLED`` constant was only declared if ``UTF8_ENABLED`` was set to TRUE.
 -  Fixed a bug where the :doc:`Session Library <libraries/sessions>` accepted cookies with *last_activity* values being in the future.
--  Fixed a bug (#1897) - :doc:`Email Library <libraries/email>` triggered PHP E_WARNING errors when *mail* protocol used and ``to()`` is never called.
--  Fixed a bug (#1409) - :doc:`Email Library <libraries/email>` didn't properly handle multibyte characters when applying Q-encoding to headers.
+-  錯誤修正（編號 1897） - :doc:`Email Library <libraries/email>` triggered PHP E_WARNING errors when *mail* protocol used and ``to()`` is never called.
+-  錯誤修正（編號 1409） - :doc:`Email Library <libraries/email>` didn't properly handle multibyte characters when applying Q-encoding to headers.
 -  Fixed a bug where :doc:`Email Library <libraries/email>` ignored its *wordwrap* setting while handling alternative messages.
--  Fixed a bug (#1476, #1909) - :doc:`Pagination Library <libraries/pagination>` didn't take into account actual routing when determining the current page.
--  Fixed a bug (#1766) - :doc:`Query Builder <database/query_builder>` didn't always take into account the *dbprefix* setting.
--  Fixed a bug (#779) - :doc:`URI Class <libraries/uri>` didn't always trim slashes from the *uri_string* as shown in the documentation.
--  Fixed a bug (#134) - :doc:`Database Caching <database/caching>` method ``delete_cache()`` didn't work in some cases due to *cachedir* not being initialized properly.
--  Fixed a bug (#191) - :doc:`Loader Library <libraries/loader>` ignored attempts for (re)loading databases to ``get_instance()->db`` even when the old database connection is dead.
--  Fixed a bug (#1255) - :doc:`User Agent Library <libraries/user_agent>` method ``is_referral()`` only checked if ``$_SERVER['HTTP_REFERER']`` exists.
--  Fixed a bug (#1146) - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent *Cache-Control* directives *pre-check* and *post-check* to Internet Explorer.
--  Fixed a bug (#1811) - :doc:`URI Library <libraries/uri>` didn't properly cache segments for ``uri_to_assoc()`` and ``ruri_to_assoc()``.
--  Fixed a bug (#1506) - :doc:`Form Helpers <helpers/form_helper>` set empty *name* attributes.
--  Fixed a bug (#59) - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` ignored the DISTINCT clause.
--  Fixed a bug (#1624) - :doc:`Form Validation Library <libraries/form_validation>` rule **matches** didn't property handle array field names.
--  Fixed a bug (#1630) - :doc:`Form Helper <helpers/form_helper>` function :php:func:`set_value()` didn't escape HTML entities.
--  Fixed a bug (#142) - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_dropdown()` didn't escape HTML entities in option values.
--  Fixed a bug (#50) - :doc:`Session Library <libraries/sessions>` unnecessarily stripped slashed from serialized data, making it impossible to read objects in a namespace.
--  Fixed a bug (#658) - :doc:`Routing <general/routing>` wildcard **:any** didn't work as advertised and matched multiple URI segments instead of all characters within a single segment.
--  Fixed a bug (#1938) - :doc:`Email Library <libraries/email>` removed multiple spaces inside a pre-formatted plain text message.
--  Fixed a bug (#122) - :doc:`URI Library <libraries/uri>` method ``ruri_string()`` didn't include a directory if one is used.
+-  錯誤修正（編號 1476、編號 1909） - :doc:`Pagination Library <libraries/pagination>` didn't take into account actual routing when determining the current page.
+-  錯誤修正（編號 1766） - :doc:`Query Builder <database/query_builder>` didn't always take into account the *dbprefix* setting.
+-  錯誤修正（編號 779） - :doc:`URI Class <libraries/uri>` didn't always trim slashes from the *uri_string* as shown in the documentation.
+-  錯誤修正（編號 134） - :doc:`Database Caching <database/caching>` method ``delete_cache()`` didn't work in some cases due to *cachedir* not being initialized properly.
+-  錯誤修正（編號 191） - :doc:`Loader Library <libraries/loader>` ignored attempts for (re)loading databases to ``get_instance()->db`` even when the old database connection is dead.
+-  錯誤修正（編號 1255） - :doc:`User Agent Library <libraries/user_agent>` method ``is_referral()`` only checked if ``$_SERVER['HTTP_REFERER']`` exists.
+-  錯誤修正（編號 1146） - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent *Cache-Control* directives *pre-check* and *post-check* to Internet Explorer.
+-  錯誤修正（編號 1811） - :doc:`URI Library <libraries/uri>` didn't properly cache segments for ``uri_to_assoc()`` and ``ruri_to_assoc()``.
+-  錯誤修正（編號 1506） - :doc:`Form Helpers <helpers/form_helper>` set empty *name* attributes.
+-  錯誤修正（編號 59） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` ignored the DISTINCT clause.
+-  錯誤修正（編號 1624） - :doc:`Form Validation Library <libraries/form_validation>` rule **matches** didn't property handle array field names.
+-  錯誤修正（編號 1630） - :doc:`Form Helper <helpers/form_helper>` function :php:func:`set_value()` didn't escape HTML entities.
+-  錯誤修正（編號 142） - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_dropdown()` didn't escape HTML entities in option values.
+-  錯誤修正（編號 50） - :doc:`Session Library <libraries/sessions>` unnecessarily stripped slashed from serialized data, making it impossible to read objects in a namespace.
+-  錯誤修正（編號 658） - :doc:`Routing <general/routing>` wildcard **:any** didn't work as advertised and matched multiple URI segments instead of all characters within a single segment.
+-  錯誤修正（編號 1938） - :doc:`Email Library <libraries/email>` removed multiple spaces inside a pre-formatted plain text message.
+-  錯誤修正（編號 122） - :doc:`URI Library <libraries/uri>` method ``ruri_string()`` didn't include a directory if one is used.
 -  Fixed a bug - :doc:`Routing Library <general/routing>` didn't properly handle *default_controller* in a subdirectory when a method is also specified.
--  Fixed a bug (#953) - :doc:`post_controller_constructor hook <general/hooks>` wasn't called with a *404_override*.
--  Fixed a bug (#1220) - :doc:`Profiler Library <general/profiling>` didn't display information for database objects that are instantiated inside models.
--  Fixed a bug (#1978) - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()`'s return array didn't make a distinction between directories and file indexes when a directory with a numeric name is present.
--  Fixed a bug (#777) - :doc:`Loader Library <libraries/loader>` didn't look for helper extensions in added package paths.
--  Fixed a bug (#18) - :doc:`APC Cache <libraries/caching>` driver didn't (un)serialize data, resulting in failure to store objects.
--  Fixed a bug (#188) - :doc:`Unit Testing Library <libraries/unit_testing>` filled up logs with error messages for non-existing language keys.
--  Fixed a bug (#113) - :doc:`Form Validation Library <libraries/form_validation>` didn't properly handle empty fields that were specified as an array.
--  Fixed a bug (#2061) - :doc:`Routing Class <general/routing>` didn't properly sanitize directory, controller and function triggers with **enable_query_strings** set to TRUE.
+-  錯誤修正（編號 953） - :doc:`post_controller_constructor hook <general/hooks>` wasn't called with a *404_override*.
+-  錯誤修正（編號 1220） - :doc:`Profiler Library <general/profiling>` didn't display information for database objects that are instantiated inside models.
+-  錯誤修正（編號 1978） - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()`'s return array didn't make a distinction between directories and file indexes when a directory with a numeric name is present.
+-  錯誤修正（編號 777） - :doc:`Loader Library <libraries/loader>` didn't look for helper extensions in added package paths.
+-  錯誤修正（編號 18） - :doc:`APC Cache <libraries/caching>` driver didn't (un)serialize data, resulting in failure to store objects.
+-  錯誤修正（編號 188） - :doc:`Unit Testing Library <libraries/unit_testing>` filled up logs with error messages for non-existing language keys.
+-  錯誤修正（編號 113） - :doc:`Form Validation Library <libraries/form_validation>` didn't properly handle empty fields that were specified as an array.
+-  錯誤修正（編號 2061） - :doc:`Routing Class <general/routing>` didn't properly sanitize directory, controller and function triggers with **enable_query_strings** set to TRUE.
 -  Fixed a bug - SQLSRV didn't support ``escape_like_str()`` or escaping an array of values.
 -  Fixed a bug - :doc:`Database Results <database/results>` method ``list_fields()`` didn't reset its field pointer for the 'mysql', 'mysqli' and 'mssql' drivers.
--  Fixed a bug (#2211) - :doc:`Migration Library <libraries/migration>` extensions couldn't execute ``CI_Migration::__construct()``.
--  Fixed a bug (#2255) - :doc:`Email Library <libraries/email>` didn't apply *smtp_timeout* to socket reads and writes.
--  Fixed a bug (#2239) - :doc:`Email Library <libraries/email>` improperly handled the Subject when used with *bcc_batch_mode* resulting in E_WARNING messages and an empty Subject.
--  Fixed a bug (#2234) - :doc:`Query Builder <database/query_builder>` didn't reset JOIN cache for write-type queries.
--  Fixed a bug (#2298) - :doc:`Database Results <database/results>` method ``next_row()`` kept returning the last row, allowing for infinite loops.
--  Fixed a bug (#2236, #2639) - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_value()`, :php:func:`set_select()`, :php:func:`set_radio()`, :php:func:`set_checkbox()` didn't parse array notation for keys if the rule was not present in the :doc:`Form Validation Library <libraries/form_validation>`.
--  Fixed a bug (#2353) - :doc:`Query Builder <database/query_builder>` erroneously prefixed literal strings with **dbprefix**.
--  Fixed a bug (#78) - :doc:`Cart Library <libraries/cart>` didn't allow non-English letters in product names.
--  Fixed a bug (#77) - :doc:`Database Class <database/index>` didn't properly handle the transaction "test mode" flag.
--  Fixed a bug (#2380) - :doc:`URI Routing <general/routing>` method ``fetch_method()`` returned 'index' if the requested method name matches its controller name.
--  Fixed a bug (#2388) - :doc:`Email Library <libraries/email>` used to ignore attachment errors, resulting in broken emails being sent.
--  Fixed a bug (#2498) - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_base64** only checked characters instead of actual validity.
--  Fixed a bug (#2425) - OCI8 :doc:`database <database/index>` driver method ``stored_procedure()`` didn't log an error unless **db_debug** was set to TRUE.
--  Fixed a bug (#2490) - :doc:`Database Class <database/queries>` method ``query()`` returning boolean instead of a result object for PostgreSQL-specific *INSERT INTO ... RETURNING* statements.
--  Fixed a bug (#249) - :doc:`Cache Library <libraries/caching>` didn't properly handle Memcache(d) configurations with missing options.
--  Fixed a bug (#180) - :php:func:`config_item()` didn't take into account run-time configuration changes.
--  Fixed a bug (#2551) - :doc:`Loader Library <libraries/loader>` method ``library()`` didn't properly check if a class that is being loaded already exists.
--  Fixed a bug (#2560) - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_open()` set the 'method="post"' attribute only if the passed attributes equaled an empty string.
--  Fixed a bug (#2585) - :doc:`Query Builder <database/query_builder>` methods ``min()``, ``max()``, ``avg()``, ``sum()`` didn't escape field names.
--  Fixed a bug (#2590) - :doc:`Common function <general/common_functions>` :php:func:`log_message()` didn't actually cache the ``CI_Log`` class instance.
--  Fixed a bug (#2609) - :doc:`Common function <general/common_functions>` :php:func:`get_config()` optional argument was only effective on first function call. Also, it can now add items, in addition to updating existing items.
+-  錯誤修正（編號 2211） - :doc:`Migration Library <libraries/migration>` extensions couldn't execute ``CI_Migration::__construct()``.
+-  錯誤修正（編號 2255） - :doc:`Email Library <libraries/email>` didn't apply *smtp_timeout* to socket reads and writes.
+-  錯誤修正（編號 2239） - :doc:`Email Library <libraries/email>` improperly handled the Subject when used with *bcc_batch_mode* resulting in E_WARNING messages and an empty Subject.
+-  錯誤修正（編號 2234） - :doc:`Query Builder <database/query_builder>` didn't reset JOIN cache for write-type queries.
+-  錯誤修正（編號 2298） - :doc:`Database Results <database/results>` method ``next_row()`` kept returning the last row, allowing for infinite loops.
+-  錯誤修正（編號 2236、編號 2639） - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_value()`, :php:func:`set_select()`, :php:func:`set_radio()`, :php:func:`set_checkbox()` didn't parse array notation for keys if the rule was not present in the :doc:`Form Validation Library <libraries/form_validation>`.
+-  錯誤修正（編號 2353） - :doc:`Query Builder <database/query_builder>` erroneously prefixed literal strings with **dbprefix**.
+-  錯誤修正（編號 78） - :doc:`Cart Library <libraries/cart>` didn't allow non-English letters in product names.
+-  錯誤修正（編號 77） - :doc:`Database Class <database/index>` didn't properly handle the transaction "test mode" flag.
+-  錯誤修正（編號 2380） - :doc:`URI Routing <general/routing>` method ``fetch_method()`` returned 'index' if the requested method name matches its controller name.
+-  錯誤修正（編號 2388） - :doc:`Email Library <libraries/email>` used to ignore attachment errors, resulting in broken emails being sent.
+-  錯誤修正（編號 2498） - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_base64** only checked characters instead of actual validity.
+-  錯誤修正（編號 2425） - OCI8 :doc:`database <database/index>` driver method ``stored_procedure()`` didn't log an error unless **db_debug** was set to TRUE.
+-  錯誤修正（編號 2490） - :doc:`Database Class <database/queries>` method ``query()`` returning boolean instead of a result object for PostgreSQL-specific *INSERT INTO ... RETURNING* statements.
+-  錯誤修正（編號 249） - :doc:`Cache Library <libraries/caching>` didn't properly handle Memcache(d) configurations with missing options.
+-  錯誤修正（編號 180） - :php:func:`config_item()` didn't take into account run-time configuration changes.
+-  錯誤修正（編號 2551） - :doc:`Loader Library <libraries/loader>` method ``library()`` didn't properly check if a class that is being loaded already exists.
+-  錯誤修正（編號 2560） - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_open()` set the 'method="post"' attribute only if the passed attributes equaled an empty string.
+-  錯誤修正（編號 2585） - :doc:`Query Builder <database/query_builder>` methods ``min()``, ``max()``, ``avg()``, ``sum()`` didn't escape field names.
+-  錯誤修正（編號 2590） - :doc:`Common function <general/common_functions>` :php:func:`log_message()` didn't actually cache the ``CI_Log`` class instance.
+-  錯誤修正（編號 2609） - :doc:`Common function <general/common_functions>` :php:func:`get_config()` optional argument was only effective on first function call. Also, it can now add items, in addition to updating existing items.
 -  Fixed a bug in the 'postgre' :doc:`database <database/index>` driver where the connection ID wasn't passed to ``pg_escape_string()``.
--  Fixed a bug (#33) - Script execution was terminated when an invalid cookie key was encountered.
--  Fixed a bug (#2691) - nested :doc:`database <database/index>` transactions could end in a deadlock when an error is encountered with *db_debug* set to TRUE.
--  Fixed a bug (#2515) - ``_exception_handler()`` used to send the 200 "OK" HTTP status code and didn't stop script exection even on fatal errors.
+-  錯誤修正（編號 33） - Script execution was terminated when an invalid cookie key was encountered.
+-  錯誤修正（編號 2691） - nested :doc:`database <database/index>` transactions could end in a deadlock when an error is encountered with *db_debug* set to TRUE.
+-  錯誤修正（編號 2515） - ``_exception_handler()`` used to send the 200 "OK" HTTP status code and didn't stop script exection even on fatal errors.
 -  Fixed a bug - Redis :doc:`Caching <libraries/caching>` driver didn't handle connection failures properly.
--  Fixed a bug (#2756) - :doc:`Database Class <database/index>` executed the MySQL-specific `SET SESSION sql_mode` query for all drivers when the 'stricton' option is set.
--  Fixed a bug (#2579) - :doc:`Query Builder <database/query_builder>` "no escape" functionality didn't work properly with query cache.
--  Fixed a bug (#2237) - :doc:`Parser Library <libraries/parser>` failed if the same tag pair is used more than once within a template.
--  Fixed a bug (#2143) - :doc:`Form Validation Library <libraries/form_validation>` didn't check for rule groups named in a *controller/method* manner when trying to load from a config file.
--  Fixed a bug (#2762) - :doc:`Hooks Class <general/hooks>` didn't properly check if the called class/function exists.
--  Fixed a bug (#148) - :doc:`Input Library <libraries/input>` internal method ``_clean_input_data()`` assumed that it data is URL-encoded, stripping certain character sequences from it.
--  Fixed a bug (#346) - with ``$config['global_xss_filtering']`` turned on, the ``$_GET``, ``$_POST``, ``$_COOKIE`` and ``$_SERVER`` superglobals were overwritten during initialization time, resulting in XSS filtering being either performed twice or there was no possible way to get the original data, even though options for this do exist.
+-  錯誤修正（編號 2756） - :doc:`Database Class <database/index>` executed the MySQL-specific `SET SESSION sql_mode` query for all drivers when the 'stricton' option is set.
+-  錯誤修正（編號 2579） - :doc:`Query Builder <database/query_builder>` "no escape" functionality didn't work properly with query cache.
+-  錯誤修正（編號 2237） - :doc:`Parser Library <libraries/parser>` failed if the same tag pair is used more than once within a template.
+-  錯誤修正（編號 2143） - :doc:`Form Validation Library <libraries/form_validation>` didn't check for rule groups named in a *controller/method* manner when trying to load from a config file.
+-  錯誤修正（編號 2762） - :doc:`Hooks Class <general/hooks>` didn't properly check if the called class/function exists.
+-  錯誤修正（編號 148） - :doc:`Input Library <libraries/input>` internal method ``_clean_input_data()`` assumed that it data is URL-encoded, stripping certain character sequences from it.
+-  錯誤修正（編號 346） - with ``$config['global_xss_filtering']`` turned on, the ``$_GET``, ``$_POST``, ``$_COOKIE`` and ``$_SERVER`` superglobals were overwritten during initialization time, resulting in XSS filtering being either performed twice or there was no possible way to get the original data, even though options for this do exist.
 -  Fixed an edge case (#555) - :doc:`User Agent Library <libraries/user_agent>` reported an incorrect version Opera 10+ due to a non-standard user-agent string.
--  Fixed a bug (#133) - :doc:`Text Helper <helpers/text_helper>` :php:func:`ascii_to_entities()` stripped the last character if it happens to be in the extended ASCII group.
--  Fixed a bug (#2822) - ``fwrite()`` was used incorrectly throughout the whole framework, allowing incomplete writes when writing to a network stream and possibly a few other edge cases.
+-  錯誤修正（編號 133） - :doc:`Text Helper <helpers/text_helper>` :php:func:`ascii_to_entities()` stripped the last character if it happens to be in the extended ASCII group.
+-  錯誤修正（編號 2822） - ``fwrite()`` was used incorrectly throughout the whole framework, allowing incomplete writes when writing to a network stream and possibly a few other edge cases.
 -  Fixed a bug where :doc:`User Agent Library <libraries/user_agent>` methods ``accept_charset()`` and ``accept_lang()`` didn't properly parse HTTP headers that contain spaces.
 -  Fixed a bug where *default_controller* was called instad of triggering a 404 error if the current route is in a controller directory.
--  Fixed a bug (#2737) - :doc:`XML-RPC Library <libraries/xmlrpc>` used objects as array keys, which triggered E_NOTICE messages.
--  Fixed a bug (#2771) - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
--  Fixed a bug (#2856) - ODBC method ``affected_rows()`` passed an incorrect value to ``odbc_num_rows()``.
--  Fixed a bug (#43) :doc:`Image Manipulation Library <libraries/image_lib>` method ``text_watermark()`` didn't properly determine watermark placement.
+-  錯誤修正（編號 2737） - :doc:`XML-RPC Library <libraries/xmlrpc>` used objects as array keys, which triggered E_NOTICE messages.
+-  錯誤修正（編號 2771） - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
+-  錯誤修正（編號 2856） - ODBC method ``affected_rows()`` passed an incorrect value to ``odbc_num_rows()``.
+-  錯誤修正（編號 43） :doc:`Image Manipulation Library <libraries/image_lib>` method ``text_watermark()`` didn't properly determine watermark placement.
 -  Fixed a bug where :doc:`HTML Table Library <libraries/table>` ignored its *auto_heading* setting if headings were not already set.
--  Fixed a bug (#2364) - :doc:`Pagination Library <libraries/pagination>` appended the query string (if used) multiple times when there are successive calls to ``create_links()`` with no ``initialize()`` in between them.
--  Partially fixed a bug (#261) - UTF-8 class method ``clean_string()`` generating log messages and/or not producing the desired result due to an upstream bug in iconv.
+-  錯誤修正（編號 2364） - :doc:`Pagination Library <libraries/pagination>` appended the query string (if used) multiple times when there are successive calls to ``create_links()`` with no ``initialize()`` in between them.
+-  部分的錯誤修正（編號 261） - UTF-8 class method ``clean_string()`` generating log messages and/or not producing the desired result due to an upstream bug in iconv.
 -  Fixed a bug where ``CI_Xmlrpcs::parseRequest()`` could fail if ``$HTTP_RAW_POST_DATA`` is not populated.
 -  Fixed a bug in :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` where it was not parsing result returned by ``filemtime()``.
--  Fixed a bug (#3161) - :doc:`Cache Library <libraries/caching>` methods `increment()`, `decrement()` didn't auto-create non-existent items when using redis and/or file storage.
--  Fixed a bug (#3189) - :doc:`Parser Library <libraries/parser>` used double replacement on ``key->value`` pairs, exposing a potential template injection vulnerability.
--  Fixed a bug (#3573) - :doc:`Email Library <libraries/email>` violated `RFC5321 <https://tools.ietf.org/rfc/rfc5321.txt>`_ by sending 'localhost.localdomain' as a hostname.
--  Fixed a bug (#3572) - ``CI_Security::_remove_evil_attributes()`` failed for large-sized inputs due to *pcre.backtrack_limit* and didn't properly match HTML tags.
+-  錯誤修正（編號 3161） - :doc:`Cache Library <libraries/caching>` methods `increment()`, `decrement()` didn't auto-create non-existent items when using redis and/or file storage.
+-  錯誤修正（編號 3189） - :doc:`Parser Library <libraries/parser>` used double replacement on ``key->value`` pairs, exposing a potential template injection vulnerability.
+-  錯誤修正（編號 3573） - :doc:`Email Library <libraries/email>` violated `RFC5321 <https://tools.ietf.org/rfc/rfc5321.txt>`_ by sending 'localhost.localdomain' as a hostname.
+-  錯誤修正（編號 3572） - ``CI_Security::_remove_evil_attributes()`` failed for large-sized inputs due to *pcre.backtrack_limit* and didn't properly match HTML tags.
 
-Version 2.2.1
-=============
+版本 2.2.3
+==========
 
-Release Date: January 22, 2015
+發布日期：July 14, 2015
+
+-  Security
+
+   - Removed a fallback to ``mysql_escape_string()`` in the 'mysql' database driver (``escape_str()`` method) when there's no active database connection.
+
+版本 2.2.2
+==========
+
+發布日期：April 15, 2015
+
+-  General Changes
+
+   - Added HTTP "Host" header character validation to prevent cache poisoning attacks when *base_url* auto-detection is used.
+   - Added *FSCommand* and *seekSegmentTime* to the "evil attributes" list in ``CI_Security::xss_clean()``.
+
+2.2.2 錯誤修正
+--------------
+
+-  錯誤修正（編號 3665） - ``CI_Security::entity_decode()`` triggered warnings under some circumstances.
+
+版本 2.2.1
+==========
+
+發布日期：January 22, 2015
 
 -  General Changes
 
    - Improved security in ``xss_clean()``.
    - Updated timezones in :doc:`Date Helper <helpers/date_helper>`.
 
-Bug fixes for 2.2.1
+2.2.1 錯誤修正
 -------------------
 
--  Fixed a bug (#3094) - Internal method ``CI_Input::_clean_input_data()`` breaks encrypted session cookies.
--  Fixed a bug (#2268) - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't properly match JavaScript events.
--  Fixed a bug (#3309) - :doc:`Security Library <libraries/security>` method ``xss_clean()`` used an overly-invasive pattern to strip JS event handlers.
--  Fixed a bug (#2771) - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
--  Fixed a bug (#73) - :doc:`Security Library <libraries/security>` method ``sanitize_filename()`` could be tricked by an XSS attack.
--  Fixed a bug (#2681) - :doc:`Security Library <libraries/security>` method ``entity_decode()`` used the ``PREG_REPLACE_EVAL`` flag, which is deprecated since PHP 5.5.
--  Fixed a bug (#3302) - Internal function ``get_config()`` triggered an E_NOTICE message on PHP 5.6.
--  Fixed a bug (#2508) - :doc:`Config Library <libraries/config>` didn't properly detect if the current request is via HTTPS.
--  Fixed a bug (#3314) - SQLSRV :doc:`Database driver <database/index>`'s method ``count_all()`` didn't escape the supplied table name.
--  Fixed a bug (#3404) - MySQLi :doc:`Database driver <database/index>`'s method ``escape_str()`` had a wrong fallback to ``mysql_escape_string()`` when there was no active connection.
+-  錯誤修正（編號 3094） - Internal method ``CI_Input::_clean_input_data()`` breaks encrypted session cookies.
+-  錯誤修正（編號 2268） - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't properly match JavaScript events.
+-  錯誤修正（編號 3309） - :doc:`Security Library <libraries/security>` method ``xss_clean()`` used an overly-invasive pattern to strip JS event handlers.
+-  錯誤修正（編號 2771） - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
+-  錯誤修正（編號 73） - :doc:`Security Library <libraries/security>` method ``sanitize_filename()`` could be tricked by an XSS attack.
+-  錯誤修正（編號 2681） - :doc:`Security Library <libraries/security>` method ``entity_decode()`` used the ``PREG_REPLACE_EVAL`` flag, which is deprecated since PHP 5.5.
+-  錯誤修正（編號 3302） - Internal function ``get_config()`` triggered an E_NOTICE message on PHP 5.6.
+-  錯誤修正（編號 2508） - :doc:`Config Library <libraries/config>` didn't properly detect if the current request is via HTTPS.
+-  錯誤修正（編號 3314） - SQLSRV :doc:`Database driver <database/index>`'s method ``count_all()`` didn't escape the supplied table name.
+-  錯誤修正（編號 3404） - MySQLi :doc:`Database driver <database/index>`'s method ``escape_str()`` had a wrong fallback to ``mysql_escape_string()`` when there was no active connection.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where session ID regeneration occurred during AJAX requests.
 
-Version 2.2.0
-=============
+版本 2.2.0
+==========
 
-Release Date: June 2, 2014
+發布日期：June 2, 2014
 
 -  General Changes
 
    - Security: :doc:`Encrypt Library <libraries/encrypt>` method ``xor_encode()`` has been removed. The Encrypt Class now requires the Mcrypt extension to be installed.
    - Security: The :doc:`Session Library <libraries/sessions>` now uses HMAC authentication instead of a simple MD5 checksum.
 
-Bug fixes for 2.2.0
--------------------
+2.2.0 錯誤修正
+--------------
 
 -  Fixed an edge case (#2583) in the :doc:`Email Library <libraries/email>` where `Suhosin <http://www.hardened-php.net/suhosin/>` blocked messages sent via ``mail()`` due to trailing newspaces in headers.
--  Fixed a bug (#696) - make ``oci_execute()`` calls inside ``num_rows()`` non-committing, since they are only there to reset which row is next in line for oci_fetch calls and thus don't need to be committed.
--  Fixed a bug (#2689) - :doc:`Database Force <database/forge>` methods ``create_table()``, ``drop_table()`` and ``rename_table()`` produced broken SQL for tge 'sqlsrv' driver.
--  Fixed a bug (#2427) - PDO :doc:`Database driver <database/index>` didn't properly check for query failures.
+-  錯誤修正（編號 696） - make ``oci_execute()`` calls inside ``num_rows()`` non-committing, since they are only there to reset which row is next in line for oci_fetch calls and thus don't need to be committed.
+-  錯誤修正（編號 2689） - :doc:`Database Force <database/forge>` methods ``create_table()``, ``drop_table()`` and ``rename_table()`` produced broken SQL for tge 'sqlsrv' driver.
+-  錯誤修正（編號 2427） - PDO :doc:`Database driver <database/index>` didn't properly check for query failures.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where authentication was not performed for encrypted cookies.
 
-Version 2.1.4
-=============
+版本 2.1.4
+==========
 
-Release Date: July 8, 2013
+發布日期：July 8, 2013
 
 -  General Changes
 
    - Improved security in ``xss_clean()``.
 
-Bug fixes for 2.1.4
--------------------
+2.1.4 錯誤修正
+--------------
 
--  Fixed a bug (#1936) - :doc:`Migration Library <libraries/migration>` method ``latest()`` had a typo when retrieving language values.
--  Fixed a bug (#2021) - :doc:`Migration Library <libraries/migration>` configuration file was mistakenly using Windows style line feeds.
--  Fixed a bug (#1273) - ``E_NOTICE`` being generated by :doc:`Query Builder <database/query_builder>`'s ``set_update_batch()`` method.
--  Fixed a bug (#2337) - :doc:`Email Library <libraries/email>` method ``print_debugger()`` didn't apply ``htmlspecialchars()`` to headers.
+-  錯誤修正（編號 1936） - :doc:`Migration Library <libraries/migration>` method ``latest()`` had a typo when retrieving language values.
+-  錯誤修正（編號 2021） - :doc:`Migration Library <libraries/migration>` configuration file was mistakenly using Windows style line feeds.
+-  錯誤修正（編號 1273） - ``E_NOTICE`` being generated by :doc:`Query Builder <database/query_builder>`'s ``set_update_batch()`` method.
+-  錯誤修正（編號 2337） - :doc:`Email Library <libraries/email>` method ``print_debugger()`` didn't apply ``htmlspecialchars()`` to headers.
 
-Version 2.1.3
-=============
+版本 2.1.3
+==========
 
-Release Date: October 8, 2012
+發布日期：October 8, 2012
 
 -  Core
 
    - :doc:`Common function <general/common_functions>` ``is_loaded()`` now returns a reference.
 
-Bug fixes for 2.1.3
--------------------
+2.1.3 錯誤修正
+--------------
 
--  Fixed a bug (#1543) - File-based :doc:`Caching <libraries/caching>` method ``get_metadata()`` used a non-existent array key to look for the TTL value.
--  Fixed a bug (#1314) - :doc:`Session Library <libraries/sessions>` method ``sess_destroy()`` didn't destroy the userdata array.
--  Fixed a bug (#804) - :doc:`Profiler library <general/profiling>` was trying to handle objects as strings in some cases, resulting in *E_WARNING* messages being issued by ``htmlspecialchars()``.
--  Fixed a bug (#1699) - :doc:`Migration Library <libraries/migration>` ignored the ``$config['migration_path']`` setting.
--  Fixed a bug (#227) - :doc:`Input Library <libraries/input>` allowed unconditional spoofing of HTTP clients' IP addresses through the *HTTP_CLIENT_IP* header.
--  Fixed a bug (#907) - :doc:`Input Library <libraries/input>` ignored *HTTP_X_CLUSTER_CLIENT_IP* and *HTTP_X_CLIENT_IP* headers when checking for proxies.
--  Fixed a bug (#940) - ``csrf_verify()`` used to set the CSRF cookie while processing a POST request with no actual POST data, which resulted in validating a request that should be considered invalid.
--  Fixed a bug (#499) - :doc:`Security Library <libraries/security>` where a CSRF cookie was created even if ``$config['csrf_protection']`` is set to FALSE.
--  Fixed a bug (#1715) - :doc:`Input Library <libraries/input>` triggered ``csrf_verify()`` on CLI requests.
--  Fixed a bug (#751) - :doc:`Query Builder <database/query_builder>` didn't properly handle cached field escaping overrides.
--  Fixed a bug (#2004) - :doc:`Query Builder <database/query_builder>` didn't properly merge cached calls with non-cache ones.
+-  錯誤修正（編號 1543） - File-based :doc:`Caching <libraries/caching>` method ``get_metadata()`` used a non-existent array key to look for the TTL value.
+-  錯誤修正（編號 1314） - :doc:`Session Library <libraries/sessions>` method ``sess_destroy()`` didn't destroy the userdata array.
+-  錯誤修正（編號 804） - :doc:`Profiler library <general/profiling>` was trying to handle objects as strings in some cases, resulting in *E_WARNING* messages being issued by ``htmlspecialchars()``.
+-  錯誤修正（編號 1699） - :doc:`Migration Library <libraries/migration>` ignored the ``$config['migration_path']`` setting.
+-  錯誤修正（編號 227） - :doc:`Input Library <libraries/input>` allowed unconditional spoofing of HTTP clients' IP addresses through the *HTTP_CLIENT_IP* header.
+-  錯誤修正（編號 907） - :doc:`Input Library <libraries/input>` ignored *HTTP_X_CLUSTER_CLIENT_IP* and *HTTP_X_CLIENT_IP* headers when checking for proxies.
+-  錯誤修正（編號 940） - ``csrf_verify()`` used to set the CSRF cookie while processing a POST request with no actual POST data, which resulted in validating a request that should be considered invalid.
+-  錯誤修正（編號 499） - :doc:`Security Library <libraries/security>` where a CSRF cookie was created even if ``$config['csrf_protection']`` is set to FALSE.
+-  錯誤修正（編號 1715） - :doc:`Input Library <libraries/input>` triggered ``csrf_verify()`` on CLI requests.
+-  錯誤修正（編號 751） - :doc:`Query Builder <database/query_builder>` didn't properly handle cached field escaping overrides.
+-  錯誤修正（編號 2004） - :doc:`Query Builder <database/query_builder>` didn't properly merge cached calls with non-cache ones.
 
-Version 2.1.2
-=============
+版本 2.1.2
+==========
 
-Release Date: June 29, 2012
+發布日期：June 29, 2012
 
 -  General Changes
 
    -  Improved security in ``xss_clean()``.
 
-Version 2.1.1
-=============
+版本 2.1.1
+==========
 
-Release Date: June 12, 2012
+發布日期：June 12, 2012
 
 -  General Changes
 
@@ -986,23 +1061,23 @@ Release Date: June 12, 2012
 
    -  ``url_title()`` performance and output improved. You can now use any string as the word delimiter, but 'dash' and 'underscore' are still supported.
 
-Bug fixes for 2.1.1
--------------------
+2.1.1 錯誤修正
+--------------
 
--  Fixed a bug (#697) - A wrong array key was used in the :doc:`File Uploading Library <libraries/file_uploading>` to check for mime-types.
+-  錯誤修正（編號 697） - A wrong array key was used in the :doc:`File Uploading Library <libraries/file_uploading>` to check for mime-types.
 -  Fixed a bug - ``form_open()`` compared $action against ``site_url()`` instead of ``base_url()``.
 -  Fixed a bug - ``CI_Upload::_file_mime_type()`` could've failed if ``mime_content_type()`` is used for the detection and returns FALSE.
--  Fixed a bug (#538) - Windows paths were ignored when using the :doc:`Image Manipulation Library <libraries/image_lib>` to create a new file.
+-  錯誤修正（編號 538） - Windows paths were ignored when using the :doc:`Image Manipulation Library <libraries/image_lib>` to create a new file.
 -  Fixed a bug - When database caching was enabled, $this->db->query() checked the cache before binding variables which resulted in cached queries never being found.
 -  Fixed a bug - CSRF cookie value was allowed to be any (non-empty) string before being written to the output, making code injection a risk.
--  Fixed a bug (#726) - PDO put a 'dbname' argument in its connection string regardless of the database platform in use, which made it impossible to use SQLite.
+-  錯誤修正（編號 726） - PDO put a 'dbname' argument in its connection string regardless of the database platform in use, which made it impossible to use SQLite.
 -  Fixed a bug - ``CI_DB_pdo_driver::num_rows()`` was not returning properly value with SELECT queries, cause it was relying on ``PDOStatement::rowCount()``.
--  Fixed a bug (#1059) - ``CI_Image_lib::clear()`` was not correctly clearing all necessary object properties, namely width and height.
+-  錯誤修正（編號 1059） - ``CI_Image_lib::clear()`` was not correctly clearing all necessary object properties, namely width and height.
 
-Version 2.1.0
-=============
+版本 2.1.0
+==========
 
-Release Date: November 14, 2011
+發布日期：November 14, 2011
 
 -  General Changes
 
@@ -1022,7 +1097,7 @@ Release Date: November 14, 2011
    -  url_title() will now trim extra dashes from beginning and end.
    -  Improved speed of :doc:`String Helper <helpers/string_helper>`'s random_string() method
 
--  Database
+- 資料庫
 
    -  Added a `CUBRID <http://www.cubrid.org/>`_ driver to the :doc:`Database
       Driver <database/index>`. Thanks to the CUBRID team for
@@ -1059,8 +1134,8 @@ Release Date: November 14, 2011
       override them.
    -  Removed CI_CORE boolean constant from CodeIgniter.php (no longer Reactor and Core versions).
 
-Bug fixes for 2.1.0
--------------------
+2.1.0 錯誤修正
+--------------
 
 -  Fixed #378 Robots identified as regular browsers by the User Agent
    class.
@@ -1072,32 +1147,32 @@ Bug fixes for 2.1.0
    but the requested method did not.
 -  Fixed a bug (Reactor #89) where MySQL export would fail if the table
    had hyphens or other non alphanumeric/underscore characters.
--  Fixed a bug (#105) that stopped query errors from being logged unless database debugging was enabled
--  Fixed a bug (#160) - Removed unneeded array copy in the file cache
+-  錯誤修正（編號 105） that stopped query errors from being logged unless database debugging was enabled
+-  錯誤修正（編號 160） - Removed unneeded array copy in the file cache
    driver.
--  Fixed a bug (#150) - field_data() now correctly returns column
+-  錯誤修正（編號 150） - field_data() now correctly returns column
    length.
--  Fixed a bug (#8) - load_class() now looks for core classes in
+-  錯誤修正（編號 8） - load_class() now looks for core classes in
    APPPATH first, allowing them to be replaced.
--  Fixed a bug (#24) - ODBC database driver called incorrect parent in __construct().
--  Fixed a bug (#85) - OCI8 (Oracle) database escape_str() function did not escape correct.
--  Fixed a bug (#344) - Using schema found in :doc:`Saving Session Data to a Database <libraries/sessions>`, system would throw error "user_data does not have a default value" when deleting then creating a session.
--  Fixed a bug (#112) - OCI8 (Oracle) driver didn't pass the configured database character set when connecting.
--  Fixed a bug (#182) - OCI8 (Oracle) driver used to re-execute the statement whenever num_rows() is called.
--  Fixed a bug (#82) - WHERE clause field names in the DB update_string() method were not escaped, resulting in failed queries in some cases.
--  Fixed a bug (#89) - Fix a variable type mismatch in DB display_error() where an array is expected, but a string could be set instead.
--  Fixed a bug (#467) - Suppress warnings generated from get_magic_quotes_gpc() (deprecated in PHP 5.4)
--  Fixed a bug (#484) - First time _csrf_set_hash() is called, hash is never set to the cookie (in Security.php).
--  Fixed a bug (#60) - Added _file_mime_type() method to the :doc:`File Uploading Library <libraries/file_uploading>` in order to fix a possible MIME-type injection.
--  Fixed a bug (#537) - Support for all wav type in browser.
--  Fixed a bug (#576) - Using ini_get() function to detect if apc is enabled or not.
+-  錯誤修正（編號 24） - ODBC database driver called incorrect parent in __construct().
+-  錯誤修正（編號 85） - OCI8 (Oracle) database escape_str() function did not escape correct.
+-  錯誤修正（編號 344） - Using schema found in :doc:`Saving Session Data to a Database <libraries/sessions>`, system would throw error "user_data does not have a default value" when deleting then creating a session.
+-  錯誤修正（編號 112） - OCI8 (Oracle) driver didn't pass the configured database character set when connecting.
+-  錯誤修正（編號 182） - OCI8 (Oracle) driver used to re-execute the statement whenever num_rows() is called.
+-  錯誤修正（編號 82） - WHERE clause field names in the DB update_string() method were not escaped, resulting in failed queries in some cases.
+-  錯誤修正（編號 89） - Fix a variable type mismatch in DB display_error() where an array is expected, but a string could be set instead.
+-  錯誤修正（編號 467） - Suppress warnings generated from get_magic_quotes_gpc() (deprecated in PHP 5.4)
+-  錯誤修正（編號 484） - First time _csrf_set_hash() is called, hash is never set to the cookie (in Security.php).
+-  錯誤修正（編號 60） - Added _file_mime_type() method to the :doc:`File Uploading Library <libraries/file_uploading>` in order to fix a possible MIME-type injection.
+-  錯誤修正（編號 537） - Support for all wav type in browser.
+-  錯誤修正（編號 576） - Using ini_get() function to detect if apc is enabled or not.
 -  Fixed invalid date time format in :doc:`Date helper <helpers/date_helper>` and :doc:`XMLRPC library <libraries/xmlrpc>`.
--  Fixed a bug (#200) - MySQL queries would be malformed after calling db->count_all() then db->get().
+-  錯誤修正（編號 200） - MySQL queries would be malformed after calling db->count_all() then db->get().
 
-Version 2.0.3
-=============
+版本 2.0.3
+==========
 
-Release Date: August 20, 2011
+發布日期：August 20, 2011
 
 -  Security
 
@@ -1158,8 +1233,8 @@ Release Date: August 20, 2011
    -  Changed $this->db->having() to insert quotes using escape() rather
       than escape_str().
 
-Bug fixes for 2.0.3
--------------------
+2.0.3 錯誤修正
+--------------
 
 -  Added ENVIRONMENT to reserved constants. (Reactor #196)
 -  Changed server check to ensure SCRIPT_NAME is defined. (Reactor #57)
@@ -1189,10 +1264,10 @@ Bug fixes for 2.0.3
    whole is more reliable. This should get parameters in crontab
    working.
 
-Version 2.0.2
-=============
+版本 2.0.2
+==========
 
-Release Date: April 7, 2011
+發布日期：April 7, 2011
 Hg Tag: v2.0.2
 
 -  General changes
@@ -1219,13 +1294,13 @@ Hg Tag: v2.0.2
       captalization of your string. It also take into consideration
       acronyms which are all caps.
 
--  Database
+- 資料庫
 
    -  $this->db->count_all_results() will now return an integer
       instead of a string.
 
-Bug fixes for 2.0.2
--------------------
+2.0.2 錯誤修正
+--------------
 
 -  Fixed a bug (Reactor #145) where the Output Library had
    parse_exec_vars set to protected.
@@ -1239,10 +1314,10 @@ Bug fixes for 2.0.2
 -  Fixed issue #153 Escape Str Bug in MSSQL driver.
 -  Fixed issue #172 Google Chrome 11 posts incorrectly when action is empty.
 
-Version 2.0.1
-=============
+版本 2.0.1
+==========
 
-Release Date: March 15, 2011
+發布日期：March 15, 2011
 Hg Tag: v2.0.1
 
 -  General changes
@@ -1280,8 +1355,8 @@ Hg Tag: v2.0.1
       helper <helpers/form_helper>`. If no value is passed it will
       submit to the current URL.
 
-Bug fixes for 2.0.1
--------------------
+2.0.1 錯誤修正
+--------------
 
 -  CLI requests can now be run from any folder, not just when CD'ed next
    to index.php.
@@ -1293,10 +1368,10 @@ Bug fixes for 2.0.1
 
 .. _2.0.0-changelog:
 
-Version 2.0.0
-=============
+版本 2.0.0
+==========
 
-Release Date: January 28, 2011
+發布日期：January 28, 2011
 Hg Tag: v2.0.0
 
 -  General changes
@@ -1425,7 +1500,7 @@ Hg Tag: v2.0.0
       get() will return all POST and GET items (respectively) if there
       are no parameters passed in.
 
--  Database
+- 資料庫
 
    -  :doc:`database configuration <./database/configuration>`.
    -  Added autoinit value to :doc:`database
@@ -1525,8 +1600,8 @@ Hg Tag: v2.0.0
       functions. <general/common_functions>`
    -  Added audio/mpeg3 as a valid mime type for MP3.
 
-Bug fixes for 2.0.0
--------------------
+2.0.0 錯誤修正
+--------------
 
 -  Fixed a bug where you could not change the User-Agent when sending
    email.
@@ -1559,7 +1634,7 @@ Bug fixes for 2.0.0
    properly.
 -  Fixed a bug were form_open_multipart() didn't accept string
    attribute arguments (#10930).
--  Fixed a bug (#10470) where get_mime_by_extension() was case
+-  錯誤修正（編號 10470） where get_mime_by_extension() was case
    sensitive.
 -  Fixed a bug where some error messages for the SQLite and Oracle
    drivers would not display.
@@ -1588,10 +1663,10 @@ Bug fixes for 2.0.0
 -  Fixed a bug in the date helper where the DATE_ISO8601 variable was
    returning an incorrectly formatted date string.
 
-Version 1.7.2
-=============
+版本 1.7.2
+==========
 
-Release Date: September 11, 2009
+發布日期：September 11, 2009
 Hg Tag: v1.7.2
 
 -  Libraries
@@ -1603,7 +1678,7 @@ Hg Tag: v1.7.2
    -  Changed order of listed user-agents so Safari would more
       accurately report itself. (#6844)
 
--  Database
+- 資料庫
 
    -  Switched from using gettype() in escape() to is\_* methods, since
       future PHP versions might change its output.
@@ -1652,8 +1727,8 @@ Hg Tag: v1.7.2
    -  Added 2 CodeIgniter "cheatsheets" (thanks to DesignFellow.com for
       this contribution).
 
-Bug fixes for 1.7.2
--------------------
+1.7.2 錯誤修正
+--------------
 
 -  Fixed assorted user guide typos or examples (#6743, #7214, #7516,
    #7287, #7852, #8224, #8324, #8349).
@@ -1691,10 +1766,10 @@ Bug fixes for 1.7.2
 -  Fixed a bug in the typography class where heading tags could have
    paragraph tags inserted when using auto_typography().
 
-Version 1.7.1
-=============
+版本 1.7.1
+==========
 
-Release Date: February 10, 2009
+發布日期：February 10, 2009
 Hg Tag: 1.7.1
 
 -  Libraries
@@ -1719,7 +1794,7 @@ Hg Tag: 1.7.1
    -  Made modest improvements to efficiency and accuracy of
       explode_name() in the Image lib.
 
--  Database
+- 資料庫
 
    -  Added where_in to the list of expected arguments received by
       delete().
@@ -1750,10 +1825,10 @@ Hg Tag: 1.7.1
    -  Improved accuracy of Upload::is_allowed_filetype() for images
       (#6715)
 
-Bug fixes for 1.7.1
--------------------
+1.7.1 錯誤修正
+--------------
 
--  Database
+- 資料庫
 
    -  Fixed a bug when doing 'random' on order_by() (#5706).
    -  Fixed a bug where adding a primary key through Forge could fail
@@ -1769,7 +1844,7 @@ Bug fixes for 1.7.1
 -  Fixed assorted user guide typos or examples (#5998, #6093, #6259,
    #6339, #6432, #6521).
 -  Fixed a bug in the MySQLi driver when no port is specified
--  Fixed a bug (#5702), in which the field label was not being fetched
+-  錯誤修正（編號 5702）, in which the field label was not being fetched
    properly, when "matching" one field to another.
 -  Fixed a bug in which identifers were not being escaped properly when
    reserved characters were used.
@@ -1799,26 +1874,26 @@ Bug fixes for 1.7.1
    accented character.
 -  Fixed a bug in the Text Helper character limiter where the provided
    limit intersects the last word of the string.
--  Fixed a bug (#6342) with plural() in the Inflection helper with words
+-  錯誤修正（編號 6342） with plural() in the Inflection helper with words
    ending in "y".
 -  Fixed bug (#6517) where Routed URI segments returned by
    URI::rsegment() method were incorrect for the default controller.
--  Fixed a bug (#6706) in the Security Helper where xss_clean() was
+-  錯誤修正（編號 6706） in the Security Helper where xss_clean() was
    using a deprecated second argument.
 -  Fixed a bug in the URL helper url_title() function where trailing
    periods were allowed at the end of a URL.
--  Fixed a bug (#6669) in the Email class when CRLF's are used for the
+-  錯誤修正（編號 6669） in the Email class when CRLF's are used for the
    newline character with headers when used with the "mail" protocol.
--  Fixed a bug (#6500) where URI::A_filter_uri() was exit()ing an
+-  錯誤修正（編號 6500） where URI::A_filter_uri() was exit()ing an
    error instead of using show_error().
--  Fixed a bug (#6592) in the File Helper where get_dir_file_info()
+-  錯誤修正（編號 6592） in the File Helper where get_dir_file_info()
    where recursion was not occurring properly.
 -  Tweaked Typography::auto_typography() for some edge-cases.
 
-Version 1.7
-===========
+版本 1.7
+========
 
-Release Date: October 23, 2008
+發布日期：October 23, 2008
 Hg Tag: 1.7.0
 
 -  Libraries
@@ -1865,7 +1940,7 @@ Hg Tag: 1.7.0
       Validation <libraries/form_validation>` class so that
       multi-byte languages will calculate string lengths properly.
 
--  Database
+- 資料庫
 
    -  Improved Active Record class to allow full path column and table
       names: hostname.database.table.column. Also improved the alias
@@ -1929,8 +2004,8 @@ Hg Tag: 1.7.0
       than clear, and added the id "codeigniter_profiler" to the
       container div.
 
-Bug fixes for 1.7.0
--------------------
+1.7.0 錯誤修正
+--------------
 
 -  Fixed bug in xss_clean() that could remove some desirable tag
    attributes.
@@ -1949,7 +2024,7 @@ Bug fixes for 1.7.0
 -  Fixed a bug in the Session class when database sessions are used
    where upon session update all userdata would be errantly written to
    the session cookie.
--  Fixed a bug (#4536) in backups with the MySQL driver where some
+-  錯誤修正（編號 4536） in backups with the MySQL driver where some
    legacy code was causing certain characters to be double escaped.
 -  Fixed a routing bug (#4661) that occurred when the default route
    pointed to a subfolder.
@@ -1959,7 +2034,7 @@ Bug fixes for 1.7.0
 -  Fixed incorrect parenthesis in form_open() function (#5135).
 -  Fixed a bug that was ignoring case when comparing controller methods
    (#4560).
--  Fixed a bug (#4615) that was not setting SMTP authorization settings
+-  錯誤修正（編號 4615） that was not setting SMTP authorization settings
    when using the initialize function.
 -  Fixed a bug in highlight_code() in the :doc:`Text
    helper <helpers/text_helper>` that would leave a stray </span>
@@ -1992,16 +2067,16 @@ Bug fixes for 1.7.0
 -  Fixed a bug in which the parser was being greedy if multiple
    identical sets of tags were encountered.
 
-Version 1.6.3
-=============
+版本 1.6.3
+==========
 
-Release Date: June 26, 2008
+發布日期：June 26, 2008
 Hg Tag: v1.6.3
 
 Version 1.6.3 is a security and maintenance release and is recommended
 for all users.
 
--  Database
+- 資料庫
 
    -  Modified MySQL/MySQLi Forge class to give explicit names to keys
    -  Added ability to set multiple column non-primary keys to the
@@ -2048,16 +2123,16 @@ for all users.
    -  Documented the language file use of byte_format() in the :doc:`number
       helper <helpers/number_helper>`.
 
-Bug fixes for 1.6.3
--------------------
+1.6.3 錯誤修正
+--------------
 
 -  Added a language key for valid_emails in validation_lang.php.
 -  Amended fixes for bug (#3419) with parsing DSN database connections.
 -  Moved the _has_operator() function (#4535) into DB_driver from
    DB_active_rec.
 -  Fixed a syntax error in upload_lang.php.
--  Fixed a bug (#4542) with a regular expression in the Image library.
--  Fixed a bug (#4561) where orhaving() wasn't properly passing values.
+-  錯誤修正（編號 4542） with a regular expression in the Image library.
+-  錯誤修正（編號 4561） where orhaving() wasn't properly passing values.
 -  Removed some unused variables from the code (#4563).
 -  Fixed a bug where having() was not adding an = into the statement
    (#4568).
@@ -2067,10 +2142,10 @@ Bug fixes for 1.6.3
 -  Fixed a double opening <p> tag in the index pages of each system
    directory.
 
-Version 1.6.2
-=============
+版本 1.6.2
+==========
 
-Release Date: May 13, 2008
+發布日期：May 13, 2008
 Hg Tag: 1.6.2
 
 -  Active Record
@@ -2082,7 +2157,7 @@ Hg Tag: 1.6.2
    -  DB Forge is now assigned to any models that exist after loading
       (#3457).
 
--  Database
+- 資料庫
 
    -  Added :doc:`Strict Mode <./database/transactions>` to database
       transactions.
@@ -2168,7 +2243,7 @@ Bugfixes for 1.6.2
 
 -  Fixed a bug where SET queries were not being handled as "write"
    queries.
--  Fixed a bug (#3191) with ORIG_PATH_INFO URI parsing.
+-  錯誤修正（編號 3191） with ORIG_PATH_INFO URI parsing.
 -  Fixed a bug in DB Forge, when inserting an id field (#3456).
 -  Fixed a bug in the table library that could cause identically
    constructed rows to be dropped (#3459).
@@ -2181,18 +2256,18 @@ Bugfixes for 1.6.2
 -  Fixed an incorrect documentation of $this->load->language (#3520).
 -  Fixed bugs (#3523, #4350) in get_filenames() with recursion and
    problems with Windows when $include_path is used.
--  Fixed a bug (#4153) in the XML-RPC class preventing dateTime.iso8601
+-  錯誤修正（編號 4153） in the XML-RPC class preventing dateTime.iso8601
    from being used.
 -  Fixed an AR bug with or_where_not_in() (#4171).
 -  Fixed a bug with :doc:`xss_clean() <libraries/input>` that would
    add semicolons to GET URI variable strings.
--  Fixed a bug (#4206) in the Directory Helper where the directory
+-  錯誤修正（編號 4206） in the Directory Helper where the directory
    resource was not being closed, and minor improvements.
 -  Fixed a bug in the FTP library where delete_dir() was not working
    recursively (#4215).
 -  Fixed a Validation bug when set_rules() is used with a non-array
    field name and rule (#4220).
--  Fixed a bug (#4223) where DB caching would not work for returned DB
+-  錯誤修正（編號 4223） where DB caching would not work for returned DB
    objects or multiple DB connections.
 -  Fixed a bug in the Upload library that might output the same error
    twice (#4390).
@@ -2211,21 +2286,21 @@ Bugfixes for 1.6.2
 -  Fixed a bug in display_error() in the DB driver that was
    instantiating new Language and Exception objects, and not using the
    error heading.
--  Fixed a bug (#4413) where a URI containing slashes only e.g.
+-  錯誤修正（編號 4413） where a URI containing slashes only e.g.
    'http&#58;//example.com/index.php?//' would result in PHP errors
 -  Fixed an array to string conversion error in the Validation library
    (#4425)
 -  Fixed bug (#4451, #4299, #4339) where failed transactions will not
    rollback when debug mode is enabled.
--  Fixed a bug (#4506) with overlay_watermark() in the Image library
+-  錯誤修正（編號 4506） with overlay_watermark() in the Image library
    preventing support for PNG-24s with alpha transparency
 -  Fixed assorted user guide typos (#3453, #4364, #4379, #4399, #4408,
    #4412, #4448, #4488).
 
-Version 1.6.1
-=============
+版本 1.6.1
+==========
 
-Release Date: February 12, 2008
+發布日期：February 12, 2008
 Hg Tag: 1.6.1
 
 -  Active Record
@@ -2271,22 +2346,22 @@ Bugfixes for 1.6.1
    adding brackets around the tables in FROM.
 -  Changed the behaviour of Active Record's update() to make the WHERE
    clause optional (#3395).
--  Fixed a bug (#3396) where certain POST variables would cause a PHP
+-  錯誤修正（編號 3396） where certain POST variables would cause a PHP
    warning.
 -  Fixed a bug in query binding (#3402).
 -  Changed order of SQL keywords in the Profiler $highlight array so OR
    would not be highlighted before ORDER BY.
--  Fixed a bug (#3404) where the MySQLi driver was testing if
+-  錯誤修正（編號 3404） where the MySQLi driver was testing if
    $this->conn_id was a resource instead of an object.
--  Fixed a bug (#3419) connecting to a database via a DSN string.
--  Fixed a bug (#3445) where the routed segment array was not re-indexed
+-  錯誤修正（編號 3419） connecting to a database via a DSN string.
+-  錯誤修正（編號 3445） where the routed segment array was not re-indexed
    to begin with 1 when the default controller is used.
 -  Fixed assorted user guide typos.
 
-Version 1.6.0
-=============
+版本 1.6.0
+==========
 
-Release Date: January 30, 2008
+發布日期：January 30, 2008
 
 -  DBForge
 
@@ -2435,81 +2510,81 @@ Release Date: January 30, 2008
    -  Documented 2 config options to the :doc:`Database
       configuration <./database/configuration>` page.
 
-Bug fixes for Version 1.6.0
----------------------------
+錯誤修正 1.6.0
+--------------
 
--  Fixed a bug (#1813) preventing using $CI->db in the same application
+-  錯誤修正（編號 1813） preventing using $CI->db in the same application
    with returned database objects.
--  Fixed a bug (#1842) where the $this->uri->rsegments array would not
+-  錯誤修正（編號 1842） where the $this->uri->rsegments array would not
    include the 'index' method if routed to the controller without an
    implicit method.
--  Fixed a bug (#1872) where word_limiter() was not retaining
+-  錯誤修正（編號 1872） where word_limiter() was not retaining
    whitespace.
--  Fixed a bug (#1890) in csv_from_result() where content that
+-  錯誤修正（編號 1890） in csv_from_result() where content that
    included the delimiter would break the file.
--  Fixed a bug (#2542)in the clean_email() method of the Email class to
+-  錯誤修正（編號 2542）in the clean_email() method of the Email class to
    allow for non-numeric / non-sequential array keys.
--  Fixed a bug (#2545) in _html_entity_decode_callback() when
+-  錯誤修正（編號 2545） in _html_entity_decode_callback() when
    'global_xss_filtering' is enabled.
--  Fixed a bug (#2668) in the :doc:`parser class <./libraries/parser>`
+-  錯誤修正（編號 2668） in the :doc:`parser class <./libraries/parser>`
    where numeric data was ignored.
--  Fixed a bug (#2679) where the "previous" pagination link would get
+-  錯誤修正（編號 2679） where the "previous" pagination link would get
    drawn on the first page.
--  Fixed a bug (#2702) in _object_to_array that broke some types of
+-  錯誤修正（編號 2702） in _object_to_array that broke some types of
    inserts and updates.
--  Fixed a bug (#2732) in the SQLite driver for PHP 4.
--  Fixed a bug (#2754) in Pagination to scan for non-positive
+-  錯誤修正（編號 2732） in the SQLite driver for PHP 4.
+-  錯誤修正（編號 2754） in Pagination to scan for non-positive
    num_links.
--  Fixed a bug (#2762) in the :doc:`Session
+-  錯誤修正（編號 2762） in the :doc:`Session
    library <./libraries/sessions>` where user agent matching would
    fail on user agents ending with a space.
--  Fixed a bug (#2784) $field_names[] vs $Ffield_names[] in postgres
+-  錯誤修正（編號 2784） $field_names[] vs $Ffield_names[] in postgres
    and sqlite drivers.
--  Fixed a bug (#2810) in the typography helper causing extraneous
+-  錯誤修正（編號 2810） in the typography helper causing extraneous
    paragraph tags when string contains tags.
--  Fixed a bug (#2849) where arguments passed to a subfolder controller
+-  錯誤修正（編號 2849） where arguments passed to a subfolder controller
    method would be incorrectly shifted, dropping the 3rd segment value.
--  Fixed a bug (#2858) which referenced a wrong variable in the Image
+-  錯誤修正（編號 2858） which referenced a wrong variable in the Image
    class.
--  Fixed a bug (#2875)when loading plugin files as _plugin. and not
+-  錯誤修正（編號 2875）when loading plugin files as _plugin. and not
    _pi.
--  Fixed a bug (#2912) in get_filenames() in the :doc:`File
+-  錯誤修正（編號 2912） in get_filenames() in the :doc:`File
    Helper <helpers/file_helper>` where the array wasn't cleared
    after each call.
--  Fixed a bug (#2974) in highlight_phrase() that caused an error with
+-  錯誤修正（編號 2974） in highlight_phrase() that caused an error with
    slashes.
--  Fixed a bug (#3003) in the Encryption Library to support modes other
+-  錯誤修正（編號 3003） in the Encryption Library to support modes other
    than MCRYPT_MODE_ECB
--  Fixed a bug (#3015) in the :doc:`User Agent
+-  錯誤修正（編號 3015） in the :doc:`User Agent
    library <./libraries/user_agent>` where more than 2 languages
    where not reported with languages().
--  Fixed a bug (#3017) in the :doc:`Email <./libraries/email>` library
+-  錯誤修正（編號 3017） in the :doc:`Email <./libraries/email>` library
    where some timezones were calculated incorrectly.
--  Fixed a bug (#3024) in which master_dim wasn't getting reset by
+-  錯誤修正（編號 3024） in which master_dim wasn't getting reset by
    clear() in the Image library.
--  Fixed a bug (#3156) in Text Helper highlight_code() causing PHP tags
+-  錯誤修正（編號 3156） in Text Helper highlight_code() causing PHP tags
    to be handled incorrectly.
--  Fixed a bug (#3166) that prevented num_rows from working in Oracle.
--  Fixed a bug (#3175) preventing certain libraries from working
+-  錯誤修正（編號 3166） that prevented num_rows from working in Oracle.
+-  錯誤修正（編號 3175） preventing certain libraries from working
    properly when autoloaded in PHP 4.
--  Fixed a bug (#3267) in the Typography Helper where unordered list was
+-  錯誤修正（編號 3267） in the Typography Helper where unordered list was
    listed "un.
--  Fixed a bug (#3268) where the Router could leave '/' as the path.
--  Fixed a bug (#3279) where the Email class was sending the wrong
+-  錯誤修正（編號 3268） where the Router could leave '/' as the path.
+-  錯誤修正（編號 3279） where the Email class was sending the wrong
    Content-Transfer-Encoding for some character sets.
--  Fixed a bug (#3284) where the rsegment array would not be set
+-  錯誤修正（編號 3284） where the rsegment array would not be set
    properly if the requested URI contained more segments than the routed
    URI.
 -  Removed extraneous load of $CFG in _display_cache() of the Output
    class (#3285).
 -  Removed an extraneous call to loading models (#3286).
--  Fixed a bug (#3310) with sanitization of globals in the Input class
+-  錯誤修正（編號 3310） with sanitization of globals in the Input class
    that could unset CI's global variables.
--  Fixed a bug (#3314) which would cause the top level path to be
+-  錯誤修正（編號 3314） which would cause the top level path to be
    deleted in delete_files() of the File helper.
--  Fixed a bug (#3328) where the smiley helper might return an undefined
+-  錯誤修正（編號 3328） where the smiley helper might return an undefined
    variable.
--  Fixed a bug (#3330) in the FTP class where a comparison wasn't
+-  錯誤修正（編號 3330） in the FTP class where a comparison wasn't
    getting made.
 -  Removed an unused parameter from Profiler (#3332).
 -  Fixed a bug in database driver where num_rows property wasn't
@@ -2550,10 +2625,10 @@ Bug fixes for Version 1.6.0
    files.
 -  Fixed assorted user guide typos.
 
-Version 1.5.4
-=============
+版本 1.5.4
+==========
 
-Release Date: July 12, 2007
+發布日期：July 12, 2007
 
 -  Added :doc:`custom Language files <./libraries/language>` to the
    :doc:`autoload <./general/autoloader>` options.
@@ -2624,10 +2699,10 @@ Release Date: July 12, 2007
 -  Deprecated: APPVER has been deprecated and replaced with CI_VERSION
    for clarity.
 
-Version 1.5.3
-=============
+版本 1.5.3
+==========
 
-Release Date: April 15, 2007
+發布日期：April 15, 2007
 
 -  Added array to string into the profiler
 -  Code Igniter references updated to CodeIgniter
@@ -2645,10 +2720,10 @@ Release Date: April 15, 2007
    strings
 -  Fixed doc typos.
 
-Version 1.5.2
-=============
+版本 1.5.2
+==========
 
-Release Date: February 13, 2007
+發布日期：February 13, 2007
 
 -  Added subversion information
    to the :doc:`downloads <installation/downloads>` page.
@@ -2669,10 +2744,10 @@ Release Date: February 13, 2007
    was ignoring resizing the same size image
 -  Fixed some doc typos.
 
-Version 1.5.1
-=============
+版本 1.5.1
+==========
 
-Release Date: November 23, 2006
+發布日期：November 23, 2006
 
 -  Added support for submitting arrays of libraries in the
    $this->load->library function.
@@ -2691,10 +2766,10 @@ Release Date: November 23, 2006
 -  Fixed an incorrectly named variable in the MySQLi result driver.
 -  Fixed some doc typos.
 
-Version 1.5.0.1
-===============
+版本 1.5.0.1
+============
 
-Release Date: October 31, 2006
+發布日期：October 31, 2006
 
 -  Fixed a problem in which duplicate attempts to load helpers and
    classes were not being stopped.
@@ -2702,10 +2777,10 @@ Release Date: October 31, 2006
 -  Fixed an invalid color Hex number in the Profiler class.
 -  Fixed a corrupted image in the user guide.
 
-Version 1.5.0
-=============
+版本 1.5.0
+==========
 
-Release Date: October 30, 2006
+發布日期：October 30, 2006
 
 -  Added :doc:`DB utility class <./database/utilities>`, permitting DB
    backups, CVS or XML files from DB results, and various other
@@ -2794,10 +2869,10 @@ Release Date: October 30, 2006
    file. Instead, $config['log_threshold'] can be set to "0" to turn it
    off.
 
-Version 1.4.1
-=============
+版本 1.4.1
+==========
 
-Release Date: September 21, 2006
+發布日期：September 21, 2006
 
 -  Added a new feature that passes URI segments directly to your
    function calls as parameters. See the
@@ -2854,10 +2929,10 @@ Release Date: September 21, 2006
 -  Deprecated the following database functions:
    $this->db->smart_escape_str() and $this->db->fields().
 
-Version 1.4.0
-=============
+版本 1.4.0
+==========
 
-Release Date: September 17, 2006
+發布日期：September 17, 2006
 
 -  Added :doc:`Hooks <./general/hooks>` feature, enabling you to tap
    into and modify the inner workings of the framework without hacking
@@ -2943,10 +3018,10 @@ Release Date: September 17, 2006
 -  Fixed some MS SQL bugs.
 -  Fixed some doc typos.
 
-Version 1.3.3
-=============
+版本 1.3.3
+==========
 
-Release Date: June 1, 2006
+發布日期：June 1, 2006
 
 -  Models do **not** connect automatically to the database as of this
    version. :doc:`More info here <./general/models>`.
@@ -2971,10 +3046,10 @@ Release Date: June 1, 2006
 -  Fixed a bug in the hash() security helper.
 -  Fixed some typos.
 
-Version 1.3.2
-=============
+版本 1.3.2
+==========
 
-Release Date: April 17, 2006
+發布日期：April 17, 2006
 
 -  Changed the behavior of the validation class such that if a
    "required" rule is NOT explicitly stated for a field then all other
@@ -2988,10 +3063,10 @@ Release Date: April 17, 2006
 -  Fixed a couple bugs in the Model class.
 -  Fixed some documentation typos and errata.
 
-Version 1.3.1
-=============
+版本 1.3.1
+==========
 
-Release Date: April 11, 2006
+發布日期：April 11, 2006
 
 -  Added a :doc:`Unit Testing Library <./libraries/unit_testing>`.
 -  Added the ability to pass objects to the **insert()** and
@@ -3021,10 +3096,10 @@ Release Date: April 11, 2006
 -  Fixed a bug in the "exact_length" function of the validation class.
 -  Fixed some typos in the user guide
 
-Version 1.3
-===========
+版本 1.3
+========
 
-Release Date: April 3, 2006
+發布日期：April 3, 2006
 
 -  Added support for :doc:`Models <general/models>`.
 -  Redesigned the database libraries to support additional RDBMs
@@ -3073,10 +3148,10 @@ Release Date: April 3, 2006
 -  Fixed some typos in the default calendar template
 -  Fixed some typos in the user guide
 
-Version 1.2
-===========
+版本 1.2
+========
 
-Release Date: March 21, 2006
+發布日期：March 21, 2006
 
 -  Redesigned some internal aspects of the framework to resolve scoping
    problems that surfaced during the beta tests. The problem was most
@@ -3108,10 +3183,10 @@ Release Date: March 21, 2006
    marks in the replacement data.
 -  Fixed some bugs in the xss_clean function
 
-Version Beta 1.1
-================
+版本 1.1 測試
+=============
 
-Release Date: March 10, 2006
+發布日期：March 10, 2006
 
 -  Added a :doc:`Calendaring class <./libraries/calendar>`.
 -  Added support for running :doc:`multiple
@@ -3142,9 +3217,9 @@ Release Date: March 10, 2006
 -  Updated the documentation. Added "next/previous" links to each page
    and fixed various typos.
 
-Version Beta 1.0
-================
+版本 1.0 測試
+=============
 
-Release Date: February 28, 2006
+發布日期：February 28, 2006
 
-First publicly released version.
+首次公開發布版本。

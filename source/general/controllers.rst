@@ -1,13 +1,13 @@
-###########
+##################
 控制器 Controllers
-###########
+##################
 
 Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應該被如何處理。
 
 .. contents:: 頁面內容
 
 什麼是 Controller?
-=====================
+==================
 
 **Controller 是簡單來說就是類別檔案，它命名是關聯在 URI 之上。**
 
@@ -20,7 +20,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 **當 controller 的名字找到符合第一個 URI 區段，那麼它就會被載入。**
 
 讓我們嘗試: Hello World!
-==========================
+========================
 
 讓我們創立一個簡單的 Controller 你可以看到它是怎樣啟動的。使用你的文字編輯器。創造一個檔案名稱為 Blog.php ，將下列程式碼貼入進去： ::
 
@@ -64,7 +64,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 總是要記得你的 Controller 要 extends 父 Controller 類別，這樣才能繼承父類別的所有方法。
 
 方法
-=======
+====
 
 在上上述中方法名稱被命名為 ``index()``. 如果 URI 中的 第二個區段 是空的話，這個 "index" 是預設被載入。除此之外還有一個方法顯示出 "Hello World" 像是： ::
 
@@ -95,7 +95,7 @@ Controllers 是你應用程式的心臟，它定義了 HTTP 請求過來時應�
 你將會看到新的結果。
 
 通過 URI 區段執行你的方法
-====================================
+=========================
 
 如果你的 URI 包含超過兩一個以上的區段，它們會經由你的 method 傳入作為參數。
 
@@ -127,7 +127,7 @@ CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被�
 如果這個名稱 Blog 是你預設想要處理的 Controller 類別。如果你現在讀取 index.php 沒有指定任何 URI 區段，你將會看到你的 Hello World 訊息。
 
 重映射方法呼叫
-======================
+==============
 
 如上所述，第二個 URI 區段簡單定義了要請求 Controller 的哪個方法。 CodeIgniter 允許你複寫這個行為，通過使用 ``_remap()`` 方法： ::
 
@@ -167,7 +167,7 @@ CodeIgniter 當 URI 不存在的時候，如果當你個網站根目錄 URL 被�
 	}
 
 輸出處理
-=================
+========
 
 CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器的呈現資料。更多的資訊可以從這裡找到 :doc:`視圖 Views <views>` 和 :doc:`Output 類別
 <../libraries/output>` 頁面。在某些情況下，你可能想要以某種方式將最後處理的資料傳送到瀏覽器。CodeIgniter 允許你新增一個命名為 ``_output()`` 的方法到你的控制器（Controller），它將會接收最後輸出的資料。
@@ -193,7 +193,7 @@ CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器
 	如果你用了這項功能，頁面執行時間以及記憶體使用量，將無法精準的計算出來，因為它們不會考慮你進一步做的處理。 所有處理完成 之前，對於另一種方式控制輸出，請參閱可用的方法 :doc:`Output Library <../libraries/output>`。
 
 私有方法
-===============
+========
 
 在某些情況下，你可能想要從外部隱藏起來一些方法。為了達到這個目的， 簡單的利用 private 或者用 protected 定義方法，它們不會經由 URL 請求而回傳結果。例如，如果你有個方法像是這樣： ::
 
@@ -209,11 +209,11 @@ CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器
 .. note:: 使用前綴底線的方法名稱也是為了防止被呼叫。 這是原本就有的功能，目的是向後兼容。
 
 組織你的 Controller 到子目錄中
-================================================
+==============================
 
-如果你建立一個龐大的應用程式，你可能找到一個方便的方法組織你的 Contollers 到子目錄中。CodeIgniter 允許你去做這件事。
+如果你建立一個龐大的應用程式，你可能希望階層式的組織你的 Contollers 到子目錄中。CodeIgniter 允許你去做這件事。
 
-簡單地新增一個資料夾在你的 *application/controllers/* 目錄底下 然後把你地 Controller 類別放進去。
+簡單地新增一個子目錄在你的 *application/controllers/* 目錄底下 然後把你地 Controller 類別放進去。
 
 .. note:: 當你用了這個功能，第一個 URI 區段一定要指定到那個資料夾。例如，如果說你有一個 Controller 位於這裡： ::
 
@@ -223,13 +223,16 @@ CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器
 
 		example.com/index.php/products/shoes/show/123
 
-當 URL 中只包含子目錄，每一個子目錄可能要有一個預設的 Controller。 簡單的命名你的預設 Controller 通過 *application/config/routes.php* 檔案來修改。
+Each of your sub-directories may contain a default controller which will be
+called if the URL contains *only* the sub-directory. Simply put a controller
+in there that matches the name of your 'default_controller' as specified in
+your *application/config/routes.php* file.
 
 CodeIgniter 也允許你去重新映射你的 URIs，通過 :doc:`URI
 Routing <routing>` 功能，來達成它。
 
 類別建構子
-==================
+==========
 
 如果你打算用建構子在所有個 Controller 裡面，你 **一定要** 貼入下面這段程式碼到你的建構子裡： ::
 
@@ -252,13 +255,13 @@ Routing <routing>` 功能，來達成它。
 當你的類別在實例話的時候，如果你要建立一些預設的值，或者執行預設的程序，建構子是可以非常有用的完成。 建構子不可以回傳值，但是它可以幫你完成一些預設的工作。
 
 保留的方法名稱
-=====================
+==============
 
 因為你的 controller 類別是擴展主要的應用程式 controller ，所以你必須小心命名你的方法名稱，除了你要複寫這些本來的方法。 查看 :doc:`Reserved Names <reserved_names>` 所有清單。
 
 .. important:: 你也不應該將方法命名為它的類別名稱。如果你這樣做，並沒有 ``__construct()`` 方法在同一個類別內，然後你的例子 ``Index::index()`` 方法將會被執行當作建構子! 這是 PHP4 向後兼容的功能。
 
 就這樣！
-==========
+========
 
 簡而言之，這些是所有關於 Controllers 的核心部分介紹。

@@ -4,6 +4,9 @@
 
 本頁描述一些有關網站安全的”最佳實踐“，同時包含了 CodeIgniter 的內部安全機制細節。
 
+.. note:: If you came here looking for a security contact, please refer to
+	our `Contribution Guide <../contributing/index>`.
+
 URI 安全性
 ============
 

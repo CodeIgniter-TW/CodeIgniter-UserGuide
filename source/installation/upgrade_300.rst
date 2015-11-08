@@ -266,8 +266,7 @@ cause your 'Main' controller to be loaded.
 However, what happens if you have an *application/controllers/admin/*
 directory and the user visits ``http://example.com/admin/``?
 In CodeIgniter 3, the router will look for a 'Main' controller under the
-admin/ directory as well. If not found, it will fallback to the parent
-(*application/controllers/*) directory, like in version 2.x.
+admin/ directory as well. If not found, a Not Found (404) will be triggered.
 
 The same rule applies to the '404_override' setting.
 
@@ -465,8 +464,47 @@ files and error messages format:
 	Therefore you're encouraged to update its usage sooner rather than
 	later.
 
+*******************************************
+步驟 19: 確定你的 'base_url' 設定值不是空的
+*******************************************
+
+當 ``$config['base_url']`` 未設定，CodeIgniter 將會嘗試的辨識你的網站網址是什麼。
+這麼做單純的只是為了你在開發一個全新的應用的時候，可以很方便的開始。
+
+自動偵測是一個很不可靠的方式，而且有安全性的隱憂。
+這就是為什麼你 **始終應該** 手動的設定！
+
+CodeIgniter 3.0.3 的其中一個改變，就是如何自動化的辨識。
+具體的說，將使用伺服器的 IP 位置取代原本由瀏覽器的請求網域名稱的作法。
+因此，如果你原本是依靠自動偵測來設定，這將完全改變你網站的運作方式。
+
+如果你需要允許多個網域名稱，例如 http:// 和 https:// 同時動態的根據請求來使用。
+*application/config/config.php* 依然是一個 PHP 檔案。
+你可以用幾行的程式碼來建立一個動態設定的邏輯，例如::
+
+	$allowed_domains = array('domain1.tld', 'domain2.tld');
+	$default_domain  = 'domain1.tld';
+
+	if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE))
+	{
+		$domain = $_SERVER['HTTP_HOST'];
+	}
+	else
+	{
+		$domain = $default_domain;
+	}
+
+	if ( ! empty($_SERVER['HTTPS']))
+	{
+		$config['base_url'] = 'https://'.$domain;
+	}
+	else
+	{
+		$config['base_url'] = 'http://'.$domain;
+	}
+
 ****************************************************************
-步驟 19: Remove usage of (previously) deprecated functionalities
+步驟 20: Remove usage of (previously) deprecated functionalities
 ****************************************************************
 
 In addition to the ``$autoload['core']`` configuration setting, there's a
@@ -813,7 +851,7 @@ It is now deprecated and scheduled for removal in CodeIgniter 3.1+.
 	sooner rather than later.
 
 ***********************************************************
-步驟 20: Check your usage of Text helper highlight_phrase()
+步驟 21: Check your usage of Text helper highlight_phrase()
 ***********************************************************
 
 The default HTML tag used by :doc:`Text Helper <../helpers/text_helper>` function

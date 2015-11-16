@@ -27,6 +27,11 @@
 
 在你存取資料庫之前，需要先建立資料庫結構。連線到你的資料庫並執行下列 SQL 命令。順便增加一些種子資料。
 
+建立資料庫:
+::
+	CREATE database News;
+
+資料庫結構:
 ::
 
 	CREATE TABLE news (
@@ -37,6 +42,11 @@
 		PRIMARY KEY (id),
 		KEY slug (slug)
 	);
+	
+種子資料:
+::
+	INSERT INTO `News`.`news` (`id`, `title`, `slug`, `text`) VALUES (NULL, 'Write Like You Talk', 'false', 'Here's a simple trick for getting more people to read what you write: write in spoken language. Something comes over most people when they start writing. They write in a different language than they'd use if they were talking to a friend. The sentence structure and even the words are different. No one uses "pen" as a verb in spoken English. You'd feel like an idiot using "pen" instead of "write" in a conversation with a friend.');
+	INSERT INTO `News`.`news` (`id`, `title`, `slug`, `text`) VALUES (NULL, 'A decade at google', 'true', 'One of the key challenges you face in an industrial research lab is how to choose your projects. You want your projects to be interesting research but also contribute to your company. As a junior researcher, you’re typically in the situation of choosing a project to join, while later in your career you are expected to come up with and lead your own projects. Regardless of your age, you have to make an educated decision.');
 
 現在資料庫與模型已經設定好了，你需要一個方法來取得資料庫中的所有文章。我們使用 CodeIgniter 內建的資料庫抽象層 — `Query Builder <../database/query_builder.html>`_ — 來做這件事。 這使你可以只寫一次查詢，就能夠在 `所有支援的資料庫執行 <../general/requirements.html>`_ 。請將以下程式碼加進你的模型。
 

@@ -52,6 +52,23 @@ URI 區段
 
 公開存取的檔案或資料夾，在 RewriteCond 中可以通過 | 來分隔公開存取的檔案或資料夾，如果專案是在 http://localhost 底下，那麼 RewriteBase 後面接 / 即可。
 
+假設是使用 Nginx 伺服器，請參考底下設定:
+
+::
+
+	location / {
+	  try_files $uri $uri/ /index.php;
+	}
+	
+	location ~ \.php$ {
+	  fastcgi_pass unix:/var/run/php5-fpm.sock;
+	  fastcgi_index index.php;
+	  fastcgi_split_path_info ^(.+\.php)(.*)$;
+	  include fastcgi_params;
+	  fastcgi_param HTTPS off;
+	  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}
+
 .. note:: 這些具體的規則可能並不適用於所有 Server 配置工作。
 
 .. note:: 請務必遵從上面的規則，你可能需要從公開訪問的任何檔案或資料夾排除。

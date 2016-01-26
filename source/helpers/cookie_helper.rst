@@ -25,7 +25,7 @@ Cookie 輔助函式的載入語法如下：
 允許使用的函式格式如下：
 
 
-.. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]]])
+.. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]])
 
 	:param	mixed	$name: Cookie 名稱或包含函式中所有有效參數的陣列
 	:param	string	$value: Cookie 值
@@ -39,7 +39,7 @@ Cookie 輔助函式的載入語法如下：
 
 	此輔助函式對於設置 Cookie 提供了相當友善的語法，可以參考 :doc:`Input Library <../libraries/input>` 敘述中所提到的用法，此函式相當於就是 ``CI_Input::set_cookie()`` 的別名。
 
-.. php:function:: get_cookie($index[, $xss_clean = NULL]])
+.. php:function:: get_cookie($index[, $xss_clean = NULL])
 
 	:param	string	$index: Cookie 名稱
 	:param	bool	$xss_clean: 是否對回傳值啟用 XSS 過濾機制
@@ -48,7 +48,7 @@ Cookie 輔助函式的載入語法如下：
 
 	此輔助函式對於取得 Cookie 提供了相當友善的語法，可以參考 :doc:`Input Library <../libraries/input>` 敘述中所提到的用法。此函式執行起來雖與 ``CI_Input::cookie()`` 很相像，但除此之外會加入你在 *application/config/config.php* 檔案中所設置的前綴 ``$config['cookie_prefix']``。
 
-.. php:function:: delete_cookie($name[, $domain = ''[, $path = '/'[, $prefix = '']]]])
+.. php:function:: delete_cookie($name[, $domain = ''[, $path = '/'[, $prefix = '']]])
 
 	:param	string	$name: Cookie 名稱
 	:param	string	$domain: Cookie 網域名稱（通常是：.yourdomain.com）

@@ -217,7 +217,7 @@ $this->trackback->receive() 是一個簡單的驗證函式。
 		這個方法簡單的驗證了接收到的資料，成功時回傳 TRUE，失敗時回傳 FALSE。
 		如果資料是正確的，會被存放在 ``$this->data`` 陣列中，以便放進資料庫。
 
-	.. php:method:: send_error([$message = 'Incomplete information')
+	.. php:method:: send_error([$message = 'Incomplete information'])
 
 		:param	string	$message: 錯誤訊息
 		:rtype: void

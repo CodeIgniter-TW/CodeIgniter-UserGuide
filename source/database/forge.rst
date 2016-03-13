@@ -97,6 +97,7 @@ Additionally, the following key/values can be used:
 -  auto_increment/true : generates an auto_increment flag on the
    field. Note that the field type must be a type that supports this,
    such as integer.
+-  unique/true : to generate a unique key for the field definition.
 
 ::
 
@@ -110,6 +111,7 @@ Additionally, the following key/values can be used:
 		'blog_title' => array(
 			'type' => 'VARCHAR',
 			'constraint' => '100',
+			'unique' => TRUE,
 		),
 		'blog_author' => array(
 			'type' =>'VARCHAR',
@@ -143,13 +145,15 @@ string into the field definitions with add_field()
 	$this->dbforge->add_field("label varchar(100) NOT NULL DEFAULT 'default label'");
 
 
+.. note:: Passing raw strings as fields cannot be followed by ``add_key()`` calls on those fields.
+
 .. note:: Multiple calls to add_field() are cumulative.
 
 Creating an id field
 --------------------
 
 There is a special exception for creating id fields. A field with type
-id will automatically be assinged as an INT(9) auto_incrementing
+id will automatically be assigned as an INT(9) auto_incrementing
 Primary Key.
 
 ::
@@ -173,14 +177,14 @@ below is for MySQL.
 
 	$this->dbforge->add_key('blog_id', TRUE);
 	// gives PRIMARY KEY `blog_id` (`blog_id`)
-	
+
 	$this->dbforge->add_key('blog_id', TRUE);
 	$this->dbforge->add_key('site_id', TRUE);
 	// gives PRIMARY KEY `blog_id_site_id` (`blog_id`, `site_id`)
-	
+
 	$this->dbforge->add_key('blog_name');
 	// gives KEY `blog_name` (`blog_name`)
-	
+
 	$this->dbforge->add_key(array('blog_name', 'blog_label'));
 	// gives KEY `blog_name_blog_label` (`blog_name`, `blog_label`)
 

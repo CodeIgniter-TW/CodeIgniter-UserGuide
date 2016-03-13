@@ -34,7 +34,7 @@ CodeIgniter 創造出簡潔的 URL
 
 	example.com/news/article/345
 
-Note: 預設 index.php 字串是包含在 URL 裡面的 (example.com/index.php/news/article/345)，但是這個字串可以被省略掉，通過 .htaccess 檔案設定。
+.. note:: 預設 *index.php* 字串是包含在 URL 裡面的 (example.com/index.php/news/article/345)，但是這個字串可以被省略掉，通過 *.htaccess* 檔案設定。
 
 CodeIgniter 全力一擊
 =========================

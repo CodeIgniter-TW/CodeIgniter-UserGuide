@@ -1392,15 +1392,18 @@ Or as an array
 
 		編譯並執行 INSERT 語句。
 
-	.. php:method:: insert_batch([$table = ''[, $set = NULL[, $escape = NULL]]])
+	.. php:method:: insert_batch($table[, $set = NULL[, $escape = NULL[, $batch_size = 100]]])
 
 		:param	string	$table: 資料表名稱
 		:param	array	$set: 要插入的資料
 		:param	bool	$escape: 是否要跳脫值及識別字
+		:param	int	$batch_size: 一次插入的資料行數
 		:returns:	成功時回傳插入列數，失敗時回傳 FALSE
 		:rtype:	mixed
 
-		編譯並執行批次的 INSERT 語句。
+		編譯並執行批次的 ``INSERT`` 語句。
+
+		.. note:: 當提供的資料行數超過 ``$batch_size`` ，數個 ``INSERT`` 查詢將被執行，每一次嘗試插入最多 ``$batch_size`` 行。
 
 	.. php:method:: set_insert_batch($key[, $value = ''[, $escape = NULL]])
 
@@ -1423,15 +1426,20 @@ Or as an array
 
 		編譯並執行 UPDATE 語句。
 
-	.. php:method:: update_batch([$table = ''[, $set = NULL[, $value = NULL]]])
+	.. php:method:: update_batch($table[, $set = NULL[, $value = NULL[, $batch_size = 100]]])
 
 		:param	string	$table: 資料表名稱
 		:param	array	$set: 欄位名稱或由欄位 / 值對構成的關聯陣列
 		:param	string	$value: 如果 $set 是單一欄位，指定欄位要設定的值
+		:param	int	$batch_size: Count of conditions to group in a single query
 		:returns:	成功時回傳更新列數，失敗時回傳 FALSE
 		:rtype:	mixed
 
-		編譯並執行批次 UPDATE 語句。
+		編譯並執行批次 ``UPDATE`` 語句。
+
+		.. note:: When more than ``$batch_size`` field/value pairs are provided,
+			multiple queries will be executed, each handling up to
+			``$batch_size`` field/value pairs.
 
 	.. php:method:: set_update_batch($key[, $value = ''[, $escape = NULL]])
 

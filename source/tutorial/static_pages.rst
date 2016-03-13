@@ -34,7 +34,7 @@
 
 現在你建立了你的第一個方法，是時候來建立一些基本的頁面模板了。 我們將會建立兩個 "views" （頁面模板）來做為我們頁面的 header 與 footer。
 
-在 application/views/templates/header.php 建立 header 並且加入以下的程式碼::
+在 *application/views/templates/header.php* 建立 header 並且加入以下的程式碼::
 
 	<html>
 		<head>

@@ -2,28 +2,52 @@
 更新紀錄
 ########
 
-版本 3.1.0
-==========
+Version 3.0.5
+=============
 
-發布日期：Not Released
+發布日期：March 11, 2016
 
--  Libraries
+-  核心
 
-   -  Added UNIX socket connection support to :doc:`Session Library <libraries/sessions>` 'redis' driver.
+   -  Changed :doc:`Loader Library <libraries/loader>` to allow ``$autoload['drivers']`` assigning with custom property names.
+   -  Changed :doc:`Loader Library <libraries/loader>` to ignore variables prefixed with '_ci_' when loading views.
 
--  Database
+-  General Changes
 
-   -  Changed method ``initialize()`` to return void and instead throw a ``RuntimeException`` in case of failure.
-   -  Changed method ``db_connect()`` to always set the connection character set (if supported by the driver) and to fail if it can't.
-   -  Removed method ``db_set_charset()`` and the ability to change a connection character set at runtime.
+   -  Updated the :doc:`Session Library <libraries/sessions>` to produce friendlier error messages on failures with drivers other than 'files'.
 
--  Helpers
+-  :doc:`Query Builder <database/query_builder>`
 
-   -  更新 :doc:`HTML Helper <helpers/html_helper>` function :php:func:`meta()` with support for "charset" and "property" properties.
-   -  變更 :doc:`HTML Helper <helpers/html_helper>` function :php:func:`doctype()` default document type to HTML 5.
+   -  Added a ``$batch_size`` parameter to the ``insert_batch()`` method (defaults to 100).
+   -  Added a ``$batch_size`` parameter to the ``update_batch()`` method (defaults to 100).
 
-發布日期：Not Released
+3.0.5 錯誤修正
+--------------
 
+-  錯誤修正（編號 4391） - :doc:`Email Library <libraries/email>` method ``reply_to()`` didn't apply Q-encoding.
+-  錯誤修正（編號 4384）- :doc:`Pagination Library <libraries/pagination>` ignored (possible) *cur_page* configuration value.
+-  錯誤修正（編號 4395） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` still fails if an ``ORDER BY`` condition is used.
+-  錯誤修正（編號 4399） - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` produced confusing error messages when called with no data and *db_debug* is enabled.
+-  錯誤修正（編號 4401） - :doc:`Query Builder <database/query_builder>` breaks ``WHERE`` and ``HAVING`` conditions that use ``IN()`` with strings containing a closing parenthesis.
+-  Fixed a regression in :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_checkbox()`, :php:func:`set_radio()` where "checked" inputs aren't recognized after a form submit.
+-  錯誤修正（編號 4407） - :doc:`Text Helper <helpers/text_helper>` function :php:func:`word_censor()` doesn't work under PHP 7 if there's no custom replacement provided.
+-  錯誤修正（編號 4415） - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_url** didn't accept URLs with IPv6 addresses enclosed in square brackets under PHP 5 (upstream bug).
+-  錯誤修正（編號 4427） - :doc:`CAPTCHA Helper <helpers/captcha_helper>` triggers an error if the provided character pool is too small.
+-  錯誤修正（編號 4430） - :doc:`File Uploading Library <libraries/file_uploading>` option **file_ext_tolower** didn't work.
+-  錯誤修正（編號 4431） - :doc:`Query Builder <database/query_builder>` method ``join()`` discarded opening parentheses.
+-  錯誤修正（編號 4424） - :doc:`Session Library <libraries/sessions>` triggered a PHP warning when writing a newly created session with the 'redis' driver.
+-  錯誤修正（編號 4437） - :doc:`Inflector Helper <helpers/inflector_helper>` function :php:func:`humanize()` didn't escape its ``$separator`` parameter while using it in a regular expression.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` didn't properly handle its locks' statuses with the 'memcached' driver.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` triggered a PHP warning when writing a newly created session with the 'memcached' driver.
+-  錯誤修正（編號 4449） - :doc:`Query Builder <database/query_builder>` method ``join()`` breaks conditions containing ``IS NULL``, ``IS NOT NULL``.
+-  錯誤修正（編號 4491） - :doc:`Session Library <libraries/sessions>` didn't clean-up internal variables for emulated locks with the 'redis' driver.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` didn't clean-up internal variables for emulated locks with the 'memcached' driver.
+-  Fixed a bug where :doc:`Database <database/index>` transactions didn't work with the 'ibase' driver.
+-  錯誤修正（編號 4475） - :doc:`Security Library <libraries/security>` method ``strip_image_tags()`` preserves only the first URL character from non-quoted *src* attributes.
+-  Fixed a bug where :doc:`Profiler Library <general/profiling>` didn't apply ``htmlspecialchars()`` to all displayed inputs.
+-  錯誤修正（編號 4277） - :doc:`Cache Library <libraries/caching>` triggered fatal errors if accessing the Memcache(d) and/or Redis driver and they are not available on the system.
+-  Fixed a bug where :doc:`Cache Library <libraries/caching>` method ``is_supported()`` logged an error message when it returns ``FALSE`` for the APC and Wincache drivers.
+   
 Version 3.0.4
 =============
 
@@ -39,8 +63,8 @@ Version 3.0.4
    -  Added support for ``OFFSET-FETCH`` with Oracle 12c for the 'oci8' and 'pdo/oci' drivers.
    -  Added support for the new ``MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT`` constant from `PHP 5.6.16 <https://secure.php.net/ChangeLog-5.php#5.6.16>`_ for the 'mysqli' driver.
 
-Bug fixes for 3.0.4
--------------------
+3.0.4 錯誤修正
+--------------
 
 -  錯誤修正（編號 4212） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` could fail if an ``ORDER BY`` condition is used.
 -  錯誤修正 :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_checkbox()`, :php:func:`set_radio()` didn't "uncheck" inputs on a submitted form if the default state is "checked".

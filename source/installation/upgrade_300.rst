@@ -65,7 +65,7 @@ in lowercase.
 ********************************
 
 This config file has been updated to contain more user mime-types, please copy
-it to _application/config/mimes.php*.
+it to *application/config/mimes.php*.
 
 **************************************************************
 步驟 4: Remove $autoload['core'] from your config/autoload.php
@@ -206,13 +206,13 @@ variable to ``$query_builder``::
 ************************************
 
 In CodeIgniter 3.0, the error templates are now considered as views and have been moved to the
-_application/views/errors* directory.
+*application/views/errors* directory.
 
 Furthermore, we've added support for CLI error templates in plain-text format that unlike HTML,
 is suitable for the command line. This of course requires another level of separation.
 
-It is safe to move your old templates from _application/errors* to _application/views/errors/html*,
-but you'll have to copy the new _application/views/errors/cli* directory from the CodeIgniter archive.
+It is safe to move your old templates from *application/errors* to _application/views/errors/html*,
+but you'll have to copy the new *application/views/errors/cli* directory from the CodeIgniter archive.
 
 ******************************************
 步驟 9: Update your config/routes.php file

@@ -9,7 +9,7 @@ database.
     :depth: 3
 
 ****************************
-Initializing the Forge Class
+初始化 Forge Class
 ****************************
 
 .. important:: In order to initialize the Forge class, your database

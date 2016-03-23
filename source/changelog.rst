@@ -1,14 +1,13 @@
 ########
-§ó·s¬ö¿ı
+æ›´æ–°ç´€éŒ„
 ########
 
 Version 3.0.5
 =============
 
-µo¥¬¤é´Á¡GMarch 11, 2016
+ç™¼å¸ƒæ—¥æœŸï¼šMarch 11, 2016
 
--  ®Ö¤ß
-
+-  æ ¸å¿ƒ
    -  Changed :doc:`Loader Library <libraries/loader>` to allow ``$autoload['drivers']`` assigning with custom property names.
    -  Changed :doc:`Loader Library <libraries/loader>` to ignore variables prefixed with '_ci_' when loading views.
 
@@ -21,149 +20,149 @@ Version 3.0.5
    -  Added a ``$batch_size`` parameter to the ``insert_batch()`` method (defaults to 100).
    -  Added a ``$batch_size`` parameter to the ``update_batch()`` method (defaults to 100).
 
-3.0.5 ¿ù»~­×¥¿
+3.0.5 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 4391¡^ - :doc:`Email Library <libraries/email>` method ``reply_to()`` didn't apply Q-encoding.
--  ¿ù»~­×¥¿¡]½s¸¹ 4384¡^- :doc:`Pagination Library <libraries/pagination>` ignored (possible) *cur_page* configuration value.
--  ¿ù»~­×¥¿¡]½s¸¹ 4395¡^ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` still fails if an ``ORDER BY`` condition is used.
--  ¿ù»~­×¥¿¡]½s¸¹ 4399¡^ - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` produced confusing error messages when called with no data and *db_debug* is enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 4401¡^ - :doc:`Query Builder <database/query_builder>` breaks ``WHERE`` and ``HAVING`` conditions that use ``IN()`` with strings containing a closing parenthesis.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4391ï¼‰ - :doc:`Email Library <libraries/email>` method ``reply_to()`` didn't apply Q-encoding.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4384ï¼‰- :doc:`Pagination Library <libraries/pagination>` ignored (possible) *cur_page* configuration value.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4395ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` still fails if an ``ORDER BY`` condition is used.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4399ï¼‰ - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` produced confusing error messages when called with no data and *db_debug* is enabled.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4401ï¼‰ - :doc:`Query Builder <database/query_builder>` breaks ``WHERE`` and ``HAVING`` conditions that use ``IN()`` with strings containing a closing parenthesis.
 -  Fixed a regression in :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_checkbox()`, :php:func:`set_radio()` where "checked" inputs aren't recognized after a form submit.
--  ¿ù»~­×¥¿¡]½s¸¹ 4407¡^ - :doc:`Text Helper <helpers/text_helper>` function :php:func:`word_censor()` doesn't work under PHP 7 if there's no custom replacement provided.
--  ¿ù»~­×¥¿¡]½s¸¹ 4415¡^ - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_url** didn't accept URLs with IPv6 addresses enclosed in square brackets under PHP 5 (upstream bug).
--  ¿ù»~­×¥¿¡]½s¸¹ 4427¡^ - :doc:`CAPTCHA Helper <helpers/captcha_helper>` triggers an error if the provided character pool is too small.
--  ¿ù»~­×¥¿¡]½s¸¹ 4430¡^ - :doc:`File Uploading Library <libraries/file_uploading>` option **file_ext_tolower** didn't work.
--  ¿ù»~­×¥¿¡]½s¸¹ 4431¡^ - :doc:`Query Builder <database/query_builder>` method ``join()`` discarded opening parentheses.
--  ¿ù»~­×¥¿¡]½s¸¹ 4424¡^ - :doc:`Session Library <libraries/sessions>` triggered a PHP warning when writing a newly created session with the 'redis' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4437¡^ - :doc:`Inflector Helper <helpers/inflector_helper>` function :php:func:`humanize()` didn't escape its ``$separator`` parameter while using it in a regular expression.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4407ï¼‰ - :doc:`Text Helper <helpers/text_helper>` function :php:func:`word_censor()` doesn't work under PHP 7 if there's no custom replacement provided.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4415ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_url** didn't accept URLs with IPv6 addresses enclosed in square brackets under PHP 5 (upstream bug).
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4427ï¼‰ - :doc:`CAPTCHA Helper <helpers/captcha_helper>` triggers an error if the provided character pool is too small.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4430ï¼‰ - :doc:`File Uploading Library <libraries/file_uploading>` option **file_ext_tolower** didn't work.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4431ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``join()`` discarded opening parentheses.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4424ï¼‰ - :doc:`Session Library <libraries/sessions>` triggered a PHP warning when writing a newly created session with the 'redis' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4437ï¼‰ - :doc:`Inflector Helper <helpers/inflector_helper>` function :php:func:`humanize()` didn't escape its ``$separator`` parameter while using it in a regular expression.
 -  Fixed a bug where :doc:`Session Library <libraries/sessions>` didn't properly handle its locks' statuses with the 'memcached' driver.
 -  Fixed a bug where :doc:`Session Library <libraries/sessions>` triggered a PHP warning when writing a newly created session with the 'memcached' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4449¡^ - :doc:`Query Builder <database/query_builder>` method ``join()`` breaks conditions containing ``IS NULL``, ``IS NOT NULL``.
--  ¿ù»~­×¥¿¡]½s¸¹ 4491¡^ - :doc:`Session Library <libraries/sessions>` didn't clean-up internal variables for emulated locks with the 'redis' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4449ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``join()`` breaks conditions containing ``IS NULL``, ``IS NOT NULL``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4491ï¼‰ - :doc:`Session Library <libraries/sessions>` didn't clean-up internal variables for emulated locks with the 'redis' driver.
 -  Fixed a bug where :doc:`Session Library <libraries/sessions>` didn't clean-up internal variables for emulated locks with the 'memcached' driver.
 -  Fixed a bug where :doc:`Database <database/index>` transactions didn't work with the 'ibase' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4475¡^ - :doc:`Security Library <libraries/security>` method ``strip_image_tags()`` preserves only the first URL character from non-quoted *src* attributes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4475ï¼‰ - :doc:`Security Library <libraries/security>` method ``strip_image_tags()`` preserves only the first URL character from non-quoted *src* attributes.
 -  Fixed a bug where :doc:`Profiler Library <general/profiling>` didn't apply ``htmlspecialchars()`` to all displayed inputs.
--  ¿ù»~­×¥¿¡]½s¸¹ 4277¡^ - :doc:`Cache Library <libraries/caching>` triggered fatal errors if accessing the Memcache(d) and/or Redis driver and they are not available on the system.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4277ï¼‰ - :doc:`Cache Library <libraries/caching>` triggered fatal errors if accessing the Memcache(d) and/or Redis driver and they are not available on the system.
 -  Fixed a bug where :doc:`Cache Library <libraries/caching>` method ``is_supported()`` logged an error message when it returns ``FALSE`` for the APC and Wincache drivers.
    
 Version 3.0.4
 =============
 
-µo¥¬¤é´Á¡GJanuary 13, 2016
+ç™¼å¸ƒæ—¥æœŸï¼šJanuary 13, 2016
 
 -  General Changes
 
-   -  §ó·s :doc:`Security Library <libraries/security>` method ``get_random_bytes()`` to use PHP 7's ``random_bytes()`` function when possible.
-   -  §ó·s :doc:`Encryption Library <libraries/security>` method ``create_key()`` to use PHP 7's ``random_bytes()`` function when possible.
+   -  æ›´æ–° :doc:`Security Library <libraries/security>` method ``get_random_bytes()`` to use PHP 7's ``random_bytes()`` function when possible.
+   -  æ›´æ–° :doc:`Encryption Library <libraries/security>` method ``create_key()`` to use PHP 7's ``random_bytes()`` function when possible.
 
 -  :doc:`Database <database/index>`
 
    -  Added support for ``OFFSET-FETCH`` with Oracle 12c for the 'oci8' and 'pdo/oci' drivers.
    -  Added support for the new ``MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT`` constant from `PHP 5.6.16 <https://secure.php.net/ChangeLog-5.php#5.6.16>`_ for the 'mysqli' driver.
 
-3.0.4 ¿ù»~­×¥¿
+3.0.4 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 4212¡^ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` could fail if an ``ORDER BY`` condition is used.
--  ¿ù»~­×¥¿ :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_checkbox()`, :php:func:`set_radio()` didn't "uncheck" inputs on a submitted form if the default state is "checked".
--  ¿ù»~­×¥¿¡]½s¸¹ 4217¡^ - :doc:`Config Library <libraries/config>` method ``base_url()`` didn't use proper formatting for IPv6 when it falls back to ``$_SERVER['SERVER_ADDR']``.
--  ¿ù»~­×¥¿ :doc:`CAPTCHA Helper <helpers/captcha_helper>` entered an infinite loop while generating a random string.
--  ¿ù»~­×¥¿¡]½s¸¹ 4223¡^ - :doc:`Database <database/index>` method ``simple_query()`` blindly executes queries without checking if the connection was initialized properly.
--  ¿ù»~­×¥¿¡]½s¸¹ 4244¡^ - :doc:`Email Library <libraries/email>` could improperly use "unsafe" US-ASCII characters during Quoted-printable encoding.
--  ¿ù»~­×¥¿¡]½s¸¹ 4245¡^ - :doc:`Database Forge <database/forge>` couldn't properly handle ``SET`` and ``ENUM`` type fields with string values.
--  ¿ù»~­×¥¿¡]½s¸¹ 4283¡^ - :doc:`String Helper <helpers/string_helper>` function :php:func:`alternator()` couldn't be called without arguments.
--  ¿ù»~­×¥¿¡]½s¸¹ 4306¡^ - :doc:`Database <database/index>` method ``version()`` didn't work properly with the 'mssql' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4039¡^ - :doc:`Session Library <libraries/sessions>` could generate multiple (redundant) warnings in case of a read failure with the 'files' driver, due to a bug in PHP.
--  ¿ù»~­×¥¿ :doc:`Session Library <libraries/sessions>` didn't have proper error handling on PHP 5 (due to a PHP bug).
--  ¿ù»~­×¥¿¡]½s¸¹ 4312¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't provide error feedback for failed validation on empty requests.
--  ¿ù»~­×¥¿ :doc:`Database <database/index>` method `version()` returned banner text instead of only the version number with the 'oci8' and 'pdo/oci' drivers.
--  ¿ù»~­×¥¿¡]½s¸¹ 4331¡^ - :doc:`Database <database/index>` method ``error()`` didn't really work for connection errors with the 'mysqli' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4343¡^ - :doc:`Email Library <libraries/email>` failing with a *"More than one 'from' person"* message when using *sendmail*.
--  ¿ù»~­×¥¿¡]½s¸¹ 4350¡^ - :doc:`Loader Library <libraries/loader>` method ``model()`` logic directly instantiated the ``CI_Model`` or ``MY_Model`` classes.
--  ¿ù»~­×¥¿¡]½s¸¹ 4337¡^ - :doc:`Database <database/index>` method ``query()`` didn't return a result set for queries with the ``RETURNING`` statement on PostgreSQL.
--  ¿ù»~­×¥¿¡]½s¸¹ 4362¡^ - :doc:`Session Library <libraries/sessions>` doesn't properly maintain its state after ID regeneration with the 'redis' and 'memcached' drivers on PHP 7.
--  ¿ù»~­×¥¿¡]½s¸¹ 4349¡^ - :doc:`Database <database/index>` drivers 'mysql', 'mysqli', 'pdo/mysql' discard other ``sql_mode`` flags when "stricton" is enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 4349¡^ - :doc:`Database <database/index>` drivers 'mysql', 'mysqli', 'pdo/mysql' don't turn off ``STRICT_TRANS_TABLES`` on MySQL 5.7+ when "stricton" is disabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 4374¡^ - :doc:`Session Library <libraries/sessions>` with the 'database' driver could be affected by userspace :doc:`Query Builder <database/query_builder>` conditions.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4212ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` could fail if an ``ORDER BY`` condition is used.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_checkbox()`, :php:func:`set_radio()` didn't "uncheck" inputs on a submitted form if the default state is "checked".
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4217ï¼‰ - :doc:`Config Library <libraries/config>` method ``base_url()`` didn't use proper formatting for IPv6 when it falls back to ``$_SERVER['SERVER_ADDR']``.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`CAPTCHA Helper <helpers/captcha_helper>` entered an infinite loop while generating a random string.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4223ï¼‰ - :doc:`Database <database/index>` method ``simple_query()`` blindly executes queries without checking if the connection was initialized properly.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4244ï¼‰ - :doc:`Email Library <libraries/email>` could improperly use "unsafe" US-ASCII characters during Quoted-printable encoding.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4245ï¼‰ - :doc:`Database Forge <database/forge>` couldn't properly handle ``SET`` and ``ENUM`` type fields with string values.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4283ï¼‰ - :doc:`String Helper <helpers/string_helper>` function :php:func:`alternator()` couldn't be called without arguments.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4306ï¼‰ - :doc:`Database <database/index>` method ``version()`` didn't work properly with the 'mssql' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4039ï¼‰ - :doc:`Session Library <libraries/sessions>` could generate multiple (redundant) warnings in case of a read failure with the 'files' driver, due to a bug in PHP.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Session Library <libraries/sessions>` didn't have proper error handling on PHP 5 (due to a PHP bug).
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4312ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't provide error feedback for failed validation on empty requests.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Database <database/index>` method `version()` returned banner text instead of only the version number with the 'oci8' and 'pdo/oci' drivers.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4331ï¼‰ - :doc:`Database <database/index>` method ``error()`` didn't really work for connection errors with the 'mysqli' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4343ï¼‰ - :doc:`Email Library <libraries/email>` failing with a *"More than one 'from' person"* message when using *sendmail*.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4350ï¼‰ - :doc:`Loader Library <libraries/loader>` method ``model()`` logic directly instantiated the ``CI_Model`` or ``MY_Model`` classes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4337ï¼‰ - :doc:`Database <database/index>` method ``query()`` didn't return a result set for queries with the ``RETURNING`` statement on PostgreSQL.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4362ï¼‰ - :doc:`Session Library <libraries/sessions>` doesn't properly maintain its state after ID regeneration with the 'redis' and 'memcached' drivers on PHP 7.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4349ï¼‰ - :doc:`Database <database/index>` drivers 'mysql', 'mysqli', 'pdo/mysql' discard other ``sql_mode`` flags when "stricton" is enabled.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4349ï¼‰ - :doc:`Database <database/index>` drivers 'mysql', 'mysqli', 'pdo/mysql' don't turn off ``STRICT_TRANS_TABLES`` on MySQL 5.7+ when "stricton" is disabled.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4374ï¼‰ - :doc:`Session Library <libraries/sessions>` with the 'database' driver could be affected by userspace :doc:`Query Builder <database/query_builder>` conditions.
 
-ª©¥» 3.0.3
+ç‰ˆæœ¬ 3.0.3
 ==========
 
-µo¥¬¤é´Á¡GOctober 31, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 31, 2015
 
--  **¦w¥ş©Ê**
+-  **å®‰å…¨æ€§**
 
    -  Fixed an XSS attack vector in :doc:`Security Library <libraries/security>` method ``xss_clean()``.
-   -  ÅÜ§ó :doc:`Config Library <libraries/config>` method ``base_url()`` to fallback to ``$_SERVER['SERVER_ADDR']`` when ``$config['base_url']`` is empty in order to avoid *Host* header injections.
-   -  ÅÜ§ó :doc:`CAPTCHA Helper <helpers/captcha_helper>` to use the operating system's PRNG when possible.
+   -  è®Šæ›´ :doc:`Config Library <libraries/config>` method ``base_url()`` to fallback to ``$_SERVER['SERVER_ADDR']`` when ``$config['base_url']`` is empty in order to avoid *Host* header injections.
+   -  è®Šæ›´ :doc:`CAPTCHA Helper <helpers/captcha_helper>` to use the operating system's PRNG when possible.
 
 - :doc:`Database <database/index>`
 
    -  Optimized :doc:`Database Utility <database/utilities>` method ``csv_from_result()`` for speed with larger result sets.
    -  Added proper return values to :doc:`Database Transactions <database/transactions>` method ``trans_start()``.
 
-3.0.3 ¿ù»~­×¥¿
+3.0.3 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 4170¡^ - :doc:`Database <database/index>` method ``insert_id()`` could return an identity from the wrong scope with the 'sqlsrv' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4179¡^ - :doc:`Session Library <libraries/sessions>` doesn't properly maintain its state after ID regeneration with the 'database' driver on PHP7.
--  ¿ù»~­×¥¿¡]½s¸¹ 4173¡^ - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't allow creation of non-PRIMARY composite keys after the "bugfix" for #3968.
--  ¿ù»~­×¥¿¡]½s¸¹ 4171¡^ - :doc:`Database Transactions <database/transactions>` didn't work with nesting in methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()``.
--  ¿ù»~­×¥¿ :doc:`Database Transaction <database/transactions>` methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()`` ignored failures.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4170ï¼‰ - :doc:`Database <database/index>` method ``insert_id()`` could return an identity from the wrong scope with the 'sqlsrv' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4179ï¼‰ - :doc:`Session Library <libraries/sessions>` doesn't properly maintain its state after ID regeneration with the 'database' driver on PHP7.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4173ï¼‰ - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't allow creation of non-PRIMARY composite keys after the "bugfix" for #3968.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4171ï¼‰ - :doc:`Database Transactions <database/transactions>` didn't work with nesting in methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()``.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Database Transaction <database/transactions>` methods ``trans_begin()``, ``trans_commit()``, ``trans_rollback()`` ignored failures.
 -  Fixed a bug where all :doc:`Database Transaction <database/transactions>` methods returned TRUE while transactions are actually disabled.
--  ¿ù»~­×¥¿ :doc:`common function <general/common_functions>` :php:func:`html_escape()` modified keys of its array inputs.
--  ¿ù»~­×¥¿¡]½s¸¹ 4192¡^ - :doc:`Email Library <libraries/email>` wouldn't always have proper Quoted-printable encoding due to a bug in PHP's own ``mb_mime_encodeheader()`` function.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`common function <general/common_functions>` :php:func:`html_escape()` modified keys of its array inputs.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4192ï¼‰ - :doc:`Email Library <libraries/email>` wouldn't always have proper Quoted-printable encoding due to a bug in PHP's own ``mb_mime_encodeheader()`` function.
 
-ª©¥» 3.0.2
+ç‰ˆæœ¬ 3.0.2
 ==========
 
-µo¥¬¤é´Á¡GOctober 8, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 8, 2015
 
--  **¦w¥ş©Ê**
+-  **å®‰å…¨æ€§**
 
    -  Fixed a number of XSS attack vectors in :doc:`Security Library <libraries/security>` method ``xss_clean()``  (thanks to Frans Rosen from `Detectify <https://detectify.com/>`_).
 
 -  General Changes
 
    -  Updated the *application/config/constants.php* file to check if constants aren't already defined before doing that.
-   -  ÅÜ§ó :doc:`Loader Library <libraries/loader>` method ``model()`` to only apply ``ucfirst()`` and not ``strtolower()`` to the requested class name.
-   -  ÅÜ§ó :doc:`Config Library <libraries/config>` methods ``base_url()``, ``site_url()`` to allow protocol-relative URLs by passing an empty string as the protocol.
+   -  è®Šæ›´ :doc:`Loader Library <libraries/loader>` method ``model()`` to only apply ``ucfirst()`` and not ``strtolower()`` to the requested class name.
+   -  è®Šæ›´ :doc:`Config Library <libraries/config>` methods ``base_url()``, ``site_url()`` to allow protocol-relative URLs by passing an empty string as the protocol.
 
-3.0.2 ¿ù»~­×¥¿
+3.0.2 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 2284¡^ - :doc:`Database <database/index>` method ``protect_identifiers()`` breaks when :doc:`Query Builder <database/query_builder>` isn't enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 4052¡^ - :doc:`Routing <general/routing>` with anonymous functions didn't work for routes that don't use regular expressions.
--  ¿ù»~­×¥¿¡]½s¸¹ 4056¡^ - :doc:`Input Library <libraries/input>` method ``get_request_header()`` could not return a value unless ``request_headers()`` was called beforehand.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2284ï¼‰ - :doc:`Database <database/index>` method ``protect_identifiers()`` breaks when :doc:`Query Builder <database/query_builder>` isn't enabled.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4052ï¼‰ - :doc:`Routing <general/routing>` with anonymous functions didn't work for routes that don't use regular expressions.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4056ï¼‰ - :doc:`Input Library <libraries/input>` method ``get_request_header()`` could not return a value unless ``request_headers()`` was called beforehand.
 -  Fixed a bug where the :doc:`Database Class <database/index>` entered an endless loop if it fails to connect with the 'sqlsrv' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4065¡^ - :doc:`Database <database/index>` method ``protect_identifiers()`` treats a traling space as an alias separator if the input doesn't contain ' AS '.
--  ¿ù»~­×¥¿¡]½s¸¹ 4066¡^ - :doc:`Cache Library <libraries/caching>` couldn't fallback to a backup driver if the primary one is Memcache(d) or Redis.
--  ¿ù»~­×¥¿¡]½s¸¹ 4073¡^ - :doc:`Email Library <libraries/email>` method ``send()`` could return TRUE in case of an actual failure when an SMTP command fails.
--  ¿ù»~­×¥¿¡]½s¸¹ 4086¡^ - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* to LIKE conditions if the pattern included spaces.
--  ¿ù»~­×¥¿¡]½s¸¹ 4091¡^ - :doc:`Cache Library <libraries/caching>` 'file' driver could be tricked into accepting empty cache item IDs.
--  ¿ù»~­×¥¿¡]½s¸¹ 4093¡^ - :doc:`Query Builder <database/query_builder>` modified string values containing 'AND', 'OR' while compiling WHERE conditions.
--  ¿ù»~­×¥¿¡]½s¸¹ 4096¡^ - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* when compiling BETWEEN conditions.
--  ¿ù»~­×¥¿¡]½s¸¹ 4105¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't allow pipe characters inside "bracket parameters" when using a string ruleset.
--  ¿ù»~­×¥¿¡]½s¸¹ 4109¡^ - :doc:`Routing <general/routing>` to *default_controller* didn't work when *enable_query_strings* is set to TRUE.
--  ¿ù»~­×¥¿¡]½s¸¹ 4044¡^ - :doc:`Cache Library <libraries/caching>` 'redis' driver didn't catch ``RedisException`` that could be thrown during authentication.
--  ¿ù»~­×¥¿¡]½s¸¹ 4120¡^ - :doc:`Database <database/index>` method ``error()`` didn't return error info when called after ``query()`` with the 'mssql' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 4116¡^ - :doc:`Pagination Library <libraries/pagination>` set the wrong page number on the "data-ci-pagination-page" attribute in generated links.
--  ¿ù»~­×¥¿ :doc:`Pagination Library <libraries/pagination>` added the 'rel="start"' attribute to the first displayed link even if it's not actually linking the first page.
--  ¿ù»~­×¥¿¡]½s¸¹ 4137¡^ - :doc:`Error Handling <general/errors>` breaks for the new ``Error`` exceptions under PHP 7.
--  ¿ù»~­×¥¿¡]½s¸¹ 4126¡^ - :doc:`Form Validation Library <libraries/form_validation>` method ``reset_validation()`` discarded validation rules from config files.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4065ï¼‰ - :doc:`Database <database/index>` method ``protect_identifiers()`` treats a traling space as an alias separator if the input doesn't contain ' AS '.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4066ï¼‰ - :doc:`Cache Library <libraries/caching>` couldn't fallback to a backup driver if the primary one is Memcache(d) or Redis.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4073ï¼‰ - :doc:`Email Library <libraries/email>` method ``send()`` could return TRUE in case of an actual failure when an SMTP command fails.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4086ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* to LIKE conditions if the pattern included spaces.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4091ï¼‰ - :doc:`Cache Library <libraries/caching>` 'file' driver could be tricked into accepting empty cache item IDs.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4093ï¼‰ - :doc:`Query Builder <database/query_builder>` modified string values containing 'AND', 'OR' while compiling WHERE conditions.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4096ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't apply *dbprefix* when compiling BETWEEN conditions.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4105ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't allow pipe characters inside "bracket parameters" when using a string ruleset.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4109ï¼‰ - :doc:`Routing <general/routing>` to *default_controller* didn't work when *enable_query_strings* is set to TRUE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4044ï¼‰ - :doc:`Cache Library <libraries/caching>` 'redis' driver didn't catch ``RedisException`` that could be thrown during authentication.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4120ï¼‰ - :doc:`Database <database/index>` method ``error()`` didn't return error info when called after ``query()`` with the 'mssql' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4116ï¼‰ - :doc:`Pagination Library <libraries/pagination>` set the wrong page number on the "data-ci-pagination-page" attribute in generated links.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Pagination Library <libraries/pagination>` added the 'rel="start"' attribute to the first displayed link even if it's not actually linking the first page.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4137ï¼‰ - :doc:`Error Handling <general/errors>` breaks for the new ``Error`` exceptions under PHP 7.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4126ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` method ``reset_validation()`` discarded validation rules from config files.
 
-ª©¥» 3.0.1
+ç‰ˆæœ¬ 3.0.1
 ==========
 
-µo¥¬¤é´Á¡GAugust 7, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šAugust 7, 2015
 
 -  Core
 
    -  Added DoS mitigation to :php:func:`hash_pbkdf2()` :doc:`compatibility function <general/compatibility_functions>`.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Added ``list_fields()`` support for SQLite ('sqlite3' and 'pdo_sqlite' drivers).
    -  Added SSL connection support for the 'mysqli' and 'pdo_mysql' drivers.
@@ -188,54 +187,54 @@ Version 3.0.4
    -  Added support for defining a list of specific query parameters in ``$config['cache_query_string']`` for the :doc:`Output Library <libraries/output>`.
    -  Added class existence and inheritance checks to ``CI_Loader::model()`` in order to ease debugging in case of name collisions.
 
-3.0.1 ¿ù»~­×¥¿
+3.0.1 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 3733¡^ - Autoloading of libraries with aliases didn't work, although it was advertised to.
--  ¿ù»~­×¥¿¡]½s¸¹ 3744¡^ - Redis :doc:`Caching <libraries/caching>` driver didn't handle authentication failures properly.
--  ¿ù»~­×¥¿¡]½s¸¹ 3761¡^ - :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor()` didn't work with array inputs.
--  ¿ù»~­×¥¿¡]½s¸¹ 3773¡^ - ``db_select()`` didn't work for MySQL with the PDO :doc:`Database <database/index>` driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 3771¡^ - :doc:`Form Validation Library <libraries/form_validation>` was looking for a 'form_validation\_' prefix when trying to translate field name labels.
--  ¿ù»~­×¥¿¡]½s¸¹ 3787¡^ - :doc:`FTP Library <libraries/ftp>` method ``delete_dir()`` failed when the target has subdirectories.
--  ¿ù»~­×¥¿¡]½s¸¹ 3801¡^ - :doc:`Output Library <libraries/output>` method ``_display_cache()`` incorrectly looked for the last modified time of a directory instead of the cache file.
--  ¿ù»~­×¥¿¡]½s¸¹ 3816¡^ - :doc:`Form Validation Library <libraries/form_validation>` treated empty string values as non-existing ones.
--  ¿ù»~­×¥¿¡]½s¸¹ 3823¡^ - :doc:`Session Library <libraries/sessions>` drivers Redis and Memcached didn't properly handle locks that are blocking the request for more than 30 seconds.
--  ¿ù»~­×¥¿¡]½s¸¹ 3846¡^ - :doc:`Image Manipulation Library <libraries/image_lib>` method `image_mirror_gd()` didn't properly initialize its variables.
--  ¿ù»~­×¥¿¡]½s¸¹ 3854¡^ - `field_data()` didn't work properly with the Oracle (OCI8) database driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3733ï¼‰ - Autoloading of libraries with aliases didn't work, although it was advertised to.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3744ï¼‰ - Redis :doc:`Caching <libraries/caching>` driver didn't handle authentication failures properly.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3761ï¼‰ - :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor()` didn't work with array inputs.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3773ï¼‰ - ``db_select()`` didn't work for MySQL with the PDO :doc:`Database <database/index>` driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3771ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` was looking for a 'form_validation\_' prefix when trying to translate field name labels.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3787ï¼‰ - :doc:`FTP Library <libraries/ftp>` method ``delete_dir()`` failed when the target has subdirectories.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3801ï¼‰ - :doc:`Output Library <libraries/output>` method ``_display_cache()`` incorrectly looked for the last modified time of a directory instead of the cache file.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3816ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` treated empty string values as non-existing ones.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3823ï¼‰ - :doc:`Session Library <libraries/sessions>` drivers Redis and Memcached didn't properly handle locks that are blocking the request for more than 30 seconds.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3846ï¼‰ - :doc:`Image Manipulation Library <libraries/image_lib>` method `image_mirror_gd()` didn't properly initialize its variables.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3854ï¼‰ - `field_data()` didn't work properly with the Oracle (OCI8) database driver.
 -  Fixed a bug in the :doc:`Database Utility Class <database/utilities>` method ``csv_from_result()`` didn't work with a whitespace CSV delimiter.
--  ¿ù»~­×¥¿¡]½s¸¹ 3890¡^ - :doc:`Input Library <libraries/input>` method ``get_request_header()`` treated header names as case-sensitive.
--  ¿ù»~­×¥¿¡]½s¸¹ 3903¡^ - :doc:`Form Validation Library <libraries/form_validation>` ignored "unnamed" closure validation rules.
--  ¿ù»~­×¥¿¡]½s¸¹ 3904¡^ - :doc:`Form Validation Library <libraries/form_validation>` ignored "named" callback rules when the field is empty and there's no 'required' rule.
--  ¿ù»~­×¥¿¡]½s¸¹ 3922¡^ - :doc:`Email <libraries/email>` and :doc:`XML-RPC <libraries/xmlrpc>` libraries could enter an infinite loop due to `PHP bug #39598 <https://bugs.php.net/bug.php?id=39598>`_.
--  ¿ù»~­×¥¿¡]½s¸¹ 3913¡^ - :doc:`Cache Library <libraries/caching>` didn't work with the direct ``$this->cache->$driver_name->method()`` syntax with Redis and Memcache(d).
--  ¿ù»~­×¥¿¡]½s¸¹ 3932¡^ - :doc:`Query Builder <database/query_builder>` didn't properly compile WHERE and HAVING conditions for field names that end with "and", "or".
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3890ï¼‰ - :doc:`Input Library <libraries/input>` method ``get_request_header()`` treated header names as case-sensitive.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3903ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` ignored "unnamed" closure validation rules.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3904ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` ignored "named" callback rules when the field is empty and there's no 'required' rule.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3922ï¼‰ - :doc:`Email <libraries/email>` and :doc:`XML-RPC <libraries/xmlrpc>` libraries could enter an infinite loop due to `PHP bug #39598 <https://bugs.php.net/bug.php?id=39598>`_.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3913ï¼‰ - :doc:`Cache Library <libraries/caching>` didn't work with the direct ``$this->cache->$driver_name->method()`` syntax with Redis and Memcache(d).
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3932ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't properly compile WHERE and HAVING conditions for field names that end with "and", "or".
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` where ``delete()`` didn't properly work on multiple tables with a WHERE condition previously set via ``where()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 3952¡^ - :doc:`Database <database/index>` method ``list_fields()`` didn't work with SQLite3.
--  ¿ù»~­×¥¿¡]½s¸¹ 3955¡^ - :doc:`Cache Library <libraries/caching>` methods ``increment()`` and ``decrement()`` ignored the 'key_prefix' setting.
--  ¿ù»~­×¥¿¡]½s¸¹ 3963¡^ - :doc:`Unit Testing Library <libraries/unit_testing>` wrongly tried to translate filenames, line numbers and notes values in test results.
--  ¿ù»~­×¥¿¡]½s¸¹ 3965¡^ - :doc:`File Uploading Library <libraries/file_uploading>` ignored the "encrypt_name" setting when "overwrite" is enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 3968¡^ - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't treat array inputs as composite keys unless it's a PRIMARY KEY.
--  ¿ù»~­×¥¿¡]½s¸¹ 3715¡^ - :doc:`Pagination Library <libraries/pagination>` could generate broken link when a protocol-relative base URL is used.
--  ¿ù»~­×¥¿¡]½s¸¹ 3828¡^ - :doc:`Output Library <libraries/output>` method ``delete_cache()`` couldn't delete index page caches.
--  ¿ù»~­×¥¿¡]½s¸¹ 3704¡^ - :doc:`Database <database/index>` method ``stored_procedure()`` in the 'oci8' driver didn't properly bind parameters.
--  ¿ù»~­×¥¿¡]½s¸¹ 3778¡^ - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent a *Pragma* response header.
--  ¿ù»~­×¥¿¡]½s¸¹ 3752¡^ - ``$routing['directory']`` overrides were not properly handled and always resulted in a 404 "Not Found" error.
--  ¿ù»~­×¥¿¡]½s¸¹ 3279¡^ - :doc:`Query Builder <database/query_builder>` methods ``update()`` and ``get_compiled_update()`` did double escaping on the table name if it was provided via ``from()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 3991¡^ - ``$config['rewrite_short_tags']`` never worked due to ``function_exists('eval')`` always returning FALSE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3952ï¼‰ - :doc:`Database <database/index>` method ``list_fields()`` didn't work with SQLite3.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3955ï¼‰ - :doc:`Cache Library <libraries/caching>` methods ``increment()`` and ``decrement()`` ignored the 'key_prefix' setting.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3963ï¼‰ - :doc:`Unit Testing Library <libraries/unit_testing>` wrongly tried to translate filenames, line numbers and notes values in test results.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3965ï¼‰ - :doc:`File Uploading Library <libraries/file_uploading>` ignored the "encrypt_name" setting when "overwrite" is enabled.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3968ï¼‰ - :doc:`Database Forge <database/forge>` method ``add_key()`` didn't treat array inputs as composite keys unless it's a PRIMARY KEY.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3715ï¼‰ - :doc:`Pagination Library <libraries/pagination>` could generate broken link when a protocol-relative base URL is used.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3828ï¼‰ - :doc:`Output Library <libraries/output>` method ``delete_cache()`` couldn't delete index page caches.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3704ï¼‰ - :doc:`Database <database/index>` method ``stored_procedure()`` in the 'oci8' driver didn't properly bind parameters.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3778ï¼‰ - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent a *Pragma* response header.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3752ï¼‰ - ``$routing['directory']`` overrides were not properly handled and always resulted in a 404 "Not Found" error.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3279ï¼‰ - :doc:`Query Builder <database/query_builder>` methods ``update()`` and ``get_compiled_update()`` did double escaping on the table name if it was provided via ``from()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3991ï¼‰ - ``$config['rewrite_short_tags']`` never worked due to ``function_exists('eval')`` always returning FALSE.
 -  Fixed a bug where the :doc:`File Uploading Library <libraries/file_uploading>` library will not properly configure its maximum file size unless the input value is of type integer.
--  ¿ù»~­×¥¿¡]½s¸¹ 4000¡^ - :doc:`Pagination Library <libraries/pagination>` didn't enable "rel" attributes by default if no attributes-related config options were used.
--  ¿ù»~­×¥¿¡]½s¸¹ 4004¡^ - :doc:`URI Class <libraries/uri>` didn't properly parse the request URI if it contains a colon followed by a digit.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4000ï¼‰ - :doc:`Pagination Library <libraries/pagination>` didn't enable "rel" attributes by default if no attributes-related config options were used.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4004ï¼‰ - :doc:`URI Class <libraries/uri>` didn't properly parse the request URI if it contains a colon followed by a digit.
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` where the ``$escape`` parameter for some methods only affected field names.
--  ¿ù»~­×¥¿¡]½s¸¹ 4012¡^ - :doc:`Query Builder <database/query_builder>` methods ``where_in()``, ``or_where_in()``, ``where_not_in()``, ``or_where_not_in()`` didn't take into account previously cached WHERE conditions when query cache is in use.
--  ¿ù»~­×¥¿¡]½s¸¹ 4015¡^ - :doc:`Email Library <libraries/email>` method ``set_header()`` didn't support method chaining, although it was advertised.
--  ¿ù»~­×¥¿¡]½s¸¹ 4027¡^ - :doc:`Routing <general/routing>` with HTTP verbs only worked if the route request method was declared in all-lowercase letters.
--  ¿ù»~­×¥¿¡]½s¸¹ 4026¡^ - :doc:`Database Transactions <database/transactions>` always rollback if any previous ``query()`` call fails.
--  ¿ù»~­×¥¿¡]½s¸¹ 4023¡^ - :doc:`String Helper <helpers/string_helper>` function ``increment_string()`` didn't escape its ``$separator`` parameter.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4012ï¼‰ - :doc:`Query Builder <database/query_builder>` methods ``where_in()``, ``or_where_in()``, ``where_not_in()``, ``or_where_not_in()`` didn't take into account previously cached WHERE conditions when query cache is in use.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4015ï¼‰ - :doc:`Email Library <libraries/email>` method ``set_header()`` didn't support method chaining, although it was advertised.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4027ï¼‰ - :doc:`Routing <general/routing>` with HTTP verbs only worked if the route request method was declared in all-lowercase letters.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4026ï¼‰ - :doc:`Database Transactions <database/transactions>` always rollback if any previous ``query()`` call fails.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4023ï¼‰ - :doc:`String Helper <helpers/string_helper>` function ``increment_string()`` didn't escape its ``$separator`` parameter.
 
-ª©¥» 3.0.0
+ç‰ˆæœ¬ 3.0.0
 ==========
 
-µo¥¬¤é´Á¡GMarch 30, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šMarch 30, 2015
 
 -  License
 
@@ -380,7 +379,7 @@ Version 3.0.4
    -  :doc:`Language Helper <helpers/language_helper>` :php:func:`lang()` now accepts an optional list of additional HTML attributes.
    -  Deprecated the :doc:`Email Helper <helpers/email_helper>` as its ``valid_email()``, ``send_email()`` functions are now only aliases for PHP native functions ``filter_var()`` and ``mail()`` respectively.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  DEPRECATED the 'mysql', 'sqlite', 'mssql' and 'pdo/dblib' (also known as 'pdo/mssql' or 'pdo/sybase') drivers.
    -  Added **dsn** configuration setting for drivers that support DSN strings (PDO, PostgreSQL, Oracle, ODBC, CUBRID).
@@ -808,324 +807,324 @@ Version 3.0.4
    -  Fatal PHP errors are now also passed to ``_error_handler()``, so they can be logged.
 
 
-3.0 ¿ù»~­×¥¿
+3.0 éŒ¯èª¤ä¿®æ­£
 ------------
 
 -  Fixed a bug where ``unlink()`` raised an error if cache file did not exist when you try to delete it.
--  ¿ù»~­×¥¿¡]½s¸¹ 181¡^ - a typo in the form validation language file.
--  ¿ù»~­×¥¿¡]½s¸¹ 159¡B½s¸¹ 163¡^ - :doc:`Query Builder <database/query_builder>` nested transactions didn't work properly due to ``$_trans_depth`` not being incremented.
--  ¿ù»~­×¥¿¡]½s¸¹ 737¡B½s¸¹ 75¡^ - :doc:`Pagination <libraries/pagination>` anchor class was not set properly when using initialize method.
--  ¿ù»~­×¥¿¡]½s¸¹ 419¡^ - :doc:`URL Helper <helpers/url_helper>` :php:func:`auto_link()` didn't recognize URLs that come after a word boundary.
--  ¿ù»~­×¥¿¡]½s¸¹ 724¡^ - :doc:`Form Validation Library <libraries/form_validation>` rule **is_unique** didn't check if a database connection exists.
--  ¿ù»~­×¥¿¡]½s¸¹ 647¡^ - :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` didn't suppress possible "stat failed" errors generated by ``filemtime()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 157¡B½s¸¹ 174¡^ - :doc:`Image Manipulation Library <libraries/image_lib>` method ``clear()`` didn't completely clear properties.
--  ¿ù»~­×¥¿ :doc:`Database Forge <database/forge>` method ``create_table()`` with PostgreSQL database could lead to fetching the whole table.
--  ¿ù»~­×¥¿¡]½s¸¹ 795¡^ - :doc:`Form Helper <helpers/form_helper>` :php:func:`form_open()` didn't add the default form *method* and *accept-charset* when an empty array is passed to it.
--  ¿ù»~­×¥¿¡]½s¸¹ 797¡^ - :doc:`Date Helper <helpers/date_helper>` :php:func:`timespan()` was using incorrect seconds for year and month.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 181ï¼‰ - a typo in the form validation language file.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 159ã€ç·¨è™Ÿ 163ï¼‰ - :doc:`Query Builder <database/query_builder>` nested transactions didn't work properly due to ``$_trans_depth`` not being incremented.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 737ã€ç·¨è™Ÿ 75ï¼‰ - :doc:`Pagination <libraries/pagination>` anchor class was not set properly when using initialize method.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 419ï¼‰ - :doc:`URL Helper <helpers/url_helper>` :php:func:`auto_link()` didn't recognize URLs that come after a word boundary.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 724ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` rule **is_unique** didn't check if a database connection exists.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 647ï¼‰ - :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` didn't suppress possible "stat failed" errors generated by ``filemtime()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 157ã€ç·¨è™Ÿ 174ï¼‰ - :doc:`Image Manipulation Library <libraries/image_lib>` method ``clear()`` didn't completely clear properties.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Database Forge <database/forge>` method ``create_table()`` with PostgreSQL database could lead to fetching the whole table.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 795ï¼‰ - :doc:`Form Helper <helpers/form_helper>` :php:func:`form_open()` didn't add the default form *method* and *accept-charset* when an empty array is passed to it.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 797ï¼‰ - :doc:`Date Helper <helpers/date_helper>` :php:func:`timespan()` was using incorrect seconds for year and month.
 -  Fixed a bug in :doc:`Cart Library <libraries/cart>` method ``contents()`` where if called without a TRUE (or equal) parameter, it would fail due to a typo.
--  ¿ù»~­×¥¿¡]½s¸¹ 406¡^ - SQLSRV DB driver not returning resource on ``db_pconnect()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 406ï¼‰ - SQLSRV DB driver not returning resource on ``db_pconnect()``.
 -  Fixed a bug in :doc:`Image Manipulation Library <libraries/image_lib>` method ``gd_loaded()`` where it was possible for the script execution to end or a PHP E_WARNING message to be emitted.
 -  Fixed a bug in the :doc:`Pagination library <libraries/pagination>` where when use_page_numbers=TRUE previous link and page 1 link did not have the same url.
--  ¿ù»~­×¥¿¡]½s¸¹ 561¡^ - errors in :doc:`XML-RPC Library <libraries/xmlrpc>` were not properly escaped.
--  ¿ù»~­×¥¿¡]½s¸¹ 904¡^ - :doc:`Loader Library <libraries/loader>` method ``initialize()`` caused a PHP Fatal error to be triggered if error level E_STRICT is used.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 561ï¼‰ - errors in :doc:`XML-RPC Library <libraries/xmlrpc>` were not properly escaped.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 904ï¼‰ - :doc:`Loader Library <libraries/loader>` method ``initialize()`` caused a PHP Fatal error to be triggered if error level E_STRICT is used.
 -  Fixed a hosting edge case where an empty ``$_SERVER['HTTPS']`` variable would evaluate to 'on'.
--  ¿ù»~­×¥¿¡]½s¸¹ 154¡^ - :doc:`Session Library <libraries/sessions>` method ``sess_update()`` caused the session to be destroyed on pages where multiple AJAX requests were executed at once.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 154ï¼‰ - :doc:`Session Library <libraries/sessions>` method ``sess_update()`` caused the session to be destroyed on pages where multiple AJAX requests were executed at once.
 -  Fixed a possible bug in :doc:`Input Libary <libraries/input>` method ``is_ajax_request()`` where some clients might not send the X-Requested-With HTTP header value exactly as 'XmlHttpRequest'.
--  ¿ù»~­×¥¿¡]½s¸¹ 1039¡^ - :doc:`Database Utilities <database/utilities>` internal method ``_backup()`` method failed for the 'mysql' driver due to a table name not being escaped.
--  ¿ù»~­×¥¿¡]½s¸¹ 1070¡^ - ``CI_DB_driver::initialize()`` didn't set a character set if a database is not selected.
--  ¿ù»~­×¥¿¡]½s¸¹ 177¡^ - :doc:`Form Validation Library <libraries/form_validation>` method ``set_value()`` didn't set the default value if POST data is NULL.
--  ¿ù»~­×¥¿¡]½s¸¹ 68¡B½s¸¹ 414¡^ - :Oracle's ``escape_str()`` didn't properly escape LIKE wild characters.
--  ¿ù»~­×¥¿¡]½s¸¹ 81¡^ - ODBC's ``list_fields()`` and ``field_data()`` methods skipped the first column due to ``odbc_field_*()`` functions' index starting at 1 instead of 0.
--  ¿ù»~­×¥¿¡]½s¸¹ 129¡^ - ODBC's ``num_rows()`` method returned -1 in some cases, due to not all subdrivers supporting the ``odbc_num_rows()`` function.
--  ¿ù»~­×¥¿¡]½s¸¹ 153¡^ - E_NOTICE being generated by ``getimagesize()`` in the :doc:`File Uploading Library <libraries/file_uploading>`.
--  ¿ù»~­×¥¿¡]½s¸¹ 611¡^ - SQLSRV's error handling methods used to issue warnings when there's no actual error.
--  ¿ù»~­×¥¿¡]½s¸¹ 1036¡^ - ``is_write_type()`` method in the :doc:`Database Library <database/index>` didn't return TRUE for RENAME queries.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1039ï¼‰ - :doc:`Database Utilities <database/utilities>` internal method ``_backup()`` method failed for the 'mysql' driver due to a table name not being escaped.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1070ï¼‰ - ``CI_DB_driver::initialize()`` didn't set a character set if a database is not selected.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 177ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` method ``set_value()`` didn't set the default value if POST data is NULL.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 68ã€ç·¨è™Ÿ 414ï¼‰ - :Oracle's ``escape_str()`` didn't properly escape LIKE wild characters.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 81ï¼‰ - ODBC's ``list_fields()`` and ``field_data()`` methods skipped the first column due to ``odbc_field_*()`` functions' index starting at 1 instead of 0.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 129ï¼‰ - ODBC's ``num_rows()`` method returned -1 in some cases, due to not all subdrivers supporting the ``odbc_num_rows()`` function.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 153ï¼‰ - E_NOTICE being generated by ``getimagesize()`` in the :doc:`File Uploading Library <libraries/file_uploading>`.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 611ï¼‰ - SQLSRV's error handling methods used to issue warnings when there's no actual error.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1036ï¼‰ - ``is_write_type()`` method in the :doc:`Database Library <database/index>` didn't return TRUE for RENAME queries.
 -  Fixed a bug in PDO's ``_version()`` method where it used to return the client version as opposed to the server one.
 -  Fixed a bug in PDO's ``insert_id()`` method where it could've failed if it's used with Postgre versions prior to 8.1.
 -  Fixed a bug in CUBRID's ``affected_rows()`` method where a connection resource was passed to ``cubrid_affected_rows()`` instead of a result.
--  ¿ù»~­×¥¿¡]½s¸¹ 638¡^ - ``db_set_charset()`` ignored its arguments and always used the configured charset instead.
--  ¿ù»~­×¥¿¡]½s¸¹ 413¡^ - Oracle's error handling methods used to only return connection-related errors.
--  ¿ù»~­×¥¿¡]½s¸¹ 1101¡^ - :doc:`Database Result <database/results>` method ``field_data()`` for 'mysql', 'mysqli' drivers was implemented as if it was handling a DESCRIBE result instead of the actual result set.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 638ï¼‰ - ``db_set_charset()`` ignored its arguments and always used the configured charset instead.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 413ï¼‰ - Oracle's error handling methods used to only return connection-related errors.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1101ï¼‰ - :doc:`Database Result <database/results>` method ``field_data()`` for 'mysql', 'mysqli' drivers was implemented as if it was handling a DESCRIBE result instead of the actual result set.
 -  Fixed a bug in Oracle's :doc:`Database Forge <database/forge>` method ``_create_table()`` where it failed with AUTO_INCREMENT as it's not supported.
--  ¿ù»~­×¥¿¡]½s¸¹ 1080¡^ - when using the SMTP protocol, :doc:`Email Library <libraries/email>` method ``send()`` was returning TRUE even if the connection/authentication against the server failed.
--  ¿ù»~­×¥¿¡]½s¸¹ 306¡^ - ODBC's ``insert_id()`` method was calling non-existent function ``odbc_insert_id()``, which resulted in a fatal error.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1080ï¼‰ - when using the SMTP protocol, :doc:`Email Library <libraries/email>` method ``send()`` was returning TRUE even if the connection/authentication against the server failed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 306ï¼‰ - ODBC's ``insert_id()`` method was calling non-existent function ``odbc_insert_id()``, which resulted in a fatal error.
 -  Fixed a bug in Oracle's :doc:`Database Result <database/results>` implementation where the cursor ID passed to it was always NULL.
--  ¿ù»~­×¥¿¡]½s¸¹ 64¡^ - Regular expression in *DB_query_builder.php* failed to handle queries containing SQL bracket delimiters in the JOIN condition.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 64ï¼‰ - Regular expression in *DB_query_builder.php* failed to handle queries containing SQL bracket delimiters in the JOIN condition.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where a PHP E_NOTICE error was triggered by ``_unserialize()`` due to results from databases such as MSSQL and Oracle being space-padded on the right.
--  ¿ù»~­×¥¿¡]½s¸¹ 501¡^ - :doc:`Form Validation Library <libraries/form_validation>` method ``set_rules()`` depended on ``count($_POST)`` instead of actually checking if the request method 'POST' before aborting.
--  ¿ù»~­×¥¿¡]½s¸¹ 136¡^ - PostgreSQL and MySQL's ``escape_str()`` method didn't properly escape LIKE wild characters.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 501ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` method ``set_rules()`` depended on ``count($_POST)`` instead of actually checking if the request method 'POST' before aborting.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 136ï¼‰ - PostgreSQL and MySQL's ``escape_str()`` method didn't properly escape LIKE wild characters.
 -  Fixed a bug in :doc:`Loader Library <libraries/loader>` method ``library()`` where some PHP versions wouldn't execute the class constructor.
--  ¿ù»~­×¥¿¡]½s¸¹ 88¡^ - An unexisting property was used for configuration of the Memcache cache driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 14¡^ - :doc:`Database Forge <database/forge>` method ``create_database()`` didn't utilize the configured database character set.
--  ¿ù»~­×¥¿¡]½s¸¹ 23¡B½s¸¹ 1238¡^ - :doc:`Database Caching <database/caching>` method ``delete_all()`` used to delete .htaccess and index.html files, which is a potential security risk.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 88ï¼‰ - An unexisting property was used for configuration of the Memcache cache driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 14ï¼‰ - :doc:`Database Forge <database/forge>` method ``create_database()`` didn't utilize the configured database character set.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 23ã€ç·¨è™Ÿ 1238ï¼‰ - :doc:`Database Caching <database/caching>` method ``delete_all()`` used to delete .htaccess and index.html files, which is a potential security risk.
 -  Fixed a bug in :doc:`Trackback Library <libraries/trackback>` method ``validate_url()`` where it didn't actually do anything, due to input not being passed by reference.
--  ¿ù»~­×¥¿¡]½s¸¹ 11¡B½s¸¹ 183¡B½s¸¹ 863¡^ - :doc:`Form Validation Library <libraries/form_validation>` method ``_execute()`` silently continued to the next rule, if a rule method/function is not found.
--  ¿ù»~­×¥¿¡]½s¸¹ 122¡^ - routed URI string was being reported incorrectly in sub-directories.
--  ¿ù»~­×¥¿¡]½s¸¹ 1241¡^ - :doc:`Zip Library <libraries/zip>` method ``read_dir()`` wasn't compatible with Windows.
--  ¿ù»~­×¥¿¡]½s¸¹ 306¡^ - ODBC driver didn't have an ``_insert_batch()`` method, which resulted in fatal error being triggered when ``insert_batch()`` is used with it.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 11ã€ç·¨è™Ÿ 183ã€ç·¨è™Ÿ 863ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` method ``_execute()`` silently continued to the next rule, if a rule method/function is not found.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 122ï¼‰ - routed URI string was being reported incorrectly in sub-directories.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1241ï¼‰ - :doc:`Zip Library <libraries/zip>` method ``read_dir()`` wasn't compatible with Windows.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 306ï¼‰ - ODBC driver didn't have an ``_insert_batch()`` method, which resulted in fatal error being triggered when ``insert_batch()`` is used with it.
 -  Fixed a bug in MSSQL and SQLSrv's ``_truncate()`` where the TABLE keyword was missing.
 -  Fixed a bug in PDO's ``trans_commit()`` method where it failed due to an erroneous property name.
--  ¿ù»~­×¥¿¡]½s¸¹ 798¡^ - :doc:`Query Builder <database/query_builder>` method ``update()`` used to ignore LIKE conditions that were set with ``like()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 798ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``update()`` used to ignore LIKE conditions that were set with ``like()``.
 -  Fixed a bug in Oracle's and MSSQL's ``delete()`` methods where an erroneous SQL statement was generated when used with ``limit()``.
 -  Fixed a bug in SQLSRV's ``delete()`` method where ``like()`` and ``limit()`` conditions were ignored.
--  ¿ù»~­×¥¿¡]½s¸¹ 1265¡^ - Database connections were always closed, regardless of the 'pconnect' option value.
--  ¿ù»~­×¥¿¡]½s¸¹ 128¡^ - :doc:`Language Library <libraries/language>` did not correctly keep track of loaded language files.
--  ¿ù»~­×¥¿¡]½s¸¹ 1349¡^ - :doc:`File Uploading Library <libraries/file_uploading>` method ``get_extension()`` returned the original filename when it didn't have an actual extension.
--  ¿ù»~­×¥¿¡]½s¸¹ 1273¡^ - :doc:`Query Builder <database/query_builder>` method ``set_update_batch()`` generated an E_NOTICE message.
--  ¿ù»~­×¥¿¡]½s¸¹ 44¡B½s¸¹ 110¡^ - :doc:`File Uploading Library <libraries/file_uploading>` method ``clean_file_name()`` didn't clear '!' and '#' characters.
--  ¿ù»~­×¥¿¡]½s¸¹ 121¡^ - :doc:`Database Results <database/results>` method ``row()`` returned an array when there's no actual result to be returned.
--  ¿ù»~­×¥¿¡]½s¸¹ 319¡^ - SQLSRV's ``affected_rows()`` method failed due to a scrollable cursor being created for write-type queries.
--  ¿ù»~­×¥¿¡]½s¸¹ 356¡^ - :doc:`Database <database/index>` driver 'postgre' didn't have an ``_update_batch()`` method, which resulted in fatal error being triggered when ``update_batch()`` is used with it.
--  ¿ù»~­×¥¿¡]½s¸¹ 784¡B½s¸¹ 862¡^ - :doc:`Database Forge <database/forge>` method ``create_table()`` failed on SQLSRV/MSSQL when used with 'IF NOT EXISTS'.
--  ¿ù»~­×¥¿¡]½s¸¹ 1419¡^ - :doc:`Driver Library <general/creating_drivers>` had a static variable that was causing an error.
--  ¿ù»~­×¥¿¡]½s¸¹ 1411¡^ - the :doc:`Email Library <libraries/email>` used its own short list of MIMEs instead the one from *config/mimes.php*.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1265ï¼‰ - Database connections were always closed, regardless of the 'pconnect' option value.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 128ï¼‰ - :doc:`Language Library <libraries/language>` did not correctly keep track of loaded language files.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1349ï¼‰ - :doc:`File Uploading Library <libraries/file_uploading>` method ``get_extension()`` returned the original filename when it didn't have an actual extension.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1273ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``set_update_batch()`` generated an E_NOTICE message.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 44ã€ç·¨è™Ÿ 110ï¼‰ - :doc:`File Uploading Library <libraries/file_uploading>` method ``clean_file_name()`` didn't clear '!' and '#' characters.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 121ï¼‰ - :doc:`Database Results <database/results>` method ``row()`` returned an array when there's no actual result to be returned.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 319ï¼‰ - SQLSRV's ``affected_rows()`` method failed due to a scrollable cursor being created for write-type queries.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 356ï¼‰ - :doc:`Database <database/index>` driver 'postgre' didn't have an ``_update_batch()`` method, which resulted in fatal error being triggered when ``update_batch()`` is used with it.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 784ã€ç·¨è™Ÿ 862ï¼‰ - :doc:`Database Forge <database/forge>` method ``create_table()`` failed on SQLSRV/MSSQL when used with 'IF NOT EXISTS'.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1419ï¼‰ - :doc:`Driver Library <general/creating_drivers>` had a static variable that was causing an error.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1411ï¼‰ - the :doc:`Email Library <libraries/email>` used its own short list of MIMEs instead the one from *config/mimes.php*.
 -  Fixed a bug where php.ini setting *magic_quotes_runtime* wasn't turned off for PHP 5.3 (where it is indeed deprecated, but not non-existent).
--  ¿ù»~­×¥¿¡]½s¸¹ 666¡^ - :doc:`Output Library <libraries/output>` method ``set_content_type()`` didn't set the document charset.
--  ¿ù»~­×¥¿¡]½s¸¹ 784¡B½s¸¹ 861¡^ - :doc:`Database Forge <database/forge>` method ``create_table()`` used to accept constraints for MSSQL/SQLSRV integer-type columns.
--  ¿ù»~­×¥¿¡]½s¸¹ 706¡^ - SQLSRV/MSSSQL :doc:`Database <database/index>` drivers didn't escape field names.
--  ¿ù»~­×¥¿¡]½s¸¹ 1452¡^ - :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` didn't properly detect identifiers with spaces in their names.
--  ¿ù»~­×¥¿ :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` ignored its extra arguments when the value passed to it is an array.
--  ¿ù»~­×¥¿ :doc:`Query Builder <database/query_builder>` internal method ``_has_operator()`` didn't detect BETWEEN.
--  ¿ù»~­×¥¿ :doc:`Query Builder <database/query_builder>` method ``join()`` failed with identifiers containing dashes.
--  ¿ù»~­×¥¿¡]½s¸¹ 1264¡^ - :doc:`Database Forge <database/forge>` and :doc:`Database Utilities <database/utilities>` didn't update/reset the databases and tables list cache when a table or a database is created, dropped or renamed.
--  ¿ù»~­×¥¿¡]½s¸¹ 7¡^ - :doc:`Query Builder <database/query_builder>` method ``join()`` only escaped one set of conditions.
--  ¿ù»~­×¥¿¡]½s¸¹ 1321¡^ - ``CI_Exceptions`` couldn't find the *errors/* directory in some cases.
--  ¿ù»~­×¥¿¡]½s¸¹ 1202¡^ - :doc:`Encrypt Library <libraries/encrypt>` ``encode_from_legacy()`` didn't set back the encrypt mode on failure.
--  ¿ù»~­×¥¿¡]½s¸¹ 145¡^ - :doc:`Database Class <database/index>` method ``compile_binds()`` failed when the bind marker was present in a literal string within the query.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 666ï¼‰ - :doc:`Output Library <libraries/output>` method ``set_content_type()`` didn't set the document charset.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 784ã€ç·¨è™Ÿ 861ï¼‰ - :doc:`Database Forge <database/forge>` method ``create_table()`` used to accept constraints for MSSQL/SQLSRV integer-type columns.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 706ï¼‰ - SQLSRV/MSSSQL :doc:`Database <database/index>` drivers didn't escape field names.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1452ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` didn't properly detect identifiers with spaces in their names.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` ignored its extra arguments when the value passed to it is an array.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Query Builder <database/query_builder>` internal method ``_has_operator()`` didn't detect BETWEEN.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Query Builder <database/query_builder>` method ``join()`` failed with identifiers containing dashes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1264ï¼‰ - :doc:`Database Forge <database/forge>` and :doc:`Database Utilities <database/utilities>` didn't update/reset the databases and tables list cache when a table or a database is created, dropped or renamed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 7ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``join()`` only escaped one set of conditions.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1321ï¼‰ - ``CI_Exceptions`` couldn't find the *errors/* directory in some cases.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1202ï¼‰ - :doc:`Encrypt Library <libraries/encrypt>` ``encode_from_legacy()`` didn't set back the encrypt mode on failure.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 145ï¼‰ - :doc:`Database Class <database/index>` method ``compile_binds()`` failed when the bind marker was present in a literal string within the query.
 -  Fixed a bug in :doc:`Query Builder <database/query_builder>` method ``protect_identifiers()`` where if passed along with the field names, operators got escaped as well.
--  ¿ù»~­×¥¿¡]½s¸¹ 10¡^ - :doc:`URI Library <libraries/uri>` internal method ``_detect_uri()`` failed with paths containing a colon.
--  ¿ù»~­×¥¿¡]½s¸¹ 1387¡^ - :doc:`Query Builder <database/query_builder>` method ``from()`` didn't escape table aliases.
--  ¿ù»~­×¥¿¡]½s¸¹ 520¡^ - :doc:`Date Helper <helpers/date_helper>` function :php:func:``nice_date()`` failed when the optional second parameter is not passed.
--  ¿ù»~­×¥¿¡]½s¸¹ 318¡^ - :doc:`Profiling Library <general/profiling>` setting *query_toggle_count* was not settable as described in the manual.
--  ¿ù»~­×¥¿¡]½s¸¹ 938¡^ - :doc:`Config Library <libraries/config>` method ``site_url()`` added a question mark to the URL string when query strings are enabled even if it already existed.
--  ¿ù»~­×¥¿¡]½s¸¹ 999¡^ - :doc:`Config Library <libraries/config>` method ``site_url()`` always appended ``$config['url_suffix']`` to the end of the URL string, regardless of whether a query string exists in it.
--  ¿ù»~­×¥¿ :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor_popup()` ignored the attributes argument if it is not an array.
--  ¿ù»~­×¥¿¡]½s¸¹ 1328¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly check the type of the form fields before processing them.
--  ¿ù»~­×¥¿¡]½s¸¹ 79¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly validate array fields that use associative keys or have custom indexes.
--  ¿ù»~­×¥¿¡]½s¸¹ 427¡^ - :doc:`Form Validation Library <libraries/form_validation>` method ``strip_image_tags()`` was an alias to a non-existent method.
--  ¿ù»~­×¥¿¡]½s¸¹ 1545¡^ - :doc:`Query Builder <database/query_builder>` method ``limit()`` wasn't executed properly under Oracle.
--  ¿ù»~­×¥¿¡]½s¸¹ 1551¡^ - :doc:`Date Helper <helpers/date_helper>` function :php:func:`standard_date()` didn't properly format *W3C* and *ATOM* standard dates.
--  ¿ù»~­×¥¿ :doc:`Query Builder <database/query_builder>` method ``join()`` escaped literal values as if they were fields.
--  ¿ù»~­×¥¿¡]½s¸¹ 135¡^ - PHP Error logging was impossible without the errors being displayed.
--  ¿ù»~­×¥¿¡]½s¸¹ 1613¡^ - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`form_multiselect()`, :php:func:`form_dropdown()` didn't properly handle empty array option groups.
--  ¿ù»~­×¥¿¡]½s¸¹ 1605¡^ - :doc:`Pagination Library <libraries/pagination>` produced incorrect *previous* and *next* link values.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 10ï¼‰ - :doc:`URI Library <libraries/uri>` internal method ``_detect_uri()`` failed with paths containing a colon.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1387ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``from()`` didn't escape table aliases.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 520ï¼‰ - :doc:`Date Helper <helpers/date_helper>` function :php:func:``nice_date()`` failed when the optional second parameter is not passed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 318ï¼‰ - :doc:`Profiling Library <general/profiling>` setting *query_toggle_count* was not settable as described in the manual.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 938ï¼‰ - :doc:`Config Library <libraries/config>` method ``site_url()`` added a question mark to the URL string when query strings are enabled even if it already existed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 999ï¼‰ - :doc:`Config Library <libraries/config>` method ``site_url()`` always appended ``$config['url_suffix']`` to the end of the URL string, regardless of whether a query string exists in it.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`URL Helper <helpers/url_helper>` function :php:func:`anchor_popup()` ignored the attributes argument if it is not an array.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1328ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly check the type of the form fields before processing them.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 79ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly validate array fields that use associative keys or have custom indexes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 427ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` method ``strip_image_tags()`` was an alias to a non-existent method.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1545ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``limit()`` wasn't executed properly under Oracle.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1551ï¼‰ - :doc:`Date Helper <helpers/date_helper>` function :php:func:`standard_date()` didn't properly format *W3C* and *ATOM* standard dates.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Query Builder <database/query_builder>` method ``join()`` escaped literal values as if they were fields.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 135ï¼‰ - PHP Error logging was impossible without the errors being displayed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1613ï¼‰ - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`form_multiselect()`, :php:func:`form_dropdown()` didn't properly handle empty array option groups.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1605ï¼‰ - :doc:`Pagination Library <libraries/pagination>` produced incorrect *previous* and *next* link values.
 -  Fixed a bug in SQLSRV's ``affected_rows()`` method where an erroneous function name was used.
--  ¿ù»~­×¥¿¡]½s¸¹ 1000¡^ - Change syntax of ``$view_file`` to ``$_ci_view_file`` to prevent being overwritten by application.
--  ¿ù»~­×¥¿¡]½s¸¹ 1757¡^ - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()` was skipping files and directories named '0'.
--  ¿ù»~­×¥¿¡]½s¸¹ 1789¡^ - :doc:`Database Library <database/index>` method ``escape_str()`` escaped quote characters in LIKE conditions twice under MySQL.
--  ¿ù»~­×¥¿¡]½s¸¹ 395¡^ - :doc:`Unit Testing Library <libraries/unit_testing>` method ``result()`` didn't properly check array result columns when called from ``report()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 1692¡^ - :doc:`Database Class <database/index>` method ``display_error()`` didn't properly trace the possible error source on Windows systems.
--  ¿ù»~­×¥¿¡]½s¸¹ 1745¡^ - :doc:`Database Class <database/index>` method ``is_write_type()`` didn't return TRUE for LOAD queries.
--  ¿ù»~­×¥¿¡]½s¸¹ 1765¡^ - :doc:`Database Class <database/index>` didn't properly detect connection errors for the 'mysqli' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 1257¡^ - :doc:`Query Builder <database/query_builder>` used to (unnecessarily) group FROM clause contents, which breaks certain queries and is invalid for some databases.
--  ¿ù»~­×¥¿¡]½s¸¹ 1709¡^ - :doc:`Email <libraries/email>` headers were broken when using long email subjects and \r\n as CRLF.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1000ï¼‰ - Change syntax of ``$view_file`` to ``$_ci_view_file`` to prevent being overwritten by application.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1757ï¼‰ - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()` was skipping files and directories named '0'.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1789ï¼‰ - :doc:`Database Library <database/index>` method ``escape_str()`` escaped quote characters in LIKE conditions twice under MySQL.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 395ï¼‰ - :doc:`Unit Testing Library <libraries/unit_testing>` method ``result()`` didn't properly check array result columns when called from ``report()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1692ï¼‰ - :doc:`Database Class <database/index>` method ``display_error()`` didn't properly trace the possible error source on Windows systems.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1745ï¼‰ - :doc:`Database Class <database/index>` method ``is_write_type()`` didn't return TRUE for LOAD queries.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1765ï¼‰ - :doc:`Database Class <database/index>` didn't properly detect connection errors for the 'mysqli' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1257ï¼‰ - :doc:`Query Builder <database/query_builder>` used to (unnecessarily) group FROM clause contents, which breaks certain queries and is invalid for some databases.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1709ï¼‰ - :doc:`Email <libraries/email>` headers were broken when using long email subjects and \r\n as CRLF.
 -  Fixed a bug where ``MB_ENABLED`` constant was only declared if ``UTF8_ENABLED`` was set to TRUE.
 -  Fixed a bug where the :doc:`Session Library <libraries/sessions>` accepted cookies with *last_activity* values being in the future.
--  ¿ù»~­×¥¿¡]½s¸¹ 1897¡^ - :doc:`Email Library <libraries/email>` triggered PHP E_WARNING errors when *mail* protocol used and ``to()`` is never called.
--  ¿ù»~­×¥¿¡]½s¸¹ 1409¡^ - :doc:`Email Library <libraries/email>` didn't properly handle multibyte characters when applying Q-encoding to headers.
--  ¿ù»~­×¥¿ :doc:`Email Library <libraries/email>` ignored its *wordwrap* setting while handling alternative messages.
--  ¿ù»~­×¥¿¡]½s¸¹ 1476¡B½s¸¹ 1909¡^ - :doc:`Pagination Library <libraries/pagination>` didn't take into account actual routing when determining the current page.
--  ¿ù»~­×¥¿¡]½s¸¹ 1766¡^ - :doc:`Query Builder <database/query_builder>` didn't always take into account the *dbprefix* setting.
--  ¿ù»~­×¥¿¡]½s¸¹ 779¡^ - :doc:`URI Class <libraries/uri>` didn't always trim slashes from the *uri_string* as shown in the documentation.
--  ¿ù»~­×¥¿¡]½s¸¹ 134¡^ - :doc:`Database Caching <database/caching>` method ``delete_cache()`` didn't work in some cases due to *cachedir* not being initialized properly.
--  ¿ù»~­×¥¿¡]½s¸¹ 191¡^ - :doc:`Loader Library <libraries/loader>` ignored attempts for (re)loading databases to ``get_instance()->db`` even when the old database connection is dead.
--  ¿ù»~­×¥¿¡]½s¸¹ 1255¡^ - :doc:`User Agent Library <libraries/user_agent>` method ``is_referral()`` only checked if ``$_SERVER['HTTP_REFERER']`` exists.
--  ¿ù»~­×¥¿¡]½s¸¹ 1146¡^ - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent *Cache-Control* directives *pre-check* and *post-check* to Internet Explorer.
--  ¿ù»~­×¥¿¡]½s¸¹ 1811¡^ - :doc:`URI Library <libraries/uri>` didn't properly cache segments for ``uri_to_assoc()`` and ``ruri_to_assoc()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 1506¡^ - :doc:`Form Helpers <helpers/form_helper>` set empty *name* attributes.
--  ¿ù»~­×¥¿¡]½s¸¹ 59¡^ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` ignored the DISTINCT clause.
--  ¿ù»~­×¥¿¡]½s¸¹ 1624¡^ - :doc:`Form Validation Library <libraries/form_validation>` rule **matches** didn't property handle array field names.
--  ¿ù»~­×¥¿¡]½s¸¹ 1630¡^ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`set_value()` didn't escape HTML entities.
--  ¿ù»~­×¥¿¡]½s¸¹ 142¡^ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_dropdown()` didn't escape HTML entities in option values.
--  ¿ù»~­×¥¿¡]½s¸¹ 50¡^ - :doc:`Session Library <libraries/sessions>` unnecessarily stripped slashed from serialized data, making it impossible to read objects in a namespace.
--  ¿ù»~­×¥¿¡]½s¸¹ 658¡^ - :doc:`Routing <general/routing>` wildcard **:any** didn't work as advertised and matched multiple URI segments instead of all characters within a single segment.
--  ¿ù»~­×¥¿¡]½s¸¹ 1938¡^ - :doc:`Email Library <libraries/email>` removed multiple spaces inside a pre-formatted plain text message.
--  ¿ù»~­×¥¿¡]½s¸¹ 122¡^ - :doc:`URI Library <libraries/uri>` method ``ruri_string()`` didn't include a directory if one is used.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1897ï¼‰ - :doc:`Email Library <libraries/email>` triggered PHP E_WARNING errors when *mail* protocol used and ``to()`` is never called.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1409ï¼‰ - :doc:`Email Library <libraries/email>` didn't properly handle multibyte characters when applying Q-encoding to headers.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`Email Library <libraries/email>` ignored its *wordwrap* setting while handling alternative messages.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1476ã€ç·¨è™Ÿ 1909ï¼‰ - :doc:`Pagination Library <libraries/pagination>` didn't take into account actual routing when determining the current page.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1766ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't always take into account the *dbprefix* setting.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 779ï¼‰ - :doc:`URI Class <libraries/uri>` didn't always trim slashes from the *uri_string* as shown in the documentation.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 134ï¼‰ - :doc:`Database Caching <database/caching>` method ``delete_cache()`` didn't work in some cases due to *cachedir* not being initialized properly.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 191ï¼‰ - :doc:`Loader Library <libraries/loader>` ignored attempts for (re)loading databases to ``get_instance()->db`` even when the old database connection is dead.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1255ï¼‰ - :doc:`User Agent Library <libraries/user_agent>` method ``is_referral()`` only checked if ``$_SERVER['HTTP_REFERER']`` exists.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1146ï¼‰ - :doc:`Download Helper <helpers/download_helper>` function :php:func:`force_download()` incorrectly sent *Cache-Control* directives *pre-check* and *post-check* to Internet Explorer.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1811ï¼‰ - :doc:`URI Library <libraries/uri>` didn't properly cache segments for ``uri_to_assoc()`` and ``ruri_to_assoc()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1506ï¼‰ - :doc:`Form Helpers <helpers/form_helper>` set empty *name* attributes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 59ï¼‰ - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` ignored the DISTINCT clause.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1624ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` rule **matches** didn't property handle array field names.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1630ï¼‰ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`set_value()` didn't escape HTML entities.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 142ï¼‰ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_dropdown()` didn't escape HTML entities in option values.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 50ï¼‰ - :doc:`Session Library <libraries/sessions>` unnecessarily stripped slashed from serialized data, making it impossible to read objects in a namespace.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 658ï¼‰ - :doc:`Routing <general/routing>` wildcard **:any** didn't work as advertised and matched multiple URI segments instead of all characters within a single segment.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1938ï¼‰ - :doc:`Email Library <libraries/email>` removed multiple spaces inside a pre-formatted plain text message.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 122ï¼‰ - :doc:`URI Library <libraries/uri>` method ``ruri_string()`` didn't include a directory if one is used.
 -  Fixed a bug - :doc:`Routing Library <general/routing>` didn't properly handle *default_controller* in a subdirectory when a method is also specified.
--  ¿ù»~­×¥¿¡]½s¸¹ 953¡^ - :doc:`post_controller_constructor hook <general/hooks>` wasn't called with a *404_override*.
--  ¿ù»~­×¥¿¡]½s¸¹ 1220¡^ - :doc:`Profiler Library <general/profiling>` didn't display information for database objects that are instantiated inside models.
--  ¿ù»~­×¥¿¡]½s¸¹ 1978¡^ - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()`'s return array didn't make a distinction between directories and file indexes when a directory with a numeric name is present.
--  ¿ù»~­×¥¿¡]½s¸¹ 777¡^ - :doc:`Loader Library <libraries/loader>` didn't look for helper extensions in added package paths.
--  ¿ù»~­×¥¿¡]½s¸¹ 18¡^ - :doc:`APC Cache <libraries/caching>` driver didn't (un)serialize data, resulting in failure to store objects.
--  ¿ù»~­×¥¿¡]½s¸¹ 188¡^ - :doc:`Unit Testing Library <libraries/unit_testing>` filled up logs with error messages for non-existing language keys.
--  ¿ù»~­×¥¿¡]½s¸¹ 113¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly handle empty fields that were specified as an array.
--  ¿ù»~­×¥¿¡]½s¸¹ 2061¡^ - :doc:`Routing Class <general/routing>` didn't properly sanitize directory, controller and function triggers with **enable_query_strings** set to TRUE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 953ï¼‰ - :doc:`post_controller_constructor hook <general/hooks>` wasn't called with a *404_override*.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1220ï¼‰ - :doc:`Profiler Library <general/profiling>` didn't display information for database objects that are instantiated inside models.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1978ï¼‰ - :doc:`Directory Helper <helpers/directory_helper>` function :php:func:`directory_map()`'s return array didn't make a distinction between directories and file indexes when a directory with a numeric name is present.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 777ï¼‰ - :doc:`Loader Library <libraries/loader>` didn't look for helper extensions in added package paths.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 18ï¼‰ - :doc:`APC Cache <libraries/caching>` driver didn't (un)serialize data, resulting in failure to store objects.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 188ï¼‰ - :doc:`Unit Testing Library <libraries/unit_testing>` filled up logs with error messages for non-existing language keys.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 113ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't properly handle empty fields that were specified as an array.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2061ï¼‰ - :doc:`Routing Class <general/routing>` didn't properly sanitize directory, controller and function triggers with **enable_query_strings** set to TRUE.
 -  Fixed a bug - SQLSRV didn't support ``escape_like_str()`` or escaping an array of values.
 -  Fixed a bug - :doc:`Database Results <database/results>` method ``list_fields()`` didn't reset its field pointer for the 'mysql', 'mysqli' and 'mssql' drivers.
--  ¿ù»~­×¥¿¡]½s¸¹ 2211¡^ - :doc:`Migration Library <libraries/migration>` extensions couldn't execute ``CI_Migration::__construct()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 2255¡^ - :doc:`Email Library <libraries/email>` didn't apply *smtp_timeout* to socket reads and writes.
--  ¿ù»~­×¥¿¡]½s¸¹ 2239¡^ - :doc:`Email Library <libraries/email>` improperly handled the Subject when used with *bcc_batch_mode* resulting in E_WARNING messages and an empty Subject.
--  ¿ù»~­×¥¿¡]½s¸¹ 2234¡^ - :doc:`Query Builder <database/query_builder>` didn't reset JOIN cache for write-type queries.
--  ¿ù»~­×¥¿¡]½s¸¹ 2298¡^ - :doc:`Database Results <database/results>` method ``next_row()`` kept returning the last row, allowing for infinite loops.
--  ¿ù»~­×¥¿¡]½s¸¹ 2236¡B½s¸¹ 2639¡^ - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_value()`, :php:func:`set_select()`, :php:func:`set_radio()`, :php:func:`set_checkbox()` didn't parse array notation for keys if the rule was not present in the :doc:`Form Validation Library <libraries/form_validation>`.
--  ¿ù»~­×¥¿¡]½s¸¹ 2353¡^ - :doc:`Query Builder <database/query_builder>` erroneously prefixed literal strings with **dbprefix**.
--  ¿ù»~­×¥¿¡]½s¸¹ 78¡^ - :doc:`Cart Library <libraries/cart>` didn't allow non-English letters in product names.
--  ¿ù»~­×¥¿¡]½s¸¹ 77¡^ - :doc:`Database Class <database/index>` didn't properly handle the transaction "test mode" flag.
--  ¿ù»~­×¥¿¡]½s¸¹ 2380¡^ - :doc:`URI Routing <general/routing>` method ``fetch_method()`` returned 'index' if the requested method name matches its controller name.
--  ¿ù»~­×¥¿¡]½s¸¹ 2388¡^ - :doc:`Email Library <libraries/email>` used to ignore attachment errors, resulting in broken emails being sent.
--  ¿ù»~­×¥¿¡]½s¸¹ 2498¡^ - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_base64** only checked characters instead of actual validity.
--  ¿ù»~­×¥¿¡]½s¸¹ 2425¡^ - OCI8 :doc:`database <database/index>` driver method ``stored_procedure()`` didn't log an error unless **db_debug** was set to TRUE.
--  ¿ù»~­×¥¿¡]½s¸¹ 2490¡^ - :doc:`Database Class <database/queries>` method ``query()`` returning boolean instead of a result object for PostgreSQL-specific *INSERT INTO ... RETURNING* statements.
--  ¿ù»~­×¥¿¡]½s¸¹ 249¡^ - :doc:`Cache Library <libraries/caching>` didn't properly handle Memcache(d) configurations with missing options.
--  ¿ù»~­×¥¿¡]½s¸¹ 180¡^ - :php:func:`config_item()` didn't take into account run-time configuration changes.
--  ¿ù»~­×¥¿¡]½s¸¹ 2551¡^ - :doc:`Loader Library <libraries/loader>` method ``library()`` didn't properly check if a class that is being loaded already exists.
--  ¿ù»~­×¥¿¡]½s¸¹ 2560¡^ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_open()` set the 'method="post"' attribute only if the passed attributes equaled an empty string.
--  ¿ù»~­×¥¿¡]½s¸¹ 2585¡^ - :doc:`Query Builder <database/query_builder>` methods ``min()``, ``max()``, ``avg()``, ``sum()`` didn't escape field names.
--  ¿ù»~­×¥¿¡]½s¸¹ 2590¡^ - :doc:`Common function <general/common_functions>` :php:func:`log_message()` didn't actually cache the ``CI_Log`` class instance.
--  ¿ù»~­×¥¿¡]½s¸¹ 2609¡^ - :doc:`Common function <general/common_functions>` :php:func:`get_config()` optional argument was only effective on first function call. Also, it can now add items, in addition to updating existing items.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2211ï¼‰ - :doc:`Migration Library <libraries/migration>` extensions couldn't execute ``CI_Migration::__construct()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2255ï¼‰ - :doc:`Email Library <libraries/email>` didn't apply *smtp_timeout* to socket reads and writes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2239ï¼‰ - :doc:`Email Library <libraries/email>` improperly handled the Subject when used with *bcc_batch_mode* resulting in E_WARNING messages and an empty Subject.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2234ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't reset JOIN cache for write-type queries.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2298ï¼‰ - :doc:`Database Results <database/results>` method ``next_row()`` kept returning the last row, allowing for infinite loops.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2236ã€ç·¨è™Ÿ 2639ï¼‰ - :doc:`Form Helper <helpers/form_helper>` functions :php:func:`set_value()`, :php:func:`set_select()`, :php:func:`set_radio()`, :php:func:`set_checkbox()` didn't parse array notation for keys if the rule was not present in the :doc:`Form Validation Library <libraries/form_validation>`.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2353ï¼‰ - :doc:`Query Builder <database/query_builder>` erroneously prefixed literal strings with **dbprefix**.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 78ï¼‰ - :doc:`Cart Library <libraries/cart>` didn't allow non-English letters in product names.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 77ï¼‰ - :doc:`Database Class <database/index>` didn't properly handle the transaction "test mode" flag.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2380ï¼‰ - :doc:`URI Routing <general/routing>` method ``fetch_method()`` returned 'index' if the requested method name matches its controller name.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2388ï¼‰ - :doc:`Email Library <libraries/email>` used to ignore attachment errors, resulting in broken emails being sent.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2498ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` rule **valid_base64** only checked characters instead of actual validity.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2425ï¼‰ - OCI8 :doc:`database <database/index>` driver method ``stored_procedure()`` didn't log an error unless **db_debug** was set to TRUE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2490ï¼‰ - :doc:`Database Class <database/queries>` method ``query()`` returning boolean instead of a result object for PostgreSQL-specific *INSERT INTO ... RETURNING* statements.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 249ï¼‰ - :doc:`Cache Library <libraries/caching>` didn't properly handle Memcache(d) configurations with missing options.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 180ï¼‰ - :php:func:`config_item()` didn't take into account run-time configuration changes.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2551ï¼‰ - :doc:`Loader Library <libraries/loader>` method ``library()`` didn't properly check if a class that is being loaded already exists.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2560ï¼‰ - :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_open()` set the 'method="post"' attribute only if the passed attributes equaled an empty string.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2585ï¼‰ - :doc:`Query Builder <database/query_builder>` methods ``min()``, ``max()``, ``avg()``, ``sum()`` didn't escape field names.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2590ï¼‰ - :doc:`Common function <general/common_functions>` :php:func:`log_message()` didn't actually cache the ``CI_Log`` class instance.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2609ï¼‰ - :doc:`Common function <general/common_functions>` :php:func:`get_config()` optional argument was only effective on first function call. Also, it can now add items, in addition to updating existing items.
 -  Fixed a bug in the 'postgre' :doc:`database <database/index>` driver where the connection ID wasn't passed to ``pg_escape_string()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 33¡^ - Script execution was terminated when an invalid cookie key was encountered.
--  ¿ù»~­×¥¿¡]½s¸¹ 2691¡^ - nested :doc:`database <database/index>` transactions could end in a deadlock when an error is encountered with *db_debug* set to TRUE.
--  ¿ù»~­×¥¿¡]½s¸¹ 2515¡^ - ``_exception_handler()`` used to send the 200 "OK" HTTP status code and didn't stop script exection even on fatal errors.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 33ï¼‰ - Script execution was terminated when an invalid cookie key was encountered.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2691ï¼‰ - nested :doc:`database <database/index>` transactions could end in a deadlock when an error is encountered with *db_debug* set to TRUE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2515ï¼‰ - ``_exception_handler()`` used to send the 200 "OK" HTTP status code and didn't stop script exection even on fatal errors.
 -  Fixed a bug - Redis :doc:`Caching <libraries/caching>` driver didn't handle connection failures properly.
--  ¿ù»~­×¥¿¡]½s¸¹ 2756¡^ - :doc:`Database Class <database/index>` executed the MySQL-specific `SET SESSION sql_mode` query for all drivers when the 'stricton' option is set.
--  ¿ù»~­×¥¿¡]½s¸¹ 2579¡^ - :doc:`Query Builder <database/query_builder>` "no escape" functionality didn't work properly with query cache.
--  ¿ù»~­×¥¿¡]½s¸¹ 2237¡^ - :doc:`Parser Library <libraries/parser>` failed if the same tag pair is used more than once within a template.
--  ¿ù»~­×¥¿¡]½s¸¹ 2143¡^ - :doc:`Form Validation Library <libraries/form_validation>` didn't check for rule groups named in a *controller/method* manner when trying to load from a config file.
--  ¿ù»~­×¥¿¡]½s¸¹ 2762¡^ - :doc:`Hooks Class <general/hooks>` didn't properly check if the called class/function exists.
--  ¿ù»~­×¥¿¡]½s¸¹ 148¡^ - :doc:`Input Library <libraries/input>` internal method ``_clean_input_data()`` assumed that it data is URL-encoded, stripping certain character sequences from it.
--  ¿ù»~­×¥¿¡]½s¸¹ 346¡^ - with ``$config['global_xss_filtering']`` turned on, the ``$_GET``, ``$_POST``, ``$_COOKIE`` and ``$_SERVER`` superglobals were overwritten during initialization time, resulting in XSS filtering being either performed twice or there was no possible way to get the original data, even though options for this do exist.
--  Fixed an edge case (#555¡^ - :doc:`User Agent Library <libraries/user_agent>` reported an incorrect version Opera 10+ due to a non-standard user-agent string.
--  ¿ù»~­×¥¿¡]½s¸¹ 133¡^ - :doc:`Text Helper <helpers/text_helper>` :php:func:`ascii_to_entities()` stripped the last character if it happens to be in the extended ASCII group.
--  ¿ù»~­×¥¿¡]½s¸¹ 2822¡^ - ``fwrite()`` was used incorrectly throughout the whole framework, allowing incomplete writes when writing to a network stream and possibly a few other edge cases.
--  ¿ù»~­×¥¿ :doc:`User Agent Library <libraries/user_agent>` methods ``accept_charset()`` and ``accept_lang()`` didn't properly parse HTTP headers that contain spaces.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2756ï¼‰ - :doc:`Database Class <database/index>` executed the MySQL-specific `SET SESSION sql_mode` query for all drivers when the 'stricton' option is set.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2579ï¼‰ - :doc:`Query Builder <database/query_builder>` "no escape" functionality didn't work properly with query cache.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2237ï¼‰ - :doc:`Parser Library <libraries/parser>` failed if the same tag pair is used more than once within a template.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2143ï¼‰ - :doc:`Form Validation Library <libraries/form_validation>` didn't check for rule groups named in a *controller/method* manner when trying to load from a config file.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2762ï¼‰ - :doc:`Hooks Class <general/hooks>` didn't properly check if the called class/function exists.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 148ï¼‰ - :doc:`Input Library <libraries/input>` internal method ``_clean_input_data()`` assumed that it data is URL-encoded, stripping certain character sequences from it.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 346ï¼‰ - with ``$config['global_xss_filtering']`` turned on, the ``$_GET``, ``$_POST``, ``$_COOKIE`` and ``$_SERVER`` superglobals were overwritten during initialization time, resulting in XSS filtering being either performed twice or there was no possible way to get the original data, even though options for this do exist.
+-  Fixed an edge case (#555ï¼‰ - :doc:`User Agent Library <libraries/user_agent>` reported an incorrect version Opera 10+ due to a non-standard user-agent string.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 133ï¼‰ - :doc:`Text Helper <helpers/text_helper>` :php:func:`ascii_to_entities()` stripped the last character if it happens to be in the extended ASCII group.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2822ï¼‰ - ``fwrite()`` was used incorrectly throughout the whole framework, allowing incomplete writes when writing to a network stream and possibly a few other edge cases.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`User Agent Library <libraries/user_agent>` methods ``accept_charset()`` and ``accept_lang()`` didn't properly parse HTTP headers that contain spaces.
 -  Fixed a bug where *default_controller* was called instad of triggering a 404 error if the current route is in a controller directory.
--  ¿ù»~­×¥¿¡]½s¸¹ 2737¡^ - :doc:`XML-RPC Library <libraries/xmlrpc>` used objects as array keys, which triggered E_NOTICE messages.
--  ¿ù»~­×¥¿¡]½s¸¹ 2771¡^ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
--  ¿ù»~­×¥¿¡]½s¸¹ 2856¡^ - ODBC method ``affected_rows()`` passed an incorrect value to ``odbc_num_rows()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 43¡^ :doc:`Image Manipulation Library <libraries/image_lib>` method ``text_watermark()`` didn't properly determine watermark placement.
--  ¿ù»~­×¥¿ :doc:`HTML Table Library <libraries/table>` ignored its *auto_heading* setting if headings were not already set.
--  ¿ù»~­×¥¿¡]½s¸¹ 2364¡^ - :doc:`Pagination Library <libraries/pagination>` appended the query string (if used) multiple times when there are successive calls to ``create_links()`` with no ``initialize()`` in between them.
--  ³¡¤Àªº¿ù»~­×¥¿¡]½s¸¹ 261¡^ - UTF-8 class method ``clean_string()`` generating log messages and/or not producing the desired result due to an upstream bug in iconv.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2737ï¼‰ - :doc:`XML-RPC Library <libraries/xmlrpc>` used objects as array keys, which triggered E_NOTICE messages.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2771ï¼‰ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2856ï¼‰ - ODBC method ``affected_rows()`` passed an incorrect value to ``odbc_num_rows()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 43ï¼‰ :doc:`Image Manipulation Library <libraries/image_lib>` method ``text_watermark()`` didn't properly determine watermark placement.
+-  éŒ¯èª¤ä¿®æ­£ :doc:`HTML Table Library <libraries/table>` ignored its *auto_heading* setting if headings were not already set.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2364ï¼‰ - :doc:`Pagination Library <libraries/pagination>` appended the query string (if used) multiple times when there are successive calls to ``create_links()`` with no ``initialize()`` in between them.
+-  éƒ¨åˆ†çš„éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 261ï¼‰ - UTF-8 class method ``clean_string()`` generating log messages and/or not producing the desired result due to an upstream bug in iconv.
 -  Fixed a bug where ``CI_Xmlrpcs::parseRequest()`` could fail if ``$HTTP_RAW_POST_DATA`` is not populated.
 -  Fixed a bug in :doc:`Zip Library <libraries/zip>` internal method ``_get_mod_time()`` where it was not parsing result returned by ``filemtime()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 3161¡^ - :doc:`Cache Library <libraries/caching>` methods `increment()`, `decrement()` didn't auto-create non-existent items when using redis and/or file storage.
--  ¿ù»~­×¥¿¡]½s¸¹ 3189¡^ - :doc:`Parser Library <libraries/parser>` used double replacement on ``key->value`` pairs, exposing a potential template injection vulnerability.
--  ¿ù»~­×¥¿¡]½s¸¹ 3573¡^ - :doc:`Email Library <libraries/email>` violated `RFC5321 <https://tools.ietf.org/rfc/rfc5321.txt>`_ by sending 'localhost.localdomain' as a hostname.
--  ¿ù»~­×¥¿¡]½s¸¹ 3572¡^ - ``CI_Security::_remove_evil_attributes()`` failed for large-sized inputs due to *pcre.backtrack_limit* and didn't properly match HTML tags.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3161ï¼‰ - :doc:`Cache Library <libraries/caching>` methods `increment()`, `decrement()` didn't auto-create non-existent items when using redis and/or file storage.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3189ï¼‰ - :doc:`Parser Library <libraries/parser>` used double replacement on ``key->value`` pairs, exposing a potential template injection vulnerability.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3573ï¼‰ - :doc:`Email Library <libraries/email>` violated `RFC5321 <https://tools.ietf.org/rfc/rfc5321.txt>`_ by sending 'localhost.localdomain' as a hostname.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3572ï¼‰ - ``CI_Security::_remove_evil_attributes()`` failed for large-sized inputs due to *pcre.backtrack_limit* and didn't properly match HTML tags.
 
-ª©¥» 2.2.3
+ç‰ˆæœ¬ 2.2.3
 ==========
 
-µo¥¬¤é´Á¡GJuly 14, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šJuly 14, 2015
 
 -  Security
 
    - Removed a fallback to ``mysql_escape_string()`` in the 'mysql' database driver (``escape_str()`` method) when there's no active database connection.
 
-ª©¥» 2.2.2
+ç‰ˆæœ¬ 2.2.2
 ==========
 
-µo¥¬¤é´Á¡GApril 15, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šApril 15, 2015
 
 -  General Changes
 
    - Added HTTP "Host" header character validation to prevent cache poisoning attacks when *base_url* auto-detection is used.
    - Added *FSCommand* and *seekSegmentTime* to the "evil attributes" list in ``CI_Security::xss_clean()``.
 
-2.2.2 ¿ù»~­×¥¿
+2.2.2 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 3665¡^ - ``CI_Security::entity_decode()`` triggered warnings under some circumstances.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3665ï¼‰ - ``CI_Security::entity_decode()`` triggered warnings under some circumstances.
 
-ª©¥» 2.2.1
+ç‰ˆæœ¬ 2.2.1
 ==========
 
-µo¥¬¤é´Á¡GJanuary 22, 2015
+ç™¼å¸ƒæ—¥æœŸï¼šJanuary 22, 2015
 
 -  General Changes
 
    - Improved security in ``xss_clean()``.
    - Updated timezones in :doc:`Date Helper <helpers/date_helper>`.
 
-2.2.1 ¿ù»~­×¥¿
+2.2.1 éŒ¯èª¤ä¿®æ­£
 -------------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 3094¡^ - Internal method ``CI_Input::_clean_input_data()`` breaks encrypted session cookies.
--  ¿ù»~­×¥¿¡]½s¸¹ 2268¡^ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't properly match JavaScript events.
--  ¿ù»~­×¥¿¡]½s¸¹ 3309¡^ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` used an overly-invasive pattern to strip JS event handlers.
--  ¿ù»~­×¥¿¡]½s¸¹ 2771¡^ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
--  ¿ù»~­×¥¿¡]½s¸¹ 73¡^ - :doc:`Security Library <libraries/security>` method ``sanitize_filename()`` could be tricked by an XSS attack.
--  ¿ù»~­×¥¿¡]½s¸¹ 2681¡^ - :doc:`Security Library <libraries/security>` method ``entity_decode()`` used the ``PREG_REPLACE_EVAL`` flag, which is deprecated since PHP 5.5.
--  ¿ù»~­×¥¿¡]½s¸¹ 3302¡^ - Internal function ``get_config()`` triggered an E_NOTICE message on PHP 5.6.
--  ¿ù»~­×¥¿¡]½s¸¹ 2508¡^ - :doc:`Config Library <libraries/config>` didn't properly detect if the current request is via HTTPS.
--  ¿ù»~­×¥¿¡]½s¸¹ 3314¡^ - SQLSRV :doc:`Database driver <database/index>`'s method ``count_all()`` didn't escape the supplied table name.
--  ¿ù»~­×¥¿¡]½s¸¹ 3404¡^ - MySQLi :doc:`Database driver <database/index>`'s method ``escape_str()`` had a wrong fallback to ``mysql_escape_string()`` when there was no active connection.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3094ï¼‰ - Internal method ``CI_Input::_clean_input_data()`` breaks encrypted session cookies.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2268ï¼‰ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't properly match JavaScript events.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3309ï¼‰ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` used an overly-invasive pattern to strip JS event handlers.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2771ï¼‰ - :doc:`Security Library <libraries/security>` method ``xss_clean()`` didn't take into account HTML5 entities.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 73ï¼‰ - :doc:`Security Library <libraries/security>` method ``sanitize_filename()`` could be tricked by an XSS attack.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2681ï¼‰ - :doc:`Security Library <libraries/security>` method ``entity_decode()`` used the ``PREG_REPLACE_EVAL`` flag, which is deprecated since PHP 5.5.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3302ï¼‰ - Internal function ``get_config()`` triggered an E_NOTICE message on PHP 5.6.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2508ï¼‰ - :doc:`Config Library <libraries/config>` didn't properly detect if the current request is via HTTPS.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3314ï¼‰ - SQLSRV :doc:`Database driver <database/index>`'s method ``count_all()`` didn't escape the supplied table name.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3404ï¼‰ - MySQLi :doc:`Database driver <database/index>`'s method ``escape_str()`` had a wrong fallback to ``mysql_escape_string()`` when there was no active connection.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where session ID regeneration occurred during AJAX requests.
 
-ª©¥» 2.2.0
+ç‰ˆæœ¬ 2.2.0
 ==========
 
-µo¥¬¤é´Á¡GJune 2, 2014
+ç™¼å¸ƒæ—¥æœŸï¼šJune 2, 2014
 
 -  General Changes
 
    - Security: :doc:`Encrypt Library <libraries/encrypt>` method ``xor_encode()`` has been removed. The Encrypt Class now requires the Mcrypt extension to be installed.
    - Security: The :doc:`Session Library <libraries/sessions>` now uses HMAC authentication instead of a simple MD5 checksum.
 
-2.2.0 ¿ù»~­×¥¿
+2.2.0 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed an edge case (#2583) in the :doc:`Email Library <libraries/email>` where `Suhosin <http://www.hardened-php.net/suhosin/>` blocked messages sent via ``mail()`` due to trailing newspaces in headers.
--  ¿ù»~­×¥¿¡]½s¸¹ 696¡^ - make ``oci_execute()`` calls inside ``num_rows()`` non-committing, since they are only there to reset which row is next in line for oci_fetch calls and thus don't need to be committed.
--  ¿ù»~­×¥¿¡]½s¸¹ 2689¡^ - :doc:`Database Force <database/forge>` methods ``create_table()``, ``drop_table()`` and ``rename_table()`` produced broken SQL for tge 'sqlsrv' driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 2427¡^ - PDO :doc:`Database driver <database/index>` didn't properly check for query failures.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 696ï¼‰ - make ``oci_execute()`` calls inside ``num_rows()`` non-committing, since they are only there to reset which row is next in line for oci_fetch calls and thus don't need to be committed.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2689ï¼‰ - :doc:`Database Force <database/forge>` methods ``create_table()``, ``drop_table()`` and ``rename_table()`` produced broken SQL for tge 'sqlsrv' driver.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2427ï¼‰ - PDO :doc:`Database driver <database/index>` didn't properly check for query failures.
 -  Fixed a bug in the :doc:`Session Library <libraries/sessions>` where authentication was not performed for encrypted cookies.
 
-ª©¥» 2.1.4
+ç‰ˆæœ¬ 2.1.4
 ==========
 
-µo¥¬¤é´Á¡GJuly 8, 2013
+ç™¼å¸ƒæ—¥æœŸï¼šJuly 8, 2013
 
 -  General Changes
 
    - Improved security in ``xss_clean()``.
 
-2.1.4 ¿ù»~­×¥¿
+2.1.4 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 1936¡^ - :doc:`Migration Library <libraries/migration>` method ``latest()`` had a typo when retrieving language values.
--  ¿ù»~­×¥¿¡]½s¸¹ 2021¡^ - :doc:`Migration Library <libraries/migration>` configuration file was mistakenly using Windows style line feeds.
--  ¿ù»~­×¥¿¡]½s¸¹ 1273¡^ - ``E_NOTICE`` being generated by :doc:`Query Builder <database/query_builder>`'s ``set_update_batch()`` method.
--  ¿ù»~­×¥¿¡]½s¸¹ 2337¡^ - :doc:`Email Library <libraries/email>` method ``print_debugger()`` didn't apply ``htmlspecialchars()`` to headers.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1936ï¼‰ - :doc:`Migration Library <libraries/migration>` method ``latest()`` had a typo when retrieving language values.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2021ï¼‰ - :doc:`Migration Library <libraries/migration>` configuration file was mistakenly using Windows style line feeds.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1273ï¼‰ - ``E_NOTICE`` being generated by :doc:`Query Builder <database/query_builder>`'s ``set_update_batch()`` method.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2337ï¼‰ - :doc:`Email Library <libraries/email>` method ``print_debugger()`` didn't apply ``htmlspecialchars()`` to headers.
 
-ª©¥» 2.1.3
+ç‰ˆæœ¬ 2.1.3
 ==========
 
-µo¥¬¤é´Á¡GOctober 8, 2012
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 8, 2012
 
 -  Core
 
    - :doc:`Common function <general/common_functions>` ``is_loaded()`` now returns a reference.
 
-2.1.3 ¿ù»~­×¥¿
+2.1.3 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 1543¡^ - File-based :doc:`Caching <libraries/caching>` method ``get_metadata()`` used a non-existent array key to look for the TTL value.
--  ¿ù»~­×¥¿¡]½s¸¹ 1314¡^ - :doc:`Session Library <libraries/sessions>` method ``sess_destroy()`` didn't destroy the userdata array.
--  ¿ù»~­×¥¿¡]½s¸¹ 804¡^ - :doc:`Profiler library <general/profiling>` was trying to handle objects as strings in some cases, resulting in *E_WARNING* messages being issued by ``htmlspecialchars()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 1699¡^ - :doc:`Migration Library <libraries/migration>` ignored the ``$config['migration_path']`` setting.
--  ¿ù»~­×¥¿¡]½s¸¹ 227¡^ - :doc:`Input Library <libraries/input>` allowed unconditional spoofing of HTTP clients' IP addresses through the *HTTP_CLIENT_IP* header.
--  ¿ù»~­×¥¿¡]½s¸¹ 907¡^ - :doc:`Input Library <libraries/input>` ignored *HTTP_X_CLUSTER_CLIENT_IP* and *HTTP_X_CLIENT_IP* headers when checking for proxies.
--  ¿ù»~­×¥¿¡]½s¸¹ 940¡^ - ``csrf_verify()`` used to set the CSRF cookie while processing a POST request with no actual POST data, which resulted in validating a request that should be considered invalid.
--  ¿ù»~­×¥¿¡]½s¸¹ 499¡^ - :doc:`Security Library <libraries/security>` where a CSRF cookie was created even if ``$config['csrf_protection']`` is set to FALSE.
--  ¿ù»~­×¥¿¡]½s¸¹ 1715¡^ - :doc:`Input Library <libraries/input>` triggered ``csrf_verify()`` on CLI requests.
--  ¿ù»~­×¥¿¡]½s¸¹ 751¡^ - :doc:`Query Builder <database/query_builder>` didn't properly handle cached field escaping overrides.
--  ¿ù»~­×¥¿¡]½s¸¹ 2004¡^ - :doc:`Query Builder <database/query_builder>` didn't properly merge cached calls with non-cache ones.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1543ï¼‰ - File-based :doc:`Caching <libraries/caching>` method ``get_metadata()`` used a non-existent array key to look for the TTL value.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1314ï¼‰ - :doc:`Session Library <libraries/sessions>` method ``sess_destroy()`` didn't destroy the userdata array.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 804ï¼‰ - :doc:`Profiler library <general/profiling>` was trying to handle objects as strings in some cases, resulting in *E_WARNING* messages being issued by ``htmlspecialchars()``.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1699ï¼‰ - :doc:`Migration Library <libraries/migration>` ignored the ``$config['migration_path']`` setting.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 227ï¼‰ - :doc:`Input Library <libraries/input>` allowed unconditional spoofing of HTTP clients' IP addresses through the *HTTP_CLIENT_IP* header.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 907ï¼‰ - :doc:`Input Library <libraries/input>` ignored *HTTP_X_CLUSTER_CLIENT_IP* and *HTTP_X_CLIENT_IP* headers when checking for proxies.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 940ï¼‰ - ``csrf_verify()`` used to set the CSRF cookie while processing a POST request with no actual POST data, which resulted in validating a request that should be considered invalid.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 499ï¼‰ - :doc:`Security Library <libraries/security>` where a CSRF cookie was created even if ``$config['csrf_protection']`` is set to FALSE.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1715ï¼‰ - :doc:`Input Library <libraries/input>` triggered ``csrf_verify()`` on CLI requests.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 751ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't properly handle cached field escaping overrides.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2004ï¼‰ - :doc:`Query Builder <database/query_builder>` didn't properly merge cached calls with non-cache ones.
 
-ª©¥» 2.1.2
+ç‰ˆæœ¬ 2.1.2
 ==========
 
-µo¥¬¤é´Á¡GJune 29, 2012
+ç™¼å¸ƒæ—¥æœŸï¼šJune 29, 2012
 
 -  General Changes
 
    -  Improved security in ``xss_clean()``.
 
-ª©¥» 2.1.1
+ç‰ˆæœ¬ 2.1.1
 ==========
 
-µo¥¬¤é´Á¡GJune 12, 2012
+ç™¼å¸ƒæ—¥æœŸï¼šJune 12, 2012
 
 -  General Changes
 
@@ -1141,23 +1140,23 @@ Version 3.0.4
 
    -  ``url_title()`` performance and output improved. You can now use any string as the word delimiter, but 'dash' and 'underscore' are still supported.
 
-2.1.1 ¿ù»~­×¥¿
+2.1.1 éŒ¯èª¤ä¿®æ­£
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 697¡^ - A wrong array key was used in the :doc:`File Uploading Library <libraries/file_uploading>` to check for mime-types.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 697ï¼‰ - A wrong array key was used in the :doc:`File Uploading Library <libraries/file_uploading>` to check for mime-types.
 -  Fixed a bug - ``form_open()`` compared $action against ``site_url()`` instead of ``base_url()``.
 -  Fixed a bug - ``CI_Upload::_file_mime_type()`` could've failed if ``mime_content_type()`` is used for the detection and returns FALSE.
--  ¿ù»~­×¥¿¡]½s¸¹ 538¡^ - Windows paths were ignored when using the :doc:`Image Manipulation Library <libraries/image_lib>` to create a new file.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 538ï¼‰ - Windows paths were ignored when using the :doc:`Image Manipulation Library <libraries/image_lib>` to create a new file.
 -  Fixed a bug - When database caching was enabled, $this->db->query() checked the cache before binding variables which resulted in cached queries never being found.
 -  Fixed a bug - CSRF cookie value was allowed to be any (non-empty) string before being written to the output, making code injection a risk.
--  ¿ù»~­×¥¿¡]½s¸¹ 726¡^ - PDO put a 'dbname' argument in its connection string regardless of the database platform in use, which made it impossible to use SQLite.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 726ï¼‰ - PDO put a 'dbname' argument in its connection string regardless of the database platform in use, which made it impossible to use SQLite.
 -  Fixed a bug - ``CI_DB_pdo_driver::num_rows()`` was not returning properly value with SELECT queries, cause it was relying on ``PDOStatement::rowCount()``.
--  ¿ù»~­×¥¿¡]½s¸¹ 1059¡^ - ``CI_Image_lib::clear()`` was not correctly clearing all necessary object properties, namely width and height.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1059ï¼‰ - ``CI_Image_lib::clear()`` was not correctly clearing all necessary object properties, namely width and height.
 
-ª©¥» 2.1.0
+ç‰ˆæœ¬ 2.1.0
 ==========
 
-µo¥¬¤é´Á¡GNovember 14, 2011
+ç™¼å¸ƒæ—¥æœŸï¼šNovember 14, 2011
 
 -  General Changes
 
@@ -1177,7 +1176,7 @@ Version 3.0.4
    -  url_title() will now trim extra dashes from beginning and end.
    -  Improved speed of :doc:`String Helper <helpers/string_helper>`'s random_string() method
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Added a `CUBRID <http://www.cubrid.org/>`_ driver to the :doc:`Database
       Driver <database/index>`. Thanks to the CUBRID team for
@@ -1214,7 +1213,7 @@ Version 3.0.4
       override them.
    -  Removed CI_CORE boolean constant from CodeIgniter.php (no longer Reactor and Core versions).
 
-2.1.0 ¿ù»~­×¥¿
+2.1.0 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed #378 Robots identified as regular browsers by the User Agent
@@ -1227,32 +1226,32 @@ Version 3.0.4
    but the requested method did not.
 -  Fixed a bug (Reactor #89) where MySQL export would fail if the table
    had hyphens or other non alphanumeric/underscore characters.
--  ¿ù»~­×¥¿¡]½s¸¹ 105¡^ that stopped query errors from being logged unless database debugging was enabled
--  ¿ù»~­×¥¿¡]½s¸¹ 160¡^ - Removed unneeded array copy in the file cache
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 105ï¼‰ that stopped query errors from being logged unless database debugging was enabled
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 160ï¼‰ - Removed unneeded array copy in the file cache
    driver.
--  ¿ù»~­×¥¿¡]½s¸¹ 150¡^ - field_data() now correctly returns column
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 150ï¼‰ - field_data() now correctly returns column
    length.
--  ¿ù»~­×¥¿¡]½s¸¹ 8¡^ - load_class() now looks for core classes in
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 8ï¼‰ - load_class() now looks for core classes in
    APPPATH first, allowing them to be replaced.
--  ¿ù»~­×¥¿¡]½s¸¹ 24¡^ - ODBC database driver called incorrect parent in __construct().
--  ¿ù»~­×¥¿¡]½s¸¹ 85¡^ - OCI8 (Oracle) database escape_str() function did not escape correct.
--  ¿ù»~­×¥¿¡]½s¸¹ 344¡^ - Using schema found in :doc:`Saving Session Data to a Database <libraries/sessions>`, system would throw error "user_data does not have a default value" when deleting then creating a session.
--  ¿ù»~­×¥¿¡]½s¸¹ 112¡^ - OCI8 (Oracle) driver didn't pass the configured database character set when connecting.
--  ¿ù»~­×¥¿¡]½s¸¹ 182¡^ - OCI8 (Oracle) driver used to re-execute the statement whenever num_rows() is called.
--  ¿ù»~­×¥¿¡]½s¸¹ 82¡^ - WHERE clause field names in the DB update_string() method were not escaped, resulting in failed queries in some cases.
--  ¿ù»~­×¥¿¡]½s¸¹ 89¡^ - Fix a variable type mismatch in DB display_error() where an array is expected, but a string could be set instead.
--  ¿ù»~­×¥¿¡]½s¸¹ 467¡^ - Suppress warnings generated from get_magic_quotes_gpc() (deprecated in PHP 5.4)
--  ¿ù»~­×¥¿¡]½s¸¹ 484¡^ - First time _csrf_set_hash() is called, hash is never set to the cookie (in Security.php).
--  ¿ù»~­×¥¿¡]½s¸¹ 60¡^ - Added _file_mime_type() method to the :doc:`File Uploading Library <libraries/file_uploading>` in order to fix a possible MIME-type injection.
--  ¿ù»~­×¥¿¡]½s¸¹ 537¡^ - Support for all wav type in browser.
--  ¿ù»~­×¥¿¡]½s¸¹ 576¡^ - Using ini_get() function to detect if apc is enabled or not.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 24ï¼‰ - ODBC database driver called incorrect parent in __construct().
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 85ï¼‰ - OCI8 (Oracle) database escape_str() function did not escape correct.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 344ï¼‰ - Using schema found in :doc:`Saving Session Data to a Database <libraries/sessions>`, system would throw error "user_data does not have a default value" when deleting then creating a session.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 112ï¼‰ - OCI8 (Oracle) driver didn't pass the configured database character set when connecting.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 182ï¼‰ - OCI8 (Oracle) driver used to re-execute the statement whenever num_rows() is called.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 82ï¼‰ - WHERE clause field names in the DB update_string() method were not escaped, resulting in failed queries in some cases.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 89ï¼‰ - Fix a variable type mismatch in DB display_error() where an array is expected, but a string could be set instead.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 467ï¼‰ - Suppress warnings generated from get_magic_quotes_gpc() (deprecated in PHP 5.4)
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 484ï¼‰ - First time _csrf_set_hash() is called, hash is never set to the cookie (in Security.php).
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 60ï¼‰ - Added _file_mime_type() method to the :doc:`File Uploading Library <libraries/file_uploading>` in order to fix a possible MIME-type injection.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 537ï¼‰ - Support for all wav type in browser.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 576ï¼‰ - Using ini_get() function to detect if apc is enabled or not.
 -  Fixed invalid date time format in :doc:`Date helper <helpers/date_helper>` and :doc:`XMLRPC library <libraries/xmlrpc>`.
--  ¿ù»~­×¥¿¡]½s¸¹ 200¡^ - MySQL queries would be malformed after calling db->count_all() then db->get().
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 200ï¼‰ - MySQL queries would be malformed after calling db->count_all() then db->get().
 
-ª©¥» 2.0.3
+ç‰ˆæœ¬ 2.0.3
 ==========
 
-µo¥¬¤é´Á¡GAugust 20, 2011
+ç™¼å¸ƒæ—¥æœŸï¼šAugust 20, 2011
 
 -  Security
 
@@ -1284,7 +1283,7 @@ Version 3.0.4
    -  Added insert_batch() function to the PostgreSQL database driver.
       Thanks to epallerols for the patch.
    -  Added "application/x-csv" to mimes.php.
-   -  ¿ù»~­×¥¿ :doc:`Email library <libraries/email>`
+   -  éŒ¯èª¤ä¿®æ­£ :doc:`Email library <libraries/email>`
       attachments with a "." in the name would using invalid MIME-types.
 
 -  Helpers
@@ -1313,7 +1312,7 @@ Version 3.0.4
    -  Changed $this->db->having() to insert quotes using escape() rather
       than escape_str().
 
-2.0.3 ¿ù»~­×¥¿
+2.0.3 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Added ENVIRONMENT to reserved constants. (Reactor #196)
@@ -1344,10 +1343,10 @@ Version 3.0.4
    whole is more reliable. This should get parameters in crontab
    working.
 
-ª©¥» 2.0.2
+ç‰ˆæœ¬ 2.0.2
 ==========
 
-µo¥¬¤é´Á¡GApril 7, 2011
+ç™¼å¸ƒæ—¥æœŸï¼šApril 7, 2011
 Hg Tag: v2.0.2
 
 -  General changes
@@ -1374,12 +1373,12 @@ Hg Tag: v2.0.2
       captalization of your string. It also take into consideration
       acronyms which are all caps.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  $this->db->count_all_results() will now return an integer
       instead of a string.
 
-2.0.2 ¿ù»~­×¥¿
+2.0.2 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed a bug (Reactor #145) where the Output Library had
@@ -1394,10 +1393,10 @@ Hg Tag: v2.0.2
 -  Fixed issue #153 Escape Str Bug in MSSQL driver.
 -  Fixed issue #172 Google Chrome 11 posts incorrectly when action is empty.
 
-ª©¥» 2.0.1
+ç‰ˆæœ¬ 2.0.1
 ==========
 
-µo¥¬¤é´Á¡GMarch 15, 2011
+ç™¼å¸ƒæ—¥æœŸï¼šMarch 15, 2011
 Hg Tag: v2.0.1
 
 -  General changes
@@ -1435,7 +1434,7 @@ Hg Tag: v2.0.1
       helper <helpers/form_helper>`. If no value is passed it will
       submit to the current URL.
 
-2.0.1 ¿ù»~­×¥¿
+2.0.1 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  CLI requests can now be run from any folder, not just when CD'ed next
@@ -1448,10 +1447,10 @@ Hg Tag: v2.0.1
 
 .. _2.0.0-changelog:
 
-ª©¥» 2.0.0
+ç‰ˆæœ¬ 2.0.0
 ==========
 
-µo¥¬¤é´Á¡GJanuary 28, 2011
+ç™¼å¸ƒæ—¥æœŸï¼šJanuary 28, 2011
 Hg Tag: v2.0.0
 
 -  General changes
@@ -1580,7 +1579,7 @@ Hg Tag: v2.0.0
       get() will return all POST and GET items (respectively) if there
       are no parameters passed in.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  :doc:`database configuration <./database/configuration>`.
    -  Added autoinit value to :doc:`database
@@ -1680,7 +1679,7 @@ Hg Tag: v2.0.0
       functions. <general/common_functions>`
    -  Added audio/mpeg3 as a valid mime type for MP3.
 
-2.0.0 ¿ù»~­×¥¿
+2.0.0 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed a bug where you could not change the User-Agent when sending
@@ -1714,7 +1713,7 @@ Hg Tag: v2.0.0
    properly.
 -  Fixed a bug were form_open_multipart() didn't accept string
    attribute arguments (#10930).
--  ¿ù»~­×¥¿¡]½s¸¹ 10470¡^ where get_mime_by_extension() was case
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 10470ï¼‰ where get_mime_by_extension() was case
    sensitive.
 -  Fixed a bug where some error messages for the SQLite and Oracle
    drivers would not display.
@@ -1743,10 +1742,10 @@ Hg Tag: v2.0.0
 -  Fixed a bug in the date helper where the DATE_ISO8601 variable was
    returning an incorrectly formatted date string.
 
-ª©¥» 1.7.2
+ç‰ˆæœ¬ 1.7.2
 ==========
 
-µo¥¬¤é´Á¡GSeptember 11, 2009
+ç™¼å¸ƒæ—¥æœŸï¼šSeptember 11, 2009
 Hg Tag: v1.7.2
 
 -  Libraries
@@ -1758,7 +1757,7 @@ Hg Tag: v1.7.2
    -  Changed order of listed user-agents so Safari would more
       accurately report itself. (#6844)
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Switched from using gettype() in escape() to is\_* methods, since
       future PHP versions might change its output.
@@ -1807,7 +1806,7 @@ Hg Tag: v1.7.2
    -  Added 2 CodeIgniter "cheatsheets" (thanks to DesignFellow.com for
       this contribution).
 
-1.7.2 ¿ù»~­×¥¿
+1.7.2 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed assorted user guide typos or examples (#6743, #7214, #7516,
@@ -1846,10 +1845,10 @@ Hg Tag: v1.7.2
 -  Fixed a bug in the typography class where heading tags could have
    paragraph tags inserted when using auto_typography().
 
-ª©¥» 1.7.1
+ç‰ˆæœ¬ 1.7.1
 ==========
 
-µo¥¬¤é´Á¡GFebruary 10, 2009
+ç™¼å¸ƒæ—¥æœŸï¼šFebruary 10, 2009
 Hg Tag: 1.7.1
 
 -  Libraries
@@ -1874,7 +1873,7 @@ Hg Tag: 1.7.1
    -  Made modest improvements to efficiency and accuracy of
       explode_name() in the Image lib.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Added where_in to the list of expected arguments received by
       delete().
@@ -1905,10 +1904,10 @@ Hg Tag: 1.7.1
    -  Improved accuracy of Upload::is_allowed_filetype() for images
       (#6715)
 
-1.7.1 ¿ù»~­×¥¿
+1.7.1 éŒ¯èª¤ä¿®æ­£
 --------------
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Fixed a bug when doing 'random' on order_by() (#5706).
    -  Fixed a bug where adding a primary key through Forge could fail
@@ -1924,7 +1923,7 @@ Hg Tag: 1.7.1
 -  Fixed assorted user guide typos or examples (#5998, #6093, #6259,
    #6339, #6432, #6521).
 -  Fixed a bug in the MySQLi driver when no port is specified
--  ¿ù»~­×¥¿¡]½s¸¹ 5702¡^, in which the field label was not being fetched
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 5702ï¼‰, in which the field label was not being fetched
    properly, when "matching" one field to another.
 -  Fixed a bug in which identifers were not being escaped properly when
    reserved characters were used.
@@ -1954,26 +1953,26 @@ Hg Tag: 1.7.1
    accented character.
 -  Fixed a bug in the Text Helper character limiter where the provided
    limit intersects the last word of the string.
--  ¿ù»~­×¥¿¡]½s¸¹ 6342¡^ with plural() in the Inflection helper with words
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 6342ï¼‰ with plural() in the Inflection helper with words
    ending in "y".
 -  Fixed bug (#6517) where Routed URI segments returned by
    URI::rsegment() method were incorrect for the default controller.
--  ¿ù»~­×¥¿¡]½s¸¹ 6706¡^ in the Security Helper where xss_clean() was
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 6706ï¼‰ in the Security Helper where xss_clean() was
    using a deprecated second argument.
 -  Fixed a bug in the URL helper url_title() function where trailing
    periods were allowed at the end of a URL.
--  ¿ù»~­×¥¿¡]½s¸¹ 6669¡^ in the Email class when CRLF's are used for the
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 6669ï¼‰ in the Email class when CRLF's are used for the
    newline character with headers when used with the "mail" protocol.
--  ¿ù»~­×¥¿¡]½s¸¹ 6500¡^ where URI::A_filter_uri() was exit()ing an
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 6500ï¼‰ where URI::A_filter_uri() was exit()ing an
    error instead of using show_error().
--  ¿ù»~­×¥¿¡]½s¸¹ 6592¡^ in the File Helper where get_dir_file_info()
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 6592ï¼‰ in the File Helper where get_dir_file_info()
    where recursion was not occurring properly.
 -  Tweaked Typography::auto_typography() for some edge-cases.
 
-ª©¥» 1.7
+ç‰ˆæœ¬ 1.7
 ========
 
-µo¥¬¤é´Á¡GOctober 23, 2008
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 23, 2008
 Hg Tag: 1.7.0
 
 -  Libraries
@@ -2020,7 +2019,7 @@ Hg Tag: 1.7.0
       Validation <libraries/form_validation>` class so that
       multi-byte languages will calculate string lengths properly.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Improved Active Record class to allow full path column and table
       names: hostname.database.table.column. Also improved the alias
@@ -2058,7 +2057,7 @@ Hg Tag: 1.7.0
    -  Tightened up validation in the :doc:`Date
       helper <helpers/date_helper>` function human_to_unix(),
       and eliminated the POSIX regex.
-   -  §ó·s :doc:`Date helper <helpers/date_helper>` to match the
+   -  æ›´æ–° :doc:`Date helper <helpers/date_helper>` to match the
       world's current time zones and offsets.
    -  Modified url_title() in the :doc:`URL
       helper <helpers/url_helper>` to remove characters and digits
@@ -2084,7 +2083,7 @@ Hg Tag: 1.7.0
       than clear, and added the id "codeigniter_profiler" to the
       container div.
 
-1.7.0 ¿ù»~­×¥¿
+1.7.0 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Fixed bug in xss_clean() that could remove some desirable tag
@@ -2104,7 +2103,7 @@ Hg Tag: 1.7.0
 -  Fixed a bug in the Session class when database sessions are used
    where upon session update all userdata would be errantly written to
    the session cookie.
--  ¿ù»~­×¥¿¡]½s¸¹ 4536¡^ in backups with the MySQL driver where some
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4536ï¼‰ in backups with the MySQL driver where some
    legacy code was causing certain characters to be double escaped.
 -  Fixed a routing bug (#4661) that occurred when the default route
    pointed to a subfolder.
@@ -2114,7 +2113,7 @@ Hg Tag: 1.7.0
 -  Fixed incorrect parenthesis in form_open() function (#5135).
 -  Fixed a bug that was ignoring case when comparing controller methods
    (#4560).
--  ¿ù»~­×¥¿¡]½s¸¹ 4615¡^ that was not setting SMTP authorization settings
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4615ï¼‰ that was not setting SMTP authorization settings
    when using the initialize function.
 -  Fixed a bug in highlight_code() in the :doc:`Text
    helper <helpers/text_helper>` that would leave a stray </span>
@@ -2147,16 +2146,16 @@ Hg Tag: 1.7.0
 -  Fixed a bug in which the parser was being greedy if multiple
    identical sets of tags were encountered.
 
-ª©¥» 1.6.3
+ç‰ˆæœ¬ 1.6.3
 ==========
 
-µo¥¬¤é´Á¡GJune 26, 2008
+ç™¼å¸ƒæ—¥æœŸï¼šJune 26, 2008
 Hg Tag: v1.6.3
 
 Version 1.6.3 is a security and maintenance release and is recommended
 for all users.
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Modified MySQL/MySQLi Forge class to give explicit names to keys
    -  Added ability to set multiple column non-primary keys to the
@@ -2203,7 +2202,7 @@ for all users.
    -  Documented the language file use of byte_format() in the :doc:`number
       helper <helpers/number_helper>`.
 
-1.6.3 ¿ù»~­×¥¿
+1.6.3 éŒ¯èª¤ä¿®æ­£
 --------------
 
 -  Added a language key for valid_emails in validation_lang.php.
@@ -2211,8 +2210,8 @@ for all users.
 -  Moved the _has_operator() function (#4535) into DB_driver from
    DB_active_rec.
 -  Fixed a syntax error in upload_lang.php.
--  ¿ù»~­×¥¿¡]½s¸¹ 4542¡^ with a regular expression in the Image library.
--  ¿ù»~­×¥¿¡]½s¸¹ 4561¡^ where orhaving() wasn't properly passing values.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4542ï¼‰ with a regular expression in the Image library.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4561ï¼‰ where orhaving() wasn't properly passing values.
 -  Removed some unused variables from the code (#4563).
 -  Fixed a bug where having() was not adding an = into the statement
    (#4568).
@@ -2222,10 +2221,10 @@ for all users.
 -  Fixed a double opening <p> tag in the index pages of each system
    directory.
 
-ª©¥» 1.6.2
+ç‰ˆæœ¬ 1.6.2
 ==========
 
-µo¥¬¤é´Á¡GMay 13, 2008
+ç™¼å¸ƒæ—¥æœŸï¼šMay 13, 2008
 Hg Tag: 1.6.2
 
 -  Active Record
@@ -2237,7 +2236,7 @@ Hg Tag: 1.6.2
    -  DB Forge is now assigned to any models that exist after loading
       (#3457).
 
-- ¸ê®Æ®w
+- è³‡æ–™åº«
 
    -  Added :doc:`Strict Mode <./database/transactions>` to database
       transactions.
@@ -2323,7 +2322,7 @@ Bugfixes for 1.6.2
 
 -  Fixed a bug where SET queries were not being handled as "write"
    queries.
--  ¿ù»~­×¥¿¡]½s¸¹ 3191¡^ with ORIG_PATH_INFO URI parsing.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3191ï¼‰ with ORIG_PATH_INFO URI parsing.
 -  Fixed a bug in DB Forge, when inserting an id field (#3456).
 -  Fixed a bug in the table library that could cause identically
    constructed rows to be dropped (#3459).
@@ -2336,18 +2335,18 @@ Bugfixes for 1.6.2
 -  Fixed an incorrect documentation of $this->load->language (#3520).
 -  Fixed bugs (#3523, #4350) in get_filenames() with recursion and
    problems with Windows when $include_path is used.
--  ¿ù»~­×¥¿¡]½s¸¹ 4153¡^ in the XML-RPC class preventing dateTime.iso8601
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4153ï¼‰ in the XML-RPC class preventing dateTime.iso8601
    from being used.
 -  Fixed an AR bug with or_where_not_in() (#4171).
 -  Fixed a bug with :doc:`xss_clean() <libraries/input>` that would
    add semicolons to GET URI variable strings.
--  ¿ù»~­×¥¿¡]½s¸¹ 4206¡^ in the Directory Helper where the directory
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4206ï¼‰ in the Directory Helper where the directory
    resource was not being closed, and minor improvements.
 -  Fixed a bug in the FTP library where delete_dir() was not working
    recursively (#4215).
 -  Fixed a Validation bug when set_rules() is used with a non-array
    field name and rule (#4220).
--  ¿ù»~­×¥¿¡]½s¸¹ 4223¡^ where DB caching would not work for returned DB
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4223ï¼‰ where DB caching would not work for returned DB
    objects or multiple DB connections.
 -  Fixed a bug in the Upload library that might output the same error
    twice (#4390).
@@ -2366,21 +2365,21 @@ Bugfixes for 1.6.2
 -  Fixed a bug in display_error() in the DB driver that was
    instantiating new Language and Exception objects, and not using the
    error heading.
--  ¿ù»~­×¥¿¡]½s¸¹ 4413¡^ where a URI containing slashes only e.g.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4413ï¼‰ where a URI containing slashes only e.g.
    'http&#58;//example.com/index.php?//' would result in PHP errors
 -  Fixed an array to string conversion error in the Validation library
    (#4425)
 -  Fixed bug (#4451, #4299, #4339) where failed transactions will not
    rollback when debug mode is enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 4506¡^ with overlay_watermark() in the Image library
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 4506ï¼‰ with overlay_watermark() in the Image library
    preventing support for PNG-24s with alpha transparency
 -  Fixed assorted user guide typos (#3453, #4364, #4379, #4399, #4408,
    #4412, #4448, #4488).
 
-ª©¥» 1.6.1
+ç‰ˆæœ¬ 1.6.1
 ==========
 
-µo¥¬¤é´Á¡GFebruary 12, 2008
+ç™¼å¸ƒæ—¥æœŸï¼šFebruary 12, 2008
 Hg Tag: 1.6.1
 
 -  Active Record
@@ -2426,22 +2425,22 @@ Bugfixes for 1.6.1
    adding brackets around the tables in FROM.
 -  Changed the behaviour of Active Record's update() to make the WHERE
    clause optional (#3395).
--  ¿ù»~­×¥¿¡]½s¸¹ 3396¡^ where certain POST variables would cause a PHP
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3396ï¼‰ where certain POST variables would cause a PHP
    warning.
 -  Fixed a bug in query binding (#3402).
 -  Changed order of SQL keywords in the Profiler $highlight array so OR
    would not be highlighted before ORDER BY.
--  ¿ù»~­×¥¿¡]½s¸¹ 3404¡^ where the MySQLi driver was testing if
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3404ï¼‰ where the MySQLi driver was testing if
    $this->conn_id was a resource instead of an object.
--  ¿ù»~­×¥¿¡]½s¸¹ 3419¡^ connecting to a database via a DSN string.
--  ¿ù»~­×¥¿¡]½s¸¹ 3445¡^ where the routed segment array was not re-indexed
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3419ï¼‰ connecting to a database via a DSN string.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3445ï¼‰ where the routed segment array was not re-indexed
    to begin with 1 when the default controller is used.
 -  Fixed assorted user guide typos.
 
-ª©¥» 1.6.0
+ç‰ˆæœ¬ 1.6.0
 ==========
 
-µo¥¬¤é´Á¡GJanuary 30, 2008
+ç™¼å¸ƒæ—¥æœŸï¼šJanuary 30, 2008
 
 -  DBForge
 
@@ -2590,81 +2589,81 @@ Bugfixes for 1.6.1
    -  Documented 2 config options to the :doc:`Database
       configuration <./database/configuration>` page.
 
-¿ù»~­×¥¿ 1.6.0
+éŒ¯èª¤ä¿®æ­£ 1.6.0
 --------------
 
--  ¿ù»~­×¥¿¡]½s¸¹ 1813¡^ preventing using $CI->db in the same application
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1813ï¼‰ preventing using $CI->db in the same application
    with returned database objects.
--  ¿ù»~­×¥¿¡]½s¸¹ 1842¡^ where the $this->uri->rsegments array would not
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1842ï¼‰ where the $this->uri->rsegments array would not
    include the 'index' method if routed to the controller without an
    implicit method.
--  ¿ù»~­×¥¿¡]½s¸¹ 1872¡^ where word_limiter() was not retaining
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1872ï¼‰ where word_limiter() was not retaining
    whitespace.
--  ¿ù»~­×¥¿¡]½s¸¹ 1890¡^ in csv_from_result() where content that
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 1890ï¼‰ in csv_from_result() where content that
    included the delimiter would break the file.
--  ¿ù»~­×¥¿¡]½s¸¹ 2542¡^in the clean_email() method of the Email class to
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2542ï¼‰in the clean_email() method of the Email class to
    allow for non-numeric / non-sequential array keys.
--  ¿ù»~­×¥¿¡]½s¸¹ 2545¡^ in _html_entity_decode_callback() when
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2545ï¼‰ in _html_entity_decode_callback() when
    'global_xss_filtering' is enabled.
--  ¿ù»~­×¥¿¡]½s¸¹ 2668¡^ in the :doc:`parser class <./libraries/parser>`
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2668ï¼‰ in the :doc:`parser class <./libraries/parser>`
    where numeric data was ignored.
--  ¿ù»~­×¥¿¡]½s¸¹ 2679¡^ where the "previous" pagination link would get
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2679ï¼‰ where the "previous" pagination link would get
    drawn on the first page.
--  ¿ù»~­×¥¿¡]½s¸¹ 2702¡^ in _object_to_array that broke some types of
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2702ï¼‰ in _object_to_array that broke some types of
    inserts and updates.
--  ¿ù»~­×¥¿¡]½s¸¹ 2732¡^ in the SQLite driver for PHP 4.
--  ¿ù»~­×¥¿¡]½s¸¹ 2754¡^ in Pagination to scan for non-positive
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2732ï¼‰ in the SQLite driver for PHP 4.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2754ï¼‰ in Pagination to scan for non-positive
    num_links.
--  ¿ù»~­×¥¿¡]½s¸¹ 2762¡^ in the :doc:`Session
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2762ï¼‰ in the :doc:`Session
    library <./libraries/sessions>` where user agent matching would
    fail on user agents ending with a space.
--  ¿ù»~­×¥¿¡]½s¸¹ 2784¡^ $field_names[] vs $Ffield_names[] in postgres
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2784ï¼‰ $field_names[] vs $Ffield_names[] in postgres
    and sqlite drivers.
--  ¿ù»~­×¥¿¡]½s¸¹ 2810¡^ in the typography helper causing extraneous
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2810ï¼‰ in the typography helper causing extraneous
    paragraph tags when string contains tags.
--  ¿ù»~­×¥¿¡]½s¸¹ 2849¡^ where arguments passed to a subfolder controller
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2849ï¼‰ where arguments passed to a subfolder controller
    method would be incorrectly shifted, dropping the 3rd segment value.
--  ¿ù»~­×¥¿¡]½s¸¹ 2858¡^ which referenced a wrong variable in the Image
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2858ï¼‰ which referenced a wrong variable in the Image
    class.
--  ¿ù»~­×¥¿¡]½s¸¹ 2875¡^when loading plugin files as _plugin. and not
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2875ï¼‰when loading plugin files as _plugin. and not
    _pi.
--  ¿ù»~­×¥¿¡]½s¸¹ 2912¡^ in get_filenames() in the :doc:`File
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2912ï¼‰ in get_filenames() in the :doc:`File
    Helper <helpers/file_helper>` where the array wasn't cleared
    after each call.
--  ¿ù»~­×¥¿¡]½s¸¹ 2974¡^ in highlight_phrase() that caused an error with
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 2974ï¼‰ in highlight_phrase() that caused an error with
    slashes.
--  ¿ù»~­×¥¿¡]½s¸¹ 3003¡^ in the Encryption Library to support modes other
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3003ï¼‰ in the Encryption Library to support modes other
    than MCRYPT_MODE_ECB
--  ¿ù»~­×¥¿¡]½s¸¹ 3015¡^ in the :doc:`User Agent
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3015ï¼‰ in the :doc:`User Agent
    library <./libraries/user_agent>` where more than 2 languages
    where not reported with languages().
--  ¿ù»~­×¥¿¡]½s¸¹ 3017¡^ in the :doc:`Email <./libraries/email>` library
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3017ï¼‰ in the :doc:`Email <./libraries/email>` library
    where some timezones were calculated incorrectly.
--  ¿ù»~­×¥¿¡]½s¸¹ 3024¡^ in which master_dim wasn't getting reset by
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3024ï¼‰ in which master_dim wasn't getting reset by
    clear() in the Image library.
--  ¿ù»~­×¥¿¡]½s¸¹ 3156¡^ in Text Helper highlight_code() causing PHP tags
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3156ï¼‰ in Text Helper highlight_code() causing PHP tags
    to be handled incorrectly.
--  ¿ù»~­×¥¿¡]½s¸¹ 3166¡^ that prevented num_rows from working in Oracle.
--  ¿ù»~­×¥¿¡]½s¸¹ 3175¡^ preventing certain libraries from working
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3166ï¼‰ that prevented num_rows from working in Oracle.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3175ï¼‰ preventing certain libraries from working
    properly when autoloaded in PHP 4.
--  ¿ù»~­×¥¿¡]½s¸¹ 3267¡^ in the Typography Helper where unordered list was
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3267ï¼‰ in the Typography Helper where unordered list was
    listed "un.
--  ¿ù»~­×¥¿¡]½s¸¹ 3268¡^ where the Router could leave '/' as the path.
--  ¿ù»~­×¥¿¡]½s¸¹ 3279¡^ where the Email class was sending the wrong
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3268ï¼‰ where the Router could leave '/' as the path.
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3279ï¼‰ where the Email class was sending the wrong
    Content-Transfer-Encoding for some character sets.
--  ¿ù»~­×¥¿¡]½s¸¹ 3284¡^ where the rsegment array would not be set
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3284ï¼‰ where the rsegment array would not be set
    properly if the requested URI contained more segments than the routed
    URI.
 -  Removed extraneous load of $CFG in _display_cache() of the Output
    class (#3285).
 -  Removed an extraneous call to loading models (#3286).
--  ¿ù»~­×¥¿¡]½s¸¹ 3310¡^ with sanitization of globals in the Input class
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3310ï¼‰ with sanitization of globals in the Input class
    that could unset CI's global variables.
--  ¿ù»~­×¥¿¡]½s¸¹ 3314¡^ which would cause the top level path to be
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3314ï¼‰ which would cause the top level path to be
    deleted in delete_files() of the File helper.
--  ¿ù»~­×¥¿¡]½s¸¹ 3328¡^ where the smiley helper might return an undefined
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3328ï¼‰ where the smiley helper might return an undefined
    variable.
--  ¿ù»~­×¥¿¡]½s¸¹ 3330¡^ in the FTP class where a comparison wasn't
+-  éŒ¯èª¤ä¿®æ­£ï¼ˆç·¨è™Ÿ 3330ï¼‰ in the FTP class where a comparison wasn't
    getting made.
 -  Removed an unused parameter from Profiler (#3332).
 -  Fixed a bug in database driver where num_rows property wasn't
@@ -2705,10 +2704,10 @@ Bugfixes for 1.6.1
    files.
 -  Fixed assorted user guide typos.
 
-ª©¥» 1.5.4
+ç‰ˆæœ¬ 1.5.4
 ==========
 
-µo¥¬¤é´Á¡GJuly 12, 2007
+ç™¼å¸ƒæ—¥æœŸï¼šJuly 12, 2007
 
 -  Added :doc:`custom Language files <./libraries/language>` to the
    :doc:`autoload <./general/autoloader>` options.
@@ -2779,10 +2778,10 @@ Bugfixes for 1.6.1
 -  Deprecated: APPVER has been deprecated and replaced with CI_VERSION
    for clarity.
 
-ª©¥» 1.5.3
+ç‰ˆæœ¬ 1.5.3
 ==========
 
-µo¥¬¤é´Á¡GApril 15, 2007
+ç™¼å¸ƒæ—¥æœŸï¼šApril 15, 2007
 
 -  Added array to string into the profiler
 -  Code Igniter references updated to CodeIgniter
@@ -2800,10 +2799,10 @@ Bugfixes for 1.6.1
    strings
 -  Fixed doc typos.
 
-ª©¥» 1.5.2
+ç‰ˆæœ¬ 1.5.2
 ==========
 
-µo¥¬¤é´Á¡GFebruary 13, 2007
+ç™¼å¸ƒæ—¥æœŸï¼šFebruary 13, 2007
 
 -  Added subversion information
    to the :doc:`downloads <installation/downloads>` page.
@@ -2824,10 +2823,10 @@ Bugfixes for 1.6.1
    was ignoring resizing the same size image
 -  Fixed some doc typos.
 
-ª©¥» 1.5.1
+ç‰ˆæœ¬ 1.5.1
 ==========
 
-µo¥¬¤é´Á¡GNovember 23, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šNovember 23, 2006
 
 -  Added support for submitting arrays of libraries in the
    $this->load->library function.
@@ -2846,10 +2845,10 @@ Bugfixes for 1.6.1
 -  Fixed an incorrectly named variable in the MySQLi result driver.
 -  Fixed some doc typos.
 
-ª©¥» 1.5.0.1
+ç‰ˆæœ¬ 1.5.0.1
 ============
 
-µo¥¬¤é´Á¡GOctober 31, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 31, 2006
 
 -  Fixed a problem in which duplicate attempts to load helpers and
    classes were not being stopped.
@@ -2857,10 +2856,10 @@ Bugfixes for 1.6.1
 -  Fixed an invalid color Hex number in the Profiler class.
 -  Fixed a corrupted image in the user guide.
 
-ª©¥» 1.5.0
+ç‰ˆæœ¬ 1.5.0
 ==========
 
-µo¥¬¤é´Á¡GOctober 30, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šOctober 30, 2006
 
 -  Added :doc:`DB utility class <./database/utilities>`, permitting DB
    backups, CVS or XML files from DB results, and various other
@@ -2949,10 +2948,10 @@ Bugfixes for 1.6.1
    file. Instead, $config['log_threshold'] can be set to "0" to turn it
    off.
 
-ª©¥» 1.4.1
+ç‰ˆæœ¬ 1.4.1
 ==========
 
-µo¥¬¤é´Á¡GSeptember 21, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šSeptember 21, 2006
 
 -  Added a new feature that passes URI segments directly to your
    function calls as parameters. See the
@@ -3009,10 +3008,10 @@ Bugfixes for 1.6.1
 -  Deprecated the following database functions:
    $this->db->smart_escape_str() and $this->db->fields().
 
-ª©¥» 1.4.0
+ç‰ˆæœ¬ 1.4.0
 ==========
 
-µo¥¬¤é´Á¡GSeptember 17, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šSeptember 17, 2006
 
 -  Added :doc:`Hooks <./general/hooks>` feature, enabling you to tap
    into and modify the inner workings of the framework without hacking
@@ -3098,10 +3097,10 @@ Bugfixes for 1.6.1
 -  Fixed some MS SQL bugs.
 -  Fixed some doc typos.
 
-ª©¥» 1.3.3
+ç‰ˆæœ¬ 1.3.3
 ==========
 
-µo¥¬¤é´Á¡GJune 1, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šJune 1, 2006
 
 -  Models do **not** connect automatically to the database as of this
    version. :doc:`More info here <./general/models>`.
@@ -3126,10 +3125,10 @@ Bugfixes for 1.6.1
 -  Fixed a bug in the hash() security helper.
 -  Fixed some typos.
 
-ª©¥» 1.3.2
+ç‰ˆæœ¬ 1.3.2
 ==========
 
-µo¥¬¤é´Á¡GApril 17, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šApril 17, 2006
 
 -  Changed the behavior of the validation class such that if a
    "required" rule is NOT explicitly stated for a field then all other
@@ -3143,10 +3142,10 @@ Bugfixes for 1.6.1
 -  Fixed a couple bugs in the Model class.
 -  Fixed some documentation typos and errata.
 
-ª©¥» 1.3.1
+ç‰ˆæœ¬ 1.3.1
 ==========
 
-µo¥¬¤é´Á¡GApril 11, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šApril 11, 2006
 
 -  Added a :doc:`Unit Testing Library <./libraries/unit_testing>`.
 -  Added the ability to pass objects to the **insert()** and
@@ -3176,10 +3175,10 @@ Bugfixes for 1.6.1
 -  Fixed a bug in the "exact_length" function of the validation class.
 -  Fixed some typos in the user guide
 
-ª©¥» 1.3
+ç‰ˆæœ¬ 1.3
 ========
 
-µo¥¬¤é´Á¡GApril 3, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šApril 3, 2006
 
 -  Added support for :doc:`Models <general/models>`.
 -  Redesigned the database libraries to support additional RDBMs
@@ -3228,10 +3227,10 @@ Bugfixes for 1.6.1
 -  Fixed some typos in the default calendar template
 -  Fixed some typos in the user guide
 
-ª©¥» 1.2
+ç‰ˆæœ¬ 1.2
 ========
 
-µo¥¬¤é´Á¡GMarch 21, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šMarch 21, 2006
 
 -  Redesigned some internal aspects of the framework to resolve scoping
    problems that surfaced during the beta tests. The problem was most
@@ -3263,10 +3262,10 @@ Bugfixes for 1.6.1
    marks in the replacement data.
 -  Fixed some bugs in the xss_clean function
 
-ª©¥» 1.1 ´ú¸Õ
+ç‰ˆæœ¬ 1.1 æ¸¬è©¦
 =============
 
-µo¥¬¤é´Á¡GMarch 10, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šMarch 10, 2006
 
 -  Added a :doc:`Calendaring class <./libraries/calendar>`.
 -  Added support for running :doc:`multiple
@@ -3297,9 +3296,9 @@ Bugfixes for 1.6.1
 -  Updated the documentation. Added "next/previous" links to each page
    and fixed various typos.
 
-ª©¥» 1.0 ´ú¸Õ
+ç‰ˆæœ¬ 1.0 æ¸¬è©¦
 =============
 
-µo¥¬¤é´Á¡GFebruary 28, 2006
+ç™¼å¸ƒæ—¥æœŸï¼šFebruary 28, 2006
 
-­º¦¸¤½¶}µo¥¬ª©¥»¡C
+é¦–æ¬¡å…¬é–‹ç™¼å¸ƒç‰ˆæœ¬ã€‚

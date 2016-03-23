@@ -1,5 +1,5 @@
 ###########################
-Contributing to CodeIgniter
+貢獻 CodeIgniter
 ###########################
 
 .. toctree::

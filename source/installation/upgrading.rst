@@ -7,7 +7,7 @@
 .. toctree::
 	:titlesonly:
 
-	從 3.0.4 升級到 3.0.5 <upgrade_306>
+	從 3.0.5 升級到 3.0.6 <upgrade_306>
 	從 3.0.4 升級到 3.0.5 <upgrade_305>
 	從 3.0.3 升級到 3.0.4 <upgrade_304>
 	從 3.0.2 升級到 3.0.3 <upgrade_303>

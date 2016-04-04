@@ -2,6 +2,25 @@
 更新紀錄
 ########
 
+Version 3.0.6
+=============
+
+發布日期：March 21, 2016
+
+-  General Changes
+
+   -  Added a destructor to :doc:`Cache Library <libraries/caching>` 'memcached' driver to ensure that Memcache(d) connections are properly closed.
+   -  Deprecated :doc:`Form Validation Library <libraries/form_validation>` method ``prep_for_form()``.
+
+3.0.6 錯誤修正
+--------------
+
+-  錯誤修正（編號 4516） - :doc:`Form Validation Library <libraries/form_validation>` always accepted empty array inputs.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` allowed accessing ``$_SESSION`` values as class properties but ``isset()`` didn't work on them.
+-  Fixed a bug where :doc:`Form Validation Library <libraries/form_validation>` modified the ``$_POST`` array when the data being validated was actually provided via ``set_data()``.
+-  錯誤修正（編號 4539） - :doc:`Migration Library <libraries/migration>` applied migrations before validating that all migrations within the requested version range are valid.
+-  錯誤修正（編號 4539） - :doc:`Migration Library <libraries/migration>` triggered failures for migrations that are out of the requested version range.
+
 Version 3.0.5
 =============
 
@@ -24,7 +43,7 @@ Version 3.0.5
 --------------
 
 -  錯誤修正（編號 4391） - :doc:`Email Library <libraries/email>` method ``reply_to()`` didn't apply Q-encoding.
--  錯誤修正（編號 4384）- :doc:`Pagination Library <libraries/pagination>` ignored (possible) *cur_page* configuration value.
+-  錯誤修正（編號 4384） - :doc:`Pagination Library <libraries/pagination>` ignored (possible) *cur_page* configuration value.
 -  錯誤修正（編號 4395） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` still fails if an ``ORDER BY`` condition is used.
 -  錯誤修正（編號 4399） - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` produced confusing error messages when called with no data and *db_debug* is enabled.
 -  錯誤修正（編號 4401） - :doc:`Query Builder <database/query_builder>` breaks ``WHERE`` and ``HAVING`` conditions that use ``IN()`` with strings containing a closing parenthesis.

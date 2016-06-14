@@ -45,6 +45,7 @@ and tedious to implement.
 表單驗證教學
 ************************
 
+測試 fork 可否 merge 至 原本的 origin.
 What follows is a "hands on" tutorial for implementing CodeIgniters Form
 Validation.
 

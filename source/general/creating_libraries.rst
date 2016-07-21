@@ -116,10 +116,7 @@ CodeIgniter 允許你繼承（extend）原有的類別以擴充新功能。你�
 
 	這非常非常重要！！ 取得物件的參考可以讓你使用同一個 CodeIgniter 物件，而不是複製一個副本。
 
-However, since a library is a class, it would be better if you
-take full advantage of the OOP principles. So, in order to
-be able to use the CodeIgniter super-object in all of the class
-methods, you're encouraged to assign it to a property instead::
+然而，因為 library 是一個類別，善用 OOP 原則將會更好。所以，為了能夠在所有的類別檔使用到 CodeIgniter super-object 的方法，你將如下被鼓勵指派到成員變數中：
 
 	class Example_library {
 
@@ -188,9 +185,7 @@ Note 大多數的原生類別名稱都使用 CI\_ 做為前置字串。
 
 	}
 
-.. note:: Not all of the libraries have the same (or any) parameters
-	in their constructor. Take a look at the library that you're
-	extending first to see how it should be implemented.
+.. note:: 不是所有的函式庫的建構子都擁有相同的參數數目，參考你準備繼承的類別並且看看該如何實作它們的建構子。
 
 載入子類別
 ----------------------

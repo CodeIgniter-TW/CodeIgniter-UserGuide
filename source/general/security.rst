@@ -4,8 +4,7 @@
 
 本頁描述一些有關網站安全的”最佳實踐“，同時包含了 CodeIgniter 的內部安全機制細節。
 
-.. note:: If you came here looking for a security contact, please refer to
-	our `Contribution Guide <../contributing/index>`.
+.. note:: 如果你來這邊尋找安全性的聯絡方式，請參考 `Contribution Guide <../contributing/index>`.
 
 URI 安全性
 ============
@@ -75,7 +74,7 @@ CodeIgniter 有一個 :doc:`Form Validation Library
 *webroot* 網站根目錄（大部份一般叫做 "htdocs/"）。
 這裡只有想要讓使用者存取的檔案放在這，其餘都不要直接放在網站根目錄底下。
 
-避免你的使用者去看到任何淺在允許他們存取敏感檔案，甚至執行代碼，等等。
+避免你的使用者去看到任何潛在允許他們存取敏感檔案，甚至執行代碼，等等。
 
 如果你不想要這樣做，請試著使用 .htaccess 去限制存取這些資源。
 

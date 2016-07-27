@@ -2,8 +2,13 @@
 Server 需求
 ###################
 
-- `PHP <http://www.php.net/>`_ 版本 5.2.4 或者更高版本。
-- 大多網站數應用程式是需要資料庫的。
+`PHP <http://www.php.net/>`_ 版本 5.6 或者更高版本。
+
+It should work on 5.3.7 as well, but we strongly advise you NOT to run
+such old versions of PHP, because of potential security and performance
+issues, as well as missing features.
+
+大多網站數應用程式是需要資料庫的。
 
  現在支持的資料庫:
   - MySQL (5.1+) via the *mysql* (棄用), *mysqli* and *pdo* drivers

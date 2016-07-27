@@ -21,7 +21,7 @@ CodeIgniter 也會回傳狀態碼無論系統核心何時呼叫 ``exit()`` 函�
 
 這個函數讓你用下列的錯誤訊息模板來顯示給予的錯誤訊息：
 
-.. function:: show_error($message, $status_code, $heading = 'An Error Was Encountered')
+.. php:function:: show_error($message, $status_code, $heading = 'An Error Was Encountered')
 
 	:param	mixed	$message: 錯誤訊息
 	:param	int	$status_code: HTTP 回應狀態碼
@@ -38,7 +38,7 @@ CodeIgniter 也會回傳狀態碼無論系統核心何時呼叫 ``exit()`` 函�
 ``EXIT__AUTO_MAX`` ，或者如果 ``$status_code`` 是 100 或者更高，結束狀態碼將會被設定為 ``EXIT_ERROR`` 。
 你可以檢查 *application/config/constants.php* 以獲得更多細節。
 
-.. function:: show_404($page = '', $log_error = TRUE)
+.. php:function:: show_404($page = '', $log_error = TRUE)
 
 	:param	string	$page: URI 字串
 	:param	bool	$log_error: 是否紀錄錯誤
@@ -54,11 +54,10 @@ CodeIgniter 也會回傳狀態碼無論系統核心何時呼叫 ``exit()`` 函�
 
 CodeIgniter 自動地記錄所有 ``show_404()`` 呼叫。設定第二個參數選項 FALSE 將不會做記錄。
 
-.. function:: log_message($level, $message, $php_error = FALSE)
+... php:function:: log_message($level, $message)
 
 	:param	string	$level: 記錄層級： 'error'，'debug' 或者 'info'
 	:param	string	$message: 記錄的訊息
-	:param	bool	$php_error: 是否我們要記錄原生 PHP 錯誤訊息
 	:rtype:	void
 
 這個函數讓你寫錯誤訊息到你的記錄檔案內。

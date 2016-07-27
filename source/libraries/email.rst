@@ -337,7 +337,7 @@ Email 偏好
 			{
 				$this->email->to($address);
 				$cid = $this->email->attach_cid($filename);
-				$this->email->message('<img src='cid:". $cid ."' alt="photo1" />');
+				$this->email->message('<img src="cid:"' $cid .'" alt="photo1" />');
 				$this->email->send();
 			}
 

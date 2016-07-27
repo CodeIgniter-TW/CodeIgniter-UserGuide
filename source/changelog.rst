@@ -2,6 +2,57 @@
 更新紀錄
 ########
 
+Version 3.1.0
+=============
+
+發布日期：July 26, 2016
+
+-  **安全性**
+
+   -  Fixed an SQL injection in the 'odbc' database driver.
+   -  Updated :php:func:`set_realpath()` :doc:`Path Helpr <helpers/path_helper>` function to filter-out ``php://`` wrapper inputs.
+   -  Officially dropped any kind of support for PHP 5.2.x and anything under 5.3.7.
+
+-  General Changes
+
+   -  Updated :doc:`Image Manipulation Library <libraries/image_lib>` to validate *width* and *height* configuration values.
+   -  Updated :doc:`Encryption Library <libraries/encryption>` to always prefer ``random_bytes()`` when it is available.
+   -  Updated :doc:`Session Library <libraries/sessions>` to log 'debug' messages when using fallbacks to *session.save_path* (php.ini) or 'sess_use_database', 'sess_table_name' settings.
+   -  Added a 'LONGTEXT' to 'STRING' alias to :doc:`Database Forge <database/forge>` for the 'cubrid', 'pdo/cubrid' drivers.
+   -  Added 'TINYINT', 'MEDIUMINT', 'INT' and 'BIGINT' aliases to 'NUMBER' to :doc:`Database Forge <database/forge>` for the 'oci8', 'pdo/oci' drivers.
+
+   -  :php:func:`password_hash()` :doc:`compatibility function <general/compatibility_functions>` changes:
+
+      - Changed salt-generation logic to prefer ``random_bytes()`` when it is available.
+      - Changed salt-generation logic to prefer direct access to */dev/urandom* over ``openssl_random_pseudo_bytes()``.
+      - Changed salt-generation logic to error if ``openssl_random_pseudo_bytes()`` sets its ``$crypto_strong`` flag to FALSE.
+
+Bug fixes for 3.1.0
+-------------------
+
+-  Fixed a bug where :doc:`Image Manipulation Library <libraries/image_lib>` didn't escape image source paths passed to ImageMagick as shell arguments.
+-  錯誤修正（編號 861) - :doc:`Database Forge <database/forge>` method ``create_table()`` incorrectly accepts field width constraints for MSSQL/SQLSRV integer-type columns.
+-  錯誤修正（編號 4562) - :doc:`Cache Library <libraries/caching>` didn't check if ``Memcached::quit()`` is available before calling it.
+-  錯誤修正（編號 4563) - :doc:`Input Library <libraries/input>` method ``request_headers()`` ignores ``$xss_clean`` parameter value after first call.
+-  錯誤修正（編號 4605) - :doc:`Config Library <libraries/config>` method ``site_url()`` stripped trailing slashes from relative URIs passed to it.
+-  錯誤修正（編號 4613) - :doc:`Email Library <libraries/config>` failed to send multiple emails via SMTP due to "already authenticated" errors when keep-alive is enabled.
+-  錯誤修正（編號 4633) - :doc:`Form Validation Library <libraries/form_validation>` ignored multiple "callback" rules for empty, non-required fields.
+-  錯誤修正（編號 4637) - :doc:`Database <database/index>` method ``error()`` returned ``FALSE`` with the 'oci8' driver if there was no error.
+-  錯誤修正（編號 4647) - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` doesn't take into account ``GROUP BY`` clauses while deciding whether to do a subquery or not.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` 'redis' driver didn't properly detect if a connection is properly closed on PHP 5.x.
+-  錯誤修正（編號 4583) - :doc:`Email Library <libraries/email>` didn't properly handle inline attachments in HTML emails.
+-  Fixed a bug where :doc:`Database <database/index>` method ``db_select()`` didn't clear metadata cached for the previously used database.
+-  錯誤修正（編號 4675) - :doc:`File Helper <helpers/file_helper>` function :php:func:`delete_files()` treated symbolic links as regular directories.
+-  錯誤修正（編號 4674) - :doc:`Database <database/index>` driver 'dblib' triggered E_WARNING messages while connecting.
+-  錯誤修正（編號 4678) - :doc:`Database Forge <database/forge>` tried to use unsupported ``IF NOT EXISTS`` clause when creating tables on Oracle.
+-  錯誤修正（編號 4691) - :doc:`File Uploading Library <libraries/file_uploading>` method ``data()`` returns wrong 'raw_name' when the filename extension is also contained in the raw filename.
+-  錯誤修正（編號 4679) - :doc:`Input Library <libraries/input>` method ``ip_address()`` errors with a matching ``$config['proxy_ips']`` IPv6 address.
+-  錯誤修正（編號 4695) - :doc:`User Agent Library <libraries/user_agent>` didn't load the *config/user_agents.php* file when there's no ``User-Agent`` HTTP request header.
+-  錯誤修正（編號 4713) - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` could return wrong affected rows count.
+-  錯誤修正（編號 4712) - :doc:`Email Library <libraries/email>` doesn't sent ``RSET`` to SMTP servers after a failure and while using keep-alive.
+-  錯誤修正（編號 4724) - :doc:`Common function <general/common_functions>` :php:func:`is_https()` compared the ``X-Forwarded-Proto`` HTTP header case-sensitively.
+-  錯誤修正（編號 4725) - :doc:`Common function <general/common_functions>` :php:func:`remove_invisible_characters()` searched case-sensitively for URL-encoded characters.
+
 Version 3.0.6
 =============
 

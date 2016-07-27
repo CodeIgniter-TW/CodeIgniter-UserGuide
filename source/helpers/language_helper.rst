@@ -29,12 +29,15 @@ Language 輔助函式包含了各種輔助多國語言操作的相關函式。
  	:param	string	$line: Language line key
  	:param	string	$for: HTML "for" attribute (ID of the element we're creating a label for)
  	:param	array	$attributes: 額外的 HTML 元素
- 	:returns:	HTML-formatted 語言標籤
+ 	:returns:	The language line; in an HTML label tag, if the ``$for`` parameter is not empty
 	:rtype:	string
 
 	此函示回傳顯示格式會比 ``CI_Lang::line()`` 更清楚易懂。
 
 	範例::
+
+		echo lang('language_key');
+		// Outputs: Language line
 
 		echo lang('language_key', 'form_item_id', array('class' => 'myClass'));
 		// 顯示: <label for="form_item_id" class="myClass">Language line</label>

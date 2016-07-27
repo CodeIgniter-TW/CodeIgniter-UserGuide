@@ -38,11 +38,11 @@ Command-line interface 是透過文字介面跟操作者溝通 更多詳細資�
 
 之後將檔案儲存到 *application/controllers/* 目錄底下。
 
-現在您可以透過瀏覽器觀鍵入底下網址： ::
+現在您可以透過瀏覽器輸入底下網址： ::
 
 	example.com/index.php/tools/message/to
 
-另外方式，我們可以透過 Mac/Linux 終端機或者是在 Windows 底下執行“cmd”去執行 CodeIgniter 專案。
+另外方式，我們可以透過 Mac/Linux 終端機或者是在 Windows 底下執行"cmd"去執行 CodeIgniter 專案。
 
 .. code-block:: bash
 

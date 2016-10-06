@@ -223,10 +223,8 @@ CodeIgniter 有一個 Output 類別會自動地處理你最後傳送給瀏覽器
 
 		example.com/index.php/products/shoes/show/123
 
-Each of your sub-directories may contain a default controller which will be
-called if the URL contains *only* the sub-directory. Simply put a controller
-in there that matches the name of your 'default_controller' as specified in
-your *application/config/routes.php* file.
+你的每個子資料夾都可能擁有一個預設的 controller 來接收呼叫，因為 URL 可能只包含到子資料夾路徑而沒有包含到 function 。
+此時你必須在你的 *application/config/routes.php* 檔案來設定每個子資料夾的 'default_controller' 來滿足此需求。
 
 CodeIgniter 也允許你去重新映射你的 URIs，通過 :doc:`URI
 Routing <routing>` 功能，來達成它。

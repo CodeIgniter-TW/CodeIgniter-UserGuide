@@ -455,6 +455,11 @@ $request 這個變數是個由 Server 編譯過的物件，
 
 			$this->xmlrpc->timeout(6);
 
+		This timeout period will be used both for an initial connection to 
+                the remote server, as well as for getting a response from it.
+                Make sure you set the timeout before calling ``send_request()``.
+
+
 	.. php:method:: method($function)
 
 		:param	string	$function: 方法名稱

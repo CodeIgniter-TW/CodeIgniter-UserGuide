@@ -36,7 +36,7 @@ Hooks 定義在 **application/config/hooks.php** 檔案中。每一個hook都用
 -  **filepath** 包含你程式的目錄名稱。注意：程式必須在你的 application 目錄內，所以這個目錄名稱是相對於 application 的路徑。例如，如果你的程式放在 *application/hooks* ，那你只要用 hooks 當作 ‘filepath’。如果你的程式放在 *application/hooks/utilities*，那你要用 hooks/utilities 作為 ‘filepath’。路徑最後不用加斜線。
 -  **params** 任何你希望傳遞給程式的參數，這是非必須的選項。
 
-如果你的 PHP 版本 5.3+，你也可以使用 lambda/anoymous 函數（或者閉包函數）寫 hooks，使用簡單的語法： ::
+你也可以使用 lambda/anoymous 函數（或者閉包函數）寫 hooks，使用簡單的語法： ::
 
 	$hook['post_controller'] = function()
 	{

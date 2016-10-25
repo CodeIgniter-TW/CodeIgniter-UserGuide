@@ -100,8 +100,7 @@ URI 路由
 回調
 =========
 
-如果你是使用版本 PHP >= 5.3 你可以使用回調函數來取代一般的路由規則
-來處理 back-references。例子： ::
+你可以使用回調函數來取代一般的路由規則來處理 back-references。例子： ::
 
 	$route['products/([a-zA-Z]+)/edit/(\d+)'] = function ($product_type, $id)
 	{

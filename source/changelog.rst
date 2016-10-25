@@ -2,6 +2,48 @@
 更新紀錄
 ########
 
+Version 3.1.1
+=============
+
+發布日期：Oct 22, 2016
+
+-  **安全性**
+
+   -  Fixed a flaw in :doc:`Security Library <libraries/security>` method ``entity_decode()`` (used by ``xss_clean()``) that affects HTML 5 entities when using PHP 5.3.
+
+- 一般性變更
+
+   -  Added ``E_PARSE`` to the list of error levels detected by the shutdown handler.
+   -  Updated :doc:`Inflector Helper <helpers/inflector_helper>` :php:func:`is_countable()` with more words.
+   -  Updated :doc:`common function <general/common_functions>` :php:func:`set_status_header()` with new status codes from IETF RFCs
+      `2817 <https://tools.ietf.org/html/rfc2817>`_ (426)
+      and `6585 <https://tools.ietf.org/html/rfc6585>`_ (428, 429, 431, 511).
+
+Bug fixes for 3.1.1
+-------------------
+
+-  錯誤修正（編號4732) - :doc:`Session Library <libraries/sessions>` triggered errors while writing data for a newly-created sessions with the 'memcached' driver.
+-  Fixed a regression (#4736) - :doc:`Image Manipulation Library <libraries/image_lib>` processing via ImageMagick didn't work.
+-  錯誤修正（編號4737) - :doc:`Query Builder <database/query_builder>` didn't add an ``OFFSET`` when ``LIMIT`` is zero or unused.
+-  Fixed a regression (#4739) - :doc:`Email Library <libraries/email>` doesn't properly separate attachment bodies from headers.
+-  錯誤修正（編號4754) - :doc:`Unit Testing Library <libraries/unit_testing>` method ``result()`` didn't translate ``res_datatype``.
+-  錯誤修正（編號4759) - :doc:`Form Validation <libraries/form_validation>`, :doc:`Trackback <libraries/trackback>` and :doc:`XML-RPC <libraries/xmlrpc>` libraries treated URI schemes in a case-sensitive manner.
+-  錯誤修正（編號4762) - :doc:`Cache Library <libraries/caching>` 'file' driver method ``get_metadata()`` checked TTL time against ``mtime`` instead of the cache item's creation time.
+-  Fixed a bug where :doc:`File Uploading Library <libraries/file_uploading>` generated error messages on PHP 7.1.
+-  錯誤修正（編號4780) - :doc:`compatibility function <general/compatibility_functions>` ``hex2bin()`` didn't reject inputs of type "resource".
+-  錯誤修正（編號4787) - :doc:`Form Validation Library <libraries/form_validation>` method ``valid_email()`` triggered ``E_WARNING`` when input emails have empty domain names.
+-  錯誤修正（編號4805) - :doc:`Database <database/index>` driver 'mysqli' didn't use the ``MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT`` flag properly.
+-  錯誤修正（編號4808) - :doc:`Database <database/index>` method ``is_write_type()`` only looked at the first line of a queries using ``RETURNING`` with the 'postgre', 'pdo/pgsql', 'odbc' and 'pdo/odbc' drivers.
+-  Fixed a bug where :doc:`Query Builder <database/query_builder>` method ``insert_batch()`` tried to execute an unsupported SQL query with the 'ibase' and 'pdo/firebird' drivers.
+-  錯誤修正（編號4809) - :doc:`Database <database/index>` driver 'pdo/mysql' didn't turn off ``AUTOCOMMIT`` when starting a transaction.
+-  錯誤修正（編號4822) - :doc:`CAPTCHA Helper <helpers/captcha_helper>` didn't clear expired PNG images.
+-  錯誤修正（編號4823) - :doc:`Session Library <libraries/sessions>` 'files' driver could enter an infinite loop if ``mbstring.func_override`` is enabled.
+-  錯誤修正（編號4851) - :doc:`Database Forge <database/forge>` didn't quote schema names passed to its ``create_database()`` method.
+-  錯誤修正（編號4863) - :doc:`HTML Table Library <libraries/table>` method ``set_caption()`` was missing method chaining support.
+-  錯誤修正（編號4843) - :doc:`XML-RPC Library <libraries/xmlrpc>` client class didn't set a read/write socket timeout.
+-  錯誤修正（編號4865) - uncaught exceptions didn't set the HTTP Response status code to 500 unless ``display_errors`` was turned On.
+-  錯誤修正（編號4830) - :doc:`Session Library <libraries/sessions>` didn't take into account the new session INI settings in PHP 7.1.
+
 Version 3.1.0
 =============
 
@@ -13,7 +55,7 @@ Version 3.1.0
    -  Updated :php:func:`set_realpath()` :doc:`Path Helpr <helpers/path_helper>` function to filter-out ``php://`` wrapper inputs.
    -  Officially dropped any kind of support for PHP 5.2.x and anything under 5.3.7.
 
--  General Changes
+- 一般性變更
 
    -  Updated :doc:`Image Manipulation Library <libraries/image_lib>` to validate *width* and *height* configuration values.
    -  Updated :doc:`Encryption Library <libraries/encryption>` to always prefer ``random_bytes()`` when it is available.
@@ -58,7 +100,7 @@ Version 3.0.6
 
 發布日期：March 21, 2016
 
--  General Changes
+- 一般性變更
 
    -  Added a destructor to :doc:`Cache Library <libraries/caching>` 'memcached' driver to ensure that Memcache(d) connections are properly closed.
    -  Deprecated :doc:`Form Validation Library <libraries/form_validation>` method ``prep_for_form()``.
@@ -81,7 +123,7 @@ Version 3.0.5
    -  Changed :doc:`Loader Library <libraries/loader>` to allow ``$autoload['drivers']`` assigning with custom property names.
    -  Changed :doc:`Loader Library <libraries/loader>` to ignore variables prefixed with '_ci_' when loading views.
 
--  General Changes
+- 一般性變更
 
    -  Updated the :doc:`Session Library <libraries/sessions>` to produce friendlier error messages on failures with drivers other than 'files'.
 
@@ -122,7 +164,7 @@ Version 3.0.4
 
 發布日期：January 13, 2016
 
--  General Changes
+- 一般性變更
 
    -  更新 :doc:`Security Library <libraries/security>` method ``get_random_bytes()`` to use PHP 7's ``random_bytes()`` function when possible.
    -  更新 :doc:`Encryption Library <libraries/security>` method ``create_key()`` to use PHP 7's ``random_bytes()`` function when possible.
@@ -194,7 +236,7 @@ Version 3.0.4
 
    -  Fixed a number of XSS attack vectors in :doc:`Security Library <libraries/security>` method ``xss_clean()``  (thanks to Frans Rosen from `Detectify <https://detectify.com/>`_).
 
--  General Changes
+- 一般性變更
 
    -  Updated the *application/config/constants.php* file to check if constants aren't already defined before doing that.
    -  變更 :doc:`Loader Library <libraries/loader>` method ``model()`` to only apply ``ucfirst()`` and not ``strtolower()`` to the requested class name.
@@ -310,7 +352,7 @@ Version 3.0.4
 
    -  CodeIgniter has been relicensed with the `MIT License <http://opensource.org/licenses/MIT>`_, eliminating its old proprietary licensing.
 
--  General Changes
+- 一般性變更
 
    -  PHP 5.1.6 is no longer supported. CodeIgniter now requires PHP 5.2.4 and recommends PHP 5.4+ or newer to be used.
    -  Changed filenaming convention (class file names now must be Ucfirst and everything else in lowercase).
@@ -1087,7 +1129,7 @@ Version 3.0.4
 
 發布日期：April 15, 2015
 
--  General Changes
+- 一般性變更
 
    - Added HTTP "Host" header character validation to prevent cache poisoning attacks when *base_url* auto-detection is used.
    - Added *FSCommand* and *seekSegmentTime* to the "evil attributes" list in ``CI_Security::xss_clean()``.
@@ -1102,7 +1144,7 @@ Version 3.0.4
 
 發布日期：January 22, 2015
 
--  General Changes
+- 一般性變更
 
    - Improved security in ``xss_clean()``.
    - Updated timezones in :doc:`Date Helper <helpers/date_helper>`.
@@ -1127,7 +1169,7 @@ Version 3.0.4
 
 發布日期：June 2, 2014
 
--  General Changes
+- 一般性變更
 
    - Security: :doc:`Encrypt Library <libraries/encrypt>` method ``xor_encode()`` has been removed. The Encrypt Class now requires the Mcrypt extension to be installed.
    - Security: The :doc:`Session Library <libraries/sessions>` now uses HMAC authentication instead of a simple MD5 checksum.
@@ -1146,7 +1188,7 @@ Version 3.0.4
 
 發布日期：July 8, 2013
 
--  General Changes
+- 一般性變更
 
    - Improved security in ``xss_clean()``.
 
@@ -1187,7 +1229,7 @@ Version 3.0.4
 
 發布日期：June 29, 2012
 
--  General Changes
+- 一般性變更
 
    -  Improved security in ``xss_clean()``.
 
@@ -1196,7 +1238,7 @@ Version 3.0.4
 
 發布日期：June 12, 2012
 
--  General Changes
+- 一般性變更
 
    -  Fixed support for docx, xlsx files in mimes.php.
 
@@ -1228,7 +1270,7 @@ Version 3.0.4
 
 發布日期：November 14, 2011
 
--  General Changes
+- 一般性變更
 
    -  Callback validation rules can now accept parameters like any other
       validation rule.
@@ -1339,7 +1381,7 @@ Version 3.0.4
       the server environment you are deploying on to ensure you are not
       vulnerable.
 
--  General Changes
+- 一般性變更
 
    -  Fixed a bug where there was a misspelling within a code comment in
       the index.php file.
@@ -1419,7 +1461,7 @@ Version 3.0.4
 發布日期：April 7, 2011
 Hg Tag: v2.0.2
 
--  General changes
+- 一般性變更
 
    -  The :doc:`Security library <./libraries/security>` was moved to
       the core and is now loaded automatically. Please remove your
@@ -1469,7 +1511,7 @@ Hg Tag: v2.0.2
 發布日期：March 15, 2011
 Hg Tag: v2.0.1
 
--  General changes
+- 一般性變更
 
    -  Added $config['cookie_secure'] to the config file to allow
       requiring a secure (HTTPS) in order to set cookies.
@@ -1523,7 +1565,7 @@ Hg Tag: v2.0.1
 發布日期：January 28, 2011
 Hg Tag: v2.0.0
 
--  General changes
+- 一般性變更
 
    -  PHP 4 support is removed. CodeIgniter now requires PHP 5.1.6.
    -  Scaffolding, having been deprecated for a number of versions, has

@@ -19,8 +19,8 @@ Models 是 PHP 類別，它是被設計來存取資料庫用的。比如說，�
 
 		public function __construct()
 		{
-			// Call the CI_Model constructor
 			parent::__construct();
+			// Your own constructor code
 		}
 
 		public function get_last_ten_entries()

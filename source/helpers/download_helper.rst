@@ -26,7 +26,7 @@ The following functions are available:
 
 .. php:function:: force_download([$filename = ''[, $data = ''[, $set_mime = FALSE]]])
 
-	:param	string	$filename: Filename
+	:param	mixed	$filename: Filename
 	:param	mixed	$data: File contents
 	:param	bool	$set_mime: Whether to try to send the actual MIME type
 	:rtype:	void
@@ -37,7 +37,10 @@ The following functions are available:
 	file data.
 
 	If you set the second parameter to NULL and ``$filename`` is an existing, readable
-	file path, then its content will be read instead.
+	file path, then its content will be read instead. You may also set ``$filename``
+	as an associative array with a single element, where the key of that element would be 
+	the local file you are trying to read and where the value is the name of the downloadable
+	file that will be sent to browser. An example of this is provided below.
 
 	If you set the third parameter to boolean TRUE, then the actual file MIME type
 	(based on the filename extension) will be sent, so that if your browser has a

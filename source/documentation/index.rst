@@ -18,7 +18,7 @@ It is created automatically by inserting the following:
 
 	.. raw:: html
 
-  	<div class="custom-index container"></div>
+	<div class="custom-index container"></div>
 
 .. contents::
   :local:
@@ -43,7 +43,7 @@ Pygments, so that code blocks can be properly highlighted.
 .. code-block:: bash
 
 	easy_install "sphinx==1.2.3"
-	easy_install sphinxcontrib-phpdomain
+	easy_install "sphinxcontrib-phpdomain==0.1.3.post1"
 
 Then follow the directions in the README file in the :samp:`cilexer` folder
 inside the documentation repository to install the CI Lexer.
@@ -115,9 +115,9 @@ For example, consider the following ReST:
 
 .. code-block:: rst
 
-	.. class:: Some_class
+	.. php:class:: Some_class
 
-		.. method:: some_method ( $foo [, $bar [, $bat]])
+		.. php:method:: some_method ( $foo [, $bar [, $bat]])
 
 			This function will perform some action. The ``$bar`` array must contain
 			a something and something else, and along with ``$bat`` is an optional
@@ -151,7 +151,7 @@ For example, consider the following ReST:
 			See also :meth:`Some_class::should_do_something`
 
 
-		.. method:: should_do_something()
+		.. php:method:: should_do_something()
 
 			:returns: Whether or not something should be done
 			:rtype: bool
@@ -159,10 +159,10 @@ For example, consider the following ReST:
 
 It creates the following display:
 
-.. class:: Some_class
+.. php:class:: Some_class
 
 
-	.. method:: some_method ( $foo [, $bar [, $bat]])
+	.. php:method:: some_method ( $foo [, $bar [, $bat]])
 
 		This function will perform some action. The ``$bar`` array must contain
 		a something and something else, and along with ``$bat`` is an optional
@@ -196,7 +196,7 @@ It creates the following display:
 		See also :meth:`Some_class::should_do_something`
 
 
-	.. method:: should_do_something()
+	.. php:method:: should_do_something()
 
 		:returns: Whether or not something should be done
 		:rtype: bool

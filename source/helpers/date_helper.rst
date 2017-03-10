@@ -75,7 +75,7 @@ Date 輔助函式的載入語法如下
 		echo standard_date($format, $time);
 
 	.. 提醒:: 此函式將被停用，建議使用內建的 ``date()`` 並搭配 `DateTime's format constants
-		<http://php.net/manual/en/class.datetime.php#datetime.constants.types>`_ 來取代之
+		<https://secure.php.net/manual/en/class.datetime.php#datetime.constants.types>`_ 來取代之
 		::
 
 			echo date(DATE_RFC822, time());
@@ -206,6 +206,9 @@ Date 輔助函式的載入語法如下
 		// Should Produce: 2001-09-11
 		$better_date = nice_date($bad_date, 'Y-m-d');
 
+	.. 提醒:: This function is DEPRECATED. Use PHP's native `DateTime class
+		<https://secure.php.net/datetime>`_ instead.
+		
 .. php:function:: timespan([$seconds = 1[, $time = ''[, $units = '']]])
 
 	:param	int	$seconds: 秒數

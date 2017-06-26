@@ -7,20 +7,7 @@ clone:
 pipeline:
   build:
     image: python:2.7.13
-    environment:
-      - LC_ALL=zh_TW.UTF-8
-      - LANG=zh_TW.UTF-8
-      - LANGUAGE=zh_TW.UTF-8
     commands:
-      - apt-get -qq update && apt-get -qqy install locales
-      #- sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-      - sed -i -e 's/# zh_TW.UTF-8 UTF-8/zh_TW.UTF-8 UTF-8/' /etc/locale.gen
-      - locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8
-      - dpkg-reconfigure --frontend=noninteractive locales
-      - export LANG=zh_TW.UTF-8
-      - export LC_ALL=zh_TW.UTF-8
-      - export LANGUAGE=zh_TW.UTF-8
-      - locale
       - pip install "sphinx==1.2.3"
       - pip install "sphinxcontrib-phpdomain==0.1.3.post1"
       - make pygments

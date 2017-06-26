@@ -8,15 +8,14 @@ pipeline:
   build:
     image: python:2.7.13
     environment:
-      - LC_ALL=zh_TW.UTF-8
-      - LANG=zh_TW.UTF-8
-      - LANGUAGE=zh_TW.UTF-8
+      - LC_ALL=en_US.UTF-8
+      - LANG=en_US.UTF-8
+      - LANGUAGE=en_US.UTF-8
     commands:
       - apt-get clean && apt-get -y update
       - apt-get install -y locales
       - locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8
-      - dpkg-reconfigure locales
-      - update-locale LANG="zh_TW.UTF-8" LANGUAGE="zh_TW"
+      - localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
       - pip install "sphinx==1.2.3"
       - pip install "sphinxcontrib-phpdomain==0.1.3.post1"
       - make pygments

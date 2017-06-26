@@ -91,7 +91,7 @@ CodeIgniter 使用少許幾個全域函數來協助運行，你也可以在任�
 .. function:: set_status_header($code[, $text = ''])
 
 	:param	int	$code: HTTP 回應狀態碼
-	:param	string	$text: 客製化狀態碼訊息
+	:param	string $text: 客製化狀態碼訊息
 	:rtype:	void
 
 	允許你操作設定伺服器標頭狀態。例如： ::

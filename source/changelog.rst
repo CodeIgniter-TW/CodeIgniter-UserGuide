@@ -2,6 +2,66 @@
 更新紀錄
 ########
 
+Version 3.1.5
+=============
+
+發布日期：Jun 19, 2017
+
+-  **安全性**
+
+   -  :doc:`Form Validation Library <libraries/form_validation>` rule ``valid_email`` could be bypassed if ``idn_to_ascii()`` is available.
+
+-  一般性變更
+
+   -  Updated :doc:`Form Helper <helpers/form_helper>` function :php:func:`form_label()` to accept HTML attributes as a string.
+
+3.1.5 錯誤修正
+--------------
+
+-  錯誤修正（編號 5070） - :doc:`Email Library <libraries/email>` didn't properly detect 7-bit encoding.
+-  錯誤修正（編號 5084） - :doc:`XML-RPC Library <libraries/xmlrpc>` errored because of a variable name typo.
+-  錯誤修正（編號 5108） - :doc:`Inflector Helper <helpers/inflector_helper>` function :php:func:`singular()` didn't properly handle 'quizzes'.
+-  Fixed a regression (#5131) - private controller methods triggered PHP errors instead of a 404 response.
+-  錯誤修正（編號 5150） - :doc:`Database Forge <database/forge>` method ``modify_column()`` triggered an error while renaming columns with the 'oci8', 'pdo/oci' drivers.
+-  錯誤修正（編號 5155） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` returned incorrect result for queries using ``LIMIT``, ``OFFSET``.
+
+Version 3.1.4
+=============
+
+發布日期：Mar 20, 2017
+
+-  **安全性**
+
+   -  Fixed a header injection vulnerability in :doc:`common function <general/common_functions>` :php:func:`set_status_header()` under Apache (thanks to Guillermo Caminer from `Flowgate <https://flowgate.net/>`_).
+   -  Fixed byte-safety issues in :doc:`Encrypt Library <libraries/encrypt>` (DEPRECATED) when ``mbstring.func_overload`` is enabled.
+   -  Fixed byte-safety issues in :doc:`Encryption Library <libraries/encryption>` when ``mbstring.func_overload`` is enabled.
+   -  Fixed byte-safety issues in :doc:`compatibility functions <general/compatibility_functions>` ``password_hash()``, ``hash_pbkdf2()`` when ``mbstring.func_overload`` is enabled.
+   -  Updated :doc:`Encrypt Library <libraries/encrypt>` (DEPRECATED) to call ``mcrypt_create_iv()`` with ``MCRYPT_DEV_URANDOM``.
+
+-  一般性變更
+
+   -  Updated the :doc:`Image Manipulation Library <libraries/image_lib>` to work-around an issue with some JPEGs when using GD.
+
+3.1.4 錯誤修正
+--------------
+
+-  Fixed a regression (#4975) - :doc:`Loader Library <libraries/loader>` couldn't handle objects passed as view variables.
+-  錯誤修正（編號 4977） - :doc:`Loader Library <libraries/loader>` method ``helper()`` could accept any character as a filename extension separator.
+-  Fixed a regression where the :doc:`Session Library <libraries/sessions>` would fail on a ``session_regenerate_id(TRUE)`` call with the 'database' driver.
+-  錯誤修正（編號 4987） - :doc:`Query Builder <database/query_builder>` caching didn't keep track of table aliases.
+-  Fixed a bug where :doc:`Text Helper <helpers/text_helper>` function ``ascii_to_entities()`` wasn't byte-safe when ``mbstring.func_overload`` is enabled.
+-  Fixed a bug where ``CI_Log``, ``CI_Output``, ``CI_Email`` and ``CI_Zip`` didn't handle strings in a byte-safe manner when ``mbstring.func_overload`` is enabled.
+-  Fixed a bug where :doc:`Session Library <libraries/sessions>` didn't read session data in a byte-safe manner when ``mbstring.func_overload`` is enabled.
+-  錯誤修正（編號 4990） - :doc:`Profiler <general/profiling>` didn't close ``<pre>`` tags it generated.
+-  錯誤修正（編號 4990） - :doc:`Profiler <general/profiling>` didn't HTML-escape quotes for ``$_SESSION`` variables.
+-  Fixed a bug where :doc:`Input Library <libraries/input>` method ``set_cookie()`` didn't allow its *httponly* and *secure* parameters to be overriden to ``FALSE``.
+-  錯誤修正（編號 5006） - :doc:`common function <general/common_functions>` :php:func:`get_mimes()` didn't load *application/config/mimes.php* if an environment specific config exists.
+-  錯誤修正（編號 5006） - :doc:`common function <general/common_functions>` :php:func:`remove_invisible_characters()` didn't remove URL-encoded ``0x7F``.
+-  錯誤修正（編號 4815） - :doc:`Database Library <database/index>` stripped URL-encoded sequences while escaping strings with the 'mssql' driver.
+-  錯誤修正（編號 5044） - :doc:`HTML Helper <helpers/html_helper>` function :php:func:`img()` didn't accept ``data:`` URI schemes for the image source.
+-  錯誤修正（編號 5050） - :doc:`Database Library <database/index>` tried to access an undefined property in a number of error handling cases.
+-  錯誤修正（編號 5057） - :doc:`Database <database/index>` driver 'postgre' didn't actually apply extra options (such as 'connect_timeout') to its DSN.
+
 Version 3.1.3
 =============
 
@@ -140,26 +200,26 @@ Version 3.1.0
 
 -  Fixed a bug where :doc:`Image Manipulation Library <libraries/image_lib>` didn't escape image source paths passed to ImageMagick as shell arguments.
 -  錯誤修正（編號 861) - :doc:`Database Forge <database/forge>` method ``create_table()`` incorrectly accepts field width constraints for MSSQL/SQLSRV integer-type columns.
--  錯誤修正（編號 4562) - :doc:`Cache Library <libraries/caching>` didn't check if ``Memcached::quit()`` is available before calling it.
--  錯誤修正（編號 4563) - :doc:`Input Library <libraries/input>` method ``request_headers()`` ignores ``$xss_clean`` parameter value after first call.
--  錯誤修正（編號 4605) - :doc:`Config Library <libraries/config>` method ``site_url()`` stripped trailing slashes from relative URIs passed to it.
--  錯誤修正（編號 4613) - :doc:`Email Library <libraries/config>` failed to send multiple emails via SMTP due to "already authenticated" errors when keep-alive is enabled.
--  錯誤修正（編號 4633) - :doc:`Form Validation Library <libraries/form_validation>` ignored multiple "callback" rules for empty, non-required fields.
--  錯誤修正（編號 4637) - :doc:`Database <database/index>` method ``error()`` returned ``FALSE`` with the 'oci8' driver if there was no error.
--  錯誤修正（編號 4647) - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` doesn't take into account ``GROUP BY`` clauses while deciding whether to do a subquery or not.
+-  錯誤修正（編號 4562） - :doc:`Cache Library <libraries/caching>` didn't check if ``Memcached::quit()`` is available before calling it.
+-  錯誤修正（編號 4563） - :doc:`Input Library <libraries/input>` method ``request_headers()`` ignores ``$xss_clean`` parameter value after first call.
+-  錯誤修正（編號 4605） - :doc:`Config Library <libraries/config>` method ``site_url()`` stripped trailing slashes from relative URIs passed to it.
+-  錯誤修正（編號 4613） - :doc:`Email Library <libraries/config>` failed to send multiple emails via SMTP due to "already authenticated" errors when keep-alive is enabled.
+-  錯誤修正（編號 4633） - :doc:`Form Validation Library <libraries/form_validation>` ignored multiple "callback" rules for empty, non-required fields.
+-  錯誤修正（編號 4637） - :doc:`Database <database/index>` method ``error()`` returned ``FALSE`` with the 'oci8' driver if there was no error.
+-  錯誤修正（編號 4647） - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` doesn't take into account ``GROUP BY`` clauses while deciding whether to do a subquery or not.
 -  Fixed a bug where :doc:`Session Library <libraries/sessions>` 'redis' driver didn't properly detect if a connection is properly closed on PHP 5.x.
--  錯誤修正（編號 4583) - :doc:`Email Library <libraries/email>` didn't properly handle inline attachments in HTML emails.
+-  錯誤修正（編號 4583） - :doc:`Email Library <libraries/email>` didn't properly handle inline attachments in HTML emails.
 -  Fixed a bug where :doc:`Database <database/index>` method ``db_select()`` didn't clear metadata cached for the previously used database.
--  錯誤修正（編號 4675) - :doc:`File Helper <helpers/file_helper>` function :php:func:`delete_files()` treated symbolic links as regular directories.
--  錯誤修正（編號 4674) - :doc:`Database <database/index>` driver 'dblib' triggered E_WARNING messages while connecting.
--  錯誤修正（編號 4678) - :doc:`Database Forge <database/forge>` tried to use unsupported ``IF NOT EXISTS`` clause when creating tables on Oracle.
--  錯誤修正（編號 4691) - :doc:`File Uploading Library <libraries/file_uploading>` method ``data()`` returns wrong 'raw_name' when the filename extension is also contained in the raw filename.
--  錯誤修正（編號 4679) - :doc:`Input Library <libraries/input>` method ``ip_address()`` errors with a matching ``$config['proxy_ips']`` IPv6 address.
--  錯誤修正（編號 4695) - :doc:`User Agent Library <libraries/user_agent>` didn't load the *config/user_agents.php* file when there's no ``User-Agent`` HTTP request header.
--  錯誤修正（編號 4713) - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` could return wrong affected rows count.
--  錯誤修正（編號 4712) - :doc:`Email Library <libraries/email>` doesn't sent ``RSET`` to SMTP servers after a failure and while using keep-alive.
--  錯誤修正（編號 4724) - :doc:`Common function <general/common_functions>` :php:func:`is_https()` compared the ``X-Forwarded-Proto`` HTTP header case-sensitively.
--  錯誤修正（編號 4725) - :doc:`Common function <general/common_functions>` :php:func:`remove_invisible_characters()` searched case-sensitively for URL-encoded characters.
+-  錯誤修正（編號 4675） - :doc:`File Helper <helpers/file_helper>` function :php:func:`delete_files()` treated symbolic links as regular directories.
+-  錯誤修正（編號 4674） - :doc:`Database <database/index>` driver 'dblib' triggered E_WARNING messages while connecting.
+-  錯誤修正（編號 4678） - :doc:`Database Forge <database/forge>` tried to use unsupported ``IF NOT EXISTS`` clause when creating tables on Oracle.
+-  錯誤修正（編號 4691） - :doc:`File Uploading Library <libraries/file_uploading>` method ``data()`` returns wrong 'raw_name' when the filename extension is also contained in the raw filename.
+-  錯誤修正（編號 4679） - :doc:`Input Library <libraries/input>` method ``ip_address()`` errors with a matching ``$config['proxy_ips']`` IPv6 address.
+-  錯誤修正（編號 4695） - :doc:`User Agent Library <libraries/user_agent>` didn't load the *config/user_agents.php* file when there's no ``User-Agent`` HTTP request header.
+-  錯誤修正（編號 4713） - :doc:`Query Builder <database/query_builder>` methods ``insert_batch()``, ``update_batch()`` could return wrong affected rows count.
+-  錯誤修正（編號 4712） - :doc:`Email Library <libraries/email>` doesn't sent ``RSET`` to SMTP servers after a failure and while using keep-alive.
+-  錯誤修正（編號 4724） - :doc:`Common function <general/common_functions>` :php:func:`is_https()` compared the ``X-Forwarded-Proto`` HTTP header case-sensitively.
+-  錯誤修正（編號 4725） - :doc:`Common function <general/common_functions>` :php:func:`remove_invisible_characters()` searched case-sensitively for URL-encoded characters.
 
 Version 3.0.6
 =============

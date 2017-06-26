@@ -25,7 +25,7 @@ Cookie 輔助函式的載入語法如下：
 允許使用的函式格式如下：
 
 
-.. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]])
+.. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = NULL[, $httponly = NULL]]]]]]])
 
 	:param	mixed	$name: Cookie 名稱或包含函式中所有有效參數的陣列
 	:param	string	$value: Cookie 值

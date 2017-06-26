@@ -33,7 +33,7 @@ CodeIgniter 3.2+.
 ===================================================
 
 The :doc:`Input Library <../libraries/input>` would optionally replace
-occurences of `\r\n`, `\r`, `\n` in input data with whatever the ``PHP_EOL``
+occurrences of `\r\n`, `\r`, `\n` in input data with whatever the ``PHP_EOL``
 value is on your system - if you've set ``$config['standardize_newlines']``
 to ``TRUE`` in your *application/config/config.php*.
 

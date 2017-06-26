@@ -1,5 +1,5 @@
 #####################
-從 3.1.2 升級到 3.1.
+從 3.1.2 升級到 3.1.3
 #####################
 
 在執行升級之前，你應該更換 index.php 為靜態檔案，將網站導向此靜態網頁。
@@ -33,7 +33,7 @@ CodeIgniter 3.2+.
 ===================================================
 
 The :doc:`Input Library <../libraries/input>` would optionally replace
-occurences of `\r\n`, `\r`, `\n` in input data with whatever the ``PHP_EOL``
+occurrences of `\r\n`, `\r`, `\n` in input data with whatever the ``PHP_EOL``
 value is on your system - if you've set ``$config['standardize_newlines']``
 to ``TRUE`` in your *application/config/config.php*.
 

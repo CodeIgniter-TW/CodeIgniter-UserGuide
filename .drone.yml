@@ -1,0 +1,14 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
+
+pipeline:
+  build:
+    image: python:2.7.13
+    commands:
+      - pip install "sphinx==1.2.3"
+      - pip install "sphinxcontrib-phpdomain==0.1.3.post1"
+      - make pygments
+      - make html

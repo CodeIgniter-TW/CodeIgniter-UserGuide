@@ -12,3 +12,4 @@ pipeline:
       - pip install "sphinxcontrib-phpdomain==0.1.3.post1"
       - make pygments
       - make html
+      - cat build/html/changelog.html

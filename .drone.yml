@@ -13,9 +13,9 @@ pipeline:
       - LANGUAGE=en_US.UTF-8
     commands:
       - apt-get -qq update && apt-get -qqy install locales
-      - sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+      #- sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
       - sed -i -e 's/# zh_TW.UTF-8 UTF-8/zh_TW.UTF-8 UTF-8/' /etc/locale.gen
-      - locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8
+      #- locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8
       - dpkg-reconfigure --frontend=noninteractive locales
       - export LANG=zh_TW.UTF-8
       - locale

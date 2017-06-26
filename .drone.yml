@@ -8,9 +8,9 @@ pipeline:
   build:
     image: python:2.7.13
     environment:
-      - LC_ALL=en_US.UTF-8
-      - LANG=en_US.UTF-8
-      - LANGUAGE=en_US.UTF-8
+      - LC_ALL=zh_TW.UTF-8
+      - LANG=zh_TW.UTF-8
+      - LANGUAGE=zh_TW.UTF-8
     commands:
       - apt-get clean && apt-get -y update
       - apt-get install -y locales

@@ -9,5 +9,6 @@ pipeline:
     image: appleboy/codeigniter-docs
     pull: true
     commands:
+      - locale
       - make pygments
       - make html

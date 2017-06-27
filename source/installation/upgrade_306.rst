@@ -1,17 +1,17 @@
 #####################
-±q 3.0.5 ¤É¯Å¨ì 3.0.6
+å¾ 3.0.5 å‡ç´šåˆ° 3.0.6
 #####################
 
-¦b°õ¦æ¤É¯Å¤§«e¡A§AÀ³¸Ó§ó´« index.php ¬°ÀRºAÀÉ®×¡A±Nºô¯¸¾É¦V¦¹ÀRºAºô­¶¡C
+åœ¨åŸ·è¡Œå‡ç´šä¹‹å‰ï¼Œä½ æ‡‰è©²æ›´æ› index.php ç‚ºéœæ…‹æª”æ¡ˆï¼Œå°‡ç¶²ç«™å°å‘æ­¤éœæ…‹ç¶²é ã€‚
 
-¨BÆJ 1¡G§ó·sºô¯¸ CodeIgniter ÀÉ®×
+æ­¥é©Ÿ 1ï¼šæ›´æ–°ç¶²ç«™ CodeIgniter æª”æ¡ˆ
 =================================
 
-¨ú¥N *system/* ¥Ø¿ı¥´¤Uªº©Ò¦³¥Ø¿ı»PÀÉ®×
+å–ä»£ *system/* ç›®éŒ„æ‰“ä¸‹çš„æ‰€æœ‰ç›®éŒ„èˆ‡æª”æ¡ˆ
 
-.. ª`·N:: °²¦p±z¦³­×§ï¦¹¥Ø¿ı©³¤UªºÀÉ®×¡A³Â·Ğ½Ğ¥ı½Æ»s³Æ¥÷¡C
+.. æ³¨æ„:: å‡å¦‚æ‚¨æœ‰ä¿®æ”¹æ­¤ç›®éŒ„åº•ä¸‹çš„æª”æ¡ˆï¼Œéº»ç…©è«‹å…ˆè¤‡è£½å‚™ä»½ã€‚
 
-¨BÆJ 2¡G§ó·s index.php ÀÉ®× (¿ï¾Ü©Êªº)
+æ­¥é©Ÿ 2ï¼šæ›´æ–° index.php æª”æ¡ˆ (é¸æ“‡æ€§çš„)
 =============================================
 
 We've made some tweaks to the index.php file, mostly related to proper
@@ -26,7 +26,7 @@ you update your index.php file.
 and ``$view_folder`` declarations from the old file and put them into the
 new one, replacing the defaults.*
 
-¨BÆJ 3¡G²¾°£ 'prep_for_form' ªº¨Ï¥Î (±j¯P«ØÄ³)
+æ­¥é©Ÿ 3ï¼šç§»é™¤ 'prep_for_form' çš„ä½¿ç”¨ (å¼·çƒˆå»ºè­°)
 ==============================================
 
 The :doc:`Form Validation Library <../libraries/form_validation>` has a
@@ -39,6 +39,6 @@ to this method anyway.
 For example, :doc:`Form Helper <../helpers/form_helper>` functions will
 automatically perform HTML escaping when necessary.
 
-¦]¦¹¡A *prep_for_form* ¼Ò²Õ/³W«h ´X¥G¬O¨S¦³¥Î³Bªº¡A¨Ã±N©ó 3.1 ¤§«áªºª©¥»±N¨ä²¾°£¡C
+å› æ­¤ï¼Œ *prep_for_form* æ¨¡çµ„/è¦å‰‡ å¹¾ä¹æ˜¯æ²’æœ‰ç”¨è™•çš„ï¼Œä¸¦å°‡æ–¼ 3.1 ä¹‹å¾Œçš„ç‰ˆæœ¬å°‡å…¶ç§»é™¤ã€‚
 
-.. ª`·N:: ³o¤èªk¨ÌµM¥i¥H¨Ï¥Î¡A¦ı§Ú­Ì±j¯P«ØÄ³§AºÉ§Ö§R°£³o¤èªkªº¨Ï¥Î¡C
+.. æ³¨æ„:: é€™æ–¹æ³•ä¾ç„¶å¯ä»¥ä½¿ç”¨ï¼Œä½†æˆ‘å€‘å¼·çƒˆå»ºè­°ä½ ç›¡å¿«åˆªé™¤é€™æ–¹æ³•çš„ä½¿ç”¨ã€‚

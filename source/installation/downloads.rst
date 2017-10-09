@@ -2,7 +2,8 @@
 下載 CodeIgniter
 #######################
 
--  `CodeIgniter v3.1.5 (目前版本) <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.5>`_
+-  `CodeIgniter v3.1.6 (目前版本) <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.6>`_
+-  `CodeIgniter v3.1.5 <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.5>`_
 -  `CodeIgniter v3.1.4 <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.4>`_
 -  `CodeIgniter v3.1.3 <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.3>`_
 -  `CodeIgniter v3.1.2 <http://codeigniter.org.tw/downloads/file/CodeIgniter_3.1.2>`_

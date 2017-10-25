@@ -1,0 +1,14 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
+
+pipeline:
+  build:
+    image: appleboy/codeigniter-docs
+    pull: true
+    commands:
+      - locale
+      - make pygments
+      - make html

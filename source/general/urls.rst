@@ -34,7 +34,9 @@ URI 區段
 如果你的 Apache server 有啟動 **mod_rewrite** ，你可以很簡單的移除掉這個字串，使用簡單的規則通過修改 .htaccess 即可達成。這裡有簡單的範例檔案，使用”原生“方法，來重導向所有請求，除了指定的項目之外：
 
 ::
-	
+
+.. code-block:: console
+
 	RewriteEngine On
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
@@ -44,6 +46,8 @@ URI 區段
 比方說如果你的專案在 http://localhost/CI/index.php 如果放在 CI 這個目錄下，您有個 images 資料夾、以及 index.php 還有 robots.txt 這三個東西必須公開存取的，那麼你可以這樣做：
 
 ::
+
+.. code-block:: console
 
 	RewriteEngine on
 	RewriteBase /CI

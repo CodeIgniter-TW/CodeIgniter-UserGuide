@@ -128,9 +128,9 @@ CAPTCHA 輔助函式的載入語法如下：
 .. php:function:: create_captcha([$data = ''[, $img_path = ''[, $img_url = ''[, $font_path = '']]]])
 
 	:param	array	$data: 存有驗證碼資訊的陣列
-	:param	string	$img_path: 建立驗證碼圖示的路徑
-	:param	string	$img_url: 驗證碼圖示資料夾的 URL
-	:param	string	$font_path: 字型檔的伺服器路徑
+	:param	string	$img_path: 建立驗證碼圖示的路徑 (DEPRECATED)
+	:param	string	$img_url: 驗證碼圖示資料夾的 URL (DEPRECATED)
+	:param	string	$font_path: 字型檔的伺服器路徑 (DEPRECATED)
 	:returns:	array('word' => $word, 'time' => $now, 'image' => $img)
 	:rtype:	陣列
 
@@ -152,3 +152,7 @@ CAPTCHA 輔助函式的載入語法如下：
 	回傳的 **time** 是被用來當作圖片檔名（沒有副檔名）的時間戳記，就像是這樣的數字：1139612155.3422
 
 	回傳的 **word** 是出現在驗證碼圖示中的文字，如果沒有指定特定字串給函式的話將會隨機挑選一個字串。
+
+	.. note:: Usage of the ``$img_path``, ``$img_url`` and ``$font_path``
+		parameters is DEPRECATED. Provide them in the ``$data`` array
+		instead.

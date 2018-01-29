@@ -2,6 +2,32 @@
 更新紀錄
 ########
 
+Version 3.1.7
+=============
+
+發布日期：Jan 13, 2018
+
+-  一般性變更
+
+   -  Updated :doc:`Form Validation Library <libraries/form_validation>` rule ``valid_email`` to use ``INTL_IDNA_VARIANT_UTS46`` for non-ASCII domain names.
+   -  Updated :doc:`Email Library <libraries/email>` to use ``INTL_IDNA_VARIANT_UTS46`` for non-ASCII domain names.
+   -  Updated :doc:`Loader Library <libraries/loader>` method ``model()`` to log both ``CI_Model`` class loading and individual models' initialization.
+   -  Updated :doc:`Pagination Library <libraries/pagination>` to preserve previously set attributes while calling ``initialize()``.
+   -  Updated :doc:`Cache Library <libraries/caching>` to automatically add items to cache on ``increment()``, ``decrement()`` calls for missing keys.
+   -  Deprecated usage of :doc:`CAPTCHA Helper <helpers/captcha_helper>` function :php:func:`create_captcha()` with parameters other than ``$data``.
+
+3.1.7 錯誤修正
+--------------
+
+-  Fixed a regression (#5276) - :doc:`Database Utilities <database/utilities>` method ``backup()`` generated incorrect ``INSERT`` statements with the 'mysqli' driver.
+-  Fixed a regression where :doc:`Database Results <database/results>` method ``field_data()`` returned incorrect type names.
+-  錯誤修正（編號 5278） - :doc:`URL Helper <helpers/url_helper>` function :php:func:`auto_link()` didn't detect trailing slashes in URLs.
+-  Fixed a regression (#5282) - :doc:`Query Builder <database/query_builder>` method ``count_all_results()`` breaks ``ORDER BY`` clauses for subsequent queries.
+-  錯誤修正（編號 5279） - :doc:`Query Builder <database/query_builder>` didn't account for already escaped identifiers while applying database name prefixes.
+-  錯誤修正（編號 5331） - :doc:`URL Helper <helpers/url_helper>` function :php:func:`auto_link()` converted e-mail addresses starting with 'www.' to both "url" and "email" links.
+-  Fixed a bug where ``$config['allow_get_array']`` defaulted to ``FALSE`` if it didn't exist in the config file.
+-  錯誤修正（編號 5379） - :doc:`Session Library <libraries/sessions>` would incorrectly fail to obtain a lock that it already has on PHP 7 with the 'memcached' driver.
+
 Version 3.1.6
 =============
 

@@ -35,7 +35,7 @@ URI 區段
 
 ::
 
-.. code-block:: console
+.. code-block:: apache
 
 	RewriteEngine On
 	RewriteCond %{REQUEST_FILENAME} !-f
@@ -47,7 +47,7 @@ URI 區段
 
 ::
 
-.. code-block:: console
+.. code-block:: apache
 
 	RewriteEngine on
 	RewriteBase /CI

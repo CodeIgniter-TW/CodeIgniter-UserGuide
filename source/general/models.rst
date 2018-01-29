@@ -17,12 +17,6 @@ Models 是 PHP 類別，它是被設計來存取資料庫用的。比如說，�
 		public $content;
 		public $date;
 
-		public function __construct()
-		{
-			parent::__construct();
-			// Your own constructor code
-		}
-
 		public function get_last_ten_entries()
 		{
 			$query = $this->db->get('entries', 10);
@@ -62,11 +56,6 @@ Model 類別是儲存在 **application/models/** 目錄。 它們可以巢狀的
 
 	class Model_name extends CI_Model {
 
-		public function __construct()
-		{
-			parent::__construct();
-		}
-
 	}
 
 這個 **Model_name** 是你的類別名稱。 類別名稱 **一定要** 第一個字母大寫的，其餘部分小寫的。請確認你的類別擴展基本的 Model 類別。
@@ -74,11 +63,6 @@ Model 類別是儲存在 **application/models/** 目錄。 它們可以巢狀的
 檔案名稱要跟類別名稱一樣。例如： ::
 
 	class User_model extends CI_Model {
-
-		public function __construct()
-		{
-			parent::__construct();
-		}
 
 	}
 

@@ -25,7 +25,6 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 		'char_set' => 'utf8',
 		'dbcollat' => 'utf8_general_ci',
 		'swap_pre' => '',
-		'autoinit' => TRUE,
 		'encrypt' => FALSE,
 		'compress' => FALSE,
 		'stricton' => FALSE,
@@ -33,7 +32,7 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 	);
 
 某些 資料庫drivers (例如 PDO、PostgreSQL、Oracle、ODBC) 可能需要提供完整的 DSN 字串。
-在這些案例當中中，你需要使用 'dsn' 設定參數，因為你使用的 driver's 是基於 php 原生 extension，例如：
+在這些案例當中，你需要使用 'dsn' 設定參數，因為你使用的 driver's 是基於 php 原生 extension，例如：
 
 ::
 
@@ -67,7 +66,6 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 				'char_set' => 'utf8',
 				'dbcollat' => 'utf8_general_ci',
 				'swap_pre' => '',
-				'autoinit' => TRUE,
 				'encrypt' => FALSE,
 				'compress' => FALSE,
 				'stricton' => FALSE
@@ -86,7 +84,6 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 				'char_set' => 'utf8',
 				'dbcollat' => 'utf8_general_ci',
 				'swap_pre' => '',
-				'autoinit' => TRUE,
 				'encrypt' => FALSE,
 				'compress' => FALSE,
 				'stricton' => FALSE
@@ -116,7 +113,6 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 		'char_set' => 'utf8',
 		'dbcollat' => 'utf8_general_ci',
 		'swap_pre' => '',
-		'autoinit' => TRUE,
 		'compress' => FALSE,
 		'encrypt' => FALSE,
 		'stricton' => FALSE,
@@ -171,10 +167,19 @@ CodeIgniter 提供一個設定檔讓您設定資料庫連線資料(使用者帳�
 
 **swap_pre**	用來被 dbprefix 交換的預設的資料表前綴。
 				當你可能需要使用手寫的查詢在一個分散式程式設計中是十分有用的，所需要使用的前綴依然可以由終端用戶來決定。
-**autoinit**	是否需要在類別被載入的時候自動的進行資料庫連線。
-				如果設為 false，連線將會在執行第一個查詢之前進行。
 **schema**		資料庫的 schema，預設為 "public"。被 PostgreSQL 和 ODBC 類型使用。
 **encrypt**		是否進行加密的連線。
+
+			  - 'mysql' (deprecated), 'sqlsrv' and 'pdo/sqlsrv' drivers accept TRUE/FALSE
+			  - 'mysqli' and 'pdo/mysql' drivers accept an array with the following options:
+			  
+			    - 'ssl_key'    - Path to the private key file
+			    - 'ssl_cert'   - Path to the public key certificate file
+			    - 'ssl_ca'     - Path to the certificate authority file
+			    - 'ssl_capath' - Path to a directory containing trusted CA certificates in PEM format
+			    - 'ssl_cipher' - List of *allowed* ciphers to be used for the encryption, separated by colons (':')
+			    - 'ssl_verify' - TRUE/FALSE; Whether to verify the server certificate or not ('mysqli' only)
+
 **compress**	是否進行壓縮的客戶端（MySQL 專用）。
 **stricton**	TRUE/FALSE (boolean) - 是否使用 "Strict Mode" 連線，使用嚴格的 SQL 對開發中的應用程式是件好事。
 **port**		資料庫 port 編號。為了使用本設定你需要於資料庫設定參數陣列當中加入。

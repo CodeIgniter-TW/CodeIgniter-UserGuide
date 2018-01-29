@@ -181,6 +181,7 @@ Note 大多數的原生類別名稱都使用 CI\_ 做為前置字串。
 		public function __construct($config = array())
 		{
 			parent::__construct($config);
+			// Your own constructor code
 		}
 
 	}
